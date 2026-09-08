@@ -26,7 +26,10 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * contact.telecom.value = "https://www.inera.se"
 * description = "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)) och mottagning av anrop från en [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html)."
 * jurisdiction = urn:iso:std:iso:3166#SE "Sweden"
-* kind = #capability
+// kind=requirements (not capability): this describes what an implementation
+// of the admin API SHOULD support, not one specific running server instance,
+// so neither .software nor .implementation applies (R5 constraint cpb-15/16).
+* kind = #requirements
 * fhirVersion = #5.0.0
 * format[0] = #json
 * rest[0].mode = #server

@@ -21,6 +21,19 @@ The link 'Patient-IneraPatientExample.html' for "fake generated link for Impleme
 # publish.yml copies output/package.tgz to the IG root on every release.
 The link 'https://fhir.inera.se/ig/tjanstekatalog/package.tgz' for "Paket (tgz)" cannot be resolved
 
+# Validator bug (not a content defect): binding-checking `Endpoint`/`Organization`
+# resource-type codes against ValueSet 'Version Independent Resource Types (All)'
+# throws an internal NullPointerException ("Cannot invoke String.equals(Object)
+# because system is null") instead of validating, in this repo's `-tx n/a`
+# (no terminology server) CI configuration. The codes themselves are correct —
+# `Endpoint` and `Organization` are valid resource types — this is purely a
+# validator limitation when that particular value set can't be expanded
+# offline. Confirmed against the real build on PR #1 / commit ffc5959.
+OperationDefinition/tk-endpoint-add-organization-to-endpoint: OperationDefinition.resource[0]: Det angivna värdet ('Endpoint') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke "String.equals(Object)" because "system" is null)
+OperationDefinition/tk-endpoint-remove-organization-from-endpoint: OperationDefinition.resource[0]: Det angivna värdet ('Endpoint') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke "String.equals(Object)" because "system" is null)
+SearchParameter/tk-endpoint-listed-by: SearchParameter.base[0]: Det angivna värdet ('Endpoint') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke "String.equals(Object)" because "system" is null)
+SearchParameter/tk-endpoint-listed-by: SearchParameter.target[0]: Det angivna värdet ('Organization') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke "String.equals(Object)" because "system" is null)
+
 # Standard xhtml fragments not included — acceptable when using a custom local template
 The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
