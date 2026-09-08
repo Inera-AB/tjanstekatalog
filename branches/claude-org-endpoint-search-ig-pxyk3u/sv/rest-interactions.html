@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+
+<html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>REST-interaktioner och sökparametrar - Tjänstekatalogen v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/project.css" rel="stylesheet"/>
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <link href="inera.css" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="inera-thumbnail.png"/>
+<link rel="shortcut icon" href="inera-thumbnail.png"/>
+
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+    <script type="text/javascript" src="assets/js/direction-management.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script type="text/javascript" src="assets/js/prism.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <div id="inera-nav">
+  <a id="inera-logo" data-no-external="true" href="https://www.inera.se">
+    <img height="50" alt="Inera" src="inera-logo-header.svg"/>
+  </a>
+</div>
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+
+  Sweden
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <div id="segment-navbar" class="segment">
+  <div id="stripe"> </div>
+  <div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+          <span class="icon-bar"> </span>
+          <span class="icon-bar"> </span>
+          <span class="icon-bar"> </span>
+        </button>
+        <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+        <div class="nav-collapse collapse navbar-inverse-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="introduction.html">Inledning</a></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="information-basis.html">Informationsunderlag</a></li>
+                <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
+                <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
+                <li><a href="mappings.html">Mappning till profiler</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
+                <li><a href="expected-responses.html">Förväntade svar</a></li>
+                <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+                <li><a href="error-handling.html">Felhantering</a></li>
+                <li><a href="security.html">Säkerhet och behörighet</a></li>
+                <li><a href="testing.html">Testning och validering</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html">Styrning och förvaltning</a></li>
+                <li><a href="downloads.html">Nedladdningar</a></li>
+                <li><a href="version-history.html">Versionshistorik</a></li>
+              </ul>
+            </li>
+            <li><a href="artifacts.html">Artefakter</a></li>
+            <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+            </div>  <!-- /.nav-collapse -->
+
+              
+
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><b>REST-interaktioner och sökparametrar</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<style type="text/css">
+h2:before{color:silver;counter-increment:section;content:var(--heading-prefix) " ";}
+h3:before{color:silver;counter-increment:sub-section;content:var(--heading-prefix) "." counter(sub-section) " ";}
+h4:before{color:silver;counter-increment:composite;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) " ";}
+h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) " ";}
+h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
+</style>
+<div class="col-12">
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <h2>REST-interaktioner och sökparametrar</h2>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <p><!-- white space is critical inside of capture --></p>
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#rest-interaktioner-och-sökparametrar" id="markdown-toc-rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</a>    <ul>
+      <li><a href="#sök-ändpunkter-för-en-organisation" id="markdown-toc-sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</a></li>
+      <li><a href="#kopplakoppla-loss-organisation-och-ändpunkt" id="markdown-toc-kopplakoppla-loss-organisation-och-ändpunkt">Koppla/koppla loss organisation och ändpunkt</a></li>
+    </ul>
+  </li>
+</ul>
+
+</div>
+<h1 id="rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resurs/Profil</th>
+      <th>Interaktion</th>
+      <th>Sökparametrar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a></td>
+      <td>read, search-type, create, update</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">name</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
+      <td>read, search-type, create, update</td>
+      <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
+      <td>operation <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> (instans)</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
+      <td>operation <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> (instans)</td>
+      <td>—</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr />
+
+<h3 id="sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</h3>
+
+<p>Hämta samtliga ändpunkter en organisation listar ("har"):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by=Organization/123
+</code></pre></div></div>
+
+<p>eller med identifierare (kedjad sökning):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by.identifier=urn:oid:1.2.752.29.4.13|232100-0016
+</code></pre></div></div>
+
+<p>Detta skiljer sig från att söka på den förvaltande organisationen
+("förvaltar"), som använder standardparametern:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?organization=Organization/123
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">listed-by</code> implementeras av servern likvärdigt med FHIR:s
+standardmekanism för omvänd kedjning:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?_has:Organization:endpoint:_id=123
+</code></pre></div></div>
+
+<p>Se <a href="SearchParameter-tk-endpoint-listed-by.html">SearchParameter: listed-by</a>
+och <a href="requirements.html">Kravkatalog</a> REQ-SRCH-1 för den fullständiga
+motiveringen.</p>
+
+<hr />
+
+<h3 id="kopplakoppla-loss-organisation-och-ändpunkt">Koppla/koppla loss organisation och ändpunkt</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/Endpoint/456/$add-organization-to-endpoint
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [{
+    "name": "organization",
+    "valueReference": { "reference": "Organization/123" }
+  }]
+}
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/Endpoint/456/$remove-organization-from-endpoint
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [{
+    "name": "organization",
+    "valueReference": { "reference": "Organization/123" }
+  }]
+}
+</code></pre></div></div>
+
+<p>Se <a href="OperationDefinition-tk-endpoint-add-organization-to-endpoint.html">OperationDefinition: add-organization-to-endpoint</a>
+och <a href="OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html">OperationDefinition: remove-organization-from-endpoint</a>.</p>
+
+<hr />
+
+<blockquote>
+  <p><strong>Vägledning för författare:</strong> Roller och deras verksamhetsansvar
+beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
+(Funktionellt). Håll denna sida på ett konkret, tekniskt REST-plan.</p>
+</blockquote>
+
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="assets/js/flags.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <script type="text/javascript" src="assets/js/togglechanges.js"> </script>
+  <script type="text/javascript" src="assets/js/requirements-table.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container" data-fhir="generated">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Genererad 
+  <span title="2026-09-08 11:05:00 +0000">
+    2026-09-08
+  </span>
+
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Länkar: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Innehållsförteckning</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html">QA-rapport</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

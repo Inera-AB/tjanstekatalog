@@ -1,0 +1,79 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer> a fhir:CapabilityStatement ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "tk-organization-endpoint-writer"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: CapabilityStatement tk-organization-endpoint-writer</b></p><a name=\"tk-organization-endpoint-writer\"> </a><a name=\"hctk-organization-endpoint-writer\"> </a><h2 id=\"title\">Organization Endpoint Writer Capabilities</h2><ul><li>Implementationsguidens version: 0.1.0 </li><li>FHIR-version: 5.0.0 </li><li>Format som stöds: <code>json</code></li><li>Publicerad: 2026-09-08 </li><li>Publicerad av: Inera AB </li></ul><blockquote class=\"impl-note\"><p><strong>Notera till implementörer: FHIR-förmågor</strong></p><p>Vilken FHIR-förmåga som helst kan vara 'tillåten' av systemet om den inte uttryckligen är markerad som 'SHALL NOT'. Några objekt är markerade som MAY i implementationsguiden för att belysa deras potentiella relevans för användningsfallet.</p></blockquote><h2 id=\"rest\">FHIR RESTful-förmågor</h2><div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 id=\"mode1\" class=\"panel-title\">Mode: <code>client</code></h3></div><div class=\"panel-body\"><div><p>System som tillhandahåller information om tekniska ändpunkter till tjänstekatalogen.</p>\n</div></div></div><h3 id=\"resourcesCap1\">Förmågor per resurs/profil</h3><h4 id=\"resourcesSummary1\">Sammanfattning</h4><p>Sammanfattningstabellen listar resurserna som ingår i denna konfiguration, och för varje resurs listar den:</p><ul><li>De relevanta profilerna (om några)</li><li>Interaktionerna som stöds av varje resurs (<b><span class=\"bg-info\">R</span></b>ead, <b><span class=\"bg-info\">S</span></b>earch, <b><span class=\"bg-info\">U</span></b>pdate, and <b><span class=\"bg-info\">C</span></b>reate, are always shown, while <b><span class=\"bg-info\">VR</span></b>ead, <b><span class=\"bg-info\">P</span></b>atch, <b><span class=\"bg-info\">D</span></b>elete, <b><span class=\"bg-info\">H</span></b>istory on <b><span class=\"bg-info\">I</span></b>nstance, or <b><span class=\"bg-info\">H</span></b>istory on <b><span class=\"bg-info\">T</span></b>yp är endast närvarande om minst en av resurserna har stöd för dem.</li><li><span>De obligatoriska, rekommenderade och vissa valfria sökparametrarna (om några). </span></li><li>De länkade resurserna aktiverade för <code>_include</code></li><li>De övriga resurserna aktiverade för <code>_revinclude</code></li><li>Operationerna på resursen (om några)</li></ul><div class=\"table-responsive\"><table class=\"table table-condensed table-hover\"><thead><tr><th><b>Resurstyp</b></th><th><b>Profil</b></th><th class=\"text-center\"><b title=\"GET en resurs (läs-interaktion)\">R</b></th><th class=\"text-center\"><b title=\"GET alla resurser av typen (sök-interaktion)\">S</b></th><th class=\"text-center\"><b title=\"PUT en ny resursversion (uppdatera-interaktion)\">U</b></th><th class=\"text-center\"><b title=\"POST en ny resurs (skapa-interaktion)\">C</b></th><th><b title=\"Obligatoriska och rekommenderade sökparametrar\">Sökningar</b></th><th><code><b>_include</b></code></th><th><code><b>_revinclude</b></code></th><th><b>Operationer</b></th></tr></thead><tbody><tr><td><a href=\"#Endpoint1-1\">Endpoint</a></td><td> </td><td class=\"text-center\"/><td class=\"text-center\"/><td class=\"text-center\"/><td class=\"text-center\"/><td></td><td/><td/><td><code>$add-organization-to-endpoint</code>, <code>$remove-organization-from-endpoint</code></td></tr></tbody></table></div><hr/><div class=\"panel panel-default\"><div class=\"panel-heading\"><h4 id=\"Endpoint1-1\" class=\"panel-title\"><span style=\"float: right;\">Resurskonformans: unspecified </span>Endpoint</h4></div><div class=\"panel-body\"><div class=\"container\"><div class=\"row\"><div class=\"col-lg-4\"><span class=\"lead\">FHIR-kärnresurs</span><br/><a href=\"http://hl7.org/fhir/endpoint.html\">Endpoint</a></div><div class=\"col-lg-4\"><span class=\"lead\">Referenspolicy</span><br/></div><div class=\"col-lg-4\"><span class=\"lead\">Interaktionssammanfattning</span><br/><ul/></div></div><p/><p/><div class=\"row\"><div class=\"col-12\"><span class=\"lead\">Dokumentation</span><blockquote><div><p>MAY-stödda operationer för att koppla/koppla loss en organisation från en ändpunkt.</p>\n</div></blockquote></div></div><div class=\"row\"><div class=\"col-12\"><span class=\"lead\">Utökade operationer</span><table class=\"table table-condensed table-hover\"><thead><tr><th>Konformans</th><th>Operation</th><th>Dokumentation</th></tr></thead><tbody><tr><td><b>MAY</b></td><td><a href=\"OperationDefinition-tk-endpoint-add-organization-to-endpoint.html\">$add-organization-to-endpoint</a></td><td><div/></td></tr><tr><td><b>MAY</b></td><td><a href=\"OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html\">$remove-organization-from-endpoint</a></td><td><div/></td></tr></tbody></table></div></div></div></div></div></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TKOrganizationEndpointWriterCapabilities"] ; # 
+  fhir:title [ fhir:v "Organization Endpoint Writer Capabilities"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-09-08"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Detta CapabilityStatement beskriver de FHIR REST-förmågor som aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html) ska stödja."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:kind [ fhir:v "capability"] ; # 
+  fhir:fhirVersion [ fhir:v "5.0.0"] ; # 
+  fhir:format ( [ fhir:v "json"] ) ; # 
+  fhir:rest ( [
+     fhir:mode [ fhir:v "client" ] ;
+     fhir:documentation [ fhir:v "System som tillhandahåller information om tekniska ändpunkter till tjänstekatalogen." ] ;
+     fhir:resource ( [
+       fhir:type [ fhir:v "Endpoint" ] ;
+       fhir:documentation [ fhir:v "MAY-stödda operationer för att koppla/koppla loss en organisation från en ändpunkt." ] ;
+       fhir:operation ( [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:code ;
+             fhir:v "MAY"
+           ]
+         ] ) ;
+         fhir:name [ fhir:v "add-organization-to-endpoint" ] ;
+         fhir:definition [
+           fhir:v "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint"^^xsd:anyURI ;
+           fhir:link <https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint>
+         ]
+       ] [
+         fhir:extension ( [
+           fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation"^^xsd:anyURI ] ;
+           fhir:value [
+             a fhir:code ;
+             fhir:v "MAY"
+           ]
+         ] ) ;
+         fhir:name [ fhir:v "remove-organization-from-endpoint" ] ;
+         fhir:definition [
+           fhir:v "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint"^^xsd:anyURI ;
+           fhir:link <https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint>
+         ]
+       ] )
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

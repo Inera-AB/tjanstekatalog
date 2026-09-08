@@ -1,0 +1,81 @@
+# inera.tjanstekatalog#0.1.0: Tjänstekatalogen(sv)
+
+## Pages
+
+* [Hem](sv/index.md)
+* [Om](sv/about.md)
+* [Mappning till profiler](sv/mappings.md)
+* [Kravkatalog](sv/requirements.md)
+* [Användningsfall](sv/use-cases.md)
+* [Förväntade svar](sv/expected-responses.md)
+* [Informationsunderlag](sv/information-basis.md)
+* [Testning och validering](sv/testing.md)
+* [Felhantering](sv/error-handling.md)
+* [REST-interaktioner och sökparametrar](sv/rest-interactions.md)
+* [Säkerhet och behörighet](sv/security.md)
+* [Sammanfattning av artefakter](sv/artifacts.md)
+* [Inledning](sv/introduction.md)
+* [Roller och ansvar](sv/roles-and-responsibilities.md)
+* [Nedladdningar](sv/downloads.md)
+* [CapabilityStatement](sv/capabilitystatement.md)
+* [Versionshistorik](sv/version-history.md)
+
+## Resources
+
+### CodeSystems
+
+* [Säkerhetsmetoder för tekniska ändpunkter (kodsystem)](sv/CodeSystem-tk-endpoint-security-method.md)
+
+### ValueSets
+
+* [Säkerhetsmetoder för tekniska ändpunkter](sv/ValueSet-tk-endpoint-security-method.md)
+
+### Logicals
+
+* [API-specifikation (logisk modell)](sv/StructureDefinition-tk-api-specification.md)
+* [Indexpost (logisk modell)](sv/StructureDefinition-tk-indexpost.md)
+* [Vård- och omsorgstagare (logisk modell)](sv/StructureDefinition-tk-vard-och-omsorgstagare.md)
+
+### Resource Profiles
+
+* [Inera Patient](sv/StructureDefinition-IneraPatient.md)
+* [Tjänstekatalogen Endpoint](sv/StructureDefinition-tk-endpoint.md)
+* [Tjänstekatalogen Organization](sv/StructureDefinition-tk-organization.md)
+
+### Extensions
+
+* [URL till auktorisationsserver](sv/StructureDefinition-tk-endpoint-authorization-server-url.md)
+* [Stödd specifikation (payload profile)](sv/StructureDefinition-tk-endpoint-payload-profile.md)
+* [Säkerhetsmetod](sv/StructureDefinition-tk-endpoint-security-method.md)
+
+### ActorDefinitions
+
+* [Organization Endpoint Writer](sv/ActorDefinition-tk-organization-endpoint-writer.md)
+
+### CapabilityStatements
+
+* [Tjänstekatalogen: administrativt API](sv/CapabilityStatement-tk-admin-api.md)
+* [Organization Endpoint Writer Capabilities](sv/CapabilityStatement-tk-organization-endpoint-writer.md)
+
+### ImplementationGuides
+
+* [Tjänstekatalogen](sv/ImplementationGuide-inera.tjanstekatalog.md)
+
+### OperationDefinitions
+
+* [Add Organization To Endpoint](sv/OperationDefinition-tk-endpoint-add-organization-to-endpoint.md)
+* [Remove Organization From Endpoint](sv/OperationDefinition-tk-endpoint-remove-organization-from-endpoint.md)
+
+### Requirements
+
+* [Kravkatalog: Tjänstekatalogen](sv/Requirements-tk-tjanstekatalog-requirements.md)
+
+### SearchParameters
+
+* [Endpoint: listed-by](sv/SearchParameter-tk-endpoint-listed-by.md)
+
+### Examples
+
+* [Exempelregionens patientinformations-API (Endpoint)](sv/Endpoint-TKEndpointExample.md)
+* [Exempelregionen (Organization)](sv/Organization-TKOrganizationExample.md)
+* [IneraPatientExample (Patient)](sv/Patient-IneraPatientExample.md)

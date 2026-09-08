@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="tk-endpoint-security-method"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: CodeSystem tk-endpoint-security-method</b></p><a name="tk-endpoint-security-method"> </a><a name="hctk-endpoint-security-method"> </a><p>Detta case-sensitive kodsystem <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code> definierar följande koder:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Kod</b></td><td><b>Visning</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">oauth2-client-credentials<a name="tk-endpoint-security-method-oauth2-client-credentials"> </a></td><td>OAuth 2.0 client credentials</td><td>Klientautentisering enligt OAuth 2.0 client credentials grant.</td></tr><tr><td style="white-space:nowrap">oauth2-authorization-code<a name="tk-endpoint-security-method-oauth2-authorization-code"> </a></td><td>OAuth 2.0 authorization code</td><td>Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID.</td></tr><tr><td style="white-space:nowrap">mutual-tls<a name="tk-endpoint-security-method-mutual-tls"> </a></td><td>Ömsesidig TLS (mTLS)</td><td>Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver.</td></tr><tr><td style="white-space:nowrap">saml2<a name="tk-endpoint-security-method-saml2"> </a></td><td>SAML 2.0</td><td>Federerad autentisering enligt SAML 2.0.</td></tr><tr><td style="white-space:nowrap">none<a name="tk-endpoint-security-method-none"> </a></td><td>Ingen</td><td>Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS).</td></tr></table></div>
+  </text>
+  <url value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+  <version value="0.1.0"/>
+  <name value="TKEndpointSecurityMethodCS"/>
+  <title value="Säkerhetsmetoder för tekniska ändpunkter (kodsystem)"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-09-08T11:05:42+00:00"/>
+  <publisher value="Inera AB"/>
+  <contact>
+    <name value="Inera AB"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Kodsystem som anger vilken säkerhetsmetod som skyddar en teknisk ändpunkt (Ändpunkt.säkerhetsmetod i informationsunderlaget). Preliminärt förslag, se REQ-END-6 i kravkatalogen."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="SE"/>
+      <display value="Sweden"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <count value="5"/>
+  <concept>
+    <code value="oauth2-client-credentials"/>
+    <display value="OAuth 2.0 client credentials"/>
+    <definition value="Klientautentisering enligt OAuth 2.0 client credentials grant."/>
+  </concept>
+  <concept>
+    <code value="oauth2-authorization-code"/>
+    <display value="OAuth 2.0 authorization code"/>
+    <definition value="Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID."/>
+  </concept>
+  <concept>
+    <code value="mutual-tls"/>
+    <display value="Ömsesidig TLS (mTLS)"/>
+    <definition value="Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver."/>
+  </concept>
+  <concept>
+    <code value="saml2"/>
+    <display value="SAML 2.0"/>
+    <definition value="Federerad autentisering enligt SAML 2.0."/>
+  </concept>
+  <concept>
+    <code value="none"/>
+    <display value="Ingen"/>
+    <definition value="Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS)."/>
+  </concept>
+</CodeSystem>

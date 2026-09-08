@@ -1,0 +1,25 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: Kravkatalog","Mapping: RIM Mapping"
+"tk-api-specification","tk-api-specification","","","",0,*,"","","","null {[]} {[]}
+","API-specifikation (logisk modell)","Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","n/a"
+"tk-api-specification.id","tk-api-specification.id","","","",1,1,"","","","id {[]} {[]}
+","Id","Unik identifierare för API-specifikationen i tjänstekatalogen.","","","","","","","","","",,,,,"",,,,"tk-api-specification.id",1,1,"","","REQ-MDL-4"
+"tk-api-specification.kanoniskUrl","tk-api-specification.kanoniskUrl","","","",1,1,"","","","uri {[]} {[]}
+","Kanonisk URL","Specifikationens egen kanoniska/maskinläsbara identitet, t.ex. en FHIR IG:s canonical URL. Detta är värdet som Endpoint.payload-extensionen tk-endpoint-payload-profile förväntas referera.","","","","","","","","","",,,,,"",,,,"tk-api-specification.kanoniskUrl",1,1,"","","REQ-MDL-4, REQ-SRCH-3"
+"tk-api-specification.status","tk-api-specification.status","","","",1,1,"","","","code {[]} {[]}
+","Status","Specifikationens publiceringsstatus.","","","","","","","","","",,,,,"",,,,"tk-api-specification.status",1,1,"","","REQ-MDL-4"
+"tk-api-specification.maskinlasbartNamn","tk-api-specification.maskinlasbartNamn","","","",0,1,"","","","string {[]} {[]}
+","Maskinläsbart namn","Kort, maskinläsbart namn på specifikationen. FSH-elementnamnet använder ASCII (maskinlasbartNamn) enligt rekommendationen för enkla alfanumeriska elementnamn; det affärsmässiga namnet i informationsunderlaget är ""maskinläsbartNamn"".","","","","","","","","","",,,,,"",,,,"tk-api-specification.maskinlasbartNamn",0,1,"","","REQ-MDL-4"
+"tk-api-specification.version","tk-api-specification.version","","","",0,1,"","","","string {[]} {[]}
+","Version","Specifikationens versionsbeteckning.","","","","","","","","","",,,,,"",,,,"tk-api-specification.version",0,1,"","","REQ-MDL-4"
+"tk-api-specification.referensTillKalla","tk-api-specification.referensTillKalla","","","",0,1,"","","","url {[]} {[]}
+","Referens till källa","Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten. FSH-elementnamnet använder ASCII (referensTillKalla); det affärsmässiga namnet i informationsunderlaget är ""referensTillKälla"".","","","","","","","","","",,,,,"",,,,"tk-api-specification.referensTillKalla",0,1,"","","REQ-MDL-4"
+"tk-api-specification.kategori","tk-api-specification.kategori","","","",0,1,"","","","CodeableConcept {[]} {[]}
+","Kategori","Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt.","","","","","","","","","",,,,,"",,,,"tk-api-specification.kategori",0,1,"","","REQ-MDL-4"
+"tk-api-specification.titel","tk-api-specification.titel","","","",1,1,"","","","string {[]} {[]}
+","Titel","Specifikationens människoläsbara titel.","","","","","","","","","",,,,,"",,,,"tk-api-specification.titel",1,1,"","","REQ-MDL-4"
+"tk-api-specification.beskrivning","tk-api-specification.beskrivning","","","",0,1,"","","","markdown {[]} {[]}
+","Beskrivning","Fritextbeskrivning av specifikationen.","","","","","","","","","",,,,,"",,,,"tk-api-specification.beskrivning",0,1,"","","REQ-MDL-4"
+"tk-api-specification.ansvarigUtgivare","tk-api-specification.ansvarigUtgivare","","","",0,1,"","","","Reference {[]} {[CanonicalType[https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization]]}
+","Ansvarig utgivare","Organisationen som ansvarar för och publicerar specifikationen.","","","","","","","","","",,,,,"",,,,"tk-api-specification.ansvarigUtgivare",0,1,"","","REQ-MDL-4"
+"tk-api-specification.utgivningsdatum","tk-api-specification.utgivningsdatum","","","",0,1,"","","","date {[]} {[]}
+","Utgivningsdatum","Datum då denna version av specifikationen gavs ut.","","","","","","","","","",,,,,"",,,,"tk-api-specification.utgivningsdatum",0,1,"","","REQ-MDL-4"

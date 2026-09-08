@@ -1,0 +1,39 @@
+{
+  "resourceType" : "SearchParameter",
+  "id" : "tk-endpoint-listed-by",
+  "language" : "sv",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: SearchParameter tk-endpoint-listed-by</b></p><a name=\"tk-endpoint-listed-by\"> </a><a name=\"hctk-endpoint-listed-by\"> </a><h2>TKEndpointListedBy</h2><p>Parameter <code>listed-by</code>:<code>reference</code></p><div><p>Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint (&quot;har&quot;-relationen i informationsunderlaget) — till skillnad från standardparametern <code>organization</code>, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, &quot;förvaltar&quot;-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med <code>_has:Organization:endpoint:_id=[organization-id]</code>.</p>\n</div><table class=\"grid\"><tr><td>Resurs</td><td><a href=\"http://hl7.org/fhir/R5/endpoint.html\">Endpoint</a></td></tr><tr><td>Uttryck</td><td>(ingen)</td></tr><tr><td>Målresurser</td><td><a href=\"http://hl7.org/fhir/R5/organization.html\">Organization</a></td></tr><tr><td>Multipler</td><td><ul><li>multipleAnd: Parametern får endast förekomma en gång</li><li>multipleOr: Parametern kan ha flera värden (separerade med kommatecken) där minst ett måste vara sant</li></ul></td></tr><tr><td>Kedjor</td><td>Tillåten: identifier</td></tr></table></div>"
+  },
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by",
+  "version" : "0.1.0",
+  "name" : "TKEndpointListedBy",
+  "title" : "Endpoint: listed-by",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-09-08",
+  "publisher" : "Inera AB",
+  "contact" : [{
+    "name" : "Inera AB",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint (\"har\"-relationen i informationsunderlaget) — till skillnad från standardparametern `organization`, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, \"förvaltar\"-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med `_has:Organization:endpoint:_id=[organization-id]`.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "SE",
+      "display" : "Sweden"
+    }]
+  }],
+  "code" : "listed-by",
+  "base" : ["Endpoint"],
+  "type" : "reference",
+  "target" : ["Organization"],
+  "multipleOr" : true,
+  "multipleAnd" : false,
+  "chain" : ["identifier"]
+}

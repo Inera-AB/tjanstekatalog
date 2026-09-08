@@ -1,0 +1,9 @@
+"Id","Path","Slice Name","Alias(s)","Label","Min","Max","Must Support?","Is Modifier?","Is Summary?","Type(s)","Short","Definition","Comments","Requirements","Default Value","Meaning When Missing","Fixed Value","Pattern","Example","Minimum Value","Maximum Value","Maximum Length","Binding Strength","Binding Description","Binding Value Set","Code","Slicing Discriminator","Slicing Description","Slicing Ordered","Slicing Rules","Base Path","Base Min","Base Max","Condition(s)","Constraint(s)","Mapping: Kravkatalog","Mapping: RIM Mapping"
+"tk-indexpost","tk-indexpost","","","",0,*,"","","","null {[]} {[]}
+","Indexpost (logisk modell)","Logisk modell för entiteten Indexpost i informationsunderlaget. Ej REST-exponerad i detta utkast av det administrativa API:et — se REQ-MDL-1.","","","","","","","","","",,,,,"",,,,"Base",0,*,"","","n/a"
+"tk-indexpost.id","tk-indexpost.id","","","",1,1,"","","","id {[]} {[]}
+","Indexpostens id","Unik identifierare för indexposten.","","","","","","","","","",,,,,"",,,,"tk-indexpost.id",1,1,"","","REQ-MDL-1"
+"tk-indexpost.registreringstidpunkt","tk-indexpost.registreringstidpunkt","","","",1,1,"","","","instant {[]} {[]}
+","Registreringstidpunkt","Tidpunkt då indexposten registrerades.","","","","","","","","","",,,,,"",,,,"tk-indexpost.registreringstidpunkt",1,1,"","","REQ-MDL-1"
+"tk-indexpost.avser","tk-indexpost.avser","","","",1,1,"","","","Reference {[]} {[CanonicalType[https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization], CanonicalType[https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare]]}
+","Avser","Vad indexposten avser: antingen en organisation eller en vård- och omsorgstagare.","","","","","","","","","",,,,,"",,,,"tk-indexpost.avser",1,1,"","","REQ-MDL-1, REQ-MDL-2"

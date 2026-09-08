@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="tk-endpoint-security-method"/>
+  <language value="sv"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: ValueSet tk-endpoint-security-method</b></p><a name="tk-endpoint-security-method"> </a><a name="hctk-endpoint-security-method"> </a><ul><li>Include alla koder som definieras i <a href="CodeSystem-tk-endpoint-security-method.html"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code></a><span title="Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation"> version &#x1F4E6;0.1.0</span></li></ul></div>
+  </text>
+  <url value="https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method"/>
+  <version value="0.1.0"/>
+  <name value="TKEndpointSecurityMethodVS"/>
+  <title value="Säkerhetsmetoder för tekniska ändpunkter"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-09-08T11:05:42+00:00"/>
+  <publisher value="Inera AB"/>
+  <contact>
+    <name value="Inera AB"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Tillåtna värden för Ändpunkt.säkerhetsmetod. Exempelbindning (example) i detta utkast — se REQ-END-6."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="SE"/>
+      <display value="Sweden"/>
+    </coding>
+  </jurisdiction>
+  <compose>
+    <include>
+      <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+    </include>
+  </compose>
+</ValueSet>

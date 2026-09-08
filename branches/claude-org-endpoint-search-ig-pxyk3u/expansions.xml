@@ -1,0 +1,423 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Bundle xmlns="http://hl7.org/fhir">
+  <id value="ddc18cbe-452a-42c6-a5d6-952d66639f9a"/>
+  <meta>
+    <lastUpdated value="2026-09-08T11:05:42.619+00:00"/>
+  </meta>
+  <type value="collection"/>
+  <entry>
+    <fullUrl value="https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method"/>
+    <resource>
+      <ValueSet>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml" data-fhir="generated">
+            <p class="res-header-id"/>
+            <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion utförd internt baserad på 
+              <a href="CodeSystem-tk-endpoint-security-method.html">codesystem Säkerhetsmetoder för tekniska ändpunkter (kodsystem) v0.1.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0" title="Klicka för att kopiera URL" class="btn-copy"> </button>
+              </span>
+            </p>
+            <p>Denna värdemängd innehåller 5 begrepp</p>
+            <table class="codes" data-fhir="generated">
+              <tr>
+                <td>
+                  <b>System</b>
+                </td>
+                <td style="white-space:nowrap">
+                  <b>Kod</b>
+                </td>
+                <td>
+                  <b>Visning (sv)</b>
+                </td>
+                <td>
+                  <b>Definition</b>
+                </td>
+                <td>
+                  <b>JSON</b>
+                </td>
+                <td>
+                  <b>XML</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-oauth2-client-credentials"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-oauth2-client-credentials">oauth2-client-credentials</a>
+                </td>
+                <td/>
+                <td>Klientautentisering enligt OAuth 2.0 client credentials grant.</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-client-credentials&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;oauth2-client-credentials&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-oauth2-authorization-code"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-oauth2-authorization-code">oauth2-authorization-code</a>
+                </td>
+                <td/>
+                <td>Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID.</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-authorization-code&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;oauth2-authorization-code&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-mutual-tls"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-mutual-tls">mutual-tls</a>
+                </td>
+                <td/>
+                <td>Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver.</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;mutual-tls&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;mutual-tls&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-saml2"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-saml2">saml2</a>
+                </td>
+                <td/>
+                <td>Federerad autentisering enligt SAML 2.0.</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;saml2&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;saml2&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-none"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-none">none</a>
+                </td>
+                <td/>
+                <td>Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS).</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;none&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;none&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </text>
+        <url value="https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method"/>
+        <version value="0.1.0"/>
+        <name value="TKEndpointSecurityMethodVS"/>
+        <title value="Säkerhetsmetoder för tekniska ändpunkter"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <date value="2026-09-08T11:05:42+00:00"/>
+        <jurisdiction>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="SE"/>
+            <display value="Sweden"/>
+          </coding>
+        </jurisdiction>
+        <expansion>
+          <identifier value="urn:uuid:d90dcefa-533c-4016-ac13-f66191f6212a"/>
+          <timestamp value="2026-09-08T11:06:34+00:00"/>
+          <total value="5"/>
+          <offset value="0"/>
+          <parameter>
+            <name value="displayLanguage"/>
+            <valueCode value="sv"/>
+          </parameter>
+          <parameter>
+            <name value="count"/>
+            <valueInteger value="1000"/>
+          </parameter>
+          <parameter>
+            <name value="offset"/>
+            <valueInteger value="0"/>
+          </parameter>
+          <parameter>
+            <name value="excludeNested"/>
+            <valueBoolean value="false"/>
+          </parameter>
+          <parameter>
+            <name value="used-codesystem"/>
+            <valueUri value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0"/>
+          </parameter>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="oauth2-client-credentials"/>
+          </contains>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="oauth2-authorization-code"/>
+          </contains>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="mutual-tls"/>
+          </contains>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="saml2"/>
+          </contains>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="none"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </entry>
+  <entry>
+    <fullUrl value="https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method"/>
+    <resource>
+      <ValueSet>
+        <text>
+          <status value="generated"/>
+          <div xmlns="http://www.w3.org/1999/xhtml" data-fhir="generated">
+            <p class="res-header-id"/>
+            <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion utförd internt baserad på 
+              <a href="CodeSystem-tk-endpoint-security-method.html">codesystem Säkerhetsmetoder för tekniska ändpunkter (kodsystem) v0.1.0 (CodeSystem)</a>
+              <span class="copy-text-inline">
+                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0" title="Klicka för att kopiera URL" class="btn-copy"> </button>
+              </span>
+            </p>
+            <p>Denna värdemängd innehåller 5 begrepp</p>
+            <table class="codes" data-fhir="generated">
+              <tr>
+                <td>
+                  <b>System</b>
+                </td>
+                <td style="white-space:nowrap">
+                  <b>Kod</b>
+                </td>
+                <td>
+                  <b>Visning (sv)</b>
+                </td>
+                <td>
+                  <b>Definition</b>
+                </td>
+                <td>
+                  <b>JSON</b>
+                </td>
+                <td>
+                  <b>XML</b>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-oauth2-client-credentials"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-oauth2-client-credentials">oauth2-client-credentials</a>
+                </td>
+                <td/>
+                <td>Klientautentisering enligt OAuth 2.0 client credentials grant.</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-client-credentials&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;oauth2-client-credentials&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-oauth2-authorization-code"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-oauth2-authorization-code">oauth2-authorization-code</a>
+                </td>
+                <td/>
+                <td>Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID.</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-authorization-code&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;oauth2-authorization-code&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-mutual-tls"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-mutual-tls">mutual-tls</a>
+                </td>
+                <td/>
+                <td>Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver.</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;mutual-tls&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;mutual-tls&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-saml2"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-saml2">saml2</a>
+                </td>
+                <td/>
+                <td>Federerad autentisering enligt SAML 2.0.</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;saml2&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;saml2&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <a name="x-https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method-none"> </a>
+                  <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>
+                </td>
+                <td style="white-space:nowrap">  
+                  <a href="CodeSystem-tk-endpoint-security-method.html#tk-endpoint-security-method-none">none</a>
+                </td>
+                <td/>
+                <td>Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS).</td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;none&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+                <td>
+                  <span class="copy-text-inline">
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;none&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                  </span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </text>
+        <url value="https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method"/>
+        <version value="0.1.0"/>
+        <name value="TKEndpointSecurityMethodVS"/>
+        <title value="Säkerhetsmetoder för tekniska ändpunkter"/>
+        <status value="draft"/>
+        <experimental value="true"/>
+        <date value="2026-09-08T11:05:42+00:00"/>
+        <jurisdiction>
+          <coding>
+            <system value="urn:iso:std:iso:3166"/>
+            <code value="SE"/>
+            <display value="Sweden"/>
+          </coding>
+        </jurisdiction>
+        <expansion>
+          <identifier value="urn:uuid:19f52202-b8be-4ffd-942e-70cb6b640e73"/>
+          <timestamp value="2026-09-08T11:06:34+00:00"/>
+          <total value="5"/>
+          <offset value="0"/>
+          <parameter>
+            <name value="displayLanguage"/>
+            <valueCode value="sv"/>
+          </parameter>
+          <parameter>
+            <name value="count"/>
+            <valueInteger value="1000"/>
+          </parameter>
+          <parameter>
+            <name value="offset"/>
+            <valueInteger value="0"/>
+          </parameter>
+          <parameter>
+            <name value="excludeNested"/>
+            <valueBoolean value="false"/>
+          </parameter>
+          <parameter>
+            <name value="used-codesystem"/>
+            <valueUri value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0"/>
+          </parameter>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="oauth2-client-credentials"/>
+          </contains>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="oauth2-authorization-code"/>
+          </contains>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="mutual-tls"/>
+          </contains>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="saml2"/>
+          </contains>
+          <contains>
+            <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+            <code value="none"/>
+          </contains>
+        </expansion>
+      </ValueSet>
+    </resource>
+  </entry>
+</Bundle>

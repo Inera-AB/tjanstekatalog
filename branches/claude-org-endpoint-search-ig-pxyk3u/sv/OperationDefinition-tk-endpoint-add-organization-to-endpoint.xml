@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<OperationDefinition xmlns="http://hl7.org/fhir">
+  <id value="tk-endpoint-add-organization-to-endpoint"/>
+  <language value="sv"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: OperationDefinition tk-endpoint-add-organization-to-endpoint</b></p><a name="tk-endpoint-add-organization-to-endpoint"> </a><a name="hctk-endpoint-add-organization-to-endpoint"> </a><p>URL: [base]/Endpoint/$add-organization-to-endpoint</p><p>URL: [base]/Endpoint/[id]/$add-organization-to-endpoint</p><h3>Parametrar</h3><table class="grid"><tr><td><b>Användning</b></td><td><b>Namn</b></td><td><b>Omfattning</b></td><td><b>Kardinalitet</b></td><td><b>Typ</b></td><td><b>Bindning</b></td><td><b>Dokumentation</b></td></tr><tr><td>IN</td><td>organization</td><td/><td>1..1</td><td><a href="http://hl7.org/fhir/R5/references.html#Reference">Reference</a> (<a href="StructureDefinition-tk-organization.html" title="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">Tjänstekatalogen Organization</a>)</td><td/><td><div><p>Referens till den organisation som ska lista denna ändpunkt via Organization.endpoint.</p>
+</div></td></tr><tr><td>OUT</td><td>organization</td><td/><td>0..1</td><td><a href="http://hl7.org/fhir/R5/organization.html">Organization</a> (<a href="StructureDefinition-tk-organization.html" title="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">Tjänstekatalogen Organization</a>)</td><td/><td><div><p>Den uppdaterade Organization-resursen, med den angivna Endpoint tillagd i Organization.endpoint. Servrar som svarar utan resurskropp (t.ex. 200 utan body, eller 204) behöver inte populera denna out-parameter; se expected-responses.html.</p>
+</div></td></tr></table><div><p>Konformansnivå MAY, se CapabilityStatement-tk-organization-endpoint-writer.html.</p>
+</div></div>
+  </text>
+  <url value="https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint"/>
+  <version value="0.1.0"/>
+  <name value="TKEndpointAddOrganizationToEndpoint"/>
+  <title value="Add Organization To Endpoint"/>
+  <status value="draft"/>
+  <kind value="operation"/>
+  <experimental value="true"/>
+  <date value="2026-09-08"/>
+  <publisher value="Inera AB"/>
+  <contact>
+    <name value="Inera AB"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Lägger till en referens till denna Endpoint i den angivna organisationens `Organization.endpoint`-lista (&quot;har&quot;-relationen i informationsunderlaget). Ändrar inte `Endpoint.managingOrganization` (&quot;förvaltar&quot;). Stöds av aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html), konformansnivå MAY."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="SE"/>
+      <display value="Sweden"/>
+    </coding>
+  </jurisdiction>
+  <code value="add-organization-to-endpoint"/>
+  <comment value="Konformansnivå MAY, se CapabilityStatement-tk-organization-endpoint-writer.html."/>
+  <resource value="Endpoint"/>
+  <system value="false"/>
+  <type value="true"/>
+  <instance value="true"/>
+  <parameter>
+    <name value="organization"/>
+    <use value="in"/>
+    <min value="1"/>
+    <max value="1"/>
+    <documentation value="Referens till den organisation som ska lista denna ändpunkt via Organization.endpoint."/>
+    <type value="Reference"/>
+    <targetProfile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"/>
+  </parameter>
+  <parameter>
+    <name value="organization"/>
+    <use value="out"/>
+    <min value="0"/>
+    <max value="1"/>
+    <documentation value="Den uppdaterade Organization-resursen, med den angivna Endpoint tillagd i Organization.endpoint. Servrar som svarar utan resurskropp (t.ex. 200 utan body, eller 204) behöver inte populera denna out-parameter; se expected-responses.html."/>
+    <type value="Organization"/>
+    <targetProfile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"/>
+  </parameter>
+</OperationDefinition>

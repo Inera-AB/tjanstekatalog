@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<StructureDefinition xmlns="http://hl7.org/fhir">
+  <id value="tk-api-specification"/>
+  <language value="sv"/>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: StructureDefinition tk-api-specification</b></p><table border="0" cellpadding="0" cellspacing="0" style="border: 0px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top;"><tr style="border: 1px #F0F0F0 solid; font-size: 11px; font-family: verdana; vertical-align: top"><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Elementets logiska namn">Namn</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Information om användningen av elementet">Flaggor</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Lägsta och högsta antal gånger elementet kan förekomma i instansen">Kard.</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px; width: 100px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Referens till elementets typ">Typ</a></th><th style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; padding-top: 3px; padding-bottom: 3px" class="hierarchy"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Ytterligare information om elementet">Beskrivning &amp; begränsningar</a><span style="float: right"><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/></a></span></th></tr><tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck1.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_element.gif" alt="." style="background-color: white; background-color: inherit" title="Element" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification" title="Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4.">tk-api-specification</a><a name="tk-api-specification"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><span style="opacity: 0.5">0</span><span style="opacity: 0.5">..</span><span style="opacity: 0.5">*</span></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/types.html#Base">Base</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">API-specifikation (logisk modell)</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.id" title="Unik identifierare för API-specifikationen i tjänstekatalogen.">id</a><a name="tk-api-specification.id"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#id">id</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Id</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.kanoniskUrl" title="Specifikationens egen kanoniska/maskinläsbara identitet, t.ex. en FHIR IG:s canonical URL. Detta är värdet som Endpoint.payload-extensionen tk-endpoint-payload-profile förväntas referera.">kanoniskUrl</a><a name="tk-api-specification.kanoniskUrl"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#uri">uri</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Kanonisk URL</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.status" title="Specifikationens publiceringsstatus.">status</a><a name="tk-api-specification.status"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#code">code</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Status</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.maskinlasbartNamn" title="Kort, maskinläsbart namn på specifikationen. FSH-elementnamnet använder ASCII (maskinlasbartNamn) enligt rekommendationen för enkla alfanumeriska elementnamn; det affärsmässiga namnet i informationsunderlaget är &quot;maskinläsbartNamn&quot;.">maskinlasbartNamn</a><a name="tk-api-specification.maskinlasbartNamn"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Maskinläsbart namn</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.version" title="Specifikationens versionsbeteckning.">version</a><a name="tk-api-specification.version"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Version</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.referensTillKalla" title="Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten. FSH-elementnamnet använder ASCII (referensTillKalla); det affärsmässiga namnet i informationsunderlaget är &quot;referensTillKälla&quot;.">referensTillKalla</a><a name="tk-api-specification.referensTillKalla"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#url">url</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Referens till källa</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_datatype.gif" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.kategori" title="Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt.">kategori</a><a name="tk-api-specification.kategori"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#CodeableConcept">CodeableConcept</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Kategori</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: white; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.titel" title="Specifikationens människoläsbara titel.">titel</a><a name="tk-api-specification.titel"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">1..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#string">string</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Titel</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.beskrivning" title="Fritextbeskrivning av specifikationen.">beskrivning</a><a name="tk-api-specification.beskrivning"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#markdown">markdown</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Beskrivning</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: white"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck10.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_reference.png" alt="." style="background-color: white; background-color: inherit" title="Referens till en annan resurs" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.ansvarigUtgivare" title="Organisationen som ansvarar för och publicerar specifikationen.">ansvarigUtgivare</a><a name="tk-api-specification.ansvarigUtgivare"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/references.html">Reference</a>(<a href="StructureDefinition-tk-organization.html">Tjänstekatalogen Organization</a>)</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: white; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Ansvarig utgivare</td></tr>
+<tr style="border: 0px #F0F0F0 solid; padding:0px; vertical-align: top; background-color: #F7F7F7"><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px; white-space: nowrap; background-image: url(tbl_bck00.png)" class="hierarchy"><img src="tbl_spacer.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="." style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="." style="background-color: #F7F7F7; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <a href="StructureDefinition-tk-api-specification-definitions.html#tk-api-specification.utgivningsdatum" title="Datum då denna version av specifikationen gavs ut.">utgivningsdatum</a><a name="tk-api-specification.utgivningsdatum"> </a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"/><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">0..1</td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy"><a href="http://hl7.org/fhir/R5/datatypes.html#date">date</a></td><td style="vertical-align: top; text-align : var(--ig-left,left); background-color: #F7F7F7; border: 0px #F0F0F0 solid; padding:0px 4px 0px 4px" class="hierarchy">Utgivningsdatum</td></tr>
+<tr><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3goXBCwdPqAP0wAAAldJREFUOMuNk0tIlFEYhp9z/vE2jHkhxXA0zJCMitrUQlq4lnSltEqCFhFG2MJFhIvIFpkEWaTQqjaWZRkp0g26URZkTpbaaOJkDqk10szoODP//7XIMUe0elcfnPd9zsfLOYplGrpRwZaqTtw3K7PtGem7Q6FoidbGgqHVy/HRb669R+56zx7eRV1L31JGxYbBtjKK93cxeqfyQHbehkZbUkK20goELEuIzEd+dHS+qz/Y8PTSif0FnGkbiwcAjHaU1+QWOptFiyCLp/LnKptpqIuXHx6rbR26kJcBX3yLgBfnd7CxwJmflpP2wUg0HIAoUUpZBmKzELGWcN8nAr6Gpu7tLU/CkwAaoKTWRSQyt89Q8w6J+oVQkKnBoblH7V0PPvUOvDYXfopE/SJmALsxnVm6LbkotrUtNowMeIrVrBcBpaMmdS0j9df7abpSuy7HWehwJdt1lhVwi/J58U5beXGAF6c3UXLycw1wdFklArBn87xdh0ZsZtArghBdAA3+OEDVubG4UEzP6x1FOWneHh2VDAHBAt80IbdXDcesNoCvs3E5AFyNSU5nbrDPZpcUEQQTFZiEVx+51fxMhhyJEAgvlriadIJZZksRuwBYMOPBbO3hePVVqgEJhFeUuFLhIPkRP6BQLIBrmMenujm/3g4zc398awIe90Zb5A1vREALqneMcYgP/xVQWlG+Ncu5vgwwlaUNx+3799rfe96u9K0JSDXcOzOTJg4B6IgmXfsygc7/Bvg9g9E58/cDVmGIBOP/zT8Bz1zqWqpbXIsd0O9hajXfL6u4BaOS6SeWAAAAAElFTkSuQmCC" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr></table></div>
+  </text>
+  <url value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification"/>
+  <version value="0.1.0"/>
+  <name value="TKAPISpecification"/>
+  <title value="API-specifikation (logisk modell)"/>
+  <status value="draft"/>
+  <date value="2026-09-08T11:05:42+00:00"/>
+  <publisher value="Inera AB"/>
+  <contact>
+    <name value="Inera AB"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="SE"/>
+      <display value="Sweden"/>
+    </coding>
+  </jurisdiction>
+  <fhirVersion value="5.0.0"/>
+  <mapping>
+    <identity value="req"/>
+    <uri value="https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements"/>
+    <name value="Kravkatalog"/>
+  </mapping>
+  <mapping>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
+  </mapping>
+  <kind value="logical"/>
+  <abstract value="false"/>
+  <type value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification"/>
+  <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Base"/>
+  <derivation value="specialization"/>
+  <snapshot>
+    <extension url="http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version">
+      <valueString value="5.0.0"/>
+    </extension>
+    <element id="tk-api-specification">
+      <path value="tk-api-specification"/>
+      <short value="API-specifikation (logisk modell)"/>
+      <definition value="Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4."/>
+      <min value="0"/>
+      <max value="*"/>
+      <base>
+        <path value="Base"/>
+        <min value="0"/>
+        <max value="*"/>
+      </base>
+      <isModifier value="false"/>
+      <mapping>
+        <identity value="rim"/>
+        <map value="n/a"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.id">
+      <path value="tk-api-specification.id"/>
+      <short value="Id"/>
+      <definition value="Unik identifierare för API-specifikationen i tjänstekatalogen."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.id"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="id"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.kanoniskUrl">
+      <path value="tk-api-specification.kanoniskUrl"/>
+      <short value="Kanonisk URL"/>
+      <definition value="Specifikationens egen kanoniska/maskinläsbara identitet, t.ex. en FHIR IG:s canonical URL. Detta är värdet som Endpoint.payload-extensionen tk-endpoint-payload-profile förväntas referera."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.kanoniskUrl"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="uri"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4, REQ-SRCH-3"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.status">
+      <path value="tk-api-specification.status"/>
+      <short value="Status"/>
+      <definition value="Specifikationens publiceringsstatus."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.status"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="code"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.maskinlasbartNamn">
+      <path value="tk-api-specification.maskinlasbartNamn"/>
+      <short value="Maskinläsbart namn"/>
+      <definition value="Kort, maskinläsbart namn på specifikationen. FSH-elementnamnet använder ASCII (maskinlasbartNamn) enligt rekommendationen för enkla alfanumeriska elementnamn; det affärsmässiga namnet i informationsunderlaget är &quot;maskinläsbartNamn&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.maskinlasbartNamn"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.version">
+      <path value="tk-api-specification.version"/>
+      <short value="Version"/>
+      <definition value="Specifikationens versionsbeteckning."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.version"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.referensTillKalla">
+      <path value="tk-api-specification.referensTillKalla"/>
+      <short value="Referens till källa"/>
+      <definition value="Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten. FSH-elementnamnet använder ASCII (referensTillKalla); det affärsmässiga namnet i informationsunderlaget är &quot;referensTillKälla&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.referensTillKalla"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="url"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.kategori">
+      <path value="tk-api-specification.kategori"/>
+      <short value="Kategori"/>
+      <definition value="Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.kategori"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.titel">
+      <path value="tk-api-specification.titel"/>
+      <short value="Titel"/>
+      <definition value="Specifikationens människoläsbara titel."/>
+      <min value="1"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.titel"/>
+        <min value="1"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.beskrivning">
+      <path value="tk-api-specification.beskrivning"/>
+      <short value="Beskrivning"/>
+      <definition value="Fritextbeskrivning av specifikationen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.beskrivning"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.ansvarigUtgivare">
+      <path value="tk-api-specification.ansvarigUtgivare"/>
+      <short value="Ansvarig utgivare"/>
+      <definition value="Organisationen som ansvarar för och publicerar specifikationen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.ansvarigUtgivare"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.utgivningsdatum">
+      <path value="tk-api-specification.utgivningsdatum"/>
+      <short value="Utgivningsdatum"/>
+      <definition value="Datum då denna version av specifikationen gavs ut."/>
+      <min value="0"/>
+      <max value="1"/>
+      <base>
+        <path value="tk-api-specification.utgivningsdatum"/>
+        <min value="0"/>
+        <max value="1"/>
+      </base>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+  </snapshot>
+  <differential>
+    <element id="tk-api-specification">
+      <path value="tk-api-specification"/>
+      <short value="API-specifikation (logisk modell)"/>
+      <definition value="Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4."/>
+    </element>
+    <element id="tk-api-specification.id">
+      <path value="tk-api-specification.id"/>
+      <short value="Id"/>
+      <definition value="Unik identifierare för API-specifikationen i tjänstekatalogen."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="id"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.kanoniskUrl">
+      <path value="tk-api-specification.kanoniskUrl"/>
+      <short value="Kanonisk URL"/>
+      <definition value="Specifikationens egen kanoniska/maskinläsbara identitet, t.ex. en FHIR IG:s canonical URL. Detta är värdet som Endpoint.payload-extensionen tk-endpoint-payload-profile förväntas referera."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="uri"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4, REQ-SRCH-3"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.status">
+      <path value="tk-api-specification.status"/>
+      <short value="Status"/>
+      <definition value="Specifikationens publiceringsstatus."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="code"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.maskinlasbartNamn">
+      <path value="tk-api-specification.maskinlasbartNamn"/>
+      <short value="Maskinläsbart namn"/>
+      <definition value="Kort, maskinläsbart namn på specifikationen. FSH-elementnamnet använder ASCII (maskinlasbartNamn) enligt rekommendationen för enkla alfanumeriska elementnamn; det affärsmässiga namnet i informationsunderlaget är &quot;maskinläsbartNamn&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.version">
+      <path value="tk-api-specification.version"/>
+      <short value="Version"/>
+      <definition value="Specifikationens versionsbeteckning."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.referensTillKalla">
+      <path value="tk-api-specification.referensTillKalla"/>
+      <short value="Referens till källa"/>
+      <definition value="Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten. FSH-elementnamnet använder ASCII (referensTillKalla); det affärsmässiga namnet i informationsunderlaget är &quot;referensTillKälla&quot;."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="url"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.kategori">
+      <path value="tk-api-specification.kategori"/>
+      <short value="Kategori"/>
+      <definition value="Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="CodeableConcept"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.titel">
+      <path value="tk-api-specification.titel"/>
+      <short value="Titel"/>
+      <definition value="Specifikationens människoläsbara titel."/>
+      <min value="1"/>
+      <max value="1"/>
+      <type>
+        <code value="string"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.beskrivning">
+      <path value="tk-api-specification.beskrivning"/>
+      <short value="Beskrivning"/>
+      <definition value="Fritextbeskrivning av specifikationen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="markdown"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.ansvarigUtgivare">
+      <path value="tk-api-specification.ansvarigUtgivare"/>
+      <short value="Ansvarig utgivare"/>
+      <definition value="Organisationen som ansvarar för och publicerar specifikationen."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="Reference"/>
+        <targetProfile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+    <element id="tk-api-specification.utgivningsdatum">
+      <path value="tk-api-specification.utgivningsdatum"/>
+      <short value="Utgivningsdatum"/>
+      <definition value="Datum då denna version av specifikationen gavs ut."/>
+      <min value="0"/>
+      <max value="1"/>
+      <type>
+        <code value="date"/>
+      </type>
+      <mapping>
+        <identity value="req"/>
+        <map value="REQ-MDL-4"/>
+      </mapping>
+    </element>
+  </differential>
+</StructureDefinition>
