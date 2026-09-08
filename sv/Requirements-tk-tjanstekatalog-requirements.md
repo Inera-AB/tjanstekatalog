@@ -36,7 +36,8 @@ Formell kravkatalog för tjänstekatalogen. Varje krav spåras till den/de FHIR-
       "display" : "Sweden"
     }]
   }],
-  "actor" : ["https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-organization-endpoint-writer"],
+  "actor" : ["https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst",
+  "http://electronichealth.se/fhir/NDI/ActorDefinition/organization-endpoint-writer-actor-er"],
   "statement" : [{
     "key" : "REQ-SRCH-1",
     "label" : "Sök ändpunkter per organisation (\"har\")",
@@ -146,25 +147,65 @@ Formell kravkatalog för tjänstekatalogen. Varje krav spåras till den/de FHIR-
   },
   {
     "key" : "REQ-WRT-1",
-    "label" : "$add-organization-to-endpoint",
-    "conformance" : ["MAY"],
-    "requirement" : "En Organization Endpoint Writer FÅR koppla en organisation till en ändpunkt (lägga till i Organization.endpoint) via operationen $add-organization-to-endpoint på Endpoint, utan att behöva skrivrättighet till hela Organization-resursen.",
-    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint"]
+    "label" : "Läsning via tjänstekatalogens admin-API",
+    "conformance" : ["SHALL"],
+    "requirement" : "Synkroniseringstjänsten SKA läsa organisationer och ändpunkter via tjänstekatalogens administrativa API, särskilt vilka ändpunkter en organisation listar (REQ-SRCH-1), som underlag för synkroniseringen mot EHM.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst",
+    "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"]
   },
   {
     "key" : "REQ-WRT-2",
-    "label" : "$remove-organization-from-endpoint",
+    "label" : "Anropa EHM:s $add-organization",
     "conformance" : ["MAY"],
-    "requirement" : "En Organization Endpoint Writer FÅR koppla loss en organisation från en ändpunkt (ta bort från Organization.endpoint) via operationen $remove-organization-from-endpoint på Endpoint.",
-    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint"]
+    "requirement" : "Synkroniseringstjänsten FÅR, i rollen Organization Endpoint Writer hos EHM, koppla en organisation till en ändpunkt genom att anropa POST [ehm-base]/Endpoint/[ehm-id]/$add-organization med organisationens identifierare (personnummer, samordningsnummer eller organisationsnummer) enligt EHM:s specifikation. Se mappningstabellen i mappings.html för hur `organization`-parametern fylls från tjänstekatalogens data.",
+    "satisfiedBy" : ["http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er",
+    "http://electronichealth.se/fhir/NDI/OperationDefinition/AddOrganizationToEndpoint"]
   },
   {
     "key" : "REQ-WRT-3",
+    "label" : "Anropa EHM:s $remove-organization",
+    "conformance" : ["MAY"],
+    "requirement" : "Synkroniseringstjänsten FÅR, analogt med REQ-WRT-2, koppla loss en organisation från en ändpunkt genom att anropa POST [ehm-base]/Endpoint/[ehm-id]/$remove-organization.",
+    "satisfiedBy" : ["http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er",
+    "http://electronichealth.se/fhir/NDI/OperationDefinition/RemoveOrganizationFromEndpoint"]
+  },
+  {
+    "key" : "REQ-WRT-4",
+    "label" : "Korrelation med EHM:s Endpoint-id",
+    "conformance" : ["SHALL"],
+    "requirement" : "Varje ändpunkt som ska synkroniseras SKA kunna korreleras med EHM:s eget logiska id för samma ändpunkt i deras register, eftersom $add-organization/$remove-organization adresserar ändpunkten via EHM:s id, inte tjänstekatalogens.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"]
+  },
+  {
+    "key" : "REQ-WRT-5",
+    "label" : "Format på organisationsidentifierare mot EHM",
+    "conformance" : ["SHALL"],
+    "requirement" : "Organisationsidentifierare som skickas till EHM:s $add-organization/$remove-organization SKA vara i det system och format EHM kräver (personnummer/samordningsnummer: http://electronichealth.se/identifier/{personnummer|samordningsnummer}, 12 siffror utan bindestreck; organisationsnummer: urn:oid:2.5.4.97, 10 siffror utan bindestreck) — se mappningstabellen i mappings.html.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"]
+  },
+  {
+    "key" : "REQ-WRT-6",
     "label" : "FHIR-version och format",
     "conformance" : ["SHALL"],
-    "requirement" : "Tjänstekatalogens administrativa API och Organization Endpoint Writer-gränssnittet SKA använda FHIR R5 (5.0.0) och SKA stödja JSON.",
+    "requirement" : "Tjänstekatalogens administrativa API SKA använda FHIR R5 (5.0.0) och SKA stödja JSON. EHM:s Organization Endpoint Writer-gränssnitt gör detsamma (bekräftat i deras CapabilityStatement).",
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api",
-    "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer"]
+    "http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er"]
+  },
+  {
+    "key" : "REQ-WRT-7",
+    "label" : "Skapa/uppdatera Endpoint hos EHM",
+    "conformance" : ["SHALL"],
+    "requirement" : "Innan Synkroniseringstjänsten anropar $add-organization/$remove-organization (REQ-WRT-2/3) SKA motsvarande Endpoint finnas hos EHM, konform med EHM:s profil endpoint-er, mappad enligt mappningstabellen i mappings.html. Observera kardinalitetsskillnaden för payload-specifikationer (EHM tillåter en per payload, denna IG flera) och att säkerhetsmetod/auktorisationsserver-URL kräver kodöversättning respektive strukturell ombyggnad, inte bara värdekopiering.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint",
+    "http://electronichealth.se/fhir/NDI/StructureDefinition/endpoint-er"]
+  },
+  {
+    "key" : "REQ-WRT-8",
+    "label" : "Skapa/uppdatera Organization hos EHM",
+    "conformance" : ["SHALL"],
+    "requirement" : "Innan Synkroniseringstjänsten kopplar en organisation till en ändpunkt hos EHM SKA organisationen finnas hos EHM, konform med EHM:s profil organization-er, mappad enligt mappningstabellen i mappings.html. Observera att EHM:s Organization.type saknar källa i denna IG:s informationsunderlag (öppen fråga, se mappings.html).",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization",
+    "http://electronichealth.se/fhir/NDI/StructureDefinition/organization-er"]
   },
   {
     "key" : "REQ-MDL-1",
@@ -192,7 +233,7 @@ Formell kravkatalog för tjänstekatalogen. Varje krav spåras till den/de FHIR-
     "key" : "REQ-MDL-4",
     "label" : "API-specifikation",
     "conformance" : ["SHOULD"],
-    "requirement" : "Entiteten API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering (t.ex. som en profil på Basic, eller som en egen resurstyp) i det administrativa API:et skjuts upp till en framtida version av denna IG.",
+    "requirement" : "Entiteten API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering i det administrativa API:et skjuts upp till en framtida version av denna IG. Om/när den REST-exponeras rekommenderas en nedbantad profil på ImplementationGuide (som redan bär url/version/name/title/status/date), inte en profil på ActorDefinition — EHM:s val för sin motsvarande \"API Specification\"-profil, vilket denna IG avvisar eftersom ActorDefinition är avsett för aktörer, inte specifikationer — och inte heller Basic. Se \"Avvikelser och tillägg\" i mappings.html.",
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification"]
   }]
 }

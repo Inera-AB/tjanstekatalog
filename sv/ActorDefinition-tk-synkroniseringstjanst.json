@@ -1,0 +1,34 @@
+{
+  "resourceType" : "ActorDefinition",
+  "id" : "tk-synkroniseringstjanst",
+  "language" : "sv",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ActorDefinition tk-synkroniseringstjanst</b></p><a name=\"tk-synkroniseringstjanst\"> </a><a name=\"hctk-synkroniseringstjanst\"> </a><table class=\"grid\"><tr><td><b>Aktör: TKSynkroniseringstjanst </b></td><td>Synkroniseringstjänst</td><td>Typ: system </td></tr><tr><td colspan=\"3\"/></tr><tr><td>Förmågor:</td><td colspan=\"2\"><a href=\"CapabilityStatement-tk-admin-api.html\">Tjänstekatalogen: administrativt API</a></td></tr></table></div>"
+  },
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst",
+  "version" : "0.1.0",
+  "name" : "TKSynkroniseringstjanst",
+  "title" : "Synkroniseringstjänst",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-09-08",
+  "publisher" : "Inera AB",
+  "contact" : [{
+    "name" : "Inera AB",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "System som läser organisationer och tekniska ändpunkter från tjänstekatalogens administrativa API (se [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.html)), särskilt vilka ändpunkter en organisation listar via [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html). Håller därefter E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat genom att i EHM:s system anta rollen [Organization Endpoint Writer](https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/) och anropa deras `$add-organization`/`$remove-organization`. Se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html för hur informationen mappas mellan de två gränssnitten.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "SE",
+      "display" : "Sweden"
+    }]
+  }],
+  "type" : "system",
+  "capabilities" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+}

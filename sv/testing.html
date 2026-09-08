@@ -224,8 +224,12 @@ IG. Fram till dess bör implementatörer verifiera:</p>
   <li>att <code class="language-plaintext highlighter-rouge">organization</code> och <code class="language-plaintext highlighter-rouge">listed-by</code> ger olika resultat när en ändpunkts
 förvaltande organisation skiljer sig från den/de organisationer som
 listar den ("förvaltar" respektive "har");</li>
-  <li>att <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> och <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code>
-är idempotenta enligt beskrivningen i respektive OperationDefinition.</li>
+  <li>för Synkroniseringstjänsten: att organisationsidentifierare mappas till
+EHM:s förväntade system/format (se <a href="mappings.html">Mappning mot EHM:s Organization
+Endpoint Writer</a>) innan <code class="language-plaintext highlighter-rouge">$add-organization</code>/
+<code class="language-plaintext highlighter-rouge">$remove-organization</code> anropas, och att svar av typen <code class="language-plaintext highlighter-rouge">information</code>
+(redan tillagd/borttagen) hanteras som lyckade, idempotenta anrop —
+inte som fel.</li>
 </ul>
 
 
@@ -256,7 +260,7 @@ listar den ("förvaltar" respektive "har");</li>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

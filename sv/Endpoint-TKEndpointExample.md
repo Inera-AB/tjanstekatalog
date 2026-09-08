@@ -8,6 +8,8 @@ Profil: [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
 
 **URL till auktorisationsserver**: [https://auth.exempelregionen.se/oauth2/token](https://auth.exempelregionen.se/oauth2/token)
 
+**identifier**: `http://electronichealth.se/fhir/NDI/Endpoint`/625aac66-a744-472c-8496-417fce2ada44
+
 **status**: Active
 
 **connectionType**: HL7 FHIR
@@ -50,6 +52,10 @@ Profil: [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
   {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url",
     "valueUrl" : "https://auth.exempelregionen.se/oauth2/token"
+  }],
+  "identifier" : [{
+    "system" : "http://electronichealth.se/fhir/NDI/Endpoint",
+    "value" : "625aac66-a744-472c-8496-417fce2ada44"
   }],
   "status" : "active",
   "connectionType" : [{

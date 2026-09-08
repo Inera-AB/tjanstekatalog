@@ -211,18 +211,16 @@ behörighetsmodell och nätverkskrav.</p>
 <p>Utöver de generella kraven gäller specifikt för denna IG:</p>
 
 <ul>
-  <li>Skrivrättigheter (<code class="language-plaintext highlighter-rouge">create</code>, <code class="language-plaintext highlighter-rouge">update</code>, <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code>,
-<code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code>) begränsas till system som är
-behöriga att agera Organization Endpoint Writer för den aktuella
-organisationen. Hur denna behörighet knyts till en organisations id (t.ex.
-via certifikatets/klientens registrerade organisationstillhörighet) är en
+  <li>Skrivrättigheter (<code class="language-plaintext highlighter-rouge">create</code>, <code class="language-plaintext highlighter-rouge">update</code> på <code class="language-plaintext highlighter-rouge">Organization</code>/<code class="language-plaintext highlighter-rouge">Endpoint</code>) i
+tjänstekatalogens administrativa API begränsas till system som är
+behöriga att registrera information om den aktuella organisationen. Hur
+denna behörighet knyts till en organisations id (t.ex. via
+certifikatets/klientens registrerade organisationstillhörighet) är en
 driftsfråga för respektive tjänstekatalog-instans och beskrivs inte
 ytterligare i denna IG.</li>
-  <li><code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> och <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code>
-ändrar <code class="language-plaintext highlighter-rouge">Organization.endpoint</code> utan att kräva skrivrättighet till hela
-<code class="language-plaintext highlighter-rouge">Organization</code>-resursen (se <a href="roles-and-responsibilities.html">Roller och ansvar</a>) —
-servrar ska ändå kontrollera att anropande system har rätt att koppla just
-den angivna ändpunkten till just den angivna organisationen.</li>
+  <li>Synkroniseringstjänstens behörighet mot <strong>EHM:s</strong> <code class="language-plaintext highlighter-rouge">$add-organization</code>/
+<code class="language-plaintext highlighter-rouge">$remove-organization</code> (rollen Organization Endpoint Writer) styrs av
+EHM, inte av denna IG — se EHM:s egen IG för deras säkerhetskrav.</li>
   <li>Sökning (<code class="language-plaintext highlighter-rouge">read</code>, <code class="language-plaintext highlighter-rouge">search-type</code>, inklusive <code class="language-plaintext highlighter-rouge">listed-by</code>) förutsätts vara
 tillgänglig för behöriga tjänstekonsumenter utan krav på samtycke, då
 informationen avser tekniska ändpunkter och organisationer, inte
@@ -257,7 +255,7 @@ personuppgifter om enskilda.</li>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

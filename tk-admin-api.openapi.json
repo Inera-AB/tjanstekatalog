@@ -2,7 +2,7 @@
   "openapi": "3.0.2",
   "info": {
     "title": "Tjänstekatalogen: administrativt API",
-    "description": "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)) och mottagning av anrop från en [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html).",
+    "description": "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html.",
     "license": {
       "name": "Creative Commons Zero v1.0 Universal",
       "url": "http://spdx.org/licenses/CC0-1.0.html"
@@ -540,140 +540,6 @@
             "$ref": "#/components/parameters/elements"
           }
         ]
-      }
-    },
-    "/Endpoint/$add-organization-to-endpoint": {
-      "summary": "Operation $add-organization-to-endpoint on type Endpoint",
-      "description": "Operation $add-organization-to-endpoint on type Endpoint",
-      "get": {
-        "summary": "$add-organization-to-endpoint on type Endpoint",
-        "description": "Lägger till en referens till denna Endpoint i den angivna organisationens `Organization.endpoint`-lista (\"har\"-relationen i informationsunderlaget). Ändrar inte `Endpoint.managingOrganization` (\"förvaltar\"). Stöds av aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html), konformansnivå MAY.",
-        "operationId": "op-add-organization-to-endpoint-Endpoint",
-        "responses": {
-          "default": {
-            "description": "Error, with details",
-            "content": {
-              "application/fhir+json": {
-                "schema": {
-                  "$ref": "https://build.fhir.org/fhir.schema.json#/definitions/OperationOutcome"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Operation response",
-            "content": {
-              "application/fhir+json": {
-                "schema": {
-                  "$ref": "https://build.fhir.org/fhir.schema.json#/definitions/Parameters"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/Endpoint/{rid}/$add-organization-to-endpoint": {
-      "summary": "Operation $add-organization-to-endpoint on instance of Endpoint",
-      "description": "Operation $add-organization-to-endpoint on an instance of Endpoint",
-      "get": {
-        "summary": "$add-organization-to-endpoint on Endpoint instance",
-        "description": "Lägger till en referens till denna Endpoint i den angivna organisationens `Organization.endpoint`-lista (\"har\"-relationen i informationsunderlaget). Ändrar inte `Endpoint.managingOrganization` (\"förvaltar\"). Stöds av aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html), konformansnivå MAY.",
-        "operationId": "op-add-organization-to-endpoint-Endpoint-instance",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/rid"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "Error, with details",
-            "content": {
-              "application/fhir+json": {
-                "schema": {
-                  "$ref": "https://build.fhir.org/fhir.schema.json#/definitions/OperationOutcome"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Operation response",
-            "content": {
-              "application/fhir+json": {
-                "schema": {
-                  "$ref": "https://build.fhir.org/fhir.schema.json#/definitions/Parameters"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/Endpoint/$remove-organization-from-endpoint": {
-      "summary": "Operation $remove-organization-from-endpoint on type Endpoint",
-      "description": "Operation $remove-organization-from-endpoint on type Endpoint",
-      "get": {
-        "summary": "$remove-organization-from-endpoint on type Endpoint",
-        "description": "Tar bort referensen till denna Endpoint från den angivna organisationens `Organization.endpoint`-lista (\"har\"-relationen i informationsunderlaget). Ändrar inte `Endpoint.managingOrganization` (\"förvaltar\"). Stöds av aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html), konformansnivå MAY.",
-        "operationId": "op-remove-organization-from-endpoint-Endpoint",
-        "responses": {
-          "default": {
-            "description": "Error, with details",
-            "content": {
-              "application/fhir+json": {
-                "schema": {
-                  "$ref": "https://build.fhir.org/fhir.schema.json#/definitions/OperationOutcome"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Operation response",
-            "content": {
-              "application/fhir+json": {
-                "schema": {
-                  "$ref": "https://build.fhir.org/fhir.schema.json#/definitions/Parameters"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/Endpoint/{rid}/$remove-organization-from-endpoint": {
-      "summary": "Operation $remove-organization-from-endpoint on instance of Endpoint",
-      "description": "Operation $remove-organization-from-endpoint on an instance of Endpoint",
-      "get": {
-        "summary": "$remove-organization-from-endpoint on Endpoint instance",
-        "description": "Tar bort referensen till denna Endpoint från den angivna organisationens `Organization.endpoint`-lista (\"har\"-relationen i informationsunderlaget). Ändrar inte `Endpoint.managingOrganization` (\"förvaltar\"). Stöds av aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html), konformansnivå MAY.",
-        "operationId": "op-remove-organization-from-endpoint-Endpoint-instance",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/rid"
-          }
-        ],
-        "responses": {
-          "default": {
-            "description": "Error, with details",
-            "content": {
-              "application/fhir+json": {
-                "schema": {
-                  "$ref": "https://build.fhir.org/fhir.schema.json#/definitions/OperationOutcome"
-                }
-              }
-            }
-          },
-          "200": {
-            "description": "Operation response",
-            "content": {
-              "application/fhir+json": {
-                "schema": {
-                  "$ref": "https://build.fhir.org/fhir.schema.json#/definitions/Parameters"
-                }
-              }
-            }
-          }
-        }
       }
     }
   },

@@ -198,15 +198,8 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div class="markdown-toc">
-<ul id="markdown-toc">
-  <li><a href="#rest-interaktioner-och-sökparametrar" id="markdown-toc-rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</a>    <ul>
-      <li><a href="#sök-ändpunkter-för-en-organisation" id="markdown-toc-sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</a></li>
-      <li><a href="#kopplakoppla-loss-organisation-och-ändpunkt" id="markdown-toc-kopplakoppla-loss-organisation-och-ändpunkt">Koppla/koppla loss organisation och ändpunkt</a></li>
-    </ul>
-  </li>
-</ul>
-
+<div>
+<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
 </div>
 <h1 id="rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</h1>
 
@@ -229,18 +222,14 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td>read, search-type, create, update</td>
       <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code></td>
     </tr>
-    <tr>
-      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
-      <td>operation <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> (instans)</td>
-      <td>—</td>
-    </tr>
-    <tr>
-      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
-      <td>operation <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> (instans)</td>
-      <td>—</td>
-    </tr>
   </tbody>
 </table>
+
+<p>Tjänstekatalogens administrativa API exponerar inga egna skrivoperationer för
+att koppla organisation och ändpunkt — det görs istället hos
+E-hälsomyndigheten (EHM), av en Synkroniseringstjänst som läser härifrån. Se
+<a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a> för EHM:s
+<code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code>.</p>
 
 <hr />
 
@@ -253,7 +242,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <p>eller med identifierare (kedjad sökning):</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by.identifier=urn:oid:1.2.752.29.4.13|232100-0016
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by.identifier=urn:oid:2.5.4.97|2321000016
 </code></pre></div></div>
 
 <p>Detta skiljer sig från att söka på den förvaltande organisationen
@@ -272,36 +261,31 @@ standardmekanism för omvänd kedjning:</p>
 och <a href="requirements.html">Kravkatalog</a> REQ-SRCH-1 för den fullständiga
 motiveringen.</p>
 
-<hr />
+<h4 id="implementeringsanvisning-listed-by-i-hapi-fhir">Implementeringsanvisning: <code class="language-plaintext highlighter-rouge">listed-by</code> i HAPI FHIR</h4>
 
-<h3 id="kopplakoppla-loss-organisation-och-ändpunkt">Koppla/koppla loss organisation och ändpunkt</h3>
+<p>HAPI FHIR JPA-servern stödjer normalt egna sökparametrar genom att man
+laddar upp dem som <code class="language-plaintext highlighter-rouge">SearchParameter</code>-resurser och sedan kör om indexeringen
+(<code class="language-plaintext highlighter-rouge">$reindex</code>) — det fungerar för parametrar som har en <code class="language-plaintext highlighter-rouge">.expression</code>
+(FHIRPath) att indexera på. <code class="language-plaintext highlighter-rouge">listed-by</code> har medvetet ingen <code class="language-plaintext highlighter-rouge">.expression</code>
+(se ovan), så HAPI:s automatiska indexeringsmekanism kan inte användas rakt
+av för den. Två praktiska sätt att ändå erbjuda <code class="language-plaintext highlighter-rouge">listed-by</code> i HAPI:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/Endpoint/456/$add-organization-to-endpoint
-Content-Type: application/fhir+json
-
-{
-  "resourceType": "Parameters",
-  "parameter": [{
-    "name": "organization",
-    "valueReference": { "reference": "Organization/123" }
-  }]
-}
-</code></pre></div></div>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/Endpoint/456/$remove-organization-from-endpoint
-Content-Type: application/fhir+json
-
-{
-  "resourceType": "Parameters",
-  "parameter": [{
-    "name": "organization",
-    "valueReference": { "reference": "Organization/123" }
-  }]
-}
-</code></pre></div></div>
-
-<p>Se <a href="OperationDefinition-tk-endpoint-add-organization-to-endpoint.html">OperationDefinition: add-organization-to-endpoint</a>
-och <a href="OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html">OperationDefinition: remove-organization-from-endpoint</a>.</p>
+<ol>
+  <li><strong>Enklast:</strong> låt klienter använda HAPI:s inbyggda stöd för <code class="language-plaintext highlighter-rouge">_has</code>
+direkt (<code class="language-plaintext highlighter-rouge">Endpoint?_has:Organization:endpoint:_id=[id]</code>) — det kräver
+ingen serverkonfiguration alls, eftersom <code class="language-plaintext highlighter-rouge">_has</code> bygger på <code class="language-plaintext highlighter-rouge">Organization</code>s
+redan existerande standardsökparameter <code class="language-plaintext highlighter-rouge">endpoint</code>.</li>
+  <li><strong>Om <code class="language-plaintext highlighter-rouge">listed-by</code> ändå ska exponeras som ett eget, vänligare
+parameternamn:</strong> ladda upp <code class="language-plaintext highlighter-rouge">SearchParameter</code>-resursen (utan
+<code class="language-plaintext highlighter-rouge">.expression</code>, precis som den definieras här) så att den syns i
+serverns <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>, men registrera dessutom en
+<code class="language-plaintext highlighter-rouge">IServerInterceptor</code> på en lämplig pointcut (t.ex.
+<code class="language-plaintext highlighter-rouge">SERVER_INCOMING_REQUEST_POST_PROCESSED</code>) som, innan sökningen
+exekveras, skriver om <code class="language-plaintext highlighter-rouge">listed-by=X</code> till motsvarande
+<code class="language-plaintext highlighter-rouge">_has:Organization:endpoint:_id=X</code>. Förlita dig inte på att HAPI
+indexerar <code class="language-plaintext highlighter-rouge">listed-by</code> automatiskt bara för att <code class="language-plaintext highlighter-rouge">SearchParameter</code>-resursen
+finns uppladdad.</li>
+</ol>
 
 <hr />
 
@@ -339,7 +323,7 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

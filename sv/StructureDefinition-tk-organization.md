@@ -195,7 +195,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-organization
       "id" : "Organization.identifier:organisationsnummer.system",
       "path" : "Organization.identifier.system",
       "min" : 1,
-      "patternUri" : "urn:oid:1.2.752.29.4.13"
+      "patternUri" : "urn:oid:2.5.4.97"
     },
     {
       "id" : "Organization.identifier:organisationsnummer.value",

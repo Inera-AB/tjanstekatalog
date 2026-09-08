@@ -218,23 +218,24 @@ vilka interoperabilitetsspecifikationer (API:er) den stödjer.</p>
 
 <h4 id="registrera-en-ny-ändpunkt">Registrera en ny ändpunkt</h4>
 
-<p>En Organization Endpoint Writer (se <a href="roles-and-responsibilities.html">Roller och ansvar</a>)
-skapar en ny <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurs i tjänstekatalogens administrativa API, med
-adress, protokoll, säkerhetsmetod och de interoperabilitetsspecifikationer
-ändpunkten stödjer.</p>
+<p>En organisation, eller dess systemleverantör, skapar en ny <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurs
+i tjänstekatalogens administrativa API, med adress, protokoll, säkerhetsmetod
+och de interoperabilitetsspecifikationer ändpunkten stödjer.</p>
 
 <hr />
 
-<h4 id="koppla-en-organisation-till-en-ändpunkt">Koppla en organisation till en ändpunkt</h4>
+<h4 id="synkronisera-en-organisation-ändpunkt-koppling-mot-ehm">Synkronisera en organisation-ändpunkt-koppling mot EHM</h4>
 
-<p>En Organization Endpoint Writer känner till att en viss ändpunkt ska listas
-under en organisation, men saknar (eller vill undvika) skrivrättighet till
-hela <code class="language-plaintext highlighter-rouge">Organization</code>-resursen. Writern anropar operationen
-<code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> på ändpunkten med organisationen som
-parameter, vilket lägger till ändpunkten i organisationens
-<code class="language-plaintext highlighter-rouge">Organization.endpoint</code>-lista ("har"). Motsvarande operation
-<code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> används för att koppla loss
-kopplingen. Se <a href="capabilitystatement.html">CapabilityStatement</a>.</p>
+<p>En <a href="ActorDefinition-tk-synkroniseringstjanst.html">Synkroniseringstjänst</a>
+upptäcker, via <code class="language-plaintext highlighter-rouge">listed-by</code>, att en organisation listar en ändpunkt i
+tjänstekatalogen som ännu inte är kopplad hos E-hälsomyndigheten (EHM).
+Tjänsten säkerställer att motsvarande ändpunkt finns registrerad hos EHM och
+anropar därefter EHM:s operation <code class="language-plaintext highlighter-rouge">$add-organization</code> — i rollen Organization
+Endpoint Writer mot EHM:s API, inte mot tjänstekatalogens — med
+organisationens identifierare mappad enligt
+<a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a>. Motsvarande
+operation <code class="language-plaintext highlighter-rouge">$remove-organization</code> används för att koppla loss en koppling som
+inte längre finns i tjänstekatalogen.</p>
 
 <hr />
 
@@ -272,7 +273,7 @@ i användningsfallen beskrivs under
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

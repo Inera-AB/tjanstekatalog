@@ -18,10 +18,10 @@
   fhir:language [ fhir:v "sv"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: Organization TKOrganizationExample</b></p><a name=\"TKOrganizationExample\"> </a><a name=\"hcTKOrganizationExample\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"StructureDefinition-tk-organization.html\">Tjänstekatalogen Organization</a></p></div><p><b>identifier</b>: <code>urn:oid:1.2.752.29.4.13</code>/232100-0016</p><p><b>name</b>: Exempelregionen</p><p><b>endpoint</b>: <a href=\"Endpoint-TKEndpointExample.html\">Endpoint Exempelregionens patientinformations-API</a></p></div>"^^rdf:XMLLiteral ]
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: Organization TKOrganizationExample</b></p><a name=\"TKOrganizationExample\"> </a><a name=\"hcTKOrganizationExample\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"StructureDefinition-tk-organization.html\">Tjänstekatalogen Organization</a></p></div><p><b>identifier</b>: <code>urn:oid:2.5.4.97</code>/232100-0016</p><p><b>name</b>: Exempelregionen</p><p><b>endpoint</b>: <a href=\"Endpoint-TKEndpointExample.html\">Endpoint Exempelregionens patientinformations-API</a></p></div>"^^rdf:XMLLiteral ]
   ] ; # 
   fhir:identifier ( [
-     fhir:system [ fhir:v "urn:oid:1.2.752.29.4.13"^^xsd:anyURI ] ;
+     fhir:system [ fhir:v "urn:oid:2.5.4.97"^^xsd:anyURI ] ;
      fhir:value [ fhir:v "232100-0016" ]
   ] ) ; # 
   fhir:name [ fhir:v "Exempelregionen"] ; # 

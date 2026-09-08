@@ -218,10 +218,13 @@ Entries are generated from commit messages that follow <a href="https://www.conv
   <li>Profilerna <code class="language-plaintext highlighter-rouge">TKOrganization</code> och <code class="language-plaintext highlighter-rouge">TKEndpoint</code>, med extensions för stödda
 interoperabilitetsspecifikationer (<code class="language-plaintext highlighter-rouge">tk-endpoint-payload-profile</code>),
 säkerhetsmetod och URL till auktorisationsserver</li>
-  <li>Aktören Organization Endpoint Writer, med operationerna
-<code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> och <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code></li>
-  <li>Två CapabilityStatements: tjänstekatalogens administrativa API (server)
-och Organization Endpoint Writer Capabilities (klient)</li>
+  <li>Aktören Synkroniseringstjänst, som läser via tjänstekatalogens
+administrativa API och separat antar rollen Organization Endpoint Writer
+hos E-hälsomyndigheten (EHM) — se "Mappning mot EHM:s Organization
+Endpoint Writer" i mappings.html för element-för-element-mappningen mot
+EHM:s <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code></li>
+  <li>Ett CapabilityStatement för tjänstekatalogens egen administrativa API
+(server)</li>
   <li>Formell kravkatalog (<code class="language-plaintext highlighter-rouge">Requirements</code>) som spårar varje krav till
 realiserande FHIR-artefakter</li>
   <li>Logiska modeller för Indexpost, Vård- och omsorgstagare och
@@ -256,7 +259,7 @@ API-specifikation, för spårbarhet mot det bifogade informationsunderlaget</li>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

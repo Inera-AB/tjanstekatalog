@@ -289,11 +289,14 @@ given ändpunkt (<code class="language-plaintext highlighter-rouge">Endpoint.man
   <li><strong>Ett administrativt API</strong> för att skapa, uppdatera, läsa och söka
 organisationer och ändpunkter i tjänstekatalogen. Se
 <a href="capabilitystatement.html">CapabilityStatement</a>.</li>
-  <li><strong>Aktören Organization Endpoint Writer</strong> — ett system som tillhandahåller
-ändpunktsinformation till tjänstekatalogen, inklusive att koppla/koppla
-loss en organisation från en ändpunkt via operationerna
-<code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> och <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code>.
-Se <a href="roles-and-responsibilities.html">Roller och ansvar</a>.</li>
+  <li><strong>En Synkroniseringstjänst</strong> som läser organisationer och ändpunkter
+härifrån och håller E-hälsomyndighetens (EHM) nationella register —
+Swedish Medical Record Index And Endpoint Registry — synkroniserat, genom
+att i <strong>EHM:s</strong> system anta rollen Organization Endpoint Writer och
+anropa deras <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code>. Se
+<a href="roles-and-responsibilities.html">Roller och ansvar</a> och
+<a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a> för hur
+data mappas mellan de två gränssnitten.</li>
 </ul>
 
 <p>Denna IG realiserar en delmängd av ett bredare informationsunderlag som även
@@ -304,9 +307,9 @@ administrativa API:et ligger utanför detta utkast — se "Avvikelser och
 tillägg" i <a href="mappings.html">Mappning till profiler</a> för motivering per
 entitet.</p>
 
-<p>Denna IG är, liksom motsvarande register hos andra aktörer i den svenska
-e-hälsoinfrastrukturen, avsedd att kunna konsumeras av och samverka med andra
-nationella register över tekniska ändpunkter.</p>
+<p>Denna IG är avsedd att samverka med E-hälsomyndighetens nationella register
+över tekniska ändpunkter — se <a href="mappings.html">Mappning mot EHM:s Organization Endpoint
+Writer</a>.</p>
 
 <hr />
 
@@ -326,8 +329,9 @@ tjänstekatalogens administrativa API en formell, kravspårad definition.</p>
 
 <p>IG:n vänder sig i första hand till systemutvecklare och integrationsarkitekter
 hos organisationer som ska registrera sina tekniska ändpunkter i
-tjänstekatalogen (Organization Endpoint Writer), samt till konsumenter som
-söker fram ändpunkter. Nya läsare hänvisas till <a href="introduction.html">Inledning</a>;
+tjänstekatalogen, till den som utvecklar Synkroniseringstjänsten mot EHM,
+samt till konsumenter som söker fram ändpunkter. Nya läsare hänvisas till
+<a href="introduction.html">Inledning</a>;
 implementatörer till <a href="rest-interactions.html">REST-interaktioner och sökparametrar</a>
 och <a href="capabilitystatement.html">CapabilityStatement</a>.</p>
 
@@ -401,7 +405,7 @@ undviker att IG:n och specifikationen glider isär över tid.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

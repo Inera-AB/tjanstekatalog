@@ -203,7 +203,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <h1 id="capabilitystatement">CapabilityStatement</h1>
 
-<p>Denna IG definierar två formella CapabilityStatements:</p>
+<p>Denna IG definierar ett formellt CapabilityStatement för sin egen serverroll:</p>
 
 <table>
   <thead>
@@ -217,23 +217,29 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td><a href="CapabilityStatement-tk-admin-api.html">Tjänstekatalogen: administrativt API</a></td>
       <td>Server</td>
-      <td>Tjänstekatalogens egna REST-förmågor: registrering och sökning av <a href="StructureDefinition-tk-organization.html">TKOrganization</a> och <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a> (inklusive sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code>), samt mottagning av de två skrivoperationerna.</td>
-    </tr>
-    <tr>
-      <td><a href="CapabilityStatement-tk-organization-endpoint-writer.html">Organization Endpoint Writer Capabilities</a></td>
-      <td>Klient</td>
-      <td>De FHIR REST-förmågor som aktören <a href="ActorDefinition-tk-organization-endpoint-writer.html">Organization Endpoint Writer</a> ska stödja: <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> och <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code>, båda med konformansnivå MAY. Strukturen är hämtad från motsvarande "Organization Endpoint Writer Capabilities"-mönster hos andra nationella register över tekniska ändpunkter, anpassad till tjänstekatalogens egna operationer.</td>
+      <td>Tjänstekatalogens egna REST-förmågor: registrering och sökning av <a href="StructureDefinition-tk-organization.html">TKOrganization</a> och <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>, inklusive sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code>.</td>
     </tr>
   </tbody>
 </table>
 
+<p><strong>Organization Endpoint Writer Capabilities</strong> — CapabilityStatementet för
+aktören Organization Endpoint Writer — är <strong>inte</strong> en artefakt i denna IG.
+Den definieras och publiceras av E-hälsomyndigheten (EHM) i deras egen IG
+(<a href="https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/">Swedish Medical Record Index And Endpoint Registry</a>,
+canonical <code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er</code>).
+Denna IG:s <a href="ActorDefinition-tk-synkroniseringstjanst.html">Synkroniseringstjänst</a>
+läser via vårt administrativa API och antar sedan den rollen mot EHM — se
+<a href="roles-and-responsibilities.html">Roller och ansvar</a> och
+<a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a> för hur data
+mappas mellan de två gränssnitten.</p>
+
 <p>Fr.o.m. FHIR R5 kan <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> uttrycka formella konformanskrav
 per roll via elementet <code class="language-plaintext highlighter-rouge">obligations</code>, som ett maskinläsbart alternativ eller
 komplement till de förväntningar som beskrivs under
-<a href="roles-and-responsibilities.html">Roller och ansvar</a> under Funktionellt. De
-två operationerna ovan uttrycker sin konformansnivå (MAY) med den relaterade
-extensionen <code class="language-plaintext highlighter-rouge">capabilitystatement-expectation</code> snarare än <code class="language-plaintext highlighter-rouge">obligations</code>, i
-linje med mönstret i den refererade Organization Endpoint Writer-modellen.</p>
+<a href="roles-and-responsibilities.html">Roller och ansvar</a> under Funktionellt.
+Tjänstekatalogens administrativa API använder <code class="language-plaintext highlighter-rouge">kind = requirements</code>, i linje
+med hur EHM:s eget CapabilityStatement för Organization Endpoint Writer är
+definierat.</p>
 
 
 
@@ -263,7 +269,7 @@ linje med mönstret i den refererade Organization Endpoint Writer-modellen.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

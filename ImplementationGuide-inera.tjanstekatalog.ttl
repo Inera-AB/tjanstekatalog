@@ -19,7 +19,7 @@
   fhir:name [ fhir:v "IneraTjanstekatalog"] ; # 
   fhir:title [ fhir:v "Tjänstekatalogen"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-09-08T11:37:33+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-09-08T12:25:30+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
@@ -79,21 +79,6 @@
        ]
      ] ) ;
      fhir:resource ( [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "OperationDefinition"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint> ;
-         fhir:reference [ fhir:v "OperationDefinition/tk-endpoint-add-organization-to-endpoint" ]
-       ] ;
-       fhir:name [ fhir:v "Add Organization To Endpoint" ] ;
-       fhir:description [ fhir:v "Lägger till en referens till denna Endpoint i den angivna organisationens Organization.endpoint-lista (\"har\"-relationen). Ändrar inte Endpoint.managingOrganization (\"förvaltar\")." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [
@@ -230,51 +215,6 @@
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:string ;
-           fhir:v "ActorDefinition"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-organization-endpoint-writer> ;
-         fhir:reference [ fhir:v "ActorDefinition/tk-organization-endpoint-writer" ]
-       ] ;
-       fhir:name [ fhir:v "Organization Endpoint Writer" ] ;
-       fhir:description [ fhir:v "Aktör: System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "CapabilityStatement"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer> ;
-         fhir:reference [ fhir:v "CapabilityStatement/tk-organization-endpoint-writer" ]
-       ] ;
-       fhir:name [ fhir:v "Organization Endpoint Writer Capabilities" ] ;
-       fhir:description [ fhir:v "Detta CapabilityStatement beskriver de FHIR REST-förmågor som aktören Organization Endpoint Writer ska stödja." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "OperationDefinition"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint> ;
-         fhir:reference [ fhir:v "OperationDefinition/tk-endpoint-remove-organization-from-endpoint" ]
-       ] ;
-       fhir:name [ fhir:v "Remove Organization From Endpoint" ] ;
-       fhir:description [ fhir:v "Tar bort referensen till denna Endpoint från den angivna organisationens Organization.endpoint-lista (\"har\"-relationen). Ändrar inte Endpoint.managingOrganization (\"förvaltar\")." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
            fhir:v "StructureDefinition:extension"
          ]
        ] ) ;
@@ -284,6 +224,21 @@
        ] ;
        fhir:name [ fhir:v "Stödd specifikation (payload profile)" ] ;
        fhir:description [ fhir:v "Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller profil) som denna nyttolast/API stödjer. Motsvarar det kommande elementet Endpoint.payload.profile. Kan upprepas om nyttolasten stödjer flera specifikationer eller versioner." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ActorDefinition"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst> ;
+         fhir:reference [ fhir:v "ActorDefinition/tk-synkroniseringstjanst" ]
+       ] ;
+       fhir:name [ fhir:v "Synkroniseringstjänst" ] ;
+       fhir:description [ fhir:v "Aktör: System som läser organisationer och ändpunkter från tjänstekatalogens administrativa API och håller E-hälsomyndighetens nationella register synkroniserat genom att, i deras system, anta rollen Organization Endpoint Writer." ] ;
        fhir:isExample [ fhir:v false ]
      ] [
        fhir:extension ( [

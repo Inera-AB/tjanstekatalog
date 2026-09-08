@@ -23,9 +23,11 @@ Detta avsnitt dokumenterar var denna IG:s FHIR-realisering avviker från, eller 
 * **`Endpoint.payload.profile` finns inte i R5.** Interoperabilitetsspecifikationer ("API följer API-specifikation") ska enligt uppdraget listas under ändpunkten och kan med fördel realiseras med extensions, som motsvarighet till det kommande elementet `Endpoint.payload.profile` (planerat i en senare FHIR-version). Denna IG definierar [`TKEndpointPayloadProfile`](StructureDefinition-tk-endpoint-payload-profile.md) som en repeterbar `canonical`-extension på `Endpoint.payload` i väntan på det elementet. Se REQ-SRCH-3.
 * **Entiteten "API" realiseras inte som en egen resurs.** Informationsunderlaget ger "API" en egen giltighetsperiod (giltigFrom/giltigTom), skild från Ändpunktens. FHIR:s `Endpoint.payload` är en backbone-struktur utan egen identitet/id och utan eget periodelement — den kan inte bära en sådan självständig livscykel. Vi har valt att **inte** införa en separat resurs eller logisk modell för "API": `Endpoint.payload` (typ + vår `TKEndpointPayloadProfile`-extension) räcker för att uttrycka "Ändpunkt tillgängliggör API" och "API följer API-specifikation". Konsekvensen är att denna IG **inte** bär en separat giltighetsperiod per API — endast `Endpoint.period` (Ändpunktens egen giltighetstid) används. Detta är ett medvetet avsteg, inte en försummelse: se REQ-MDL-3. Implementatörer som behöver oberoende livscykler per API bör registrera separata `Endpoint`-instanser (en per API) tills vidare, eller lyfta frågan som ett ändringsförslag mot en framtida version av denna IG.
 * **`säkerhetsmetod` och `urlTillAuktorisationsserver` saknar hemvist i basresursen `Endpoint`.** R5 `Endpoint` har inget element för vare sig säkerhetsmetod eller URL till auktorisationsserver. Denna IG inför två extensions för detta: [`TKEndpointSecurityMethod`](StructureDefinition-tk-endpoint-security-method.md) och [`TKEndpointAuthorizationServerUrl`](StructureDefinition-tk-endpoint-authorization-server-url.md). Kodverket för säkerhetsmetod ([TKEndpointSecurityMethodVS](ValueSet-tk-endpoint-security-method.md)) är vårt eget preliminära förslag (example-bindning) — informationsunderlaget definierar ingen kontrollerad vokabulär för attributet. Se REQ-END-6, REQ-END-7.
-* **Organisationsnummer-systemets URI är ett antagande.** Identifierarsystemet som används för `Organisation.organisationsnummer` (`urn:oid:1.2.752.29.4.13`, se `aliases.fsh`) är **inte verifierat** mot Ineras auktoritativa OID/URI-register i denna omgång. Det ska bekräftas — eller ersättas — innan implementation påbörjas. Se REQ-ORG-2.
+* **Organisationsnummer-systemets URI är valt för att matcha EHM.** Identifierarsystemet för `Organisation.organisationsnummer` (`urn:oid:2.5.4.97`, se `aliases.fsh`) är hämtat från E-hälsomyndighetens (EHM) publicerade krav för sin Organization Endpoint Writer-operation (se "Mappning mot EHM:s Organization Endpoint Writer" nedan) — inte från ett internt Inera-beslut. En tidigare, ej verifierad gissning (`urn:oid:1.2.752.29.4.13`) är ersatt. Att återanvända samma system som EHM kräver innebär att `Organization.identifier`-värden inte behöver systemöversättas vid synkronisering, bara formatteras om (bindestreck bort). Inera bör ändå separat bekräfta att detta även är Ineras egna föredragna kanoniska system. Se REQ-ORG-2.
+* **Ny identifierare för korrelation med EHM, utanför informationsunderlaget.** `TKEndpoint.identifier` har en tillagd slice, `ehmEndpointId`, som bär EHM:s eget logiska id för samma ändpunkt i deras register. Detta element finns inte i det ursprungliga informationsunderlaget, men krävs eftersom EHM:s `$add-organization`/`$remove-organization` adresserar ändpunkten via EHM:s eget id (se REQ-WRT-4 och mappningen mot EHM nedan). Systemet `http://electronichealth.se/fhir/NDI/Endpoint` är ett ANTAGET värde i väntan på bekräftelse av EHM:s faktiska bas-URL.
 * **"Vård- och omsorgstagare" ges ingen egen FHIR-profil.** Informationsunderlaget ger entiteten ett enda attribut (id) utan ytterligare persondata — den fungerar som en opak pekare i modellen, inte som en plats för persondata. Vi har därför avstått från att införa en egen FHIR-resursprofil och representerar den enbart med en tunn logisk modell, [`TKVardOchOmsorgstagare`](StructureDefinition-tk-vard-och-omsorgstagare.md), som `Indexpost.avser` kan referera. Implementatörer som behöver faktiska persondata om en vård- och omsorgstagare får slå upp identifieraren mot Ineras patientvända tjänster, t.ex. en profil som [IneraPatient](StructureDefinition-IneraPatient.md) — vilket ligger utanför denna IG:s scope. Se REQ-MDL-2.
-* **Indexpost, Vård- och omsorgstagare och API-specifikation exponeras inte via REST i detta utkast.** Det administrativa API:ets uppdrag i denna version är teknisk ändpunkts-/organisationsmetadata (Ändpunkt, Organisation och kopplingen dem emellan), inte personidentitet eller katalogisering av specifikationer i sig. En indexpost förväntas dessutom vara en serverhärledd sidoeffekt av att registrera en Organisation eller en Vård- och omsorgstagare, snarare än något en klient skapar direkt. Dessa tre entiteter är modellerade som logiska modeller för spårbarhet (se nedan), men REST-exponering (t.ex. API-specifikation som en profil på `Basic`) skjuts medvetet upp till en framtida version. Se REQ-MDL-1, REQ-MDL-2, REQ-MDL-4.
+* **Indexpost, Vård- och omsorgstagare och API-specifikation exponeras inte via REST i detta utkast.** Det administrativa API:ets uppdrag i denna version är teknisk ändpunkts-/organisationsmetadata (Ändpunkt, Organisation och kopplingen dem emellan), inte personidentitet eller katalogisering av specifikationer i sig. En indexpost förväntas dessutom vara en serverhärledd sidoeffekt av att registrera en Organisation eller en Vård- och omsorgstagare, snarare än något en klient skapar direkt. Dessa tre entiteter är modellerade som logiska modeller för spårbarhet (se nedan), men REST-exponering skjuts medvetet upp till en framtida version. Se REQ-MDL-1, REQ-MDL-2, REQ-MDL-4. Om/när API-specifikation REST-exponeras rekommenderas en nedbantad profil på `ImplementationGuide`, inte `Basic` — se nästa punkt.
+* **EHM realiserar "API-specifikation" som en profil på `ActorDefinition` ("API Specification (ActorDefinition)") — ett modelleringsval vi avvisar.** `ActorDefinition` är avsett att beskriva **aktörer**: typer av system eller individer som deltar i ett flöde (jämför denna IG:s egen [TKSynkroniseringstjanst](ActorDefinition-tk-synkroniseringstjanst.md) eller EHM:s eget Organization Endpoint Writer-aktör). En interoperabilitetsspecifikation är inte en aktör — den är ett publicerat dokument/kontrakt, identifierat av sin egen kanoniska URI. Att låta en specifikation "vara" en ActorDefinition blandar samman två skilda begrepp och gör det svårare att t.ex. sökbart skilja "vilka aktörer finns" från "vilka specifikationer finns". Skulle denna IG i en framtida version REST-exponera `TKAPISpecification`, rekommenderas istället en nedbantad profil på **`ImplementationGuide`**: den bär redan `url` (kanoniskUrl), `version`, `name` (maskinläsbartNamn), `title` (titel), `status`, `description` (beskrivning) och `date` (utgivningsdatum) som egna element, vilket passar en versionerad, publicerad specifikations livscykel bättre än både `ActorDefinition` och `Basic`. (`publisher` är dock `string` på `ImplementationGuide`, inte `Reference` — `ansvarigUtgivare` som `Reference(TKOrganization)` skulle då behöva uttryckas via en extension istället, eller bytas till en identifierare/text.) Se REQ-MDL-4.
 
 -------
 
@@ -59,7 +61,7 @@ Mappningarna nedan spårar varje element i informationsmodellen till det FHIR-pr
 | :--- | :--- | :--- | :--- |
 | id | 1..1 | [TKOrganization.id](StructureDefinition-tk-organization.md) | REQ-ORG-1 |
 | namn | 1..1 | [TKOrganization.name](StructureDefinition-tk-organization.md) | REQ-ORG-1 |
-| organisationsnummer | 0..1 | [TKOrganization.identifier](StructureDefinition-tk-organization.md)(slice`organisationsnummer`) | Identifierarsystem antaget, se avsteg ovan. REQ-ORG-2 |
+| organisationsnummer | 0..1 | [TKOrganization.identifier](StructureDefinition-tk-organization.md)(slice`organisationsnummer`) | Identifierarsystem valt för EHM-kompatibilitet, se avsteg ovan. REQ-ORG-2 |
 | **(har)** | 0..* | [TKOrganization.endpoint](StructureDefinition-tk-organization.md) | Sökbar via`listed-by`. REQ-ORG-3, REQ-SRCH-1 |
 
 #### Indexpost → TKIndexpost (logisk modell, ej REST-exponerad)
@@ -100,6 +102,120 @@ Mappningarna nedan spårar varje element i informationsmodellen till det FHIR-pr
 | giltigTom | — | **Ej separat realiserat** | Se avsteg ovan —`Endpoint.period`används istället. REQ-MDL-3 |
 | **(tillgängliggörs av Ändpunkt)** | 0..* | [TKEndpoint.payload](StructureDefinition-tk-endpoint.md) | REQ-MDL-3 |
 | **(följer API-specifikation)** | 0..* | [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.md) | REQ-MDL-3, REQ-SRCH-3 |
+
+-------
+
+### Mappning mot EHM:s Organization Endpoint Writer
+
+Detta avsnitt är inte en mappning mellan informationsunderlaget och denna IG:s egna profiler (som avsnitten ovan) — det är en mappning mellan **denna IG:s** data och **E-hälsomyndighetens (EHM)** API-struktur, för den aktör som läser härifrån och skriver dit.
+
+#### Roller och flöde
+
+"Organization Endpoint Writer" är **EHM:s egen aktörsroll**, definierad i deras IG ([Swedish Medical Record Index And Endpoint Registry](https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/)), inte en roll tjänstekatalogens administrativa API själv implementerar eller tar emot anrop som. Rollen antas av en fristående **Synkroniseringstjänst** (se [ActorDefinition](ActorDefinition-tk-synkroniseringstjanst.md) och [Roller och ansvar](roles-and-responsibilities.md)), som:
+
+1. läser organisationer och ändpunkter från tjänstekatalogens administrativa API (se[CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.md)), särskilt vilka ändpunkter en organisation listar via[SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md);
+1. säkerställer att motsvarande`Endpoint`-resurs finns hos EHM (skapande/ uppdatering av själva ändpunkten hos EHM via deras generella FHIR REST- gränssnitt —**ej detaljerat mappat här ännu**, se öppen fråga nedan);
+1. anropar EHM:s`$add-organization`/`$remove-organization`, i rollen Organization Endpoint Writer, för att koppla/koppla loss en organisation till/från den ändpunkten hos EHM.
+
+EHM:s artefakter (definierade i deras IG, **inte omdefinierade i denna IG** — vi återpublicerar aldrig någon annans canonical-resurser under vår egen namnrymd):
+
+| | |
+| :--- | :--- |
+| ActorDefinition: Organization Endpoint Writer Actor | `http://electronichealth.se/fhir/NDI/ActorDefinition/organization-endpoint-writer-actor-er` |
+| CapabilityStatement: Organization Endpoint Writer Capabilities | `http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er` |
+| StructureDefinition: Endpoint | `http://electronichealth.se/fhir/NDI/StructureDefinition/endpoint-er` |
+| StructureDefinition: Organization | `http://electronichealth.se/fhir/NDI/StructureDefinition/organization-er` |
+| OperationDefinition (id/canonical) | `http://electronichealth.se/fhir/NDI/OperationDefinition/AddOrganizationToEndpoint`/`.../RemoveOrganizationFromEndpoint` |
+| Faktisk anropsväg ($-kod, bekräftad separat från canonical ovan) | `POST [base]/Endpoint/[id]/$add-organization`/`$remove-organization` |
+
+EHM:s CapabilityStatement använder `kind = requirements` och konformansnivå MAY på både resursen och båda operationerna (`capabilitystatement-expectation`) — samma mönster som denna IG:s [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.md) använder.
+
+#### Mappningstabell: skapa/uppdatera Endpoint hos EHM (steg 2)
+
+Innan `$add-organization`/`$remove-organization` kan anropas (steg 3) måste motsvarande `Endpoint` finnas hos EHM, konform med deras profil `endpoint-er`. Denna tabell mappar [TKEndpoint](StructureDefinition-tk-endpoint.md) mot EHM:s krav.
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| `Endpoint.name` | 1..1, regex`^[A-Öa-ö0-9 _\-.,'()&/]+$`, max 255 tecken | [TKEndpoint.name](StructureDefinition-tk-endpoint.md) | Kontrollera mot EHM:s teckenregex/längdgräns innan anrop — inget vi validerar idag. |
+| `Endpoint.address` | MS, ingen extra begränsning bortom bas-FHIR | [TKEndpoint.address](StructureDefinition-tk-endpoint.md) | Direkt kopiering. |
+| `Endpoint.status` | Required binding:`http://electronichealth.se/fhir/NDI/ValueSet/er-endpoint-statuses`(EHM:s egen, begränsade statuslista) | [TKEndpoint.status](StructureDefinition-tk-endpoint.md) | Kontrollera att koden finns i EHM:s värdemängd — innehållet är inte känt här. |
+| `Endpoint.period` | MS, ingen ytterligare profilering (bas-FHIR) | [TKEndpoint.period](StructureDefinition-tk-endpoint.md) | Direkt kopiering av giltigFrom/giltigTom. |
+| `Endpoint.connectionType`(slice`protocol`) | 0..1, required binding:`http://electronichealth.se/fhir/NDI/ValueSet/er-endpoint-connection-type` | [TKEndpoint.connectionType](StructureDefinition-tk-endpoint.md) | Välj den/de av våra`connectionType`-koder som beskriver protokollet (t.ex.`hl7-fhir-rest`, som redan förekommer i både vårt exempel och EHM:s) och lägg i denna slice. |
+| `Endpoint.connectionType`(slice`securityMethod`) | 0..1, required binding:`http://hl7.org/fhir/ValueSet/restful-security-service`(standard HL7-värdemängd, fixed`.system`=`http://hl7.org/fhir/restful-security-service`) | [TKEndpointSecurityMethod](StructureDefinition-tk-endpoint-security-method.md)(extension) | **Kräver kodöversättning**— se tabellen nedan. EHM lägger säkerhetsmetoden som en`connectionType`-slice, inte som en egen extension som denna IG gör. |
+| `Endpoint.extension:associatedServer`(nästlad:`associatedServerType`fixed`authorization`,`serverURL`— regex`^https://[/.A-Öa-ö0-9]+$`, max 255 tecken) | 0..1 | [TKEndpointAuthorizationServerUrl](StructureDefinition-tk-endpoint-authorization-server-url.md)(extension) | **Kräver strukturell ombyggnad**, inte bara värdekopiering: vår platta url-extension blir hos EHM en nästlad extension med en fast typkod (`authorization`) och värdet i en egen`serverURL`-subextension. Kontrollera regex/längd innan anrop. |
+| `Endpoint.payload.extension:apiSpecification`(typ: extension-profil`endpoint-payload-actor-definition-er`, troligen`canonical(ActorDefinition)`— profilens egen definition är inte inhämtad, men bekräftas indirekt av sökparametern`actor`) | **1..1 per payload (obligatorisk, ej upprepningsbar)** | [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.md)(extension på`payload`) | **Kardinalitetsskillnad:**vår extension tillåter 0..* specifikationer per payload; EHM tillåter exakt 1. Om en payload hos oss anger flera specifikationer måste den delas upp i flera separata`payload`-poster hos EHM, en per specifikation. |
+
+#### Mappningstabell: skapa/uppdatera Organization hos EHM
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| `Organization.identifier`(slice`organizationIdentifier`) | system fixed`urn:oid:2.5.4.97`, värde regex`^\d{6}\d{4}$`(10 siffror) | [TKOrganization.identifier](StructureDefinition-tk-organization.md)[`organisationsnummer`] | Systemet matchar redan. Bindestreck i värdet tas bort (samma som i operationsmappningen ovan). |
+| `Organization.identifier`(slice`personalIdentityNumber`/`coordinationNumber`) | system fixed resp.`http://electronichealth.se/identifier/personnummer`/`.../samordningsnummer`, värde regex för 12-siffrigt personnummer/samordningsnummer | — | Denna IG:s`TKOrganization`har idag bara en`organisationsnummer`-slice (se REQ-ORG-2) — inte personnummer/samordningsnummer-slicer för enskilda firmor. Öppen fråga, se nedan. |
+| `Organization.type` | 0..1, required binding:`http://electronichealth.se/fhir/NDI/ValueSet/er-organization-type` | — | **Saknar källa.**Informationsunderlagets Organisation-entitet har ingen "typ"-attribut att mappa från. Öppen fråga, se nedan. |
+| `Organization.endpoint` | `targetProfile`= EHM:s`endpoint-er` | [TKOrganization.endpoint](StructureDefinition-tk-organization.md) | Referenserna ska peka på`Endpoint`-resurser som redan skapats hos EHM (steg 2 ovan), inte på tjänstekatalogens egna`Endpoint`-id:n. |
+
+#### Kodöversättning: säkerhetsmetod
+
+Denna IG:s [TKEndpointSecurityMethodVS](ValueSet-tk-endpoint-security-method.md) (eget, preliminärt kodverk) mot HL7:s standardvärdemängd `http://hl7.org/fhir/ValueSet/restful-security-service`, som EHM kräver:
+
+| | | |
+| :--- | :--- | :--- |
+| `oauth2-client-credentials` | `OAuth` | HL7:s värdemängd skiljer inte på OAuth 2.0-flöden. |
+| `oauth2-authorization-code` | `OAuth`(eller`SMART-on-FHIR`om aktuellt) | Som ovan — kräver verksamhetsbeslut om vilken kod som är korrekt i det enskilda fallet. |
+| `mutual-tls` | `Certificates` | — |
+| `saml2` | **Ingen motsvarighet** | HL7:s värdemängd saknar en SAML-kod. Öppen fråga, se nedan. |
+| `none` | **Utelämna slicen** | EHM:s`securityMethod`-slice är 0..1 — om ingen säkerhetsmetod finns, utelämnas slicen istället för att sättas till en kod. |
+
+#### Mappningstabell: $add-organization / $remove-organization (steg 3)
+
+Båda operationerna har samma parameterstruktur (skillnaden är bara om organisationen läggs till eller tas bort).
+
+| | | | | |
+| :--- | :--- | :--- | :--- | :--- |
+| `id`(URL-segment, EHM:s Endpoint-id) | 1..1 | `string`(UUID) | [TKEndpoint.identifier](StructureDefinition-tk-endpoint.md)[`ehmEndpointId`] | Ingen — värdet SKA redan vara EHM:s tilldelade id (se REQ-WRT-4). Om det saknas kan operationen inte anropas — ändpunkten måste först finnas hos EHM (steg 2 i flödet ovan). |
+| `organization`(body,`Parameters`) | 1..1 | `Identifier`(system + value) | [TKOrganization.identifier](StructureDefinition-tk-organization.md)[`organisationsnummer`] | Systemet`urn:oid:2.5.4.97`matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. Alternativt kan personnummer/samordningsnummer användas om organisationen identifieras så istället (samma system som`$personnummer`/`$samordningsnummer`i`aliases.fsh`, redan matchande). |
+| **(retur)**`return` | 1..1 | `OperationOutcome` | — | Ingen resurs returneras (varken uppdaterad Organization eller Endpoint) — bara en`OperationOutcome`med en framgångs-, informations- eller felkod. Se svarshantering nedan. |
+
+Exempel på anropskropp (organisationsnummer, bindestreck borttaget):
+
+```
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "organization",
+      "valueIdentifier": {
+        "system": "urn:oid:2.5.4.97",
+        "value": "2321000016"
+      }
+    }
+  ]
+}
+
+```
+
+#### Svarshantering
+
+EHM:s operationer är idempotenta och signalerar det via `OperationOutcome`, inte via HTTP-statuskod ensam:
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| `4-38-301` | success | Organisationen lades till | Klart. |
+| `4-38-302` | success | Organisationen togs bort | Klart. |
+| `4-38-303` | information | Organisationen fanns redan kopplad | Behandla som lyckat (idempotent) — inte ett fel. |
+| `4-38-304` | information | Organisationen var redan bortkopplad | Behandla som lyckat (idempotent) — inte ett fel. |
+| `2-38-1`,`2-38-8`,`2-38-9`,`2-38-4`,`2-38-2`,`2-44-X`,`2-38-7` | error | Se EHM:s fullständiga felkodskatalog | Verkligt fel — vanligast: fel identifierarsystem/format (`2-38-4`/`2-38-2`/`2-38-7`/`2-44-X`) eller okänt`id`(`2-38-8`). Kontrollera mappningen ovan innan omförsök. |
+
+Se [Felhantering](error-handling.md) för tjänstekatalogens egen felhantering — EHM:s felkodskatalog är separat och dokumenteras i sin helhet i deras egen IG.
+
+#### Öppna frågor
+
+* **`Organization.type` saknar källa.** EHM kräver (0..1, men MustSupport) en typkod från `http://electronichealth.se/fhir/NDI/ValueSet/er-organization-type` på `Organization`. Informationsunderlagets Organisation-entitet har inget motsvarande attribut. Antingen behöver denna IG:s modell utökas med ett sådant attribut, eller så behöver Synkroniseringstjänsten härleda/anta ett värde på annat sätt, eller så utelämnas elementet (tillåtet, eftersom det är 0..1 hos EHM).
+* **Personnummer/samordningsnummer för enskilda firmor saknas i `TKOrganization`.** EHM:s `Organization`-profil har slicer för detta (en enskild firma identifieras med ägarens personnummer, inte ett organisationsnummer) men denna IG:s `TKOrganization.identifier` har idag bara en `organisationsnummer`-slice. Behöver läggas till om tjänstekatalogen ska hantera enskilda firmor.
+* **`saml2` som säkerhetsmetod saknar motsvarighet** i HL7:s `restful-security-service`-värdemängd, som EHM kräver för sin `securityMethod`-slice. Kräver antingen ett verksamhetsbeslut om hur SAML 2.0-skyddade ändpunkter ska representeras hos EHM, eller att de inte kan synkroniseras dit i nuläget.
+* **Extensionen `endpoint-payload-actor-definition-er`s exakta definition** (värdetyp, om den verkligen är `canonical(ActorDefinition)`) är inte inhämtad — antagen utifrån namnet, sökparametern `actor` och exemplen.
+* **Bas-URL:en för `identifier[ehmEndpointId].system`** (`http://electronichealth.se/fhir/NDI/Endpoint`) är ett antagande baserat på mönstret i EHM:s övriga canonical-URL:er, inte bekräftat mot EHM:s faktiska serveradress.
+* **Om Inera bekräftar `urn:oid:2.5.4.97`** som sitt eget föredragna system för organisationsnummer, kan noteringen om att det är "valt för EHM-kompatibilitet" tas bort — se REQ-ORG-2.
 
 -------
 

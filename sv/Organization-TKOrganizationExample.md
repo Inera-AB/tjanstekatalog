@@ -4,7 +4,7 @@
 
 Profil: [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
 
-**identifier**: `urn:oid:1.2.752.29.4.13`/232100-0016
+**identifier**: `urn:oid:2.5.4.97`/232100-0016
 
 **name**: Exempelregionen
 
@@ -22,7 +22,7 @@ Profil: [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
     "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"]
   },
   "identifier" : [{
-    "system" : "urn:oid:1.2.752.29.4.13",
+    "system" : "urn:oid:2.5.4.97",
     "value" : "232100-0016"
   }],
   "name" : "Exempelregionen",

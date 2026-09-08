@@ -16,11 +16,11 @@ Denna IG omfattar:
 
 * **Sökning av tekniska ändpunkter per organisation** — hitta samtliga ändpunkter som en organisation listar i sin katalogpost (`Organization.endpoint`, "har"), skilt från vem som tekniskt förvaltar en given ändpunkt (`Endpoint.managingOrganization`, "förvaltar"). Se [Kravkatalog](requirements.md) (REQ-SRCH-*) och [REST-interaktioner och sökparametrar](rest-interactions.md).
 * **Ett administrativt API** för att skapa, uppdatera, läsa och söka organisationer och ändpunkter i tjänstekatalogen. Se [CapabilityStatement](capabilitystatement.md).
-* **Aktören Organization Endpoint Writer** — ett system som tillhandahåller ändpunktsinformation till tjänstekatalogen, inklusive att koppla/koppla loss en organisation från en ändpunkt via operationerna `$add-organization-to-endpoint` och `$remove-organization-from-endpoint`. Se [Roller och ansvar](roles-and-responsibilities.md).
+* **En Synkroniseringstjänst** som läser organisationer och ändpunkter härifrån och håller E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat, genom att i **EHM:s** system anta rollen Organization Endpoint Writer och anropa deras `$add-organization`/`$remove-organization`. Se [Roller och ansvar](roles-and-responsibilities.md) och [Mappning mot EHM:s Organization Endpoint Writer](mappings.md) för hur data mappas mellan de två gränssnitten.
 
 Denna IG realiserar en delmängd av ett bredare informationsunderlag som även omfattar entiteterna Indexpost, Vård- och omsorgstagare och API-specifikation. Dessa är modellerade (se [Mappning till profiler](mappings.md)) och spårbara i [Kravkatalog](requirements.md), men REST-exponering av dem i det administrativa API:et ligger utanför detta utkast — se "Avvikelser och tillägg" i [Mappning till profiler](mappings.md) för motivering per entitet.
 
-Denna IG är, liksom motsvarande register hos andra aktörer i den svenska e-hälsoinfrastrukturen, avsedd att kunna konsumeras av och samverka med andra nationella register över tekniska ändpunkter.
+Denna IG är avsedd att samverka med E-hälsomyndighetens nationella register över tekniska ändpunkter — se [Mappning mot EHM:s Organization Endpoint Writer](mappings.md).
 
 -------
 
@@ -32,7 +32,7 @@ Idag går det inte att via standardsökparametern `organization` på `Endpoint` 
 
 ### Målgrupp
 
-IG:n vänder sig i första hand till systemutvecklare och integrationsarkitekter hos organisationer som ska registrera sina tekniska ändpunkter i tjänstekatalogen (Organization Endpoint Writer), samt till konsumenter som söker fram ändpunkter. Nya läsare hänvisas till [Inledning](introduction.md); implementatörer till [REST-interaktioner och sökparametrar](rest-interactions.md) och [CapabilityStatement](capabilitystatement.md).
+IG:n vänder sig i första hand till systemutvecklare och integrationsarkitekter hos organisationer som ska registrera sina tekniska ändpunkter i tjänstekatalogen, till den som utvecklar Synkroniseringstjänsten mot EHM, samt till konsumenter som söker fram ändpunkter. Nya läsare hänvisas till [Inledning](introduction.md); implementatörer till [REST-interaktioner och sökparametrar](rest-interactions.md) och [CapabilityStatement](capabilitystatement.md).
 
 -------
 

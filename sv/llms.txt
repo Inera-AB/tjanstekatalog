@@ -50,21 +50,15 @@
 
 ### ActorDefinitions
 
-* [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.md)
+* [Synkroniseringstjänst](ActorDefinition-tk-synkroniseringstjanst.md)
 
 ### CapabilityStatements
 
 * [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
-* [Organization Endpoint Writer Capabilities](CapabilityStatement-tk-organization-endpoint-writer.md)
 
 ### ImplementationGuides
 
 * [Tjänstekatalogen](ImplementationGuide-inera.tjanstekatalog.md)
-
-### OperationDefinitions
-
-* [Add Organization To Endpoint](OperationDefinition-tk-endpoint-add-organization-to-endpoint.md)
-* [Remove Organization From Endpoint](OperationDefinition-tk-endpoint-remove-organization-from-endpoint.md)
 
 ### Requirements
 

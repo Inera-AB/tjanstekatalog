@@ -232,22 +232,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">200 OK</code> (eller <code class="language-plaintext highlighter-rouge">201 Created</code> vid "upsert" av ny resurs med klientangivet id).</td>
       <td>Resursen.</td>
     </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code></td>
-      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
-      <td>Ut-parametern <code class="language-plaintext highlighter-rouge">organization</code> (den uppdaterade <code class="language-plaintext highlighter-rouge">Organization</code>-resursen), eller <code class="language-plaintext highlighter-rouge">204 No Content</code> utan svarskropp — se OperationDefinition.</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code></td>
-      <td><code class="language-plaintext highlighter-rouge">200 OK</code>, eller <code class="language-plaintext highlighter-rouge">204 No Content</code> om organisationen redan saknades i listan (idempotent).</td>
-      <td>Som ovan.</td>
-    </tr>
   </tbody>
 </table>
 
 <p>Klienter ska inte anta att sökresultat returneras i någon viss ordning om
 inte <code class="language-plaintext highlighter-rouge">_sort</code> anges. Se <a href="error-handling.html">Felhantering</a> för svar vid
 misslyckade anrop.</p>
+
+<p>Denna sida beskriver bara tjänstekatalogens egna interaktioner. Förväntade
+svar för EHM:s <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code> (som alltid
+returnerar en <code class="language-plaintext highlighter-rouge">OperationOutcome</code>, aldrig en uppdaterad resurs) beskrivs i
+<a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a>, eftersom de
+är EHM:s API, inte detta.</p>
 
 
 
@@ -277,7 +273,7 @@ misslyckade anrop.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

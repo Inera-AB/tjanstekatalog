@@ -1,9 +1,9 @@
 [{
-  "id" : "tk-organization-endpoint-writer",
+  "id" : "tk-synkroniseringstjanst",
   "type" : "ActorDefinition",
-  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-organization-endpoint-writer",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst",
   "version" : "0.1.0",
-  "name" : "TKOrganizationEndpointWriter"
+  "name" : "TKSynkroniseringstjanst"
 },
 {
   "id" : "tk-admin-api",
@@ -11,13 +11,6 @@
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api",
   "version" : "0.1.0",
   "name" : "TKAdminAPICapabilityStatement"
-},
-{
-  "id" : "tk-organization-endpoint-writer",
-  "type" : "CapabilityStatement",
-  "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer",
-  "version" : "0.1.0",
-  "name" : "TKOrganizationEndpointWriterCapabilities"
 },
 {
   "id" : "tk-endpoint-security-method",
@@ -32,20 +25,6 @@
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog",
   "version" : "0.1.0",
   "name" : "IneraTjanstekatalog"
-},
-{
-  "id" : "tk-endpoint-add-organization-to-endpoint",
-  "type" : "OperationDefinition",
-  "url" : "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint",
-  "version" : "0.1.0",
-  "name" : "TKEndpointAddOrganizationToEndpoint"
-},
-{
-  "id" : "tk-endpoint-remove-organization-from-endpoint",
-  "type" : "OperationDefinition",
-  "url" : "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint",
-  "version" : "0.1.0",
-  "name" : "TKEndpointRemoveOrganizationFromEndpoint"
 },
 {
   "id" : "tk-tjanstekatalog-requirements",

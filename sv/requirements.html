@@ -204,7 +204,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><a href="#req-srch--sökning-av-ändpunkter-per-organisation" id="markdown-toc-req-srch--sökning-av-ändpunkter-per-organisation">REQ-SRCH — Sökning av ändpunkter per organisation</a></li>
       <li><a href="#req-end--attribut-på-ändpunkt" id="markdown-toc-req-end--attribut-på-ändpunkt">REQ-END — Attribut på Ändpunkt</a></li>
       <li><a href="#req-org--attribut-och-relationer-på-organisation" id="markdown-toc-req-org--attribut-och-relationer-på-organisation">REQ-ORG — Attribut och relationer på Organisation</a></li>
-      <li><a href="#req-wrt--organization-endpoint-writer" id="markdown-toc-req-wrt--organization-endpoint-writer">REQ-WRT — Organization Endpoint Writer</a></li>
+      <li><a href="#req-wrt--synkronisering-mot-ehms-organization-endpoint-writer" id="markdown-toc-req-wrt--synkronisering-mot-ehms-organization-endpoint-writer">REQ-WRT — Synkronisering mot EHM:s Organization Endpoint Writer</a></li>
       <li><a href="#req-mdl--övriga-entiteter-i-informationsunderlaget-och-avgränsningar" id="markdown-toc-req-mdl--övriga-entiteter-i-informationsunderlaget-och-avgränsningar">REQ-MDL — Övriga entiteter i informationsunderlaget och avgränsningar</a></li>
     </ul>
   </li>
@@ -224,8 +224,9 @@ omvända vyn, från attribut/profilelement till krav, finns i
 
 <p>Krav grupperas efter ämne: <code class="language-plaintext highlighter-rouge">REQ-SRCH-*</code> sökning av ändpunkter per
 organisation, <code class="language-plaintext highlighter-rouge">REQ-END-*</code> attribut på Ändpunkt, <code class="language-plaintext highlighter-rouge">REQ-ORG-*</code> attribut och
-relationer på Organisation, <code class="language-plaintext highlighter-rouge">REQ-WRT-*</code> Organization Endpoint Writer, och
-<code class="language-plaintext highlighter-rouge">REQ-MDL-*</code> övriga entiteter i informationsunderlaget och avgränsningar.</p>
+relationer på Organisation, <code class="language-plaintext highlighter-rouge">REQ-WRT-*</code> synkronisering mot EHM:s Organization
+Endpoint Writer, och <code class="language-plaintext highlighter-rouge">REQ-MDL-*</code> övriga entiteter i informationsunderlaget
+och avgränsningar.</p>
 
 <hr />
 
@@ -346,7 +347,7 @@ relationer på Organisation, <code class="language-plaintext highlighter-rouge">
     <tr>
       <td>REQ-ORG-2</td>
       <td>BÖR</td>
-      <td>Organisationsnumret BÖR anges som identifierare. Identifierarsystemets URI är i detta utkast ett antagande — se <code class="language-plaintext highlighter-rouge">aliases.fsh</code>.</td>
+      <td>Organisationsnumret BÖR anges som identifierare, med systemet <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> (valt för att matcha vad EHM:s Organization Endpoint Writer kräver — se mappings.html). Inera bör separat bekräfta att detta även är Ineras eget föredragna system.</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.identifier</code></td>
     </tr>
     <tr>
@@ -364,7 +365,11 @@ relationer på Organisation, <code class="language-plaintext highlighter-rouge">
   </tbody>
 </table>
 
-<h3 id="req-wrt--organization-endpoint-writer">REQ-WRT — Organization Endpoint Writer</h3>
+<h3 id="req-wrt--synkronisering-mot-ehms-organization-endpoint-writer">REQ-WRT — Synkronisering mot EHM:s Organization Endpoint Writer</h3>
+
+<p>Organization Endpoint Writer är E-hälsomyndighetens (EHM) egen aktörsroll,
+inte en roll tjänstekatalogens administrativa API implementerar — se
+<a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a>.</p>
 
 <table>
   <thead>
@@ -378,21 +383,51 @@ relationer på Organisation, <code class="language-plaintext highlighter-rouge">
   <tbody>
     <tr>
       <td>REQ-WRT-1</td>
-      <td>FÅR</td>
-      <td>En Organization Endpoint Writer FÅR koppla en organisation till en ändpunkt via <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code>.</td>
-      <td><a href="OperationDefinition-tk-endpoint-add-organization-to-endpoint.html">OperationDefinition: add-organization-to-endpoint</a></td>
+      <td>SKA</td>
+      <td>Synkroniseringstjänsten SKA läsa organisationer/ändpunkter via tjänstekatalogens admin-API, särskilt <code class="language-plaintext highlighter-rouge">listed-by</code>.</td>
+      <td><a href="ActorDefinition-tk-synkroniseringstjanst.html">ActorDefinition: Synkroniseringstjänst</a>, <a href="CapabilityStatement-tk-admin-api.html">CapabilityStatement: administrativt API</a></td>
     </tr>
     <tr>
       <td>REQ-WRT-2</td>
       <td>FÅR</td>
-      <td>En Organization Endpoint Writer FÅR koppla loss en organisation från en ändpunkt via <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code>.</td>
-      <td><a href="OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html">OperationDefinition: remove-organization-from-endpoint</a></td>
+      <td>Synkroniseringstjänsten FÅR, som Organization Endpoint Writer hos EHM, anropa EHM:s <code class="language-plaintext highlighter-rouge">$add-organization</code>.</td>
+      <td>EHM:s <a href="http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er">CapabilityStatement</a> och OperationDefinition (extern, ej del av denna IG)</td>
     </tr>
     <tr>
       <td>REQ-WRT-3</td>
+      <td>FÅR</td>
+      <td>Synkroniseringstjänsten FÅR anropa EHM:s <code class="language-plaintext highlighter-rouge">$remove-organization</code> analogt.</td>
+      <td>Som REQ-WRT-2</td>
+    </tr>
+    <tr>
+      <td>REQ-WRT-4</td>
       <td>SKA</td>
-      <td>Det administrativa API:et och Organization Endpoint Writer-gränssnittet SKA använda FHIR R5 (5.0.0) och JSON.</td>
-      <td><a href="CapabilityStatement-tk-admin-api.html">CapabilityStatement: administrativt API</a>, <a href="CapabilityStatement-tk-organization-endpoint-writer.html">CapabilityStatement: Organization Endpoint Writer</a></td>
+      <td>Ändpunkter SKA kunna korreleras med EHM:s eget Endpoint-id, eftersom EHM:s operationer adresserar via deras id.</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a><code class="language-plaintext highlighter-rouge">.identifier</code> (slice <code class="language-plaintext highlighter-rouge">ehmEndpointId</code>)</td>
+    </tr>
+    <tr>
+      <td>REQ-WRT-5</td>
+      <td>SKA</td>
+      <td>Organisationsidentifierare till EHM SKA vara i EHM:s format (rätt system, siffror utan bindestreck) — se mappningstabellen.</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.identifier</code></td>
+    </tr>
+    <tr>
+      <td>REQ-WRT-6</td>
+      <td>SKA</td>
+      <td>Tjänstekatalogens admin-API SKA använda FHIR R5 (5.0.0) och JSON, liksom EHM:s gränssnitt.</td>
+      <td><a href="CapabilityStatement-tk-admin-api.html">CapabilityStatement: administrativt API</a></td>
+    </tr>
+    <tr>
+      <td>REQ-WRT-7</td>
+      <td>SKA</td>
+      <td>Innan koppling till EHM SKA motsvarande <code class="language-plaintext highlighter-rouge">Endpoint</code> finnas hos EHM, mappad enligt EHM:s profil <code class="language-plaintext highlighter-rouge">endpoint-er</code>.</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>, EHM:s <a href="http://electronichealth.se/fhir/NDI/StructureDefinition/endpoint-er">Endpoint-profil</a></td>
+    </tr>
+    <tr>
+      <td>REQ-WRT-8</td>
+      <td>SKA</td>
+      <td>Organisationen SKA finnas hos EHM, mappad enligt EHM:s profil <code class="language-plaintext highlighter-rouge">organization-er</code>. <code class="language-plaintext highlighter-rouge">Organization.type</code> saknar källa — se öppen fråga i mappings.html.</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a>, EHM:s <a href="http://electronichealth.se/fhir/NDI/StructureDefinition/organization-er">Organization-profil</a></td>
     </tr>
   </tbody>
 </table>
@@ -430,7 +465,7 @@ relationer på Organisation, <code class="language-plaintext highlighter-rouge">
     <tr>
       <td>REQ-MDL-4</td>
       <td>BÖR</td>
-      <td>API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering skjuts upp till en framtida version.</td>
+      <td>API-specifikation BÖR modelleras för spårbarhet. REST-exponering skjuts upp, men rekommenderas som en nedbantad profil på <code class="language-plaintext highlighter-rouge">ImplementationGuide</code> om/när den blir aktuell — inte <code class="language-plaintext highlighter-rouge">ActorDefinition</code> (EHM:s val, avvisat) eller <code class="language-plaintext highlighter-rouge">Basic</code>.</td>
       <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification</a> (logisk modell)</td>
     </tr>
   </tbody>
@@ -474,7 +509,7 @@ eller id.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

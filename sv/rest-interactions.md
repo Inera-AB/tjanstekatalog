@@ -8,8 +8,8 @@
 | :--- | :--- | :--- |
 | [TKOrganization](StructureDefinition-tk-organization.md) | read, search-type, create, update | `identifier`,`name` |
 | [TKEndpoint](StructureDefinition-tk-endpoint.md) | read, search-type, create, update | `organization`(standard, "förvaltar"),[`listed-by`](SearchParameter-tk-endpoint-listed-by.md)(egen, "har"),`status` |
-| [TKEndpoint](StructureDefinition-tk-endpoint.md) | operation`$add-organization-to-endpoint`(instans) | — |
-| [TKEndpoint](StructureDefinition-tk-endpoint.md) | operation`$remove-organization-from-endpoint`(instans) | — |
+
+Tjänstekatalogens administrativa API exponerar inga egna skrivoperationer för att koppla organisation och ändpunkt — det görs istället hos E-hälsomyndigheten (EHM), av en Synkroniseringstjänst som läser härifrån. Se [Mappning mot EHM:s Organization Endpoint Writer](mappings.md) för EHM:s `$add-organization`/`$remove-organization`.
 
 -------
 
@@ -25,7 +25,7 @@ GET [base]/Endpoint?listed-by=Organization/123
 eller med identifierare (kedjad sökning):
 
 ```
-GET [base]/Endpoint?listed-by.identifier=urn:oid:1.2.752.29.4.13|232100-0016
+GET [base]/Endpoint?listed-by.identifier=urn:oid:2.5.4.97|2321000016
 
 ```
 
@@ -45,39 +45,12 @@ GET [base]/Endpoint?_has:Organization:endpoint:_id=123
 
 Se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md) och [Kravkatalog](requirements.md) REQ-SRCH-1 för den fullständiga motiveringen.
 
--------
+#### Implementeringsanvisning: listed-by i HAPI FHIR
 
-### Koppla/koppla loss organisation och ändpunkt
+HAPI FHIR JPA-servern stödjer normalt egna sökparametrar genom att man laddar upp dem som `SearchParameter`-resurser och sedan kör om indexeringen (`$reindex`) — det fungerar för parametrar som har en `.expression` (FHIRPath) att indexera på. `listed-by` har medvetet ingen `.expression` (se ovan), så HAPI:s automatiska indexeringsmekanism kan inte användas rakt av för den. Två praktiska sätt att ändå erbjuda `listed-by` i HAPI:
 
-```
-POST [base]/Endpoint/456/$add-organization-to-endpoint
-Content-Type: application/fhir+json
-
-{
-  "resourceType": "Parameters",
-  "parameter": [{
-    "name": "organization",
-    "valueReference": { "reference": "Organization/123" }
-  }]
-}
-
-```
-
-```
-POST [base]/Endpoint/456/$remove-organization-from-endpoint
-Content-Type: application/fhir+json
-
-{
-  "resourceType": "Parameters",
-  "parameter": [{
-    "name": "organization",
-    "valueReference": { "reference": "Organization/123" }
-  }]
-}
-
-```
-
-Se [OperationDefinition: add-organization-to-endpoint](OperationDefinition-tk-endpoint-add-organization-to-endpoint.md) och [OperationDefinition: remove-organization-from-endpoint](OperationDefinition-tk-endpoint-remove-organization-from-endpoint.md).
+1. **Enklast:**låt klienter använda HAPI:s inbyggda stöd för`_has`direkt (`Endpoint?_has:Organization:endpoint:_id=[id]`) — det kräver ingen serverkonfiguration alls, eftersom`_has`bygger på`Organization`s redan existerande standardsökparameter`endpoint`.
+1. **Om `listed-by` ändå ska exponeras som ett eget, vänligare parameternamn:**ladda upp`SearchParameter`-resursen (utan`.expression`, precis som den definieras här) så att den syns i serverns`CapabilityStatement`, men registrera dessutom en`IServerInterceptor`på en lämplig pointcut (t.ex.`SERVER_INCOMING_REQUEST_POST_PROCESSED`) som, innan sökningen exekveras, skriver om`listed-by=X`till motsvarande`_has:Organization:endpoint:_id=X`. Förlita dig inte på att HAPI indexerar`listed-by`automatiskt bara för att`SearchParameter`-resursen finns uppladdad.
 
 -------
 

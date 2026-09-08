@@ -12,13 +12,13 @@ En tjänstekonsument känner till en organisations identitet (t.ex. organisation
 
 #### Registrera en ny ändpunkt
 
-En Organization Endpoint Writer (se [Roller och ansvar](roles-and-responsibilities.md)) skapar en ny `Endpoint`-resurs i tjänstekatalogens administrativa API, med adress, protokoll, säkerhetsmetod och de interoperabilitetsspecifikationer ändpunkten stödjer.
+En organisation, eller dess systemleverantör, skapar en ny `Endpoint`-resurs i tjänstekatalogens administrativa API, med adress, protokoll, säkerhetsmetod och de interoperabilitetsspecifikationer ändpunkten stödjer.
 
 -------
 
-#### Koppla en organisation till en ändpunkt
+#### Synkronisera en organisation-ändpunkt-koppling mot EHM
 
-En Organization Endpoint Writer känner till att en viss ändpunkt ska listas under en organisation, men saknar (eller vill undvika) skrivrättighet till hela `Organization`-resursen. Writern anropar operationen `$add-organization-to-endpoint` på ändpunkten med organisationen som parameter, vilket lägger till ändpunkten i organisationens `Organization.endpoint`-lista ("har"). Motsvarande operation `$remove-organization-from-endpoint` används för att koppla loss kopplingen. Se [CapabilityStatement](capabilitystatement.md).
+En [Synkroniseringstjänst](ActorDefinition-tk-synkroniseringstjanst.md) upptäcker, via `listed-by`, att en organisation listar en ändpunkt i tjänstekatalogen som ännu inte är kopplad hos E-hälsomyndigheten (EHM). Tjänsten säkerställer att motsvarande ändpunkt finns registrerad hos EHM och anropar därefter EHM:s operation `$add-organization` — i rollen Organization Endpoint Writer mot EHM:s API, inte mot tjänstekatalogens — med organisationens identifierare mappad enligt [Mappning mot EHM:s Organization Endpoint Writer](mappings.md). Motsvarande operation `$remove-organization` används för att koppla loss en koppling som inte längre finns i tjänstekatalogen.
 
 -------
 

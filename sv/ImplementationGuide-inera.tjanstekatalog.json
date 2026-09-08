@@ -11,7 +11,7 @@
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-09-08T11:37:33+00:00",
+  "date" : "2026-09-08T12:25:30+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -57,18 +57,6 @@
       "valueCode" : "hl7.fhir.uv.tools.r5#1.1.2"
     }],
     "resource" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "OperationDefinition"
-      }],
-      "reference" : {
-        "reference" : "OperationDefinition/tk-endpoint-add-organization-to-endpoint"
-      },
-      "name" : "Add Organization To Endpoint",
-      "description" : "Lägger till en referens till denna Endpoint i den angivna organisationens Organization.endpoint-lista (\"har\"-relationen). Ändrar inte Endpoint.managingOrganization (\"förvaltar\").",
-      "isExample" : false
-    },
-    {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
@@ -170,42 +158,6 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ActorDefinition"
-      }],
-      "reference" : {
-        "reference" : "ActorDefinition/tk-organization-endpoint-writer"
-      },
-      "name" : "Organization Endpoint Writer",
-      "description" : "Aktör: System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen.",
-      "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CapabilityStatement"
-      }],
-      "reference" : {
-        "reference" : "CapabilityStatement/tk-organization-endpoint-writer"
-      },
-      "name" : "Organization Endpoint Writer Capabilities",
-      "description" : "Detta CapabilityStatement beskriver de FHIR REST-förmågor som aktören Organization Endpoint Writer ska stödja.",
-      "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "OperationDefinition"
-      }],
-      "reference" : {
-        "reference" : "OperationDefinition/tk-endpoint-remove-organization-from-endpoint"
-      },
-      "name" : "Remove Organization From Endpoint",
-      "description" : "Tar bort referensen till denna Endpoint från den angivna organisationens Organization.endpoint-lista (\"har\"-relationen). Ändrar inte Endpoint.managingOrganization (\"förvaltar\").",
-      "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
       }],
       "reference" : {
@@ -213,6 +165,18 @@
       },
       "name" : "Stödd specifikation (payload profile)",
       "description" : "Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller profil) som denna nyttolast/API stödjer. Motsvarar det kommande elementet Endpoint.payload.profile. Kan upprepas om nyttolasten stödjer flera specifikationer eller versioner.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ActorDefinition"
+      }],
+      "reference" : {
+        "reference" : "ActorDefinition/tk-synkroniseringstjanst"
+      },
+      "name" : "Synkroniseringstjänst",
+      "description" : "Aktör: System som läser organisationer och ändpunkter från tjänstekatalogens administrativa API och håller E-hälsomyndighetens nationella register synkroniserat genom att, i deras system, anta rollen Organization Endpoint Writer.",
       "isExample" : false
     },
     {

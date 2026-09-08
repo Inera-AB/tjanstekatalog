@@ -33,8 +33,8 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 ** Sammanfattning **
 
-Obligatorisk: 2 elements(1 nästlade obligatoriska element)
- Måste stödjas: 14 elements
+Obligatorisk: 2 elements(3 nästlade obligatoriska elements)
+ Måste stödjas: 17 elements
 
 **Strukturer**
 
@@ -49,6 +49,12 @@ Denna struktur refererar till dessa extensions:
 * [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method](StructureDefinition-tk-endpoint-security-method.md)
 * [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url](StructureDefinition-tk-endpoint-authorization-server-url.md)
 * [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile](StructureDefinition-tk-endpoint-payload-profile.md)
+
+**Skivor**
+
+Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
+
+* Elementet 1 är uppdelat baserat på värdet av Endpoint.identifier
 
  **Vy med nyckelelement** 
 
@@ -66,8 +72,8 @@ Denna struktur refererar till dessa extensions:
 
 ** Sammanfattning **
 
-Obligatorisk: 2 elements(1 nästlade obligatoriska element)
- Måste stödjas: 14 elements
+Obligatorisk: 2 elements(3 nästlade obligatoriska elements)
+ Måste stödjas: 17 elements
 
 **Strukturer**
 
@@ -82,6 +88,12 @@ Denna struktur refererar till dessa extensions:
 * [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method](StructureDefinition-tk-endpoint-security-method.md)
 * [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url](StructureDefinition-tk-endpoint-authorization-server-url.md)
 * [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile](StructureDefinition-tk-endpoint-payload-profile.md)
+
+**Skivor**
+
+Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
+
+* Elementet 1 är uppdelat baserat på värdet av Endpoint.identifier
 
  
 
@@ -198,6 +210,44 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint.csv
         "identity" : "req",
         "map" : "REQ-END-7"
       }]
+    },
+    {
+      "id" : "Endpoint.identifier",
+      "path" : "Endpoint.identifier",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "value",
+          "path" : "system"
+        }],
+        "rules" : "open"
+      },
+      "short" : "Ändpunktsidentifierare, inklusive EHM:s motsvarande id",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Endpoint.identifier:ehmEndpointId",
+      "path" : "Endpoint.identifier",
+      "sliceName" : "ehmEndpointId",
+      "min" : 0,
+      "max" : "1",
+      "mustSupport" : true,
+      "mapping" : [{
+        "identity" : "req",
+        "map" : "REQ-WRT-4"
+      }]
+    },
+    {
+      "id" : "Endpoint.identifier:ehmEndpointId.system",
+      "path" : "Endpoint.identifier.system",
+      "min" : 1,
+      "patternUri" : "http://electronichealth.se/fhir/NDI/Endpoint"
+    },
+    {
+      "id" : "Endpoint.identifier:ehmEndpointId.value",
+      "path" : "Endpoint.identifier.value",
+      "short" : "EHM:s logiska id (UUID) för samma ändpunkt i deras register",
+      "min" : 1,
+      "mustSupport" : true
     },
     {
       "id" : "Endpoint.status",

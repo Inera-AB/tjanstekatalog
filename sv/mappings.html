@@ -205,6 +205,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><a href="#avvikelser-och-tillägg" id="markdown-toc-avvikelser-och-tillägg">Avvikelser och tillägg</a></li>
       <li><a href="#syfte-med-mappningarna" id="markdown-toc-syfte-med-mappningarna">Syfte med mappningarna</a></li>
       <li><a href="#mappningstabeller" id="markdown-toc-mappningstabeller">Mappningstabeller</a></li>
+      <li><a href="#mappning-mot-ehms-organization-endpoint-writer" id="markdown-toc-mappning-mot-ehms-organization-endpoint-writer">Mappning mot EHM:s Organization Endpoint Writer</a></li>
       <li><a href="#omappade-element" id="markdown-toc-omappade-element">Omappade element</a></li>
     </ul>
   </li>
@@ -300,11 +301,27 @@ definierar ingen kontrollerad vokabulär för attributet. Se REQ-END-6,
 REQ-END-7.</p>
   </li>
   <li>
-    <p><strong>Organisationsnummer-systemets URI är ett antagande.</strong> Identifierarsystemet
-som används för <code class="language-plaintext highlighter-rouge">Organisation.organisationsnummer</code>
-(<code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.13</code>, se <code class="language-plaintext highlighter-rouge">aliases.fsh</code>) är <strong>inte verifierat</strong> mot
-Ineras auktoritativa OID/URI-register i denna omgång. Det ska bekräftas —
-eller ersättas — innan implementation påbörjas. Se REQ-ORG-2.</p>
+    <p><strong>Organisationsnummer-systemets URI är valt för att matcha EHM.</strong>
+Identifierarsystemet för <code class="language-plaintext highlighter-rouge">Organisation.organisationsnummer</code>
+(<code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code>, se <code class="language-plaintext highlighter-rouge">aliases.fsh</code>) är hämtat från
+E-hälsomyndighetens (EHM) publicerade krav för sin Organization Endpoint
+Writer-operation (se "Mappning mot EHM:s Organization Endpoint Writer"
+nedan) — inte från ett internt Inera-beslut. En tidigare, ej verifierad
+gissning (<code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.13</code>) är ersatt. Att återanvända samma
+system som EHM kräver innebär att <code class="language-plaintext highlighter-rouge">Organization.identifier</code>-värden inte
+behöver systemöversättas vid synkronisering, bara formatteras om
+(bindestreck bort). Inera bör ändå separat bekräfta att detta även är
+Ineras egna föredragna kanoniska system. Se REQ-ORG-2.</p>
+  </li>
+  <li>
+    <p><strong>Ny identifierare för korrelation med EHM, utanför informationsunderlaget.</strong>
+<code class="language-plaintext highlighter-rouge">TKEndpoint.identifier</code> har en tillagd slice, <code class="language-plaintext highlighter-rouge">ehmEndpointId</code>, som bär
+EHM:s eget logiska id för samma ändpunkt i deras register. Detta element
+finns inte i det ursprungliga informationsunderlaget, men krävs eftersom
+EHM:s <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code> adresserar ändpunkten via
+EHM:s eget id (se REQ-WRT-4 och mappningen mot EHM nedan). Systemet
+<code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/Endpoint</code> är ett ANTAGET värde i
+väntan på bekräftelse av EHM:s faktiska bas-URL.</p>
   </li>
   <li>
     <p><strong>"Vård- och omsorgstagare" ges ingen egen FHIR-profil.</strong> Informationsunderlaget
@@ -327,10 +344,33 @@ och kopplingen dem emellan), inte personidentitet eller katalogisering av
 specifikationer i sig. En indexpost förväntas dessutom vara en
 serverhärledd sidoeffekt av att registrera en Organisation eller en Vård-
 och omsorgstagare, snarare än något en klient skapar direkt. Dessa tre
-entiteter är modellerade som logiska modeller för spårbarhet
-(se nedan), men REST-exponering (t.ex. API-specifikation som en profil på
-<code class="language-plaintext highlighter-rouge">Basic</code>) skjuts medvetet upp till en framtida version. Se REQ-MDL-1,
-REQ-MDL-2, REQ-MDL-4.</p>
+entiteter är modellerade som logiska modeller för spårbarhet (se nedan),
+men REST-exponering skjuts medvetet upp till en framtida version. Se
+REQ-MDL-1, REQ-MDL-2, REQ-MDL-4. Om/när API-specifikation REST-exponeras
+rekommenderas en nedbantad profil på <code class="language-plaintext highlighter-rouge">ImplementationGuide</code>, inte <code class="language-plaintext highlighter-rouge">Basic</code>
+— se nästa punkt.</p>
+  </li>
+  <li>
+    <p><strong>EHM realiserar "API-specifikation" som en profil på <code class="language-plaintext highlighter-rouge">ActorDefinition</code>
+("API Specification (ActorDefinition)") — ett modelleringsval vi
+avvisar.</strong> <code class="language-plaintext highlighter-rouge">ActorDefinition</code> är avsett att beskriva <em>aktörer</em>: typer av
+system eller individer som deltar i ett flöde (jämför denna IG:s egen
+<a href="ActorDefinition-tk-synkroniseringstjanst.html">TKSynkroniseringstjanst</a>
+eller EHM:s eget Organization Endpoint Writer-aktör). En
+interoperabilitetsspecifikation är inte en aktör — den är ett publicerat
+dokument/kontrakt, identifierat av sin egen kanoniska URI. Att låta en
+specifikation "vara" en ActorDefinition blandar samman två skilda begrepp
+och gör det svårare att t.ex. sökbart skilja "vilka aktörer finns" från
+"vilka specifikationer finns". Skulle denna IG i en framtida version
+REST-exponera <code class="language-plaintext highlighter-rouge">TKAPISpecification</code>, rekommenderas istället en nedbantad
+profil på <strong><code class="language-plaintext highlighter-rouge">ImplementationGuide</code></strong>: den bär redan <code class="language-plaintext highlighter-rouge">url</code> (kanoniskUrl),
+<code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">name</code> (maskinläsbartNamn), <code class="language-plaintext highlighter-rouge">title</code> (titel), <code class="language-plaintext highlighter-rouge">status</code>,
+<code class="language-plaintext highlighter-rouge">description</code> (beskrivning) och <code class="language-plaintext highlighter-rouge">date</code> (utgivningsdatum) som egna element,
+vilket passar en versionerad, publicerad specifikations livscykel bättre
+än både <code class="language-plaintext highlighter-rouge">ActorDefinition</code> och <code class="language-plaintext highlighter-rouge">Basic</code>. (<code class="language-plaintext highlighter-rouge">publisher</code> är dock <code class="language-plaintext highlighter-rouge">string</code> på
+<code class="language-plaintext highlighter-rouge">ImplementationGuide</code>, inte <code class="language-plaintext highlighter-rouge">Reference</code> — <code class="language-plaintext highlighter-rouge">ansvarigUtgivare</code> som
+<code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code> skulle då behöva uttryckas via en extension
+istället, eller bytas till en identifierare/text.) Se REQ-MDL-4.</p>
   </li>
 </ul>
 
@@ -458,7 +498,7 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
       <td>organisationsnummer</td>
       <td>0..1</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization.identifier</a> (slice <code class="language-plaintext highlighter-rouge">organisationsnummer</code>)</td>
-      <td>Identifierarsystem antaget, se avsteg ovan. REQ-ORG-2</td>
+      <td>Identifierarsystem valt för EHM-kompatibilitet, se avsteg ovan. REQ-ORG-2</td>
     </tr>
     <tr>
       <td><em>(har)</em></td>
@@ -645,6 +685,372 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
 
 <hr />
 
+<h3 id="mappning-mot-ehms-organization-endpoint-writer">Mappning mot EHM:s Organization Endpoint Writer</h3>
+
+<p>Detta avsnitt är inte en mappning mellan informationsunderlaget och denna
+IG:s egna profiler (som avsnitten ovan) — det är en mappning mellan <strong>denna
+IG:s</strong> data och <strong>E-hälsomyndighetens (EHM)</strong> API-struktur, för den aktör
+som läser härifrån och skriver dit.</p>
+
+<h4 id="roller-och-flöde">Roller och flöde</h4>
+
+<p>"Organization Endpoint Writer" är <strong>EHM:s egen aktörsroll</strong>, definierad i
+deras IG (<a href="https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/">Swedish Medical Record Index And Endpoint Registry</a>),
+inte en roll tjänstekatalogens administrativa API själv implementerar eller
+tar emot anrop som. Rollen antas av en fristående
+<strong>Synkroniseringstjänst</strong> (se <a href="ActorDefinition-tk-synkroniseringstjanst.html">ActorDefinition</a>
+och <a href="roles-and-responsibilities.html">Roller och ansvar</a>), som:</p>
+
+<ol>
+  <li>läser organisationer och ändpunkter från tjänstekatalogens administrativa
+API (se <a href="CapabilityStatement-tk-admin-api.html">CapabilityStatement: administrativt API</a>),
+särskilt vilka ändpunkter en organisation listar via
+<a href="SearchParameter-tk-endpoint-listed-by.html">SearchParameter: listed-by</a>;</li>
+  <li>säkerställer att motsvarande <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurs finns hos EHM (skapande/
+uppdatering av själva ändpunkten hos EHM via deras generella FHIR REST-
+gränssnitt — <strong>ej detaljerat mappat här ännu</strong>, se öppen fråga nedan);</li>
+  <li>anropar EHM:s <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code>, i rollen
+Organization Endpoint Writer, för att koppla/koppla loss en organisation
+till/från den ändpunkten hos EHM.</li>
+</ol>
+
+<p>EHM:s artefakter (definierade i deras IG, <strong>inte omdefinierade i denna IG</strong>
+— vi återpublicerar aldrig någon annans canonical-resurser under vår egen
+namnrymd):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Artefakt</th>
+      <th>Kanonisk URL (EHM)</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>ActorDefinition: Organization Endpoint Writer Actor</td>
+      <td><code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/ActorDefinition/organization-endpoint-writer-actor-er</code></td>
+    </tr>
+    <tr>
+      <td>CapabilityStatement: Organization Endpoint Writer Capabilities</td>
+      <td><code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er</code></td>
+    </tr>
+    <tr>
+      <td>StructureDefinition: Endpoint</td>
+      <td><code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/StructureDefinition/endpoint-er</code></td>
+    </tr>
+    <tr>
+      <td>StructureDefinition: Organization</td>
+      <td><code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/StructureDefinition/organization-er</code></td>
+    </tr>
+    <tr>
+      <td>OperationDefinition (id/canonical)</td>
+      <td><code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/OperationDefinition/AddOrganizationToEndpoint</code> / <code class="language-plaintext highlighter-rouge">.../RemoveOrganizationFromEndpoint</code></td>
+    </tr>
+    <tr>
+      <td>Faktisk anropsväg ($-kod, bekräftad separat från canonical ovan)</td>
+      <td><code class="language-plaintext highlighter-rouge">POST [base]/Endpoint/[id]/$add-organization</code> / <code class="language-plaintext highlighter-rouge">$remove-organization</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>EHM:s CapabilityStatement använder <code class="language-plaintext highlighter-rouge">kind = requirements</code> och konformansnivå
+MAY på både resursen och båda operationerna (<code class="language-plaintext highlighter-rouge">capabilitystatement-expectation</code>)
+— samma mönster som denna IG:s <a href="CapabilityStatement-tk-admin-api.html">CapabilityStatement: administrativt API</a>
+använder.</p>
+
+<h4 id="mappningstabell-skapauppdatera-endpoint-hos-ehm-steg-2">Mappningstabell: skapa/uppdatera <code class="language-plaintext highlighter-rouge">Endpoint</code> hos EHM (steg 2)</h4>
+
+<p>Innan <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code> kan anropas (steg 3) måste
+motsvarande <code class="language-plaintext highlighter-rouge">Endpoint</code> finnas hos EHM, konform med deras profil
+<code class="language-plaintext highlighter-rouge">endpoint-er</code>. Denna tabell mappar <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>
+mot EHM:s krav.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>EHM-element (<code class="language-plaintext highlighter-rouge">endpoint-er</code>)</th>
+      <th>Kard./bindning hos EHM</th>
+      <th>Källa i tjänstekatalogen</th>
+      <th>Transformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.name</code></td>
+      <td>1..1, regex <code class="language-plaintext highlighter-rouge">^[A-Öa-ö0-9 _\-.,'()&amp;/]+$</code>, max 255 tecken</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint.name</a></td>
+      <td>Kontrollera mot EHM:s teckenregex/längdgräns innan anrop — inget vi validerar idag.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.address</code></td>
+      <td>MS, ingen extra begränsning bortom bas-FHIR</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint.address</a></td>
+      <td>Direkt kopiering.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.status</code></td>
+      <td>Required binding: <code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/ValueSet/er-endpoint-statuses</code> (EHM:s egen, begränsade statuslista)</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint.status</a></td>
+      <td>Kontrollera att koden finns i EHM:s värdemängd — innehållet är inte känt här.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.period</code></td>
+      <td>MS, ingen ytterligare profilering (bas-FHIR)</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint.period</a></td>
+      <td>Direkt kopiering av giltigFrom/giltigTom.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.connectionType</code> (slice <code class="language-plaintext highlighter-rouge">protocol</code>)</td>
+      <td>0..1, required binding: <code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/ValueSet/er-endpoint-connection-type</code></td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint.connectionType</a></td>
+      <td>Välj den/de av våra <code class="language-plaintext highlighter-rouge">connectionType</code>-koder som beskriver protokollet (t.ex. <code class="language-plaintext highlighter-rouge">hl7-fhir-rest</code>, som redan förekommer i både vårt exempel och EHM:s) och lägg i denna slice.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.connectionType</code> (slice <code class="language-plaintext highlighter-rouge">securityMethod</code>)</td>
+      <td>0..1, required binding: <code class="language-plaintext highlighter-rouge">http://hl7.org/fhir/ValueSet/restful-security-service</code> (standard HL7-värdemängd, fixed <code class="language-plaintext highlighter-rouge">.system</code> = <code class="language-plaintext highlighter-rouge">http://hl7.org/fhir/restful-security-service</code>)</td>
+      <td><a href="StructureDefinition-tk-endpoint-security-method.html">TKEndpointSecurityMethod</a> (extension)</td>
+      <td><strong>Kräver kodöversättning</strong> — se tabellen nedan. EHM lägger säkerhetsmetoden som en <code class="language-plaintext highlighter-rouge">connectionType</code>-slice, inte som en egen extension som denna IG gör.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.extension:associatedServer</code> (nästlad: <code class="language-plaintext highlighter-rouge">associatedServerType</code> fixed <code class="language-plaintext highlighter-rouge">authorization</code>, <code class="language-plaintext highlighter-rouge">serverURL</code> — regex <code class="language-plaintext highlighter-rouge">^https://[/.A-Öa-ö0-9]+$</code>, max 255 tecken)</td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-endpoint-authorization-server-url.html">TKEndpointAuthorizationServerUrl</a> (extension)</td>
+      <td><strong>Kräver strukturell ombyggnad</strong>, inte bara värdekopiering: vår platta url-extension blir hos EHM en nästlad extension med en fast typkod (<code class="language-plaintext highlighter-rouge">authorization</code>) och värdet i en egen <code class="language-plaintext highlighter-rouge">serverURL</code>-subextension. Kontrollera regex/längd innan anrop.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Endpoint.payload.extension:apiSpecification</code> (typ: extension-profil <code class="language-plaintext highlighter-rouge">endpoint-payload-actor-definition-er</code>, troligen <code class="language-plaintext highlighter-rouge">canonical(ActorDefinition)</code> — profilens egen definition är inte inhämtad, men bekräftas indirekt av sökparametern <code class="language-plaintext highlighter-rouge">actor</code>)</td>
+      <td><strong>1..1 per payload (obligatorisk, ej upprepningsbar)</strong></td>
+      <td><a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a> (extension på <code class="language-plaintext highlighter-rouge">payload</code>)</td>
+      <td><strong>Kardinalitetsskillnad:</strong> vår extension tillåter 0..* specifikationer per payload; EHM tillåter exakt 1. Om en payload hos oss anger flera specifikationer måste den delas upp i flera separata <code class="language-plaintext highlighter-rouge">payload</code>-poster hos EHM, en per specifikation.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="mappningstabell-skapauppdatera-organization-hos-ehm">Mappningstabell: skapa/uppdatera <code class="language-plaintext highlighter-rouge">Organization</code> hos EHM</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>EHM-element (<code class="language-plaintext highlighter-rouge">organization-er</code>)</th>
+      <th>Kard./bindning hos EHM</th>
+      <th>Källa i tjänstekatalogen</th>
+      <th>Transformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Organization.identifier</code> (slice <code class="language-plaintext highlighter-rouge">organizationIdentifier</code>)</td>
+      <td>system fixed <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code>, värde regex <code class="language-plaintext highlighter-rouge">^\d{6}\d{4}$</code> (10 siffror)</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization.identifier</a>[<code class="language-plaintext highlighter-rouge">organisationsnummer</code>]</td>
+      <td>Systemet matchar redan. Bindestreck i värdet tas bort (samma som i operationsmappningen ovan).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Organization.identifier</code> (slice <code class="language-plaintext highlighter-rouge">personalIdentityNumber</code> / <code class="language-plaintext highlighter-rouge">coordinationNumber</code>)</td>
+      <td>system fixed resp. <code class="language-plaintext highlighter-rouge">http://electronichealth.se/identifier/personnummer</code> / <code class="language-plaintext highlighter-rouge">.../samordningsnummer</code>, värde regex för 12-siffrigt personnummer/samordningsnummer</td>
+      <td>—</td>
+      <td>Denna IG:s <code class="language-plaintext highlighter-rouge">TKOrganization</code> har idag bara en <code class="language-plaintext highlighter-rouge">organisationsnummer</code>-slice (se REQ-ORG-2) — inte personnummer/samordningsnummer-slicer för enskilda firmor. Öppen fråga, se nedan.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Organization.type</code></td>
+      <td>0..1, required binding: <code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/ValueSet/er-organization-type</code></td>
+      <td>—</td>
+      <td><strong>Saknar källa.</strong> Informationsunderlagets Organisation-entitet har ingen "typ"-attribut att mappa från. Öppen fråga, se nedan.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">Organization.endpoint</code></td>
+      <td><code class="language-plaintext highlighter-rouge">targetProfile</code> = EHM:s <code class="language-plaintext highlighter-rouge">endpoint-er</code></td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization.endpoint</a></td>
+      <td>Referenserna ska peka på <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurser som redan skapats hos EHM (steg 2 ovan), inte på tjänstekatalogens egna <code class="language-plaintext highlighter-rouge">Endpoint</code>-id:n.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="kodöversättning-säkerhetsmetod">Kodöversättning: säkerhetsmetod</h4>
+
+<p>Denna IG:s <a href="ValueSet-tk-endpoint-security-method.html">TKEndpointSecurityMethodVS</a>
+(eget, preliminärt kodverk) mot HL7:s standardvärdemängd
+<code class="language-plaintext highlighter-rouge">http://hl7.org/fhir/ValueSet/restful-security-service</code>, som EHM kräver:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Vår kod (<code class="language-plaintext highlighter-rouge">tk-endpoint-security-method</code>)</th>
+      <th>EHM/HL7-kod (<code class="language-plaintext highlighter-rouge">restful-security-service</code>)</th>
+      <th>Notering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">oauth2-client-credentials</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OAuth</code></td>
+      <td>HL7:s värdemängd skiljer inte på OAuth 2.0-flöden.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">oauth2-authorization-code</code></td>
+      <td><code class="language-plaintext highlighter-rouge">OAuth</code> (eller <code class="language-plaintext highlighter-rouge">SMART-on-FHIR</code> om aktuellt)</td>
+      <td>Som ovan — kräver verksamhetsbeslut om vilken kod som är korrekt i det enskilda fallet.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">mutual-tls</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Certificates</code></td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">saml2</code></td>
+      <td><em>Ingen motsvarighet</em></td>
+      <td>HL7:s värdemängd saknar en SAML-kod. Öppen fråga, se nedan.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">none</code></td>
+      <td><em>Utelämna slicen</em></td>
+      <td>EHM:s <code class="language-plaintext highlighter-rouge">securityMethod</code>-slice är 0..1 — om ingen säkerhetsmetod finns, utelämnas slicen istället för att sättas till en kod.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="mappningstabell-add-organization--remove-organization-steg-3">Mappningstabell: <code class="language-plaintext highlighter-rouge">$add-organization</code> / <code class="language-plaintext highlighter-rouge">$remove-organization</code> (steg 3)</h4>
+
+<p>Båda operationerna har samma parameterstruktur (skillnaden är bara om
+organisationen läggs till eller tas bort).</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>EHM-parameter</th>
+      <th>Kard.</th>
+      <th>Typ</th>
+      <th>Källa i tjänstekatalogen</th>
+      <th>Transformation</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">id</code> (URL-segment, EHM:s Endpoint-id)</td>
+      <td>1..1</td>
+      <td><code class="language-plaintext highlighter-rouge">string</code> (UUID)</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint.identifier</a>[<code class="language-plaintext highlighter-rouge">ehmEndpointId</code>]</td>
+      <td>Ingen — värdet SKA redan vara EHM:s tilldelade id (se REQ-WRT-4). Om det saknas kan operationen inte anropas — ändpunkten måste först finnas hos EHM (steg 2 i flödet ovan).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">organization</code> (body, <code class="language-plaintext highlighter-rouge">Parameters</code>)</td>
+      <td>1..1</td>
+      <td><code class="language-plaintext highlighter-rouge">Identifier</code> (system + value)</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization.identifier</a>[<code class="language-plaintext highlighter-rouge">organisationsnummer</code>]</td>
+      <td>Systemet <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. Alternativt kan personnummer/samordningsnummer användas om organisationen identifieras så istället (samma system som <code class="language-plaintext highlighter-rouge">$personnummer</code>/<code class="language-plaintext highlighter-rouge">$samordningsnummer</code> i <code class="language-plaintext highlighter-rouge">aliases.fsh</code>, redan matchande).</td>
+    </tr>
+    <tr>
+      <td><em>(retur)</em> <code class="language-plaintext highlighter-rouge">return</code></td>
+      <td>1..1</td>
+      <td><code class="language-plaintext highlighter-rouge">OperationOutcome</code></td>
+      <td>—</td>
+      <td>Ingen resurs returneras (varken uppdaterad Organization eller Endpoint) — bara en <code class="language-plaintext highlighter-rouge">OperationOutcome</code> med en framgångs-, informations- eller felkod. Se svarshantering nedan.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Exempel på anropskropp (organisationsnummer, bindestreck borttaget):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parameters"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"parameter"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"organization"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"valueIdentifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oid:2.5.4.97"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2321000016"</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<h4 id="svarshantering">Svarshantering</h4>
+
+<p>EHM:s operationer är idempotenta och signalerar det via <code class="language-plaintext highlighter-rouge">OperationOutcome</code>,
+inte via HTTP-statuskod ensam:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>EHM-kod</th>
+      <th>Severity</th>
+      <th>Betydelse</th>
+      <th>Hur synkroniseringstjänsten bör agera</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4-38-301</code></td>
+      <td>success</td>
+      <td>Organisationen lades till</td>
+      <td>Klart.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4-38-302</code></td>
+      <td>success</td>
+      <td>Organisationen togs bort</td>
+      <td>Klart.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4-38-303</code></td>
+      <td>information</td>
+      <td>Organisationen fanns redan kopplad</td>
+      <td>Behandla som lyckat (idempotent) — inte ett fel.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">4-38-304</code></td>
+      <td>information</td>
+      <td>Organisationen var redan bortkopplad</td>
+      <td>Behandla som lyckat (idempotent) — inte ett fel.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">2-38-1</code>, <code class="language-plaintext highlighter-rouge">2-38-8</code>, <code class="language-plaintext highlighter-rouge">2-38-9</code>, <code class="language-plaintext highlighter-rouge">2-38-4</code>, <code class="language-plaintext highlighter-rouge">2-38-2</code>, <code class="language-plaintext highlighter-rouge">2-44-X</code>, <code class="language-plaintext highlighter-rouge">2-38-7</code></td>
+      <td>error</td>
+      <td>Se EHM:s fullständiga felkodskatalog</td>
+      <td>Verkligt fel — vanligast: fel identifierarsystem/format (<code class="language-plaintext highlighter-rouge">2-38-4</code>/<code class="language-plaintext highlighter-rouge">2-38-2</code>/<code class="language-plaintext highlighter-rouge">2-38-7</code>/<code class="language-plaintext highlighter-rouge">2-44-X</code>) eller okänt <code class="language-plaintext highlighter-rouge">id</code> (<code class="language-plaintext highlighter-rouge">2-38-8</code>). Kontrollera mappningen ovan innan omförsök.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Se <a href="error-handling.html">Felhantering</a> för tjänstekatalogens egen
+felhantering — EHM:s felkodskatalog är separat och dokumenteras i sin helhet
+i deras egen IG.</p>
+
+<h4 id="öppna-frågor">Öppna frågor</h4>
+
+<ul>
+  <li><strong><code class="language-plaintext highlighter-rouge">Organization.type</code> saknar källa.</strong> EHM kräver (0..1, men MustSupport)
+en typkod från <code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/ValueSet/er-organization-type</code>
+på <code class="language-plaintext highlighter-rouge">Organization</code>. Informationsunderlagets Organisation-entitet har inget
+motsvarande attribut. Antingen behöver denna IG:s modell utökas med ett
+sådant attribut, eller så behöver Synkroniseringstjänsten härleda/anta ett
+värde på annat sätt, eller så utelämnas elementet (tillåtet, eftersom det
+är 0..1 hos EHM).</li>
+  <li><strong>Personnummer/samordningsnummer för enskilda firmor saknas i <code class="language-plaintext highlighter-rouge">TKOrganization</code>.</strong>
+EHM:s <code class="language-plaintext highlighter-rouge">Organization</code>-profil har slicer för detta (en enskild firma
+identifieras med ägarens personnummer, inte ett organisationsnummer) men
+denna IG:s <code class="language-plaintext highlighter-rouge">TKOrganization.identifier</code> har idag bara en
+<code class="language-plaintext highlighter-rouge">organisationsnummer</code>-slice. Behöver läggas till om tjänstekatalogen ska
+hantera enskilda firmor.</li>
+  <li><strong><code class="language-plaintext highlighter-rouge">saml2</code> som säkerhetsmetod saknar motsvarighet</strong> i HL7:s
+<code class="language-plaintext highlighter-rouge">restful-security-service</code>-värdemängd, som EHM kräver för sin
+<code class="language-plaintext highlighter-rouge">securityMethod</code>-slice. Kräver antingen ett verksamhetsbeslut om hur
+SAML 2.0-skyddade ändpunkter ska representeras hos EHM, eller att de inte
+kan synkroniseras dit i nuläget.</li>
+  <li><strong>Extensionen <code class="language-plaintext highlighter-rouge">endpoint-payload-actor-definition-er</code>s exakta definition</strong>
+(värdetyp, om den verkligen är <code class="language-plaintext highlighter-rouge">canonical(ActorDefinition)</code>) är inte
+inhämtad — antagen utifrån namnet, sökparametern <code class="language-plaintext highlighter-rouge">actor</code> och exemplen.</li>
+  <li><strong>Bas-URL:en för <code class="language-plaintext highlighter-rouge">identifier[ehmEndpointId].system</code></strong>
+(<code class="language-plaintext highlighter-rouge">http://electronichealth.se/fhir/NDI/Endpoint</code>) är ett antagande baserat
+på mönstret i EHM:s övriga canonical-URL:er, inte bekräftat mot EHM:s
+faktiska serveradress.</li>
+  <li><strong>Om Inera bekräftar <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code></strong> som sitt eget föredragna system
+för organisationsnummer, kan noteringen om att det är "valt för
+EHM-kompatibilitet" tas bort — se REQ-ORG-2.</li>
+</ul>
+
+<hr />
+
 <h3 id="omappade-element">Omappade element</h3>
 
 <table>
@@ -698,7 +1104,7 @@ att profilerna utvecklas. Mappningar kan också uttryckas med FHIR
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

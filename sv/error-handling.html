@@ -231,11 +231,6 @@ för REST-fel.</p>
       <td>—</td>
     </tr>
     <tr>
-      <td><code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code>/<code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> med <code class="language-plaintext highlighter-rouge">organization</code>-parameter som saknas eller inte kan lösas upp</td>
-      <td><code class="language-plaintext highlighter-rouge">400 Bad Request</code></td>
-      <td><code class="language-plaintext highlighter-rouge">invalid</code> eller <code class="language-plaintext highlighter-rouge">not-found</code></td>
-    </tr>
-    <tr>
       <td>Autentisering saknas eller är ogiltig</td>
       <td><code class="language-plaintext highlighter-rouge">401 Unauthorized</code></td>
       <td><code class="language-plaintext highlighter-rouge">login</code></td>
@@ -260,6 +255,11 @@ för REST-fel.</p>
 
 <p>Se <a href="security.html">Säkerhet och behörighet</a> för autentiserings- och
 behörighetsmodellen som styr <code class="language-plaintext highlighter-rouge">401</code>/<code class="language-plaintext highlighter-rouge">403</code>-fallen.</p>
+
+<p>Tabellen ovan gäller tjänstekatalogens egna interaktioner. EHM:s
+<code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code> har en egen felkodskatalog
+(returnerad som <code class="language-plaintext highlighter-rouge">OperationOutcome</code>, inte HTTP-statuskod ensam) — se
+<a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a>.</p>
 
 
 
@@ -289,7 +289,7 @@ behörighetsmodellen som styr <code class="language-plaintext highlighter-rouge"
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

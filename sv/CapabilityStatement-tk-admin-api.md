@@ -3,7 +3,7 @@
 ## CapabilityStatement: Tjänstekatalogen: administrativt API (Experimentell) 
 
  
-Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md)) och mottagning av anrop från en [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.md). 
+Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md)). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen "Organization Endpoint Writer" — se "Mappning mot EHM:s Organization Endpoint Writer" i mappings.html. 
 
  [Rå OpenAPI-Swagger-definitionsfil](../tk-admin-api.openapi.json) | [Ladda ner](../tk-admin-api.openapi.json) 
 
@@ -30,7 +30,7 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)) och mottagning av anrop från en [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html).",
+  "description" : "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -106,22 +106,6 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
         "definition" : "http://hl7.org/fhir/SearchParameter/Endpoint-status",
         "type" : "token",
         "documentation" : "Sök ändpunkter efter status."
-      }],
-      "operation" : [{
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-          "valueCode" : "MAY"
-        }],
-        "name" : "add-organization-to-endpoint",
-        "definition" : "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint"
-      },
-      {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation",
-          "valueCode" : "MAY"
-        }],
-        "name" : "remove-organization-from-endpoint",
-        "definition" : "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint"
       }]
     }]
   }]

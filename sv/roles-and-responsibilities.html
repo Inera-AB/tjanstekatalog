@@ -213,11 +213,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <tbody>
     <tr>
       <td><strong>Tjänstekatalogen (server)</strong></td>
-      <td>Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive <code class="language-plaintext highlighter-rouge">listed-by</code>), och tar emot anrop från Organization Endpoint Writer-system.</td>
+      <td>Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive <code class="language-plaintext highlighter-rouge">listed-by</code>).</td>
     </tr>
     <tr>
-      <td><strong>Organization Endpoint Writer</strong></td>
-      <td>System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen — skapar/uppdaterar ändpunkter och kopplar/kopplar loss dem till organisationer. Se <a href="ActorDefinition-tk-organization-endpoint-writer.html">Actor Definition: Organization Endpoint Writer</a>. Mönstret är hämtat från och avsett att vara kompatibelt med motsvarande aktör hos andra nationella register över tekniska ändpunkter.</td>
+      <td><strong>Synkroniseringstjänst</strong></td>
+      <td>System som läser organisationer och tekniska ändpunkter från tjänstekatalogens administrativa API, och håller E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat genom att i <strong>EHM:s</strong> system anta rollen <strong>Organization Endpoint Writer</strong>. Se <a href="ActorDefinition-tk-synkroniseringstjanst.html">ActorDefinition: Synkroniseringstjänst</a> och <a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a> för hur data mappas mellan de två gränssnitten.</td>
     </tr>
     <tr>
       <td><strong>Sökande konsument</strong></td>
@@ -225,6 +225,12 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
   </tbody>
 </table>
+
+<p>Organization Endpoint Writer är alltså inte en roll denna IG:s administrativa
+API själv tar emot anrop i — det är <strong>EHM:s</strong> aktörsroll, definierad i deras
+egen IG (<a href="https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/">Swedish Medical Record Index And Endpoint Registry</a>).
+Synkroniseringstjänsten är den part som antar den rollen mot EHM, efter att
+först ha läst data härifrån.</p>
 
 <p>Förväntningar per roll, uttryckta enligt HL7 FHIR:s terminologi för
 förmågor (SHALL/SHOULD/MAY):</p>
@@ -239,11 +245,11 @@ förmågor (SHALL/SHOULD/MAY):</p>
   <tbody>
     <tr>
       <td>Tjänstekatalogen (server)</td>
-      <td>SKA kunna producera <code class="language-plaintext highlighter-rouge">Organization</code>- och <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurser som uppfyller <a href="StructureDefinition-tk-organization.html">TKOrganization</a> respektive <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>. SKA stödja sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code> (REQ-SRCH-1). FÅR ta emot anrop till <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> och <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> (REQ-WRT-1, REQ-WRT-2).</td>
+      <td>SKA kunna producera <code class="language-plaintext highlighter-rouge">Organization</code>- och <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurser som uppfyller <a href="StructureDefinition-tk-organization.html">TKOrganization</a> respektive <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>. SKA stödja sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code> (REQ-SRCH-1).</td>
     </tr>
     <tr>
-      <td>Organization Endpoint Writer</td>
-      <td>SKA kunna producera <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurser som uppfyller <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>. FÅR anropa <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> och <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> för att hantera "har"-relationen till en organisation, som ett alternativ till att skriva direkt till <code class="language-plaintext highlighter-rouge">Organization.endpoint</code>.</td>
+      <td>Synkroniseringstjänst</td>
+      <td>SKA läsa organisationer/ändpunkter härifrån (REQ-WRT-1). FÅR anropa EHM:s <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code> för att hantera "har"-relationen i EHM:s register (REQ-WRT-2, REQ-WRT-3), med data mappad enligt <a href="mappings.html">mappningstabellen</a> (REQ-WRT-4, REQ-WRT-5).</td>
     </tr>
     <tr>
       <td>Sökande konsument</td>
@@ -253,20 +259,20 @@ förmågor (SHALL/SHOULD/MAY):</p>
 </table>
 
 <p>Fr.o.m. FHIR R5 kan <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> uttrycka denna typ av förväntningar
-formellt via elementet <code class="language-plaintext highlighter-rouge">obligations</code>. Denna IG definierar två formella
-CapabilityStatements — <a href="CapabilityStatement-tk-admin-api.html">administrativt API</a>
-(serverroll) och <a href="CapabilityStatement-tk-organization-endpoint-writer.html">Organization Endpoint Writer Capabilities</a>
-(klientroll) — se <a href="capabilitystatement.html">CapabilityStatement</a> under
-Implementering. Konformansnivåerna för de två operationerna uttrycks där med
-<code class="language-plaintext highlighter-rouge">capabilitystatement-expectation</code> (MAY), i linje med motsvarande aktör hos
-andra nationella register.</p>
+formellt via elementet <code class="language-plaintext highlighter-rouge">obligations</code>. Denna IG definierar ett formellt
+CapabilityStatement för sin egen serverroll — <a href="CapabilityStatement-tk-admin-api.html">administrativt API</a> —
+se <a href="capabilitystatement.html">CapabilityStatement</a> under Implementering. EHM:s
+Organization Endpoint Writer Capabilities är ett separat CapabilityStatement,
+definierat och publicerat av EHM i deras egen IG, inte här.</p>
 
-<p>Arbetsflödet för att koppla en ändpunkt till en organisation utlöses av att en
-Organization Endpoint Writer identifierar en ny eller ändrad ändpunkt hos sin
-egen organisation. Writern registrerar (eller uppdaterar) ändpunkten i
-tjänstekatalogen och anropar därefter <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> för att
-lista den under rätt organisation; en sökande konsument kan därefter hitta
-ändpunkten via <code class="language-plaintext highlighter-rouge">listed-by</code>. Se <a href="information-basis.html">Informationsunderlag</a>
+<p>Arbetsflödet för att koppla en ändpunkt till en organisation utlöses av att
+Synkroniseringstjänsten upptäcker en ny eller ändrad koppling i
+tjänstekatalogen (t.ex. via <code class="language-plaintext highlighter-rouge">listed-by</code>). Den säkerställer att motsvarande
+ändpunkt finns hos EHM och anropar därefter EHM:s <code class="language-plaintext highlighter-rouge">$add-organization</code> för att
+koppla rätt organisation till den, enligt mappningen i
+<a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a>; en sökande
+konsument kan hela tiden hitta ändpunkten i tjänstekatalogen via <code class="language-plaintext highlighter-rouge">listed-by</code>,
+oberoende av EHM-synkroniseringen. Se <a href="information-basis.html">Informationsunderlag</a>
 för den fullständiga, auktoritativa beskrivningen av entiteterna som ingår.</p>
 
 <hr />
@@ -304,7 +310,7 @@ föreskrifter eller RIVTA-tjänstekontrakt där det är tillämpligt.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 

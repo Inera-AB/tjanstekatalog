@@ -12,7 +12,7 @@
   <name value="IneraTjanstekatalog"/>
   <title value="Tjänstekatalogen"/>
   <status value="draft"/>
-  <date value="2026-09-08T11:37:33+00:00"/>
+  <date value="2026-09-08T12:25:30+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>
@@ -52,17 +52,6 @@
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
       <valueCode value="hl7.fhir.uv.tools.r5#1.1.2"/>
     </extension>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="OperationDefinition"/>
-      </extension>
-      <reference>
-        <reference value="OperationDefinition/tk-endpoint-add-organization-to-endpoint"/>
-      </reference>
-      <name value="Add Organization To Endpoint"/>
-      <description value="Lägger till en referens till denna Endpoint i den angivna organisationens Organization.endpoint-lista (&quot;har&quot;-relationen). Ändrar inte Endpoint.managingOrganization (&quot;förvaltar&quot;)."/>
-      <isExample value="false"/>
-    </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:logical"/>
@@ -156,39 +145,6 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ActorDefinition"/>
-      </extension>
-      <reference>
-        <reference value="ActorDefinition/tk-organization-endpoint-writer"/>
-      </reference>
-      <name value="Organization Endpoint Writer"/>
-      <description value="Aktör: System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen."/>
-      <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CapabilityStatement"/>
-      </extension>
-      <reference>
-        <reference value="CapabilityStatement/tk-organization-endpoint-writer"/>
-      </reference>
-      <name value="Organization Endpoint Writer Capabilities"/>
-      <description value="Detta CapabilityStatement beskriver de FHIR REST-förmågor som aktören Organization Endpoint Writer ska stödja."/>
-      <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="OperationDefinition"/>
-      </extension>
-      <reference>
-        <reference value="OperationDefinition/tk-endpoint-remove-organization-from-endpoint"/>
-      </reference>
-      <name value="Remove Organization From Endpoint"/>
-      <description value="Tar bort referensen till denna Endpoint från den angivna organisationens Organization.endpoint-lista (&quot;har&quot;-relationen). Ändrar inte Endpoint.managingOrganization (&quot;förvaltar&quot;)."/>
-      <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:extension"/>
       </extension>
       <reference>
@@ -196,6 +152,17 @@
       </reference>
       <name value="Stödd specifikation (payload profile)"/>
       <description value="Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller profil) som denna nyttolast/API stödjer. Motsvarar det kommande elementet Endpoint.payload.profile. Kan upprepas om nyttolasten stödjer flera specifikationer eller versioner."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ActorDefinition"/>
+      </extension>
+      <reference>
+        <reference value="ActorDefinition/tk-synkroniseringstjanst"/>
+      </reference>
+      <name value="Synkroniseringstjänst"/>
+      <description value="Aktör: System som läser organisationer och ändpunkter från tjänstekatalogens administrativa API och håller E-hälsomyndighetens nationella register synkroniserat genom att, i deras system, anta rollen Organization Endpoint Writer."/>
       <isExample value="false"/>
     </resource>
     <resource>

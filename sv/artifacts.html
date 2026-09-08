@@ -204,28 +204,25 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          <a href="#3">Beteende: Förmågedeklarationer</a>
       </li>
       <li>
-         <a href="#4">Beteende: Operationsdefinitioner</a>
+         <a href="#4">Beteende: Sökparametrar</a>
       </li>
       <li>
-         <a href="#5">Beteende: Sökparametrar</a>
+         <a href="#5">Strukturer: Logiska modeller</a>
       </li>
       <li>
-         <a href="#6">Strukturer: Logiska modeller</a>
+         <a href="#6">Strukturer: Resursprofiler</a>
       </li>
       <li>
-         <a href="#7">Strukturer: Resursprofiler</a>
+         <a href="#7">Strukturer: Extensiondefinitioner</a>
       </li>
       <li>
-         <a href="#8">Strukturer: Extensiondefinitioner</a>
+         <a href="#8">Terminologi: Värdemängder</a>
       </li>
       <li>
-         <a href="#9">Terminologi: Värdemängder</a>
+         <a href="#9">Terminologi: Kodsystem</a>
       </li>
       <li>
-         <a href="#10">Terminologi: Kodsystem</a>
-      </li>
-      <li>
-         <a href="#11">Exempel: Exempelinstanser</a>
+         <a href="#10">Exempel: Exempelinstanser</a>
       </li>
    </ul>
 </div>
@@ -242,14 +239,14 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="ActorDefinition-tk-organization-endpoint-writer.html"
-                  title="ActorDefinition/tk-organization-endpoint-writer">
-                  <span title="ActorDefinition/tk-organization-endpoint-writer">Organization Endpoint Writer
+               <a href="ActorDefinition-tk-synkroniseringstjanst.html"
+                  title="ActorDefinition/tk-synkroniseringstjanst">
+                  <span title="ActorDefinition/tk-synkroniseringstjanst">Synkroniseringstjänst
 </span>
                </a>
             </td>
             <td>
-<p>Aktör: System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen.</p>
+<p>Aktör: System som läser organisationer och ändpunkter från tjänstekatalogens administrativa API och håller E-hälsomyndighetens nationella register synkroniserat genom att, i deras system, anta rollen Organization Endpoint Writer.</p>
 </td>
          </tr>
       </tbody>
@@ -282,18 +279,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
-               <a href="CapabilityStatement-tk-organization-endpoint-writer.html"
-                  title="CapabilityStatement/tk-organization-endpoint-writer">
-                  <span title="CapabilityStatement/tk-organization-endpoint-writer">Organization Endpoint Writer Capabilities
-</span>
-               </a>
-            </td>
-            <td>
-<p>Detta CapabilityStatement beskriver de FHIR REST-förmågor som aktören Organization Endpoint Writer ska stödja.</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
                <a href="CapabilityStatement-tk-admin-api.html"
                   title="CapabilityStatement/tk-admin-api">
                   <span title="CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API
@@ -307,38 +292,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       </tbody>
    </table>
    <a name="4"> </a>
-   <h3>Beteende: Operationsdefinitioner </h3>
-    <p>Detta är anpassade operationer som kan stödjas av och/eller anropas av system som följer denna implementationsguide.</p>
-<table class="grid">
-      <col style="width:20%"/>
-      <tbody>
-         <tr>
-            <td style="column-width:30%">
-               <a href="OperationDefinition-tk-endpoint-add-organization-to-endpoint.html"
-                  title="OperationDefinition/tk-endpoint-add-organization-to-endpoint">
-                  <span title="OperationDefinition/tk-endpoint-add-organization-to-endpoint">Add Organization To Endpoint
-</span>
-               </a>
-            </td>
-            <td>
-<p>Lägger till en referens till denna Endpoint i den angivna organisationens Organization.endpoint-lista ("har"-relationen). Ändrar inte Endpoint.managingOrganization ("förvaltar").</p>
-</td>
-         </tr>
-         <tr>
-            <td style="column-width:30%">
-               <a href="OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html"
-                  title="OperationDefinition/tk-endpoint-remove-organization-from-endpoint">
-                  <span title="OperationDefinition/tk-endpoint-remove-organization-from-endpoint">Remove Organization From Endpoint
-</span>
-               </a>
-            </td>
-            <td>
-<p>Tar bort referensen till denna Endpoint från den angivna organisationens Organization.endpoint-lista ("har"-relationen). Ändrar inte Endpoint.managingOrganization ("förvaltar").</p>
-</td>
-         </tr>
-      </tbody>
-   </table>
-   <a name="5"> </a>
    <h3>Beteende: Sökparametrar </h3>
     <p>Dessa definierar de egenskaper som en RESTful-server kan sökas på. De kan också användas för sortering och inkludering av relaterade resurser.</p>
 <table class="grid">
@@ -358,7 +311,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
       </tbody>
    </table>
-   <a name="6"> </a>
+   <a name="5"> </a>
    <h3>Strukturer: Logiska modeller </h3>
     <p>Dessa definierar datamodeller som representerar den domän som täcks av denna implementationsguide i mer verksamhetsvänliga termer än de underliggande FHIR-resurserna.</p>
 <table class="grid">
@@ -402,7 +355,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
       </tbody>
    </table>
-   <a name="7"> </a>
+   <a name="6"> </a>
    <h3>Strukturer: Resursprofiler </h3>
     <p>Dessa definierar begränsningar på FHIR-resurser för system som följer denna implementationsguide.</p>
 <table class="grid">
@@ -464,7 +417,7 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
          </tr>
       </tbody>
    </table>
-   <a name="8"> </a>
+   <a name="7"> </a>
    <h3>Strukturer: Extensiondefinitioner </h3>
     <p>Dessa definierar begränsningar på FHIR-datatyper för system som följer denna implementationsguide.</p>
 <table class="grid">
@@ -508,7 +461,7 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
          </tr>
       </tbody>
    </table>
-   <a name="9"> </a>
+   <a name="8"> </a>
    <h3>Terminologi: Värdemängder </h3>
     <p>Dessa definierar uppsättningar av koder som används av system som följer denna implementationsguide.</p>
 <table class="grid">
@@ -528,7 +481,7 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
          </tr>
       </tbody>
    </table>
-   <a name="10"> </a>
+   <a name="9"> </a>
    <h3>Terminologi: Kodsystem </h3>
     <p>Dessa definierar nya kodsystem som används av system som följer denna implementationsguide.</p>
 <table class="grid">
@@ -548,7 +501,7 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
          </tr>
       </tbody>
    </table>
-   <a name="11"> </a>
+   <a name="10"> </a>
    <h3>Exempel: Exempelinstanser </h3>
     <p>Detta är exempelinstanser som visar hur data som produceras och konsumeras av system som följer denna implementationsguide kan se ut.</p>
 <table class="grid">
@@ -619,7 +572,7 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 11:37:00 +0000">
+  <span title="2026-09-08 12:25:00 +0000">
     2026-09-08
   </span>
 
