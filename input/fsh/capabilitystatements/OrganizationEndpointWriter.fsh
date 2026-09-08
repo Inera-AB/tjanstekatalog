@@ -25,7 +25,10 @@ Description: "Detta CapabilityStatement beskriver de FHIR REST-förmågor som ak
 * contact.telecom.value = "https://www.inera.se"
 * description = "Detta CapabilityStatement beskriver de FHIR REST-förmågor som aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html) ska stödja."
 * jurisdiction = urn:iso:std:iso:3166#SE "Sweden"
-* kind = #capability
+// kind=requirements (not capability): this describes what a conformant
+// Organization Endpoint Writer client SHOULD support, not one specific
+// product, so neither .software nor .implementation applies (R5 cpb-15/16).
+* kind = #requirements
 * fhirVersion = #5.0.0
 * format[0] = #json
 * rest[0].mode = #client
