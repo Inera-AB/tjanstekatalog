@@ -34,6 +34,24 @@ OperationDefinition/tk-endpoint-remove-organization-from-endpoint: OperationDefi
 SearchParameter/tk-endpoint-listed-by: SearchParameter.base[0]: Det angivna värdet ('Endpoint') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke "String.equals(Object)" because "system" is null)
 SearchParameter/tk-endpoint-listed-by: SearchParameter.target[0]: Det angivna värdet ('Organization') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke "String.equals(Object)" because "system" is null)
 
+# Logical models (TKIndexpost, TKAPISpecification, TKVardOchOmsorgstagare) get
+# their `.type` set to their own canonical URL, per FHIR's own convention for
+# logical models that don't map onto a concrete data type (this is standard
+# FSH `Logical:` behaviour, not a mistake). That makes every element's
+# generated `.path` start with that URL, which trips the eld-20 "first path
+# component should be UpperCamelCase" invariant on every single element (22
+# occurrences across the three logical models). The invariant's own text
+# explicitly carves this out: "Logical models may be less concerned about
+# this implication." Confirmed against the real build via PR #1.
+Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\.[a-z][A-Za-z0-9]{0,63}(\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)
+
+# Same root cause as the Sweden-display-name suppression above (offline
+# `-tx n/a` build can't reach a terminology server to validate
+# urn:iso:std:iso:3166 codes), but a newer IG Publisher version phrases it
+# differently, so the existing entry didn't actually match. Recurs once per
+# resource that carries `^jurisdiction` (18 occurrences) — acceptable.
+En definition för CodeSystem 'urn:iso:std:iso:3166' kunde inte hittas, så koden kan inte valideras
+
 # Standard xhtml fragments not included — acceptable when using a custom local template
 The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide
 An HTML fragment from the set [cross-version-analysis.xhtml, cross-version-analysis-inline.xhtml] is not included anywhere in the produced implementation guide
