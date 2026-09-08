@@ -5,7 +5,7 @@ const path = require('path');
 
 const OUTPUT_DIR = 'output';
 const BUILD_LOG = 'build.log';
-const MAX_ROWS = 15;
+const MAX_ROWS = 250; // TEMP: widened to inspect the full report on PR #1; revert to 15 after.
 
 /**
  * Read the publisher's own summary line from build.log.
