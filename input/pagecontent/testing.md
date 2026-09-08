@@ -21,5 +21,9 @@ IG. Fram till dess bör implementatörer verifiera:
 - att `organization` och `listed-by` ger olika resultat när en ändpunkts
   förvaltande organisation skiljer sig från den/de organisationer som
   listar den ("förvaltar" respektive "har");
-- att `$add-organization-to-endpoint` och `$remove-organization-from-endpoint`
-  är idempotenta enligt beskrivningen i respektive OperationDefinition.
+- för Synkroniseringstjänsten: att organisationsidentifierare mappas till
+  EHM:s förväntade system/format (se [Mappning mot EHM:s Organization
+  Endpoint Writer](mappings.html)) innan `$add-organization`/
+  `$remove-organization` anropas, och att svar av typen `information`
+  (redan tillagd/borttagen) hanteras som lyckade, idempotenta anrop —
+  inte som fel.

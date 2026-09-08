@@ -1,16 +1,26 @@
 # CapabilityStatement
 
-Denna IG definierar två formella CapabilityStatements:
+Denna IG definierar ett formellt CapabilityStatement för sin egen serverroll:
 
 | CapabilityStatement | Roll | Beskriver |
 |---|---|---|
-| [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.html) | Server | Tjänstekatalogens egna REST-förmågor: registrering och sökning av [TKOrganization](StructureDefinition-tk-organization.html) och [TKEndpoint](StructureDefinition-tk-endpoint.html) (inklusive sökparametern `listed-by`), samt mottagning av de två skrivoperationerna. |
-| [Organization Endpoint Writer Capabilities](CapabilityStatement-tk-organization-endpoint-writer.html) | Klient | De FHIR REST-förmågor som aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html) ska stödja: `$add-organization-to-endpoint` och `$remove-organization-from-endpoint` på `Endpoint`, båda med konformansnivå MAY. Strukturen är hämtad från motsvarande "Organization Endpoint Writer Capabilities"-mönster hos andra nationella register över tekniska ändpunkter, anpassad till tjänstekatalogens egna operationer. |
+| [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.html) | Server | Tjänstekatalogens egna REST-förmågor: registrering och sökning av [TKOrganization](StructureDefinition-tk-organization.html) och [TKEndpoint](StructureDefinition-tk-endpoint.html), inklusive sökparametern `listed-by`. |
+
+**Organization Endpoint Writer Capabilities** — CapabilityStatementet för
+aktören Organization Endpoint Writer — är **inte** en artefakt i denna IG.
+Den definieras och publiceras av E-hälsomyndigheten (EHM) i deras egen IG
+([Swedish Medical Record Index And Endpoint Registry](https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/),
+canonical `http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er`).
+Denna IG:s [Synkroniseringstjänst](ActorDefinition-tk-synkroniseringstjanst.html)
+läser via vårt administrativa API och antar sedan den rollen mot EHM — se
+[Roller och ansvar](roles-and-responsibilities.html) och
+[Mappning mot EHM:s Organization Endpoint Writer](mappings.html) för hur data
+mappas mellan de två gränssnitten.
 
 Fr.o.m. FHIR R5 kan `CapabilityStatement` uttrycka formella konformanskrav
 per roll via elementet `obligations`, som ett maskinläsbart alternativ eller
 komplement till de förväntningar som beskrivs under
-[Roller och ansvar](roles-and-responsibilities.html) under Funktionellt. De
-två operationerna ovan uttrycker sin konformansnivå (MAY) med den relaterade
-extensionen `capabilitystatement-expectation` snarare än `obligations`, i
-linje med mönstret i den refererade Organization Endpoint Writer-modellen.
+[Roller och ansvar](roles-and-responsibilities.html) under Funktionellt.
+Tjänstekatalogens administrativa API använder `kind = requirements`, i linje
+med hur EHM:s eget CapabilityStatement för Organization Endpoint Writer är
+definierat.

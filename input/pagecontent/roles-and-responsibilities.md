@@ -2,34 +2,40 @@
 
 | Roll | Ansvar |
 |------|--------|
-| **Tjänstekatalogen (server)** | Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive `listed-by`), och tar emot anrop från Organization Endpoint Writer-system. |
-| **Organization Endpoint Writer** | System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen — skapar/uppdaterar ändpunkter och kopplar/kopplar loss dem till organisationer. Se [Actor Definition: Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html). Mönstret är hämtat från och avsett att vara kompatibelt med motsvarande aktör hos andra nationella register över tekniska ändpunkter. |
+| **Tjänstekatalogen (server)** | Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive `listed-by`). |
+| **Synkroniseringstjänst** | System som läser organisationer och tekniska ändpunkter från tjänstekatalogens administrativa API, och håller E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat genom att i **EHM:s** system anta rollen **Organization Endpoint Writer**. Se [ActorDefinition: Synkroniseringstjänst](ActorDefinition-tk-synkroniseringstjanst.html) och [Mappning mot EHM:s Organization Endpoint Writer](mappings.html) för hur data mappas mellan de två gränssnitten. |
 | **Sökande konsument** | System som söker fram en organisations tekniska ändpunkter, t.ex. inför en integration, via sökparametern `listed-by` på `Endpoint`. |
+
+Organization Endpoint Writer är alltså inte en roll denna IG:s administrativa
+API själv tar emot anrop i — det är **EHM:s** aktörsroll, definierad i deras
+egen IG ([Swedish Medical Record Index And Endpoint Registry](https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/)).
+Synkroniseringstjänsten är den part som antar den rollen mot EHM, efter att
+först ha läst data härifrån.
 
 Förväntningar per roll, uttryckta enligt HL7 FHIR:s terminologi för
 förmågor (SHALL/SHOULD/MAY):
 
 | Roll | Förväntning |
 |------|-------------|
-| Tjänstekatalogen (server) | SKA kunna producera `Organization`- och `Endpoint`-resurser som uppfyller [TKOrganization](StructureDefinition-tk-organization.html) respektive [TKEndpoint](StructureDefinition-tk-endpoint.html). SKA stödja sökparametern `listed-by` på `Endpoint` (REQ-SRCH-1). FÅR ta emot anrop till `$add-organization-to-endpoint` och `$remove-organization-from-endpoint` (REQ-WRT-1, REQ-WRT-2). |
-| Organization Endpoint Writer | SKA kunna producera `Endpoint`-resurser som uppfyller [TKEndpoint](StructureDefinition-tk-endpoint.html). FÅR anropa `$add-organization-to-endpoint` och `$remove-organization-from-endpoint` för att hantera "har"-relationen till en organisation, som ett alternativ till att skriva direkt till `Organization.endpoint`. |
+| Tjänstekatalogen (server) | SKA kunna producera `Organization`- och `Endpoint`-resurser som uppfyller [TKOrganization](StructureDefinition-tk-organization.html) respektive [TKEndpoint](StructureDefinition-tk-endpoint.html). SKA stödja sökparametern `listed-by` på `Endpoint` (REQ-SRCH-1). |
+| Synkroniseringstjänst | SKA läsa organisationer/ändpunkter härifrån (REQ-WRT-1). FÅR anropa EHM:s `$add-organization`/`$remove-organization` för att hantera "har"-relationen i EHM:s register (REQ-WRT-2, REQ-WRT-3), med data mappad enligt [mappningstabellen](mappings.html) (REQ-WRT-4, REQ-WRT-5). |
 | Sökande konsument | SKA kunna konsumera och bearbeta `Bundle`-resultat från sökningar på `Endpoint`, inklusive resultat från `listed-by`. |
 
 Fr.o.m. FHIR R5 kan `CapabilityStatement` uttrycka denna typ av förväntningar
-formellt via elementet `obligations`. Denna IG definierar två formella
-CapabilityStatements — [administrativt API](CapabilityStatement-tk-admin-api.html)
-(serverroll) och [Organization Endpoint Writer Capabilities](CapabilityStatement-tk-organization-endpoint-writer.html)
-(klientroll) — se [CapabilityStatement](capabilitystatement.html) under
-Implementering. Konformansnivåerna för de två operationerna uttrycks där med
-`capabilitystatement-expectation` (MAY), i linje med motsvarande aktör hos
-andra nationella register.
+formellt via elementet `obligations`. Denna IG definierar ett formellt
+CapabilityStatement för sin egen serverroll — [administrativt API](CapabilityStatement-tk-admin-api.html) —
+se [CapabilityStatement](capabilitystatement.html) under Implementering. EHM:s
+Organization Endpoint Writer Capabilities är ett separat CapabilityStatement,
+definierat och publicerat av EHM i deras egen IG, inte här.
 
-Arbetsflödet för att koppla en ändpunkt till en organisation utlöses av att en
-Organization Endpoint Writer identifierar en ny eller ändrad ändpunkt hos sin
-egen organisation. Writern registrerar (eller uppdaterar) ändpunkten i
-tjänstekatalogen och anropar därefter `$add-organization-to-endpoint` för att
-lista den under rätt organisation; en sökande konsument kan därefter hitta
-ändpunkten via `listed-by`. Se [Informationsunderlag](information-basis.html)
+Arbetsflödet för att koppla en ändpunkt till en organisation utlöses av att
+Synkroniseringstjänsten upptäcker en ny eller ändrad koppling i
+tjänstekatalogen (t.ex. via `listed-by`). Den säkerställer att motsvarande
+ändpunkt finns hos EHM och anropar därefter EHM:s `$add-organization` för att
+koppla rätt organisation till den, enligt mappningen i
+[Mappning mot EHM:s Organization Endpoint Writer](mappings.html); en sökande
+konsument kan hela tiden hitta ändpunkten i tjänstekatalogen via `listed-by`,
+oberoende av EHM-synkroniseringen. Se [Informationsunderlag](information-basis.html)
 för den fullständiga, auktoritativa beskrivningen av entiteterna som ingår.
 
 ---

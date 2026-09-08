@@ -100,3 +100,26 @@ efter ändpunkter en organisation *förvaltar* med standardparametern
 * payload.extension contains TKEndpointPayloadProfile named supportedProfile 0..* MS
 * payload.extension[supportedProfile] ^mapping.identity = "req"
 * payload.extension[supportedProfile] ^mapping.map = "REQ-SRCH-3, REQ-MDL-3"
+
+// Inte en del av det ursprungliga informationsunderlaget: en extra
+// identifierarslice som bär E-hälsomyndighetens (EHM) eget logiska id för
+// samma ändpunkt i deras register ("Swedish Medical Record Index And
+// Endpoint Registry"). Krävs för att en Synkroniseringstjänst ska kunna
+// anropa EHM:s $add-organization/$remove-organization, som adresserar
+// Endpoint via EHM:s eget id, inte vårt (se REQ-WRT-4 och "Mappning mot
+// EHM:s Organization Endpoint Writer" i mappings.html). `.system` nedan
+// följer mönstret i EHM:s övriga kanoniska URL:er
+// (http://electronichealth.se/fhir/NDI/<Resurstyp>) men är ett ANTAGANDE —
+// EHM:s faktiska bas-URL för sin FHIR-server är inte bekräftad.
+* identifier MS
+* identifier ^slicing.discriminator.type = #value
+* identifier ^slicing.discriminator.path = "system"
+* identifier ^slicing.rules = #open
+* identifier ^short = "Ändpunktsidentifierare, inklusive EHM:s motsvarande id"
+* identifier contains ehmEndpointId 0..1 MS
+* identifier[ehmEndpointId].system 1..1
+* identifier[ehmEndpointId].system = "http://electronichealth.se/fhir/NDI/Endpoint"
+* identifier[ehmEndpointId].value 1..1 MS
+* identifier[ehmEndpointId].value ^short = "EHM:s logiska id (UUID) för samma ändpunkt i deras register"
+* identifier[ehmEndpointId] ^mapping.identity = "req"
+* identifier[ehmEndpointId] ^mapping.map = "REQ-WRT-4"

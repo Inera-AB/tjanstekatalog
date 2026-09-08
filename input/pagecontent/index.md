@@ -23,11 +23,14 @@ Denna IG omfattar:
 - **Ett administrativt API** för att skapa, uppdatera, läsa och söka
   organisationer och ändpunkter i tjänstekatalogen. Se
   [CapabilityStatement](capabilitystatement.html).
-- **Aktören Organization Endpoint Writer** — ett system som tillhandahåller
-  ändpunktsinformation till tjänstekatalogen, inklusive att koppla/koppla
-  loss en organisation från en ändpunkt via operationerna
-  `$add-organization-to-endpoint` och `$remove-organization-from-endpoint`.
-  Se [Roller och ansvar](roles-and-responsibilities.html).
+- **En Synkroniseringstjänst** som läser organisationer och ändpunkter
+  härifrån och håller E-hälsomyndighetens (EHM) nationella register —
+  Swedish Medical Record Index And Endpoint Registry — synkroniserat, genom
+  att i **EHM:s** system anta rollen Organization Endpoint Writer och
+  anropa deras `$add-organization`/`$remove-organization`. Se
+  [Roller och ansvar](roles-and-responsibilities.html) och
+  [Mappning mot EHM:s Organization Endpoint Writer](mappings.html) för hur
+  data mappas mellan de två gränssnitten.
 
 Denna IG realiserar en delmängd av ett bredare informationsunderlag som även
 omfattar entiteterna Indexpost, Vård- och omsorgstagare och API-specifikation.
@@ -37,9 +40,9 @@ administrativa API:et ligger utanför detta utkast — se "Avvikelser och
 tillägg" i [Mappning till profiler](mappings.html) för motivering per
 entitet.
 
-Denna IG är, liksom motsvarande register hos andra aktörer i den svenska
-e-hälsoinfrastrukturen, avsedd att kunna konsumeras av och samverka med andra
-nationella register över tekniska ändpunkter.
+Denna IG är avsedd att samverka med E-hälsomyndighetens nationella register
+över tekniska ändpunkter — se [Mappning mot EHM:s Organization Endpoint
+Writer](mappings.html).
 
 ---
 
@@ -59,8 +62,9 @@ tjänstekatalogens administrativa API en formell, kravspårad definition.
 
 IG:n vänder sig i första hand till systemutvecklare och integrationsarkitekter
 hos organisationer som ska registrera sina tekniska ändpunkter i
-tjänstekatalogen (Organization Endpoint Writer), samt till konsumenter som
-söker fram ändpunkter. Nya läsare hänvisas till [Inledning](introduction.html);
+tjänstekatalogen, till den som utvecklar Synkroniseringstjänsten mot EHM,
+samt till konsumenter som söker fram ändpunkter. Nya läsare hänvisas till
+[Inledning](introduction.html);
 implementatörer till [REST-interaktioner och sökparametrar](rest-interactions.html)
 och [CapabilityStatement](capabilitystatement.html).
 
