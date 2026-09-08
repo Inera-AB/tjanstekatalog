@@ -45,6 +45,30 @@ Se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)
 och [Kravkatalog](requirements.html) REQ-SRCH-1 för den fullständiga
 motiveringen.
 
+#### Implementeringsanvisning: `listed-by` i HAPI FHIR
+
+HAPI FHIR JPA-servern stödjer normalt egna sökparametrar genom att man
+laddar upp dem som `SearchParameter`-resurser och sedan kör om indexeringen
+(`$reindex`) — det fungerar för parametrar som har en `.expression`
+(FHIRPath) att indexera på. `listed-by` har medvetet ingen `.expression`
+(se ovan), så HAPI:s automatiska indexeringsmekanism kan inte användas rakt
+av för den. Två praktiska sätt att ändå erbjuda `listed-by` i HAPI:
+
+1. **Enklast:** låt klienter använda HAPI:s inbyggda stöd för `_has`
+   direkt (`Endpoint?_has:Organization:endpoint:_id=[id]`) — det kräver
+   ingen serverkonfiguration alls, eftersom `_has` bygger på `Organization`s
+   redan existerande standardsökparameter `endpoint`.
+2. **Om `listed-by` ändå ska exponeras som ett eget, vänligare
+   parameternamn:** ladda upp `SearchParameter`-resursen (utan
+   `.expression`, precis som den definieras här) så att den syns i
+   serverns `CapabilityStatement`, men registrera dessutom en
+   `IServerInterceptor` på en lämplig pointcut (t.ex.
+   `SERVER_INCOMING_REQUEST_POST_PROCESSED`) som, innan sökningen
+   exekveras, skriver om `listed-by=X` till motsvarande
+   `_has:Organization:endpoint:_id=X`. Förlita dig inte på att HAPI
+   indexerar `listed-by` automatiskt bara för att `SearchParameter`-resursen
+   finns uppladdad.
+
 ---
 
 > **Vägledning för författare:** Roller och deras verksamhetsansvar
