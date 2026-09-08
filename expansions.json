@@ -1,8 +1,8 @@
 {
   "resourceType" : "Bundle",
-  "id" : "28e15775-69d5-4eb2-9cc3-23a2ab1c84da",
+  "id" : "838aa726-889d-4911-9fe7-0a0fc800c734",
   "meta" : {
-    "lastUpdated" : "2026-09-08T11:28:32.346+00:00"
+    "lastUpdated" : "2026-09-08T11:37:33.535+00:00"
   },
   "type" : "collection",
   "entry" : [{
@@ -19,7 +19,7 @@
       "title" : "Säkerhetsmetoder för tekniska ändpunkter",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-09-08T11:28:32+00:00",
+      "date" : "2026-09-08T11:37:33+00:00",
       "jurisdiction" : [{
         "coding" : [{
           "system" : "urn:iso:std:iso:3166",
@@ -28,8 +28,8 @@
         }]
       }],
       "expansion" : {
-        "identifier" : "urn:uuid:9c1b540f-fe7f-4802-855d-266d8c5fd8f6",
-        "timestamp" : "2026-09-08T11:29:14+00:00",
+        "identifier" : "urn:uuid:1f3f86c8-231c-4648-b7a9-cfef32a1b283",
+        "timestamp" : "2026-09-08T11:38:13+00:00",
         "total" : 5,
         "offset" : 0,
         "parameter" : [{
@@ -89,7 +89,7 @@
       "title" : "Säkerhetsmetoder för tekniska ändpunkter",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-09-08T11:28:32+00:00",
+      "date" : "2026-09-08T11:37:33+00:00",
       "jurisdiction" : [{
         "coding" : [{
           "system" : "urn:iso:std:iso:3166",
@@ -98,8 +98,8 @@
         }]
       }],
       "expansion" : {
-        "identifier" : "urn:uuid:adbcf959-1336-4766-b832-fc59193bb4e4",
-        "timestamp" : "2026-09-08T11:29:14+00:00",
+        "identifier" : "urn:uuid:fdeba81f-87e0-4236-836e-3664345b9eb4",
+        "timestamp" : "2026-09-08T11:38:13+00:00",
         "total" : 5,
         "offset" : 0,
         "parameter" : [{

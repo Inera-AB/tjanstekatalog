@@ -69,7 +69,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-sec
   "name" : "TKEndpointSecurityMethod",
   "title" : "Säkerhetsmetod",
   "status" : "draft",
-  "date" : "2026-09-08T11:28:32+00:00",
+  "date" : "2026-09-08T11:37:33+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -26,7 +26,7 @@
   fhir:name [ fhir:v "TKEndpointAuthorizationServerUrl"] ; # 
   fhir:title [ fhir:v "URL till auktorisationsserver"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-09-08T11:28:32+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-09-08T11:37:33+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
