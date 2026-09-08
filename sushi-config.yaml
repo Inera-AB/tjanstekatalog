@@ -1,12 +1,12 @@
-id: inera.core.template
-canonical: https://fhir.inera.se/ig/template
-name: IneraCoreTemplate
-title: "Inera FHIR Implementation Guide Template"
-description: "Mall för Ineras FHIR Implementation Guides."
+id: inera.tjanstekatalog
+canonical: https://fhir.inera.se/ig/tjanstekatalog
+name: IneraTjanstekatalog
+title: "Tjänstekatalogen"
+description: "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen, samt administrativt API för att registrera organisationer, ändpunkter och deras kopplingar. Definierar även aktören Organization Endpoint Writer, som tillhandahåller ändpunktsinformation till katalogen."
 status: draft
-version: 2.2.1
-fhirVersion: 4.0.1
-copyrightYear: 2024+
+version: 0.1.0
+fhirVersion: 5.0.0
+copyrightYear: 2026+
 releaseLabel: ci-build
 license: CC0-1.0
 
@@ -30,6 +30,8 @@ pages:
     title: Informationsunderlag
   use-cases.md:
     title: Användningsfall
+  requirements.md:
+    title: Kravkatalog
   roles-and-responsibilities.md:
     title: Roller och ansvar
   mappings.md:

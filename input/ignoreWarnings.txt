@@ -4,7 +4,13 @@
 There are no valid display names found for the code urn:iso:std:iso:3166#SE
 
 # Auto-generated links in the IG narrative point to the canonical URL which is not live yet.
-# These will resolve once the IG is published at https://fhir.inera.se/ig/template
+# These will resolve once the IG is published at https://fhir.inera.se/ig/tjanstekatalog
+# NOTE: this list was carried over from the template and updated for the new
+# canonical, but has not been verified against a full IG Publisher build in
+# this environment (outbound access to build.fhir.org/packages.fhir.org is
+# blocked here — see the PR description). Re-check this list against the
+# first real CI build and add any further "fake generated link" entries for
+# the new artefacts (TKOrganization, TKEndpoint, etc.) if they appear.
 The link 'StructureDefinition-IneraPatient.html' for "fake generated link for Implementation Guide" cannot be resolved
 The link 'Patient-IneraPatientExample.html' for "fake generated link for Implementation Guide" cannot be resolved
 
@@ -13,7 +19,7 @@ The link 'Patient-IneraPatientExample.html' for "fake generated link for Impleme
 # prefixed links against the local build, where the package sits at the output
 # root rather than under the canonical path, so it cannot verify this one.
 # publish.yml copies output/package.tgz to the IG root on every release.
-The link 'https://fhir.inera.se/ig/template/package.tgz' for "Paket (tgz)" cannot be resolved
+The link 'https://fhir.inera.se/ig/tjanstekatalog/package.tgz' for "Paket (tgz)" cannot be resolved
 
 # Standard xhtml fragments not included — acceptable when using a custom local template
 The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide

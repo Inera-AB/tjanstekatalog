@@ -1,23 +1,38 @@
 # Roller och ansvar
 
-*Lista de system eller mänskliga roller som deltar i användningsfallen (se [Användningsfall](use-cases.html)). Beskriv för varje roll dess verksamhetsansvar i sammanhanget för denna IG — vem som ansvarar för vad, inte hur anropen tekniskt går till.*
-
 | Roll | Ansvar |
 |------|--------|
-| *[Rollens namn]* | *Beskriv rollen och ansvarsområdena för denna aktör.* |
-| *[Rollens namn]* | *Beskriv rollen och ansvarsområdena för denna aktör.* |
+| **Tjänstekatalogen (server)** | Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive `listed-by`), och tar emot anrop från Organization Endpoint Writer-system. |
+| **Organization Endpoint Writer** | System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen — skapar/uppdaterar ändpunkter och kopplar/kopplar loss dem till organisationer. Se [Actor Definition: Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html). Mönstret är hämtat från och avsett att vara kompatibelt med motsvarande aktör hos andra nationella register över tekniska ändpunkter. |
+| **Sökande konsument** | System som söker fram en organisations tekniska ändpunkter, t.ex. inför en integration, via sökparametern `listed-by` på `Endpoint`. |
 
-*Ange för varje roll vad den förväntas kunna göra vid implementering av denna IG, t.ex. med HL7 FHIR:s terminologi för förmågor där det är lämpligt.*
+Förväntningar per roll, uttryckta enligt HL7 FHIR:s terminologi för
+förmågor (SHALL/SHOULD/MAY):
 
 | Roll | Förväntning |
 |------|-------------|
-| *[Rollens namn]* | *Ange förväntningen, t.ex. "SHALL kunna producera en [Resurs] som uppfyller [Profil]."* |
-| *[Rollens namn]* | *Ange förväntningen, t.ex. "SHALL kunna konsumera och bearbeta en [Resurs] som uppfyller [Profil]."* |
+| Tjänstekatalogen (server) | SKA kunna producera `Organization`- och `Endpoint`-resurser som uppfyller [TKOrganization](StructureDefinition-tk-organization.html) respektive [TKEndpoint](StructureDefinition-tk-endpoint.html). SKA stödja sökparametern `listed-by` på `Endpoint` (REQ-SRCH-1). FÅR ta emot anrop till `$add-organization-to-endpoint` och `$remove-organization-from-endpoint` (REQ-WRT-1, REQ-WRT-2). |
+| Organization Endpoint Writer | SKA kunna producera `Endpoint`-resurser som uppfyller [TKEndpoint](StructureDefinition-tk-endpoint.html). FÅR anropa `$add-organization-to-endpoint` och `$remove-organization-from-endpoint` för att hantera "har"-relationen till en organisation, som ett alternativ till att skriva direkt till `Organization.endpoint`. |
+| Sökande konsument | SKA kunna konsumera och bearbeta `Bundle`-resultat från sökningar på `Endpoint`, inklusive resultat från `listed-by`. |
 
-Fr.o.m. FHIR R5 kan `CapabilityStatement` uttrycka denna typ av förväntningar formellt via elementet `obligations`. Om denna IG definierar formella CapabilityStatements, se [CapabilityStatement](capabilitystatement.html) under Implementering.
+Fr.o.m. FHIR R5 kan `CapabilityStatement` uttrycka denna typ av förväntningar
+formellt via elementet `obligations`. Denna IG definierar två formella
+CapabilityStatements — [administrativt API](CapabilityStatement-tk-admin-api.html)
+(serverroll) och [Organization Endpoint Writer Capabilities](CapabilityStatement-tk-organization-endpoint-writer.html)
+(klientroll) — se [CapabilityStatement](capabilitystatement.html) under
+Implementering. Konformansnivåerna för de två operationerna uttrycks där med
+`capabilitystatement-expectation` (MAY), i linje med motsvarande aktör hos
+andra nationella register.
 
-*Referera till eller återge kortfattat det arbetsflöde där dessa roller interagerar — vad som utlöser flödet, i vilken ordning rollerna agerar och vad resultatet blir. Se [Informationsunderlag](information-basis.html) för den fullständiga, auktoritativa beskrivningen.*
+Arbetsflödet för att koppla en ändpunkt till en organisation utlöses av att en
+Organization Endpoint Writer identifierar en ny eller ändrad ändpunkt hos sin
+egen organisation. Writern registrerar (eller uppdaterar) ändpunkten i
+tjänstekatalogen och anropar därefter `$add-organization-to-endpoint` för att
+lista den under rätt organisation; en sökande konsument kan därefter hitta
+ändpunkten via `listed-by`. Se [Informationsunderlag](information-basis.html)
+för den fullständiga, auktoritativa beskrivningen av entiteterna som ingår.
 
 ---
 
-> **Vägledning för författare:** Referera till relevanta nationella föreskrifter eller RIVTA-tjänstekontrakt där det är tillämpligt.
+> **Vägledning för författare:** Referera till relevanta nationella
+> föreskrifter eller RIVTA-tjänstekontrakt där det är tillämpligt.
