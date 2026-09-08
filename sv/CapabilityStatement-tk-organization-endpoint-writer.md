@@ -38,7 +38,7 @@ Detta CapabilityStatement beskriver de FHIR REST-förmågor som aktören [Organi
       "display" : "Sweden"
     }]
   }],
-  "kind" : "capability",
+  "kind" : "requirements",
   "fhirVersion" : "5.0.0",
   "format" : ["json"],
   "rest" : [{

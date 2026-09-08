@@ -26,7 +26,7 @@
   fhir:name [ fhir:v "TKVardOchOmsorgstagare"] ; # 
   fhir:title [ fhir:v "Vård- och omsorgstagare (logisk modell)"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-09-08T10:34:42+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-09-08T11:28:32+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;

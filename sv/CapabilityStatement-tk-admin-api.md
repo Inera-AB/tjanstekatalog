@@ -38,7 +38,7 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
       "display" : "Sweden"
     }]
   }],
-  "kind" : "capability",
+  "kind" : "requirements",
   "fhirVersion" : "5.0.0",
   "format" : ["json"],
   "rest" : [{

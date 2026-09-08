@@ -36,7 +36,7 @@
        fhir:display [ fhir:v "Sweden" ]
      ] )
   ] ) ; # 
-  fhir:kind [ fhir:v "capability"] ; # 
+  fhir:kind [ fhir:v "requirements"] ; # 
   fhir:fhirVersion [ fhir:v "5.0.0"] ; # 
   fhir:format ( [ fhir:v "json"] ) ; # 
   fhir:rest ( [

@@ -36,7 +36,7 @@
       <display value="Sweden"/>
     </coding>
   </jurisdiction>
-  <kind value="capability"/>
+  <kind value="requirements"/>
   <fhirVersion value="5.0.0"/>
   <format value="json"/>
   <rest>

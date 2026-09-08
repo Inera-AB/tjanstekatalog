@@ -1,13 +1,13 @@
 IneraTjanstekatalog : Validation Results
 =========================================
 
-err = 6, warn = 74, info = 55
+err = 4, warn = 74, info = 55
 $--
 Generated $--. FHIR version $-- for inera.tjanstekatalog#$-- (canonical = https://fhir.inera.se/ig/tjanstekatalog)
  Build Errors : 0 / 30 / 0
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ActorDefinition-tk-organization-endpoint-writer : 0 / 1 / 3
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-tk-admin-api : 1 / 1 / 3
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-tk-organization-endpoint-writer : 1 / 1 / 3
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-tk-admin-api : 0 / 1 / 3
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-tk-organization-endpoint-writer : 0 / 1 / 3
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CodeSystem-tk-endpoint-security-method : 0 / 2 / 2
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Endpoint-TKEndpointExample : 0 / 2 / 2
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ImplementationGuide-inera.tjanstekatalog : 0 / 1 / 20
@@ -66,12 +66,10 @@ INFORMATION: Resource: The resource ActorDefinition/tk-organization-endpoint-wri
 == fsh-generated/resources/CapabilityStatement-tk-admin-api.json ==
 WARNING: CapabilityStatement/tk-admin-api: CapabilityStatement.jurisdiction[0].coding[0].system: En definition för CodeSystem 'urn:iso:std:iso:3166' kunde inte hittas, så koden kan inte valideras
 INFORMATION: CapabilityStatement/tk-admin-api: CapabilityStatement.jurisdiction[0]: Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
-ERROR: CapabilityStatement/tk-admin-api: CapabilityStatement: Begränsning misslyckades: cpb-15: 'If kind = capability, implementation must be absent, software must be present ((kind != 'capability') or (implementation.exists().not() and software.exists()))' (definierad i http://hl7.org/fhir/StructureDefinition/CapabilityStatement)
 INFORMATION: Resource: The resource CapabilityStatement/tk-admin-api could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated/resources/CapabilityStatement-tk-organization-endpoint-writer.json ==
 WARNING: CapabilityStatement/tk-organization-endpoint-writer: CapabilityStatement.jurisdiction[0].coding[0].system: En definition för CodeSystem 'urn:iso:std:iso:3166' kunde inte hittas, så koden kan inte valideras
 INFORMATION: CapabilityStatement/tk-organization-endpoint-writer: CapabilityStatement.jurisdiction[0]: Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
-ERROR: CapabilityStatement/tk-organization-endpoint-writer: CapabilityStatement: Begränsning misslyckades: cpb-15: 'If kind = capability, implementation must be absent, software must be present ((kind != 'capability') or (implementation.exists().not() and software.exists()))' (definierad i http://hl7.org/fhir/StructureDefinition/CapabilityStatement)
 INFORMATION: Resource: The resource CapabilityStatement/tk-organization-endpoint-writer could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)
 == fsh-generated/resources/CodeSystem-tk-endpoint-security-method.json ==
 WARNING: CodeSystem/tk-endpoint-security-method: CodeSystem.jurisdiction[0].coding[0].system: En definition för CodeSystem 'urn:iso:std:iso:3166' kunde inte hittas, så koden kan inte valideras

@@ -54,8 +54,8 @@
     "uses" : {
     },
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-IneraPatient.html" : "Inera Patient"
+    "StructureDefinition-IneraPatient.html" : "Inera Patient",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/endpoint-connection-type",
@@ -133,8 +133,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.45"],
     "uses" : {
     },
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-IneraPatient.html" : "Inera Patient"
+    "StructureDefinition-IneraPatient.html" : "Inera Patient",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/identifier-use",
@@ -148,8 +148,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.57"],
     "uses" : {
     },
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-IneraPatient.html" : "Inera Patient"
+    "StructureDefinition-IneraPatient.html" : "Inera Patient",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/languages",
@@ -166,8 +166,8 @@
     "uses" : {
     },
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-IneraPatient.html" : "Inera Patient"
+    "StructureDefinition-IneraPatient.html" : "Inera Patient",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/link-type",

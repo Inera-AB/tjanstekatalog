@@ -61,7 +61,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-aut
   "name" : "TKEndpointAuthorizationServerUrl",
   "title" : "URL till auktorisationsserver",
   "status" : "draft",
-  "date" : "2026-09-08T10:34:42+00:00",
+  "date" : "2026-09-08T11:28:32+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -29,7 +29,7 @@
       "display" : "Sweden"
     }]
   }],
-  "kind" : "capability",
+  "kind" : "requirements",
   "fhirVersion" : "5.0.0",
   "format" : ["json"],
   "rest" : [{

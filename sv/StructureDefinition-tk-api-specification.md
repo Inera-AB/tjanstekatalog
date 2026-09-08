@@ -61,7 +61,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
   "name" : "TKAPISpecification",
   "title" : "API-specifikation (logisk modell)",
   "status" : "draft",
-  "date" : "2026-09-08T10:34:42+00:00",
+  "date" : "2026-09-08T11:28:32+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
