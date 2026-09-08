@@ -4,8 +4,12 @@
 |----------------|-------------|----------------|
 | [TKOrganization](StructureDefinition-tk-organization.html) | read, search-type, create, update | `identifier`, `name` |
 | [TKEndpoint](StructureDefinition-tk-endpoint.html) | read, search-type, create, update | `organization` (standard, "förvaltar"), [`listed-by`](SearchParameter-tk-endpoint-listed-by.html) (egen, "har"), `status` |
-| [TKEndpoint](StructureDefinition-tk-endpoint.html) | operation `$add-organization-to-endpoint` (instans) | — |
-| [TKEndpoint](StructureDefinition-tk-endpoint.html) | operation `$remove-organization-from-endpoint` (instans) | — |
+
+Tjänstekatalogens administrativa API exponerar inga egna skrivoperationer för
+att koppla organisation och ändpunkt — det görs istället hos
+E-hälsomyndigheten (EHM), av en Synkroniseringstjänst som läser härifrån. Se
+[Mappning mot EHM:s Organization Endpoint Writer](mappings.html) för EHM:s
+`$add-organization`/`$remove-organization`.
 
 ---
 
@@ -20,7 +24,7 @@ GET [base]/Endpoint?listed-by=Organization/123
 eller med identifierare (kedjad sökning):
 
 ```
-GET [base]/Endpoint?listed-by.identifier=urn:oid:1.2.752.29.4.13|232100-0016
+GET [base]/Endpoint?listed-by.identifier=urn:oid:2.5.4.97|2321000016
 ```
 
 Detta skiljer sig från att söka på den förvaltande organisationen
@@ -40,39 +44,6 @@ GET [base]/Endpoint?_has:Organization:endpoint:_id=123
 Se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)
 och [Kravkatalog](requirements.html) REQ-SRCH-1 för den fullständiga
 motiveringen.
-
----
-
-### Koppla/koppla loss organisation och ändpunkt
-
-```
-POST [base]/Endpoint/456/$add-organization-to-endpoint
-Content-Type: application/fhir+json
-
-{
-  "resourceType": "Parameters",
-  "parameter": [{
-    "name": "organization",
-    "valueReference": { "reference": "Organization/123" }
-  }]
-}
-```
-
-```
-POST [base]/Endpoint/456/$remove-organization-from-endpoint
-Content-Type: application/fhir+json
-
-{
-  "resourceType": "Parameters",
-  "parameter": [{
-    "name": "organization",
-    "valueReference": { "reference": "Organization/123" }
-  }]
-}
-```
-
-Se [OperationDefinition: add-organization-to-endpoint](OperationDefinition-tk-endpoint-add-organization-to-endpoint.html)
-och [OperationDefinition: remove-organization-from-endpoint](OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html).
 
 ---
 

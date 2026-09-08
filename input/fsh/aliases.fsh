@@ -13,8 +13,16 @@ Alias: $patient-birthPlace = http://hl7.org/fhir/StructureDefinition/patient-bir
 Alias: $capabilitystatement-expectation = http://hl7.org/fhir/StructureDefinition/capabilitystatement-expectation
 
 // Swedish organisation identifiers
-// ASSUMPTION — not yet verified against Inera's authoritative OID/URI registry.
-// Confirm this system URI (and whether Inera prefers an https:// identifier
-// system over the legacy urn:oid: form) before implementation. Tracked as
-// REQ-ORG-2 in the requirements catalog (see requirements.html).
-Alias: $organisationsnummer = urn:oid:1.2.752.29.4.13
+// urn:oid:2.5.4.97 is the identifier system E-hälsomyndigheten's Organization
+// Endpoint Writer API requires for organisationsnummer (confirmed from their
+// published OperationDefinition documentation for $add-organization /
+// $remove-organization, see mappings.html). Adopting the same system here
+// (rather than guessing at a different OID) means Organization.identifier
+// values need no system translation when mapped to EHM's API — only the
+// value's hyphen needs stripping, see mappings.html. This was changed from
+// an earlier, unverified guess (urn:oid:1.2.752.29.4.13) once EHM's real
+// requirement was confirmed. Still worth Inera separately confirming this is
+// also Inera's own preferred canonical system for organisationsnummer, since
+// it is adopted here for EHM-compatibility rather than from an Inera-internal
+// OID/URI registry. Tracked as REQ-ORG-2 in the requirements catalog.
+Alias: $organisationsnummer = urn:oid:2.5.4.97

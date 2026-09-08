@@ -40,8 +40,10 @@ istället av [TKEndpoint](StructureDefinition-tk-endpoint.html)s
 * name ^mapping.map = "REQ-ORG-1"
 
 // Organisation.organisationsnummer
-// Se aliases.fsh: identifierarsystemet är en ANTAGEN OID i väntan på
-// bekräftelse mot Ineras auktoritativa OID/URI-register (REQ-ORG-2).
+// Se aliases.fsh: identifierarsystemet (urn:oid:2.5.4.97) är valt för att
+// matcha vad E-hälsomyndighetens Organization Endpoint Writer-API kräver
+// (bekräftat, se mappings.html), i väntan på att Inera separat bekräftar
+// samma system som sitt eget (REQ-ORG-2).
 * identifier MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"

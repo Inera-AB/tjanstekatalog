@@ -14,3 +14,5 @@ Description: "Exempel på en teknisk ändpunkt som förvaltas av en organisation
 * extension[authorizationServerUrl].valueUrl = "https://auth.exempelregionen.se/oauth2/token"
 * payload.type = http://terminology.hl7.org/CodeSystem/endpoint-payload-type#any "Any"
 * payload.extension[supportedProfile][0].valueCanonical = "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation"
+* identifier[ehmEndpointId].system = "http://electronichealth.se/fhir/NDI/Endpoint"
+* identifier[ehmEndpointId].value = "625aac66-a744-472c-8496-417fce2ada44"

@@ -1,11 +1,17 @@
 // CapabilityStatement for tjänstekatalogens administrative (server) API.
 // Covers the resource-shaped parts of the attached logical model
-// (Organisation, Ändpunkt) plus the ability to receive calls from an
-// Organization Endpoint Writer client (see roles-and-responsibilities.html,
-// requirements.html). Indexpost, Vård- och omsorgstagare, API and
-// API-specifikation are modelled (see input/fsh/logicalmodels/) and traced
-// in the requirements catalogue, but are not yet REST-exposed here — see
-// REQ-MDL-1..4 and "Avvikelser och tillägg" in mappings.html.
+// (Organisation, Ändpunkt): registration and search, including for the
+// Synkroniseringstjänst actor (see roles-and-responsibilities.html), which
+// reads Organization/Endpoint data here and then separately assumes the
+// "Organization Endpoint Writer" role against E-hälsomyndighetens egna
+// register — see "Mappning mot EHM:s Organization Endpoint Writer" in
+// mappings.html. This admin API does NOT itself implement EHM's
+// $add-organization/$remove-organization operations; those belong to EHM's
+// API, not this one (see requirements.html REQ-WRT-*). Indexpost, Vård- och
+// omsorgstagare, API and API-specifikation are modelled
+// (see input/fsh/logicalmodels/) and traced in the requirements catalogue,
+// but are not yet REST-exposed here — see REQ-MDL-1..4 and "Avvikelser och
+// tillägg" in mappings.html.
 Instance: TKAdminAPI
 InstanceOf: CapabilityStatement
 Usage: #definition
@@ -24,7 +30,7 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * contact.name = "Inera AB"
 * contact.telecom.system = #url
 * contact.telecom.value = "https://www.inera.se"
-* description = "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)) och mottagning av anrop från en [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html)."
+* description = "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html."
 * jurisdiction = urn:iso:std:iso:3166#SE "Sweden"
 // kind=requirements (not capability): this describes what an implementation
 // of the admin API SHOULD support, not one specific running server instance,
@@ -72,11 +78,3 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Endpoint-status"
 * rest[=].resource[=].searchParam[=].type = #token
 * rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter status."
-* rest[=].resource[=].operation[0].name = "add-organization-to-endpoint"
-* rest[=].resource[=].operation[=].definition = Canonical(TKEndpointAddOrganization)
-* rest[=].resource[=].operation[=].extension[+].url = $capabilitystatement-expectation
-* rest[=].resource[=].operation[=].extension[=].valueCode = #MAY
-* rest[=].resource[=].operation[+].name = "remove-organization-from-endpoint"
-* rest[=].resource[=].operation[=].definition = Canonical(TKEndpointRemoveOrganization)
-* rest[=].resource[=].operation[=].extension[+].url = $capabilitystatement-expectation
-* rest[=].resource[=].operation[=].extension[=].valueCode = #MAY

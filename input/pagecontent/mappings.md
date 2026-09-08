@@ -80,11 +80,26 @@ dokumenteras tydligt.
   definierar ingen kontrollerad vokabulär för attributet. Se REQ-END-6,
   REQ-END-7.
 
-- **Organisationsnummer-systemets URI är ett antagande.** Identifierarsystemet
-  som används för `Organisation.organisationsnummer`
-  (`urn:oid:1.2.752.29.4.13`, se `aliases.fsh`) är **inte verifierat** mot
-  Ineras auktoritativa OID/URI-register i denna omgång. Det ska bekräftas —
-  eller ersättas — innan implementation påbörjas. Se REQ-ORG-2.
+- **Organisationsnummer-systemets URI är valt för att matcha EHM.**
+  Identifierarsystemet för `Organisation.organisationsnummer`
+  (`urn:oid:2.5.4.97`, se `aliases.fsh`) är hämtat från
+  E-hälsomyndighetens (EHM) publicerade krav för sin Organization Endpoint
+  Writer-operation (se "Mappning mot EHM:s Organization Endpoint Writer"
+  nedan) — inte från ett internt Inera-beslut. En tidigare, ej verifierad
+  gissning (`urn:oid:1.2.752.29.4.13`) är ersatt. Att återanvända samma
+  system som EHM kräver innebär att `Organization.identifier`-värden inte
+  behöver systemöversättas vid synkronisering, bara formatteras om
+  (bindestreck bort). Inera bör ändå separat bekräfta att detta även är
+  Ineras egna föredragna kanoniska system. Se REQ-ORG-2.
+
+- **Ny identifierare för korrelation med EHM, utanför informationsunderlaget.**
+  `TKEndpoint.identifier` har en tillagd slice, `ehmEndpointId`, som bär
+  EHM:s eget logiska id för samma ändpunkt i deras register. Detta element
+  finns inte i det ursprungliga informationsunderlaget, men krävs eftersom
+  EHM:s `$add-organization`/`$remove-organization` adresserar ändpunkten via
+  EHM:s eget id (se REQ-WRT-4 och mappningen mot EHM nedan). Systemet
+  `http://electronichealth.se/fhir/NDI/Endpoint` är ett ANTAGET värde i
+  väntan på bekräftelse av EHM:s faktiska bas-URL.
 
 - **"Vård- och omsorgstagare" ges ingen egen FHIR-profil.** Informationsunderlaget
   ger entiteten ett enda attribut (id) utan ytterligare persondata — den
@@ -147,7 +162,7 @@ maskinläsbara motsvarigheten (`Requirements.statement.satisfiedBy`).
 |----------------|-------|--------------------|------------|
 | id | 1..1 | [TKOrganization.id](StructureDefinition-tk-organization.html) | REQ-ORG-1 |
 | namn | 1..1 | [TKOrganization.name](StructureDefinition-tk-organization.html) | REQ-ORG-1 |
-| organisationsnummer | 0..1 | [TKOrganization.identifier](StructureDefinition-tk-organization.html) (slice `organisationsnummer`) | Identifierarsystem antaget, se avsteg ovan. REQ-ORG-2 |
+| organisationsnummer | 0..1 | [TKOrganization.identifier](StructureDefinition-tk-organization.html) (slice `organisationsnummer`) | Identifierarsystem valt för EHM-kompatibilitet, se avsteg ovan. REQ-ORG-2 |
 | *(har)* | 0..* | [TKOrganization.endpoint](StructureDefinition-tk-organization.html) | Sökbar via `listed-by`. REQ-ORG-3, REQ-SRCH-1 |
 
 #### Indexpost → [TKIndexpost](StructureDefinition-tk-indexpost.html) (logisk modell, ej REST-exponerad)
@@ -188,6 +203,114 @@ maskinläsbara motsvarigheten (`Requirements.statement.satisfiedBy`).
 | giltigTom | — | *Ej separat realiserat* | Se avsteg ovan — `Endpoint.period` används istället. REQ-MDL-3 |
 | *(tillgängliggörs av Ändpunkt)* | 0..* | [TKEndpoint.payload](StructureDefinition-tk-endpoint.html) | REQ-MDL-3 |
 | *(följer API-specifikation)* | 0..* | [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html) | REQ-MDL-3, REQ-SRCH-3 |
+
+---
+
+### Mappning mot EHM:s Organization Endpoint Writer
+
+Detta avsnitt är inte en mappning mellan informationsunderlaget och denna
+IG:s egna profiler (som avsnitten ovan) — det är en mappning mellan **denna
+IG:s** data och **E-hälsomyndighetens (EHM)** API-struktur, för den aktör
+som läser härifrån och skriver dit.
+
+#### Roller och flöde
+
+"Organization Endpoint Writer" är **EHM:s egen aktörsroll**, definierad i
+deras IG ([Swedish Medical Record Index And Endpoint Registry](https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/)),
+inte en roll tjänstekatalogens administrativa API själv implementerar eller
+tar emot anrop som. Rollen antas av en fristående
+**Synkroniseringstjänst** (se [ActorDefinition](ActorDefinition-tk-synkroniseringstjanst.html)
+och [Roller och ansvar](roles-and-responsibilities.html)), som:
+
+1. läser organisationer och ändpunkter från tjänstekatalogens administrativa
+   API (se [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.html)),
+   särskilt vilka ändpunkter en organisation listar via
+   [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html);
+2. säkerställer att motsvarande `Endpoint`-resurs finns hos EHM (skapande/
+   uppdatering av själva ändpunkten hos EHM via deras generella FHIR REST-
+   gränssnitt — **ej detaljerat mappat här ännu**, se öppen fråga nedan);
+3. anropar EHM:s `$add-organization`/`$remove-organization`, i rollen
+   Organization Endpoint Writer, för att koppla/koppla loss en organisation
+   till/från den ändpunkten hos EHM.
+
+EHM:s artefakter (definierade i deras IG, **inte omdefinierade i denna IG**
+— vi återpublicerar aldrig någon annans canonical-resurser under vår egen
+namnrymd):
+
+| Artefakt | Kanonisk URL (EHM) |
+|---|---|
+| ActorDefinition: Organization Endpoint Writer Actor | `http://electronichealth.se/fhir/NDI/ActorDefinition/organization-endpoint-writer-actor-er` |
+| CapabilityStatement: Organization Endpoint Writer Capabilities | `http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er` |
+| OperationDefinition (id/canonical) | `http://electronichealth.se/fhir/NDI/OperationDefinition/AddOrganizationToEndpoint` / `.../RemoveOrganizationFromEndpoint` |
+| Faktisk anropsväg ($-kod, bekräftad separat från canonical ovan) | `POST [base]/Endpoint/[id]/$add-organization` / `$remove-organization` |
+
+EHM:s CapabilityStatement använder `kind = requirements` och konformansnivå
+MAY på både resursen och båda operationerna (`capabilitystatement-expectation`)
+— samma mönster som denna IG:s [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.html)
+använder.
+
+#### Mappningstabell: `$add-organization` / `$remove-organization`
+
+Båda operationerna har samma parameterstruktur (skillnaden är bara om
+organisationen läggs till eller tas bort).
+
+| EHM-parameter | Kard. | Typ | Källa i tjänstekatalogen | Transformation |
+|---|---|---|---|---|
+| `id` (URL-segment, EHM:s Endpoint-id) | 1..1 | `string` (UUID) | [TKEndpoint.identifier](StructureDefinition-tk-endpoint.html)\[`ehmEndpointId`\] | Ingen — värdet SKA redan vara EHM:s tilldelade id (se REQ-WRT-4). Om det saknas kan operationen inte anropas — ändpunkten måste först finnas hos EHM (steg 2 i flödet ovan). |
+| `organization` (body, `Parameters`) | 1..1 | `Identifier` (system + value) | [TKOrganization.identifier](StructureDefinition-tk-organization.html)\[`organisationsnummer`\] | Systemet `urn:oid:2.5.4.97` matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. Alternativt kan personnummer/samordningsnummer användas om organisationen identifieras så istället (samma system som `$personnummer`/`$samordningsnummer` i `aliases.fsh`, redan matchande). |
+| *(retur)* `return` | 1..1 | `OperationOutcome` | — | Ingen resurs returneras (varken uppdaterad Organization eller Endpoint) — bara en `OperationOutcome` med en framgångs-, informations- eller felkod. Se svarshantering nedan. |
+
+Exempel på anropskropp (organisationsnummer, bindestreck borttaget):
+
+```json
+{
+  "resourceType": "Parameters",
+  "parameter": [
+    {
+      "name": "organization",
+      "valueIdentifier": {
+        "system": "urn:oid:2.5.4.97",
+        "value": "2321000016"
+      }
+    }
+  ]
+}
+```
+
+#### Svarshantering
+
+EHM:s operationer är idempotenta och signalerar det via `OperationOutcome`,
+inte via HTTP-statuskod ensam:
+
+| EHM-kod | Severity | Betydelse | Hur synkroniseringstjänsten bör agera |
+|---|---|---|---|
+| `4-38-301` | success | Organisationen lades till | Klart. |
+| `4-38-302` | success | Organisationen togs bort | Klart. |
+| `4-38-303` | information | Organisationen fanns redan kopplad | Behandla som lyckat (idempotent) — inte ett fel. |
+| `4-38-304` | information | Organisationen var redan bortkopplad | Behandla som lyckat (idempotent) — inte ett fel. |
+| `2-38-1`, `2-38-8`, `2-38-9`, `2-38-4`, `2-38-2`, `2-44-X`, `2-38-7` | error | Se EHM:s fullständiga felkodskatalog | Verkligt fel — vanligast: fel identifierarsystem/format (`2-38-4`/`2-38-2`/`2-38-7`/`2-44-X`) eller okänt `id` (`2-38-8`). Kontrollera mappningen ovan innan omförsök. |
+
+Se [Felhantering](error-handling.html) för tjänstekatalogens egen
+felhantering — EHM:s felkodskatalog är separat och dokumenteras i sin helhet
+i deras egen IG.
+
+#### Öppna frågor
+
+- **Hur EHM:s egen `Endpoint`-resurs ska skapas/uppdateras** (steg 2 i
+  flödet ovan) — dvs. mappningen av `TKEndpoint.address`, `.period`,
+  `.connectionType`, `.payload` m.fl. mot EHM:s `Endpoint`-profil — är inte
+  dokumenterad här ännu. EHM:s "Query operations"-sida bekräftar generell
+  `GET [base]/Endpoint`-sökning (inklusive `_revinclude=Organization:endpoint`
+  och en `actor`-sökparameter för interoperabilitetsspecifikation, ett annat
+  mönster än denna IG:s `payload`-extension), men inte den fullständiga
+  skrivkontraktet. Behövs för att slutföra flödet.
+- **Bas-URL:en för `identifier[ehmEndpointId].system`**
+  (`http://electronichealth.se/fhir/NDI/Endpoint`) är ett antagande baserat
+  på mönstret i EHM:s övriga canonical-URL:er, inte bekräftat mot EHM:s
+  faktiska serveradress.
+- **Om Inera bekräftar `urn:oid:2.5.4.97`** som sitt eget föredragna system
+  för organisationsnummer, kan noteringen om att det är "valt för
+  EHM-kompatibilitet" tas bort — se REQ-ORG-2.
 
 ---
 

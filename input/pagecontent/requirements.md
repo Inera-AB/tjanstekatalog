@@ -11,8 +11,9 @@ omvända vyn, från attribut/profilelement till krav, finns i
 
 Krav grupperas efter ämne: `REQ-SRCH-*` sökning av ändpunkter per
 organisation, `REQ-END-*` attribut på Ändpunkt, `REQ-ORG-*` attribut och
-relationer på Organisation, `REQ-WRT-*` Organization Endpoint Writer, och
-`REQ-MDL-*` övriga entiteter i informationsunderlaget och avgränsningar.
+relationer på Organisation, `REQ-WRT-*` synkronisering mot EHM:s Organization
+Endpoint Writer, och `REQ-MDL-*` övriga entiteter i informationsunderlaget
+och avgränsningar.
 
 ---
 
@@ -42,17 +43,24 @@ relationer på Organisation, `REQ-WRT-*` Organization Endpoint Writer, och
 | Krav | Konformans | Beskrivning | Realiseras av |
 |------|------------|-------------|----------------|
 | REQ-ORG-1 | SKA | Varje organisation SKA ha ett unikt id och namn. | [TKOrganization](StructureDefinition-tk-organization.html) |
-| REQ-ORG-2 | BÖR | Organisationsnumret BÖR anges som identifierare. Identifierarsystemets URI är i detta utkast ett antagande — se `aliases.fsh`. | [TKOrganization](StructureDefinition-tk-organization.html)`.identifier` |
+| REQ-ORG-2 | BÖR | Organisationsnumret BÖR anges som identifierare, med systemet `urn:oid:2.5.4.97` (valt för att matcha vad EHM:s Organization Endpoint Writer kräver — se mappings.html). Inera bör separat bekräfta att detta även är Ineras eget föredragna system. | [TKOrganization](StructureDefinition-tk-organization.html)`.identifier` |
 | REQ-ORG-3 | SKA | En organisation SKA kunna lista ("har") de ändpunkter den listar i tjänstekatalogen. | [TKOrganization](StructureDefinition-tk-organization.html)`.endpoint`, [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html) |
 | REQ-ORG-4 | SKA | Varje ändpunkt SKA ange sin förvaltande organisation ("förvaltar"). | [TKEndpoint](StructureDefinition-tk-endpoint.html)`.managingOrganization` |
 
-### REQ-WRT — Organization Endpoint Writer
+### REQ-WRT — Synkronisering mot EHM:s Organization Endpoint Writer
+
+Organization Endpoint Writer är E-hälsomyndighetens (EHM) egen aktörsroll,
+inte en roll tjänstekatalogens administrativa API implementerar — se
+[Mappning mot EHM:s Organization Endpoint Writer](mappings.html).
 
 | Krav | Konformans | Beskrivning | Realiseras av |
 |------|------------|-------------|----------------|
-| REQ-WRT-1 | FÅR | En Organization Endpoint Writer FÅR koppla en organisation till en ändpunkt via `$add-organization-to-endpoint`. | [OperationDefinition: add-organization-to-endpoint](OperationDefinition-tk-endpoint-add-organization-to-endpoint.html) |
-| REQ-WRT-2 | FÅR | En Organization Endpoint Writer FÅR koppla loss en organisation från en ändpunkt via `$remove-organization-from-endpoint`. | [OperationDefinition: remove-organization-from-endpoint](OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html) |
-| REQ-WRT-3 | SKA | Det administrativa API:et och Organization Endpoint Writer-gränssnittet SKA använda FHIR R5 (5.0.0) och JSON. | [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.html), [CapabilityStatement: Organization Endpoint Writer](CapabilityStatement-tk-organization-endpoint-writer.html) |
+| REQ-WRT-1 | SKA | Synkroniseringstjänsten SKA läsa organisationer/ändpunkter via tjänstekatalogens admin-API, särskilt `listed-by`. | [ActorDefinition: Synkroniseringstjänst](ActorDefinition-tk-synkroniseringstjanst.html), [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.html) |
+| REQ-WRT-2 | FÅR | Synkroniseringstjänsten FÅR, som Organization Endpoint Writer hos EHM, anropa EHM:s `$add-organization`. | EHM:s [CapabilityStatement](http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er) och OperationDefinition (extern, ej del av denna IG) |
+| REQ-WRT-3 | FÅR | Synkroniseringstjänsten FÅR anropa EHM:s `$remove-organization` analogt. | Som REQ-WRT-2 |
+| REQ-WRT-4 | SKA | Ändpunkter SKA kunna korreleras med EHM:s eget Endpoint-id, eftersom EHM:s operationer adresserar via deras id. | [TKEndpoint](StructureDefinition-tk-endpoint.html)`.identifier` (slice `ehmEndpointId`) |
+| REQ-WRT-5 | SKA | Organisationsidentifierare till EHM SKA vara i EHM:s format (rätt system, siffror utan bindestreck) — se mappningstabellen. | [TKOrganization](StructureDefinition-tk-organization.html)`.identifier` |
+| REQ-WRT-6 | SKA | Tjänstekatalogens admin-API SKA använda FHIR R5 (5.0.0) och JSON, liksom EHM:s gränssnitt. | [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.html) |
 
 ### REQ-MDL — Övriga entiteter i informationsunderlaget och avgränsningar
 

@@ -9,7 +9,7 @@
 //   REQ-SRCH-*  Sökning av ändpunkter per organisation
 //   REQ-END-*   Attribut på Ändpunkt (Endpoint)
 //   REQ-ORG-*   Attribut och relationer på Organisation
-//   REQ-WRT-*   Organization Endpoint Writer (skrivgränssnitt)
+//   REQ-WRT-*   Synkronisering mot EHM:s Organization Endpoint Writer
 //   REQ-MDL-*   Övriga entiteter i informationsunderlaget / avgränsningar
 Instance: TKTjanstekatalogRequirements
 InstanceOf: Requirements
@@ -31,7 +31,10 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * contact.telecom.value = "https://www.inera.se"
 * description = "Formell kravkatalog för tjänstekatalogen. Varje krav spåras till den/de FHIR-artefakt(er) som realiserar det via `satisfiedBy`. Se requirements.html för en läsbar vy och mappings.html för den omvända vyn (attribut → krav)."
 * jurisdiction = urn:iso:std:iso:3166#SE "Sweden"
-* actor[0] = Canonical(TKOrganizationEndpointWriter)
+* actor[0] = Canonical(TKSynkroniseringstjanst)
+// E-hälsomyndighetens (EHM) eget Organization Endpoint Writer-aktör, definierad
+// i deras IG, inte omdefinierad här — se REQ-WRT-2/3.
+* actor[+] = "http://electronichealth.se/fhir/NDI/ActorDefinition/organization-endpoint-writer-actor-er"
 
 // --- REQ-SRCH: sökning av ändpunkter per organisation ---
 
@@ -131,26 +134,54 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].requirement = "Varje ändpunkt SKA ange sin förvaltande organisation i `Endpoint.managingOrganization`, sökbar med standardparametern `organization`."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"
 
-// --- REQ-WRT: Organization Endpoint Writer (skrivgränssnitt) ---
+// --- REQ-WRT: Synkronisering mot EHM:s Organization Endpoint Writer ---
+//
+// Organization Endpoint Writer är EHM:s egen aktörsroll (definierad i deras
+// IG: http://electronichealth.se/fhir/NDI/ActorDefinition/organization-endpoint-writer-actor-er),
+// inte en roll tjänstekatalogens administrativa API självt implementerar.
+// Rollen antas av en Synkroniseringstjänst, som läser data härifrån och
+// skriver till EHM. Se "Mappning mot EHM:s Organization Endpoint Writer" i
+// mappings.html för den fullständiga element-för-element-mappningen.
 
 * statement[+].key = "REQ-WRT-1"
-* statement[=].label = "$add-organization-to-endpoint"
-* statement[=].conformance[0] = #MAY
-* statement[=].requirement = "En Organization Endpoint Writer FÅR koppla en organisation till en ändpunkt (lägga till i Organization.endpoint) via operationen $add-organization-to-endpoint på Endpoint, utan att behöva skrivrättighet till hela Organization-resursen."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint"
+* statement[=].label = "Läsning via tjänstekatalogens admin-API"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Synkroniseringstjänsten SKA läsa organisationer och ändpunkter via tjänstekatalogens administrativa API, särskilt vilka ändpunkter en organisation listar (REQ-SRCH-1), som underlag för synkroniseringen mot EHM."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 * statement[+].key = "REQ-WRT-2"
-* statement[=].label = "$remove-organization-from-endpoint"
+* statement[=].label = "Anropa EHM:s $add-organization"
 * statement[=].conformance[0] = #MAY
-* statement[=].requirement = "En Organization Endpoint Writer FÅR koppla loss en organisation från en ändpunkt (ta bort från Organization.endpoint) via operationen $remove-organization-from-endpoint på Endpoint."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint"
+* statement[=].requirement = "Synkroniseringstjänsten FÅR, i rollen Organization Endpoint Writer hos EHM, koppla en organisation till en ändpunkt genom att anropa POST [ehm-base]/Endpoint/[ehm-id]/$add-organization med organisationens identifierare (personnummer, samordningsnummer eller organisationsnummer) enligt EHM:s specifikation. Se mappningstabellen i mappings.html för hur `organization`-parametern fylls från tjänstekatalogens data."
+* statement[=].satisfiedBy[0] = "http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er"
+* statement[=].satisfiedBy[+] = "http://electronichealth.se/fhir/NDI/OperationDefinition/AddOrganizationToEndpoint"
 
 * statement[+].key = "REQ-WRT-3"
+* statement[=].label = "Anropa EHM:s $remove-organization"
+* statement[=].conformance[0] = #MAY
+* statement[=].requirement = "Synkroniseringstjänsten FÅR, analogt med REQ-WRT-2, koppla loss en organisation från en ändpunkt genom att anropa POST [ehm-base]/Endpoint/[ehm-id]/$remove-organization."
+* statement[=].satisfiedBy[0] = "http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er"
+* statement[=].satisfiedBy[+] = "http://electronichealth.se/fhir/NDI/OperationDefinition/RemoveOrganizationFromEndpoint"
+
+* statement[+].key = "REQ-WRT-4"
+* statement[=].label = "Korrelation med EHM:s Endpoint-id"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Varje ändpunkt som ska synkroniseras SKA kunna korreleras med EHM:s eget logiska id för samma ändpunkt i deras register, eftersom $add-organization/$remove-organization adresserar ändpunkten via EHM:s id, inte tjänstekatalogens."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"
+
+* statement[+].key = "REQ-WRT-5"
+* statement[=].label = "Format på organisationsidentifierare mot EHM"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Organisationsidentifierare som skickas till EHM:s $add-organization/$remove-organization SKA vara i det system och format EHM kräver (personnummer/samordningsnummer: http://electronichealth.se/identifier/{personnummer|samordningsnummer}, 12 siffror utan bindestreck; organisationsnummer: urn:oid:2.5.4.97, 10 siffror utan bindestreck) — se mappningstabellen i mappings.html."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+
+* statement[+].key = "REQ-WRT-6"
 * statement[=].label = "FHIR-version och format"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Tjänstekatalogens administrativa API och Organization Endpoint Writer-gränssnittet SKA använda FHIR R5 (5.0.0) och SKA stödja JSON."
+* statement[=].requirement = "Tjänstekatalogens administrativa API SKA använda FHIR R5 (5.0.0) och SKA stödja JSON. EHM:s Organization Endpoint Writer-gränssnitt gör detsamma (bekräftat i deras CapabilityStatement)."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
-* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer"
+* statement[=].satisfiedBy[+] = "http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er"
 
 // --- REQ-MDL: övriga entiteter i informationsunderlaget / avgränsningar ---
 
