@@ -1,4 +1,4 @@
-# Nedladdningar - Inera FHIR Implementation Guide Template v2.2.1
+# Nedladdningar - Tjänstekatalogen v0.1.0
 
 ## Nedladdningar
 
@@ -10,7 +10,7 @@ Följande nedladdningar är tillgängliga för denna Implementation Guide.
 
 Det fullständiga npm-paketet för denna IG, för användning med FHIR-validatorn och andra verktyg:
 
-* [Paket (tgz)](https://fhir.inera.se/ig/template/package.tgz)
+* [Paket (tgz)](https://fhir.inera.se/ig/tjanstekatalog/package.tgz)
 
 Se [Testning och validering](testing.md) för instruktioner om hur paketet används för att validera instanser mot profilerna i denna IG.
 

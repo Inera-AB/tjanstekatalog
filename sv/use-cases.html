@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Användningsfall - Inera FHIR Implementation Guide Template v2.2.1</title>
+    <title>Användningsfall - Tjänstekatalogen v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -63,13 +63,13 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">2.2.1 - ci-build
+            <span style="display:inline-block;">0.1.0 - ci-build
 
 
 
-  <img alt="Sweden flagga" src="../assets/images/swe.svg" height="16" title="Sweden"/>
+  Sweden
 
 
             </span>
@@ -92,7 +92,7 @@
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
             </button>
-            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
               <div id="segment-navbar" class="segment">
   <div id="stripe"> </div>
@@ -114,6 +114,7 @@
               <ul class="dropdown-menu">
                 <li><a href="information-basis.html">Informationsunderlag</a></li>
                 <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
                 <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
                 <li><a href="mappings.html">Mappning till profiler</a></li>
               </ul>
@@ -180,7 +181,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Användningsfall</h2>
   
 
@@ -202,16 +203,45 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <h1 id="användningsfall">Användningsfall</h1>
 
-<p><em>Beskriv varje användningsfall som denna IG stöder. För varje användningsfall, förklara vad som utlöser det, vilka aktörer som deltar och vilket resultat det leder till.</em></p>
+<h4 id="sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</h4>
 
-<h4 id="användningsfallets-namn">[Användningsfallets namn]</h4>
+<p>En tjänstekonsument känner till en organisations identitet (t.ex.
+organisationsnummer eller FHIR-id) och behöver hitta samtliga tekniska
+ändpunkter organisationen listar i tjänstekatalogen, för att t.ex. kunna
+ansluta till dess API:er. Konsumenten söker <code class="language-plaintext highlighter-rouge">Endpoint</code> med sökparametern
+<code class="language-plaintext highlighter-rouge">listed-by</code> (se <a href="rest-interactions.html">REST-interaktioner och sökparametrar</a>)
+och får tillbaka de ändpunkter organisationen "har" — oavsett vem som
+tekniskt förvaltar respektive ändpunkt. Resultatet listar, per ändpunkt,
+vilka interoperabilitetsspecifikationer (API:er) den stödjer.</p>
 
-<p><em>Beskriv användningsfallet. Exempel: "En vårdgivare behöver hämta en patients fasta kontakter för att avgöra vem som ska kontaktas vid en vårdhändelse."</em></p>
+<hr />
+
+<h4 id="registrera-en-ny-ändpunkt">Registrera en ny ändpunkt</h4>
+
+<p>En Organization Endpoint Writer (se <a href="roles-and-responsibilities.html">Roller och ansvar</a>)
+skapar en ny <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurs i tjänstekatalogens administrativa API, med
+adress, protokoll, säkerhetsmetod och de interoperabilitetsspecifikationer
+ändpunkten stödjer.</p>
+
+<hr />
+
+<h4 id="koppla-en-organisation-till-en-ändpunkt">Koppla en organisation till en ändpunkt</h4>
+
+<p>En Organization Endpoint Writer känner till att en viss ändpunkt ska listas
+under en organisation, men saknar (eller vill undvika) skrivrättighet till
+hela <code class="language-plaintext highlighter-rouge">Organization</code>-resursen. Writern anropar operationen
+<code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> på ändpunkten med organisationen som
+parameter, vilket lägger till ändpunkten i organisationens
+<code class="language-plaintext highlighter-rouge">Organization.endpoint</code>-lista ("har"). Motsvarande operation
+<code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> används för att koppla loss
+kopplingen. Se <a href="capabilitystatement.html">CapabilityStatement</a>.</p>
 
 <hr />
 
 <blockquote>
-  <p><strong>Vägledning för författare:</strong> Roller och ansvar för de aktörer som deltar i användningsfallen beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>.</p>
+  <p><strong>Vägledning för författare:</strong> Roller och ansvar för de aktörer som deltar
+i användningsfallen beskrivs under
+<a href="roles-and-responsibilities.html">Roller och ansvar</a>.</p>
 </blockquote>
 
 
@@ -239,10 +269,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
 
-          IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 09:18:00 +0000">
+  <span title="2026-09-08 10:34:00 +0000">
     2026-09-08
   </span>
 

@@ -1,3 +1,13 @@
 {
-  "codeSystems" : []
+  "codeSystems" : [{
+    "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "TKEndpointSecurityMethodCS",
+    "title" : "Säkerhetsmetoder för tekniska ändpunkter (kodsystem)",
+    "description" : "Kodsystem som anger vilken säkerhetsmetod som skyddar en teknisk ändpunkt (Ändpunkt.säkerhetsmetod i informationsunderlaget). Preliminärt förslag, se REQ-END-6 i kravkatalogen.",
+    "uses" : {
+    },
+    "ValueSet-tk-endpoint-security-method.html" : "Säkerhetsmetoder för tekniska ändpunkter"
+  }]
 }

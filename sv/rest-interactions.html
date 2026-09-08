@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>REST-interaktioner och sökparametrar - Inera FHIR Implementation Guide Template v2.2.1</title>
+    <title>REST-interaktioner och sökparametrar - Tjänstekatalogen v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -50,8 +50,8 @@
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"7"}
-    h3,h4,h5,h6{--heading-prefix:"7"}</style>
+    <style type="text/css">h2{--heading-prefix:"8"}
+    h3,h4,h5,h6{--heading-prefix:"8"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -63,13 +63,13 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">2.2.1 - ci-build
+            <span style="display:inline-block;">0.1.0 - ci-build
 
 
 
-  <img alt="Sweden flagga" src="../assets/images/swe.svg" height="16" title="Sweden"/>
+  Sweden
 
 
             </span>
@@ -92,7 +92,7 @@
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
             </button>
-            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
               <div id="segment-navbar" class="segment">
   <div id="stripe"> </div>
@@ -114,6 +114,7 @@
               <ul class="dropdown-menu">
                 <li><a href="information-basis.html">Informationsunderlag</a></li>
                 <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
                 <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
                 <li><a href="mappings.html">Mappning till profiler</a></li>
               </ul>
@@ -180,7 +181,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>REST-interaktioner och sökparametrar</h2>
   
 
@@ -197,12 +198,17 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#rest-interaktioner-och-sökparametrar" id="markdown-toc-rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</a>    <ul>
+      <li><a href="#sök-ändpunkter-för-en-organisation" id="markdown-toc-sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</a></li>
+      <li><a href="#kopplakoppla-loss-organisation-och-ändpunkt" id="markdown-toc-kopplakoppla-loss-organisation-och-ändpunkt">Koppla/koppla loss organisation och ändpunkt</a></li>
+    </ul>
+  </li>
+</ul>
+
 </div>
 <h1 id="rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</h1>
-
-<p><em>Beskriv vilka REST-interaktioner (read, search, create, update, …) varje roll ska stödja, för vilka resurser/profiler. Lista de sökparametrar som stöds per resurs, inklusive eventuella kombinationer som ska stödjas.</em></p>
 
 <table>
   <thead>
@@ -214,17 +220,95 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   </thead>
   <tbody>
     <tr>
-      <td><em>[Profilnamn]</em></td>
-      <td><em>[t.ex. search, read]</em></td>
-      <td><em>[t.ex. <code class="language-plaintext highlighter-rouge">patient</code>, <code class="language-plaintext highlighter-rouge">date</code>]</em></td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a></td>
+      <td>read, search-type, create, update</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">name</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
+      <td>read, search-type, create, update</td>
+      <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code></td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
+      <td>operation <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> (instans)</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
+      <td>operation <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> (instans)</td>
+      <td>—</td>
     </tr>
   </tbody>
 </table>
 
 <hr />
 
+<h3 id="sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</h3>
+
+<p>Hämta samtliga ändpunkter en organisation listar ("har"):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by=Organization/123
+</code></pre></div></div>
+
+<p>eller med identifierare (kedjad sökning):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by.identifier=urn:oid:1.2.752.29.4.13|232100-0016
+</code></pre></div></div>
+
+<p>Detta skiljer sig från att söka på den förvaltande organisationen
+("förvaltar"), som använder standardparametern:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?organization=Organization/123
+</code></pre></div></div>
+
+<p><code class="language-plaintext highlighter-rouge">listed-by</code> implementeras av servern likvärdigt med FHIR:s
+standardmekanism för omvänd kedjning:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?_has:Organization:endpoint:_id=123
+</code></pre></div></div>
+
+<p>Se <a href="SearchParameter-tk-endpoint-listed-by.html">SearchParameter: listed-by</a>
+och <a href="requirements.html">Kravkatalog</a> REQ-SRCH-1 för den fullständiga
+motiveringen.</p>
+
+<hr />
+
+<h3 id="kopplakoppla-loss-organisation-och-ändpunkt">Koppla/koppla loss organisation och ändpunkt</h3>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/Endpoint/456/$add-organization-to-endpoint
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [{
+    "name": "organization",
+    "valueReference": { "reference": "Organization/123" }
+  }]
+}
+</code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>POST [base]/Endpoint/456/$remove-organization-from-endpoint
+Content-Type: application/fhir+json
+
+{
+  "resourceType": "Parameters",
+  "parameter": [{
+    "name": "organization",
+    "valueReference": { "reference": "Organization/123" }
+  }]
+}
+</code></pre></div></div>
+
+<p>Se <a href="OperationDefinition-tk-endpoint-add-organization-to-endpoint.html">OperationDefinition: add-organization-to-endpoint</a>
+och <a href="OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html">OperationDefinition: remove-organization-from-endpoint</a>.</p>
+
+<hr />
+
 <blockquote>
-  <p><strong>Vägledning för författare:</strong> Roller och deras verksamhetsansvar beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a> (Funktionellt). Håll denna sida på ett konkret, tekniskt REST-plan.</p>
+  <p><strong>Vägledning för författare:</strong> Roller och deras verksamhetsansvar
+beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
+(Funktionellt). Håll denna sida på ett konkret, tekniskt REST-plan.</p>
 </blockquote>
 
 
@@ -252,10 +336,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
 
-          IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 09:18:00 +0000">
+  <span title="2026-09-08 10:34:00 +0000">
     2026-09-08
   </span>
 

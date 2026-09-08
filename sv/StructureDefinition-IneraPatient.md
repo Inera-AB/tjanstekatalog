@@ -1,4 +1,4 @@
-# Inera Patient - Inera FHIR Implementation Guide Template v2.2.1
+# Inera Patient - Tjänstekatalogen v0.1.0
 
 ## Resursprofil: Inera Patient 
 
@@ -9,7 +9,7 @@ A template patient profile demonstrating Inera's FHIR profiling conventions. Aut
 
 * Exempel för denna Profil: [Patient/IneraPatientExample](Patient-IneraPatientExample.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.core.template|current/StructureDefinition/IneraPatient)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/IneraPatient)
 
 ### Formella vyer av profilinnehåll
 
@@ -36,7 +36,7 @@ Obligatorisk: 0 element(2 nästlade obligatoriska elements)
 
 **Skivor**
 
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R4/profiling.html#slices):
+Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
 
 * Elementet 1 är uppdelat baserat på värdet av Patient.identifier
 
@@ -61,7 +61,7 @@ Obligatorisk: 0 element(2 nästlade obligatoriska elements)
 
 **Skivor**
 
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R4/profiling.html#slices):
+Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
 
 * Elementet 1 är uppdelat baserat på värdet av Patient.identifier
 
@@ -77,11 +77,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-IneraPatient.cs
 {
   "resourceType" : "StructureDefinition",
   "id" : "IneraPatient",
-  "url" : "https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient",
   "identifier" : [{
     "value" : "IneraPatient"
   }],
-  "version" : "2.2.1",
+  "version" : "0.1.0",
   "name" : "IneraPatient",
   "title" : "Inera Patient",
   "status" : "draft",
@@ -102,11 +102,21 @@ Andra representationer av profilen: [CSV](../StructureDefinition-IneraPatient.cs
       "display" : "Sweden"
     }]
   }],
-  "fhirVersion" : "4.0.1",
+  "fhirVersion" : "5.0.0",
   "mapping" : [{
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
     "identity" : "rim",
     "uri" : "http://hl7.org/v3",
     "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "interface",
+    "uri" : "http://hl7.org/fhir/interface",
+    "name" : "Interface Pattern"
   },
   {
     "identity" : "cda",
@@ -114,14 +124,9 @@ Andra representationer av profilen: [CSV](../StructureDefinition-IneraPatient.cs
     "name" : "CDA (R2)"
   },
   {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  },
-  {
     "identity" : "v2",
     "uri" : "http://hl7.org/v2",
-    "name" : "HL7 v2 Mapping"
+    "name" : "HL7 V2 Mapping"
   },
   {
     "identity" : "loinc",

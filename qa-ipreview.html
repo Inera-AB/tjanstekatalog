@@ -8,7 +8,11 @@
     <h2>Unattributed Code Systems</h2>
     <ul>
       <li>
-        <a href="StructureDefinition-IneraPatient.html">
+        <a href="Endpoint-TKEndpointExample.html">
+<code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code>        </a>
+      </li>
+      <li>
+        <a href="ValueSet-tk-endpoint-security-method.html">
 <code>urn:iso:std:iso:3166</code>        </a>
       </li>
     </ul>
@@ -16,7 +20,42 @@
     <p style="color: maroon">
       <b>This fragment is not visible to the reader</b>
     </p>
-    <div>Ingen användning av extern IP (annan än från FHIR-specifikationen)</div>
+    <div>
+      <p>Denna publication inkluderar IP som omfattas av följande uttalanden.</p>
+
+      <ul>
+
+        <li>
+This material derives from the HL7 Terminology (THO). THO is copyright &copy;1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see:           <a href="https://terminology.hl7.org/license.html">https://terminology.hl7.org/license.html</a>
+          <div onClick="if (document.getElementById('ipp2_1').innerHTML != '') {document.getElementById('ipp_1').innerHTML = document.getElementById('ipp2_1').innerHTML; document.getElementById('ipp2_1').innerHTML = ''}" id="ipp_1" data-fhir="generated">
+             <span style="cursor: pointer; border: 1px grey solid; background-color: #fcdcb3; padding-left: 3px; padding-right: 3px; color: black">Show Usage</span>
+          </div>
+          <div style="display: none" id="ipp2_1">
+
+            <ul>
+
+              <li>
+                <a href="http://terminology.hl7.org/7.3.0/CodeSystem-endpoint-connection-type.html">Endpoint Connection Type</a>
+:                 <a href="Endpoint-TKEndpointExample.html">Exempelregionens patientinformations-API</a>
+              </li>
+
+              <li>
+                <a href="http://terminology.hl7.org/7.3.0/CodeSystem-endpoint-payload-type.html">Endpoint Payload Type</a>
+:                 <a href="Endpoint-TKEndpointExample.html">Exempelregionens patientinformations-API</a>
+              </li>
+
+
+            </ul>
+
+
+          </div>
+        </li>
+
+
+      </ul>
+
+
+    </div>
     <h2>Copyright and Registered Trademark Uses</h2>
     <ul>
       <li>
@@ -24,8 +63,8 @@
 
 
 
-          IG &copy; 2024+ Inera AB.  
-          Paket inera.core.template#2.2.1 baserat på FHIR 4.0.1.
+          IG &copy; 2026+ Inera AB.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på FHIR 5.0.0.
           Genererad 
   
     2026-09-08
@@ -50,7 +89,7 @@
 )
       </li>
       <li>
-Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. Se katalogen över publicerade versioner (        <a href="version-history.html">src</a>
+Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. Se katalogen över publicerade versioner (        <a href="version-history.html">src</a>
 )
       </li>
     </ul>
@@ -69,7 +108,224 @@ Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt
       </tr>
       <tr>
         <td>
-          <a href="sv/Patient-IneraPatientExample.change.history.html">web</a>
+          <a href="Endpoint-TKEndpointExample.html">web</a>
+        </td>
+        <td>
+          <a href="https://auth.exempelregionen.se/oauth2/token">auth.exempelregionen.se</a>
+        </td>
+        <td>
+          <b>URL till auktorisationsserver</b>
+:           <a href="https://auth.exempelregionen.se/oauth2/token">https://auth.exempelregionen.se/oauth2/token</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Endpoint-TKEndpointExample.html">web</a>
+        </td>
+        <td>
+          <a href="https://api.exempelregionen.se/patientinformation/fhir">api.exempelregionen.se</a>
+        </td>
+        <td>
+          <b>address</b>
+:           <a href="https://api.exempelregionen.se/patientinformation/fhir">https://api.exempelregionen.se/patientinformation/fhir</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by">Endpoint: listed-by</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">Tjänstekatalogen Endpoint</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile">Stödd specifikation (payload profile)</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method">Säkerhetsmetod</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url">URL till auktorisationsserver</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">Tjänstekatalogen Organization</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">Tjänstekatalogen Organization</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by">Endpoint: listed-by</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">Tjänstekatalogen Organization</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by">Endpoint: listed-by</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint">Add Organization To Endpoint</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint">Remove Organization From Endpoint</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer">Organization Endpoint Writer Capabilities</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer">Organization Endpoint Writer Capabilities</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost">Indexpost (logisk modell)</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare">Vård- och omsorgstagare (logisk modell)</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">Tjänstekatalogen Endpoint</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile">Stödd specifikation (payload profile)</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">Tjänstekatalogen Endpoint</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile">Stödd specifikation (payload profile)</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification">API-specifikation (logisk modell)</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="sv/ActorDefinition-tk-organization-endpoint-writer-testing.html">web</a>
         </td>
         <td>
           <a href="https://www.inera.se">www.inera.se</a>
@@ -87,7 +343,7 @@ Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt
       </tr>
       <tr>
         <td>
-          <a href="sv/Patient-IneraPatientExample.change.history.html">web</a>
+          <a href="sv/ActorDefinition-tk-organization-endpoint-writer-testing.html">web</a>
         </td>
         <td>
           <a href="https://fhir.inera.se/">fhir.inera.se</a>
@@ -99,7 +355,7 @@ FHIR på Inera <span aria-hidden="true">↗</span>          </a>
       </tr>
       <tr>
         <td>
-          <a href="sv/Patient-IneraPatientExample.change.history.html">web</a>
+          <a href="sv/ActorDefinition-tk-organization-endpoint-writer-testing.html">web</a>
         </td>
         <td>
           <a href="https://www.inera.se">www.inera.se</a>
@@ -109,12 +365,12 @@ FHIR på Inera <span aria-hidden="true">↗</span>          </a>
 
 
 
-          IG &copy; 2024+           <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>
+          IG &copy; 2026+           <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>
 .  
-          Paket inera.core.template#2.2.1 baserat på           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>
+          Paket inera.tjanstekatalog#0.1.0 baserat på           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>
 .
           Genererad 
-            <span title="2026-09-08 09:18:00 +0000">
+            <span title="2026-09-08 10:34:00 +0000">
     2026-09-08
   </span>
 
@@ -131,6 +387,30 @@ FHIR på Inera <span aria-hidden="true">↗</span>          </a>
           </span>
 
         
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="sv/StructureDefinition-tk-api-specification-mappings.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements">fhir.inera.se</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements" title="https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements">Kravkatalog</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="sv/StructureDefinition-tk-organization-mappings.html">web</a>
+        </td>
+        <td>
+          <a href="http://www.omg.org/spec/ServD/1.0/">www.omg.org</a>
+        </td>
+        <td>
+          <a href="http://www.omg.org/spec/ServD/1.0/" title="http://www.omg.org/spec/ServD/1.0/">ServD</a>
+          <span style="float: right">
+<a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Legend for this format"><img src="http://hl7.org/fhir/R5/help16.png" alt="doco" onLoad="fhirTableInit(this)" style="background-color: inherit"/></a>          </span>
         </td>
       </tr>
       <tr>
@@ -162,11 +442,11 @@ En beskrivning av krav på följsamhet samt vägledning vid implementering av In
           <a href="sv/downloads.html">web</a>
         </td>
         <td>
-          <a href="https://fhir.inera.se/ig/template/package.tgz">fhir.inera.se</a>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/package.tgz">fhir.inera.se</a>
         </td>
         <td>
-          <a name="l387">​</a>
-          <a href="https://fhir.inera.se/ig/template/package.tgz">Paket (tgz)</a>
+          <a name="l389">​</a>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/package.tgz">Paket (tgz)</a>
         </td>
       </tr>
       <tr>
@@ -178,7 +458,13 @@ En beskrivning av krav på följsamhet samt vägledning vid implementering av In
         </td>
         <td>
 På           <a href="https://www.inera.se/tjanster/alla-tjanster-a-o/terminologitjanst-for-nationell-e-halsa/">Inera Terminologitjänst</a>
- finns alla refererade kodsystem och värdemängder som utvecklats av Inera.
+
+finns alla refererade kodsystem och värdemängder som utvecklats av Inera.
+Kodsystemet för           <code class="language-plaintext highlighter-rouge">Ändpunkt.säkerhetsmetod</code>
+ som definieras i denna IG är
+preliminärt (se           <a href="requirements.html">Kravkatalog</a>
+, REQ-END-6) och har ännu
+inte förvaltningsöverlämnats dit.
         </td>
       </tr>
       <tr>
@@ -189,8 +475,10 @@ På           <a href="https://www.inera.se/tjanster/alla-tjanster-a-o/terminolo
           <a href="https://fhir.inera.se/">fhir.inera.se</a>
         </td>
         <td>
-Mer information om FHIR på Inera  finns           <a href="https://fhir.inera.se/">här</a>
-. FHIR på Inera är en del av RIVTA – referensarkitekturen för svensk hälso- och sjukvård.
+Mer information om FHIR på Inera finns           <a href="https://fhir.inera.se/">här</a>
+. FHIR på
+Inera är en del av RIVTA – referensarkitekturen för svensk hälso- och
+sjukvård.
         </td>
       </tr>
       <tr>
@@ -201,8 +489,11 @@ Mer information om FHIR på Inera  finns           <a href="https://fhir.inera.s
           <a href="https://fhir.inera.se/">fhir.inera.se</a>
         </td>
         <td>
-Beskriv de säkerhets- och behörighetsförutsättningar som gäller för att ansluta till och använda denna IG:s gränssnitt, t.ex. autentiseringsmetod, behörighetsmodell och eventuella krav på samtycke. Hänvisa till Ineras generella säkerhetskrav på           <a href="https://fhir.inera.se/">FHIR på Inera</a>
- där tillämpligt.
+Ineras generella säkerhetskrav för anslutning till FHIR-gränssnitt gäller
+för denna IG — se           <a href="https://fhir.inera.se/">FHIR på Inera</a>
+ för den
+auktoritativa, förvaltade beskrivningen av autentiseringsmetod,
+behörighetsmodell och nätverkskrav.
         </td>
       </tr>
       <tr>
@@ -236,12 +527,6 @@ Entries are generated from commit messages that follow           <a href="https:
     </table>
     <h2>Internal Images</h2>
     <table class="grid">
-      <tr>
-        <td>
-../assets/images/swe.svg          <br/>
-          <img src="../assets/images/swe.svg" alt="../assets/images/swe.svg" width="600px" height="auto"/>
-        </td>
-      </tr>
       <tr>
         <td>
 inera-logo-header.svg          <br/>

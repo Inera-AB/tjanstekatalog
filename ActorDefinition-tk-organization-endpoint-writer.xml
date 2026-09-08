@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ActorDefinition xmlns="http://hl7.org/fhir">
+  <id value="tk-organization-endpoint-writer"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: ActorDefinition tk-organization-endpoint-writer</b></p><a name="tk-organization-endpoint-writer"> </a><a name="hctk-organization-endpoint-writer"> </a><table class="grid"><tr><td><b>Aktör: TKOrganizationEndpointWriter </b></td><td>Organization Endpoint Writer</td><td>Typ: system </td></tr><tr><td colspan="3"/></tr><tr><td>Förmågor:</td><td colspan="2"><a href="CapabilityStatement-tk-organization-endpoint-writer.html">Organization Endpoint Writer Capabilities</a></td></tr></table></div>
+  </text>
+  <url value="https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-organization-endpoint-writer"/>
+  <version value="0.1.0"/>
+  <name value="TKOrganizationEndpointWriter"/>
+  <title value="Organization Endpoint Writer"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-09-08"/>
+  <publisher value="Inera AB"/>
+  <contact>
+    <name value="Inera AB"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen, inklusive vilka ändpunkter en organisation listar (&quot;har&quot;). Realiseras tekniskt av [CapabilityStatement: Organization Endpoint Writer Capabilities](CapabilityStatement-tk-organization-endpoint-writer.html)."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="SE"/>
+      <display value="Sweden"/>
+    </coding>
+  </jurisdiction>
+  <type value="system"/>
+  <capabilities value="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer"/>
+</ActorDefinition>

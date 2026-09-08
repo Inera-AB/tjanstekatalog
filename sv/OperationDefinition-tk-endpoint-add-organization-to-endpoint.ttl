@@ -1,0 +1,72 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint> a fhir:OperationDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "tk-endpoint-add-organization-to-endpoint"] ; # 
+  fhir:language [ fhir:v "sv"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: OperationDefinition tk-endpoint-add-organization-to-endpoint</b></p><a name=\"tk-endpoint-add-organization-to-endpoint\"> </a><a name=\"hctk-endpoint-add-organization-to-endpoint\"> </a><p>URL: [base]/Endpoint/$add-organization-to-endpoint</p><p>URL: [base]/Endpoint/[id]/$add-organization-to-endpoint</p><h3>Parametrar</h3><table class=\"grid\"><tr><td><b>Användning</b></td><td><b>Namn</b></td><td><b>Omfattning</b></td><td><b>Kardinalitet</b></td><td><b>Typ</b></td><td><b>Bindning</b></td><td><b>Dokumentation</b></td></tr><tr><td>IN</td><td>organization</td><td/><td>1..1</td><td><a href=\"http://hl7.org/fhir/R5/references.html#Reference\">Reference</a> (<a href=\"StructureDefinition-tk-organization.html\" title=\"https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization\">Tjänstekatalogen Organization</a>)</td><td/><td><div><p>Referens till den organisation som ska lista denna ändpunkt via Organization.endpoint.</p>\n</div></td></tr><tr><td>OUT</td><td>organization</td><td/><td>0..1</td><td><a href=\"http://hl7.org/fhir/R5/organization.html\">Organization</a> (<a href=\"StructureDefinition-tk-organization.html\" title=\"https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization\">Tjänstekatalogen Organization</a>)</td><td/><td><div><p>Den uppdaterade Organization-resursen, med den angivna Endpoint tillagd i Organization.endpoint. Servrar som svarar utan resurskropp (t.ex. 200 utan body, eller 204) behöver inte populera denna out-parameter; se expected-responses.html.</p>\n</div></td></tr></table><div><p>Konformansnivå MAY, se CapabilityStatement-tk-organization-endpoint-writer.html.</p>\n</div></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TKEndpointAddOrganizationToEndpoint"] ; # 
+  fhir:title [ fhir:v "Add Organization To Endpoint"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:kind [ fhir:v "operation"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-09-08"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Lägger till en referens till denna Endpoint i den angivna organisationens `Organization.endpoint`-lista (\"har\"-relationen i informationsunderlaget). Ändrar inte `Endpoint.managingOrganization` (\"förvaltar\"). Stöds av aktören [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.html), konformansnivå MAY."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:code [ fhir:v "add-organization-to-endpoint"] ; # 
+  fhir:comment [ fhir:v "Konformansnivå MAY, se CapabilityStatement-tk-organization-endpoint-writer.html."] ; # 
+  fhir:resource ( [ fhir:v "Endpoint"] ) ; # 
+  fhir:system [ fhir:v false] ; # 
+  fhir:type [ fhir:v true] ; # 
+  fhir:instance [ fhir:v true] ; # 
+  fhir:parameter ( [
+     fhir:name [ fhir:v "organization" ] ;
+     fhir:use [ fhir:v "in" ] ;
+     fhir:min [ fhir:v 1 ] ;
+     fhir:max [ fhir:v "1" ] ;
+     fhir:documentation [ fhir:v "Referens till den organisation som ska lista denna ändpunkt via Organization.endpoint." ] ;
+     fhir:type [ fhir:v "Reference" ] ;
+     fhir:targetProfile ( [
+       fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"^^xsd:anyURI ;
+       fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization>
+     ] )
+  ] [
+     fhir:name [ fhir:v "organization" ] ;
+     fhir:use [ fhir:v "out" ] ;
+     fhir:min [ fhir:v 0 ] ;
+     fhir:max [ fhir:v "1" ] ;
+     fhir:documentation [ fhir:v "Den uppdaterade Organization-resursen, med den angivna Endpoint tillagd i Organization.endpoint. Servrar som svarar utan resurskropp (t.ex. 200 utan body, eller 204) behöver inte populera denna out-parameter; se expected-responses.html." ] ;
+     fhir:type [ fhir:v "Organization" ] ;
+     fhir:targetProfile ( [
+       fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"^^xsd:anyURI ;
+       fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization>
+     ] )
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

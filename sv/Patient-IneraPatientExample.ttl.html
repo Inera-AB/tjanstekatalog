@@ -10,7 +10,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Inera Patient Example - TTL Representation - Inera FHIR Implementation Guide Template v2.2.1</title>
+    <title>Inera Patient Example - TTL Representation - Tjänstekatalogen v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -54,8 +54,8 @@
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"16.2"}
-    h3,h4,h5,h6{--heading-prefix:"16.2"}</style>
+    <style type="text/css">h2{--heading-prefix:"17.21"}
+    h3,h4,h5,h6{--heading-prefix:"17.21"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -67,13 +67,13 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">2.2.1 - ci-build
+            <span style="display:inline-block;">0.1.0 - ci-build
 
 
 
-  <img alt="Sweden flagga" src="../assets/images/swe.svg" height="16" title="Sweden"/>
+  Sweden
 
 
             </span>
@@ -96,7 +96,7 @@
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
             </button>
-            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
               <div id="segment-navbar" class="segment">
   <div id="stripe"> </div>
@@ -118,6 +118,7 @@
               <ul class="dropdown-menu">
                 <li><a href="information-basis.html">Informationsunderlag</a></li>
                 <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
                 <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
                 <li><a href="mappings.html">Mappning till profiler</a></li>
               </ul>
@@ -178,7 +179,7 @@
 
 <!-- layouts\layout-instance-format -->
 <div style="counter-reset: section 9" class="col-12">
-<!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+<!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
 
 
 
@@ -240,59 +241,44 @@
   <pre class="rdf" data-fhir="generated" style="white-space: pre; overflow: hidden"><code class="language-turtle">
 @prefix fhir: &lt;http://hl7.org/fhir/&gt; .
 @prefix owl: &lt;http://www.w3.org/2002/07/owl#&gt; .
+@prefix rdf: &lt;http://www.w3.org/1999/02/22-rdf-syntax-ns#&gt; .
 @prefix rdfs: &lt;http://www.w3.org/2000/01/rdf-schema#&gt; .
 @prefix xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt; .
 
 # - resource -------------------------------------------------------------------
 
 &lt;http://hl7.org/fhir/Patient/IneraPatientExample&gt; a fhir:Patient ;
-  <a href="http://hl7.org/fhir/R4/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot ;
-  <a href="http://hl7.org/fhir/R4/resource.html#Patient.id">fhir:Resource.id</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;IneraPatientExample&quot;] ;
-  <a href="http://hl7.org/fhir/R4/resource.html#Patient.meta">fhir:Resource.meta</a> [
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Meta#Meta.profile">fhir:Meta.profile</a> [
-       <a href="http://hl7.org/fhir/R4/datatypes.html#canonical">fhir:value</a> &quot;https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient&quot; ;
-       <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> -1 ;
-       <a href="http://hl7.org/fhir/R4/rdf.html#reference">fhir:link</a> &lt;https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient&gt;
-     ]
-  ] ;
-  <a href="http://hl7.org/fhir/R4/resource.html#Patient.language">fhir:Resource.language</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;sv&quot;] ;
-  <a href="http://hl7.org/fhir/R4/domainresource.html#Patient.text">fhir:DomainResource.text</a> [
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Narrative#Narrative.status">fhir:Narrative.status</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;generated&quot; ] ;
-     fhir:Narrative.div &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Genererad berättande text: Patient IneraPatientExample&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;IneraPatientExample\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcIneraPatientExample\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profil: &lt;a href=\&quot;StructureDefinition-IneraPatient.html\&quot;&gt;Inera Patient&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p style=\&quot;border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\&quot;&gt;Anna Andersson (official) Female, Födelsedatum: 1950-01-01 ( http://electronichealth.se/identifier/personnummer#195001011234)&lt;/p&gt;&lt;hr/&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;Sätt att kontakta patienten\&quot;&gt;Kontaktuppgift&lt;/td&gt;&lt;td colspan=\&quot;3\&quot;&gt;Testgatan 1 Stockholm 11122 SE (home)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;
-  ] ;
-  <a href="http://hl7.org/fhir/R4/patient.html#Patient.identifier">fhir:Patient.identifier</a> [
-     <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> -1 ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.system">fhir:Identifier.system</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#uri">fhir:value</a> &quot;http://electronichealth.se/identifier/personnummer&quot; ] ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Identifier#Identifier.value">fhir:Identifier.value</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;195001011234&quot; ]
-  ] ;
-  <a href="http://hl7.org/fhir/R4/patient.html#Patient.name">fhir:Patient.name</a> [
-     <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> -1 ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#HumanName#HumanName.use">fhir:HumanName.use</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;official&quot; ] ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#HumanName#HumanName.family">fhir:HumanName.family</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Andersson&quot; ] ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#HumanName#HumanName.given">fhir:HumanName.given</a> [
-       <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Anna&quot; ;
-       <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> -1
-     ]
-  ] ;
-  <a href="http://hl7.org/fhir/R4/patient.html#Patient.gender">fhir:Patient.gender</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;female&quot;] ;
-  <a href="http://hl7.org/fhir/R4/patient.html#Patient.birthDate">fhir:Patient.birthDate</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#date">fhir:value</a> &quot;1950-01-01&quot;^^xsd:date] ;
-  <a href="http://hl7.org/fhir/R4/patient.html#Patient.address">fhir:Patient.address</a> [
-     <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> -1 ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Address#Address.use">fhir:Address.use</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#code">fhir:value</a> &quot;home&quot; ] ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Address#Address.line">fhir:Address.line</a> [
-       <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Testgatan 1&quot; ;
-       <a href="http://hl7.org/fhir/R4/rdf.html#index">fhir:index</a> -1
-     ] ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Address#Address.city">fhir:Address.city</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;Stockholm&quot; ] ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Address#Address.postalCode">fhir:Address.postalCode</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;11122&quot; ] ;
-     <a href="http://hl7.org/fhir/R4/datatypes.html#Address#Address.country">fhir:Address.country</a> [ <a href="http://hl7.org/fhir/R4/datatypes.html#string">fhir:value</a> &quot;SE&quot; ]
-  ] .
-
-# - ontology header ------------------------------------------------------------
-
-&lt;http://hl7.org/fhir/Patient/IneraPatientExample.ttl&gt; a owl:Ontology ;
-  owl:imports fhir:fhir.ttl ;
-  owl:versionIRI &lt;http://build.fhir.org/Patient/IneraPatientExample.ttl&gt; .
+  <a href="http://hl7.org/fhir/R5/rdf.html#tree-root">fhir:nodeRole</a> fhir:treeRoot ;
+  <a href="http://hl7.org/fhir/R5/resource.html#XPatient.id">fhir:id</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#id">fhir:v</a> &quot;IneraPatientExample&quot;] ; # 
+  <a href="http://hl7.org/fhir/R5/resource.html#XPatient.meta">fhir:meta</a> [
+     <a href="http://hl7.org/fhir/R5/resource.html#Meta#XMeta.profile">fhir:profile</a> ( [
+       <a href="http://hl7.org/fhir/R5/datatypes.html#canonical">fhir:v</a> &quot;https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient&quot;^^xsd:anyURI ;
+       <a href="http://hl7.org/fhir/R5/rdf.html#reference">fhir:link</a> &lt;https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient&gt;
+     ] )
+  ] ; # 
+  <a href="http://hl7.org/fhir/R5/resource.html#XPatient.language">fhir:language</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#code">fhir:v</a> &quot;sv&quot;] ; # 
+  <a href="http://hl7.org/fhir/R5/domainresource.html#XPatient.text">fhir:text</a> [
+     <a href="http://hl7.org/fhir/R5/narrative.html#Narrative#XNarrative.status">fhir:status</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#code">fhir:v</a> &quot;generated&quot; ] ;
+     <a href="http://hl7.org/fhir/R5/narrative.html#Narrative#XNarrative.div">fhir:div</a> [ <a href="http://hl7.org/fhir/R5/narrative.html#xhtml">fhir:v</a> &quot;&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Genererad berättande text: Patient IneraPatientExample&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;IneraPatientExample\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hcIneraPatientExample\&quot;&gt; &lt;/a&gt;&lt;div style=\&quot;display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\&quot;&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;/&gt;&lt;p style=\&quot;margin-bottom: 0px\&quot;&gt;Profil: &lt;a href=\&quot;StructureDefinition-IneraPatient.html\&quot;&gt;Inera Patient&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;p style=\&quot;border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;\&quot;&gt;Anna Andersson (official) Female, Födelsedatum: 1950-01-01 ( http://electronichealth.se/identifier/personnummer#195001011234)&lt;/p&gt;&lt;hr/&gt;&lt;table class=\&quot;grid\&quot;&gt;&lt;tr&gt;&lt;td style=\&quot;background-color: #f3f5da\&quot; title=\&quot;Sätt att kontakta patienten\&quot;&gt;Kontaktuppgift&lt;/td&gt;&lt;td colspan=\&quot;3\&quot;&gt;Testgatan 1 Stockholm 11122 SE (home)&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/div&gt;&quot;^^rdf:XMLLiteral ]
+  ] ; # 
+  <a href="http://hl7.org/fhir/R5/patient.html#XPatient.identifier">fhir:identifier</a> ( [
+     <a href="http://hl7.org/fhir/R5/datatypes.html#Identifier#XIdentifier.system">fhir:system</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#uri">fhir:v</a> &quot;http://electronichealth.se/identifier/personnummer&quot;^^xsd:anyURI ] ;
+     <a href="http://hl7.org/fhir/R5/datatypes.html#Identifier#XIdentifier.value">fhir:value</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#string">fhir:v</a> &quot;195001011234&quot; ]
+  ] ) ; # 
+  <a href="http://hl7.org/fhir/R5/patient.html#XPatient.name">fhir:name</a> ( [
+     <a href="http://hl7.org/fhir/R5/datatypes.html#HumanName#XHumanName.use">fhir:use</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#code">fhir:v</a> &quot;official&quot; ] ;
+     <a href="http://hl7.org/fhir/R5/datatypes.html#HumanName#XHumanName.family">fhir:family</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#string">fhir:v</a> &quot;Andersson&quot; ] ;
+     <a href="http://hl7.org/fhir/R5/datatypes.html#HumanName#XHumanName.given">fhir:given</a> ( [ <a href="http://hl7.org/fhir/R5/datatypes.html#string">fhir:v</a> &quot;Anna&quot; ] )
+  ] ) ; # 
+  <a href="http://hl7.org/fhir/R5/patient.html#XPatient.gender">fhir:gender</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#code">fhir:v</a> &quot;female&quot;] ; # 
+  <a href="http://hl7.org/fhir/R5/patient.html#XPatient.birthDate">fhir:birthDate</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#date">fhir:v</a> &quot;1950-01-01&quot;^^xsd:date] ; # 
+  <a href="http://hl7.org/fhir/R5/patient.html#XPatient.address">fhir:address</a> ( [
+     <a href="http://hl7.org/fhir/R5/datatypes.html#Address#XAddress.use">fhir:use</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#code">fhir:v</a> &quot;home&quot; ] ;
+     <a href="http://hl7.org/fhir/R5/datatypes.html#Address#XAddress.line">fhir:line</a> ( [ <a href="http://hl7.org/fhir/R5/datatypes.html#string">fhir:v</a> &quot;Testgatan 1&quot; ] ) ;
+     <a href="http://hl7.org/fhir/R5/datatypes.html#Address#XAddress.city">fhir:city</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#string">fhir:v</a> &quot;Stockholm&quot; ] ;
+     <a href="http://hl7.org/fhir/R5/datatypes.html#Address#XAddress.postalCode">fhir:postalCode</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#string">fhir:v</a> &quot;11122&quot; ] ;
+     <a href="http://hl7.org/fhir/R5/datatypes.html#Address#XAddress.country">fhir:country</a> [ <a href="http://hl7.org/fhir/R5/datatypes.html#string">fhir:v</a> &quot;SE&quot; ]
+  ] ) . # 
 
 </code></pre>
 
@@ -325,10 +311,10 @@
 
 
 
-          IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 09:18:00 +0000">
+  <span title="2026-09-08 10:34:00 +0000">
     2026-09-08
   </span>
 

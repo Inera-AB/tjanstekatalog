@@ -1,0 +1,47 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-organization-endpoint-writer> a fhir:ActorDefinition ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "tk-organization-endpoint-writer"] ; # 
+  fhir:language [ fhir:v "sv"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ActorDefinition tk-organization-endpoint-writer</b></p><a name=\"tk-organization-endpoint-writer\"> </a><a name=\"hctk-organization-endpoint-writer\"> </a><table class=\"grid\"><tr><td><b>Aktör: TKOrganizationEndpointWriter </b></td><td>Organization Endpoint Writer</td><td>Typ: system </td></tr><tr><td colspan=\"3\"/></tr><tr><td>Förmågor:</td><td colspan=\"2\"><a href=\"CapabilityStatement-tk-organization-endpoint-writer.html\">Organization Endpoint Writer Capabilities</a></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-organization-endpoint-writer"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TKOrganizationEndpointWriter"] ; # 
+  fhir:title [ fhir:v "Organization Endpoint Writer"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-09-08"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen, inklusive vilka ändpunkter en organisation listar (\"har\"). Realiseras tekniskt av [CapabilityStatement: Organization Endpoint Writer Capabilities](CapabilityStatement-tk-organization-endpoint-writer.html)."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:type [ fhir:v "system"] ; # 
+  fhir:capabilities [
+     fhir:v "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer"^^xsd:anyURI ;
+     fhir:link <https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer>
+  ] . # 
+
+# -------------------------------------------------------------------------------------
+

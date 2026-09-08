@@ -1,0 +1,66 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "tk-endpoint-security-method"] ; # 
+  fhir:language [ fhir:v "sv"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: CodeSystem tk-endpoint-security-method</b></p><a name=\"tk-endpoint-security-method\"> </a><a name=\"hctk-endpoint-security-method\"> </a><p>Detta case-sensitive kodsystem <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code> definierar följande koder:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Kod</b></td><td><b>Visning</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">oauth2-client-credentials<a name=\"tk-endpoint-security-method-oauth2-client-credentials\"> </a></td><td>OAuth 2.0 client credentials</td><td>Klientautentisering enligt OAuth 2.0 client credentials grant.</td></tr><tr><td style=\"white-space:nowrap\">oauth2-authorization-code<a name=\"tk-endpoint-security-method-oauth2-authorization-code\"> </a></td><td>OAuth 2.0 authorization code</td><td>Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID.</td></tr><tr><td style=\"white-space:nowrap\">mutual-tls<a name=\"tk-endpoint-security-method-mutual-tls\"> </a></td><td>Ömsesidig TLS (mTLS)</td><td>Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver.</td></tr><tr><td style=\"white-space:nowrap\">saml2<a name=\"tk-endpoint-security-method-saml2\"> </a></td><td>SAML 2.0</td><td>Federerad autentisering enligt SAML 2.0.</td></tr><tr><td style=\"white-space:nowrap\">none<a name=\"tk-endpoint-security-method-none\"> </a></td><td>Ingen</td><td>Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS).</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TKEndpointSecurityMethodCS"] ; # 
+  fhir:title [ fhir:v "Säkerhetsmetoder för tekniska ändpunkter (kodsystem)"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-09-08T10:34:42+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Kodsystem som anger vilken säkerhetsmetod som skyddar en teknisk ändpunkt (Ändpunkt.säkerhetsmetod i informationsunderlaget). Preliminärt förslag, se REQ-END-6 i kravkatalogen."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:caseSensitive [ fhir:v true] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "5"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "oauth2-client-credentials" ] ;
+     fhir:display [ fhir:v "OAuth 2.0 client credentials" ] ;
+     fhir:definition [ fhir:v "Klientautentisering enligt OAuth 2.0 client credentials grant." ]
+  ] [
+     fhir:code [ fhir:v "oauth2-authorization-code" ] ;
+     fhir:display [ fhir:v "OAuth 2.0 authorization code" ] ;
+     fhir:definition [ fhir:v "Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID." ]
+  ] [
+     fhir:code [ fhir:v "mutual-tls" ] ;
+     fhir:display [ fhir:v "Ömsesidig TLS (mTLS)" ] ;
+     fhir:definition [ fhir:v "Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver." ]
+  ] [
+     fhir:code [ fhir:v "saml2" ] ;
+     fhir:display [ fhir:v "SAML 2.0" ] ;
+     fhir:definition [ fhir:v "Federerad autentisering enligt SAML 2.0." ]
+  ] [
+     fhir:code [ fhir:v "none" ] ;
+     fhir:display [ fhir:v "Ingen" ] ;
+     fhir:definition [ fhir:v "Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS)." ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

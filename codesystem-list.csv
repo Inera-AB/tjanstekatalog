@@ -1,1 +1,2 @@
 URL,Version,Status,OIDs,Name,Title,Description,Used
+https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method,0.1.0,draft,,TKEndpointSecurityMethodCS,Säkerhetsmetoder för tekniska ändpunkter (kodsystem),"Kodsystem som anger vilken säkerhetsmetod som skyddar en teknisk ändpunkt (Ändpunkt.säkerhetsmetod i informationsunderlaget). Preliminärt förslag, se REQ-END-6 i kravkatalogen.",

@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Felhantering - Inera FHIR Implementation Guide Template v2.2.1</title>
+    <title>Felhantering - Tjänstekatalogen v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -50,8 +50,8 @@
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"10"}
-    h3,h4,h5,h6{--heading-prefix:"10"}</style>
+    <style type="text/css">h2{--heading-prefix:"11"}
+    h3,h4,h5,h6{--heading-prefix:"11"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -63,13 +63,13 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">2.2.1 - ci-build
+            <span style="display:inline-block;">0.1.0 - ci-build
 
 
 
-  <img alt="Sweden flagga" src="../assets/images/swe.svg" height="16" title="Sweden"/>
+  Sweden
 
 
             </span>
@@ -92,7 +92,7 @@
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
             </button>
-            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
               <div id="segment-navbar" class="segment">
   <div id="stripe"> </div>
@@ -114,6 +114,7 @@
               <ul class="dropdown-menu">
                 <li><a href="information-basis.html">Informationsunderlag</a></li>
                 <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
                 <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
                 <li><a href="mappings.html">Mappning till profiler</a></li>
               </ul>
@@ -180,7 +181,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Felhantering</h2>
   
 
@@ -202,7 +203,63 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <h1 id="felhantering">Felhantering</h1>
 
-<p><em>Beskriv hur fel ska rapporteras, t.ex. via <code class="language-plaintext highlighter-rouge">OperationOutcome</code>. Ange vilka statuskoder och felkoder som kan förekomma och vad de betyder för respektive interaktion.</em></p>
+<p>Fel rapporteras som <code class="language-plaintext highlighter-rouge">OperationOutcome</code>, i enlighet med FHIR:s standardmönster
+för REST-fel.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Situation</th>
+      <th>Statuskod</th>
+      <th><code class="language-plaintext highlighter-rouge">OperationOutcome.issue.code</code></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Okänt/otillgängligt resurs-id (<code class="language-plaintext highlighter-rouge">read</code>, operationer)</td>
+      <td><code class="language-plaintext highlighter-rouge">404 Not Found</code></td>
+      <td><code class="language-plaintext highlighter-rouge">not-found</code></td>
+    </tr>
+    <tr>
+      <td>Ogiltig sökparameter eller kombination</td>
+      <td><code class="language-plaintext highlighter-rouge">400 Bad Request</code></td>
+      <td><code class="language-plaintext highlighter-rouge">invalid</code></td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">listed-by</code>/<code class="language-plaintext highlighter-rouge">organization</code> refererar en organisation som inte finns</td>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code> med tom <code class="language-plaintext highlighter-rouge">Bundle</code> (sökning), eller <code class="language-plaintext highlighter-rouge">404 Not Found</code> om själva den refererade resursen efterfrågas direkt</td>
+      <td>—</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code>/<code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code> med <code class="language-plaintext highlighter-rouge">organization</code>-parameter som saknas eller inte kan lösas upp</td>
+      <td><code class="language-plaintext highlighter-rouge">400 Bad Request</code></td>
+      <td><code class="language-plaintext highlighter-rouge">invalid</code> eller <code class="language-plaintext highlighter-rouge">not-found</code></td>
+    </tr>
+    <tr>
+      <td>Autentisering saknas eller är ogiltig</td>
+      <td><code class="language-plaintext highlighter-rouge">401 Unauthorized</code></td>
+      <td><code class="language-plaintext highlighter-rouge">login</code></td>
+    </tr>
+    <tr>
+      <td>Autentiserad men saknar behörighet</td>
+      <td><code class="language-plaintext highlighter-rouge">403 Forbidden</code></td>
+      <td><code class="language-plaintext highlighter-rouge">forbidden</code></td>
+    </tr>
+    <tr>
+      <td>Konflikt vid <code class="language-plaintext highlighter-rouge">update</code> (t.ex. <code class="language-plaintext highlighter-rouge">If-Match</code>/version stämmer inte)</td>
+      <td><code class="language-plaintext highlighter-rouge">409 Conflict</code></td>
+      <td><code class="language-plaintext highlighter-rouge">conflict</code></td>
+    </tr>
+    <tr>
+      <td>Serverfel</td>
+      <td><code class="language-plaintext highlighter-rouge">500 Internal Server Error</code></td>
+      <td><code class="language-plaintext highlighter-rouge">exception</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Se <a href="security.html">Säkerhet och behörighet</a> för autentiserings- och
+behörighetsmodellen som styr <code class="language-plaintext highlighter-rouge">401</code>/<code class="language-plaintext highlighter-rouge">403</code>-fallen.</p>
 
 
 
@@ -229,10 +286,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
 
-          IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 09:18:00 +0000">
+  <span title="2026-09-08 10:34:00 +0000">
     2026-09-08
   </span>
 

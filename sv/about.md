@@ -1,4 +1,4 @@
-# Om - Inera FHIR Implementation Guide Template v2.2.1
+# Om - Tjänstekatalogen v0.1.0
 
 ## Om
 

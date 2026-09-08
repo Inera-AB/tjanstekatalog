@@ -1,0 +1,48 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by> a fhir:SearchParameter ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "tk-endpoint-listed-by"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: SearchParameter tk-endpoint-listed-by</b></p><a name=\"tk-endpoint-listed-by\"> </a><a name=\"hctk-endpoint-listed-by\"> </a><h2>TKEndpointListedBy</h2><p>Parameter <code>listed-by</code>:<code>reference</code></p><div><p>Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint (&quot;har&quot;-relationen i informationsunderlaget) — till skillnad från standardparametern <code>organization</code>, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, &quot;förvaltar&quot;-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med <code>_has:Organization:endpoint:_id=[organization-id]</code>.</p>\n</div><table class=\"grid\"><tr><td>Resurs</td><td><a href=\"http://hl7.org/fhir/R5/endpoint.html\">Endpoint</a></td></tr><tr><td>Uttryck</td><td>(ingen)</td></tr><tr><td>Målresurser</td><td><a href=\"http://hl7.org/fhir/R5/organization.html\">Organization</a></td></tr><tr><td>Multipler</td><td><ul><li>multipleAnd: Parametern får endast förekomma en gång</li><li>multipleOr: Parametern kan ha flera värden (separerade med kommatecken) där minst ett måste vara sant</li></ul></td></tr><tr><td>Kedjor</td><td>Tillåten: identifier</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TKEndpointListedBy"] ; # 
+  fhir:title [ fhir:v "Endpoint: listed-by"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-09-08"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint (\"har\"-relationen i informationsunderlaget) — till skillnad från standardparametern `organization`, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, \"förvaltar\"-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med `_has:Organization:endpoint:_id=[organization-id]`."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:code [ fhir:v "listed-by"] ; # 
+  fhir:base ( [ fhir:v "Endpoint"] ) ; # 
+  fhir:type [ fhir:v "reference"] ; # 
+  fhir:target ( [ fhir:v "Organization"] ) ; # 
+  fhir:multipleOr [ fhir:v true] ; # 
+  fhir:multipleAnd [ fhir:v false] ; # 
+  fhir:chain ( [ fhir:v "identifier"] ) . # 
+
+# -------------------------------------------------------------------------------------
+

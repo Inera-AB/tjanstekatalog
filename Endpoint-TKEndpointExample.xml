@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Endpoint xmlns="http://hl7.org/fhir">
+  <id value="TKEndpointExample"/>
+  <meta>
+    <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: Endpoint TKEndpointExample</b></p><a name="TKEndpointExample"> </a><a name="hcTKEndpointExample"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="StructureDefinition-tk-endpoint.html">Tjänstekatalogen Endpoint</a></p></div><p><b>Säkerhetsmetod</b>: <span title="Koder:{https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method oauth2-client-credentials}">OAuth 2.0 client credentials</span></p><p><b>URL till auktorisationsserver</b>: <a href="https://auth.exempelregionen.se/oauth2/token">https://auth.exempelregionen.se/oauth2/token</a></p><p><b>status</b>: Active</p><p><b>connectionType</b>: <span title="Koder:{http://terminology.hl7.org/CodeSystem/endpoint-connection-type hl7-fhir-rest}">HL7 FHIR</span></p><p><b>name</b>: Exempelregionens patientinformations-API</p><p><b>managingOrganization</b>: <a href="Organization-TKOrganizationExample.html">Organization Exempelregionen</a></p><p><b>period</b>: 2026-01-01 --&gt; (pågående)</p><h3>Payloads</h3><table class="grid"><tr><td style="display: none">-</td><td><b>Extension</b></td><td><b>Type</b></td></tr><tr><td style="display: none">*</td><td/><td><span title="Koder:{http://terminology.hl7.org/CodeSystem/endpoint-payload-type any}">Any</span></td></tr></table><p><b>address</b>: <a href="https://api.exempelregionen.se/patientinformation/fhir">https://api.exempelregionen.se/patientinformation/fhir</a></p></div>
+  </text>
+  <extension url="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method">
+    <valueCodeableConcept>
+      <coding>
+        <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"/>
+        <code value="oauth2-client-credentials"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <extension url="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url">
+    <valueUrl value="https://auth.exempelregionen.se/oauth2/token"/>
+  </extension>
+  <status value="active"/>
+  <connectionType>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/endpoint-connection-type"/>
+      <code value="hl7-fhir-rest"/>
+      <display value="HL7 FHIR"/>
+    </coding>
+  </connectionType>
+  <name value="Exempelregionens patientinformations-API"/>
+  <managingOrganization>
+    <reference value="Organization/TKOrganizationExample"/>
+  </managingOrganization>
+  <period>
+    <start value="2026-01-01"/>
+  </period>
+  <payload>
+    <extension url="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile">
+      <valueCanonical value="https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation"/>
+    </extension>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/endpoint-payload-type"/>
+        <code value="any"/>
+        <display value="Any"/>
+      </coding>
+    </type>
+  </payload>
+  <address value="https://api.exempelregionen.se/patientinformation/fhir"/>
+</Endpoint>

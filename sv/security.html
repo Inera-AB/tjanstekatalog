@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Säkerhet och behörighet - Inera FHIR Implementation Guide Template v2.2.1</title>
+    <title>Säkerhet och behörighet - Tjänstekatalogen v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -50,8 +50,8 @@
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"11"}
-    h3,h4,h5,h6{--heading-prefix:"11"}</style>
+    <style type="text/css">h2{--heading-prefix:"12"}
+    h3,h4,h5,h6{--heading-prefix:"12"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -63,13 +63,13 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">2.2.1 - ci-build
+            <span style="display:inline-block;">0.1.0 - ci-build
 
 
 
-  <img alt="Sweden flagga" src="../assets/images/swe.svg" height="16" title="Sweden"/>
+  Sweden
 
 
             </span>
@@ -92,7 +92,7 @@
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
             </button>
-            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
               <div id="segment-navbar" class="segment">
   <div id="stripe"> </div>
@@ -114,6 +114,7 @@
               <ul class="dropdown-menu">
                 <li><a href="information-basis.html">Informationsunderlag</a></li>
                 <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
                 <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
                 <li><a href="mappings.html">Mappning till profiler</a></li>
               </ul>
@@ -180,7 +181,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Säkerhet och behörighet</h2>
   
 
@@ -202,7 +203,31 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <h1 id="säkerhet-och-behörighet">Säkerhet och behörighet</h1>
 
-<p><em>Beskriv de säkerhets- och behörighetsförutsättningar som gäller för att ansluta till och använda denna IG:s gränssnitt, t.ex. autentiseringsmetod, behörighetsmodell och eventuella krav på samtycke. Hänvisa till Ineras generella säkerhetskrav på <a href="https://fhir.inera.se/">FHIR på Inera</a> där tillämpligt.</em></p>
+<p>Ineras generella säkerhetskrav för anslutning till FHIR-gränssnitt gäller
+för denna IG — se <a href="https://fhir.inera.se/">FHIR på Inera</a> för den
+auktoritativa, förvaltade beskrivningen av autentiseringsmetod,
+behörighetsmodell och nätverkskrav.</p>
+
+<p>Utöver de generella kraven gäller specifikt för denna IG:</p>
+
+<ul>
+  <li>Skrivrättigheter (<code class="language-plaintext highlighter-rouge">create</code>, <code class="language-plaintext highlighter-rouge">update</code>, <code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code>,
+<code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code>) begränsas till system som är
+behöriga att agera Organization Endpoint Writer för den aktuella
+organisationen. Hur denna behörighet knyts till en organisations id (t.ex.
+via certifikatets/klientens registrerade organisationstillhörighet) är en
+driftsfråga för respektive tjänstekatalog-instans och beskrivs inte
+ytterligare i denna IG.</li>
+  <li><code class="language-plaintext highlighter-rouge">$add-organization-to-endpoint</code> och <code class="language-plaintext highlighter-rouge">$remove-organization-from-endpoint</code>
+ändrar <code class="language-plaintext highlighter-rouge">Organization.endpoint</code> utan att kräva skrivrättighet till hela
+<code class="language-plaintext highlighter-rouge">Organization</code>-resursen (se <a href="roles-and-responsibilities.html">Roller och ansvar</a>) —
+servrar ska ändå kontrollera att anropande system har rätt att koppla just
+den angivna ändpunkten till just den angivna organisationen.</li>
+  <li>Sökning (<code class="language-plaintext highlighter-rouge">read</code>, <code class="language-plaintext highlighter-rouge">search-type</code>, inklusive <code class="language-plaintext highlighter-rouge">listed-by</code>) förutsätts vara
+tillgänglig för behöriga tjänstekonsumenter utan krav på samtycke, då
+informationen avser tekniska ändpunkter och organisationer, inte
+personuppgifter om enskilda.</li>
+</ul>
 
 
 
@@ -229,10 +254,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
 
-          IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 09:18:00 +0000">
+  <span title="2026-09-08 10:34:00 +0000">
     2026-09-08
   </span>
 

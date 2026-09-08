@@ -1,10 +1,11 @@
-# inera.core.template#2.2.1: Inera FHIR Implementation Guide Template(sv)
+# inera.tjanstekatalog#0.1.0: Tjänstekatalogen(sv)
 
 ## Pages
 
 * [Hem](index.md)
 * [Om](about.md)
 * [Mappning till profiler](mappings.md)
+* [Kravkatalog](requirements.md)
 * [Användningsfall](use-cases.md)
 * [Förväntade svar](expected-responses.md)
 * [Informationsunderlag](information-basis.md)
@@ -21,14 +22,60 @@
 
 ## Resources
 
+### CodeSystems
+
+* [Säkerhetsmetoder för tekniska ändpunkter (kodsystem)](CodeSystem-tk-endpoint-security-method.md)
+
+### ValueSets
+
+* [Säkerhetsmetoder för tekniska ändpunkter](ValueSet-tk-endpoint-security-method.md)
+
+### Logicals
+
+* [API-specifikation (logisk modell)](StructureDefinition-tk-api-specification.md)
+* [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md)
+* [Vård- och omsorgstagare (logisk modell)](StructureDefinition-tk-vard-och-omsorgstagare.md)
+
 ### Resource Profiles
 
 * [Inera Patient](StructureDefinition-IneraPatient.md)
+* [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
+* [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
+
+### Extensions
+
+* [URL till auktorisationsserver](StructureDefinition-tk-endpoint-authorization-server-url.md)
+* [Stödd specifikation (payload profile)](StructureDefinition-tk-endpoint-payload-profile.md)
+* [Säkerhetsmetod](StructureDefinition-tk-endpoint-security-method.md)
+
+### ActorDefinitions
+
+* [Organization Endpoint Writer](ActorDefinition-tk-organization-endpoint-writer.md)
+
+### CapabilityStatements
+
+* [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
+* [Organization Endpoint Writer Capabilities](CapabilityStatement-tk-organization-endpoint-writer.md)
 
 ### ImplementationGuides
 
-* [Inera FHIR Implementation Guide Template](ImplementationGuide-inera.core.template.md)
+* [Tjänstekatalogen](ImplementationGuide-inera.tjanstekatalog.md)
+
+### OperationDefinitions
+
+* [Add Organization To Endpoint](OperationDefinition-tk-endpoint-add-organization-to-endpoint.md)
+* [Remove Organization From Endpoint](OperationDefinition-tk-endpoint-remove-organization-from-endpoint.md)
+
+### Requirements
+
+* [Kravkatalog: Tjänstekatalogen](Requirements-tk-tjanstekatalog-requirements.md)
+
+### SearchParameters
+
+* [Endpoint: listed-by](SearchParameter-tk-endpoint-listed-by.md)
 
 ### Examples
 
+* [Exempelregionens patientinformations-API (Endpoint)](Endpoint-TKEndpointExample.md)
+* [Exempelregionen (Organization)](Organization-TKOrganizationExample.md)
 * [IneraPatientExample (Patient)](Patient-IneraPatientExample.md)

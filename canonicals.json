@@ -1,14 +1,133 @@
 [{
-  "id" : "inera.core.template",
+  "id" : "tk-organization-endpoint-writer",
+  "type" : "ActorDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-organization-endpoint-writer",
+  "version" : "0.1.0",
+  "name" : "TKOrganizationEndpointWriter"
+},
+{
+  "id" : "tk-admin-api",
+  "type" : "CapabilityStatement",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api",
+  "version" : "0.1.0",
+  "name" : "TKAdminAPICapabilityStatement"
+},
+{
+  "id" : "tk-organization-endpoint-writer",
+  "type" : "CapabilityStatement",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-organization-endpoint-writer",
+  "version" : "0.1.0",
+  "name" : "TKOrganizationEndpointWriterCapabilities"
+},
+{
+  "id" : "tk-endpoint-security-method",
+  "type" : "CodeSystem",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method",
+  "version" : "0.1.0",
+  "name" : "TKEndpointSecurityMethodCS"
+},
+{
+  "id" : "inera.tjanstekatalog",
   "type" : "ImplementationGuide",
-  "url" : "https://fhir.inera.se/ig/template/ImplementationGuide/inera.core.template",
-  "version" : "2.2.1",
-  "name" : "IneraCoreTemplate"
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog",
+  "version" : "0.1.0",
+  "name" : "IneraTjanstekatalog"
+},
+{
+  "id" : "tk-endpoint-add-organization-to-endpoint",
+  "type" : "OperationDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-add-organization-to-endpoint",
+  "version" : "0.1.0",
+  "name" : "TKEndpointAddOrganizationToEndpoint"
+},
+{
+  "id" : "tk-endpoint-remove-organization-from-endpoint",
+  "type" : "OperationDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/OperationDefinition/tk-endpoint-remove-organization-from-endpoint",
+  "version" : "0.1.0",
+  "name" : "TKEndpointRemoveOrganizationFromEndpoint"
+},
+{
+  "id" : "tk-tjanstekatalog-requirements",
+  "type" : "Requirements",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements",
+  "version" : "0.1.0",
+  "name" : "TKTjanstekatalogRequirements"
+},
+{
+  "id" : "tk-endpoint-listed-by",
+  "type" : "SearchParameter",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by",
+  "version" : "0.1.0",
+  "name" : "TKEndpointListedBy"
 },
 {
   "id" : "IneraPatient",
   "type" : "StructureDefinition",
-  "url" : "https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient",
-  "version" : "2.2.1",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient",
+  "version" : "0.1.0",
   "name" : "IneraPatient"
+},
+{
+  "id" : "tk-api-specification",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification",
+  "version" : "0.1.0",
+  "name" : "TKAPISpecification"
+},
+{
+  "id" : "tk-endpoint",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint",
+  "version" : "0.1.0",
+  "name" : "TKEndpoint"
+},
+{
+  "id" : "tk-endpoint-authorization-server-url",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url",
+  "version" : "0.1.0",
+  "name" : "TKEndpointAuthorizationServerUrl"
+},
+{
+  "id" : "tk-endpoint-payload-profile",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile",
+  "version" : "0.1.0",
+  "name" : "TKEndpointPayloadProfile"
+},
+{
+  "id" : "tk-endpoint-security-method",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method",
+  "version" : "0.1.0",
+  "name" : "TKEndpointSecurityMethod"
+},
+{
+  "id" : "tk-indexpost",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost",
+  "version" : "0.1.0",
+  "name" : "TKIndexpost"
+},
+{
+  "id" : "tk-organization",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization",
+  "version" : "0.1.0",
+  "name" : "TKOrganization"
+},
+{
+  "id" : "tk-vard-och-omsorgstagare",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare",
+  "version" : "0.1.0",
+  "name" : "TKVardOchOmsorgstagare"
+},
+{
+  "id" : "tk-endpoint-security-method",
+  "type" : "ValueSet",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method",
+  "version" : "0.1.0",
+  "name" : "TKEndpointSecurityMethodVS"
 }]

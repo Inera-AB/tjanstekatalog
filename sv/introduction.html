@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Inledning - Inera FHIR Implementation Guide Template v2.2.1</title>
+    <title>Inledning - Tjänstekatalogen v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -63,13 +63,13 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">2.2.1 - ci-build
+            <span style="display:inline-block;">0.1.0 - ci-build
 
 
 
-  <img alt="Sweden flagga" src="../assets/images/swe.svg" height="16" title="Sweden"/>
+  Sweden
 
 
             </span>
@@ -92,7 +92,7 @@
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
             </button>
-            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
               <div id="segment-navbar" class="segment">
   <div id="stripe"> </div>
@@ -114,6 +114,7 @@
               <ul class="dropdown-menu">
                 <li><a href="information-basis.html">Informationsunderlag</a></li>
                 <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
                 <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
                 <li><a href="mappings.html">Mappning till profiler</a></li>
               </ul>
@@ -180,7 +181,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Inledning</h2>
   
 
@@ -202,16 +203,35 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <h1 id="inledning">Inledning</h1>
 
-<p><em>Detta är beskrivningen av [Domännamn] i tjänstedomänen [tjänstedomän/supportprocess]. Denna Implementation Guide (IG) är baserad på RIVTA 2.1 [R2] och regleras genom arkitekturella beslut [R1].</em></p>
+<p>Detta är beskrivningen av tekniska ändpunkter i tjänstedomänen
+<strong>Tjänstekatalogen</strong> — sökning av organisationers ändpunkter och det
+administrativa API som används för att registrera dem.</p>
 
-<p><em>Denna IG är en kravspecifikation. Den ska fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter och tjänsteproducenter) som avser ansluta system för samverkan enligt denna IG. IG:n är också ett viktigt underlag för skapandet av de tekniska artefakterna (FHIR-profiler och StructureDefinitions).</em></p>
+<p>Denna IG är en kravspecifikation. Den ska fungera som ett teknikneutralt,
+formellt regelverk som reglerar integrationskrav för parter
+(tjänstekonsumenter, dvs. sökande klienter, och tjänsteproducenter, dvs.
+Organization Endpoint Writer-system) som avser ansluta system för samverkan
+enligt denna IG. IG:n är också ett viktigt underlag för skapandet av de
+tekniska artefakterna (FHIR-profiler och StructureDefinitions).</p>
 
-<p><em>Detta dokument kompletterar reglerna i de tekniska artefakterna. Tjänsteproducenter och tjänstekonsumenter ska med andra ord följa såväl de maskintolkbara reglerna i FHIR-profilerna, som de regler som uttrycks verbalt i detta dokument.</em></p>
+<p>Detta dokument kompletterar reglerna i de tekniska artefakterna.
+Tjänsteproducenter och tjänstekonsumenter ska med andra ord följa såväl de
+maskintolkbara reglerna i FHIR-profilerna, som de regler som uttrycks
+verbalt i detta dokument — inklusive kravkatalogen (se
+<a href="requirements.html">Kravkatalog</a>), som spårar varje krav till de FHIR-
+artefakter som realiserar det.</p>
 
 <hr />
 
 <blockquote>
-  <p><strong>Vägledning för författare:</strong> Informationsunderlaget, användningsfall, roller och ansvar samt mappning till profiler beskrivs under Funktionellt (se <a href="information-basis.html">Informationsunderlag</a>, <a href="use-cases.html">Användningsfall</a>, <a href="roles-and-responsibilities.html">Roller och ansvar</a> och <a href="mappings.html">Mappning till profiler</a>). Tekniska detaljer om REST-anrop, sökparametrar och konformanskrav hör hemma under Implementering (se t.ex. <a href="capabilitystatement.html">CapabilityStatement</a>).</p>
+  <p><strong>Vägledning för författare:</strong> Informationsunderlaget, användningsfall,
+kravkatalog, roller och ansvar samt mappning till profiler beskrivs under
+Funktionellt (se <a href="information-basis.html">Informationsunderlag</a>,
+<a href="use-cases.html">Användningsfall</a>, <a href="requirements.html">Kravkatalog</a>,
+<a href="roles-and-responsibilities.html">Roller och ansvar</a> och
+<a href="mappings.html">Mappning till profiler</a>). Tekniska detaljer om REST-anrop,
+sökparametrar och konformanskrav hör hemma under Implementering (se t.ex.
+<a href="capabilitystatement.html">CapabilityStatement</a>).</p>
 </blockquote>
 
 
@@ -239,10 +259,10 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
 
-          IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 09:18:00 +0000">
+  <span title="2026-09-08 10:34:00 +0000">
     2026-09-08
   </span>
 

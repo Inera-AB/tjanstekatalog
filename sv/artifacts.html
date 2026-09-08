@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Sammanfattning av artefakter - Inera FHIR Implementation Guide Template v2.2.1</title>
+    <title>Sammanfattning av artefakter - Tjänstekatalogen v0.1.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -50,8 +50,8 @@
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"16"}
-    h3,h4,h5,h6{--heading-prefix:"16.0"}</style>
+    <style type="text/css">h2{--heading-prefix:"17"}
+    h3,h4,h5,h6{--heading-prefix:"17.0"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
 
@@ -63,13 +63,13 @@
 
 
         <div id="ig-status" data-fhir="generated">
-          <p><span style="font-size:12pt;font-weight:bold">Inera FHIR Implementation Guide Template</span>
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">2.2.1 - ci-build
+            <span style="display:inline-block;">0.1.0 - ci-build
 
 
 
-  <img alt="Sweden flagga" src="../assets/images/swe.svg" height="16" title="Sweden"/>
+  Sweden
 
 
             </span>
@@ -92,7 +92,7 @@
               <span class="icon-bar"> </span>
               <span class="icon-bar"> </span>
             </button>
-            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
               <div id="segment-navbar" class="segment">
   <div id="stripe"> </div>
@@ -114,6 +114,7 @@
               <ul class="dropdown-menu">
                 <li><a href="information-basis.html">Informationsunderlag</a></li>
                 <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
                 <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
                 <li><a href="mappings.html">Mappning till profiler</a></li>
               </ul>
@@ -180,7 +181,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Inera FHIR Implementation Guide Template - Lokal utvecklingsbygge (v2.2.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/template/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Sammanfattning av artefakter</h2>
   
   
@@ -194,10 +195,37 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
    <p>Innehåll:</p>
    <ul>
       <li>
-         <a href="#1">Strukturer: Resursprofiler</a>
+         <a href="#1">Krav: Aktörsdefinitioner</a>
       </li>
       <li>
-         <a href="#2">Exempel: Exempelinstanser</a>
+         <a href="#2">Krav: Formella krav</a>
+      </li>
+      <li>
+         <a href="#3">Beteende: Förmågedeklarationer</a>
+      </li>
+      <li>
+         <a href="#4">Beteende: Operationsdefinitioner</a>
+      </li>
+      <li>
+         <a href="#5">Beteende: Sökparametrar</a>
+      </li>
+      <li>
+         <a href="#6">Strukturer: Logiska modeller</a>
+      </li>
+      <li>
+         <a href="#7">Strukturer: Resursprofiler</a>
+      </li>
+      <li>
+         <a href="#8">Strukturer: Extensiondefinitioner</a>
+      </li>
+      <li>
+         <a href="#9">Terminologi: Värdemängder</a>
+      </li>
+      <li>
+         <a href="#10">Terminologi: Kodsystem</a>
+      </li>
+      <li>
+         <a href="#11">Exempel: Exempelinstanser</a>
       </li>
    </ul>
 </div>
@@ -207,6 +235,174 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
      data-fhir="generated">
    <p>Denna sida innehåller en lista över de FHIR-artefakter som definieras som en del av denna implementationsguide.</p>
    <a name="1"> </a>
+   <h3>Krav: Aktörsdefinitioner </h3>
+    <p>Följande artefakter definierar de typer av individer och/eller system som kommer att interagera som en del av de användningsfall som täcks av denna implementationsguide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ActorDefinition-tk-organization-endpoint-writer.html"
+                  title="ActorDefinition/tk-organization-endpoint-writer">
+                  <span title="ActorDefinition/tk-organization-endpoint-writer">Organization Endpoint Writer
+</span>
+               </a>
+            </td>
+            <td>
+<p>Aktör: System som tillhandahåller information om organisationers tekniska ändpunkter till tjänstekatalogen.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="2"> </a>
+   <h3>Krav: Formella krav </h3>
+    <p>Följande artefakter beskriver de specifika krav som ska uppfyllas av system som följer implementationsguiden.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Requirements-tk-tjanstekatalog-requirements.html"
+                  title="Requirements/tk-tjanstekatalog-requirements">
+                  <span title="Requirements/tk-tjanstekatalog-requirements">Kravkatalog: Tjänstekatalogen
+</span>
+               </a>
+            </td>
+            <td>
+<p>Formell kravkatalog för tjänstekatalogen, med spårning från krav till realiserande FHIR-artefakter.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="3"> </a>
+   <h3>Beteende: Förmågedeklarationer </h3>
+    <p>Följande artefakter definierar de specifika förmågor som olika typer av system förväntas ha för att följa denna implementationsguide. System som följer denna implementationsguide förväntas deklarera överensstämmelse med en eller flera av följande förmågedeklarationer.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CapabilityStatement-tk-organization-endpoint-writer.html"
+                  title="CapabilityStatement/tk-organization-endpoint-writer">
+                  <span title="CapabilityStatement/tk-organization-endpoint-writer">Organization Endpoint Writer Capabilities
+</span>
+               </a>
+            </td>
+            <td>
+<p>Detta CapabilityStatement beskriver de FHIR REST-förmågor som aktören Organization Endpoint Writer ska stödja.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CapabilityStatement-tk-admin-api.html"
+                  title="CapabilityStatement/tk-admin-api">
+                  <span title="CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API
+</span>
+               </a>
+            </td>
+            <td>
+<p>CapabilityStatement för tjänstekatalogens administrativa API (serverroll).</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="4"> </a>
+   <h3>Beteende: Operationsdefinitioner </h3>
+    <p>Detta är anpassade operationer som kan stödjas av och/eller anropas av system som följer denna implementationsguide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="OperationDefinition-tk-endpoint-add-organization-to-endpoint.html"
+                  title="OperationDefinition/tk-endpoint-add-organization-to-endpoint">
+                  <span title="OperationDefinition/tk-endpoint-add-organization-to-endpoint">Add Organization To Endpoint
+</span>
+               </a>
+            </td>
+            <td>
+<p>Lägger till en referens till denna Endpoint i den angivna organisationens Organization.endpoint-lista ("har"-relationen). Ändrar inte Endpoint.managingOrganization ("förvaltar").</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="OperationDefinition-tk-endpoint-remove-organization-from-endpoint.html"
+                  title="OperationDefinition/tk-endpoint-remove-organization-from-endpoint">
+                  <span title="OperationDefinition/tk-endpoint-remove-organization-from-endpoint">Remove Organization From Endpoint
+</span>
+               </a>
+            </td>
+            <td>
+<p>Tar bort referensen till denna Endpoint från den angivna organisationens Organization.endpoint-lista ("har"-relationen). Ändrar inte Endpoint.managingOrganization ("förvaltar").</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="5"> </a>
+   <h3>Beteende: Sökparametrar </h3>
+    <p>Dessa definierar de egenskaper som en RESTful-server kan sökas på. De kan också användas för sortering och inkludering av relaterade resurser.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="SearchParameter-tk-endpoint-listed-by.html"
+                  title="SearchParameter/tk-endpoint-listed-by">
+                  <span title="SearchParameter/tk-endpoint-listed-by">Endpoint: listed-by (organisation som listar ändpunkten)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint ("har"-relationen i informationsunderlaget) — till skillnad från standardparametern <code class="language-plaintext highlighter-rouge">organization</code>, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, "förvaltar"-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med <code class="language-plaintext highlighter-rouge">_has:Organization:endpoint:_id=[organization-id]</code>.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="6"> </a>
+   <h3>Strukturer: Logiska modeller </h3>
+    <p>Dessa definierar datamodeller som representerar den domän som täcks av denna implementationsguide i mer verksamhetsvänliga termer än de underliggande FHIR-resurserna.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-api-specification.html"
+                  title="StructureDefinition/tk-api-specification">
+                  <span title="StructureDefinition/tk-api-specification">API-specifikation (logisk modell)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-indexpost.html"
+                  title="StructureDefinition/tk-indexpost">
+                  <span title="StructureDefinition/tk-indexpost">Indexpost (logisk modell)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Logisk modell för entiteten Indexpost i informationsunderlaget. Ej REST-exponerad i detta utkast av det administrativa API:et — se REQ-MDL-1.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-vard-och-omsorgstagare.html"
+                  title="StructureDefinition/tk-vard-och-omsorgstagare">
+                  <span title="StructureDefinition/tk-vard-och-omsorgstagare">Vård- och omsorgstagare (logisk modell)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Logisk modell för entiteten Vård- och omsorgstagare i informationsunderlaget. Tunn, avsiktligt begränsad till id — se REQ-MDL-2.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="7"> </a>
    <h3>Strukturer: Resursprofiler </h3>
     <p>Dessa definierar begränsningar på FHIR-resurser för system som följer denna implementationsguide.</p>
 <table class="grid">
@@ -225,14 +421,163 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 Authors should replace this description with the clinical purpose and scope of the profile.</p>
 </td>
          </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-endpoint.html"
+                  title="StructureDefinition/tk-endpoint">
+                  <span title="StructureDefinition/tk-endpoint">Tjänstekatalogen Endpoint
+</span>
+               </a>
+            </td>
+            <td>
+<p>Teknisk ändpunkt i tjänstekatalogen. Realiserar entiteten Ändpunkt i det
+bifogade informationsunderlaget: <code class="language-plaintext highlighter-rouge">Endpoint.address</code> bär ändpunktens URL,
+<code class="language-plaintext highlighter-rouge">Endpoint.managingOrganization</code> bär "förvaltar"-relationen till den
+förvaltande organisationen, och <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> (tillsammans med
+<a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a>)
+bär "tillgängliggör"/"följer"-relationerna till de API:er och
+interoperabilitetsspecifikationer som ändpunkten stödjer. Sök efter
+ändpunkter som en organisation <em>listar</em> (Organization.endpoint, "har") med
+<a href="SearchParameter-tk-endpoint-listed-by.html">SearchParameter: listed-by</a>; sök
+efter ändpunkter en organisation <em>förvaltar</em> med standardparametern
+<code class="language-plaintext highlighter-rouge">organization</code>.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-organization.html"
+                  title="StructureDefinition/tk-organization">
+                  <span title="StructureDefinition/tk-organization">Tjänstekatalogen Organization
+</span>
+               </a>
+            </td>
+            <td>
+<p>Organisation i tjänstekatalogen. <code class="language-plaintext highlighter-rouge">Organization.endpoint</code> bär "har"-relationen
+— de ändpunkter organisationen listar i sin katalogpost, oavsett vem som
+förvaltar dem tekniskt. Sök efter dessa ändpunkter med
+<a href="SearchParameter-tk-endpoint-listed-by.html">SearchParameter: listed-by</a> på
+Endpoint, med organisationens id/referens som värde. Den separata
+"förvaltar"-relationen (vem som tekniskt driftar en given ändpunkt) uttrycks
+istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
+<code class="language-plaintext highlighter-rouge">managingOrganization</code>, sökbar med standardparametern <code class="language-plaintext highlighter-rouge">organization</code>.</p>
+</td>
+         </tr>
       </tbody>
    </table>
-   <a name="2"> </a>
+   <a name="8"> </a>
+   <h3>Strukturer: Extensiondefinitioner </h3>
+    <p>Dessa definierar begränsningar på FHIR-datatyper för system som följer denna implementationsguide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-endpoint-payload-profile.html"
+                  title="StructureDefinition/tk-endpoint-payload-profile">
+                  <span title="StructureDefinition/tk-endpoint-payload-profile">Stödd specifikation (payload profile)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller profil) som denna nyttolast/API stödjer. Motsvarar det kommande elementet Endpoint.payload.profile. Kan upprepas om nyttolasten stödjer flera specifikationer eller versioner.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-endpoint-security-method.html"
+                  title="StructureDefinition/tk-endpoint-security-method">
+                  <span title="StructureDefinition/tk-endpoint-security-method">Säkerhetsmetod
+</span>
+               </a>
+            </td>
+            <td>
+<p>Anger vilken säkerhetsmetod som skyddar åtkomst till ändpunkten (Ändpunkt.säkerhetsmetod i informationsunderlaget). Basresursen Endpoint saknar ett eget element för detta i R5.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-endpoint-authorization-server-url.html"
+                  title="StructureDefinition/tk-endpoint-authorization-server-url">
+                  <span title="StructureDefinition/tk-endpoint-authorization-server-url">URL till auktorisationsserver
+</span>
+               </a>
+            </td>
+            <td>
+<p>URL till den auktorisationsserver (t.ex. OAuth 2.0-token-endpoint) som klienter ska använda för att erhålla åtkomst till ändpunkten (Ändpunkt.urlTillAuktorisationsserver i informationsunderlaget). Relevant framför allt när Ändpunkt.säkerhetsmetod anger en OAuth 2.0-baserad metod.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="9"> </a>
+   <h3>Terminologi: Värdemängder </h3>
+    <p>Dessa definierar uppsättningar av koder som används av system som följer denna implementationsguide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-tk-endpoint-security-method.html"
+                  title="ValueSet/tk-endpoint-security-method">
+                  <span title="ValueSet/tk-endpoint-security-method">Säkerhetsmetoder för tekniska ändpunkter
+</span>
+               </a>
+            </td>
+            <td>
+<p>Tillåtna värden för Ändpunkt.säkerhetsmetod. Exempelbindning (example) i detta utkast — se REQ-END-6.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="10"> </a>
+   <h3>Terminologi: Kodsystem </h3>
+    <p>Dessa definierar nya kodsystem som används av system som följer denna implementationsguide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-tk-endpoint-security-method.html"
+                  title="CodeSystem/tk-endpoint-security-method">
+                  <span title="CodeSystem/tk-endpoint-security-method">Säkerhetsmetoder för tekniska ändpunkter (kodsystem)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Kodsystem som anger vilken säkerhetsmetod som skyddar en teknisk ändpunkt (Ändpunkt.säkerhetsmetod i informationsunderlaget). Preliminärt förslag, se REQ-END-6 i kravkatalogen.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="11"> </a>
    <h3>Exempel: Exempelinstanser </h3>
     <p>Detta är exempelinstanser som visar hur data som produceras och konsumeras av system som följer denna implementationsguide kan se ut.</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Organization-TKOrganizationExample.html"
+                  title="Organization/TKOrganizationExample">
+                  <span title="Organization/TKOrganizationExample">Exempel: organisation i tjänstekatalogen
+</span>
+               </a>
+            </td>
+            <td>
+<p>Exempel på en organisation som listar ("har") en ändpunkt i tjänstekatalogen.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Endpoint-TKEndpointExample.html"
+                  title="Endpoint/TKEndpointExample">
+                  <span title="Endpoint/TKEndpointExample">Exempel: teknisk ändpunkt i tjänstekatalogen
+</span>
+               </a>
+            </td>
+            <td>
+<p>Exempel på en teknisk ändpunkt som förvaltas av en organisation, tillgängliggör ett FHIR-API och skyddas med OAuth 2.0 client credentials.</p>
+</td>
+         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="Patient-IneraPatientExample.html"
@@ -271,10 +616,10 @@ Authors should replace this description with the clinical purpose and scope of t
 
 
 
-          IG © 2024+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.core.template#2.2.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R4/">FHIR 4.0.1</a>.
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 09:18:00 +0000">
+  <span title="2026-09-08 10:34:00 +0000">
     2026-09-08
   </span>
 

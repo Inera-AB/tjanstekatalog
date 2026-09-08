@@ -1,4 +1,4 @@
-# Inera Patient Example - Inera FHIR Implementation Guide Template v2.2.1
+# Inera Patient Example - Tjänstekatalogen v0.1.0
 
 ## Exempel Patient: Inera Patient Example
 
@@ -21,7 +21,7 @@ Anna Andersson (official) Female, Födelsedatum: 1950-01-01 ( http://electronich
   "resourceType" : "Patient",
   "id" : "IneraPatientExample",
   "meta" : {
-    "profile" : ["https://fhir.inera.se/ig/template/StructureDefinition/IneraPatient"]
+    "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient"]
   },
   "identifier" : [{
     "system" : "http://electronichealth.se/identifier/personnummer",
