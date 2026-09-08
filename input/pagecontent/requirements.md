@@ -61,6 +61,8 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
 | REQ-WRT-4 | SKA | Ändpunkter SKA kunna korreleras med EHM:s eget Endpoint-id, eftersom EHM:s operationer adresserar via deras id. | [TKEndpoint](StructureDefinition-tk-endpoint.html)`.identifier` (slice `ehmEndpointId`) |
 | REQ-WRT-5 | SKA | Organisationsidentifierare till EHM SKA vara i EHM:s format (rätt system, siffror utan bindestreck) — se mappningstabellen. | [TKOrganization](StructureDefinition-tk-organization.html)`.identifier` |
 | REQ-WRT-6 | SKA | Tjänstekatalogens admin-API SKA använda FHIR R5 (5.0.0) och JSON, liksom EHM:s gränssnitt. | [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.html) |
+| REQ-WRT-7 | SKA | Innan koppling till EHM SKA motsvarande `Endpoint` finnas hos EHM, mappad enligt EHM:s profil `endpoint-er`. | [TKEndpoint](StructureDefinition-tk-endpoint.html), EHM:s [Endpoint-profil](http://electronichealth.se/fhir/NDI/StructureDefinition/endpoint-er) |
+| REQ-WRT-8 | SKA | Organisationen SKA finnas hos EHM, mappad enligt EHM:s profil `organization-er`. `Organization.type` saknar källa — se öppen fråga i mappings.html. | [TKOrganization](StructureDefinition-tk-organization.html), EHM:s [Organization-profil](http://electronichealth.se/fhir/NDI/StructureDefinition/organization-er) |
 
 ### REQ-MDL — Övriga entiteter i informationsunderlaget och avgränsningar
 

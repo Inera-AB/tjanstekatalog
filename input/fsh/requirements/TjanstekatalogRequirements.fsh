@@ -183,6 +183,20 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 * statement[=].satisfiedBy[+] = "http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er"
 
+* statement[+].key = "REQ-WRT-7"
+* statement[=].label = "Skapa/uppdatera Endpoint hos EHM"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Innan Synkroniseringstjänsten anropar $add-organization/$remove-organization (REQ-WRT-2/3) SKA motsvarande Endpoint finnas hos EHM, konform med EHM:s profil endpoint-er, mappad enligt mappningstabellen i mappings.html. Observera kardinalitetsskillnaden för payload-specifikationer (EHM tillåter en per payload, denna IG flera) och att säkerhetsmetod/auktorisationsserver-URL kräver kodöversättning respektive strukturell ombyggnad, inte bara värdekopiering."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"
+* statement[=].satisfiedBy[+] = "http://electronichealth.se/fhir/NDI/StructureDefinition/endpoint-er"
+
+* statement[+].key = "REQ-WRT-8"
+* statement[=].label = "Skapa/uppdatera Organization hos EHM"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Innan Synkroniseringstjänsten kopplar en organisation till en ändpunkt hos EHM SKA organisationen finnas hos EHM, konform med EHM:s profil organization-er, mappad enligt mappningstabellen i mappings.html. Observera att EHM:s Organization.type saknar källa i denna IG:s informationsunderlag (öppen fråga, se mappings.html)."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+* statement[=].satisfiedBy[+] = "http://electronichealth.se/fhir/NDI/StructureDefinition/organization-er"
+
 // --- REQ-MDL: övriga entiteter i informationsunderlaget / avgränsningar ---
 
 * statement[+].key = "REQ-MDL-1"
