@@ -1,46 +1,93 @@
 # Hem
 
-### [Domännamn]
+### Tjänstekatalogen
 
-*Ange ett namn som ringar in det avgränsade område som denna IG realiserar, t.ex. "Fasta kontakter" eller "Öppenvårdsemiss".*
-
-*Välj ett kort, stabilt och beskrivande namn som speglar informationsmängden eller API:ets syfte, snarare än projekt-, organisations- eller versionsnamn. Domännamnet (canonical URL) ska ligga under en långsiktigt förvaltad Inera-domän, `https://fhir.inera.se/ig/<namn>`, och ska inte innehålla versionsnummer eftersom versioner hanteras i FHIR-paketet och Implementation Guidens metadata. Använd samma namn konsekvent i paketnamn, repository, canonical URL och dokumentation för att underlätta identifiering och återanvändning."*
+Tjänstekatalogen är Ineras register över organisationers tekniska ändpunkter
+(endpoints) och de API:er dessa ändpunkter tillgängliggör. Denna IG
+definierar dels ett sökgränssnitt för att slå upp en organisations
+ändpunkter, dels ett administrativt API för att registrera organisationer,
+ändpunkter och kopplingen mellan dem.
 
 ---
 
 ### Omfattning
 
-*Definiera vad som ingår i denna IG och beskriv eventuella avgränsningar. Specificera vilka användningsfall, kliniska scenarier eller informationsutbyten som beskrivs. Om denna IG är avsedd att användas som en basprofil/gemensam profil för mer specialiserade guider, beskriv det här.*
+Denna IG omfattar:
+
+- **Sökning av tekniska ändpunkter per organisation** — hitta samtliga
+  ändpunkter som en organisation listar i sin katalogpost
+  (`Organization.endpoint`, "har"), skilt från vem som tekniskt förvaltar en
+  given ändpunkt (`Endpoint.managingOrganization`, "förvaltar"). Se
+  [Kravkatalog](requirements.html) (REQ-SRCH-*) och
+  [REST-interaktioner och sökparametrar](rest-interactions.html).
+- **Ett administrativt API** för att skapa, uppdatera, läsa och söka
+  organisationer och ändpunkter i tjänstekatalogen. Se
+  [CapabilityStatement](capabilitystatement.html).
+- **Aktören Organization Endpoint Writer** — ett system som tillhandahåller
+  ändpunktsinformation till tjänstekatalogen, inklusive att koppla/koppla
+  loss en organisation från en ändpunkt via operationerna
+  `$add-organization-to-endpoint` och `$remove-organization-from-endpoint`.
+  Se [Roller och ansvar](roles-and-responsibilities.html).
+
+Denna IG realiserar en delmängd av ett bredare informationsunderlag som även
+omfattar entiteterna Indexpost, Vård- och omsorgstagare och API-specifikation.
+Dessa är modellerade (se [Mappning till profiler](mappings.html)) och
+spårbara i [Kravkatalog](requirements.html), men REST-exponering av dem i det
+administrativa API:et ligger utanför detta utkast — se "Avvikelser och
+tillägg" i [Mappning till profiler](mappings.html) för motivering per
+entitet.
+
+Denna IG är, liksom motsvarande register hos andra aktörer i den svenska
+e-hälsoinfrastrukturen, avsedd att kunna konsumeras av och samverka med andra
+nationella register över tekniska ändpunkter.
 
 ---
 
 ### Syfte
 
-*Beskriv målet med denna IG. Förklara vilket problem den löser och hur den passar in i det bredare Inera- och e-hälsolandskapet. Hänvisa till nationella eller regionala program, standarder eller mandat som motiverat arbetet.*
+Idag går det inte att via standardsökparametern `organization` på `Endpoint`
+få fram de ändpunkter en organisation *listar* i tjänstekatalogen — den
+parametern matchar endast `Endpoint.managingOrganization`, dvs. vem som
+tekniskt förvaltar ändpunkten. Syftet med denna IG är att göra det möjligt
+att slå upp "vilka ändpunkter hör till organisation X enligt
+tjänstekatalogen" med en enda, väldokumenterad sökning, samt att ge
+tjänstekatalogens administrativa API en formell, kravspårad definition.
 
 ---
 
 ### Målgrupp
-*Ange målgrupper för IG:n, (speciellt viktigt om IG:n vänder sig till andra målgrupper än systemarkitekter och utvecklare, t ex levernatörer av vissa system, eller verksamhetsarkitektrer inom en viss verksamhet). Hänvisa gärna nya läsare till  [Inledning](introduction.html) och implementatörer till relevanta tekniska avsnitt, exempelvis [REST-interaktioner och sökparametrar](rest-interactions.html).*
 
+IG:n vänder sig i första hand till systemutvecklare och integrationsarkitekter
+hos organisationer som ska registrera sina tekniska ändpunkter i
+tjänstekatalogen (Organization Endpoint Writer), samt till konsumenter som
+söker fram ändpunkter. Nya läsare hänvisas till [Inledning](introduction.html);
+implementatörer till [REST-interaktioner och sökparametrar](rest-interactions.html)
+och [CapabilityStatement](capabilitystatement.html).
 
 ---
 
 ### Terminologi
 
-På [Inera Terminologitjänst](https://www.inera.se/tjanster/alla-tjanster-a-o/terminologitjanst-for-nationell-e-halsa/) finns alla refererade kodsystem och värdemängder som utvecklats av Inera.
+På [Inera Terminologitjänst](https://www.inera.se/tjanster/alla-tjanster-a-o/terminologitjanst-for-nationell-e-halsa/)
+finns alla refererade kodsystem och värdemängder som utvecklats av Inera.
+Kodsystemet för `Ändpunkt.säkerhetsmetod` som definieras i denna IG är
+preliminärt (se [Kravkatalog](requirements.html), REQ-END-6) och har ännu
+inte förvaltningsöverlämnats dit.
 
 ---
 
 ### Beroenden
 
-*Om denna IG har ett beroende till t ex SE-core, definierat av HL7 Sweden ska detta beskrivas här. Detta återspeglas även i de profiler som ärver från eller refererar till SECore-profiler.*
+Denna IG bygger på FHIR R5 (5.0.0) och har inget beroende till SE-core (som
+för närvarande är definierat för FHIR R4).
 
 ---
 
 ### Dokumentation
 
-Mer information om FHIR på Inera  finns [här](https://fhir.inera.se/). FHIR på Inera är en del av RIVTA – referensarkitekturen för svensk hälso- och sjukvård.
+Mer information om FHIR på Inera finns [här](https://fhir.inera.se/). FHIR på
+Inera är en del av RIVTA – referensarkitekturen för svensk hälso- och
+sjukvård.
 
 Information om hur denna IG förvaltas finns under [Om](about.html).
 
@@ -48,6 +95,13 @@ Information om hur denna IG förvaltas finns under [Om](about.html).
 
 ### Om mallens struktur
 
-Menyn i denna IG är medvetet utformad efter samma mönster som europeiska specifikationer, t.ex. FHIR ePS (Hem / Inledning / Funktionellt / Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar ingång oavsett vilken europeisk FHIR-IG de arbetar med.
+Menyn i denna IG är medvetet utformad efter samma mönster som europeiska
+specifikationer, t.ex. FHIR ePS (Hem / Inledning / Funktionellt /
+Implementering / Om / Artefakter), för att ge implementatörer en igenkännbar
+ingång oavsett vilken europeisk FHIR-IG de arbetar med.
 
-Informationsmodellen för denna förmåga publiceras externt och fristående i en egen informationsspecifikation (se [Informationsunderlag](information-basis.html) under Funktionellt) snarare än i denna IG. Det håller informationsspecifikationen som den auktoritativa källan för begrepp och informationsstruktur, och undviker att IG:n och specifikationen glider isär över tid.
+Informationsmodellen för denna förmåga publiceras externt och fristående i en
+egen informationsspecifikation (se [Informationsunderlag](information-basis.html)
+under Funktionellt) snarare än i denna IG. Det håller informationsspecifikationen
+som den auktoritativa källan för begrepp och informationsstruktur, och
+undviker att IG:n och specifikationen glider isär över tid.
