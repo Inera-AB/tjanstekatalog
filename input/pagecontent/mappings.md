@@ -120,10 +120,32 @@ dokumenteras tydligt.
   specifikationer i sig. En indexpost förväntas dessutom vara en
   serverhärledd sidoeffekt av att registrera en Organisation eller en Vård-
   och omsorgstagare, snarare än något en klient skapar direkt. Dessa tre
-  entiteter är modellerade som logiska modeller för spårbarhet
-  (se nedan), men REST-exponering (t.ex. API-specifikation som en profil på
-  `Basic`) skjuts medvetet upp till en framtida version. Se REQ-MDL-1,
-  REQ-MDL-2, REQ-MDL-4.
+  entiteter är modellerade som logiska modeller för spårbarhet (se nedan),
+  men REST-exponering skjuts medvetet upp till en framtida version. Se
+  REQ-MDL-1, REQ-MDL-2, REQ-MDL-4. Om/när API-specifikation REST-exponeras
+  rekommenderas en nedbantad profil på `ImplementationGuide`, inte `Basic`
+  — se nästa punkt.
+
+- **EHM realiserar "API-specifikation" som en profil på `ActorDefinition`
+  ("API Specification (ActorDefinition)") — ett modelleringsval vi
+  avvisar.** `ActorDefinition` är avsett att beskriva *aktörer*: typer av
+  system eller individer som deltar i ett flöde (jämför denna IG:s egen
+  [TKSynkroniseringstjanst](ActorDefinition-tk-synkroniseringstjanst.html)
+  eller EHM:s eget Organization Endpoint Writer-aktör). En
+  interoperabilitetsspecifikation är inte en aktör — den är ett publicerat
+  dokument/kontrakt, identifierat av sin egen kanoniska URI. Att låta en
+  specifikation "vara" en ActorDefinition blandar samman två skilda begrepp
+  och gör det svårare att t.ex. sökbart skilja "vilka aktörer finns" från
+  "vilka specifikationer finns". Skulle denna IG i en framtida version
+  REST-exponera `TKAPISpecification`, rekommenderas istället en nedbantad
+  profil på **`ImplementationGuide`**: den bär redan `url` (kanoniskUrl),
+  `version`, `name` (maskinläsbartNamn), `title` (titel), `status`,
+  `description` (beskrivning) och `date` (utgivningsdatum) som egna element,
+  vilket passar en versionerad, publicerad specifikations livscykel bättre
+  än både `ActorDefinition` och `Basic`. (`publisher` är dock `string` på
+  `ImplementationGuide`, inte `Reference` — `ansvarigUtgivare` som
+  `Reference(TKOrganization)` skulle då behöva uttryckas via en extension
+  istället, eller bytas till en identifierare/text.) Se REQ-MDL-4.
 
 ---
 

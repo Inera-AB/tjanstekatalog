@@ -69,7 +69,7 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
 | REQ-MDL-1 | BÖR | Indexpost BÖR modelleras för spårbarhet. REST-exponering ligger utanför detta utkast. | [TKIndexpost](StructureDefinition-tk-indexpost.html) (logisk modell) |
 | REQ-MDL-2 | BÖR | Vård- och omsorgstagare BÖR modelleras för spårbarhet i förhållande till `Indexpost.avser`. Personuppgifter omfattas inte av detta API. | [TKVardOchOmsorgstagare](StructureDefinition-tk-vard-och-omsorgstagare.html) (logisk modell) |
 | REQ-MDL-3 | SKA | Kopplingen Ändpunkt → API → API-specifikation SKA kunna uttryckas. Realiseras via `Endpoint.payload` + extension, inte som egen resurs. | [TKEndpoint](StructureDefinition-tk-endpoint.html)`.payload`, [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html) |
-| REQ-MDL-4 | BÖR | API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering skjuts upp till en framtida version. | [TKAPISpecification](StructureDefinition-tk-api-specification.html) (logisk modell) |
+| REQ-MDL-4 | BÖR | API-specifikation BÖR modelleras för spårbarhet. REST-exponering skjuts upp, men rekommenderas som en nedbantad profil på `ImplementationGuide` om/när den blir aktuell — inte `ActorDefinition` (EHM:s val, avvisat) eller `Basic`. | [TKAPISpecification](StructureDefinition-tk-api-specification.html) (logisk modell) |
 
 ---
 

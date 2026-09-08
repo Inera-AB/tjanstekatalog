@@ -12,10 +12,19 @@
 // realised in the FHIR data (see mappings.html and TKEndpoint.fsh).
 //
 // Scoping decision, documented: whether/how this entity is exposed via REST
-// in the administrative API (e.g. as a profile on `Basic`, or as its own
-// custom resource type) is deferred to a future version of this IG — see
-// REQ-MDL-4. Only the logical model and its traceability to requirements are
-// delivered in this draft.
+// in the administrative API is deferred to a future version of this IG —
+// see REQ-MDL-4. Only the logical model and its traceability to
+// requirements are delivered in this draft.
+//
+// If/when it is exposed: EHM realises their equivalent "API Specification"
+// entity as a profile on ActorDefinition, which this IG's mappings.html
+// documents disagreeing with — a specification is not an actor. A slimmed
+// profile on ImplementationGuide is recommended instead, since its metadata
+// shape (url/version/name/title/status/date) fits a versioned, published
+// specification well — despite the resource's FHIR-flavoured name, nothing
+// in those elements requires the described specification to itself be a
+// FHIR IG, so the "not necessarily a FHIR artefact" reasoning above still
+// holds for the underlying `kanoniskUrl` value even under that profile.
 Logical: TKAPISpecification
 Parent: Base
 Id: tk-api-specification

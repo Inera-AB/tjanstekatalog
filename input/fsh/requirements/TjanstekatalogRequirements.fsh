@@ -207,5 +207,5 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-MDL-4"
 * statement[=].label = "API-specifikation"
 * statement[=].conformance[0] = #SHOULD
-* statement[=].requirement = "Entiteten API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering (t.ex. som en profil på Basic, eller som en egen resurstyp) i det administrativa API:et skjuts upp till en framtida version av denna IG."
+* statement[=].requirement = "Entiteten API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering i det administrativa API:et skjuts upp till en framtida version av denna IG. Om/när den REST-exponeras rekommenderas en nedbantad profil på ImplementationGuide (som redan bär url/version/name/title/status/date), inte en profil på ActorDefinition — EHM:s val för sin motsvarande \"API Specification\"-profil, vilket denna IG avvisar eftersom ActorDefinition är avsett för aktörer, inte specifikationer — och inte heller Basic. Se \"Avvikelser och tillägg\" i mappings.html."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification"
