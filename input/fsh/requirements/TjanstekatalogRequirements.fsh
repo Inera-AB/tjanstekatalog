@@ -163,7 +163,7 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-WRT-2"
 * statement[=].label = "Anropa EHM:s $add-organization"
 * statement[=].conformance[0] = #MAY
-* statement[=].requirement = "Synkroniseringstjänsten FÅR, i rollen Organization Endpoint Writer hos EHM, koppla en organisation till en ändpunkt genom att anropa POST [ehm-base]/Endpoint/[ehm-id]/$add-organization med organisationens identifierare (personnummer, samordningsnummer eller organisationsnummer) enligt EHM:s specifikation. Se mappningstabellen i mappings.html för hur `organization`-parametern fylls från tjänstekatalogens data."
+* statement[=].requirement = "Synkroniseringstjänsten FÅR, i rollen Organization Endpoint Writer hos EHM, koppla en organisation till en ändpunkt genom att anropa POST [ehm-base]/Endpoint/[ehm-id]/$add-organization med organisationens organisationsnummer enligt EHM:s specifikation. Personnummer/samordningsnummer hör till EHM:s patientindex och kombinerade sökningar däremellan — inte till organisationsidentifiering i detta anrop, se REQ-WRT-5. Se mappningstabellen i mappings.html för hur `organization`-parametern fylls från tjänstekatalogens data."
 * statement[=].satisfiedBy[0] = "http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er"
 * statement[=].satisfiedBy[+] = "http://electronichealth.se/fhir/NDI/OperationDefinition/AddOrganizationToEndpoint"
 
@@ -183,7 +183,7 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-WRT-5"
 * statement[=].label = "Format på organisationsidentifierare mot EHM"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Organisationsidentifierare som skickas till EHM:s $add-organization/$remove-organization SKA vara i det system och format EHM kräver (personnummer/samordningsnummer: http://electronichealth.se/identifier/{personnummer|samordningsnummer}, 12 siffror utan bindestreck; organisationsnummer: urn:oid:2.5.4.97, 10 siffror utan bindestreck) — se mappningstabellen i mappings.html."
+* statement[=].requirement = "Organisationsidentifierare som skickas till EHM:s $add-organization/$remove-organization SKA vara organisationsnummer i det system och format EHM kräver (urn:oid:2.5.4.97, 10 siffror utan bindestreck). Personnummer/samordningsnummer (http://electronichealth.se/identifier/{personnummer|samordningsnummer}) SKA INTE användas för att identifiera en organisation i detta anrop — de hör till EHM:s patientindex och till sökningar som kombinerar tjänstekatalog med patientindex, inte till denna IG:s scope. Se mappningstabellen i mappings.html."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
 
 * statement[+].key = "REQ-WRT-6"

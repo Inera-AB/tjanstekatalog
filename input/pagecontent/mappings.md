@@ -372,7 +372,7 @@ mot EHM:s krav.
 | EHM-element (`organization-er`) | Kard./bindning hos EHM | Källa i tjänstekatalogen | Transformation |
 |---|---|---|---|
 | `Organization.identifier` (slice `organizationIdentifier`) | system fixed `urn:oid:2.5.4.97`, värde regex `^\d{6}\d{4}$` (10 siffror) | [TKOrganization.identifier](StructureDefinition-tk-organization.html)\[`organisationsnummer`\] | Systemet matchar redan. Bindestreck i värdet tas bort (samma som i operationsmappningen ovan). |
-| `Organization.identifier` (slice `personalIdentityNumber` / `coordinationNumber`) | system fixed resp. `http://electronichealth.se/identifier/personnummer` / `.../samordningsnummer`, värde regex för 12-siffrigt personnummer/samordningsnummer | — | Denna IG:s `TKOrganization` har idag bara en `organisationsnummer`-slice (se REQ-ORG-2) — inte personnummer/samordningsnummer-slicer för enskilda firmor. Öppen fråga, se nedan. |
+| `Organization.identifier` (slice `personalIdentityNumber` / `coordinationNumber`) | system fixed resp. `http://electronichealth.se/identifier/personnummer` / `.../samordningsnummer`, värde regex för 12-siffrigt personnummer/samordningsnummer | — (medvetet ej mappat) | **Medvetet utanför scope, inte en lucka att fylla** (stakeholder-bekräftat): personnummer/samordningsnummer hör till EHM:s patientindex och till sökningar som kombinerar tjänstekatalog med patientindex — inte till organisationsidentifiering i tjänstekatalogens synkronisering. Denna IG:s `TKOrganization.identifier` har därför avsiktligt bara en `organisationsnummer`-slice (REQ-ORG-2); dessa EHM-slicer lämnas obesatta vid synkronisering. |
 | `Organization.type` | 0..1, required binding: `http://electronichealth.se/fhir/NDI/ValueSet/er-organization-type` | — | **Saknar källa.** Informationsunderlagets Organisation-entitet har ingen "typ"-attribut att mappa från. Öppen fråga, se nedan. |
 | `Organization.endpoint` | `targetProfile` = EHM:s `endpoint-er` | [TKOrganization.endpoint](StructureDefinition-tk-organization.html) | Referenserna ska peka på `Endpoint`-resurser som redan skapats hos EHM (steg 2 ovan), inte på tjänstekatalogens egna `Endpoint`-id:n. |
 
@@ -398,7 +398,7 @@ organisationen läggs till eller tas bort).
 | EHM-parameter | Kard. | Typ | Källa i tjänstekatalogen | Transformation |
 |---|---|---|---|---|
 | `id` (URL-segment, EHM:s Endpoint-id) | 1..1 | `string` (UUID) | [TKEndpoint.identifier](StructureDefinition-tk-endpoint.html)\[`ehmEndpointId`\] | Ingen — värdet SKA redan vara EHM:s tilldelade id (se REQ-WRT-4). Om det saknas kan operationen inte anropas — ändpunkten måste först finnas hos EHM (steg 2 i flödet ovan). |
-| `organization` (body, `Parameters`) | 1..1 | `Identifier` (system + value) | [TKOrganization.identifier](StructureDefinition-tk-organization.html)\[`organisationsnummer`\] | Systemet `urn:oid:2.5.4.97` matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. Alternativt kan personnummer/samordningsnummer användas om organisationen identifieras så istället (samma system som `$personnummer`/`$samordningsnummer` i `aliases.fsh`, redan matchande). |
+| `organization` (body, `Parameters`) | 1..1 | `Identifier` (system + value) | [TKOrganization.identifier](StructureDefinition-tk-organization.html)\[`organisationsnummer`\] | Systemet `urn:oid:2.5.4.97` matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. **Endast organisationsnummer används här** — personnummer/samordningsnummer SKA INTE användas för att identifiera organisationen i detta anrop (stakeholder-bekräftat: de hör till EHM:s patientindex och kombinerade sökningar däremellan, inte till denna IG:s scope). Se REQ-WRT-5. |
 | *(retur)* `return` | 1..1 | `OperationOutcome` | — | Ingen resurs returneras (varken uppdaterad Organization eller Endpoint) — bara en `OperationOutcome` med en framgångs-, informations- eller felkod. Se svarshantering nedan. |
 
 Exempel på anropskropp (organisationsnummer, bindestreck borttaget):
@@ -444,12 +444,16 @@ i deras egen IG.
   sådant attribut, eller så behöver Synkroniseringstjänsten härleda/anta ett
   värde på annat sätt, eller så utelämnas elementet (tillåtet, eftersom det
   är 0..1 hos EHM).
-- **Personnummer/samordningsnummer för enskilda firmor saknas i `TKOrganization`.**
-  EHM:s `Organization`-profil har slicer för detta (en enskild firma
-  identifieras med ägarens personnummer, inte ett organisationsnummer) men
-  denna IG:s `TKOrganization.identifier` har idag bara en
-  `organisationsnummer`-slice. Behöver läggas till om tjänstekatalogen ska
-  hantera enskilda firmor.
+- ~~Personnummer/samordningsnummer för enskilda firmor saknas i
+  `TKOrganization`~~ **— rättat, inte längre en öppen fråga.** Tidigare
+  antogs personnummer/samordningsnummer kunna användas som alternativ
+  organisationsidentifierare mot EHM (t.ex. för enskilda firmor), utifrån
+  att EHM:s `organization-er`-profil har slicer för detta. Stakeholder har
+  bekräftat att detta är fel: personnummer/samordningsnummer hör till EHM:s
+  patientindex och till sökningar som kombinerar tjänstekatalog med
+  patientindex — inte till organisationsidentifiering i tjänstekatalogens
+  synkronisering mot EHM. Se rättningen i REQ-WRT-2/5 och
+  mappningstabellerna ovan.
 - **`saml2` som säkerhetsmetod saknar motsvarighet** i HL7:s
   `restful-security-service`-värdemängd, som EHM kräver för sin
   `securityMethod`-slice. Kräver antingen ett verksamhetsbeslut om hur
@@ -465,8 +469,16 @@ i deras egen IG.
 - **Om Inera bekräftar `urn:oid:2.5.4.97`** som sitt eget föredragna system
   för organisationsnummer, kan noteringen om att det är "valt för
   EHM-kompatibilitet" tas bort — se REQ-ORG-2.
-
----
+- **Om EHM identifierar en organisation med organisationsnummer i stället
+  för vårdgivarens HSA-id, behöver det organisationsnumret beständigas hos
+  Inera.** Observation från stakeholder: tjänstekatalogens ekosystem
+  använder i övrigt normalt HSA-id som organisationsidentifierare. Om EHM
+  väljer att identifiera en organisation med organisationsnummer (se
+  REQ-ORG-2, REQ-ORG-5, REQ-WRT-5) i stället för vårdgivarens HSA-id,
+  behöver Inera säkerställa att just det organisationsnumret är en stabil,
+  förvaltad identifierare hos Inera — inte bara ett värde som råkar
+  synkroniseras vidare till EHM. Hur denna beständighet säkerställs
+  (registervård, koppling till HSA-id, etc.) är inte löst i detta utkast.
 
 ### Omappade element
 
