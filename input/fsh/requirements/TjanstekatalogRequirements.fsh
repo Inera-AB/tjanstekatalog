@@ -11,6 +11,9 @@
 //   REQ-ORG-*   Attribut och relationer på Organisation
 //   REQ-WRT-*   Synkronisering mot EHM:s Organization Endpoint Writer
 //   REQ-MDL-*   Övriga entiteter i informationsunderlaget / avgränsningar
+//   REQ-EXP-*   Exponering: sök-API externt (gateway) vs. admin-API internt
+//   REQ-ADM-*   Administratörsbehörighet (utökning utöver informationsunderlaget)
+//   REQ-DIST-*  Distribution/federering till lokala kataloger
 Instance: TKTjanstekatalogRequirements
 InstanceOf: Requirements
 Usage: #definition
@@ -134,6 +137,13 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].requirement = "Varje ändpunkt SKA ange sin förvaltande organisation i `Endpoint.managingOrganization`, sökbar med standardparametern `organization`."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"
 
+* statement[+].key = "REQ-ORG-5"
+* statement[=].label = "Organization.identifier som \"logisk adress\""
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "`Organization.identifier` SKA fungera som den \"logiska adress\" tjänstesökning slår upp, sökbar med standardparametern `identifier`. Ingen separat identifierare för \"logisk adress\" införs — stakeholder-beslut, se mappings.html."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+
 // --- REQ-WRT: Synkronisering mot EHM:s Organization Endpoint Writer ---
 //
 // Organization Endpoint Writer är EHM:s egen aktörsroll (definierad i deras
@@ -223,3 +233,75 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].conformance[0] = #SHOULD
 * statement[=].requirement = "Entiteten API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering i det administrativa API:et skjuts upp till en framtida version av denna IG. Om/när den REST-exponeras rekommenderas en nedbantad profil på ImplementationGuide (som redan bär url/version/name/title/status/date), inte en profil på ActorDefinition — EHM:s val för sin motsvarande \"API Specification\"-profil, vilket denna IG avvisar eftersom ActorDefinition är avsett för aktörer, inte specifikationer — och inte heller Basic. Se \"Avvikelser och tillägg\" i mappings.html."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification"
+
+* statement[+].key = "REQ-MDL-5"
+* statement[=].label = "Spårbarhet: skapad/senast uppdaterad av"
+* statement[=].conformance[0] = #MAY
+* statement[=].requirement = "Vem som skapade eller senast uppdaterade en post FÅR göras spårbart, men avgränsas medvetet bort från detta utkast — stakeholder-beslut: löses med serverloggning och/eller `Provenance`-resurser i en framtida version, inte med ett attribut på `Organization`/`Endpoint` självt. Se \"Avvikelser och tillägg\" i mappings.html."
+
+// --- REQ-EXP: exponering (sök-API externt via gateway, admin-API internt) ---
+//
+// Stakeholder-beslut: "Sök-api exponeras externt via gw. Administrativa
+// api:er endast internt." Se TKSearchAPI (SearchAPI.fsh), TKAdminAPI
+// (AdminAPI.fsh) och security.html.
+
+* statement[+].key = "REQ-EXP-1"
+* statement[=].label = "Sök-API exponeras externt via gateway"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Läsande sökning (read/search-type på Organization/Endpoint) SKA exponeras externt, via en gateway, för sökande konsumenter."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+
+* statement[+].key = "REQ-EXP-2"
+* statement[=].label = "Administrativa API:er endast interna"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Skrivande interaktioner (create/update på Organization/Endpoint/PractitionerRole) SKA vara internt exponerade endast och SKA INTE nås via den externa gatewayen."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+
+// --- REQ-ADM: administratörsbehörighet ---
+//
+// Inte del av det ursprungliga informationsunderlaget. Stakeholder-beslut:
+// "Behörighet att administrera behöver hållas reda på, kanske via
+// fhir-attribut, så som managingOrganization." Se TKAdministratorRole.fsh.
+
+* statement[+].key = "REQ-ADM-1"
+* statement[=].label = "Administratörsbehörighetens nivå"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Varje administratörsbehörighet SKA ange en administrationsnivå (local-admin eller central-admin)."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
+
+* statement[+].key = "REQ-ADM-2"
+* statement[=].label = "Representerad organisation"
+* statement[=].conformance[0] = #SHALL
+* statement[=].conditionality = true
+* statement[=].requirement = "En local-admin-behörighet SKA ange vilken organisation den representerar (`TKAdministratorRole.organization`), analogt med `Endpoint.managingOrganization`. En central-admin-behörighet representerar samtliga organisationer och utelämnar medvetet detta element."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
+
+* statement[+].key = "REQ-ADM-3"
+* statement[=].label = "Behörighetens innehavare"
+* statement[=].conformance[0] = #SHOULD
+* statement[=].requirement = "En administratörsbehörighet BÖR ange vilket konto/system som innehar den."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
+
+// --- REQ-DIST: distribution/federering till lokala kataloger ---
+//
+// Inte del av det ursprungliga informationsunderlaget. Stakeholder-beslut:
+// "Distribution/federering kan tänkas på, prenumeration via fhir-mekanismer
+// för det är bra + grundladdning." Se OrganizationEndpointChanges.fsh och
+// "Distribution och synkronisering" i rest-interactions.html.
+
+* statement[+].key = "REQ-DIST-1"
+* statement[=].label = "Prenumeration på förändringar (topic-baserad Subscription)"
+* statement[=].conformance[0] = #SHOULD
+* statement[=].requirement = "Servern BÖR stödja R5 topic-baserad `Subscription` mot ämnet `tk-organization-endpoint-changes`, så att lokala kataloger kan prenumerera på skapande/uppdatering/borttagning av Organization/Endpoint, som ett alternativ till periodisk pollning."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes"
+
+* statement[+].key = "REQ-DIST-2"
+* statement[=].label = "Grundladdning via _lastUpdated"
+* statement[=].conformance[0] = #SHOULD
+* statement[=].requirement = "Servern BÖR stödja grundladdning och återsynk genom att sökningarna på Organization/Endpoint kan avgränsas med det generella FHIR-sökparametern `_lastUpdated` (tidsintervall), utan att en separat grundladdnings-operation behöver definieras."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+
+* statement[+].key = "REQ-DIST-3"
+* statement[=].label = "Undvik rundgång — öppen fråga"
+* statement[=].conformance[0] = #MAY
+* statement[=].requirement = "I en dubbelriktad federerad miljö FÅR ett ursprungsmärke på Organization/Endpoint användas för att undvika att en lokal katalogs egna uppdateringar studsar tillbaka via prenumerationen. Inte löst i detta utkast — se öppen fråga i mappings.html."

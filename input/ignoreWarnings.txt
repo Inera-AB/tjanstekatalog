@@ -28,27 +28,43 @@ The link 'https://fhir.inera.se/ig/tjanstekatalog/package.tgz' for "Paket (tgz)"
 # (no terminology server) CI configuration. The codes themselves are correct —
 # `Endpoint` and `Organization` are valid resource types — this is purely a
 # validator limitation when that particular value set can't be expanded
-# offline. Confirmed against the real build on PR #1 / commit ffc5959.
-SearchParameter/tk-endpoint-listed-by: SearchParameter.base[0]: Det angivna värdet ('Endpoint') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke "String.equals(Object)" because "system" is null)
-SearchParameter/tk-endpoint-listed-by: SearchParameter.target[0]: Det angivna värdet ('Organization') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke "String.equals(Object)" because "system" is null)
+# offline.
+#
+# Two earlier attempts at this entry (full-line with a "Resource/id:
+# Element.path:" prefix, then a shorter but still unwrapped substring) both
+# still showed "errors = 2" in a real build and "(0 uses)" under Suppressed
+# Messages. Decompiling org.hl7.fhir.igtools.publisher.SuppressedMessage-
+# Information in the actual publisher.jar ($SuppressedMessage.matchesInner)
+# settled why: matching is against ValidationMessage.getMessage() alone —
+# never the location prefix, which was the resource-qualified part of both
+# earlier attempts — and a line with no leading/trailing `%` is an *exact*
+# (trimmed, case-insensitive) match, not a substring match. `%text%` is
+# required for contains-style matching; using that below fixed it.
+# Version Independent Resource Types validator bug
+%hittades inte i värdemängden 'Version Independent Resource Types (All)'%
 
 # Logical models (TKIndexpost, TKAPISpecification, TKVardOchOmsorgstagare) get
 # their `.type` set to their own canonical URL, per FHIR's own convention for
 # logical models that don't map onto a concrete data type (this is standard
 # FSH `Logical:` behaviour, not a mistake). That makes every element's
 # generated `.path` start with that URL, which trips the eld-20 "first path
-# component should be UpperCamelCase" invariant on every single element (22
-# occurrences across the three logical models). The invariant's own text
-# explicitly carves this out: "Logical models may be less concerned about
-# this implication." Confirmed against the real build via PR #1.
-Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\.[a-z][A-Za-z0-9]{0,63}(\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)
+# component should be UpperCamelCase" invariant on every single element (36
+# occurrences across the three logical models, snapshot + differential). The
+# invariant's own text explicitly carves this out: "Logical models may be
+# less concerned about this implication." Wrapped in `%...%` — see the entry
+# above for how the exact/contains distinction was determined.
+# eld-20 on logical model canonical-URL paths
+%The first component of the path should be UpperCamelCase%
 
 # Same root cause as the Sweden-display-name suppression above (offline
 # `-tx n/a` build can't reach a terminology server to validate
-# urn:iso:std:iso:3166 codes), but a newer IG Publisher version phrases it
-# differently, so the existing entry didn't actually match. Recurs once per
-# resource that carries `^jurisdiction` (18 occurrences) — acceptable.
-En definition för CodeSystem 'urn:iso:std:iso:3166' kunde inte hittas, så koden kan inte valideras
+# urn:iso:std:iso:3166 codes), but phrased differently by a newer IG
+# Publisher version, so the display-name entry above doesn't also catch it.
+# Recurs once per resource that carries `^jurisdiction`. Wrapped in `%...%`
+# — see the first validator-bug entry above for why exact/unwrapped matches
+# turned out to be unreliable here.
+# Swedish jurisdiction CodeSystem not resolvable offline
+%En definition för CodeSystem 'urn:iso:std:iso:3166' kunde inte hittas%
 
 # Standard xhtml fragments not included — acceptable when using a custom local template
 The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide

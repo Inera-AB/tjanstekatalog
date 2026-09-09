@@ -1,10 +1,19 @@
 # CapabilityStatement
 
-Denna IG definierar ett formellt CapabilityStatement för sin egen serverroll:
+Denna IG definierar två formella CapabilityStatement för sin egen serverroll,
+med en medveten exponeringsgräns mellan dem (stakeholder-beslut, REQ-EXP-1/2
+— se [Mappning till profiler](mappings.html)):
 
-| CapabilityStatement | Roll | Beskriver |
-|---|---|---|
-| [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.html) | Server | Tjänstekatalogens egna REST-förmågor: registrering och sökning av [TKOrganization](StructureDefinition-tk-organization.html) och [TKEndpoint](StructureDefinition-tk-endpoint.html), inklusive sökparametern `listed-by`. |
+| CapabilityStatement | Roll | Exponering | Beskriver |
+|---|---|---|---|
+| [Tjänstekatalogen: sök-API](CapabilityStatement-tk-search-api.html) | Server | **Externt**, via gateway | Läsande sökning (`read`/`search-type`) av [TKOrganization](StructureDefinition-tk-organization.html) och [TKEndpoint](StructureDefinition-tk-endpoint.html), inklusive sökparametern `listed-by`. |
+| [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.html) | Server | **Endast internt** | Samma resurser som sök-API:et, plus skrivinteraktioner (`create`/`update`) och administratörsbehörigheter ([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)). |
+
+Denna IG definierar också ett prenumerationsämne för distribution till
+lokala kataloger:
+[SubscriptionTopic: tk-organization-endpoint-changes](SubscriptionTopic-tk-organization-endpoint-changes.html)
+— se "Distribution och synkronisering" i [REST-interaktioner](rest-interactions.html)
+och REQ-DIST-*.
 
 **Organization Endpoint Writer Capabilities** — CapabilityStatementet för
 aktören Organization Endpoint Writer — är **inte** en artefakt i denna IG.

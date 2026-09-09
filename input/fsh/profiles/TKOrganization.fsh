@@ -44,11 +44,19 @@ istället av [TKEndpoint](StructureDefinition-tk-endpoint.html)s
 // matcha vad E-hälsomyndighetens Organization Endpoint Writer-API kräver
 // (bekräftat, se mappings.html), i väntan på att Inera separat bekräftar
 // samma system som sitt eget (REQ-ORG-2).
+//
+// Stakeholder-beslut: `Organization.identifier` är den "logiska adress"
+// som förstudien "Förstudie T2 Tjänstekatalog" beskriver som tjänste-
+// sökningens huvudsakliga söknyckel (slå upp logisk adress → teknisk
+// anslutningsadress). Ingen separat `logiskAdress`-slice införs — sökning
+// sker på denna identifierare (t.ex. organisationsnumret) med standard-
+// parametern `identifier`, redan definierad i CapabilityStatement (se
+// TKSearchAPI/TKAdminAPI). REQ-ORG-5.
 * identifier MS
 * identifier ^slicing.discriminator.type = #value
 * identifier ^slicing.discriminator.path = "system"
 * identifier ^slicing.rules = #open
-* identifier ^short = "Organisationsidentifierare, inklusive organisationsnummer"
+* identifier ^short = "Organisationsidentifierare (\"logisk adress\"), inklusive organisationsnummer"
 * identifier contains organisationsnummer 0..1 MS
 * identifier[organisationsnummer].system 1..1
 * identifier[organisationsnummer].system = $organisationsnummer

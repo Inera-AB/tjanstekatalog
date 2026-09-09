@@ -20,6 +20,16 @@ inte (ännu) REST-exponerade i det administrativa API:et — se
 "Avvikelser och tillägg" nedan för respektive entitet och
 [Kravkatalog](requirements.html) (REQ-MDL-*) för status.
 
+Utöver informationsunderlagets sex entiteter realiserar denna IG tre
+stakeholder-beslutade tillägg (se respektive punkt nedan under "Avvikelser
+och tillägg"): **administratörsbehörighet**
+([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)),
+**distribution/federering**
+([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html))
+och en **exponeringsgräns** mellan externt sök-API och internt admin-API
+([TKSearchAPI](CapabilityStatement-tk-search-api.html) /
+[TKAdminAPI](CapabilityStatement-tk-admin-api.html)).
+
 ---
 
 ### Avvikelser och tillägg
@@ -147,6 +157,64 @@ dokumenteras tydligt.
   `Reference(TKOrganization)` skulle då behöva uttryckas via en extension
   istället, eller bytas till en identifierare/text.) Se REQ-MDL-4.
 
+- **`Organization.identifier` är den "logiska adress" tjänstesökning slår
+  upp.** Förstudien "Förstudie T2 Tjänstekatalog" beskriver tjänstesökningens
+  huvudsakliga söknyckel som en "logisk adress" (organisatorisk identifierare,
+  t.ex. `SE1611`), skild från den tekniska anslutningsadressen den slås upp
+  mot. Stakeholder-beslut: ingen separat `logiskAdress`-identifierare införs
+  — den rollen fylls av `Organization.identifier` (idag `organisationsnummer`,
+  öppet sliced för fler system vid behov), sökbar med standardparametern
+  `identifier`. Se REQ-ORG-5.
+
+- **Administratörsbehörighet ([TKAdministratorRole](StructureDefinition-tk-administrator-role.html))
+  är inte del av informationsunderlaget.** Förstudien förutsätter att
+  katalogen håller reda på vilka administratörer (`local-admin`/`central-admin`)
+  som får administrera vilka organisationers poster. Stakeholder-beslut:
+  detta realiseras med ett FHIR-attribut, `TKAdministratorRole.organization`
+  (`Reference(TKOrganization)`, 0..1), på samma sätt som
+  `TKEndpoint.managingOrganization` uttrycker "förvaltar" — inte en helt
+  egen behörighetsmodell. En administratör som representerar flera
+  organisationer får flera `TKAdministratorRole`-instanser (en per
+  organisation), det normala FHIR PractitionerRole-mönstret.
+  `central-admin`, som representerar samtliga organisationer, kan inte
+  uttryckas som en enskild referens — där utelämnas `organization` medvetet
+  (samma "frånvaro betyder bredare"-konvention som redan används för
+  `TKEndpointSecurityMethod`s `none`). Den faktiska behörighetskontrollen
+  (att en skrivning bara får avse en organisation anroparen representerar)
+  är en serverimplementationsfråga, inte specificerad ytterligare av denna
+  IG — se security.html. Se REQ-ADM-1..3.
+
+- **Distribution/federering till lokala kataloger
+  ([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html))
+  är inte del av informationsunderlaget.** Förstudien beskriver
+  händelsebaserad uppdatering (prenumeration) och grundladdning som
+  huvudmekanismer för att hålla lokala kataloger synkade mot den centrala.
+  Stakeholder-beslut: detta löses med inbyggda FHIR-mekanismer i stället för
+  en egen händelsemodell — R5:s topic-baserade `Subscription` (denna IG
+  definierar ämnet `tk-organization-endpoint-changes`, se
+  `OrganizationEndpointChanges.fsh`) för händelsebaserad distribution, och
+  standardsökparametern `_lastUpdated` (tidsintervall, ingen ny artefakt
+  behövs) för grundladdning och återsynk. Se "Distribution och
+  synkronisering" i rest-interactions.html och REQ-DIST-1/2. Att undvika
+  rundgång i en dubbelriktad federerad miljö (en lokal katalogs egna
+  uppdateringar studsar tillbaka via prenumerationen) kräver ett
+  ursprungsmärke på posten — inte löst i detta utkast, se öppen fråga
+  nedan (REQ-DIST-3).
+
+- **Sök-API externt (gateway), administrativa API:er endast interna.**
+  Stakeholder-beslut: den läsande sökningen (`read`/`search-type` på
+  `Organization`/`Endpoint`) bryts ut till ett eget, smalare
+  CapabilityStatement, [TKSearchAPI](CapabilityStatement-tk-search-api.html),
+  som är det som exponeras externt via gateway. Skrivinteraktionerna
+  (`create`/`update`) finns endast i [TKAdminAPI](CapabilityStatement-tk-admin-api.html),
+  som är internt exponerat endast. Se REQ-EXP-1/2 och security.html.
+
+- **Spårbarhet (vem skapade/senast uppdaterade en post) skjuts upp.**
+  Förstudiens skrivmodell förutsätter attribut som `createdTime` och
+  `updatedByHsaId`. Stakeholder-beslut: löses med serverloggning och/eller
+  `Provenance`-resurser i en framtida version, snarare än ett attribut på
+  `Organization`/`Endpoint` självt — avvaktar för nu. Se REQ-MDL-5.
+
 ---
 
 ### Syfte med mappningarna
@@ -225,6 +293,14 @@ maskinläsbara motsvarigheten (`Requirements.statement.satisfiedBy`).
 | giltigTom | — | *Ej separat realiserat* | Se avsteg ovan — `Endpoint.period` används istället. REQ-MDL-3 |
 | *(tillgängliggörs av Ändpunkt)* | 0..* | [TKEndpoint.payload](StructureDefinition-tk-endpoint.html) | REQ-MDL-3 |
 | *(följer API-specifikation)* | 0..* | [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html) | REQ-MDL-3, REQ-SRCH-3 |
+
+#### Administratörsbehörighet → [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) (utökning, ej del av informationsunderlaget)
+
+| Modellelement | Kard. | FHIR-profilelement | Noteringar |
+|----------------|-------|--------------------|------------|
+| administrationsnivå | 1..1 | [TKAdministratorRole.code](StructureDefinition-tk-administrator-role.html) | `local-admin` &#124; `central-admin`. REQ-ADM-1 |
+| representerad organisation | 0..1 | [TKAdministratorRole.organization](StructureDefinition-tk-administrator-role.html) | `Reference(TKOrganization)`. Utelämnad för `central-admin` (= alla organisationer). Samma mönster som `TKEndpoint.managingOrganization`. REQ-ADM-2 |
+| innehavare | 0..1 | [TKAdministratorRole.practitioner](StructureDefinition-tk-administrator-role.html) | REQ-ADM-3 |
 
 ---
 

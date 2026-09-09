@@ -2,7 +2,7 @@ id: inera.tjanstekatalog
 canonical: https://fhir.inera.se/ig/tjanstekatalog
 name: IneraTjanstekatalog
 title: "Tjänstekatalogen"
-description: "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen, samt administrativt API för att registrera organisationer, ändpunkter och deras kopplingar. Definierar även aktören Organization Endpoint Writer, som tillhandahåller ändpunktsinformation till katalogen."
+description: "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat."
 status: draft
 version: 0.1.0
 fhirVersion: 5.0.0

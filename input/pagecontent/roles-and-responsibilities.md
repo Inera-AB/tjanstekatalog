@@ -4,7 +4,10 @@
 |------|--------|
 | **Tjänstekatalogen (server)** | Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive `listed-by`). |
 | **Synkroniseringstjänst** | System som läser organisationer och tekniska ändpunkter från tjänstekatalogens administrativa API, och håller E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat genom att i **EHM:s** system anta rollen **Organization Endpoint Writer**. Se [ActorDefinition: Synkroniseringstjänst](ActorDefinition-tk-synkroniseringstjanst.html) och [Mappning mot EHM:s Organization Endpoint Writer](mappings.html) för hur data mappas mellan de två gränssnitten. |
-| **Sökande konsument** | System som söker fram en organisations tekniska ändpunkter, t.ex. inför en integration, via sökparametern `listed-by` på `Endpoint`. |
+| **Sökande konsument** | System som söker fram en organisations tekniska ändpunkter, t.ex. inför en integration, via sökparametern `listed-by` på `Endpoint`. Använder det externt exponerade [sök-API:et](CapabilityStatement-tk-search-api.html) (via gateway) — se säkerhet och behörighet i security.html. |
+| **Lokal administratör** (`local-admin`) | Får registrera och ändra poster i tjänstekatalogen för den eller de organisationer administratören representerar. Behörigheten registreras som [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) (`organization` satt). Inte del av det ursprungliga informationsunderlaget — se REQ-ADM-* och mappings.html. |
+| **Central administratör** (`central-admin`) | Utöver lokal administratörs rättigheter: får administrera andra administratörers behörigheter, för samtliga organisationer. Registreras som [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) med `organization` medvetet utelämnad (= alla). Se REQ-ADM-*. |
+| **Lokal katalog** | System som håller en lokal kopia av (delar av) tjänstekatalogens innehåll aktuell, antingen genom att prenumerera på [SubscriptionTopic: tk-organization-endpoint-changes](SubscriptionTopic-tk-organization-endpoint-changes.html) eller genom periodisk grundladdning/återsynk via `_lastUpdated`. Se "Distribution och synkronisering" i rest-interactions.html och REQ-DIST-*. |
 
 Organization Endpoint Writer är alltså inte en roll denna IG:s administrativa
 API själv tar emot anrop i — det är **EHM:s** aktörsroll, definierad i deras
@@ -17,9 +20,11 @@ förmågor (SHALL/SHOULD/MAY):
 
 | Roll | Förväntning |
 |------|-------------|
-| Tjänstekatalogen (server) | SKA kunna producera `Organization`- och `Endpoint`-resurser som uppfyller [TKOrganization](StructureDefinition-tk-organization.html) respektive [TKEndpoint](StructureDefinition-tk-endpoint.html). SKA stödja sökparametern `listed-by` på `Endpoint` (REQ-SRCH-1). |
+| Tjänstekatalogen (server) | SKA kunna producera `Organization`- och `Endpoint`-resurser som uppfyller [TKOrganization](StructureDefinition-tk-organization.html) respektive [TKEndpoint](StructureDefinition-tk-endpoint.html). SKA stödja sökparametern `listed-by` på `Endpoint` (REQ-SRCH-1). SKA exponera sökning externt via gateway och hålla skrivinteraktioner internt (REQ-EXP-1/2). BÖR stödja prenumeration och grundladdning för distribution till lokala kataloger (REQ-DIST-1/2). |
 | Synkroniseringstjänst | SKA läsa organisationer/ändpunkter härifrån (REQ-WRT-1). FÅR anropa EHM:s `$add-organization`/`$remove-organization` för att hantera "har"-relationen i EHM:s register (REQ-WRT-2, REQ-WRT-3), med data mappad enligt [mappningstabellen](mappings.html) (REQ-WRT-4, REQ-WRT-5). |
 | Sökande konsument | SKA kunna konsumera och bearbeta `Bundle`-resultat från sökningar på `Endpoint`, inklusive resultat från `listed-by`. |
+| Lokal/central administratör | SKA ha en registrerad [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) med rätt administrationsnivå (REQ-ADM-1); lokal administratör SKA representera den organisation vars poster ändras (REQ-ADM-2). |
+| Lokal katalog | BÖR hålla sin kopia aktuell via prenumeration på [SubscriptionTopic: tk-organization-endpoint-changes](SubscriptionTopic-tk-organization-endpoint-changes.html) och/eller grundladdning/återsynk via `_lastUpdated` (REQ-DIST-1/2). |
 
 Fr.o.m. FHIR R5 kan `CapabilityStatement` uttrycka denna typ av förväntningar
 formellt via elementet `obligations`. Denna IG definierar ett formellt

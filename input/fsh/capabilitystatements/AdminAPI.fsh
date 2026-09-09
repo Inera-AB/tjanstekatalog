@@ -12,6 +12,12 @@
 // (see input/fsh/logicalmodels/) and traced in the requirements catalogue,
 // but are not yet REST-exposed here — see REQ-MDL-1..4 and "Avvikelser och
 // tillägg" in mappings.html.
+//
+// Exposure boundary (stakeholder decision, see REQ-EXP-1/2): this API,
+// including its write interactions (create/update), is INTERNAL ONLY — it
+// is not exposed via the external gateway. External search consumers use
+// the separate, read-only TKSearchAPI (see SearchAPI.fsh) instead, which is
+// gateway-exposed. See security.html.
 Instance: TKAdminAPI
 InstanceOf: CapabilityStatement
 Usage: #definition
@@ -30,7 +36,7 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * contact.name = "Inera AB"
 * contact.telecom.system = #url
 * contact.telecom.value = "https://www.inera.se"
-* description = "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html."
+* description = "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)), samt registrering av administratörsbehörigheter. Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html. Detta API är endast internt exponerat — se [TKSearchAPI](CapabilityStatement-tk-search-api.html) för det externt exponerade, läsande sök-API:et."
 * jurisdiction = urn:iso:std:iso:3166#SE "Sweden"
 // kind=requirements (not capability): this describes what an implementation
 // of the admin API SHOULD support, not one specific running server instance,
@@ -78,3 +84,22 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Endpoint-status"
 * rest[=].resource[=].searchParam[=].type = #token
 * rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter status."
+
+// --- PractitionerRole (administratörsbehörighet) ---
+// Se TKAdministratorRole.fsh och REQ-ADM-*. Inte del av det ursprungliga
+// informationsunderlaget — se mappings.html.
+* rest[=].resource[+].type = #PractitionerRole
+* rest[=].resource[=].profile = Canonical(TKAdministratorRole)
+* rest[=].resource[=].documentation = "Administratörsbehörigheter: vilken organisation en administratör representerar (local-admin), eller att administratören är central-admin (organization utelämnad)."
+* rest[=].resource[=].interaction[0].code = #read
+* rest[=].resource[=].interaction[+].code = #search-type
+* rest[=].resource[=].interaction[+].code = #create
+* rest[=].resource[=].interaction[+].code = #update
+* rest[=].resource[=].searchParam[0].name = "organization"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/PractitionerRole-organization"
+* rest[=].resource[=].searchParam[=].type = #reference
+* rest[=].resource[=].searchParam[=].documentation = "Sök administratörsbehörigheter efter representerad organisation."
+* rest[=].resource[=].searchParam[+].name = "practitioner"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/PractitionerRole-practitioner"
+* rest[=].resource[=].searchParam[=].type = #reference
+* rest[=].resource[=].searchParam[=].documentation = "Sök administratörsbehörigheter efter innehavare."
