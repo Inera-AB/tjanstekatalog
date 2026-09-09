@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="tk-administrator-role"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: ValueSet tk-administrator-role</b></p><a name="tk-administrator-role"> </a><a name="hctk-administrator-role"> </a><ul><li>Include alla koder som definieras i <a href="CodeSystem-tk-administrator-role.html"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role</code></a><span title="Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation"> version &#x1F4E6;0.1.0</span></li></ul></div>
+  </text>
+  <url value="https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role"/>
+  <version value="0.1.0"/>
+  <name value="TKAdministratorRoleVS"/>
+  <title value="Administratörsroller"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-09-09T11:47:00+00:00"/>
+  <publisher value="Inera AB"/>
+  <contact>
+    <name value="Inera AB"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="SE"/>
+      <display value="Sweden"/>
+    </coding>
+  </jurisdiction>
+  <compose>
+    <include>
+      <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role"/>
+    </include>
+  </compose>
+</ValueSet>

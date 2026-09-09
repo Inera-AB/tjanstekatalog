@@ -1,2 +1,3 @@
 URL,Version,Status,OIDs,Name,Title,Description,Uses,Used,Sources
+https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role,0.1.0,draft,,TKAdministratorRoleVS,Administratörsroller,"Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1.",,"Internal"
 https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method,0.1.0,draft,,TKEndpointSecurityMethodVS,Säkerhetsmetoder för tekniska ändpunkter,"Tillåtna värden för Ändpunkt.säkerhetsmetod. Exempelbindning (example) i detta utkast — se REQ-END-6.",,"Internal"

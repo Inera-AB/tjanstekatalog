@@ -13,6 +13,20 @@
   "name" : "TKAdminAPICapabilityStatement"
 },
 {
+  "id" : "tk-search-api",
+  "type" : "CapabilityStatement",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api",
+  "version" : "0.1.0",
+  "name" : "TKSearchAPICapabilityStatement"
+},
+{
+  "id" : "tk-administrator-role",
+  "type" : "CodeSystem",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role",
+  "version" : "0.1.0",
+  "name" : "TKAdministratorRoleCS"
+},
+{
   "id" : "tk-endpoint-security-method",
   "type" : "CodeSystem",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method",
@@ -46,6 +60,13 @@
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient",
   "version" : "0.1.0",
   "name" : "IneraPatient"
+},
+{
+  "id" : "tk-administrator-role",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role",
+  "version" : "0.1.0",
+  "name" : "TKAdministratorRole"
 },
 {
   "id" : "tk-api-specification",
@@ -102,6 +123,20 @@
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare",
   "version" : "0.1.0",
   "name" : "TKVardOchOmsorgstagare"
+},
+{
+  "id" : "tk-organization-endpoint-changes",
+  "type" : "SubscriptionTopic",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes",
+  "version" : "0.1.0",
+  "name" : "TKOrganizationEndpointChangesTopic"
+},
+{
+  "id" : "tk-administrator-role",
+  "type" : "ValueSet",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role",
+  "version" : "0.1.0",
+  "name" : "TKAdministratorRoleVS"
 },
 {
   "id" : "tk-endpoint-security-method",

@@ -221,7 +221,19 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     </tr>
     <tr>
       <td><strong>Sökande konsument</strong></td>
-      <td>System som söker fram en organisations tekniska ändpunkter, t.ex. inför en integration, via sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code>.</td>
+      <td>System som söker fram en organisations tekniska ändpunkter, t.ex. inför en integration, via sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code>. Använder det externt exponerade <a href="CapabilityStatement-tk-search-api.html">sök-API:et</a> (via gateway) — se säkerhet och behörighet i security.html.</td>
+    </tr>
+    <tr>
+      <td><strong>Lokal administratör</strong> (<code class="language-plaintext highlighter-rouge">local-admin</code>)</td>
+      <td>Får registrera och ändra poster i tjänstekatalogen för den eller de organisationer administratören representerar. Behörigheten registreras som <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> (<code class="language-plaintext highlighter-rouge">organization</code> satt). Inte del av det ursprungliga informationsunderlaget — se REQ-ADM-* och mappings.html.</td>
+    </tr>
+    <tr>
+      <td><strong>Central administratör</strong> (<code class="language-plaintext highlighter-rouge">central-admin</code>)</td>
+      <td>Utöver lokal administratörs rättigheter: får administrera andra administratörers behörigheter, för samtliga organisationer. Registreras som <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> med <code class="language-plaintext highlighter-rouge">organization</code> medvetet utelämnad (= alla). Se REQ-ADM-*.</td>
+    </tr>
+    <tr>
+      <td><strong>Lokal katalog</strong></td>
+      <td>System som håller en lokal kopia av (delar av) tjänstekatalogens innehåll aktuell, antingen genom att prenumerera på <a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic: tk-organization-endpoint-changes</a> eller genom periodisk grundladdning/återsynk via <code class="language-plaintext highlighter-rouge">_lastUpdated</code>. Se "Distribution och synkronisering" i rest-interactions.html och REQ-DIST-*.</td>
     </tr>
   </tbody>
 </table>
@@ -245,7 +257,7 @@ förmågor (SHALL/SHOULD/MAY):</p>
   <tbody>
     <tr>
       <td>Tjänstekatalogen (server)</td>
-      <td>SKA kunna producera <code class="language-plaintext highlighter-rouge">Organization</code>- och <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurser som uppfyller <a href="StructureDefinition-tk-organization.html">TKOrganization</a> respektive <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>. SKA stödja sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code> (REQ-SRCH-1).</td>
+      <td>SKA kunna producera <code class="language-plaintext highlighter-rouge">Organization</code>- och <code class="language-plaintext highlighter-rouge">Endpoint</code>-resurser som uppfyller <a href="StructureDefinition-tk-organization.html">TKOrganization</a> respektive <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>. SKA stödja sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code> (REQ-SRCH-1). SKA exponera sökning externt via gateway och hålla skrivinteraktioner internt (REQ-EXP-1/2). BÖR stödja prenumeration och grundladdning för distribution till lokala kataloger (REQ-DIST-1/2).</td>
     </tr>
     <tr>
       <td>Synkroniseringstjänst</td>
@@ -254,6 +266,14 @@ förmågor (SHALL/SHOULD/MAY):</p>
     <tr>
       <td>Sökande konsument</td>
       <td>SKA kunna konsumera och bearbeta <code class="language-plaintext highlighter-rouge">Bundle</code>-resultat från sökningar på <code class="language-plaintext highlighter-rouge">Endpoint</code>, inklusive resultat från <code class="language-plaintext highlighter-rouge">listed-by</code>.</td>
+    </tr>
+    <tr>
+      <td>Lokal/central administratör</td>
+      <td>SKA ha en registrerad <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> med rätt administrationsnivå (REQ-ADM-1); lokal administratör SKA representera den organisation vars poster ändras (REQ-ADM-2).</td>
+    </tr>
+    <tr>
+      <td>Lokal katalog</td>
+      <td>BÖR hålla sin kopia aktuell via prenumeration på <a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic: tk-organization-endpoint-changes</a> och/eller grundladdning/återsynk via <code class="language-plaintext highlighter-rouge">_lastUpdated</code> (REQ-DIST-1/2).</td>
     </tr>
   </tbody>
 </table>
@@ -310,8 +330,8 @@ föreskrifter eller RIVTA-tjänstekontrakt där det är tillämpligt.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 12:25:00 +0000">
-    2026-09-08
+  <span title="2026-09-09 11:47:00 +0000">
+    2026-09-09
   </span>
 
           <br/>

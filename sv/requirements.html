@@ -206,6 +206,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><a href="#req-org--attribut-och-relationer-på-organisation" id="markdown-toc-req-org--attribut-och-relationer-på-organisation">REQ-ORG — Attribut och relationer på Organisation</a></li>
       <li><a href="#req-wrt--synkronisering-mot-ehms-organization-endpoint-writer" id="markdown-toc-req-wrt--synkronisering-mot-ehms-organization-endpoint-writer">REQ-WRT — Synkronisering mot EHM:s Organization Endpoint Writer</a></li>
       <li><a href="#req-mdl--övriga-entiteter-i-informationsunderlaget-och-avgränsningar" id="markdown-toc-req-mdl--övriga-entiteter-i-informationsunderlaget-och-avgränsningar">REQ-MDL — Övriga entiteter i informationsunderlaget och avgränsningar</a></li>
+      <li><a href="#req-exp--exponering-sök-api-externt-vs-admin-api-internt" id="markdown-toc-req-exp--exponering-sök-api-externt-vs-admin-api-internt">REQ-EXP — Exponering: sök-API externt vs. admin-API internt</a></li>
+      <li><a href="#req-adm--administratörsbehörighet" id="markdown-toc-req-adm--administratörsbehörighet">REQ-ADM — Administratörsbehörighet</a></li>
+      <li><a href="#req-dist--distributionfederering-till-lokala-kataloger" id="markdown-toc-req-dist--distributionfederering-till-lokala-kataloger">REQ-DIST — Distribution/federering till lokala kataloger</a></li>
     </ul>
   </li>
 </ul>
@@ -225,8 +228,12 @@ omvända vyn, från attribut/profilelement till krav, finns i
 <p>Krav grupperas efter ämne: <code class="language-plaintext highlighter-rouge">REQ-SRCH-*</code> sökning av ändpunkter per
 organisation, <code class="language-plaintext highlighter-rouge">REQ-END-*</code> attribut på Ändpunkt, <code class="language-plaintext highlighter-rouge">REQ-ORG-*</code> attribut och
 relationer på Organisation, <code class="language-plaintext highlighter-rouge">REQ-WRT-*</code> synkronisering mot EHM:s Organization
-Endpoint Writer, och <code class="language-plaintext highlighter-rouge">REQ-MDL-*</code> övriga entiteter i informationsunderlaget
-och avgränsningar.</p>
+Endpoint Writer, <code class="language-plaintext highlighter-rouge">REQ-MDL-*</code> övriga entiteter i informationsunderlaget och
+avgränsningar, <code class="language-plaintext highlighter-rouge">REQ-EXP-*</code> exponering (externt sök-API vs. internt admin-API),
+<code class="language-plaintext highlighter-rouge">REQ-ADM-*</code> administratörsbehörighet och <code class="language-plaintext highlighter-rouge">REQ-DIST-*</code> distribution/federering
+till lokala kataloger. De tre sistnämnda grupperna är stakeholder-beslutade
+tillägg utöver det ursprungliga informationsunderlaget — se
+<a href="mappings.html">Mappning till profiler</a>.</p>
 
 <hr />
 
@@ -362,6 +369,12 @@ och avgränsningar.</p>
       <td>Varje ändpunkt SKA ange sin förvaltande organisation ("förvaltar").</td>
       <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a><code class="language-plaintext highlighter-rouge">.managingOrganization</code></td>
     </tr>
+    <tr>
+      <td>REQ-ORG-5</td>
+      <td>SKA</td>
+      <td><code class="language-plaintext highlighter-rouge">Organization.identifier</code> SKA fungera som den "logiska adress" tjänstesökning slår upp. Ingen separat identifierare för detta införs.</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.identifier</code>, <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a></td>
+    </tr>
   </tbody>
 </table>
 
@@ -468,6 +481,115 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
       <td>API-specifikation BÖR modelleras för spårbarhet. REST-exponering skjuts upp, men rekommenderas som en nedbantad profil på <code class="language-plaintext highlighter-rouge">ImplementationGuide</code> om/när den blir aktuell — inte <code class="language-plaintext highlighter-rouge">ActorDefinition</code> (EHM:s val, avvisat) eller <code class="language-plaintext highlighter-rouge">Basic</code>.</td>
       <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification</a> (logisk modell)</td>
     </tr>
+    <tr>
+      <td>REQ-MDL-5</td>
+      <td>FÅR</td>
+      <td>Spårbarhet (vem skapade/senast uppdaterade en post) FÅR göras, men avgränsas bort från detta utkast — löses med serverloggning/<code class="language-plaintext highlighter-rouge">Provenance</code> i en framtida version.</td>
+      <td><em>(inte realiserat ännu)</em></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="req-exp--exponering-sök-api-externt-vs-admin-api-internt">REQ-EXP — Exponering: sök-API externt vs. admin-API internt</h3>
+
+<p>Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget —
+se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Krav</th>
+      <th>Konformans</th>
+      <th>Beskrivning</th>
+      <th>Realiseras av</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>REQ-EXP-1</td>
+      <td>SKA</td>
+      <td>Läsande sökning SKA exponeras externt, via gateway, för sökande konsumenter.</td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a></td>
+    </tr>
+    <tr>
+      <td>REQ-EXP-2</td>
+      <td>SKA</td>
+      <td>Skrivande interaktioner SKA vara internt exponerade endast, inte nåbara via den externa gatewayen.</td>
+      <td><a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="req-adm--administratörsbehörighet">REQ-ADM — Administratörsbehörighet</h3>
+
+<p>Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget —
+se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Krav</th>
+      <th>Konformans</th>
+      <th>Beskrivning</th>
+      <th>Realiseras av</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>REQ-ADM-1</td>
+      <td>SKA</td>
+      <td>Varje administratörsbehörighet SKA ange en administrationsnivå (<code class="language-plaintext highlighter-rouge">local-admin</code>/<code class="language-plaintext highlighter-rouge">central-admin</code>).</td>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a><code class="language-plaintext highlighter-rouge">.code</code></td>
+    </tr>
+    <tr>
+      <td>REQ-ADM-2</td>
+      <td>SKA (villkorat)</td>
+      <td>En <code class="language-plaintext highlighter-rouge">local-admin</code>-behörighet SKA ange representerad organisation, analogt med <code class="language-plaintext highlighter-rouge">Endpoint.managingOrganization</code>. <code class="language-plaintext highlighter-rouge">central-admin</code> utelämnar detta medvetet (= alla organisationer).</td>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a><code class="language-plaintext highlighter-rouge">.organization</code></td>
+    </tr>
+    <tr>
+      <td>REQ-ADM-3</td>
+      <td>BÖR</td>
+      <td>En administratörsbehörighet BÖR ange innehavare.</td>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a><code class="language-plaintext highlighter-rouge">.practitioner</code></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="req-dist--distributionfederering-till-lokala-kataloger">REQ-DIST — Distribution/federering till lokala kataloger</h3>
+
+<p>Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget —
+se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a> och
+"Distribution och synkronisering" i <a href="rest-interactions.html">REST-interaktioner</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Krav</th>
+      <th>Konformans</th>
+      <th>Beskrivning</th>
+      <th>Realiseras av</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>REQ-DIST-1</td>
+      <td>BÖR</td>
+      <td>Servern BÖR stödja R5 topic-baserad <code class="language-plaintext highlighter-rouge">Subscription</code> mot ämnet <code class="language-plaintext highlighter-rouge">tk-organization-endpoint-changes</code>.</td>
+      <td><a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic: tk-organization-endpoint-changes</a></td>
+    </tr>
+    <tr>
+      <td>REQ-DIST-2</td>
+      <td>BÖR</td>
+      <td>Servern BÖR stödja grundladdning/återsynk via <code class="language-plaintext highlighter-rouge">_lastUpdated</code>.</td>
+      <td><a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+    </tr>
+    <tr>
+      <td>REQ-DIST-3</td>
+      <td>FÅR</td>
+      <td>Ett ursprungsmärke FÅR användas för att undvika rundgång i en dubbelriktad federerad miljö. Inte löst i detta utkast.</td>
+      <td><em>(öppen fråga, se mappings.html)</em></td>
+    </tr>
   </tbody>
 </table>
 
@@ -509,8 +631,8 @@ eller id.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 12:25:00 +0000">
-    2026-09-08
+  <span title="2026-09-09 11:47:00 +0000">
+    2026-09-09
   </span>
 
           <br/>

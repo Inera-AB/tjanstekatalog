@@ -53,7 +53,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-vard-och-oms
   "name" : "TKVardOchOmsorgstagare",
   "title" : "Vård- och omsorgstagare (logisk modell)",
   "status" : "draft",
-  "date" : "2026-09-08T12:25:30+00:00",
+  "date" : "2026-09-09T11:47:00+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

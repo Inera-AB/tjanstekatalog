@@ -12,14 +12,14 @@
   fhir:language [ fhir:v "sv"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xml:lang=\"sv\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"sv\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.tjanstekatalog</b></p><a name=\"inera.tjanstekatalog\"> </a><a name=\"hcinera.tjanstekatalog\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Språk: sv</p></div><h2>IneraTjanstekatalog</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog</pre><div><p>FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen, samt administrativt API för att registrera organisationer, ändpunkter och deras kopplingar. Definierar även aktören Organization Endpoint Writer, som tillhandahåller ändpunktsinformation till katalogen.</p>\n</div></div>"^^rdf:XMLLiteral ]
+     fhir:div [ fhir:v "<div xml:lang=\"sv\" xmlns=\"http://www.w3.org/1999/xhtml\" lang=\"sv\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.tjanstekatalog</b></p><a name=\"inera.tjanstekatalog\"> </a><a name=\"hcinera.tjanstekatalog\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Språk: sv</p></div><h2>IneraTjanstekatalog</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog</pre><div><p>FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat.</p>\n</div></div>"^^rdf:XMLLiteral ]
   ] ; # 
   fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog"^^xsd:anyURI] ; # 
   fhir:version [ fhir:v "0.1.0"] ; # 
   fhir:name [ fhir:v "IneraTjanstekatalog"] ; # 
   fhir:title [ fhir:v "Tjänstekatalogen"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-09-08T12:25:30+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-09-09T11:47:00+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
@@ -28,7 +28,7 @@
        fhir:value [ fhir:v "https://www.inera.se" ]
      ] )
   ] ) ; # 
-  fhir:description [ fhir:v "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen, samt administrativt API för att registrera organisationer, ändpunkter och deras kopplingar. Definierar även aktören Organization Endpoint Writer, som tillhandahåller ändpunktsinformation till katalogen."] ; # 
+  fhir:description [ fhir:v "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat."] ; # 
   fhir:jurisdiction ( [
      fhir:coding ( [
        fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
@@ -79,6 +79,36 @@
        ]
      ] ) ;
      fhir:resource ( [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "ValueSet"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role> ;
+         fhir:reference [ fhir:v "ValueSet/tk-administrator-role" ]
+       ] ;
+       fhir:name [ fhir:v "Administratörsroller" ] ;
+       fhir:description [ fhir:v "Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "CodeSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role> ;
+         fhir:reference [ fhir:v "CodeSystem/tk-administrator-role" ]
+       ] ;
+       fhir:name [ fhir:v "Administratörsroller (kodsystem)" ] ;
+       fhir:description [ fhir:v "Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [
@@ -294,6 +324,21 @@
          ]
        ] ) ;
        fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role> ;
+         fhir:reference [ fhir:v "StructureDefinition/tk-administrator-role" ]
+       ] ;
+       fhir:name [ fhir:v "Tjänstekatalogen administratörsbehörighet" ] ;
+       fhir:description [ fhir:v "Behörighet för en administratör att registrera/ändra poster i\ntjänstekatalogen för en given organisation (`local-admin`), eller att\ndessutom administrera andra administratörers behörigheter för samtliga\norganisationer (`central-admin`, `organization` utelämnad). Se\n[Roller och ansvar](roles-and-responsibilities.html) och\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
          fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint> ;
          fhir:reference [ fhir:v "StructureDefinition/tk-endpoint" ]
        ] ;
@@ -335,6 +380,21 @@
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:string ;
+           fhir:v "CapabilityStatement"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api> ;
+         fhir:reference [ fhir:v "CapabilityStatement/tk-search-api" ]
+       ] ;
+       fhir:name [ fhir:v "Tjänstekatalogen: sök-API (externt)" ] ;
+       fhir:description [ fhir:v "CapabilityStatement för tjänstekatalogens externt exponerade sök-API (serverroll), nått via gateway." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
            fhir:v "StructureDefinition:extension"
          ]
        ] ) ;
@@ -359,6 +419,21 @@
        ] ;
        fhir:name [ fhir:v "Vård- och omsorgstagare (logisk modell)" ] ;
        fhir:description [ fhir:v "Logisk modell för entiteten Vård- och omsorgstagare i informationsunderlaget. Tunn, avsiktligt begränsad till id — se REQ-MDL-2." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "SubscriptionTopic"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes> ;
+         fhir:reference [ fhir:v "SubscriptionTopic/tk-organization-endpoint-changes" ]
+       ] ;
+       fhir:name [ fhir:v "Ändringar i Organisation/Ändpunkt (prenumerationsämne)" ] ;
+       fhir:description [ fhir:v "SubscriptionTopic för händelsebaserad distribution av förändringar i Organization/Endpoint till lokala kataloger. Se REQ-DIST-1." ] ;
        fhir:isExample [ fhir:v false ]
      ] ) ;
      fhir:page [

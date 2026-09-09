@@ -234,6 +234,16 @@ inte (ännu) REST-exponerade i det administrativa API:et — se
 "Avvikelser och tillägg" nedan för respektive entitet och
 <a href="requirements.html">Kravkatalog</a> (REQ-MDL-*) för status.</p>
 
+<p>Utöver informationsunderlagets sex entiteter realiserar denna IG tre
+stakeholder-beslutade tillägg (se respektive punkt nedan under "Avvikelser
+och tillägg"): <strong>administratörsbehörighet</strong>
+(<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>),
+<strong>distribution/federering</strong>
+(<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic</a>)
+och en <strong>exponeringsgräns</strong> mellan externt sök-API och internt admin-API
+(<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> /
+<a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a>).</p>
+
 <hr />
 
 <h3 id="avvikelser-och-tillägg">Avvikelser och tillägg</h3>
@@ -371,6 +381,69 @@ vilket passar en versionerad, publicerad specifikations livscykel bättre
 <code class="language-plaintext highlighter-rouge">ImplementationGuide</code>, inte <code class="language-plaintext highlighter-rouge">Reference</code> — <code class="language-plaintext highlighter-rouge">ansvarigUtgivare</code> som
 <code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code> skulle då behöva uttryckas via en extension
 istället, eller bytas till en identifierare/text.) Se REQ-MDL-4.</p>
+  </li>
+  <li>
+    <p><strong><code class="language-plaintext highlighter-rouge">Organization.identifier</code> är den "logiska adress" tjänstesökning slår
+upp.</strong> Förstudien "Förstudie T2 Tjänstekatalog" beskriver tjänstesökningens
+huvudsakliga söknyckel som en "logisk adress" (organisatorisk identifierare,
+t.ex. <code class="language-plaintext highlighter-rouge">SE1611</code>), skild från den tekniska anslutningsadressen den slås upp
+mot. Stakeholder-beslut: ingen separat <code class="language-plaintext highlighter-rouge">logiskAdress</code>-identifierare införs
+— den rollen fylls av <code class="language-plaintext highlighter-rouge">Organization.identifier</code> (idag <code class="language-plaintext highlighter-rouge">organisationsnummer</code>,
+öppet sliced för fler system vid behov), sökbar med standardparametern
+<code class="language-plaintext highlighter-rouge">identifier</code>. Se REQ-ORG-5.</p>
+  </li>
+  <li>
+    <p><strong>Administratörsbehörighet (<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>)
+är inte del av informationsunderlaget.</strong> Förstudien förutsätter att
+katalogen håller reda på vilka administratörer (<code class="language-plaintext highlighter-rouge">local-admin</code>/<code class="language-plaintext highlighter-rouge">central-admin</code>)
+som får administrera vilka organisationers poster. Stakeholder-beslut:
+detta realiseras med ett FHIR-attribut, <code class="language-plaintext highlighter-rouge">TKAdministratorRole.organization</code>
+(<code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code>, 0..1), på samma sätt som
+<code class="language-plaintext highlighter-rouge">TKEndpoint.managingOrganization</code> uttrycker "förvaltar" — inte en helt
+egen behörighetsmodell. En administratör som representerar flera
+organisationer får flera <code class="language-plaintext highlighter-rouge">TKAdministratorRole</code>-instanser (en per
+organisation), det normala FHIR PractitionerRole-mönstret.
+<code class="language-plaintext highlighter-rouge">central-admin</code>, som representerar samtliga organisationer, kan inte
+uttryckas som en enskild referens — där utelämnas <code class="language-plaintext highlighter-rouge">organization</code> medvetet
+(samma "frånvaro betyder bredare"-konvention som redan används för
+<code class="language-plaintext highlighter-rouge">TKEndpointSecurityMethod</code>s <code class="language-plaintext highlighter-rouge">none</code>). Den faktiska behörighetskontrollen
+(att en skrivning bara får avse en organisation anroparen representerar)
+är en serverimplementationsfråga, inte specificerad ytterligare av denna
+IG — se security.html. Se REQ-ADM-1..3.</p>
+  </li>
+  <li>
+    <p><strong>Distribution/federering till lokala kataloger
+(<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic</a>)
+är inte del av informationsunderlaget.</strong> Förstudien beskriver
+händelsebaserad uppdatering (prenumeration) och grundladdning som
+huvudmekanismer för att hålla lokala kataloger synkade mot den centrala.
+Stakeholder-beslut: detta löses med inbyggda FHIR-mekanismer i stället för
+en egen händelsemodell — R5:s topic-baserade <code class="language-plaintext highlighter-rouge">Subscription</code> (denna IG
+definierar ämnet <code class="language-plaintext highlighter-rouge">tk-organization-endpoint-changes</code>, se
+<code class="language-plaintext highlighter-rouge">OrganizationEndpointChanges.fsh</code>) för händelsebaserad distribution, och
+standardsökparametern <code class="language-plaintext highlighter-rouge">_lastUpdated</code> (tidsintervall, ingen ny artefakt
+behövs) för grundladdning och återsynk. Se "Distribution och
+synkronisering" i rest-interactions.html och REQ-DIST-1/2. Att undvika
+rundgång i en dubbelriktad federerad miljö (en lokal katalogs egna
+uppdateringar studsar tillbaka via prenumerationen) kräver ett
+ursprungsmärke på posten — inte löst i detta utkast, se öppen fråga
+nedan (REQ-DIST-3).</p>
+  </li>
+  <li>
+    <p><strong>Sök-API externt (gateway), administrativa API:er endast interna.</strong>
+Stakeholder-beslut: den läsande sökningen (<code class="language-plaintext highlighter-rouge">read</code>/<code class="language-plaintext highlighter-rouge">search-type</code> på
+<code class="language-plaintext highlighter-rouge">Organization</code>/<code class="language-plaintext highlighter-rouge">Endpoint</code>) bryts ut till ett eget, smalare
+CapabilityStatement, <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>,
+som är det som exponeras externt via gateway. Skrivinteraktionerna
+(<code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>) finns endast i <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a>,
+som är internt exponerat endast. Se REQ-EXP-1/2 och security.html.</p>
+  </li>
+  <li>
+    <p><strong>Spårbarhet (vem skapade/senast uppdaterade en post) skjuts upp.</strong>
+Förstudiens skrivmodell förutsätter attribut som <code class="language-plaintext highlighter-rouge">createdTime</code> och
+<code class="language-plaintext highlighter-rouge">updatedByHsaId</code>. Stakeholder-beslut: löses med serverloggning och/eller
+<code class="language-plaintext highlighter-rouge">Provenance</code>-resurser i en framtida version, snarare än ett attribut på
+<code class="language-plaintext highlighter-rouge">Organization</code>/<code class="language-plaintext highlighter-rouge">Endpoint</code> självt — avvaktar för nu. Se REQ-MDL-5.</p>
   </li>
 </ul>
 
@@ -679,6 +752,39 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
       <td>0..*</td>
       <td><a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a></td>
       <td>REQ-MDL-3, REQ-SRCH-3</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="administratörsbehörighet--tkadministratorrole-utökning-ej-del-av-informationsunderlaget">Administratörsbehörighet → <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> (utökning, ej del av informationsunderlaget)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modellelement</th>
+      <th>Kard.</th>
+      <th>FHIR-profilelement</th>
+      <th>Noteringar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>administrationsnivå</td>
+      <td>1..1</td>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.code</a></td>
+      <td><code class="language-plaintext highlighter-rouge">local-admin</code> | <code class="language-plaintext highlighter-rouge">central-admin</code>. REQ-ADM-1</td>
+    </tr>
+    <tr>
+      <td>representerad organisation</td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.organization</a></td>
+      <td><code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code>. Utelämnad för <code class="language-plaintext highlighter-rouge">central-admin</code> (= alla organisationer). Samma mönster som <code class="language-plaintext highlighter-rouge">TKEndpoint.managingOrganization</code>. REQ-ADM-2</td>
+    </tr>
+    <tr>
+      <td>innehavare</td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.practitioner</a></td>
+      <td>REQ-ADM-3</td>
     </tr>
   </tbody>
 </table>
@@ -1104,8 +1210,8 @@ att profilerna utvecklas. Mappningar kan också uttryckas med FHIR
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 12:25:00 +0000">
-    2026-09-08
+  <span title="2026-09-09 11:47:00 +0000">
+    2026-09-09
   </span>
 
           <br/>

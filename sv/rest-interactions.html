@@ -198,8 +198,15 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#rest-interaktioner-och-sökparametrar" id="markdown-toc-rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</a>    <ul>
+      <li><a href="#sök-ändpunkter-för-en-organisation" id="markdown-toc-sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</a></li>
+      <li><a href="#distribution-och-synkronisering" id="markdown-toc-distribution-och-synkronisering">Distribution och synkronisering</a></li>
+    </ul>
+  </li>
+</ul>
+
 </div>
 <h1 id="rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</h1>
 
@@ -209,21 +216,37 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <th>Resurs/Profil</th>
       <th>Interaktion</th>
       <th>Sökparametrar</th>
+      <th>Exponering</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a></td>
-      <td>read, search-type, create, update</td>
-      <td><code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">name</code></td>
+      <td>read, search-type (externt); create, update (endast internt)</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code> ("logisk adress", se mappings.html REQ-ORG-5), <code class="language-plaintext highlighter-rouge">name</code></td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
     </tr>
     <tr>
       <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
-      <td>read, search-type, create, update</td>
+      <td>read, search-type (externt); create, update (endast internt)</td>
       <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code></td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a></td>
+      <td>read, search-type, create, update</td>
+      <td><code class="language-plaintext highlighter-rouge">organization</code>, <code class="language-plaintext highlighter-rouge">practitioner</code></td>
+      <td>Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt)</td>
     </tr>
   </tbody>
 </table>
+
+<p>Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning
+exponeras externt via gateway (<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>);
+skrivinteraktioner och administratörsbehörigheter finns endast i det internt
+exponerade <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a>. Se
+<a href="capabilitystatement.html">CapabilityStatement</a> och
+<a href="security.html">Säkerhet och behörighet</a>.</p>
 
 <p>Tjänstekatalogens administrativa API exponerar inga egna skrivoperationer för
 att koppla organisation och ändpunkt — det görs istället hos
@@ -289,6 +312,58 @@ finns uppladdad.</li>
 
 <hr />
 
+<h3 id="distribution-och-synkronisering">Distribution och synkronisering</h3>
+
+<p>Inte del av det ursprungliga informationsunderlaget — tillagt per
+stakeholder-beslut: "Distribution/federering kan tänkas på, prenumeration
+via fhir-mekanismer för det är bra + grundladdning." (REQ-DIST-*, se
+<a href="mappings.html">Mappning till profiler</a>). Löses med inbyggda FHIR-mekanismer,
+inte en egen händelsemodell:</p>
+
+<p><strong>Prenumeration (händelsebaserad distribution).</strong> Servern BÖR stödja R5:s
+topic-baserade <code class="language-plaintext highlighter-rouge">Subscription</code>, mot ämnet
+<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic: tk-organization-endpoint-changes</a>,
+som utlöses av <code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>/<code class="language-plaintext highlighter-rouge">delete</code> på <code class="language-plaintext highlighter-rouge">Organization</code> respektive
+<code class="language-plaintext highlighter-rouge">Endpoint</code> (REQ-DIST-1). En lokal katalog skapar en <code class="language-plaintext highlighter-rouge">Subscription</code> som
+refererar ämnets url:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Subscription"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"requested"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"channelType"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://terminology.hl7.org/CodeSystem/subscription-channel-type"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"rest-hook"</span><span class="w">
+  </span><span class="p">},</span><span class="w">
+  </span><span class="nl">"endpoint"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://lokal-katalog.example.se/fhir-notifications"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"content"</span><span class="p">:</span><span class="w"> </span><span class="s2">"id-only"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>En notifiering talar bara om <em>att</em> något ändrats och vilken interaktion det
+gällde — klienten hämtar det aktuella innehållet via
+<a href="CapabilityStatement-tk-search-api.html">sök-API:et</a> (<code class="language-plaintext highlighter-rouge">content: id-only</code>)
+eller får resursen direkt om <code class="language-plaintext highlighter-rouge">content</code> sätts till <code class="language-plaintext highlighter-rouge">full-resource</code>.</p>
+
+<p><strong>Grundladdning och återsynk.</strong> Servern BÖR stödja att sökningar på
+<code class="language-plaintext highlighter-rouge">Organization</code>/<code class="language-plaintext highlighter-rouge">Endpoint</code> avgränsas med den generella FHIR-sökparametern
+<code class="language-plaintext highlighter-rouge">_lastUpdated</code> (tidsintervall), utan att en separat grundladdnings-operation
+behöver definieras (REQ-DIST-2):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?_lastUpdated=ge2026-01-01&amp;_lastUpdated=lt2026-02-01
+</code></pre></div></div>
+
+<p>En lokal katalog som initieras för första gången kan hämta allt (utan
+<code class="language-plaintext highlighter-rouge">_lastUpdated</code>); en katalog som ska återsynkas efter driftstopp kan
+avgränsa till perioden sedan senaste kända aktualitet.</p>
+
+<p><strong>Rundgång i en dubbelriktad federerad miljö</strong> (en lokal katalogs egna
+uppdateringar studsar tillbaka via prenumerationen) är inte löst i detta
+utkast — det kräver ett ursprungsmärke på posten, vilket lämnas som en
+öppen fråga (REQ-DIST-3, se mappings.html).</p>
+
+<hr />
+
 <blockquote>
   <p><strong>Vägledning för författare:</strong> Roller och deras verksamhetsansvar
 beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
@@ -323,8 +398,8 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 12:25:00 +0000">
-    2026-09-08
+  <span title="2026-09-09 11:47:00 +0000">
+    2026-09-09
   </span>
 
           <br/>

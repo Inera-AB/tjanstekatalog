@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CodeSystem xmlns="http://hl7.org/fhir">
+  <id value="tk-administrator-role"/>
+  <language value="sv"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: CodeSystem tk-administrator-role</b></p><a name="tk-administrator-role"> </a><a name="hctk-administrator-role"> </a><p>Detta case-sensitive kodsystem <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role</code> definierar följande koder:</p><table class="codes"><tr><td style="white-space:nowrap"><b>Kod</b></td><td><b>Visning</b></td><td><b>Definition</b></td></tr><tr><td style="white-space:nowrap">local-admin<a name="tk-administrator-role-local-admin"> </a></td><td>Lokal administratör</td><td>Får registrera och ändra poster för den eller de organisationer administratören representerar (TKAdministratorRole.organization).</td></tr><tr><td style="white-space:nowrap">central-admin<a name="tk-administrator-role-central-admin"> </a></td><td>Central administratör</td><td>Får utöver lokal administratörs rättigheter även administrera andra administratörers behörigheter, för samtliga organisationer (TKAdministratorRole.organization utelämnas medvetet — se profilen).</td></tr></table></div>
+  </text>
+  <url value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role"/>
+  <version value="0.1.0"/>
+  <name value="TKAdministratorRoleCS"/>
+  <title value="Administratörsroller (kodsystem)"/>
+  <status value="draft"/>
+  <experimental value="true"/>
+  <date value="2026-09-09T11:47:00+00:00"/>
+  <publisher value="Inera AB"/>
+  <contact>
+    <name value="Inera AB"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <description value="Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="SE"/>
+      <display value="Sweden"/>
+    </coding>
+  </jurisdiction>
+  <caseSensitive value="true"/>
+  <content value="complete"/>
+  <count value="2"/>
+  <concept>
+    <code value="local-admin"/>
+    <display value="Lokal administratör"/>
+    <definition value="Får registrera och ändra poster för den eller de organisationer administratören representerar (TKAdministratorRole.organization)."/>
+  </concept>
+  <concept>
+    <code value="central-admin"/>
+    <display value="Central administratör"/>
+    <definition value="Får utöver lokal administratörs rättigheter även administrera andra administratörers behörigheter, för samtliga organisationer (TKAdministratorRole.organization utelämnas medvetet — se profilen)."/>
+  </concept>
+</CodeSystem>

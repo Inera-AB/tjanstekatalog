@@ -53,9 +53,26 @@
     "sources" : ["2.16.840.1.113883.4.642.3.21"],
     "uses" : {
     },
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
     "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/c80-practice-codes",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "PracticeSettingCodeValueSet",
+    "title" : "Practice Setting Code Value Set",
+    "description" : "This is the code representing the clinical specialty of the clinician or provider who    interacted with, treated, or provided a service to/for the patient. The value set used    for clinical specialty has been limited by HITSP to the value set reproduced from HITSP    C80 Table 2-149 Clinical Specialty Value Set Definition.",
+    "systems" : ["http://snomed.info/sct"],
+    "oids" : ["2.16.840.1.113883.4.642.2.134",
+    "2.16.840.1.113883.3.88.12.80.72"],
+    "sources" : ["2.16.840.1.113883.4.642.2.134",
+    "2.16.840.1.113883.3.88.12.80.72"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/endpoint-connection-type",
@@ -133,9 +150,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.45"],
     "uses" : {
     },
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
     "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/identifier-use",
@@ -149,9 +166,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.57"],
     "uses" : {
     },
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
     "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/languages",
@@ -167,9 +184,10 @@
     "2.16.840.1.113883.4.642.3.20"],
     "uses" : {
     },
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
     "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/link-type",
@@ -263,6 +281,32 @@
     "uses" : {
     },
     "StructureDefinition-IneraPatient.html" : "Inera Patient"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/service-mode",
+    "version" : "5.0.0",
+    "status" : "draft",
+    "name" : "ServiceMode",
+    "title" : "Service Mode",
+    "description" : "An example set of Service Modes that could be applicable to use to characterize HealthcareServices or PractitionerRoles while searching",
+    "systems" : ["http://hl7.org/fhir/service-mode"],
+    "oids" : ["2.16.840.1.113883.4.642.4.3322"],
+    "sources" : ["2.16.840.1.113883.4.642.4.3322"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
+  },
+  {
+    "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "TKAdministratorRoleVS",
+    "title" : "Administratörsroller",
+    "description" : "Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1.",
+    "systems" : ["https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
   },
   {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method",

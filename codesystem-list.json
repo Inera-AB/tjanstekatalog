@@ -1,5 +1,13 @@
 {
   "codeSystems" : [{
+    "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "TKAdministratorRoleCS",
+    "title" : "Administratörsroller (kodsystem)",
+    "description" : "Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen."
+  },
+  {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method",
     "version" : "0.1.0",
     "status" : "draft",

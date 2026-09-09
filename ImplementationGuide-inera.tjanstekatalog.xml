@@ -4,7 +4,7 @@
   <id value="inera.tjanstekatalog"/>
   <language value="sv"/>
   <text>
-    <status value="generated"/><div xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv"><p class="res-header-id"><b>Genererad berättande text: ImplementationGuide inera.tjanstekatalog</b></p><a name="inera.tjanstekatalog"> </a><a name="hcinera.tjanstekatalog"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Språk: sv</p></div><h2>IneraTjanstekatalog</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog</pre><div><p>FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen, samt administrativt API för att registrera organisationer, ändpunkter och deras kopplingar. Definierar även aktören Organization Endpoint Writer, som tillhandahåller ändpunktsinformation till katalogen.</p>
+    <status value="generated"/><div xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv"><p class="res-header-id"><b>Genererad berättande text: ImplementationGuide inera.tjanstekatalog</b></p><a name="inera.tjanstekatalog"> </a><a name="hcinera.tjanstekatalog"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Språk: sv</p></div><h2>IneraTjanstekatalog</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog</pre><div><p>FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat.</p>
 </div></div>
   </text>
   <url value="https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog"/>
@@ -12,7 +12,7 @@
   <name value="IneraTjanstekatalog"/>
   <title value="Tjänstekatalogen"/>
   <status value="draft"/>
-  <date value="2026-09-08T12:25:30+00:00"/>
+  <date value="2026-09-09T11:47:00+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>
@@ -21,7 +21,7 @@
       <value value="https://www.inera.se"/>
     </telecom>
   </contact>
-  <description value="FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen, samt administrativt API för att registrera organisationer, ändpunkter och deras kopplingar. Definierar även aktören Organization Endpoint Writer, som tillhandahåller ändpunktsinformation till katalogen."/>
+  <description value="FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat."/>
   <jurisdiction>
     <coding>
       <system value="urn:iso:std:iso:3166"/>
@@ -52,6 +52,28 @@
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
       <valueCode value="hl7.fhir.uv.tools.r5#1.1.2"/>
     </extension>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/tk-administrator-role"/>
+      </reference>
+      <name value="Administratörsroller"/>
+      <description value="Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/tk-administrator-role"/>
+      </reference>
+      <name value="Administratörsroller (kodsystem)"/>
+      <description value="Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen."/>
+      <isExample value="false"/>
+    </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:logical"/>
@@ -203,6 +225,17 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
+        <reference value="StructureDefinition/tk-administrator-role"/>
+      </reference>
+      <name value="Tjänstekatalogen administratörsbehörighet"/>
+      <description value="Behörighet för en administratör att registrera/ändra poster i&#xA;tjänstekatalogen för en given organisation (`local-admin`), eller att&#xA;dessutom administrera andra administratörers behörigheter för samtliga&#xA;organisationer (`central-admin`, `organization` utelämnad). Se&#xA;[Roller och ansvar](roles-and-responsibilities.html) och&#xA;[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
         <reference value="StructureDefinition/tk-endpoint"/>
       </reference>
       <name value="Tjänstekatalogen Endpoint"/>
@@ -233,6 +266,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CapabilityStatement"/>
+      </extension>
+      <reference>
+        <reference value="CapabilityStatement/tk-search-api"/>
+      </reference>
+      <name value="Tjänstekatalogen: sök-API (externt)"/>
+      <description value="CapabilityStatement för tjänstekatalogens externt exponerade sök-API (serverroll), nått via gateway."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:extension"/>
       </extension>
       <reference>
@@ -251,6 +295,17 @@
       </reference>
       <name value="Vård- och omsorgstagare (logisk modell)"/>
       <description value="Logisk modell för entiteten Vård- och omsorgstagare i informationsunderlaget. Tunn, avsiktligt begränsad till id — se REQ-MDL-2."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="SubscriptionTopic"/>
+      </extension>
+      <reference>
+        <reference value="SubscriptionTopic/tk-organization-endpoint-changes"/>
+      </reference>
+      <name value="Ändringar i Organisation/Ändpunkt (prenumerationsämne)"/>
+      <description value="SubscriptionTopic för händelsebaserad distribution av förändringar i Organization/Endpoint till lokala kataloger. Se REQ-DIST-1."/>
       <isExample value="false"/>
     </resource>
     <page>

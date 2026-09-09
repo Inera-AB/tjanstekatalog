@@ -207,22 +207,25 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          <a href="#4">Beteende: Sökparametrar</a>
       </li>
       <li>
-         <a href="#5">Strukturer: Logiska modeller</a>
+         <a href="#5">Beteende: Prenumerationsämnen</a>
       </li>
       <li>
-         <a href="#6">Strukturer: Resursprofiler</a>
+         <a href="#6">Strukturer: Logiska modeller</a>
       </li>
       <li>
-         <a href="#7">Strukturer: Extensiondefinitioner</a>
+         <a href="#7">Strukturer: Resursprofiler</a>
       </li>
       <li>
-         <a href="#8">Terminologi: Värdemängder</a>
+         <a href="#8">Strukturer: Extensiondefinitioner</a>
       </li>
       <li>
-         <a href="#9">Terminologi: Kodsystem</a>
+         <a href="#9">Terminologi: Värdemängder</a>
       </li>
       <li>
-         <a href="#10">Exempel: Exempelinstanser</a>
+         <a href="#10">Terminologi: Kodsystem</a>
+      </li>
+      <li>
+         <a href="#11">Exempel: Exempelinstanser</a>
       </li>
    </ul>
 </div>
@@ -289,6 +292,18 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <p>CapabilityStatement för tjänstekatalogens administrativa API (serverroll).</p>
 </td>
          </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CapabilityStatement-tk-search-api.html"
+                  title="CapabilityStatement/tk-search-api">
+                  <span title="CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)
+</span>
+               </a>
+            </td>
+            <td>
+<p>CapabilityStatement för tjänstekatalogens externt exponerade sök-API (serverroll), nått via gateway.</p>
+</td>
+         </tr>
       </tbody>
    </table>
    <a name="4"> </a>
@@ -312,6 +327,26 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       </tbody>
    </table>
    <a name="5"> </a>
+   <h3>Beteende: Prenumerationsämnen </h3>
+    <p>Dessa definierar de typer av information som kan prenumereras på i system som följer denna implementationsguide.</p>
+<table class="grid">
+      <col style="width:20%"/>
+      <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="SubscriptionTopic-tk-organization-endpoint-changes.html"
+                  title="SubscriptionTopic/tk-organization-endpoint-changes">
+                  <span title="SubscriptionTopic/tk-organization-endpoint-changes">Ändringar i Organisation/Ändpunkt (prenumerationsämne)
+</span>
+               </a>
+            </td>
+            <td>
+<p>SubscriptionTopic för händelsebaserad distribution av förändringar i Organization/Endpoint till lokala kataloger. Se REQ-DIST-1.</p>
+</td>
+         </tr>
+      </tbody>
+   </table>
+   <a name="6"> </a>
    <h3>Strukturer: Logiska modeller </h3>
     <p>Dessa definierar datamodeller som representerar den domän som täcks av denna implementationsguide i mer verksamhetsvänliga termer än de underliggande FHIR-resurserna.</p>
 <table class="grid">
@@ -355,7 +390,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
          </tr>
       </tbody>
    </table>
-   <a name="6"> </a>
+   <a name="7"> </a>
    <h3>Strukturer: Resursprofiler </h3>
     <p>Dessa definierar begränsningar på FHIR-resurser för system som följer denna implementationsguide.</p>
 <table class="grid">
@@ -415,9 +450,26 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
 <code class="language-plaintext highlighter-rouge">managingOrganization</code>, sökbar med standardparametern <code class="language-plaintext highlighter-rouge">organization</code>.</p>
 </td>
          </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-administrator-role.html"
+                  title="StructureDefinition/tk-administrator-role">
+                  <span title="StructureDefinition/tk-administrator-role">Tjänstekatalogen administratörsbehörighet
+</span>
+               </a>
+            </td>
+            <td>
+<p>Behörighet för en administratör att registrera/ändra poster i
+tjänstekatalogen för en given organisation (<code class="language-plaintext highlighter-rouge">local-admin</code>), eller att
+dessutom administrera andra administratörers behörigheter för samtliga
+organisationer (<code class="language-plaintext highlighter-rouge">central-admin</code>, <code class="language-plaintext highlighter-rouge">organization</code> utelämnad). Se
+<a href="roles-and-responsibilities.html">Roller och ansvar</a> och
+<a href="http://hl7.org/fhir/R5/requirements.html">Kravkatalog</a> REQ-ADM-*.</p>
+</td>
+         </tr>
       </tbody>
    </table>
-   <a name="7"> </a>
+   <a name="8"> </a>
    <h3>Strukturer: Extensiondefinitioner </h3>
     <p>Dessa definierar begränsningar på FHIR-datatyper för system som följer denna implementationsguide.</p>
 <table class="grid">
@@ -461,12 +513,24 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
          </tr>
       </tbody>
    </table>
-   <a name="8"> </a>
+   <a name="9"> </a>
    <h3>Terminologi: Värdemängder </h3>
     <p>Dessa definierar uppsättningar av koder som används av system som följer denna implementationsguide.</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="ValueSet-tk-administrator-role.html"
+                  title="ValueSet/tk-administrator-role">
+                  <span title="ValueSet/tk-administrator-role">Administratörsroller
+</span>
+               </a>
+            </td>
+            <td>
+<p>Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1.</p>
+</td>
+         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="ValueSet-tk-endpoint-security-method.html"
@@ -481,12 +545,24 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
          </tr>
       </tbody>
    </table>
-   <a name="9"> </a>
+   <a name="10"> </a>
    <h3>Terminologi: Kodsystem </h3>
     <p>Dessa definierar nya kodsystem som används av system som följer denna implementationsguide.</p>
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CodeSystem-tk-administrator-role.html"
+                  title="CodeSystem/tk-administrator-role">
+                  <span title="CodeSystem/tk-administrator-role">Administratörsroller (kodsystem)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen.</p>
+</td>
+         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="CodeSystem-tk-endpoint-security-method.html"
@@ -501,7 +577,7 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
          </tr>
       </tbody>
    </table>
-   <a name="10"> </a>
+   <a name="11"> </a>
    <h3>Exempel: Exempelinstanser </h3>
     <p>Detta är exempelinstanser som visar hur data som produceras och konsumeras av system som följer denna implementationsguide kan se ut.</p>
 <table class="grid">
@@ -572,8 +648,8 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 12:25:00 +0000">
-    2026-09-08
+  <span title="2026-09-09 11:47:00 +0000">
+    2026-09-09
   </span>
 
           <br/>

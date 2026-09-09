@@ -1,0 +1,439 @@
+
+
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE HTML>
+
+
+
+<html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
+  <head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
+    <title>Tjänstekatalogen: sök-API (externt) - JSON Representation - Tjänstekatalogen v0.1.0</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="author" content="http://hl7.org/fhir"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+
+    <!-- Project extras -->
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
+  	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/project.css" rel="stylesheet"/>
+  	<link href="assets/css/cqf.css" rel="stylesheet" />
+    <link href="inera.css" rel="stylesheet"/>
+<link rel="icon" type="image/png" href="inera-thumbnail.png"/>
+<link rel="shortcut icon" href="inera-thumbnail.png"/>
+
+
+    <script type="text/javascript" src="fhir-table-scripts.js"> </script>
+    <script type="text/javascript" src="assets/js/direction-management.js"> </script>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="fhir-logo" sizes="144x144" href="assets/ico/icon-fhir-144.png"/>
+    <link rel="fhir-logo" sizes="114x114" href="assets/ico/icon-fhir-114.png"/>
+    <link rel="fhir-logo" sizes="72x72" href="assets/ico/icon-fhir-72.png"/>
+    <link rel="fhir-logo" href="assets/ico/icon-fhir-57.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+  </head>
+  <body onload="document.body.style.opacity='1'">
+
+	  <script type="text/javascript" src="assets/js/prism.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
+	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid.js"></script>
+    <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
+    <style type="text/css">h2{--heading-prefix:"17.4"}
+    h3,h4,h5,h6{--heading-prefix:"17.4"}</style>
+    <div id="segment-header" class="segment">  <!-- segment-header -->
+      <div class="container">  <!-- container -->
+
+        <div id="inera-nav">
+  <a id="inera-logo" data-no-external="true" href="https://www.inera.se">
+    <img height="50" alt="Inera" src="inera-logo-header.svg"/>
+  </a>
+</div>
+
+
+        <div id="ig-status" data-fhir="generated">
+          <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
+            <br/>
+            <span style="display:inline-block;">0.1.0 - ci-build
+
+
+
+  Sweden
+
+
+            </span>
+          </p>
+        </div>
+      </div> <!-- /container -->
+    </div>  <!-- /segment-header -->
+
+    <div id="segment-navbar" class="segment" data-fhir="generated">  <!-- segment-navbar -->
+      <div id="stripe"> </div>
+      <div class="container">  <!-- container -->
+        <!-- HEADER CONTENT -->
+
+        <nav class="navbar navbar-inverse">
+          <!--status-bar-->
+          <div class="container">
+
+            <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+              <span class="icon-bar"> </span>
+            </button>
+            <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
+            <div class="nav-collapse collapse navbar-inverse-collapse">
+              <div id="segment-navbar" class="segment">
+  <div id="stripe"> </div>
+  <div class="container">
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
+          <span class="icon-bar"> </span>
+          <span class="icon-bar"> </span>
+          <span class="icon-bar"> </span>
+        </button>
+        <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
+        <div class="nav-collapse collapse navbar-inverse-collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="index.html">Hem</a></li>
+            <li><a href="introduction.html">Inledning</a></li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="information-basis.html">Informationsunderlag</a></li>
+                <li><a href="use-cases.html">Användningsfall</a></li>
+                <li><a href="requirements.html">Kravkatalog</a></li>
+                <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
+                <li><a href="mappings.html">Mappning till profiler</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
+                <li><a href="expected-responses.html">Förväntade svar</a></li>
+                <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+                <li><a href="error-handling.html">Felhantering</a></li>
+                <li><a href="security.html">Säkerhet och behörighet</a></li>
+                <li><a href="testing.html">Testning och validering</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
+              <ul class="dropdown-menu">
+                <li><a href="about.html">Styrning och förvaltning</a></li>
+                <li><a href="downloads.html">Nedladdningar</a></li>
+                <li><a href="version-history.html">Versionshistorik</a></li>
+              </ul>
+            </li>
+            <li><a href="artifacts.html">Artefakter</a></li>
+            <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  </div>
+</div>
+
+            </div>  <!-- /.nav-collapse -->
+
+              
+
+          </div>  <!-- /.container -->
+        </nav>  <!-- /.navbar -->
+      <!-- /HEADER CONTENT -->
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-navbar -->
+    <!--status-bar-->
+
+    <div id="segment-breadcrumb" class="segment" data-fhir="generated">  <!-- segment-breadcrumb -->
+      <div class="container">  <!-- container -->
+        <ul class="breadcrumb">
+          <li><a href='toc.html'><b>Table of Contents</b></a></li><li><a href='artifacts.html'><b>Sammanfattning av artefakter</b></a></li><li><b>Tjänstekatalogen: sök-API (externt)</b></li>
+
+        </ul>
+      </div>  <!-- /container -->
+    </div>  <!-- /segment-breadcrumb -->
+
+    <a name="top"> </a>
+    <div id="segment-content" class="segment">  <!-- segment-content -->
+      <div class="container">  <!-- container -->
+        <div class="row">
+          <div class="inner-wrapper">
+
+<!-- layouts\layout-instance-format -->
+<div style="counter-reset: section 8" class="col-12">
+<!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+
+
+
+
+
+
+
+
+
+
+
+<ul class="nav nav-tabs">
+
+  <li>
+    <a href="CapabilityStatement-tk-search-api.html">Berättande innehåll</a>
+  </li>
+
+
+
+  
+    <li>
+      <a href="CapabilityStatement-tk-search-api.xml.html">XML</a>
+    </li>
+  
+
+
+  
+    <li class="active">
+      <a href="#">JSON</a>
+    </li>
+  
+
+
+  
+    <li>
+      <a href="CapabilityStatement-tk-search-api.ttl.html">TTL</a>
+    </li>
+  
+
+
+
+</ul>
+
+
+<a name="root"> </a>
+
+
+
+<h2 id="root">: Tjänstekatalogen: sök-API (externt)</h2>
+
+  <table class="colsd" data-fhir="generated">
+    <tr>
+
+      <td colspan="2">
+        
+          Draft
+          
+
+            per 
+2026-09-08
+
+          
+        
+      </td>
+
+    </tr>
+  </table>
+
+
+<p><a href="CapabilityStatement-tk-search-api.json" no-download="true">Rå json</a> | <a href="CapabilityStatement-tk-search-api.json" download>Ladda ner</a></p>
+
+  <!-- insert intro if present -->
+  
+
+
+
+  <pre class="json" data-fhir="generated" style="white-space: pre; text-wrap: nowrap; width: auto;"><code class="language-json" style="white-space: pre; text-wrap: nowrap;">{
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement">resourceType</a>" : "CapabilityStatement",
+  "<a href="http://hl7.org/fhir/R5/resource.html#XCapabilityStatement.id">id</a>" : "tk-search-api",
+  "<a href="http://hl7.org/fhir/R5/resource.html#XCapabilityStatement.language">language</a>" : "sv",
+  "<a href="http://hl7.org/fhir/R5/domainresource.html#XCapabilityStatement.text">text</a>" : {
+    "<a href="http://hl7.org/fhir/R5/narrative.html#Narrative#XNarrative.status">status</a>" : "extensions",
+    "<a href="http://hl7.org/fhir/R5/narrative.html#Narrative#XNarrative.div">div</a>" : "&lt;div xmlns=\&quot;http://www.w3.org/1999/xhtml\&quot;&gt;&lt;p class=\&quot;res-header-id\&quot;&gt;&lt;b&gt;Genererad berättande text: CapabilityStatement tk-search-api&lt;/b&gt;&lt;/p&gt;&lt;a name=\&quot;tk-search-api\&quot;&gt; &lt;/a&gt;&lt;a name=\&quot;hctk-search-api\&quot;&gt; &lt;/a&gt;&lt;h2 id=\&quot;title\&quot;&gt;Tjänstekatalogen: sök-API (externt)&lt;/h2&gt;&lt;ul&gt;&lt;li&gt;Implementationsguidens version: 0.1.0 &lt;/li&gt;&lt;li&gt;FHIR-version: 5.0.0 &lt;/li&gt;&lt;li&gt;Format som stöds: &lt;code&gt;json&lt;/code&gt;&lt;/li&gt;&lt;li&gt;Publicerad: 2026-09-08 &lt;/li&gt;&lt;li&gt;Publicerad av: Inera AB &lt;/li&gt;&lt;/ul&gt;&lt;blockquote class=\&quot;impl-note\&quot;&gt;&lt;p&gt;&lt;strong&gt;Notera till implementörer: FHIR-förmågor&lt;/strong&gt;&lt;/p&gt;&lt;p&gt;Vilken FHIR-förmåga som helst kan vara 'tillåten' av systemet om den inte uttryckligen är markerad som 'SHALL NOT'. Några objekt är markerade som MAY i implementationsguiden för att belysa deras potentiella relevans för användningsfallet.&lt;/p&gt;&lt;/blockquote&gt;&lt;h2 id=\&quot;rest\&quot;&gt;FHIR RESTful-förmågor&lt;/h2&gt;&lt;div class=\&quot;panel panel-default\&quot;&gt;&lt;div class=\&quot;panel-heading\&quot;&gt;&lt;h3 id=\&quot;mode1\&quot; class=\&quot;panel-title\&quot;&gt;Mode: &lt;code&gt;server&lt;/code&gt;&lt;/h3&gt;&lt;/div&gt;&lt;div class=\&quot;panel-body\&quot;&gt;&lt;div&gt;&lt;p&gt;Externt exponerat sök-API för tjänstekatalogen, nått via gateway. Endast läsande interaktioner.&lt;/p&gt;\n&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;h3 id=\&quot;resourcesCap1\&quot;&gt;Förmågor per resurs/profil&lt;/h3&gt;&lt;h4 id=\&quot;resourcesSummary1\&quot;&gt;Sammanfattning&lt;/h4&gt;&lt;p&gt;Sammanfattningstabellen listar resurserna som ingår i denna konfiguration, och för varje resurs listar den:&lt;/p&gt;&lt;ul&gt;&lt;li&gt;De relevanta profilerna (om några)&lt;/li&gt;&lt;li&gt;Interaktionerna som stöds av varje resurs (&lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;R&lt;/span&gt;&lt;/b&gt;ead, &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;S&lt;/span&gt;&lt;/b&gt;earch, &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;U&lt;/span&gt;&lt;/b&gt;pdate, and &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;C&lt;/span&gt;&lt;/b&gt;reate, are always shown, while &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;VR&lt;/span&gt;&lt;/b&gt;ead, &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;P&lt;/span&gt;&lt;/b&gt;atch, &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;D&lt;/span&gt;&lt;/b&gt;elete, &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;H&lt;/span&gt;&lt;/b&gt;istory on &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;I&lt;/span&gt;&lt;/b&gt;nstance, or &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;H&lt;/span&gt;&lt;/b&gt;istory on &lt;b&gt;&lt;span class=\&quot;bg-info\&quot;&gt;T&lt;/span&gt;&lt;/b&gt;yp är endast närvarande om minst en av resurserna har stöd för dem.&lt;/li&gt;&lt;li&gt;&lt;span&gt;De obligatoriska, rekommenderade och vissa valfria sökparametrarna (om några). &lt;/span&gt;&lt;/li&gt;&lt;li&gt;De länkade resurserna aktiverade för &lt;code&gt;_include&lt;/code&gt;&lt;/li&gt;&lt;li&gt;De övriga resurserna aktiverade för &lt;code&gt;_revinclude&lt;/code&gt;&lt;/li&gt;&lt;li&gt;Operationerna på resursen (om några)&lt;/li&gt;&lt;/ul&gt;&lt;div class=\&quot;table-responsive\&quot;&gt;&lt;table class=\&quot;table table-condensed table-hover\&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;&lt;b&gt;Resurstyp&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Profil&lt;/b&gt;&lt;/th&gt;&lt;th class=\&quot;text-center\&quot;&gt;&lt;b title=\&quot;GET en resurs (läs-interaktion)\&quot;&gt;R&lt;/b&gt;&lt;/th&gt;&lt;th class=\&quot;text-center\&quot;&gt;&lt;b title=\&quot;GET alla resurser av typen (sök-interaktion)\&quot;&gt;S&lt;/b&gt;&lt;/th&gt;&lt;th class=\&quot;text-center\&quot;&gt;&lt;b title=\&quot;PUT en ny resursversion (uppdatera-interaktion)\&quot;&gt;U&lt;/b&gt;&lt;/th&gt;&lt;th class=\&quot;text-center\&quot;&gt;&lt;b title=\&quot;POST en ny resurs (skapa-interaktion)\&quot;&gt;C&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;b title=\&quot;Obligatoriska och rekommenderade sökparametrar\&quot;&gt;Sökningar&lt;/b&gt;&lt;/th&gt;&lt;th&gt;&lt;code&gt;&lt;b&gt;_include&lt;/b&gt;&lt;/code&gt;&lt;/th&gt;&lt;th&gt;&lt;code&gt;&lt;b&gt;_revinclude&lt;/b&gt;&lt;/code&gt;&lt;/th&gt;&lt;th&gt;&lt;b&gt;Operationer&lt;/b&gt;&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=\&quot;#Organization1-1\&quot;&gt;Organization&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;StructureDefinition-tk-organization.html\&quot;&gt;https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization&lt;/a&gt;&lt;/td&gt;&lt;td class=\&quot;text-center\&quot;&gt;y&lt;/td&gt;&lt;td class=\&quot;text-center\&quot;&gt;y&lt;/td&gt;&lt;td class=\&quot;text-center\&quot;/&gt;&lt;td class=\&quot;text-center\&quot;/&gt;&lt;td&gt;identifier, name&lt;/td&gt;&lt;td/&gt;&lt;td/&gt;&lt;td/&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;a href=\&quot;#Endpoint1-2\&quot;&gt;Endpoint&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;StructureDefinition-tk-endpoint.html\&quot;&gt;https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint&lt;/a&gt;&lt;/td&gt;&lt;td class=\&quot;text-center\&quot;&gt;y&lt;/td&gt;&lt;td class=\&quot;text-center\&quot;&gt;y&lt;/td&gt;&lt;td class=\&quot;text-center\&quot;/&gt;&lt;td class=\&quot;text-center\&quot;/&gt;&lt;td&gt;organization, listed-by, status&lt;/td&gt;&lt;td/&gt;&lt;td/&gt;&lt;td/&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;hr/&gt;&lt;div class=\&quot;panel panel-default\&quot;&gt;&lt;div class=\&quot;panel-heading\&quot;&gt;&lt;h4 id=\&quot;Organization1-1\&quot; class=\&quot;panel-title\&quot;&gt;&lt;span style=\&quot;float: right;\&quot;&gt;Resurskonformans: unspecified &lt;/span&gt;Organization&lt;/h4&gt;&lt;/div&gt;&lt;div class=\&quot;panel-body\&quot;&gt;&lt;div class=\&quot;container\&quot;&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-lg-6\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Bassystemprofil&lt;/span&gt;&lt;br/&gt;&lt;a href=\&quot;StructureDefinition-tk-organization.html\&quot;&gt;Tjänstekatalogen Organization&lt;/a&gt;&lt;/div&gt;&lt;div class=\&quot;col-lg-3\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Profilkonformans&lt;/span&gt;&lt;br/&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/div&gt;&lt;div class=\&quot;col-lg-3\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Referenspolicy&lt;/span&gt;&lt;br/&gt;&lt;/div&gt;&lt;/div&gt;&lt;p/&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-lg-6\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Interaktionssammanfattning&lt;/span&gt;&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Stöder &lt;code&gt;read&lt;/code&gt;, &lt;code&gt;search-type&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;p/&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-12\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Dokumentation&lt;/span&gt;&lt;blockquote&gt;&lt;div&gt;&lt;p&gt;Organisationer registrerade i tjänstekatalogen.&lt;/p&gt;\n&lt;/div&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-lg-7\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Sökparametrar&lt;/span&gt;&lt;table class=\&quot;table table-condensed table-hover\&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Konformans&lt;/th&gt;&lt;th&gt;Parameter&lt;/th&gt;&lt;th&gt;Typ&lt;/th&gt;&lt;th&gt;Dokumentation&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;http://hl7.org/fhir/organization.html#search\&quot;&gt;identifier&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;token&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;div&gt;&lt;p&gt;Sök organisation på identifierare, t.ex. organisationsnummer (&amp;quot;logisk adress&amp;quot; — se mappings.html).&lt;/p&gt;\n&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;http://hl7.org/fhir/organization.html#search\&quot;&gt;name&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;string&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;div&gt;&lt;p&gt;Sök organisation på namn.&lt;/p&gt;\n&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;div class=\&quot;col-lg-5\&quot;&gt;\u00a0&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=\&quot;panel panel-default\&quot;&gt;&lt;div class=\&quot;panel-heading\&quot;&gt;&lt;h4 id=\&quot;Endpoint1-2\&quot; class=\&quot;panel-title\&quot;&gt;&lt;span style=\&quot;float: right;\&quot;&gt;Resurskonformans: unspecified &lt;/span&gt;Endpoint&lt;/h4&gt;&lt;/div&gt;&lt;div class=\&quot;panel-body\&quot;&gt;&lt;div class=\&quot;container\&quot;&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-lg-6\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Bassystemprofil&lt;/span&gt;&lt;br/&gt;&lt;a href=\&quot;StructureDefinition-tk-endpoint.html\&quot;&gt;Tjänstekatalogen Endpoint&lt;/a&gt;&lt;/div&gt;&lt;div class=\&quot;col-lg-3\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Profilkonformans&lt;/span&gt;&lt;br/&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/div&gt;&lt;div class=\&quot;col-lg-3\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Referenspolicy&lt;/span&gt;&lt;br/&gt;&lt;/div&gt;&lt;/div&gt;&lt;p/&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-lg-6\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Interaktionssammanfattning&lt;/span&gt;&lt;br/&gt;&lt;ul&gt;&lt;li&gt;Stöder &lt;code&gt;read&lt;/code&gt;, &lt;code&gt;search-type&lt;/code&gt;.&lt;/li&gt;&lt;/ul&gt;&lt;/div&gt;&lt;/div&gt;&lt;p/&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-12\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Dokumentation&lt;/span&gt;&lt;blockquote&gt;&lt;div&gt;&lt;p&gt;Tekniska ändpunkter registrerade i tjänstekatalogen.&lt;/p&gt;\n&lt;/div&gt;&lt;/blockquote&gt;&lt;/div&gt;&lt;/div&gt;&lt;div class=\&quot;row\&quot;&gt;&lt;div class=\&quot;col-lg-7\&quot;&gt;&lt;span class=\&quot;lead\&quot;&gt;Sökparametrar&lt;/span&gt;&lt;table class=\&quot;table table-condensed table-hover\&quot;&gt;&lt;thead&gt;&lt;tr&gt;&lt;th&gt;Konformans&lt;/th&gt;&lt;th&gt;Parameter&lt;/th&gt;&lt;th&gt;Typ&lt;/th&gt;&lt;th&gt;Dokumentation&lt;/th&gt;&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;http://hl7.org/fhir/endpoint.html#search\&quot;&gt;organization&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;reference&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;div&gt;&lt;p&gt;Sök ändpunkter efter förvaltande organisation (Endpoint.managingOrganization, &amp;quot;förvaltar&amp;quot;).&lt;/p&gt;\n&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;SearchParameter-tk-endpoint-listed-by.html\&quot;&gt;listed-by&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;reference&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;div&gt;&lt;p&gt;Sök ändpunkter efter organisation som listar dem (Organization.endpoint, &amp;quot;har&amp;quot;). Se SearchParameter-tk-endpoint-listed-by.html.&lt;/p&gt;\n&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td&gt;&lt;b&gt;SHALL&lt;/b&gt;&lt;/td&gt;&lt;td&gt;&lt;a href=\&quot;http://hl7.org/fhir/endpoint.html#search\&quot;&gt;status&lt;/a&gt;&lt;/td&gt;&lt;td&gt;&lt;code&gt;token&lt;/code&gt;&lt;/td&gt;&lt;td&gt;&lt;div&gt;&lt;p&gt;Sök ändpunkter efter status.&lt;/p&gt;\n&lt;/div&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/tbody&gt;&lt;/table&gt;&lt;/div&gt;&lt;div class=\&quot;col-lg-5\&quot;&gt;\u00a0&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;"
+  },
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.url">url</a>" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.version">version</a>" : "0.1.0",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.name">name</a>" : "TKSearchAPICapabilityStatement",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.title">title</a>" : "Tjänstekatalogen: sök-API (externt)",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.status">status</a>" : "draft",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.experimental">experimental</a>" : true,
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.date">date</a>" : "2026-09-08",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.publisher">publisher</a>" : "Inera AB",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.contact">contact</a>" : [
+    {
+      "<a href="http://hl7.org/fhir/R5/metadatatypes.html#ContactDetail#XContactDetail.name">name</a>" : "Inera AB",
+      "<a href="http://hl7.org/fhir/R5/metadatatypes.html#ContactDetail#XContactDetail.telecom">telecom</a>" : [
+        {
+          "<a href="http://hl7.org/fhir/R5/datatypes.html#ContactPoint#XContactPoint.system">system</a>" : "url",
+          "<a href="http://hl7.org/fhir/R5/datatypes.html#ContactPoint#XContactPoint.value">value</a>" : "https://www.inera.se"
+        }
+      ]
+    }
+  ],
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.description">description</a>" : "Beskriver de FHIR REST-förmågor som tjänstekatalogens sök-API exponerar externt, via gateway, för sökande konsumenter: läsning och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)). Detta CapabilityStatement innehåller medvetet inga skrivinteraktioner (`create`/`update`) — dessa finns endast i [administrativt API](CapabilityStatement-tk-admin-api.html), som inte är externt exponerat. Se säkerhet och behörighet i security.html.",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.jurisdiction">jurisdiction</a>" : [
+    {
+      "<a href="http://hl7.org/fhir/R5/datatypes.html#CodeableConcept#XCodeableConcept.coding">coding</a>" : [
+        {
+          "<a href="http://hl7.org/fhir/R5/datatypes.html#Coding#XCoding.system">system</a>" : "urn:iso:std:iso:3166",
+          "<a href="http://hl7.org/fhir/R5/datatypes.html#Coding#XCoding.code">code</a>" : "SE",
+          "<a href="http://hl7.org/fhir/R5/datatypes.html#Coding#XCoding.display">display</a>" : "Sweden"
+        }
+      ]
+    }
+  ],
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.kind">kind</a>" : "requirements",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.fhirVersion">fhirVersion</a>" : "5.0.0",
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.format">format</a>" : [
+    "json"
+  ],
+  "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest">rest</a>" : [
+    {
+      "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.mode">mode</a>" : "server",
+      "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.documentation">documentation</a>" : "Externt exponerat sök-API för tjänstekatalogen, nått via gateway. Endast läsande interaktioner.",
+      "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource">resource</a>" : [
+        {
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.type">type</a>" : "Organization",
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.profile">profile</a>" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization",
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.documentation">documentation</a>" : "Organisationer registrerade i tjänstekatalogen.",
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.interaction">interaction</a>" : [
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.interaction.code">code</a>" : "read"
+            },
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.interaction.code">code</a>" : "search-type"
+            }
+          ],
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam">searchParam</a>" : [
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.name">name</a>" : "identifier",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Organization-identifier",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.type">type</a>" : "token",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.documentation">documentation</a>" : "Sök organisation på identifierare, t.ex. organisationsnummer (\&quot;logisk adress\&quot; — se mappings.html)."
+            },
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.name">name</a>" : "name",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Organization-name",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.type">type</a>" : "string",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.documentation">documentation</a>" : "Sök organisation på namn."
+            }
+          ]
+        },
+        {
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.type">type</a>" : "Endpoint",
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.profile">profile</a>" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint",
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.documentation">documentation</a>" : "Tekniska ändpunkter registrerade i tjänstekatalogen.",
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.interaction">interaction</a>" : [
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.interaction.code">code</a>" : "read"
+            },
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.interaction.code">code</a>" : "search-type"
+            }
+          ],
+          "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam">searchParam</a>" : [
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.name">name</a>" : "organization",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Endpoint-organization",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.type">type</a>" : "reference",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.documentation">documentation</a>" : "Sök ändpunkter efter förvaltande organisation (Endpoint.managingOrganization, \&quot;förvaltar\&quot;)."
+            },
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.name">name</a>" : "listed-by",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.type">type</a>" : "reference",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.documentation">documentation</a>" : "Sök ändpunkter efter organisation som listar dem (Organization.endpoint, \&quot;har\&quot;). Se SearchParameter-tk-endpoint-listed-by.html."
+            },
+            {
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.name">name</a>" : "status",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.definition">definition</a>" : "http://hl7.org/fhir/SearchParameter/Endpoint-status",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.type">type</a>" : "token",
+              "<a href="http://hl7.org/fhir/R5/capabilitystatement.html#XCapabilityStatement.rest.resource.searchParam.documentation">documentation</a>" : "Sök ändpunkter efter status."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}</code></pre>
+
+
+  <!-- insert notes if present -->
+  
+
+
+
+</div>
+        </div>  <!-- /inner-wrapper -->
+      </div>  <!-- /row -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-content -->
+
+  <script type="text/javascript" src="assets/js/jquery.js"> </script>     <!-- note keep space here, otherwise it will be transformed to empty tag -> fails -->
+  <script type="text/javascript" src="assets/js/jquery-ui.min.js"> </script>
+  <script type="text/javascript" src="assets/js/flags.js"> </script>
+
+  <script type="text/javascript" src="assets/js/window-hash.js"> </script>
+  <script type="text/javascript" src="assets/js/togglechanges.js"> </script>
+  <script type="text/javascript" src="assets/js/requirements-table.js"> </script>
+  <a name="bottom"> </a>
+  <div id="segment-footer" igtool="footer" class="segment">  <!-- segment-footer -->
+    <div class="container" data-fhir="generated">  <!-- container -->
+
+      <div class="inner-wrapper">
+        <p>
+
+
+
+          IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
+          Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Genererad 
+  <span title="2026-09-09 11:47:00 +0000">
+    2026-09-09
+  </span>
+
+          <br/>
+          <span style="color: var(--footer-highlight-text-color)">
+                      Länkar: <a style="color: var(--footer-hyperlink-text-color)" href="toc.html">Innehållsförteckning</a> |
+                 <a style="color: var(--footer-hyperlink-text-color)" href="../qa.html">QA-rapport</a>
+                 
+                
+          </span>
+        </p>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-footer -->
+  
+  <div id="segment-post-footer" class="segment hidden">  <!-- segment-post-footer -->
+    <div class="container">  <!-- container -->
+    </div>  <!-- /container -->
+  </div>  <!-- /segment-post-footer -->
+
+  <!-- JS and analytics only. -->
+  <!-- Bootstrap core JavaScript
+  ================================================== -->
+  <!-- Placed at the end of the document so the pages load faster -->
+  <script type="text/javascript" src="assets/js/bootstrap.min.js"> </script>
+  <script type="text/javascript" src="assets/js/respond.min.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard.min.js"> </script>
+  <script type="text/javascript" src="assets/js/clipboard-btn.js"> </script>
+  <script type="text/javascript" src="assets/js/anchor-hover.js"> </script>
+  <!-- Analytics Below
+  ================================================== -->
+  </body>
+</html>
+

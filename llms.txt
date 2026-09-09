@@ -24,10 +24,12 @@
 
 ### CodeSystems
 
+* [Administratörsroller (kodsystem)](sv/CodeSystem-tk-administrator-role.md)
 * [Säkerhetsmetoder för tekniska ändpunkter (kodsystem)](sv/CodeSystem-tk-endpoint-security-method.md)
 
 ### ValueSets
 
+* [Administratörsroller](sv/ValueSet-tk-administrator-role.md)
 * [Säkerhetsmetoder för tekniska ändpunkter](sv/ValueSet-tk-endpoint-security-method.md)
 
 ### Logicals
@@ -39,6 +41,7 @@
 ### Resource Profiles
 
 * [Inera Patient](sv/StructureDefinition-IneraPatient.md)
+* [Tjänstekatalogen administratörsbehörighet](sv/StructureDefinition-tk-administrator-role.md)
 * [Tjänstekatalogen Endpoint](sv/StructureDefinition-tk-endpoint.md)
 * [Tjänstekatalogen Organization](sv/StructureDefinition-tk-organization.md)
 
@@ -55,6 +58,7 @@
 ### CapabilityStatements
 
 * [Tjänstekatalogen: administrativt API](sv/CapabilityStatement-tk-admin-api.md)
+* [Tjänstekatalogen: sök-API (externt)](sv/CapabilityStatement-tk-search-api.md)
 
 ### ImplementationGuides
 
@@ -67,6 +71,10 @@
 ### SearchParameters
 
 * [Endpoint: listed-by](sv/SearchParameter-tk-endpoint-listed-by.md)
+
+### SubscriptionTopics
+
+* [Ändringar i Organisation/Ändpunkt](sv/SubscriptionTopic-tk-organization-endpoint-changes.md)
 
 ### Examples
 

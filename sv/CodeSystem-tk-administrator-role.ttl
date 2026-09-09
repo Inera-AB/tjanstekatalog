@@ -1,0 +1,54 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "tk-administrator-role"] ; # 
+  fhir:language [ fhir:v "sv"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: CodeSystem tk-administrator-role</b></p><a name=\"tk-administrator-role\"> </a><a name=\"hctk-administrator-role\"> </a><p>Detta case-sensitive kodsystem <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role</code> definierar följande koder:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Kod</b></td><td><b>Visning</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">local-admin<a name=\"tk-administrator-role-local-admin\"> </a></td><td>Lokal administratör</td><td>Får registrera och ändra poster för den eller de organisationer administratören representerar (TKAdministratorRole.organization).</td></tr><tr><td style=\"white-space:nowrap\">central-admin<a name=\"tk-administrator-role-central-admin\"> </a></td><td>Central administratör</td><td>Får utöver lokal administratörs rättigheter även administrera andra administratörers behörigheter, för samtliga organisationer (TKAdministratorRole.organization utelämnas medvetet — se profilen).</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TKAdministratorRoleCS"] ; # 
+  fhir:title [ fhir:v "Administratörsroller (kodsystem)"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-09-09T11:47:00+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:caseSensitive [ fhir:v true] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "2"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "local-admin" ] ;
+     fhir:display [ fhir:v "Lokal administratör" ] ;
+     fhir:definition [ fhir:v "Får registrera och ändra poster för den eller de organisationer administratören representerar (TKAdministratorRole.organization)." ]
+  ] [
+     fhir:code [ fhir:v "central-admin" ] ;
+     fhir:display [ fhir:v "Central administratör" ] ;
+     fhir:definition [ fhir:v "Får utöver lokal administratörs rättigheter även administrera andra administratörers behörigheter, för samtliga organisationer (TKAdministratorRole.organization utelämnas medvetet — se profilen)." ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

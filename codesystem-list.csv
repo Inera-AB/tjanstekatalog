@@ -1,2 +1,3 @@
 URL,Version,Status,OIDs,Name,Title,Description,Used
+https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role,0.1.0,draft,,TKAdministratorRoleCS,Administratörsroller (kodsystem),"Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen.",
 https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method,0.1.0,draft,,TKEndpointSecurityMethodCS,Säkerhetsmetoder för tekniska ändpunkter (kodsystem),"Kodsystem som anger vilken säkerhetsmetod som skyddar en teknisk ändpunkt (Ändpunkt.säkerhetsmetod i informationsunderlaget). Preliminärt förslag, se REQ-END-6 i kravkatalogen.",

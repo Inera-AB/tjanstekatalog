@@ -14,7 +14,7 @@
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-09-08T12:25:30+00:00",
+  "date" : "2026-09-09T11:47:00+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -23,7 +23,7 @@
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen, samt administrativt API för att registrera organisationer, ändpunkter och deras kopplingar. Definierar även aktören Organization Endpoint Writer, som tillhandahåller ändpunktsinformation till katalogen.",
+  "description" : "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -60,6 +60,38 @@
       "valueCode" : "hl7.fhir.uv.tools.r5#1.1.2"
     }],
     "resource" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-tk-administrator-role.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/tk-administrator-role"
+      },
+      "name" : "Administratörsroller",
+      "description" : "Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-tk-administrator-role.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/tk-administrator-role"
+      },
+      "name" : "Administratörsroller (kodsystem)",
+      "description" : "Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen.",
+      "isExample" : false
+    },
+    {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
@@ -277,6 +309,22 @@
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-tk-administrator-role.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tk-administrator-role"
+      },
+      "name" : "Tjänstekatalogen administratörsbehörighet",
+      "description" : "Behörighet för en administratör att registrera/ändra poster i\ntjänstekatalogen för en given organisation (`local-admin`), eller att\ndessutom administrera andra administratörers behörigheter för samtliga\norganisationer (`central-admin`, `organization` utelämnad). Se\n[Roller och ansvar](roles-and-responsibilities.html) och\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
         "valueUri" : "StructureDefinition-tk-endpoint.html"
       }],
       "reference" : {
@@ -321,6 +369,22 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CapabilityStatement"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CapabilityStatement-tk-search-api.html"
+      }],
+      "reference" : {
+        "reference" : "CapabilityStatement/tk-search-api"
+      },
+      "name" : "Tjänstekatalogen: sök-API (externt)",
+      "description" : "CapabilityStatement för tjänstekatalogens externt exponerade sök-API (serverroll), nått via gateway.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
       },
       {
@@ -348,6 +412,22 @@
       },
       "name" : "Vård- och omsorgstagare (logisk modell)",
       "description" : "Logisk modell för entiteten Vård- och omsorgstagare i informationsunderlaget. Tunn, avsiktligt begränsad till id — se REQ-MDL-2.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "SubscriptionTopic"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "SubscriptionTopic-tk-organization-endpoint-changes.html"
+      }],
+      "reference" : {
+        "reference" : "SubscriptionTopic/tk-organization-endpoint-changes"
+      },
+      "name" : "Ändringar i Organisation/Ändpunkt (prenumerationsämne)",
+      "description" : "SubscriptionTopic för händelsebaserad distribution av förändringar i Organization/Endpoint till lokala kataloger. Se REQ-DIST-1.",
       "isExample" : false
     }],
     "page" : {

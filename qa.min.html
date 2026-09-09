@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-<!-- broken links = 33, errors = 2, warn = 55, info = 49-->
+<!-- broken links = 43, errors = 2, warn = 26, info = 58-->
 <head>
   <title>IneraTjanstekatalog : Validation Results</title>
   <link href="fhir.css" rel="stylesheet"/>
@@ -47,12 +47,12 @@
 </head>
 <body style="margin: 20px; background-color: #ffffff">
  <h1>Validation Results for IneraTjanstekatalog</h1>
- <p>Generated Tue Sep 08 12:26:17 UTC 2026, FHIR version 5.0.0 for inera.tjanstekatalog#0.1.0 (canonical = <a href="https://fhir.inera.se/ig/tjanstekatalog">https://fhir.inera.se/ig/tjanstekatalog</a> (<a href="https://fhir.inera.se/ig/tjanstekatalog/history.html">history</a>)). See <a href="qa.html">Full QA Report</a> &amp; <a href="qa-ipreview.html">IP</a></p>
+ <p>Generated Wed Sep 09 11:47:50 UTC 2026, FHIR version 5.0.0 for inera.tjanstekatalog#0.1.0 (canonical = <a href="https://fhir.inera.se/ig/tjanstekatalog">https://fhir.inera.se/ig/tjanstekatalog</a> (<a href="https://fhir.inera.se/ig/tjanstekatalog/history.html">history</a>)). See <a href="qa.html">Full QA Report</a> &amp; <a href="qa-ipreview.html">IP</a></p>
 <table class="grid"> <tr><td colspan=2><b>Quality Checks</b></td></tr>
  <tr><td>Publisher Version:</td><td><span>IG Publisher Version: v2.3.4</span></td></tr>
  <tr><td>Publication Code:</td><td>n/a<span style="color: maroon; font-weight: bold"> </span>. PackageId = inera.tjanstekatalog, Canonical = https://fhir.inera.se/ig/tjanstekatalog</td></tr>
  <tr><td>Realm Check for n/a:</td><td><span style="color: maroon; font-weight: bold"></span><ul><li>n/a</li></ul></td></tr>
- <tr><td>Language Info:</td><td>Stated Languages: n/a. IG Resource Lang: sv. 1 of 19 (5%) of resources have a language. <a href="https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-resource-language-policy">Population Policy</a>: NONE</td></tr>
+ <tr><td>Language Info:</td><td>Stated Languages: n/a. IG Resource Lang: sv. 1 of 24 (4%) of resources have a language. <a href="https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-resource-language-policy">Population Policy</a>: NONE</td></tr>
  <tr><td><a href="https://confluence.hl7.org/spaces/FHIR/pages/144970227/IG+Publication+Request+Documentation">Publication Request</a>:</td><td><ul><li>The file package-list.json should not exist in the root folder <img src="icon-error.gif" height="16px" width="16px"/></li>
 <li><span title="404 Not Found">This IG has never been published</span> <img src="information.png" height="16px" width="16px"/></li>
 <li>No publication request found <img src="information.png" height="16px" width="16px"/></li>
@@ -78,15 +78,21 @@
   <li>
 hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-parameter-code.html">GuideParameterCode</a>
  (16 uses),     <code>identifier</code>
- (1 uses),     <code>name</code>
- (1 uses),     <code>organization</code>
- (1 uses),     <code>status</code>
+ (2 uses),     <code>name</code>
+ (2 uses),     <code>organization</code>
+ (2 uses),     <code>status</code>
+ (2 uses),     <code>organization</code>
+ (1 uses),     <code>practitioner</code>
  (1 uses),     <a href="http://hl7.org/fhir/R5/organization.html">Organization</a>
- (12 uses),     <a href="http://hl7.org/fhir/R5/practitioner.html">Practitioner</a>
- (1 uses),     <a href="http://hl7.org/fhir/R5/practitionerrole.html">PractitionerRole</a>
- (1 uses),     <a href="http://hl7.org/fhir/R5/relatedperson.html">RelatedPerson</a>
+ (13 uses),     <a href="http://hl7.org/fhir/R5/practitioner.html">Practitioner</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R5/practitionerrole.html">PractitionerRole</a>
+ (2 uses),     <a href="http://hl7.org/fhir/R5/relatedperson.html">RelatedPerson</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R5/valueset-c80-practice-codes.html">PracticeSettingCodeValueSet</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R5/location.html">Location</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R5/healthcareservice.html">HealthcareService</a>
+ (1 uses),     <a href="http://hl7.org/fhir/R5/valueset-service-mode.html">ServiceMode</a>
  (1 uses),     <a href="http://hl7.org/fhir/R5/endpoint.html">Endpoint</a>
- (1 uses),     <a href="http://hl7.org/fhir/R5/valueset-endpoint-status.html">EndpointStatus</a>
+ (3 uses),     <a href="http://hl7.org/fhir/R5/valueset-endpoint-status.html">EndpointStatus</a>
  (1 uses),     <a href="http://hl7.org/fhir/R5/valueset-endpoint-connection-type.html">EndpointConnectionType</a>
  (1 uses),     <a href="http://hl7.org/fhir/R5/valueset-endpoint-environment.html">EndpointEnvironment</a>
  (1 uses),     <a href="http://hl7.org/fhir/R5/valueset-endpoint-payload-type.html">EndpointPayloadType</a>
@@ -100,14 +106,17 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
  <tr><td>IPA Comparison:</td><td> n/a</td></tr>
  <tr><td>IPS Comparison:</td><td> n/a</td></tr>
  <tr><td>Validation Flags:</td><td> On: autoLoad; Off: hintAboutNonMustSupport, anyExtensionsAllowed, checkAggregation, showReferenceMessages, noExperimentalContent, displayWarnings</td></tr>
- <tr><td>Summary:</td><td> errors = 2, warn = 55, info = 49, broken links = 33, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
+ <tr><td>Summary:</td><td> errors = 2, warn = 26, info = 58, broken links = 43, pinned = n/a.  <button onclick="toggleCodes()">Show Message Ids</button></td></tr>
 </table>
  <table class="grid">
    <tr>
      <td><b>Filename</b></td><td><b>Errors</b></td><td><b>Warnings</b></td><td><b>Hints</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
-     <td><a href="#internal"><b>Build Errors</b></a></td><td><b>0</b></td><td><b>33</b></td><td><b>0</b></td>
+     <td><a href="#internal"><b>Build Errors</b></a></td><td><b>0</b></td><td><b>43</b></td><td><b>0</b></td>
+   </tr>
+   <tr style="background-color: #EFFFEF">
+     <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_CodeSystem-tk-administrator-role"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CodeSystem-tk-administrator-role</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>1</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
      <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_CodeSystem-tk-endpoint-security-method"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CodeSystem-tk-endpoint-security-method</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>1</b></td>
@@ -122,19 +131,16 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
      <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_Patient-IneraPatientExample"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Patient-IneraPatientExample</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>0</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
-     <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_Requirements-tk-tjanstekatalog-requirements"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements</b></a></td><td><b>0</b></td><td><b>12</b></td><td><b>2</b></td>
+     <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_Requirements-tk-tjanstekatalog-requirements"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements</b></a></td><td><b>0</b></td><td><b>15</b></td><td><b>2</b></td>
    </tr>
    <tr style="background-color: #ffcccc">
      <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_SearchParameter-tk-endpoint-listed-by"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-endpoint-listed-by</b></a></td><td><b>2</b></td><td><b>0</b></td><td><b>2</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
-     <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_StructureDefinition-tk-api-specification"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-specification</b></a></td><td><b>0</b></td><td><b>24</b></td><td><b>2</b></td>
+     <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_StructureDefinition-tk-administrator-role"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-administrator-role</b></a></td><td><b>0</b></td><td><b>2</b></td><td><b>2</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
-     <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_StructureDefinition-tk-indexpost"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-indexpost</b></a></td><td><b>0</b></td><td><b>8</b></td><td><b>2</b></td>
-   </tr>
-   <tr style="background-color: #EFFFEF">
-     <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_StructureDefinition-tk-vard-och-omsorgstagare"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-vard-och-omsorgstagare</b></a></td><td><b>0</b></td><td><b>4</b></td><td><b>2</b></td>
+     <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_ValueSet-tk-administrator-role"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ValueSet-tk-administrator-role</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>2</b></td>
    </tr>
    <tr style="background-color: #EFFFEF">
      <td><a href="#_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_ValueSet-tk-endpoint-security-method"><b>/home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ValueSet-tk-endpoint-security-method</b></a></td><td><b>0</b></td><td><b>1</b></td><td><b>2</b></td>
@@ -194,40 +200,70 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
      <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l811">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 312, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint' for &quot;Tjänstekatalogen Endpoint&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l832">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 313, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst' for &quot;Synkroniseringstjänst&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l837">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 313, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization' for &quot;Tjänstekatalogen Organization&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l832">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 313, column 162</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for &quot;Tjänstekatalogen: administrativt API&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l837">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 313, column 165</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for &quot;Tjänstekatalogen: sök-API (externt)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l907">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 316, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint' for &quot;Tjänstekatalogen Endpoint&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l861">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 314, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst' for &quot;Synkroniseringstjänst&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l928">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 317, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization' for &quot;Tjänstekatalogen Organization&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l861">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 314, column 162</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for &quot;Tjänstekatalogen: administrativt API&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l949">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 318, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for &quot;Tjänstekatalogen: administrativt API&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l936">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 317, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint' for &quot;Tjänstekatalogen Endpoint&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l973">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 319, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint' for &quot;Tjänstekatalogen Endpoint&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l957">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 318, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization' for &quot;Tjänstekatalogen Organization&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l997">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 320, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization' for &quot;Tjänstekatalogen Organization&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l978">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 319, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for &quot;Tjänstekatalogen: administrativt API&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1021">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 321, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost' for &quot;Indexpost (logisk modell)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1002">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 320, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint' for &quot;Tjänstekatalogen Endpoint&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1042">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 322, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare' for &quot;Vård- och omsorgstagare (logisk modell)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1026">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 321, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization' for &quot;Tjänstekatalogen Organization&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1066">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 323, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint' for &quot;Tjänstekatalogen Endpoint&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1050">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 322, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost' for &quot;Indexpost (logisk modell)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1066">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 323, column 157</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile' for &quot;Stödd specifikation (payload profile)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1071">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 323, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare' for &quot;Vård- och omsorgstagare (logisk modell)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1090">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 324, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification' for &quot;API-specifikation (logisk modell)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1095">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 324, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint' for &quot;Tjänstekatalogen Endpoint&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1095">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 324, column 157</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile' for &quot;Stödd specifikation (payload profile)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1119">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 325, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification' for &quot;API-specifikation (logisk modell)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1163">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 327, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for &quot;Tjänstekatalogen: sök-API (externt)&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1184">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 328, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for &quot;Tjänstekatalogen: administrativt API&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1205">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 329, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' for &quot;Tjänstekatalogen administratörsbehörighet&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1232">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 330, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' for &quot;Tjänstekatalogen administratörsbehörighet&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1253">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 331, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' for &quot;Tjänstekatalogen administratörsbehörighet&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1280">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 332, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes' for &quot;Ändringar i Organisation/Ändpunkt&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/Requirements-tk-tjanstekatalog-requirements.html#l1304">sv&#8203;/Requirements-tk-tjanstekatalog-requirements&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/td&#8203;/ul&#8203;/li&#8203;/a at Line 333, column 44</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for &quot;Tjänstekatalogen: administrativt API&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b><a href="sv/StructureDefinition-tk-administrator-role-mappings.html#l446">sv&#8203;/StructureDefinition-tk-administrator-role-mappings&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/th&#8203;/a at Line 280, column 918</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements' for &quot;Kravkatalog&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
    </tr>
    <tr style="background-color: #ffebcc">
      <td><b><a href="sv/StructureDefinition-tk-api-specification-mappings.html#l446">sv&#8203;/StructureDefinition-tk-api-specification-mappings&#8203;.html&#8203;#&#8203;/html&#8203;/body&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/div&#8203;/table&#8203;/tr&#8203;/th&#8203;/a at Line 280, column 917</a></b></td><td><b>warning</b></td><td><b>The link 'https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements' for &quot;Kravkatalog&quot; is a canonical link and is therefore unsafe with regard to versions</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">HTML_LINK_VERSIONLESS_CANONICAL</span></td>
@@ -246,9 +282,25 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
    </tr>
 </table>
 <hr/>
-<a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_CodeSystem-tk-endpoint-security-method"> </a>
-<h2><a href="CodeSystem-tk-endpoint-security-method.html">fsh-generated/resources/CodeSystem-tk-endpoint-security-method.json</a> <span id="svi1" class="toggle" onclick="toggle('vi1')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi1')">(1)</span></h2>
+<a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_CodeSystem-tk-administrator-role"> </a>
+<h2><a href="CodeSystem-tk-administrator-role.html">fsh-generated/resources/CodeSystem-tk-administrator-role.json</a> <span id="svi1" class="toggle" onclick="toggle('vi1')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi1')">(1)</span></h2>
  <div style="border: 1px grey solid; display: none" id="vi1"><ul style="font-size: 7px"><li>CodeSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/codesystem.html">CodeSystem</a></li></ul>
+</div>
+ <table class="grid">
+   <tr>
+     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td><td><b>Validating</b></td>
+   </tr>
+   <tr style="background-color: #ffffe6">
+     <td><b>CodeSystem.jurisdiction[0] (l1/c1843)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/codesystem.html">CodeSystem</a></td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>Resource</b></td><td><b>warning</b></td><td><b>The resource CodeSystem/tk-administrator-role should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
+   </tr>
+</table>
+<hr/>
+<a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_CodeSystem-tk-endpoint-security-method"> </a>
+<h2><a href="CodeSystem-tk-endpoint-security-method.html">fsh-generated/resources/CodeSystem-tk-endpoint-security-method.json</a> <span id="svi2" class="toggle" onclick="toggle('vi2')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi2')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi2"><ul style="font-size: 7px"><li>CodeSystem: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/codesystem.html">CodeSystem</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -263,8 +315,8 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
 </table>
 <hr/>
 <a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_Endpoint-TKEndpointExample"> </a>
-<h2><a href="Endpoint-TKEndpointExample.html">fsh-generated/resources/Endpoint-TKEndpointExample.json</a> <span id="svi2" class="toggle" onclick="toggle('vi2')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi2')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi2"><ul style="font-size: 7px"><li>Endpoint: Validated against <i>this.</i><a href="StructureDefinition-tk-endpoint.html">Tjänstekatalogen Endpoint</a></li></ul>
+<h2><a href="Endpoint-TKEndpointExample.html">fsh-generated/resources/Endpoint-TKEndpointExample.json</a> <span id="svi3" class="toggle" onclick="toggle('vi3')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi3')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi3"><ul style="font-size: 7px"><li>Endpoint: Validated against <i>this.</i><a href="StructureDefinition-tk-endpoint.html">Tjänstekatalogen Endpoint</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -285,8 +337,8 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
 </table>
 <hr/>
 <a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_Organization-TKOrganizationExample"> </a>
-<h2><a href="Organization-TKOrganizationExample.html">fsh-generated/resources/Organization-TKOrganizationExample.json</a> <span id="svi3" class="toggle" onclick="toggle('vi3')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi3')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi3"><ul style="font-size: 7px"><li>Organization: Validated against <i>this.</i><a href="StructureDefinition-tk-organization.html">Tjänstekatalogen Organization</a></li></ul>
+<h2><a href="Organization-TKOrganizationExample.html">fsh-generated/resources/Organization-TKOrganizationExample.json</a> <span id="svi4" class="toggle" onclick="toggle('vi4')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi4')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi4"><ul style="font-size: 7px"><li>Organization: Validated against <i>this.</i><a href="StructureDefinition-tk-organization.html">Tjänstekatalogen Organization</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -298,8 +350,8 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
 </table>
 <hr/>
 <a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_Patient-IneraPatientExample"> </a>
-<h2><a href="Patient-IneraPatientExample.html">fsh-generated/resources/Patient-IneraPatientExample.json</a> <span id="svi4" class="toggle" onclick="toggle('vi4')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi4')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi4"><ul style="font-size: 7px"><li>Patient: Validated against <i>this.</i><a href="StructureDefinition-IneraPatient.html">Inera Patient</a></li></ul>
+<h2><a href="Patient-IneraPatientExample.html">fsh-generated/resources/Patient-IneraPatientExample.json</a> <span id="svi5" class="toggle" onclick="toggle('vi5')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi5')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi5"><ul style="font-size: 7px"><li>Patient: Validated against <i>this.</i><a href="StructureDefinition-IneraPatient.html">Inera Patient</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -311,18 +363,18 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
 </table>
 <hr/>
 <a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_Requirements-tk-tjanstekatalog-requirements"> </a>
-<h2><a href="Requirements-tk-tjanstekatalog-requirements.html">fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements.json</a> <span id="svi5" class="toggle" onclick="toggle('vi5')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi5')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi5"><ul style="font-size: 7px"><li>Requirements: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/requirements.html">Requirements</a></li></ul>
+<h2><a href="Requirements-tk-tjanstekatalog-requirements.html">fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements.json</a> <span id="svi6" class="toggle" onclick="toggle('vi6')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi6')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi6"><ul style="font-size: 7px"><li>Requirements: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/requirements.html">Requirements</a></li></ul>
 </div>
  <table class="grid">
    <tr>
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td><td><b>Validating</b></td>
    </tr>
    <tr style="background-color: #ffffe6">
-     <td><b>Requirements&#8203;.jurisdiction[0] (l1&#8203;/c19158)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/requirements.html">Requirements</a></td>
+     <td><b>Requirements&#8203;.jurisdiction[0] (l1&#8203;/c25235)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/requirements.html">Requirements</a></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>Requirements.actor[1] (l1/c19343)</b></td><td><b>warning</b></td><td><b>En definition kunde inte hittas för kanonisk URL 'http://electronichealth.se/fhir/NDI/ActorDefinition/organization-endpoint-writer-actor-er'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td><td><a href="http://hl7.org/fhir/R5/requirements.html">Requirements</a></td>
+     <td><b>Requirements.actor[1] (l1/c25420)</b></td><td><b>warning</b></td><td><b>En definition kunde inte hittas för kanonisk URL 'http://electronichealth.se/fhir/NDI/ActorDefinition/organization-endpoint-writer-actor-er'</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</span></td><td><a href="http://hl7.org/fhir/R5/requirements.html">Requirements</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Resource</b></td><td><b>information</b></td><td><b>The resource Requirements/tk-tjanstekatalog-requirements could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
@@ -346,6 +398,9 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
      <td><b>Requirements.text.div</b></td><td><b>warning</b></td><td><b>Hyperlink 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization' at 'div/table/tr/td/ul/li/a' for 'Tjänstekatalogen Organization' is a canonical reference, and is unsafe because of version handling (points to the current version, not this version)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
    </tr>
    <tr style="background-color: #ffebcc">
+     <td><b>Requirements.text.div</b></td><td><b>warning</b></td><td><b>Hyperlink 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' at 'div/table/tr/td/ul/li/a' for 'Tjänstekatalogen: sök-API (externt)' is a canonical reference, and is unsafe because of version handling (points to the current version, not this version)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
+   </tr>
+   <tr style="background-color: #ffebcc">
      <td><b>Requirements.text.div</b></td><td><b>warning</b></td><td><b>Hyperlink 'https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst' at 'div/table/tr/td/ul/li/a' for 'Synkroniseringstjänst' is a canonical reference, and is unsafe because of version handling (points to the current version, not this version)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
    </tr>
    <tr style="background-color: #ffebcc">
@@ -360,11 +415,17 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
    <tr style="background-color: #ffebcc">
      <td><b>Requirements.text.div</b></td><td><b>warning</b></td><td><b>Hyperlink 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification' at 'div/table/tr/td/ul/li/a' for 'API-specifikation (logisk modell)' is a canonical reference, and is unsafe because of version handling (points to the current version, not this version)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
    </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>Requirements.text.div</b></td><td><b>warning</b></td><td><b>Hyperlink 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' at 'div/table/tr/td/ul/li/a' for 'Tjänstekatalogen administratörsbehörighet' is a canonical reference, and is unsafe because of version handling (points to the current version, not this version)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>Requirements.text.div</b></td><td><b>warning</b></td><td><b>Hyperlink 'https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes' at 'div/table/tr/td/ul/li/a' for 'Ändringar i Organisation/Ändpunkt' is a canonical reference, and is unsafe because of version handling (points to the current version, not this version)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
+   </tr>
 </table>
 <hr/>
 <a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_SearchParameter-tk-endpoint-listed-by"> </a>
-<h2><a href="SearchParameter-tk-endpoint-listed-by.html">fsh-generated/resources/SearchParameter-tk-endpoint-listed-by.json</a> <span id="svi6" class="toggle" onclick="toggle('vi6')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi6')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi6"><ul style="font-size: 7px"><li>SearchParameter: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/searchparameter.html">SearchParameter</a></li></ul>
+<h2><a href="SearchParameter-tk-endpoint-listed-by.html">fsh-generated/resources/SearchParameter-tk-endpoint-listed-by.json</a> <span id="svi7" class="toggle" onclick="toggle('vi7')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi7')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi7"><ul style="font-size: 7px"><li>SearchParameter: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/searchparameter.html">SearchParameter</a></li></ul>
 </div>
  <table class="grid">
    <tr>
@@ -374,106 +435,18 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
      <td><b>SearchParameter&#8203;.jurisdiction[0] (l1&#8203;/c2433)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/searchparameter.html">SearchParameter</a></td>
    </tr>
    <tr style="background-color: #ffcccc">
-     <td><b>SearchParameter.base[0] (l1/c2472)</b></td><td><b>error</b></td><td><b>Det angivna värdet ('Endpoint') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke &quot;String.equals(Object)&quot; because &quot;system&quot; is null)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Terminology_TX_NoValid_16</span></td><td><a href="http://hl7.org/fhir/R5/searchparameter.html">SearchParameter</a></td>
+     <td><b>SearchParameter.base[0] (l1/c2472)</b></td><td><b>error</b></td><td><b>Det angivna värdet ('Endpoint') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke &quot;String.equals(Object)&quot; because &quot;system&quot; is null)</b><br/><br/><span style="display: block; border: 1px grey solid; border-radius: 5px; background-color: #eeeeee; padding: 3px; margin: 3px "><i><b>Editor's Comment</b>: Version Independent Resource Types validator bug</i></span> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Terminology_TX_NoValid_16</span></td><td><a href="http://hl7.org/fhir/R5/searchparameter.html">SearchParameter</a></td>
    </tr>
    <tr style="background-color: #ffcccc">
-     <td><b>SearchParameter.target[0] (l1/c2517)</b></td><td><b>error</b></td><td><b>Det angivna värdet ('Organization') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke &quot;String.equals(Object)&quot; because &quot;system&quot; is null)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Terminology_TX_NoValid_16</span></td><td><a href="http://hl7.org/fhir/R5/searchparameter.html">SearchParameter</a></td>
+     <td><b>SearchParameter.target[0] (l1/c2517)</b></td><td><b>error</b></td><td><b>Det angivna värdet ('Organization') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke &quot;String.equals(Object)&quot; because &quot;system&quot; is null)</b><br/><br/><span style="display: block; border: 1px grey solid; border-radius: 5px; background-color: #eeeeee; padding: 3px; margin: 3px "><i><b>Editor's Comment</b>: Version Independent Resource Types validator bug</i></span> <span class="code-value code-hidden" style="font-size: 8px; color: navy">Terminology_TX_NoValid_16</span></td><td><a href="http://hl7.org/fhir/R5/searchparameter.html">SearchParameter</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
      <td><b>Resource</b></td><td><b>information</b></td><td><b>The resource SearchParameter/tk-endpoint-listed-by could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
    </tr>
 </table>
 <hr/>
-<a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_StructureDefinition-tk-api-specification"> </a>
-<h2><a href="StructureDefinition-tk-api-specification.html">fsh-generated/resources/StructureDefinition-tk-api-specification.json</a> <span id="svi7" class="toggle" onclick="toggle('vi7')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi7')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi7"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></li></ul>
-</div>
- <table class="grid">
-   <tr>
-     <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td><td><b>Validating</b></td>
-   </tr>
-   <tr style="background-color: #ffffe6">
-     <td><b>StructureDefinition&#8203;.jurisdiction[0] (l1&#8203;/c26171)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[0] (l1&#8203;/c27159)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[1] (l1&#8203;/c27466)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[2] (l1&#8203;/c27948)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[3] (l1&#8203;/c28247)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[4] (l1&#8203;/c28791)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[5] (l1&#8203;/c29096)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[6] (l1&#8203;/c29668)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[7] (l1&#8203;/c30025)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[8] (l1&#8203;/c30325)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[9] (l1&#8203;/c30650)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[10] (l1&#8203;/c31118)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[11] (l1&#8203;/c31467)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[0] (l1&#8203;/c31775)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[1] (l1&#8203;/c32022)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[2] (l1&#8203;/c32435)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[3] (l1&#8203;/c32670)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[4] (l1&#8203;/c33139)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[5] (l1&#8203;/c33379)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[6] (l1&#8203;/c33876)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[7] (l1&#8203;/c34167)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[8] (l1&#8203;/c34404)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[9] (l1&#8203;/c34660)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[10] (l1&#8203;/c35054)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[11] (l1&#8203;/c35330)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffffe6">
-     <td><b>Resource</b></td><td><b>information</b></td><td><b>The resource StructureDefinition/tk-api-specification could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
-   </tr>
-</table>
-<hr/>
-<a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_StructureDefinition-tk-indexpost"> </a>
-<h2><a href="StructureDefinition-tk-indexpost.html">fsh-generated/resources/StructureDefinition-tk-indexpost.json</a> <span id="svi8" class="toggle" onclick="toggle('vi8')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi8')">(1)</span></h2>
+<a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_StructureDefinition-tk-administrator-role"> </a>
+<h2><a href="StructureDefinition-tk-administrator-role.html">fsh-generated/resources/StructureDefinition-tk-administrator-role.json</a> <span id="svi8" class="toggle" onclick="toggle('vi8')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi8')">(1)</span></h2>
  <div style="border: 1px grey solid; display: none" id="vi8"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></li></ul>
 </div>
  <table class="grid">
@@ -481,62 +454,35 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td><td><b>Validating</b></td>
    </tr>
    <tr style="background-color: #ffffe6">
-     <td><b>StructureDefinition&#8203;.jurisdiction[0] (l1&#8203;/c12193)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
+     <td><b>StructureDefinition&#8203;.jurisdiction[0] (l1&#8203;/c15756)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
    </tr>
    <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[0] (l1&#8203;/c13131)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[1] (l1&#8203;/c13400)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[2] (l1&#8203;/c13740)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[3] (l1&#8203;/c14256)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[0] (l1&#8203;/c14522)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[1] (l1&#8203;/c14739)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[2] (l1&#8203;/c15008)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[3] (l1&#8203;/c15469)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
+     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[15]&#8203;.binding</b></td><td><b>warning</b></td><td><b>Definitionen för elementet 'PractitionerRole.specialty' binder till värdemängden 'http://hl7.org/fhir/ValueSet/c80-practice-codes|5.0.0' som är experimentell, men denna struktur är inte märkt som experimentell</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">SD_ED_EXPERIMENTAL_BINDING</span></td><td>--</td>
    </tr>
    <tr style="background-color: #ffffe6">
-     <td><b>Resource</b></td><td><b>information</b></td><td><b>The resource StructureDefinition/tk-indexpost could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
+     <td><b>Resource</b></td><td><b>information</b></td><td><b>The resource StructureDefinition/tk-administrator-role could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>StructureDefinition&#8203;.where(url = 'https:&#8203;/&#8203;/fhir&#8203;.inera&#8203;.se&#8203;/ig&#8203;/tjanstekatalog&#8203;/StructureDefinition&#8203;/tk-administrator-role')</b></td><td><b>warning</b></td><td><b>The Implementation Guide contains no examples for this profile</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
    </tr>
 </table>
 <hr/>
-<a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_StructureDefinition-tk-vard-och-omsorgstagare"> </a>
-<h2><a href="StructureDefinition-tk-vard-och-omsorgstagare.html">fsh-generated/resources/StructureDefinition-tk-vard-och-omsorgstagare.json</a> <span id="svi9" class="toggle" onclick="toggle('vi9')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi9')">(1)</span></h2>
- <div style="border: 1px grey solid; display: none" id="vi9"><ul style="font-size: 7px"><li>StructureDefinition: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></li></ul>
+<a name="_home_runner_work_tjanstekatalog_tjanstekatalog_fsh-generated_resources_ValueSet-tk-administrator-role"> </a>
+<h2><a href="ValueSet-tk-administrator-role.html">fsh-generated/resources/ValueSet-tk-administrator-role.json</a> <span id="svi9" class="toggle" onclick="toggle('vi9')">Show Validation Information</span> <span class="vcount" onclick="toggle('vi9')">(1)</span></h2>
+ <div style="border: 1px grey solid; display: none" id="vi9"><ul style="font-size: 7px"><li>ValueSet: Validated against <a href="http://hl7.org/fhir">fhir</a>.<a href="http://hl7.org/fhir/R5/valueset.html">ValueSet</a></li></ul>
 </div>
  <table class="grid">
    <tr>
      <td><b>Path</b></td><td><b>Severity</b></td><td><b>Message</b></td><td><b>Validating</b></td>
    </tr>
    <tr style="background-color: #ffffe6">
-     <td><b>StructureDefinition&#8203;.jurisdiction[0] (l1&#8203;/c9056)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[0] (l1&#8203;/c10034)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.snapshot&#8203;.element[1] (l1&#8203;/c10361)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[0] (l1&#8203;/c10654)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
-   </tr>
-   <tr style="background-color: #ffebcc">
-     <td><b>StructureDefinition&#8203;.differential&#8203;.element[1] (l1&#8203;/c10916)</b></td><td><b>warning</b></td><td><b>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\\.[a-z][A-Za-z0-9]{0,63}(\\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">http://hl7.org/fhir/StructureDefinition/ElementDefinition#eld-20</span></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
+     <td><b>ValueSet.jurisdiction[0] (l1/c1247)</b></td><td><b>information</b></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">MSG_DEPRECATED</span></td><td><a href="http://hl7.org/fhir/R5/valueset.html">ValueSet</a></td>
    </tr>
    <tr style="background-color: #ffffe6">
-     <td><b>Resource</b></td><td><b>information</b></td><td><b>The resource StructureDefinition/tk-vard-och-omsorgstagare could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
+     <td><b>ValueSet.compose.include[0] (l1/c1356)</b></td><td><b>information</b></td><td><b>Begreppen i värdemängdens include har inte validerats eftersom det inte finns någon terminologiserver</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy">VALUESET_INC_NO_SERVER</span></td><td>--</td>
+   </tr>
+   <tr style="background-color: #ffebcc">
+     <td><b>Resource</b></td><td><b>warning</b></td><td><b>The resource ValueSet/tk-administrator-role should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/fhir-tools-ig/CodeSystem-ig-parameters.html#ig-parameters-auto-oid-root)</b> <span class="code-value code-hidden" style="font-size: 8px; color: navy"></span></td><td>--</td>
    </tr>
 </table>
 <hr/>
@@ -569,22 +515,24 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
  <li>The HTML fragment 'globals-table.xhtml' is not included anywhere in the produced implementation guide <span style="color: navy">(1 uses)</span></li>
  <li>The HTML fragment 'ip-statements.xhtml' is not included anywhere in the produced implementation guide <span style="color: navy">(1 uses)</span></li>
 </ul>
-<p><b>offline. Confirmed against the real build on PR #1 / commit ffc5959.</b></p><ul>
- <li>SearchParameter/tk-endpoint-listed-by: SearchParameter.base[0]: Det angivna värdet ('Endpoint') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke &quot;String.equals(Object)&quot; because &quot;system&quot; is null) <span style="color: maroon">(0 uses)</span></li>
- <li>SearchParameter/tk-endpoint-listed-by: SearchParameter.target[0]: Det angivna värdet ('Organization') hittades inte i värdemängden 'Version Independent Resource Types (All)' (http://hl7.org/fhir/ValueSet/version-independent-all-resource-types|5.0.0), och en kod krävs från denna värdemängd  (error message = Cannot invoke &quot;String.equals(Object)&quot; because &quot;system&quot; is null) <span style="color: maroon">(0 uses)</span></li>
+<p><b>Swedish jurisdiction CodeSystem not resolvable offline</b></p><ul>
+ <li>%En definition för CodeSystem 'urn:iso:std:iso:3166' kunde inte hittas% <span style="color: navy">(21 uses)</span></li>
+</ul>
+<p><b>Version Independent Resource Types validator bug</b></p><ul>
+ <li>%hittades inte i värdemängden 'Version Independent Resource Types (All)'% <span style="color: navy">(2 uses)</span></li>
+</ul>
+<p><b>eld-20 on logical model canonical-URL paths</b></p><ul>
+ <li>%The first component of the path should be UpperCamelCase% <span style="color: navy">(36 uses)</span></li>
+</ul>
+<p><b>offline.</b></p><ul>
+ <li># <span style="color: maroon">(0 uses)</span></li>
 </ul>
 <p><b>publish.yml copies output/package.tgz to the IG root on every release.</b></p><ul>
  <li>The link 'https://fhir.inera.se/ig/tjanstekatalog/package.tgz' for &quot;Paket (tgz)&quot; cannot be resolved <span style="color: navy">(1 uses)</span></li>
 </ul>
-<p><b>resource that carries `^jurisdiction` (18 occurrences) — acceptable.</b></p><ul>
- <li>En definition för CodeSystem 'urn:iso:std:iso:3166' kunde inte hittas, så koden kan inte valideras <span style="color: navy">(16 uses)</span></li>
-</ul>
 <p><b>the new artefacts (TKOrganization, TKEndpoint, etc.) if they appear.</b></p><ul>
  <li>The link 'Patient-IneraPatientExample.html' for &quot;fake generated link for Implementation Guide&quot; cannot be resolved <span style="color: maroon">(0 uses)</span></li>
  <li>The link 'StructureDefinition-IneraPatient.html' for &quot;fake generated link for Implementation Guide&quot; cannot be resolved <span style="color: maroon">(0 uses)</span></li>
-</ul>
-<p><b>this implication.&quot; Confirmed against the real build via PR #1.</b></p><ul>
- <li>Begränsning misslyckades: eld-20: 'The first component of the path should be UpperCamelCase.  Additional components (following a '.') should be lowerCamelCase.  If this syntax is not adhered to, code generation tools may be broken. Logical models may be less concerned about this implication. (path.matches('^[A-Za-z][A-Za-z0-9]{0,63}(\.[a-z][A-Za-z0-9]{0,63}(\[x])?)*$'))' (definierad i http://hl7.org/fhir/StructureDefinition/ElementDefinition) <span style="color: maroon">(0 uses)</span></li>
 </ul>
 <a name="sorted"> </a>
 <p><b>Errors sorted by type</b></p>
@@ -597,6 +545,12 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
    </tr>
    <tr style="background-color: #fffff2">
      <td><a href="CapabilityStatement-tk-admin-api.html">fsh-generated/resources/CapabilityStatement-tk-admin-api.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/capabilitystatement.html">CapabilityStatement</a></td>
+   </tr>
+   <tr style="background-color: #fffff2">
+     <td><a href="CapabilityStatement-tk-search-api.html">fsh-generated/resources/CapabilityStatement-tk-search-api.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/capabilitystatement.html">CapabilityStatement</a></td>
+   </tr>
+   <tr style="background-color: #fffff2">
+     <td><a href="CodeSystem-tk-administrator-role.html">fsh-generated/resources/CodeSystem-tk-administrator-role.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/codesystem.html">CodeSystem</a></td>
    </tr>
    <tr style="background-color: #fffff2">
      <td><a href="CodeSystem-tk-endpoint-security-method.html">fsh-generated/resources/CodeSystem-tk-endpoint-security-method.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/codesystem.html">CodeSystem</a></td>
@@ -612,6 +566,9 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
    </tr>
    <tr style="background-color: #fffff2">
      <td><a href="StructureDefinition-IneraPatient.html">fsh-generated/resources/StructureDefinition-IneraPatient.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
+   </tr>
+   <tr style="background-color: #fffff2">
+     <td><a href="StructureDefinition-tk-administrator-role.html">fsh-generated/resources/StructureDefinition-tk-administrator-role.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
    </tr>
    <tr style="background-color: #fffff2">
      <td><a href="StructureDefinition-tk-api-specification.html">fsh-generated/resources/StructureDefinition-tk-api-specification.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
@@ -636,6 +593,12 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
    </tr>
    <tr style="background-color: #fffff2">
      <td><a href="StructureDefinition-tk-vard-och-omsorgstagare.html">fsh-generated/resources/StructureDefinition-tk-vard-och-omsorgstagare.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a></td>
+   </tr>
+   <tr style="background-color: #fffff2">
+     <td><a href="SubscriptionTopic-tk-organization-endpoint-changes.html">fsh-generated/resources/SubscriptionTopic-tk-organization-endpoint-changes.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/subscriptiontopic.html">SubscriptionTopic</a></td>
+   </tr>
+   <tr style="background-color: #fffff2">
+     <td><a href="ValueSet-tk-administrator-role.html">fsh-generated/resources/ValueSet-tk-administrator-role.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/valueset.html">ValueSet</a></td>
    </tr>
    <tr style="background-color: #fffff2">
      <td><a href="ValueSet-tk-endpoint-security-method.html">fsh-generated/resources/ValueSet-tk-endpoint-security-method.json</a></td><td><b>Referens till föråldrad ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0</b></td><td><a href="http://hl7.org/fhir/R5/valueset.html">ValueSet</a></td>
@@ -698,6 +661,14 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
    </tr>
 </table>
 <hr/>
+<a name="SD_ED_EXPERIMENTAL_BINDING"> </a>
+<h2>SD_ED_EXPERIMENTAL_BINDING</h2>
+ <table class="grid">
+   <tr style="background-color: #fff4ee">
+     <td><a href="StructureDefinition-tk-administrator-role.html">fsh-generated/resources/StructureDefinition-tk-administrator-role.json</a></td><td><b>Definitionen för elementet 'PractitionerRole.specialty' binder till värdemängden 'http://hl7.org/fhir/ValueSet/c80-practice-codes|5.0.0' som är experimentell, men denna struktur är inte märkt som experimentell</b></td><td>--</td>
+   </tr>
+</table>
+<hr/>
 <a name="TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE"> </a>
 <h2>TYPE_SPECIFIC_CHECKS_DT_CANONICAL_RESOLVE</h2>
  <table class="grid">
@@ -748,6 +719,9 @@ hl7.fhir.r5.core#5.0.0:     <a href="http://hl7.org/fhir/R5/codesystem-guide-par
 <a name="VALUESET_INC_NO_SERVER"> </a>
 <h2>VALUESET_INC_NO_SERVER</h2>
  <table class="grid">
+   <tr style="background-color: #fffff2">
+     <td><a href="ValueSet-tk-administrator-role.html">fsh-generated/resources/ValueSet-tk-administrator-role.json</a></td><td><b>Begreppen i värdemängdens include har inte validerats eftersom det inte finns någon terminologiserver</b></td><td>--</td>
+   </tr>
    <tr style="background-color: #fffff2">
      <td><a href="ValueSet-tk-endpoint-security-method.html">fsh-generated/resources/ValueSet-tk-endpoint-security-method.json</a></td><td><b>Begreppen i värdemängdens include har inte validerats eftersom det inte finns någon terminologiserver</b></td><td>--</td>
    </tr>

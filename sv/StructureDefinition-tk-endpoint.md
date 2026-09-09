@@ -9,7 +9,7 @@ Teknisk ändpunkt i tjänstekatalogen. Realiserar entiteten Ändpunkt i det bifo
 
 * Referera till denna Profil: [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
 * Exempel för denna Profil: [Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
-* CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
+* CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) and [Tjänstekatalogen: sök-API (externt)](CapabilityStatement-tk-search-api.md)
 
 Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-endpoint)
 

@@ -33,6 +33,12 @@
         "title": "Inera Patient"
       }
     ],
+    "PractitionerRole": [
+      {
+        "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role",
+        "title": "Tjänstekatalogen administratörsbehörighet"
+      }
+    ],
     "Endpoint": [
       {
         "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint",

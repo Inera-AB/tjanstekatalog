@@ -1,0 +1,36 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "tk-administrator-role",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ValueSet tk-administrator-role</b></p><a name=\"tk-administrator-role\"> </a><a name=\"hctk-administrator-role\"> </a><ul><li>Include alla koder som definieras i <a href=\"CodeSystem-tk-administrator-role.html\"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role</code></a><span title=\"Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation\"> version &#x1F4E6;0.1.0</span></li></ul></div>"
+  },
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role",
+  "version" : "0.1.0",
+  "name" : "TKAdministratorRoleVS",
+  "title" : "Administratörsroller",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-09-09T11:47:00+00:00",
+  "publisher" : "Inera AB",
+  "contact" : [{
+    "name" : "Inera AB",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "SE",
+      "display" : "Sweden"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role"
+    }]
+  }
+}

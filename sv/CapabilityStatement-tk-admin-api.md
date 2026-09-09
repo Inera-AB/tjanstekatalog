@@ -3,7 +3,7 @@
 ## CapabilityStatement: Tjänstekatalogen: administrativt API (Experimentell) 
 
  
-Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md)). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen "Organization Endpoint Writer" — se "Mappning mot EHM:s Organization Endpoint Writer" i mappings.html. 
+Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md)), samt registrering av administratörsbehörigheter. Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen "Organization Endpoint Writer" — se "Mappning mot EHM:s Organization Endpoint Writer" i mappings.html. Detta API är endast internt exponerat — se [TKSearchAPI](CapabilityStatement-tk-search-api.md) för det externt exponerade, läsande sök-API:et. 
 
  [Rå OpenAPI-Swagger-definitionsfil](../tk-admin-api.openapi.json) | [Ladda ner](../tk-admin-api.openapi.json) 
 
@@ -30,7 +30,7 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html.",
+  "description" : "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)), samt registrering av administratörsbehörigheter. Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html. Detta API är endast internt exponerat — se [TKSearchAPI](CapabilityStatement-tk-search-api.html) för det externt exponerade, läsande sök-API:et.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -106,6 +106,35 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
         "definition" : "http://hl7.org/fhir/SearchParameter/Endpoint-status",
         "type" : "token",
         "documentation" : "Sök ändpunkter efter status."
+      }]
+    },
+    {
+      "type" : "PractitionerRole",
+      "profile" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role",
+      "documentation" : "Administratörsbehörigheter: vilken organisation en administratör representerar (local-admin), eller att administratören är central-admin (organization utelämnad).",
+      "interaction" : [{
+        "code" : "read"
+      },
+      {
+        "code" : "search-type"
+      },
+      {
+        "code" : "create"
+      },
+      {
+        "code" : "update"
+      }],
+      "searchParam" : [{
+        "name" : "organization",
+        "definition" : "http://hl7.org/fhir/SearchParameter/PractitionerRole-organization",
+        "type" : "reference",
+        "documentation" : "Sök administratörsbehörigheter efter representerad organisation."
+      },
+      {
+        "name" : "practitioner",
+        "definition" : "http://hl7.org/fhir/SearchParameter/PractitionerRole-practitioner",
+        "type" : "reference",
+        "documentation" : "Sök administratörsbehörigheter efter innehavare."
       }]
     }]
   }]

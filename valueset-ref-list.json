@@ -1,5 +1,17 @@
 {
   "codeSystems" : [{
+    "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role",
+    "version" : "0.1.0",
+    "status" : "draft",
+    "name" : "TKAdministratorRoleVS",
+    "title" : "Administratörsroller",
+    "description" : "Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1.",
+    "systems" : ["https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
+  },
+  {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method",
     "version" : "0.1.0",
     "status" : "draft",

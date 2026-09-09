@@ -203,24 +203,40 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </div>
 <h1 id="capabilitystatement">CapabilityStatement</h1>
 
-<p>Denna IG definierar ett formellt CapabilityStatement för sin egen serverroll:</p>
+<p>Denna IG definierar två formella CapabilityStatement för sin egen serverroll,
+med en medveten exponeringsgräns mellan dem (stakeholder-beslut, REQ-EXP-1/2
+— se <a href="mappings.html">Mappning till profiler</a>):</p>
 
 <table>
   <thead>
     <tr>
       <th>CapabilityStatement</th>
       <th>Roll</th>
+      <th>Exponering</th>
       <th>Beskriver</th>
     </tr>
   </thead>
   <tbody>
     <tr>
+      <td><a href="CapabilityStatement-tk-search-api.html">Tjänstekatalogen: sök-API</a></td>
+      <td>Server</td>
+      <td><strong>Externt</strong>, via gateway</td>
+      <td>Läsande sökning (<code class="language-plaintext highlighter-rouge">read</code>/<code class="language-plaintext highlighter-rouge">search-type</code>) av <a href="StructureDefinition-tk-organization.html">TKOrganization</a> och <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>, inklusive sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code>.</td>
+    </tr>
+    <tr>
       <td><a href="CapabilityStatement-tk-admin-api.html">Tjänstekatalogen: administrativt API</a></td>
       <td>Server</td>
-      <td>Tjänstekatalogens egna REST-förmågor: registrering och sökning av <a href="StructureDefinition-tk-organization.html">TKOrganization</a> och <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>, inklusive sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code>.</td>
+      <td><strong>Endast internt</strong></td>
+      <td>Samma resurser som sök-API:et, plus skrivinteraktioner (<code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>) och administratörsbehörigheter (<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>).</td>
     </tr>
   </tbody>
 </table>
+
+<p>Denna IG definierar också ett prenumerationsämne för distribution till
+lokala kataloger:
+<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic: tk-organization-endpoint-changes</a>
+— se "Distribution och synkronisering" i <a href="rest-interactions.html">REST-interaktioner</a>
+och REQ-DIST-*.</p>
 
 <p><strong>Organization Endpoint Writer Capabilities</strong> — CapabilityStatementet för
 aktören Organization Endpoint Writer — är <strong>inte</strong> en artefakt i denna IG.
@@ -269,8 +285,8 @@ definierat.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-08 12:25:00 +0000">
-    2026-09-08
+  <span title="2026-09-09 11:47:00 +0000">
+    2026-09-09
   </span>
 
           <br/>

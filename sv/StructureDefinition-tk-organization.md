@@ -7,9 +7,9 @@ Organisation i tjänstekatalogen. `Organization.endpoint` bär "har"-relationen 
 
 **Användningar:**
 
-* Referera till denna Profil: [API-specifikation (logisk modell)](StructureDefinition-tk-api-specification.md), [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md) and [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md)
+* Referera till denna Profil: [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md), [API-specifikation (logisk modell)](StructureDefinition-tk-api-specification.md), [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md) and [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md)
 * Exempel för denna Profil: [Exempelregionen](Organization-TKOrganizationExample.md)
-* CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
+* CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) and [Tjänstekatalogen: sök-API (externt)](CapabilityStatement-tk-search-api.md)
 
 Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-organization)
 
@@ -176,7 +176,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-organization
         }],
         "rules" : "open"
       },
-      "short" : "Organisationsidentifierare, inklusive organisationsnummer",
+      "short" : "Organisationsidentifierare (\"logisk adress\"), inklusive organisationsnummer",
       "mustSupport" : true
     },
     {
