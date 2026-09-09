@@ -14,6 +14,7 @@
 //   REQ-EXP-*   Exponering: sök-API externt (gateway) vs. admin-API internt
 //   REQ-ADM-*   Administratörsbehörighet (utökning utöver informationsunderlaget)
 //   REQ-DIST-*  Distribution/federering till lokala kataloger
+//   REQ-TRC-*   Spårbarhet och transaktionell registrering (Provenance)
 Instance: TKTjanstekatalogRequirements
 InstanceOf: Requirements
 Usage: #definition
@@ -58,6 +59,12 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].conformance[0] = #SHOULD
 * statement[=].requirement = "Servern BÖR, per nyttolast (`Endpoint.payload`) som ändpunkten tillgängliggör, ange vilken/vilka interoperabilitetsspecifikationer (API-specifikationer) nyttolasten följer."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"
+
+* statement[+].key = "REQ-SRCH-4"
+* statement[=].label = "Sök ändpunkter efter stödd interoperabilitetsspecifikation"
+* statement[=].conformance[0] = #SHOULD
+* statement[=].requirement = "Servern BÖR stödja sökning av Endpoint-resurser via en sökparameter (`implements`) som returnerar samtliga ändpunkter vars nyttolast stödjer en angiven interoperabilitetsspecifikation, som komplement till REQ-SRCH-3:s representation. Tillagt efter jämförelse med en annan implementation av samma problem."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements"
 
 // --- REQ-END: attribut på Ändpunkt ---
 
@@ -224,20 +231,55 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-MDL-3"
 * statement[=].label = "API (Ändpunkt tillgängliggör API, API följer API-specifikation)"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Kopplingen mellan en ändpunkt och de API:er den tillgängliggör, samt vilken API-specifikation respektive API följer, SKA kunna uttryckas. Detta realiseras via `Endpoint.payload` tillsammans med extensionen tk-endpoint-payload-profile, inte som en egen resurs — se \"Avvikelser och tillägg\" i mappings.html för motivering, inklusive varför API:ets egen giltigFrom/giltigTom inte bärs separat."
+* statement[=].requirement = "Kopplingen mellan en ändpunkt och de API:er den tillgängliggör, samt vilken/vilka API-specifikationer respektive API följer, SKA kunna uttryckas. Detta realiseras på två komplementära sätt (uppdaterat, se \"Avvikelser och tillägg\" i mappings.html): dels `Endpoint.payload` tillsammans med extensionen tk-endpoint-payload-profile (snabb, enhops sökbarhet, se REQ-SRCH-3/4), dels en egen resurs, TKAPIInstance (CapabilityStatement kind=instance), som ger \"API\" en egen identitet — se REQ-MDL-6/7 för vad den tillför utöver payload-extensionen."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"
 * statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"
 
 * statement[+].key = "REQ-MDL-4"
 * statement[=].label = "API-specifikation"
-* statement[=].conformance[0] = #SHOULD
-* statement[=].requirement = "Entiteten API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering i det administrativa API:et skjuts upp till en framtida version av denna IG. Om/när den REST-exponeras rekommenderas en nedbantad profil på ImplementationGuide (som redan bär url/version/name/title/status/date), inte en profil på ActorDefinition — EHM:s val för sin motsvarande \"API Specification\"-profil, vilket denna IG avvisar eftersom ActorDefinition är avsett för aktörer, inte specifikationer — och inte heller Basic. Se \"Avvikelser och tillägg\" i mappings.html."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Entiteten API-specifikation SKA kunna registreras och sökas som en egen resurs. Realiseras som TKAPISpecificationCapability (CapabilityStatement kind=requirements), sökbar på kanonisk url — inte ActorDefinition (EHM:s val för sin motsvarande \"API Specification\"-profil, vilket denna IG avvisar eftersom ActorDefinition är avsett för aktörer, inte specifikationer), inte heller Basic eller ImplementationGuide (denna IG:s tidigare rekommendation, ersatt efter jämförelse med en annan implementation av samma problem — CapabilityStatement.kind=requirements är native FHIR-mekanik för en formell kravbild, och används redan av denna IG:s egna TKAdminAPI/TKSearchAPI). Se \"Avvikelser och tillägg\" i mappings.html."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability"
 
 * statement[+].key = "REQ-MDL-5"
 * statement[=].label = "Spårbarhet: skapad/senast uppdaterad av"
-* statement[=].conformance[0] = #MAY
-* statement[=].requirement = "Vem som skapade eller senast uppdaterade en post FÅR göras spårbart, men avgränsas medvetet bort från detta utkast — stakeholder-beslut: löses med serverloggning och/eller `Provenance`-resurser i en framtida version, inte med ett attribut på `Organization`/`Endpoint` självt. Se \"Avvikelser och tillägg\" i mappings.html."
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Vem som skapade eller senast uppdaterade en post SKA vara spårbart. Tidigare avgränsat bort och uppskjutet till en framtida version (löst med serverloggning och/eller Provenance) — nu realiserat via en obligatorisk Provenance-post per registrering, se REQ-TRC-1/2."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"
+
+* statement[+].key = "REQ-MDL-6"
+* statement[=].label = "API-instansens egen giltighetsperiod"
+* statement[=].conformance[0] = #SHOULD
+* statement[=].requirement = "En API-instans (TKAPIInstance) BÖR kunna ange sin egen giltighetsperiod (giltigFrom/giltigTom), oberoende av den tillgängliggörande ändpunktens `Endpoint.period`. Löser den begränsning som tidigare dokumenterades i mappings.html (\"API:ets egen giltigFrom/giltigTom bärs inte separat\") — basresursen CapabilityStatement saknar ett eget giltighetsperiod-element, löst med en extension."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period"
+
+* statement[+].key = "REQ-MDL-7"
+* statement[=].label = "API-instansens koppling till Ändpunkt och API-specifikation"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Varje TKAPIInstance SKA referera den ändpunkt som tillgängliggör den (\"tillgängliggör\", via extensionen tk-api-instance-endpoint) och SKA referera den/de API-specifikationer den följer (\"följer\", via `CapabilityStatement.instantiates`), sökbart via en egen sökparameter (`instantiates`, eftersom ingen standard-sökparameter finns för detta element)."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates"
+
+// --- REQ-TRC: spårbarhet och transaktionell registrering ---
+//
+// Inte del av det ursprungliga informationsunderlaget. Tillagt efter
+// jämförelse med en annan implementation av samma problem, som kräver en
+// Provenance-post per registrering i en transaction-Bundle — löser det som
+// tidigare var REQ-MDL-5:s uppskjutna spårbarhetsfråga. Se TKProvenance.fsh.
+
+* statement[+].key = "REQ-TRC-1"
+* statement[=].label = "Provenance krävs vid registrering"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Varje transaction-Bundle som registrerar (skapar/uppdaterar) en Organization, Endpoint eller CapabilityStatement (API-specifikation/API-instans) SKA innehålla minst en Provenance-post (profilerad som TKProvenance) som via `Provenance.target` pekar ut den/de registrerade resurserna."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"
+
+* statement[+].key = "REQ-TRC-2"
+* statement[=].label = "Registrering via transaction-Bundle"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Tjänstekatalogens administrativa API SKA stödja systeminteraktionen `transaction` (en Bundle av typen transaction), så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 // --- REQ-EXP: exponering (sök-API externt via gateway, admin-API internt) ---
 //

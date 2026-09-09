@@ -7,11 +7,13 @@
 // register — see "Mappning mot EHM:s Organization Endpoint Writer" in
 // mappings.html. This admin API does NOT itself implement EHM's
 // $add-organization/$remove-organization operations; those belong to EHM's
-// API, not this one (see requirements.html REQ-WRT-*). Indexpost, Vård- och
-// omsorgstagare, API and API-specifikation are modelled
-// (see input/fsh/logicalmodels/) and traced in the requirements catalogue,
-// but are not yet REST-exposed here — see REQ-MDL-1..4 and "Avvikelser och
-// tillägg" in mappings.html.
+// API, not this one (see requirements.html REQ-WRT-*). Indexpost and Vård-
+// och omsorgstagare are modelled as logical models (see
+// input/fsh/logicalmodels/) and traced in the requirements catalogue, but
+// are not yet REST-exposed here — see REQ-MDL-1/2 and "Avvikelser och
+// tillägg" in mappings.html. API and API-specifikation, previously also
+// deferred, are now REST-exposed as CapabilityStatement profiles
+// (TKAPIInstance, TKAPISpecificationCapability) — see REQ-MDL-3/4/6/7.
 //
 // Exposure boundary (stakeholder decision, see REQ-EXP-1/2): this API,
 // including its write interactions (create/update), is INTERNAL ONLY — it
@@ -36,7 +38,7 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * contact.name = "Inera AB"
 * contact.telecom.system = #url
 * contact.telecom.value = "https://www.inera.se"
-* description = "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer och tekniska ändpunkter, inklusive sökning av ändpunkter per organisation (se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)), samt registrering av administratörsbehörigheter. Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html. Detta API är endast internt exponerat — se [TKSearchAPI](CapabilityStatement-tk-search-api.html) för det externt exponerade, läsande sök-API:et."
+* description = "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer, tekniska ändpunkter, API-specifikationer och API-instanser (inklusive sökning av ändpunkter per organisation, se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)), samt registrering av administratörsbehörigheter. Registrering SKA ske via transaction-Bundle med en tillhörande Provenance-post (REQ-TRC-1/2). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html. Detta API är endast internt exponerat — se [TKSearchAPI](CapabilityStatement-tk-search-api.html) för det externt exponerade, läsande sök-API:et."
 * jurisdiction = urn:iso:std:iso:3166#SE "Sweden"
 // kind=requirements (not capability): this describes what an implementation
 // of the admin API SHOULD support, not one specific running server instance,
@@ -46,6 +48,14 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * format[0] = #json
 * rest[0].mode = #server
 * rest[=].documentation = "Administrativt API för tjänstekatalogen."
+// Registrering (skapande/uppdatering av Organization/Endpoint/
+// CapabilityStatement) SKA ske via transaction-Bundle med en tillhörande
+// Provenance-post — se REQ-TRC-1/2 och TKProvenance.fsh. De enskilda
+// create/update-interaktionerna nedan kvarstår som del av respektive
+// resurstyps förmågor (t.ex. för HAPI FHIR:s standardmekanismer), men
+// klienter SKA använda transaction-vägen för faktisk registrering.
+* rest[=].interaction[0].code = #transaction
+* rest[=].interaction[=].documentation = "Registrering av en eller flera resurser (Organization, Endpoint, CapabilityStatement) tillsammans med en obligatorisk Provenance-post i samma transaction-Bundle. Se REQ-TRC-1/2."
 
 // --- Organization ---
 * rest[=].resource[0].type = #Organization
@@ -84,6 +94,48 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Endpoint-status"
 * rest[=].resource[=].searchParam[=].type = #token
 * rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter status."
+* rest[=].resource[=].searchParam[+].name = "implements"
+* rest[=].resource[=].searchParam[=].definition = Canonical(TKEndpointImplements)
+* rest[=].resource[=].searchParam[=].type = #uri
+* rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter stödd interoperabilitetsspecifikation. Se SearchParameter-tk-endpoint-implements.html."
+
+// --- CapabilityStatement (API-specifikation, API-instans) ---
+// TKAPISpecificationCapability (kind=requirements) och TKAPIInstance
+// (kind=instance) delar resurstyp — se REQ-MDL-4, REQ-MDL-7 och
+// mappings.html.
+* rest[=].resource[+].type = #CapabilityStatement
+* rest[=].resource[=].supportedProfile[0] = Canonical(TKAPISpecificationCapability)
+* rest[=].resource[=].supportedProfile[+] = Canonical(TKAPIInstance)
+* rest[=].resource[=].documentation = "Interoperabilitetsspecifikationer (kind=requirements, TKAPISpecificationCapability) och API-instanser (kind=instance, TKAPIInstance, med instantiates och implementation.custodian)."
+* rest[=].resource[=].interaction[0].code = #read
+* rest[=].resource[=].interaction[+].code = #search-type
+* rest[=].resource[=].interaction[+].code = #create
+* rest[=].resource[=].interaction[+].code = #update
+* rest[=].resource[=].searchParam[0].name = "url"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CanonicalResource-url"
+* rest[=].resource[=].searchParam[=].type = #uri
+* rest[=].resource[=].searchParam[=].documentation = "Sök på kanonisk URL."
+* rest[=].resource[=].searchParam[+].name = "kind"
+* rest[=].resource[=].searchParam[=].definition = Canonical(TKCapabilityStatementKind)
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Filtrera på requirements (API-specifikation) eller instance (API-instans). Se SearchParameter-tk-capabilitystatement-kind.html."
+* rest[=].resource[=].searchParam[+].name = "instantiates"
+* rest[=].resource[=].searchParam[=].definition = Canonical(TKCapabilityStatementInstantiates)
+* rest[=].resource[=].searchParam[=].type = #reference
+* rest[=].resource[=].searchParam[=].documentation = "Sök API-instanser efter vilken specifikation de följer. Se SearchParameter-tk-capabilitystatement-instantiates.html."
+
+// --- Provenance (spårbarhet vid registrering) ---
+// Se TKProvenance.fsh och REQ-TRC-*. Inte del av det ursprungliga
+// informationsunderlaget — se mappings.html.
+* rest[=].resource[+].type = #Provenance
+* rest[=].resource[=].profile = Canonical(TKProvenance)
+* rest[=].resource[=].documentation = "Spårbarhetsposter för registreringar (skapande/uppdatering) av Organization, Endpoint, CapabilityStatement (API-specifikation/API-instans)."
+* rest[=].resource[=].interaction[0].code = #read
+* rest[=].resource[=].interaction[+].code = #search-type
+* rest[=].resource[=].searchParam[0].name = "target"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Provenance-target"
+* rest[=].resource[=].searchParam[=].type = #reference
+* rest[=].resource[=].searchParam[=].documentation = "Den registrerade resursen, t.ex. Endpoint/{id}."
 
 // --- PractitionerRole (administratörsbehörighet) ---
 // Se TKAdministratorRole.fsh och REQ-ADM-*. Inte del av det ursprungliga
