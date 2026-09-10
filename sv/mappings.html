@@ -225,24 +225,31 @@ element realiserar — finns i <a href="requirements.html">Kravkatalog</a>; krav
 
 <h3 id="omfattade-delar">Omfattade delar</h3>
 
-<p>Denna IG realiserar entiteterna <strong>Ändpunkt</strong> och <strong>Organisation</strong>, inklusive
-båda relationerna mellan dem ("förvaltar" och "har"), fullt ut som FHIR-
-resurser med tillhörande sökparameter och skrivoperationer. Entiteterna
-<strong>API</strong>, <strong>API-specifikation</strong>, <strong>Indexpost</strong> och <strong>Vård- och
-omsorgstagare</strong> är modellerade som logiska modeller för spårbarhet, men är
-inte (ännu) REST-exponerade i det administrativa API:et — se
-"Avvikelser och tillägg" nedan för respektive entitet och
-<a href="requirements.html">Kravkatalog</a> (REQ-MDL-*) för status.</p>
+<p>Denna IG realiserar entiteterna <strong>Ändpunkt</strong>, <strong>Organisation</strong>, <strong>API</strong> och
+<strong>API-specifikation</strong> fullt ut som FHIR-resurser med tillhörande
+sökparameter och skrivoperationer, inklusive båda relationerna mellan
+Ändpunkt och Organisation ("förvaltar" och "har"). Entiteterna <strong>Indexpost</strong>
+och <strong>Vård- och omsorgstagare</strong> är modellerade som logiska modeller för
+spårbarhet, men är inte (ännu) REST-exponerade i det administrativa API:et
+— se "Avvikelser och tillägg" nedan och <a href="requirements.html">Kravkatalog</a>
+(REQ-MDL-1/2) för status.</p>
 
-<p>Utöver informationsunderlagets sex entiteter realiserar denna IG tre
-stakeholder-beslutade tillägg (se respektive punkt nedan under "Avvikelser
-och tillägg"): <strong>administratörsbehörighet</strong>
+<p>API och API-specifikation var tidigare också logisk-modell-/extension-
+endast (REST-exponering uppskjuten respektive helt utelämnad); båda
+uppgraderades efter jämförelse med en annan implementation av samma
+problem — se "Avvikelser och tillägg" nedan.</p>
+
+<p>Utöver informationsunderlagets sex entiteter realiserar denna IG ytterligare
+tillägg (se respektive punkt nedan under "Avvikelser och tillägg"):
+<strong>administratörsbehörighet</strong>
 (<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>),
 <strong>distribution/federering</strong>
-(<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic</a>)
-och en <strong>exponeringsgräns</strong> mellan externt sök-API och internt admin-API
+(<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic</a>),
+en <strong>exponeringsgräns</strong> mellan externt sök-API och internt admin-API
 (<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> /
-<a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a>).</p>
+<a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a>), och <strong>spårbarhet vid
+registrering</strong> (<a href="StructureDefinition-tk-provenance.html">TKProvenance</a> +
+transaction-Bundle).</p>
 
 <hr />
 
@@ -253,6 +260,13 @@ eller lägger till utöver, en bokstavlig läsning av informationsunderlaget —
 inklusive ställen där vi gjort andra modelleringsval än de som syns i det
 bifogade underlaget, i enlighet med anvisningen att sådana val ska
 dokumenteras tydligt.</p>
+
+<p>Flera punkter nedan (märkta "efter jämförelse med en annan implementation
+av samma problem") tillkom efter att denna IG:s design jämfördes mot en
+annan, oberoende genomförd implementation av samma problemställning
+(OpenAPI-spec + CapabilityStatement). Där den implementationen löste ett
+problem denna IG lämnat öppet eller löst svagare, har mönstret medvetet
+anpassats och adopterats här.</p>
 
 <ul>
   <li>
@@ -283,21 +297,19 @@ senare FHIR-version). Denna IG definierar
 som en repeterbar <code class="language-plaintext highlighter-rouge">canonical</code>-extension på <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> i väntan på
 det elementet. Se REQ-SRCH-3.</p>
   </li>
-  <li>
-    <p><strong>Entiteten "API" realiseras inte som en egen resurs.</strong> Informationsunderlaget
-ger "API" en egen giltighetsperiod (giltigFrom/giltigTom), skild från
-Ändpunktens. FHIR:s <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> är en backbone-struktur utan egen
-identitet/id och utan eget periodelement — den kan inte bära en sådan
-självständig livscykel. Vi har valt att <strong>inte</strong> införa en separat
-resurs eller logisk modell för "API": <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> (typ + vår
-<code class="language-plaintext highlighter-rouge">TKEndpointPayloadProfile</code>-extension) räcker för att uttrycka "Ändpunkt
-tillgängliggör API" och "API följer API-specifikation". Konsekvensen är
-att denna IG <strong>inte</strong> bär en separat giltighetsperiod per API — endast
-<code class="language-plaintext highlighter-rouge">Endpoint.period</code> (Ändpunktens egen giltighetstid) används. Detta är ett
-medvetet avsteg, inte en försummelse: se REQ-MDL-3. Implementatörer som
-behöver oberoende livscykler per API bör registrera separata
-<code class="language-plaintext highlighter-rouge">Endpoint</code>-instanser (en per API) tills vidare, eller lyfta frågan som ett
-ändringsförslag mot en framtida version av denna IG.</p>
+  <li><del>Entiteten "API" realiseras inte som en egen resurs</del> <strong>— ändrat, se
+nedan.</strong> Informationsunderlaget ger "API" en egen giltighetsperiod
+(giltigFrom/giltigTom), skild från Ändpunktens. <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> är en
+backbone-struktur utan egen identitet/id och utan eget periodelement, så
+den kunde inte ensam bära en sådan självständig livscykel. Tidigare löste
+denna IG detta genom att <strong>inte</strong> införa en separat resurs — <code class="language-plaintext highlighter-rouge">Endpoint.payload</code>
+    <ul>
+      <li><code class="language-plaintext highlighter-rouge">TKEndpointPayloadProfile</code> fick räcka, med den dokumenterade konsekvensen
+att ingen separat giltighetsperiod per API bars. Det avstegets grundorsak
+är nu åtgärdat genom <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>
+— se nästa punkt — men <code class="language-plaintext highlighter-rouge">Endpoint.payload</code>/<code class="language-plaintext highlighter-rouge">TKEndpointPayloadProfile</code>
+behålls oförändrat vid sidan av, som den snabba sökvägen. Se REQ-MDL-3.</li>
+    </ul>
   </li>
   <li>
     <p><strong><code class="language-plaintext highlighter-rouge">säkerhetsmetod</code> och <code class="language-plaintext highlighter-rouge">urlTillAuktorisationsserver</code> saknar hemvist i
@@ -371,16 +383,29 @@ interoperabilitetsspecifikation är inte en aktör — den är ett publicerat
 dokument/kontrakt, identifierat av sin egen kanoniska URI. Att låta en
 specifikation "vara" en ActorDefinition blandar samman två skilda begrepp
 och gör det svårare att t.ex. sökbart skilja "vilka aktörer finns" från
-"vilka specifikationer finns". Skulle denna IG i en framtida version
-REST-exponera <code class="language-plaintext highlighter-rouge">TKAPISpecification</code>, rekommenderas istället en nedbantad
-profil på <strong><code class="language-plaintext highlighter-rouge">ImplementationGuide</code></strong>: den bär redan <code class="language-plaintext highlighter-rouge">url</code> (kanoniskUrl),
-<code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">name</code> (maskinläsbartNamn), <code class="language-plaintext highlighter-rouge">title</code> (titel), <code class="language-plaintext highlighter-rouge">status</code>,
-<code class="language-plaintext highlighter-rouge">description</code> (beskrivning) och <code class="language-plaintext highlighter-rouge">date</code> (utgivningsdatum) som egna element,
-vilket passar en versionerad, publicerad specifikations livscykel bättre
-än både <code class="language-plaintext highlighter-rouge">ActorDefinition</code> och <code class="language-plaintext highlighter-rouge">Basic</code>. (<code class="language-plaintext highlighter-rouge">publisher</code> är dock <code class="language-plaintext highlighter-rouge">string</code> på
-<code class="language-plaintext highlighter-rouge">ImplementationGuide</code>, inte <code class="language-plaintext highlighter-rouge">Reference</code> — <code class="language-plaintext highlighter-rouge">ansvarigUtgivare</code> som
-<code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code> skulle då behöva uttryckas via en extension
-istället, eller bytas till en identifierare/text.) Se REQ-MDL-4.</p>
+"vilka specifikationer finns".</p>
+
+    <p><del>Rekommenderades tidigare: en nedbantad profil på <code class="language-plaintext highlighter-rouge">ImplementationGuide</code>
+om/när REST-exponering blev aktuell.</del> <strong>Ersatt.</strong> Efter jämförelse med en
+annan implementation av samma problem, som använder <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>
+(kind=requirements) för motsvarande entitet, realiseras
+API-specifikation nu som
+<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a>
+— en profil på <strong><code class="language-plaintext highlighter-rouge">CapabilityStatement</code></strong>, inte <code class="language-plaintext highlighter-rouge">ImplementationGuide</code>.
+<code class="language-plaintext highlighter-rouge">CapabilityStatement.kind=requirements</code> är native FHIR-mekanik för "en
+formell kravbild ett konformt system måste uppfylla", vilket beskriver
+en interoperabilitetsspecifikation minst lika träffande som
+<code class="language-plaintext highlighter-rouge">ImplementationGuide</code>s dokumentationspaket-fokuserade form — och denna
+IG använder redan <code class="language-plaintext highlighter-rouge">kind=requirements</code> för sina egna <code class="language-plaintext highlighter-rouge">TKAdminAPI</code>/
+<code class="language-plaintext highlighter-rouge">TKSearchAPI</code>, så mönstret är konsekvent. <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> bär
+liksom <code class="language-plaintext highlighter-rouge">ImplementationGuide</code> <code class="language-plaintext highlighter-rouge">url</code> (kanoniskUrl), <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">name</code>
+(maskinläsbartNamn), <code class="language-plaintext highlighter-rouge">title</code> (titel), <code class="language-plaintext highlighter-rouge">status</code>, <code class="language-plaintext highlighter-rouge">description</code>
+(beskrivning) och <code class="language-plaintext highlighter-rouge">date</code> (utgivningsdatum) som egna element. <code class="language-plaintext highlighter-rouge">publisher</code>
+är, precis som på <code class="language-plaintext highlighter-rouge">ImplementationGuide</code>, <code class="language-plaintext highlighter-rouge">string</code> snarare än <code class="language-plaintext highlighter-rouge">Reference</code>
+— <code class="language-plaintext highlighter-rouge">ansvarigUtgivare</code> som <code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code> uttrycks därför via
+en tillagd extension,
+<a href="StructureDefinition-tk-capabilitystatement-responsible-organization.html">TKCapabilityStatementResponsibleOrganization</a>.
+Se REQ-MDL-4.</p>
   </li>
   <li>
     <p><strong><code class="language-plaintext highlighter-rouge">Organization.identifier</code> är den "logiska adress" tjänstesökning slår
@@ -439,12 +464,55 @@ som är det som exponeras externt via gateway. Skrivinteraktionerna
 som är internt exponerat endast. Se REQ-EXP-1/2 och security.html.</p>
   </li>
   <li>
-    <p><strong>Spårbarhet (vem skapade/senast uppdaterade en post) skjuts upp.</strong>
-Förstudiens skrivmodell förutsätter attribut som <code class="language-plaintext highlighter-rouge">createdTime</code> och
-<code class="language-plaintext highlighter-rouge">updatedByHsaId</code>. Stakeholder-beslut: löses med serverloggning och/eller
-<code class="language-plaintext highlighter-rouge">Provenance</code>-resurser i en framtida version, snarare än ett attribut på
-<code class="language-plaintext highlighter-rouge">Organization</code>/<code class="language-plaintext highlighter-rouge">Endpoint</code> självt — avvaktar för nu. Se REQ-MDL-5.</p>
+    <p><del>Spårbarhet (vem skapade/senast uppdaterade en post) skjuts upp</del>
+<strong>— löst, inte längre uppskjutet.</strong> Förstudiens skrivmodell förutsätter
+attribut som <code class="language-plaintext highlighter-rouge">createdTime</code> och <code class="language-plaintext highlighter-rouge">updatedByHsaId</code>; detta avsnitt sa
+tidigare att det löses "i en framtida version". Efter jämförelse med en
+annan implementation av samma problem, som kräver en <code class="language-plaintext highlighter-rouge">Provenance</code>-post
+per registrering i en transaction-Bundle, antogs samma mönster här:
+<a href="StructureDefinition-tk-provenance.html"><code class="language-plaintext highlighter-rouge">TKProvenance</code></a> SKA bifogas
+(<code class="language-plaintext highlighter-rouge">Provenance.target</code> pekande ut den registrerade resursen) i samma
+transaction-Bundle som registrerar en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code> eller
+<code class="language-plaintext highlighter-rouge">CapabilityStatement</code>. Detta ger både spårbarhet och atomicitet (posten
+och dess Provenance skapas/uppdateras tillsammans), vilket separata
+<code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>-anrop per resurstyp inte garanterar. Tjänstekatalogens
+administrativa API SKA därför stödja systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>.
+Se REQ-MDL-5, REQ-TRC-1/2 och <code class="language-plaintext highlighter-rouge">TKProvenance.fsh</code>.</p>
   </li>
+  <li>
+    <p><strong>API-instans (<a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>)
+ger "API" en egen identitet, som komplement till <code class="language-plaintext highlighter-rouge">Endpoint.payload</code>.</strong>
+Föregående punkt ovan (<code class="language-plaintext highlighter-rouge">Endpoint.payload</code> + <code class="language-plaintext highlighter-rouge">TKEndpointPayloadProfile</code>)
+kvarstår oförändrad som den snabba, enhops-sökbara realiseringen av
+"tillgängliggör"/"följer" (REQ-SRCH-3/4) — men dess kända begränsning,
+att "API" saknade egen identitet och egen giltighetsperiod, kvarstod
+också. Efter jämförelse med en annan implementation av samma problem,
+som representerar en tjänsteinstans som en egen <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>
+(kind=instance, med <code class="language-plaintext highlighter-rouge">.instantiates</code> och <code class="language-plaintext highlighter-rouge">.implementation.custodian</code>),
+infördes samma mönster här som <code class="language-plaintext highlighter-rouge">TKAPIInstance</code>: en egen resurs för "API",
+med <code class="language-plaintext highlighter-rouge">.instantiates</code> ("följer" API-specifikation, 1..*) och en tillagd
+extension som pekar ut den tillgängliggörande ändpunkten ("tillgängliggör",
+eftersom basresursen saknar ett sådant element) samt en tillagd
+giltighetsperiod-extension (löser REQ-MDL-3:s tidigare dokumenterade
+avsteg). <strong>Öppen fråga:</strong> att hålla de två realiseringarna (payload-
+extensionens spec-pekare och <code class="language-plaintext highlighter-rouge">TKAPIInstance.instantiates</code>) i sync är en
+dokumenterad förväntan, inte mekaniskt garanterad — servern validerar
+inte idag att de överensstämmer. Se REQ-MDL-3, REQ-MDL-6, REQ-MDL-7.</p>
+  </li>
+  <li><strong>CapabilityStatement (kind=requirements) kräver ett populerat
+rest/messaging/document-element, även för icke-REST-specifikationer.</strong>
+Bas-FHIR:s invariant <code class="language-plaintext highlighter-rouge">cpb-1</code> ("A Capability Statement SHALL have at least
+one of REST, messaging or document element") gäller alla
+<code class="language-plaintext highlighter-rouge">CapabilityStatement</code>-instanser oavsett <code class="language-plaintext highlighter-rouge">kind</code>. För en FHIR/REST-baserad
+specifikation (t.ex. exemplet nedan) är detta naturligt — <code class="language-plaintext highlighter-rouge">.rest</code>
+beskriver då på riktigt vilka förmågor specifikationen kräver. För en
+interoperabilitetsspecifikation som INTE är REST-baserad (t.ex. ett
+RIVTA SOAP-tjänstekontrakt) krävs ändå ett minimalt <code class="language-plaintext highlighter-rouge">rest.mode</code>-värde
+enbart för att uppfylla bas-invarianten — en känd modelleringsspänning i
+att återanvända <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (byggt för att beskriva FHIR
+REST/messaging/document-förmågor) för specifikationer som inte är det.
+<code class="language-plaintext highlighter-rouge">TKAPISpecificationCapability</code> sätter <code class="language-plaintext highlighter-rouge">rest 1..1</code> och <code class="language-plaintext highlighter-rouge">rest.mode = server</code>
+av denna anledning; se REQ-MDL-4.</li>
 </ul>
 
 <hr />
@@ -636,7 +704,7 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
   </tbody>
 </table>
 
-<h4 id="api-specifikation--tkapispecification-logisk-modell-ej-rest-exponerad">API-specifikation → <a href="StructureDefinition-tk-api-specification.html">TKAPISpecification</a> (logisk modell, ej REST-exponerad)</h4>
+<h4 id="api-specifikation--tkapispecificationcapability">API-specifikation → <a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a></h4>
 
 <table>
   <thead>
@@ -651,73 +719,82 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
     <tr>
       <td>id</td>
       <td>1..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.id</a></td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.id</a></td>
       <td>REQ-MDL-4</td>
     </tr>
     <tr>
       <td>kanoniskUrl</td>
       <td>1..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.kanoniskUrl</a></td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.url</a></td>
       <td>Förväntas matcha värdet i <code class="language-plaintext highlighter-rouge">TKEndpointPayloadProfile</code>. REQ-MDL-4, REQ-SRCH-3</td>
     </tr>
     <tr>
       <td>status</td>
       <td>1..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.status</a></td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.status</a></td>
       <td>REQ-MDL-4</td>
     </tr>
     <tr>
       <td>maskinläsbartNamn</td>
       <td>0..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.maskinlasbartNamn</a></td>
-      <td>ASCII-elementnamn i FSH, se profilen. REQ-MDL-4</td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.name</a></td>
+      <td>REQ-MDL-4</td>
     </tr>
     <tr>
       <td>version</td>
       <td>0..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.version</a></td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.version</a></td>
       <td>REQ-MDL-4</td>
     </tr>
     <tr>
       <td>referensTillKälla</td>
       <td>0..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.referensTillKalla</a></td>
-      <td>ASCII-elementnamn i FSH, se profilen. REQ-MDL-4</td>
+      <td><a href="StructureDefinition-tk-api-specification-source-reference.html">TKAPISpecificationSourceReference</a> (extension)</td>
+      <td>REQ-MDL-4</td>
     </tr>
     <tr>
       <td>kategori</td>
       <td>0..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.kategori</a></td>
+      <td><a href="StructureDefinition-tk-api-specification-category.html">TKAPISpecificationCategory</a> (extension)</td>
       <td>REQ-MDL-4</td>
     </tr>
     <tr>
       <td>titel</td>
       <td>1..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.titel</a></td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.title</a></td>
       <td>REQ-MDL-4</td>
     </tr>
     <tr>
       <td>beskrivning</td>
       <td>0..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.beskrivning</a></td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.description</a></td>
       <td>REQ-MDL-4</td>
     </tr>
     <tr>
       <td>ansvarigUtgivare</td>
       <td>0..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.ansvarigUtgivare</a></td>
-      <td>Reference(TKOrganization). REQ-MDL-4</td>
+      <td><a href="StructureDefinition-tk-capabilitystatement-responsible-organization.html">TKCapabilityStatementResponsibleOrganization</a> (extension)</td>
+      <td><code class="language-plaintext highlighter-rouge">.publisher</code> (string) täcker fritextnamn; denna extension bär strukturerad <code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code>. REQ-MDL-4</td>
     </tr>
     <tr>
       <td>utgivningsdatum</td>
       <td>0..1</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification.utgivningsdatum</a></td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.date</a></td>
       <td>REQ-MDL-4</td>
+    </tr>
+    <tr>
+      <td><em>(kind)</em></td>
+      <td>1..1</td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.kind</a></td>
+      <td>Fixerat till <code class="language-plaintext highlighter-rouge">requirements</code>. Inte del av informationsunderlaget — krävs av basresursen.</td>
     </tr>
   </tbody>
 </table>
 
-<h4 id="api-join-entitet--ingen-egen-resurs">API (join-entitet) → <em>ingen egen resurs</em></h4>
+<h4 id="api-join-entitet--tkapiinstance--tkendpointpayloadprofile">API (join-entitet) → <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a> + <a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a></h4>
+
+<p>Två komplementära realiseringar — se avsteget ovan om varför båda finns
+kvar sida vid sida.</p>
 
 <table>
   <thead>
@@ -730,28 +807,97 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
   </thead>
   <tbody>
     <tr>
+      <td>id</td>
+      <td>1..1</td>
+      <td><a href="StructureDefinition-tk-api-instance.html">TKAPIInstance.id</a></td>
+      <td>REQ-MDL-7</td>
+    </tr>
+    <tr>
       <td>giltigFrom</td>
-      <td>—</td>
-      <td><em>Ej separat realiserat</em></td>
-      <td>Se avsteg ovan — <code class="language-plaintext highlighter-rouge">Endpoint.period</code> används istället. REQ-MDL-3</td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-api-instance-period.html">TKAPIInstancePeriod</a> (extension) <code class="language-plaintext highlighter-rouge">.start</code></td>
+      <td>REQ-MDL-6</td>
     </tr>
     <tr>
       <td>giltigTom</td>
-      <td>—</td>
-      <td><em>Ej separat realiserat</em></td>
-      <td>Se avsteg ovan — <code class="language-plaintext highlighter-rouge">Endpoint.period</code> används istället. REQ-MDL-3</td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-api-instance-period.html">TKAPIInstancePeriod</a> (extension) <code class="language-plaintext highlighter-rouge">.end</code></td>
+      <td>REQ-MDL-6</td>
+    </tr>
+    <tr>
+      <td><em>(tillgängliggörs av Ändpunkt)</em></td>
+      <td>1..1</td>
+      <td><a href="StructureDefinition-tk-api-instance-endpoint.html">TKAPIInstanceEndpoint</a> (extension)</td>
+      <td>Egen resurs. REQ-MDL-7</td>
     </tr>
     <tr>
       <td><em>(tillgängliggörs av Ändpunkt)</em></td>
       <td>0..*</td>
       <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint.payload</a></td>
-      <td>REQ-MDL-3</td>
+      <td>Snabb sökväg (extension). REQ-MDL-3</td>
+    </tr>
+    <tr>
+      <td><em>(följer API-specifikation)</em></td>
+      <td>1..*</td>
+      <td><a href="StructureDefinition-tk-api-instance.html">TKAPIInstance.instantiates</a></td>
+      <td>Egen resurs, sökbar via SearchParameter-tk-capabilitystatement-instantiates.html. REQ-MDL-7</td>
     </tr>
     <tr>
       <td><em>(följer API-specifikation)</em></td>
       <td>0..*</td>
       <td><a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a></td>
-      <td>REQ-MDL-3, REQ-SRCH-3</td>
+      <td>Snabb sökväg (extension). REQ-MDL-3, REQ-SRCH-3/4</td>
+    </tr>
+    <tr>
+      <td><em>(teknisk anropsadress)</em></td>
+      <td>1..1</td>
+      <td><a href="StructureDefinition-tk-api-instance.html">TKAPIInstance.implementation.url</a></td>
+      <td>Samma värde som <code class="language-plaintext highlighter-rouge">TKEndpoint.address</code> (medveten duplicering).</td>
+    </tr>
+    <tr>
+      <td><em>(ansvarig organisation)</em></td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-api-instance.html">TKAPIInstance.implementation.custodian</a></td>
+      <td>Om annan än ändpunktens förvaltande organisation.</td>
+    </tr>
+    <tr>
+      <td><em>(kind)</em></td>
+      <td>1..1</td>
+      <td><a href="StructureDefinition-tk-api-instance.html">TKAPIInstance.kind</a></td>
+      <td>Fixerat till <code class="language-plaintext highlighter-rouge">instance</code>.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h4 id="spårbarhet-vid-registrering--tkprovenance-utökning-ej-del-av-informationsunderlaget">Spårbarhet vid registrering → <a href="StructureDefinition-tk-provenance.html">TKProvenance</a> (utökning, ej del av informationsunderlaget)</h4>
+
+<table>
+  <thead>
+    <tr>
+      <th>Modellelement</th>
+      <th>Kard.</th>
+      <th>FHIR-profilelement</th>
+      <th>Noteringar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>registrerad resurs</td>
+      <td>1..*</td>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance.target</a></td>
+      <td>REQ-TRC-1</td>
+    </tr>
+    <tr>
+      <td>registreringstidpunkt</td>
+      <td>1..1</td>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance.recorded</a></td>
+      <td>REQ-TRC-1</td>
+    </tr>
+    <tr>
+      <td>registrerande system/konto</td>
+      <td>1..*</td>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance.agent.who</a></td>
+      <td>REQ-TRC-1</td>
     </tr>
   </tbody>
 </table>
@@ -953,8 +1099,8 @@ mot EHM:s krav.</p>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Organization.identifier</code> (slice <code class="language-plaintext highlighter-rouge">personalIdentityNumber</code> / <code class="language-plaintext highlighter-rouge">coordinationNumber</code>)</td>
       <td>system fixed resp. <code class="language-plaintext highlighter-rouge">http://electronichealth.se/identifier/personnummer</code> / <code class="language-plaintext highlighter-rouge">.../samordningsnummer</code>, värde regex för 12-siffrigt personnummer/samordningsnummer</td>
-      <td>—</td>
-      <td>Denna IG:s <code class="language-plaintext highlighter-rouge">TKOrganization</code> har idag bara en <code class="language-plaintext highlighter-rouge">organisationsnummer</code>-slice (se REQ-ORG-2) — inte personnummer/samordningsnummer-slicer för enskilda firmor. Öppen fråga, se nedan.</td>
+      <td>— (medvetet ej mappat)</td>
+      <td><strong>Medvetet utanför scope, inte en lucka att fylla</strong> (stakeholder-bekräftat): personnummer/samordningsnummer hör till EHM:s patientindex och till sökningar som kombinerar tjänstekatalog med patientindex — inte till organisationsidentifiering i tjänstekatalogens synkronisering. Denna IG:s <code class="language-plaintext highlighter-rouge">TKOrganization.identifier</code> har därför avsiktligt bara en <code class="language-plaintext highlighter-rouge">organisationsnummer</code>-slice (REQ-ORG-2); dessa EHM-slicer lämnas obesatta vid synkronisering.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Organization.type</code></td>
@@ -1042,7 +1188,7 @@ organisationen läggs till eller tas bort).</p>
       <td>1..1</td>
       <td><code class="language-plaintext highlighter-rouge">Identifier</code> (system + value)</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization.identifier</a>[<code class="language-plaintext highlighter-rouge">organisationsnummer</code>]</td>
-      <td>Systemet <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. Alternativt kan personnummer/samordningsnummer användas om organisationen identifieras så istället (samma system som <code class="language-plaintext highlighter-rouge">$personnummer</code>/<code class="language-plaintext highlighter-rouge">$samordningsnummer</code> i <code class="language-plaintext highlighter-rouge">aliases.fsh</code>, redan matchande).</td>
+      <td>Systemet <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. <strong>Endast organisationsnummer används här</strong> — personnummer/samordningsnummer SKA INTE användas för att identifiera organisationen i detta anrop (stakeholder-bekräftat: de hör till EHM:s patientindex och kombinerade sökningar däremellan, inte till denna IG:s scope). Se REQ-WRT-5.</td>
     </tr>
     <tr>
       <td><em>(retur)</em> <code class="language-plaintext highlighter-rouge">return</code></td>
@@ -1132,12 +1278,16 @@ motsvarande attribut. Antingen behöver denna IG:s modell utökas med ett
 sådant attribut, eller så behöver Synkroniseringstjänsten härleda/anta ett
 värde på annat sätt, eller så utelämnas elementet (tillåtet, eftersom det
 är 0..1 hos EHM).</li>
-  <li><strong>Personnummer/samordningsnummer för enskilda firmor saknas i <code class="language-plaintext highlighter-rouge">TKOrganization</code>.</strong>
-EHM:s <code class="language-plaintext highlighter-rouge">Organization</code>-profil har slicer för detta (en enskild firma
-identifieras med ägarens personnummer, inte ett organisationsnummer) men
-denna IG:s <code class="language-plaintext highlighter-rouge">TKOrganization.identifier</code> har idag bara en
-<code class="language-plaintext highlighter-rouge">organisationsnummer</code>-slice. Behöver läggas till om tjänstekatalogen ska
-hantera enskilda firmor.</li>
+  <li><del>Personnummer/samordningsnummer för enskilda firmor saknas i
+<code class="language-plaintext highlighter-rouge">TKOrganization</code></del> <strong>— rättat, inte längre en öppen fråga.</strong> Tidigare
+antogs personnummer/samordningsnummer kunna användas som alternativ
+organisationsidentifierare mot EHM (t.ex. för enskilda firmor), utifrån
+att EHM:s <code class="language-plaintext highlighter-rouge">organization-er</code>-profil har slicer för detta. Stakeholder har
+bekräftat att detta är fel: personnummer/samordningsnummer hör till EHM:s
+patientindex och till sökningar som kombinerar tjänstekatalog med
+patientindex — inte till organisationsidentifiering i tjänstekatalogens
+synkronisering mot EHM. Se rättningen i REQ-WRT-2/5 och
+mappningstabellerna ovan.</li>
   <li><strong><code class="language-plaintext highlighter-rouge">saml2</code> som säkerhetsmetod saknar motsvarighet</strong> i HL7:s
 <code class="language-plaintext highlighter-rouge">restful-security-service</code>-värdemängd, som EHM kräver för sin
 <code class="language-plaintext highlighter-rouge">securityMethod</code>-slice. Kräver antingen ett verksamhetsbeslut om hur
@@ -1153,26 +1303,23 @@ faktiska serveradress.</li>
   <li><strong>Om Inera bekräftar <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code></strong> som sitt eget föredragna system
 för organisationsnummer, kan noteringen om att det är "valt för
 EHM-kompatibilitet" tas bort — se REQ-ORG-2.</li>
+  <li><strong>Om EHM identifierar en organisation med organisationsnummer i stället
+för vårdgivarens HSA-id, behöver det organisationsnumret beständigas hos
+Inera.</strong> Observation från stakeholder: tjänstekatalogens ekosystem
+använder i övrigt normalt HSA-id som organisationsidentifierare. Om EHM
+väljer att identifiera en organisation med organisationsnummer (se
+REQ-ORG-2, REQ-ORG-5, REQ-WRT-5) i stället för vårdgivarens HSA-id,
+behöver Inera säkerställa att just det organisationsnumret är en stabil,
+förvaltad identifierare hos Inera — inte bara ett värde som råkar
+synkroniseras vidare till EHM. Hur denna beständighet säkerställs
+(registervård, koppling till HSA-id, etc.) är inte löst i detta utkast.</li>
 </ul>
-
-<hr />
 
 <h3 id="omappade-element">Omappade element</h3>
 
-<table>
-  <thead>
-    <tr>
-      <th>Modellelement</th>
-      <th>Orsak till att det inte mappas</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>API.id</td>
-      <td>Modellen ger inte "API" ett eget id-attribut — se avsteg ovan; entiteten realiseras helt via <code class="language-plaintext highlighter-rouge">Endpoint.payload</code>, som saknar egen identitet.</td>
-    </tr>
-  </tbody>
-</table>
+<p><del>API.id</del> <strong>— inte längre omappat.</strong> <code class="language-plaintext highlighter-rouge">API</code> har nu ett eget id via
+<a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a><code class="language-plaintext highlighter-rouge">.id</code>, se
+mappningstabellen ovan. Inga omappade element återstår i detta utkast.</p>
 
 <hr />
 
@@ -1210,8 +1357,8 @@ att profilerna utvecklas. Mappningar kan också uttryckas med FHIR
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-09 11:47:00 +0000">
-    2026-09-09
+  <span title="2026-09-10 06:56:00 +0000">
+    2026-09-10
   </span>
 
           <br/>

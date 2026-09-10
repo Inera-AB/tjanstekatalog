@@ -220,7 +220,11 @@ inklusive skrivinteraktionerna (<code class="language-plaintext highlighter-roug
 och SKA inte nås via den externa gatewayen. Se <a href="capabilitystatement.html">CapabilityStatement</a>.</li>
   <li>Skrivrättigheter i tjänstekatalogens administrativa API begränsas till
 system som är behöriga att registrera information om den aktuella
-organisationen. <strong>Administratörsbehörighet</strong> — vilken organisation en
+organisationen. Detta omfattar även registrering via systeminteraktionen
+<code class="language-plaintext highlighter-rouge">transaction</code> (REQ-TRC-2) — en transaction-Bundle är inte ett sätt att
+kringgå den vanliga skrivbehörighetskontrollen, samma regler gäller för
+varje post i Bundlen som för motsvarande fristående <code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>.
+<strong>Administratörsbehörighet</strong> — vilken organisation en
 administratör representerar (<code class="language-plaintext highlighter-rouge">local-admin</code>), eller att administratören
 är <code class="language-plaintext highlighter-rouge">central-admin</code> (samtliga organisationer) — kan registreras i
 katalogen som <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>
@@ -268,8 +272,8 @@ personuppgifter om enskilda.</li>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-09 11:47:00 +0000">
-    2026-09-09
+  <span title="2026-09-10 06:56:00 +0000">
+    2026-09-10
   </span>
 
           <br/>

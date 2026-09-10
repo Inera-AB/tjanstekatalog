@@ -14,7 +14,7 @@
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-09-09T11:47:00+00:00",
+  "date" : "2026-09-10T06:56:47+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -94,17 +94,81 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
+        "valueString" : "StructureDefinition:extension"
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
-        "valueUri" : "StructureDefinition-tk-api-specification.html"
+        "valueUri" : "StructureDefinition-tk-capabilitystatement-responsible-organization.html"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/tk-api-specification"
+        "reference" : "StructureDefinition/tk-capabilitystatement-responsible-organization"
       },
-      "name" : "API-specifikation (logisk modell)",
-      "description" : "Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4.",
+      "name" : "Ansvarig organisation (strukturerad referens)",
+      "description" : "Strukturerad referens till organisationen som ansvarar för en TKAPISpecificationCapability (API-specifikation.ansvarigUtgivare i informationsunderlaget). Komplement till CapabilityStatement.publisher (string).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-tk-api-instance-period.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tk-api-instance-period"
+      },
+      "name" : "API-instansens giltighetsperiod",
+      "description" : "API-instansens (TKAPIInstance) egen giltighetsperiod, oberoende av den ändpunkt som tillgängliggör den (API.giltigFrom/giltigTom i informationsunderlaget).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "SearchParameter"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "SearchParameter-tk-capabilitystatement-instantiates.html"
+      }],
+      "reference" : {
+        "reference" : "SearchParameter/tk-capabilitystatement-instantiates"
+      },
+      "name" : "CapabilityStatement: instantiates",
+      "description" : "Söker fram de TKAPIInstance-resurser som följer en angiven API-specifikation (CapabilityStatement.instantiates). Se REQ-MDL-7.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "SearchParameter"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "SearchParameter-tk-capabilitystatement-kind.html"
+      }],
+      "reference" : {
+        "reference" : "SearchParameter/tk-capabilitystatement-kind"
+      },
+      "name" : "CapabilityStatement: kind",
+      "description" : "Söker CapabilityStatement-resurser efter kind (requirements = API-specifikation, instance = API-instans). Se REQ-MDL-4.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "SearchParameter"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "SearchParameter-tk-endpoint-implements.html"
+      }],
+      "reference" : {
+        "reference" : "SearchParameter/tk-endpoint-implements"
+      },
+      "name" : "Endpoint: implements (stödd interoperabilitetsspecifikation)",
+      "description" : "Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en angiven interoperabilitetsspecifikation, dvs. vars TKEndpointPayloadProfile-extension namner den angivna kanoniska URL:en. Se REQ-SRCH-4.",
       "isExample" : false
     },
     {
@@ -126,6 +190,40 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CapabilityStatement"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CapabilityStatement-TKAPIInstanceExample.html"
+      }],
+      "reference" : {
+        "reference" : "CapabilityStatement/TKAPIInstanceExample"
+      },
+      "name" : "Exempel: API-instans i tjänstekatalogen",
+      "description" : "Exempel på ett API som Exempelregionens ändpunkt tillgängliggör, och som följer specifikationen IneraPatientinformation.",
+      "isExample" : true,
+      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CapabilityStatement"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CapabilityStatement-TKAPISpecificationCapabilityExample.html"
+      }],
+      "reference" : {
+        "reference" : "CapabilityStatement/TKAPISpecificationCapabilityExample"
+      },
+      "name" : "Exempel: API-specifikation i tjänstekatalogen",
+      "description" : "Exempel på en interoperabilitetsspecifikation (en FHIR IG) registrerad i tjänstekatalogen.",
+      "isExample" : true,
+      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Organization"
       },
       {
@@ -139,6 +237,23 @@
       "description" : "Exempel på en organisation som listar (\"har\") en ändpunkt i tjänstekatalogen.",
       "isExample" : true,
       "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Provenance"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Provenance-TKProvenanceExample.html"
+      }],
+      "reference" : {
+        "reference" : "Provenance/TKProvenanceExample"
+      },
+      "name" : "Exempel: spårbarhetspost för registrering",
+      "description" : "Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle.",
+      "isExample" : true,
+      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
     },
     {
       "extension" : [{
@@ -229,6 +344,38 @@
       },
       {
         "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-tk-api-specification-source-reference.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tk-api-specification-source-reference"
+      },
+      "name" : "Referens till källa",
+      "description" : "Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten CapabilityStatement.url (API-specifikation.referensTillKälla i informationsunderlaget).",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-tk-api-specification-category.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tk-api-specification-category"
+      },
+      "name" : "Specifikationskategori",
+      "description" : "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
         "valueUri" : "StructureDefinition-tk-endpoint-payload-profile.html"
       }],
       "reference" : {
@@ -305,6 +452,22 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:extension"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-tk-api-instance-endpoint.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tk-api-instance-endpoint"
+      },
+      "name" : "Tillgängliggörande ändpunkt",
+      "description" : "Den ändpunkt (TKEndpoint) som tillgängliggör denna API-instans (\"tillgängliggör\"). Basresursen CapabilityStatement har inget element för detta.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:resource"
       },
       {
@@ -316,6 +479,38 @@
       },
       "name" : "Tjänstekatalogen administratörsbehörighet",
       "description" : "Behörighet för en administratör att registrera/ändra poster i\ntjänstekatalogen för en given organisation (`local-admin`), eller att\ndessutom administrera andra administratörers behörigheter för samtliga\norganisationer (`central-admin`, `organization` utelämnad). Se\n[Roller och ansvar](roles-and-responsibilities.html) och\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-tk-api-instance.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tk-api-instance"
+      },
+      "name" : "Tjänstekatalogen API-instans",
+      "description" : "Ett API som en teknisk ändpunkt tillgängliggör (\"tillgängliggör\"), och den\neller de interoperabilitetsspecifikationer det följer (\"följer\"), som en\negen resurs med egen identitet och egen giltighetsperiod — se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-MDL-3, REQ-MDL-6, REQ-MDL-7.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-tk-api-specification-capability.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tk-api-specification-capability"
+      },
+      "name" : "Tjänstekatalogen API-specifikation",
+      "description" : "Metadata om en interoperabilitetsspecifikation (t.ex. en FHIR IG, ett\nRIVTA-tjänstekontrakt eller en OpenAPI/REST-beskrivning) som en\n[TKAPIInstance](StructureDefinition-tk-api-instance.html) kan referera via\n`.instantiates` (\"följer\"). `CapabilityStatement.url` är specifikationens\negen kanoniska/maskinläsbara identitet — samma värde som\n[TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html)\npå `Endpoint.payload` refererar för snabb sökbarhet. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-MDL-4.",
       "isExample" : false
     },
     {
@@ -348,6 +543,22 @@
       },
       "name" : "Tjänstekatalogen Organization",
       "description" : "Organisation i tjänstekatalogen. `Organization.endpoint` bär \"har\"-relationen\n— de ändpunkter organisationen listar i sin katalogpost, oavsett vem som\nförvaltar dem tekniskt. Sök efter dessa ändpunkter med\n[SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html) på\nEndpoint, med organisationens id/referens som värde. Den separata\n\"förvaltar\"-relationen (vem som tekniskt driftar en given ändpunkt) uttrycks\nistället av [TKEndpoint](StructureDefinition-tk-endpoint.html)s\n`managingOrganization`, sökbar med standardparametern `organization`.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "StructureDefinition-tk-provenance.html"
+      }],
+      "reference" : {
+        "reference" : "StructureDefinition/tk-provenance"
+      },
+      "name" : "Tjänstekatalogen Provenance",
+      "description" : "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen — vanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html.",
       "isExample" : false
     },
     {
@@ -570,6 +781,13 @@
     {
       "code" : {
         "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
+        "code" : "path-suppressed-warnings"
+      },
+      "value" : "input/ignoreWarnings.txt"
+    },
+    {
+      "code" : {
+        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
         "code" : "autoload-resources"
       },
       "value" : "true"
@@ -720,13 +938,6 @@
         "code" : "path-tx-cache"
       },
       "value" : "input-cache/txcache"
-    },
-    {
-      "code" : {
-        "system" : "http://hl7.org/fhir/tools/CodeSystem/ig-parameters",
-        "code" : "path-suppressed-warnings"
-      },
-      "value" : "input/ignoreWarnings.txt"
     },
     {
       "code" : {

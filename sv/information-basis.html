@@ -278,15 +278,20 @@ avvikelser eller tillägg i FHIR-realiseringen, och
 <a href="requirements.html">Kravkatalog</a> för de formella krav som härletts från
 modellen.</p>
 
-<p>Utöver dessa sex entiteter innehåller denna IG tre stakeholder-beslutade
-tillägg som inte kommer från informationsunderlaget: administratörsbehörighet
+<p>Utöver dessa sex entiteter innehåller denna IG tillägg som inte kommer
+direkt från informationsunderlaget: administratörsbehörighet
 (<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>,
 REQ-ADM-<em>), distribution/federering till lokala kataloger
 (<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic</a>,
-REQ-DIST-</em>) och en explicit gräns för vilka API:er som exponeras externt
-respektive endast internt (REQ-EXP-*). Se
+REQ-DIST-</em>), en explicit gräns för vilka API:er som exponeras externt
+respektive endast internt (REQ-EXP-<em>), och spårbarhet vid registrering
+(<a href="StructureDefinition-tk-provenance.html">TKProvenance</a> + transaction-Bundle,
+REQ-TRC-</em>). API och API-specifikation realiseras numera fullt ut som
+FHIR-resurser (<a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>
+respektive <a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a>,
+båda <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>-profiler), inte enbart logiska modeller. Se
 <a href="mappings.html">Mappning till profiler</a> för motivering av respektive
-tillägg.</p>
+tillägg och ändring.</p>
 
 <hr />
 
@@ -324,8 +329,8 @@ roller och ansvar beskrivs under <a href="use-cases.html">Användningsfall</a> o
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-09 11:47:00 +0000">
-    2026-09-09
+  <span title="2026-09-10 06:56:00 +0000">
+    2026-09-10
   </span>
 
           <br/>

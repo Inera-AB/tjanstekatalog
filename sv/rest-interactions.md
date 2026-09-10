@@ -7,12 +7,53 @@
 | | | | |
 | :--- | :--- | :--- | :--- |
 | [TKOrganization](StructureDefinition-tk-organization.md) | read, search-type (externt); create, update (endast internt) | `identifier`("logisk adress", se mappings.html REQ-ORG-5),`name` | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
-| [TKEndpoint](StructureDefinition-tk-endpoint.md) | read, search-type (externt); create, update (endast internt) | `organization`(standard, "förvaltar"),[`listed-by`](SearchParameter-tk-endpoint-listed-by.md)(egen, "har"),`status` | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
+| [TKEndpoint](StructureDefinition-tk-endpoint.md) | read, search-type (externt); create, update (endast internt) | `organization`(standard, "förvaltar"),[`listed-by`](SearchParameter-tk-endpoint-listed-by.md)(egen, "har"),`status`,[`implements`](SearchParameter-tk-endpoint-implements.md)(stödd interoperabilitetsspecifikation) | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
+| `CapabilityStatement`([TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.md)/[TKAPIInstance](StructureDefinition-tk-api-instance.md)) | read, search-type (externt); create, update (endast internt) | `url`,[`kind`](SearchParameter-tk-capabilitystatement-kind.md),[`instantiates`](SearchParameter-tk-capabilitystatement-instantiates.md) | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
+| [TKProvenance](StructureDefinition-tk-provenance.md) | read, search-type | `target` | Endast[TKAdminAPI](CapabilityStatement-tk-admin-api.md)(internt) |
 | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md) | read, search-type, create, update | `organization`,`practitioner` | Endast[TKAdminAPI](CapabilityStatement-tk-admin-api.md)(internt) |
 
 Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning exponeras externt via gateway ([TKSearchAPI](CapabilityStatement-tk-search-api.md)); skrivinteraktioner och administratörsbehörigheter finns endast i det internt exponerade [TKAdminAPI](CapabilityStatement-tk-admin-api.md). Se [CapabilityStatement](capabilitystatement.md) och [Säkerhet och behörighet](security.md).
 
 Tjänstekatalogens administrativa API exponerar inga egna skrivoperationer för att koppla organisation och ändpunkt — det görs istället hos E-hälsomyndigheten (EHM), av en Synkroniseringstjänst som läser härifrån. Se [Mappning mot EHM:s Organization Endpoint Writer](mappings.md) för EHM:s `$add-organization`/`$remove-organization`.
+
+-------
+
+### Registrering
+
+Tillagt efter jämförelse med en annan implementation av samma problem — löser REQ-MDL-5:s tidigare uppskjutna spårbarhetsfråga (se [Mappning till profiler](mappings.md)).
+
+Registrering (skapande/uppdatering av en `Organization`, `Endpoint` eller `CapabilityStatement`) SKA ske via systeminteraktionen `transaction`, med en obligatorisk [TKProvenance](StructureDefinition-tk-provenance.md)-post i samma Bundle (REQ-TRC-1/2):
+
+```
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:8f2e...",
+      "resource": { "resourceType": "Endpoint", "...": "..." },
+      "request": { "method": "POST", "url": "Endpoint" }
+    },
+    {
+      "resource": {
+        "resourceType": "Provenance",
+        "target": [{ "reference": "urn:uuid:8f2e..." }],
+        "recorded": "2026-09-09T10:00:00Z",
+        "agent": [{ "who": { "reference": "Organization/exempelregionen" } }]
+      },
+      "request": { "method": "POST", "url": "Provenance" }
+    }
+  ]
+}
+
+```
+
+```
+PUT [base]/
+
+```
+
+(FHIR:s systemnivå-transaktion skickas till bas-URL:en, inte till en resurstyps-URL.) Servern SKA behandla Bundlens poster atomiskt: antingen registreras samtliga poster, eller ingen. Enskilda `create`/`update`- interaktioner per resurstyp (se tabellen ovan) kvarstår som del av respektive resurstyps förmågor, men klienter SKA använda transaction-vägen för faktisk registrering, för att garantera att Provenance-posten alltid följer med.
 
 -------
 

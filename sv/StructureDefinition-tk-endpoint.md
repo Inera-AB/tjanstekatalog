@@ -7,7 +7,7 @@ Teknisk ändpunkt i tjänstekatalogen. Realiserar entiteten Ändpunkt i det bifo
 
 **Användningar:**
 
-* Referera till denna Profil: [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
+* Referera till denna Profil: [Tillgängliggörande ändpunkt](StructureDefinition-tk-api-instance-endpoint.md), [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md) and [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
 * Exempel för denna Profil: [Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) and [Tjänstekatalogen: sök-API (externt)](CapabilityStatement-tk-search-api.md)
 

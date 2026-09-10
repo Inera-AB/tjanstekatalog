@@ -7,7 +7,7 @@ Organisation i tjänstekatalogen. `Organization.endpoint` bär "har"-relationen 
 
 **Användningar:**
 
-* Referera till denna Profil: [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md), [API-specifikation (logisk modell)](StructureDefinition-tk-api-specification.md), [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md) and [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md)
+* Referera till denna Profil: [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md), [Tjänstekatalogen API-instans](StructureDefinition-tk-api-instance.md), [Ansvarig organisation (strukturerad referens)](StructureDefinition-tk-capabilitystatement-responsible-organization.md), [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)... Show 2 more, [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md) and [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
 * Exempel för denna Profil: [Exempelregionen](Organization-TKOrganizationExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) and [Tjänstekatalogen: sök-API (externt)](CapabilityStatement-tk-search-api.md)
 

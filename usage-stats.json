@@ -5,6 +5,41 @@
   "jurisdiction": "SE",
   "extensions": [
     {
+      "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint",
+      "title": "Tillgängliggörande ändpunkt",
+      "types": [
+        "Reference"
+      ]
+    },
+    {
+      "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period",
+      "title": "API-instansens giltighetsperiod",
+      "types": [
+        "Period"
+      ]
+    },
+    {
+      "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-category",
+      "title": "Specifikationskategori",
+      "types": [
+        "CodeableConcept"
+      ]
+    },
+    {
+      "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference",
+      "title": "Referens till källa",
+      "types": [
+        "url"
+      ]
+    },
+    {
+      "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-capabilitystatement-responsible-organization",
+      "title": "Ansvarig organisation (strukturerad referens)",
+      "types": [
+        "Reference"
+      ]
+    },
+    {
       "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url",
       "title": "URL till auktorisationsserver",
       "types": [
@@ -39,6 +74,16 @@
         "title": "Tjänstekatalogen administratörsbehörighet"
       }
     ],
+    "CapabilityStatement": [
+      {
+        "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance",
+        "title": "Tjänstekatalogen API-instans"
+      },
+      {
+        "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability",
+        "title": "Tjänstekatalogen API-specifikation"
+      }
+    ],
     "Endpoint": [
       {
         "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint",
@@ -49,6 +94,12 @@
       {
         "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization",
         "title": "Tjänstekatalogen Organization"
+      }
+    ],
+    "Provenance": [
+      {
+        "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance",
+        "title": "Tjänstekatalogen Provenance"
       }
     ]
   },
@@ -62,11 +113,17 @@
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName": [
       "StructureDefinition.snapshot.element.binding"
     ],
+    "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable": [
+      "StructureDefinition.snapshot.element"
+    ],
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type": [
       "StructureDefinition.snapshot.element.type"
     ],
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy": [
       "StructureDefinition.snapshot.element.type"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/structuredefinition-implements": [
+      "StructureDefinition"
     ],
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-type-characteristics": [
       "StructureDefinition"
@@ -82,6 +139,21 @@
     ],
     "http://hl7.org/fhir/tools/StructureDefinition/snapshot-base-version": [
       "StructureDefinition.snapshot"
+    ],
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint": [
+      "CapabilityStatement"
+    ],
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period": [
+      "CapabilityStatement"
+    ],
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-category": [
+      "CapabilityStatement"
+    ],
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference": [
+      "CapabilityStatement"
+    ],
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-capabilitystatement-responsible-organization": [
+      "CapabilityStatement"
     ],
     "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url": [
       "Endpoint"

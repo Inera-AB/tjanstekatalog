@@ -1,0 +1,45 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-kind> a fhir:SearchParameter ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "tk-capabilitystatement-kind"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: SearchParameter tk-capabilitystatement-kind</b></p><a name=\"tk-capabilitystatement-kind\"> </a><a name=\"hctk-capabilitystatement-kind\"> </a><h2>TKCapabilityStatementKind</h2><p>Parameter <code>kind</code>:<code>token</code></p><div><p>Söker CapabilityStatement-resurser efter kind. Används för att skilja API-specifikationer (kind=requirements, TKAPISpecificationCapability) från API-instanser (kind=instance, TKAPIInstance) vid sökning.</p>\n</div><table class=\"grid\"><tr><td>Resurs</td><td><a href=\"http://hl7.org/fhir/R5/capabilitystatement.html\">CapabilityStatement</a></td></tr><tr><td>Uttryck</td><td><code>CapabilityStatement.kind</code></td></tr><tr><td>Multipler</td><td><ul><li>multipleAnd: Det är upp till servern om parametern får upprepas för att ange flera värden som alla måste vara sanna</li><li>multipleOr: Det är upp till servern om parametern kan ha flera värden (separerade med kommatecken) där minst ett måste vara sant</li></ul></td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-kind"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TKCapabilityStatementKind"] ; # 
+  fhir:title [ fhir:v "CapabilityStatement: kind"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-09-09"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Söker CapabilityStatement-resurser efter kind. Används för att skilja API-specifikationer (kind=requirements, TKAPISpecificationCapability) från API-instanser (kind=instance, TKAPIInstance) vid sökning."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:code [ fhir:v "kind"] ; # 
+  fhir:base ( [ fhir:v "CapabilityStatement"] ) ; # 
+  fhir:type [ fhir:v "token"] ; # 
+  fhir:expression [ fhir:v "CapabilityStatement.kind"] . # 
+
+# -------------------------------------------------------------------------------------
+

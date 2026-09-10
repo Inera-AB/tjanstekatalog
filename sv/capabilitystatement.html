@@ -221,16 +221,27 @@ med en medveten exponeringsgräns mellan dem (stakeholder-beslut, REQ-EXP-1/2
       <td><a href="CapabilityStatement-tk-search-api.html">Tjänstekatalogen: sök-API</a></td>
       <td>Server</td>
       <td><strong>Externt</strong>, via gateway</td>
-      <td>Läsande sökning (<code class="language-plaintext highlighter-rouge">read</code>/<code class="language-plaintext highlighter-rouge">search-type</code>) av <a href="StructureDefinition-tk-organization.html">TKOrganization</a> och <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>, inklusive sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code>.</td>
+      <td>Läsande sökning (<code class="language-plaintext highlighter-rouge">read</code>/<code class="language-plaintext highlighter-rouge">search-type</code>) av <a href="StructureDefinition-tk-organization.html">TKOrganization</a>, <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a> och <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (API-specifikationer/API-instanser), inklusive sökparametrarna <code class="language-plaintext highlighter-rouge">listed-by</code> och <code class="language-plaintext highlighter-rouge">implements</code>.</td>
     </tr>
     <tr>
       <td><a href="CapabilityStatement-tk-admin-api.html">Tjänstekatalogen: administrativt API</a></td>
       <td>Server</td>
       <td><strong>Endast internt</strong></td>
-      <td>Samma resurser som sök-API:et, plus skrivinteraktioner (<code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>) och administratörsbehörigheter (<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>).</td>
+      <td>Samma resurser som sök-API:et, plus skrivinteraktioner (<code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>), systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code> (REQ-TRC-2), <code class="language-plaintext highlighter-rouge">Provenance</code> och administratörsbehörigheter (<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>).</td>
     </tr>
   </tbody>
 </table>
+
+<p><strong>Notera den dubbla användningen av <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>.</strong> Tabellen ovan
+beskriver <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>-resurser som beskriver <em>denna IG:s egna
+API:er</em> (metaanvändning, standard FHIR-praxis). Denna IG lagrar dessutom
+<code class="language-plaintext highlighter-rouge">CapabilityStatement</code>-resurser som <em>katalogens innehåll</em> — API-specifikationer
+(<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a>,
+kind=requirements) och API-instanser
+(<a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>, kind=instance)
+— sökbara via sök-/admin-API:et ovan. Se REQ-MDL-4/6/7 och
+<a href="mappings.html">Mappning till profiler</a> för motiveringen till detta
+modelleringsval.</p>
 
 <p>Denna IG definierar också ett prenumerationsämne för distribution till
 lokala kataloger:
@@ -285,8 +296,8 @@ definierat.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-09 11:47:00 +0000">
-    2026-09-09
+  <span title="2026-09-10 06:56:00 +0000">
+    2026-09-10
   </span>
 
           <br/>

@@ -1,9 +1,22 @@
 [{
+  "id" : "TKAPISpecificationCapabilityExample",
+  "type" : "CapabilityStatement",
+  "url" : "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation",
+  "version" : "0.1.0",
+  "name" : "IneraPatientinformation"
+},
+{
   "id" : "tk-synkroniseringstjanst",
   "type" : "ActorDefinition",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst",
   "version" : "0.1.0",
   "name" : "TKSynkroniseringstjanst"
+},
+{
+  "id" : "TKAPIInstanceExample",
+  "type" : "CapabilityStatement",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/TKAPIInstanceExample",
+  "version" : "0.1.0"
 },
 {
   "id" : "tk-admin-api",
@@ -48,6 +61,27 @@
   "name" : "TKTjanstekatalogRequirements"
 },
 {
+  "id" : "tk-capabilitystatement-instantiates",
+  "type" : "SearchParameter",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates",
+  "version" : "0.1.0",
+  "name" : "TKCapabilityStatementInstantiates"
+},
+{
+  "id" : "tk-capabilitystatement-kind",
+  "type" : "SearchParameter",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-kind",
+  "version" : "0.1.0",
+  "name" : "TKCapabilityStatementKind"
+},
+{
+  "id" : "tk-endpoint-implements",
+  "type" : "SearchParameter",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements",
+  "version" : "0.1.0",
+  "name" : "TKEndpointImplements"
+},
+{
   "id" : "tk-endpoint-listed-by",
   "type" : "SearchParameter",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by",
@@ -69,11 +103,53 @@
   "name" : "TKAdministratorRole"
 },
 {
-  "id" : "tk-api-specification",
+  "id" : "tk-api-instance",
   "type" : "StructureDefinition",
-  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance",
   "version" : "0.1.0",
-  "name" : "TKAPISpecification"
+  "name" : "TKAPIInstance"
+},
+{
+  "id" : "tk-api-instance-endpoint",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint",
+  "version" : "0.1.0",
+  "name" : "TKAPIInstanceEndpoint"
+},
+{
+  "id" : "tk-api-instance-period",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period",
+  "version" : "0.1.0",
+  "name" : "TKAPIInstancePeriod"
+},
+{
+  "id" : "tk-api-specification-capability",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability",
+  "version" : "0.1.0",
+  "name" : "TKAPISpecificationCapability"
+},
+{
+  "id" : "tk-api-specification-category",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-category",
+  "version" : "0.1.0",
+  "name" : "TKAPISpecificationCategory"
+},
+{
+  "id" : "tk-api-specification-source-reference",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference",
+  "version" : "0.1.0",
+  "name" : "TKAPISpecificationSourceReference"
+},
+{
+  "id" : "tk-capabilitystatement-responsible-organization",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-capabilitystatement-responsible-organization",
+  "version" : "0.1.0",
+  "name" : "TKCapabilityStatementResponsibleOrganization"
 },
 {
   "id" : "tk-endpoint",
@@ -116,6 +192,13 @@
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization",
   "version" : "0.1.0",
   "name" : "TKOrganization"
+},
+{
+  "id" : "tk-provenance",
+  "type" : "StructureDefinition",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance",
+  "version" : "0.1.0",
+  "name" : "TKProvenance"
 },
 {
   "id" : "tk-vard-och-omsorgstagare",

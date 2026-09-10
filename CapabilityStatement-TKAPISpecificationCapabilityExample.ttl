@@ -1,0 +1,66 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/TKAPISpecificationCapabilityExample> a fhir:CapabilityStatement ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "TKAPISpecificationCapabilityExample"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability"^^xsd:anyURI ;
+       fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "extensions" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: CapabilityStatement TKAPISpecificationCapabilityExample</b></p><a name=\"TKAPISpecificationCapabilityExample\"> </a><a name=\"hcTKAPISpecificationCapabilityExample\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"StructureDefinition-tk-api-specification-capability.html\">Tjänstekatalogen API-specifikation</a></p></div><h2 id=\"title\">Patientinformation (Inera FHIR IG)</h2><ul><li>Implementationsguidens version: 0.1.0 </li><li>FHIR-version: 5.0.0 </li><li>Format som stöds: <code>json</code></li><li>Publicerad: 2026-01-15 </li><li>Publicerad av: Inera AB </li></ul><blockquote class=\"impl-note\"><p><strong>Notera till implementörer: FHIR-förmågor</strong></p><p>Vilken FHIR-förmåga som helst kan vara 'tillåten' av systemet om den inte uttryckligen är markerad som 'SHALL NOT'. Några objekt är markerade som MAY i implementationsguiden för att belysa deras potentiella relevans för användningsfallet.</p></blockquote><h2 id=\"rest\">FHIR RESTful-förmågor</h2><div class=\"panel panel-default\"><div class=\"panel-heading\"><h3 id=\"mode1\" class=\"panel-title\">Mode: <code>server</code></h3></div><div class=\"panel-body\"><div><p>Se specifikationens egen IG för fullständiga REST-förmågor.</p>\n</div></div></div></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:extension ( [
+     fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-category"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:CodeableConcept ;
+       fhir:text [ fhir:v "FHIR" ]
+     ]
+  ] [
+     fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference"^^xsd:anyURI ] ;
+     fhir:value [
+       a fhir:url ;
+       fhir:v "https://fhir.inera.se/ig/patientinformation/"^^xsd:anyURI
+     ]
+  ] ) ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "IneraPatientinformation"] ; # 
+  fhir:title [ fhir:v "Patientinformation (Inera FHIR IG)"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:date [ fhir:v "2026-01-15"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Interoperabilitetsspecifikation för utbyte av patientinformation mellan vårdgivare."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:kind [ fhir:v "requirements"] ; # 
+  fhir:fhirVersion [ fhir:v "5.0.0"] ; # 
+  fhir:format ( [ fhir:v "json"] ) ; # 
+  fhir:rest ( [
+     fhir:mode [ fhir:v "server" ] ;
+     fhir:documentation [ fhir:v "Se specifikationens egen IG för fullständiga REST-förmågor." ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

@@ -34,7 +34,6 @@
 
 ### Logicals
 
-* [API-specifikation (logisk modell)](sv/StructureDefinition-tk-api-specification.md)
 * [Indexpost (logisk modell)](sv/StructureDefinition-tk-indexpost.md)
 * [Vård- och omsorgstagare (logisk modell)](sv/StructureDefinition-tk-vard-och-omsorgstagare.md)
 
@@ -42,11 +41,19 @@
 
 * [Inera Patient](sv/StructureDefinition-IneraPatient.md)
 * [Tjänstekatalogen administratörsbehörighet](sv/StructureDefinition-tk-administrator-role.md)
+* [Tjänstekatalogen API-instans](sv/StructureDefinition-tk-api-instance.md)
+* [Tjänstekatalogen API-specifikation](sv/StructureDefinition-tk-api-specification-capability.md)
 * [Tjänstekatalogen Endpoint](sv/StructureDefinition-tk-endpoint.md)
 * [Tjänstekatalogen Organization](sv/StructureDefinition-tk-organization.md)
+* [Tjänstekatalogen Provenance](sv/StructureDefinition-tk-provenance.md)
 
 ### Extensions
 
+* [Tillgängliggörande ändpunkt](sv/StructureDefinition-tk-api-instance-endpoint.md)
+* [API-instansens giltighetsperiod](sv/StructureDefinition-tk-api-instance-period.md)
+* [Specifikationskategori](sv/StructureDefinition-tk-api-specification-category.md)
+* [Referens till källa](sv/StructureDefinition-tk-api-specification-source-reference.md)
+* [Ansvarig organisation (strukturerad referens)](sv/StructureDefinition-tk-capabilitystatement-responsible-organization.md)
 * [URL till auktorisationsserver](sv/StructureDefinition-tk-endpoint-authorization-server-url.md)
 * [Stödd specifikation (payload profile)](sv/StructureDefinition-tk-endpoint-payload-profile.md)
 * [Säkerhetsmetod](sv/StructureDefinition-tk-endpoint-security-method.md)
@@ -70,6 +77,9 @@
 
 ### SearchParameters
 
+* [CapabilityStatement: instantiates](sv/SearchParameter-tk-capabilitystatement-instantiates.md)
+* [CapabilityStatement: kind](sv/SearchParameter-tk-capabilitystatement-kind.md)
+* [Endpoint: implements](sv/SearchParameter-tk-endpoint-implements.md)
 * [Endpoint: listed-by](sv/SearchParameter-tk-endpoint-listed-by.md)
 
 ### SubscriptionTopics
@@ -78,6 +88,9 @@
 
 ### Examples
 
+* [TKAPIInstanceExample (CapabilityStatement)](sv/CapabilityStatement-TKAPIInstanceExample.md)
+* [Patientinformation (Inera FHIR IG) (CapabilityStatement)](sv/CapabilityStatement-TKAPISpecificationCapabilityExample.md)
 * [Exempelregionens patientinformations-API (Endpoint)](sv/Endpoint-TKEndpointExample.md)
 * [Exempelregionen (Organization)](sv/Organization-TKOrganizationExample.md)
 * [IneraPatientExample (Patient)](sv/Patient-IneraPatientExample.md)
+* [TKProvenanceExample (Provenance)](sv/Provenance-TKProvenanceExample.md)

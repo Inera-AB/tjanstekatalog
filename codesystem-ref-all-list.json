@@ -1,5 +1,17 @@
 {
   "codeSystems" : [{
+    "url" : "http://hl7.org/fhir/FHIR-version",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "FHIRVersion",
+    "title" : "FHIRVersion",
+    "description" : "All published FHIR Versions.",
+    "oids" : ["2.16.840.1.113883.4.642.4.1310"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-FHIR-version.html" : "FHIRVersion"
+  },
+  {
     "url" : "http://hl7.org/fhir/address-type",
     "version" : "5.0.0",
     "status" : "active",
@@ -36,6 +48,60 @@
     "http://hl7.org/fhir/R5/valueset-administrative-gender.html" : "AdministrativeGender"
   },
   {
+    "url" : "http://hl7.org/fhir/capability-statement-kind",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "CapabilityStatementKind",
+    "title" : "Capability Statement Kind",
+    "description" : "How a capability statement is intended to be used.",
+    "oids" : ["2.16.840.1.113883.4.642.4.199",
+    "2.16.840.1.113883.4.642.1.189"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-capability-statement-kind.html" : "Capability Statement Kind"
+  },
+  {
+    "url" : "http://hl7.org/fhir/conditional-delete-status",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ConditionalDeleteStatus",
+    "title" : "Conditional Delete Status",
+    "description" : "A code that indicates how the server supports conditional delete.",
+    "oids" : ["2.16.840.1.113883.4.642.2.91",
+    "2.16.840.1.113883.4.642.4.195",
+    "2.16.840.1.113883.4.642.1.185"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-conditional-delete-status.html" : "Conditional Delete Status"
+  },
+  {
+    "url" : "http://hl7.org/fhir/conditional-read-status",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ConditionalReadStatus",
+    "title" : "Conditional Read Status",
+    "description" : "A code that indicates how the server supports conditional read.",
+    "oids" : ["2.16.840.1.113883.4.642.1.191",
+    "2.16.840.1.113883.4.642.4.201"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-conditional-read-status.html" : "Conditional Read Status"
+  },
+  {
+    "url" : "http://hl7.org/fhir/document-mode",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "DocumentMode",
+    "title" : "Document Mode",
+    "description" : "Whether the application produces or consumes documents.",
+    "oids" : ["2.16.840.1.113883.4.642.2.87",
+    "2.16.840.1.113883.4.642.4.187",
+    "2.16.840.1.113883.4.642.1.177"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-document-mode.html" : "Document Mode"
+  },
+  {
     "url" : "http://hl7.org/fhir/endpoint-environment",
     "version" : "5.0.0",
     "status" : "active",
@@ -59,6 +125,43 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R5/valueset-endpoint-status.html" : "Endpoint Status"
+  },
+  {
+    "url" : "http://hl7.org/fhir/event-capability-mode",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "EventCapabilityMode",
+    "title" : "Event Capability Mode",
+    "description" : "The mode of a message capability statement.",
+    "oids" : ["2.16.840.1.113883.4.642.1.173",
+    "2.16.840.1.113883.4.642.4.183"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-event-capability-mode.html" : "Event Capability Mode"
+  },
+  {
+    "url" : "http://hl7.org/fhir/fhir-format-type",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "FHIRFormatType",
+    "title" : "FHIR Format Type",
+    "description" : "FHIR Format types",
+    "oids" : ["2.16.840.1.113883.4.642.4.1911"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-capability-format-type.html" : "Capability Format Type"
+  },
+  {
+    "url" : "http://hl7.org/fhir/fhir-types",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "FHIRTypes",
+    "title" : "All FHIR Types",
+    "description" : "One of the types defined as part of this version of FHIR.",
+    "oids" : ["2.16.840.1.113883.4.642.4.1802"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-resource-types.html" : "Resource Types"
   },
   {
     "url" : "http://hl7.org/fhir/identifier-use",
@@ -87,6 +190,18 @@
     "http://hl7.org/fhir/R5/valueset-link-type.html" : "Link Type"
   },
   {
+    "url" : "http://hl7.org/fhir/message-transport",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "MessageTransport",
+    "title" : "Message Transport",
+    "description" : "The protocol used for message transport.",
+    "oids" : ["2.16.840.1.113883.4.642.4.1080"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-message-transport.html" : "Message Transport"
+  },
+  {
     "url" : "http://hl7.org/fhir/name-use",
     "version" : "5.0.0",
     "status" : "active",
@@ -99,6 +214,107 @@
     "http://hl7.org/fhir/R5/valueset-name-use.html" : "NameUse"
   },
   {
+    "url" : "http://hl7.org/fhir/provenance-entity-role",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ProvenanceEntityRole",
+    "title" : "Provenance Entity Role",
+    "description" : "How an entity was used in an activity.",
+    "oids" : ["2.16.840.1.113883.4.642.1.428",
+    "2.16.840.1.113883.4.642.2.247",
+    "2.16.840.1.113883.4.642.4.437"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-provenance-entity-role.html" : "Provenance Entity Role"
+  },
+  {
+    "url" : "http://hl7.org/fhir/publication-status",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "PublicationStatus",
+    "title" : "PublicationStatus",
+    "description" : "The lifecycle status of an artifact.",
+    "oids" : ["2.16.840.1.113883.4.642.4.4"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-publication-status.html" : "PublicationStatus"
+  },
+  {
+    "url" : "http://hl7.org/fhir/reference-handling-policy",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ReferenceHandlingPolicy",
+    "title" : "Reference Handling Policy",
+    "description" : "A set of flags that defines how references are supported.",
+    "oids" : ["2.16.840.1.113883.4.642.4.203",
+    "2.16.840.1.113883.4.642.1.193"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-reference-handling-policy.html" : "Reference Handling Policy"
+  },
+  {
+    "url" : "http://hl7.org/fhir/restful-capability-mode",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "RestfulCapabilityMode",
+    "title" : "Restful Capability Mode",
+    "description" : "The mode of a RESTful capability statement.",
+    "oids" : ["2.16.840.1.113883.4.642.4.177",
+    "2.16.840.1.113883.4.642.1.167"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-restful-capability-mode.html" : "Restful Capability Mode"
+  },
+  {
+    "url" : "http://hl7.org/fhir/restful-interaction",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "FHIRRestfulInteractions",
+    "title" : "FHIR Restful Interactions",
+    "description" : "The set of interactions defined by the RESTful part of the FHIR specification.",
+    "oids" : ["2.16.840.1.113883.4.642.4.1823"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-type-restful-interaction.html" : "Type Restful Interaction",
+    "http://hl7.org/fhir/R5/valueset-system-restful-interaction.html" : "System Restful Interaction"
+  },
+  {
+    "url" : "http://hl7.org/fhir/restful-security-service",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "RestfulSecurityService",
+    "title" : "Restful Security Service",
+    "description" : "Types of security services used with FHIR.",
+    "oids" : ["2.16.840.1.113883.4.642.4.1079"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-restful-security-service.html" : "Restful Security Service"
+  },
+  {
+    "url" : "http://hl7.org/fhir/sample-security-structural-roles",
+    "version" : "5.0.0",
+    "status" : "draft",
+    "name" : "SampleSecurityStructuralRoles",
+    "title" : "Sample Codes for Security Structural Role",
+    "description" : "This codeSystem contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions..",
+    "oids" : ["2.16.840.1.113883.4.642.4.1800"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-security-role-type.html" : "Security Role Type"
+  },
+  {
+    "url" : "http://hl7.org/fhir/search-param-type",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "SearchParamType",
+    "title" : "SearchParamType",
+    "description" : "Data types allowed to be used for search parameters.",
+    "oids" : ["2.16.840.1.113883.4.642.4.12"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-search-param-type.html" : "SearchParamType"
+  },
+  {
     "url" : "http://hl7.org/fhir/service-mode",
     "version" : "5.0.0",
     "status" : "active",
@@ -109,6 +325,32 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R5/valueset-service-mode.html" : "Service Mode"
+  },
+  {
+    "url" : "http://hl7.org/fhir/version-algorithm",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "VersionAlgorithm",
+    "title" : "Version Algorithm",
+    "description" : "Indicates the mechanism used to compare versions to determine which is more current.",
+    "oids" : ["2.16.840.1.113883.4.642.4.1989"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-version-algorithm.html" : "Version Algorithm"
+  },
+  {
+    "url" : "http://hl7.org/fhir/versioning-policy",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ResourceVersionPolicy",
+    "title" : "Resource Version Policy",
+    "description" : "How the system supports versioning for a resource.",
+    "oids" : ["2.16.840.1.113883.4.642.1.181",
+    "2.16.840.1.113883.4.642.2.89",
+    "2.16.840.1.113883.4.642.4.191"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-versioning-policy.html" : "Resource Version Policy"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/endpoint-connection-type",
@@ -133,6 +375,28 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R5/valueset-endpoint-payload-type.html" : "Endpoint Payload Type"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/extra-security-role-type",
+    "version" : "1.0.1",
+    "status" : "active",
+    "name" : "SecurityRoleType",
+    "title" : "Security Role Type",
+    "description" : "This CodeSystem contains Additional FHIR-defined Security Role types not defined elsewhere",
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-participation-role-type.html" : "Participation Role Type"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle",
+    "version" : "1.0.0",
+    "status" : "active",
+    "name" : "Iso_21089_2017_Health_Record_Lifecycle_Events",
+    "title" : "ISO 21089 2017 Health Record Lifecycle Events",
+    "description" : "Attached is vocabulary for the 27 record lifecycle events, as per ISO TS 21089-2017, Health Informatics - Trusted End-to-End Information Flows, Section 3, Terms and Definitions (2017, at ISO Central Secretariat, passed ballot and ready for publication).  This will also be included in the FHIR EHR Record Lifecycle Event Implementation Guide, balloted and (to be) published with FHIR STU-3.",
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-provenance-activity-type.html" : "ValueSet of sample of representative activity type codes."
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/organization-type",
@@ -169,6 +433,18 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R5/valueset-identifier-type.html" : "Identifier Type Codes"
+  },
+  {
+    "url" : "http://terminology.hl7.org/CodeSystem/v3-ActReason",
+    "version" : "4.0.0",
+    "status" : "active",
+    "name" : "ActReason",
+    "title" : "ActReason",
+    "description" : "A set of codes specifying the motivation, cause, or rationale of an Act, when such rationale is not reasonably represented as an ActRelationship of type \"has reason\" linking to another Act.\r\n\r\n*Examples:* Example reasons that might qualify for being coded in this field might be: \"routine requirement\", \"infectious disease reporting requirement\", \"on patient request\", \"required by law\".",
+    "oids" : ["2.16.840.1.113883.5.8"],
+    "uses" : {
+    },
+    "http://terminology.hl7.org/7.3.0/ValueSet-v3-PurposeOfUse.html" : "PurposeOfUse"
   },
   {
     "url" : "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",

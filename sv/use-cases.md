@@ -12,7 +12,7 @@ En tjänstekonsument känner till en organisations identitet (t.ex. organisation
 
 #### Registrera en ny ändpunkt
 
-En organisation, eller dess systemleverantör, skapar en ny `Endpoint`-resurs i tjänstekatalogens administrativa API, med adress, protokoll, säkerhetsmetod och de interoperabilitetsspecifikationer ändpunkten stödjer.
+En organisation, eller dess systemleverantör, registrerar en ny `Endpoint` i tjänstekatalogens administrativa API — med adress, protokoll, säkerhetsmetod och de interoperabilitetsspecifikationer ändpunkten stödjer — via en transaction-Bundle som SKA innehålla en tillhörande `Provenance`-post (se [REST-interaktioner: Registrering](rest-interactions.md)).
 
 -------
 

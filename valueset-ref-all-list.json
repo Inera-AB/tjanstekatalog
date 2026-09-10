@@ -1,5 +1,20 @@
 {
   "codeSystems" : [{
+    "url" : "http://hl7.org/fhir/ValueSet/FHIR-version",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "FHIRVersion",
+    "title" : "FHIRVersion",
+    "description" : "All published FHIR Versions.",
+    "systems" : ["http://hl7.org/fhir/FHIR-version"],
+    "oids" : ["2.16.840.1.113883.4.642.3.1309"],
+    "sources" : ["2.16.840.1.113883.4.642.3.1309"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
     "url" : "http://hl7.org/fhir/ValueSet/address-type",
     "version" : "5.0.0",
     "status" : "active",
@@ -53,10 +68,13 @@
     "sources" : ["2.16.840.1.113883.4.642.3.21"],
     "uses" : {
     },
-    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
     "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
+    "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/c80-practice-codes",
@@ -73,6 +91,93 @@
     "uses" : {
     },
     "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/capability-format-type",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "CapabilityFormatType",
+    "title" : "Capability Format Type",
+    "description" : "Common format types for FHIR.",
+    "systems" : ["urn:ietf:bcp:13", "http://hl7.org/fhir/fhir-format-type"],
+    "oids" : ["2.16.840.1.113883.4.642.3.2987"],
+    "sources" : ["2.16.840.1.113883.4.642.3.2987"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/capability-statement-kind",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "CapabilityStatementKind",
+    "title" : "Capability Statement Kind",
+    "description" : "How a capability statement is intended to be used.",
+    "systems" : ["http://hl7.org/fhir/capability-statement-kind"],
+    "oids" : ["2.16.840.1.113883.4.642.3.188",
+    "2.16.840.1.113883.4.642.3.198"],
+    "sources" : ["2.16.840.1.113883.4.642.3.188",
+    "2.16.840.1.113883.4.642.3.198"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/conditional-delete-status",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ConditionalDeleteStatus",
+    "title" : "Conditional Delete Status",
+    "description" : "A code that indicates how the server supports conditional delete.",
+    "systems" : ["http://hl7.org/fhir/conditional-delete-status"],
+    "oids" : ["2.16.840.1.113883.4.642.3.194",
+    "2.16.840.1.113883.4.642.2.91",
+    "2.16.840.1.113883.4.642.3.184"],
+    "sources" : ["2.16.840.1.113883.4.642.3.194",
+    "2.16.840.1.113883.4.642.2.91",
+    "2.16.840.1.113883.4.642.3.184"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/conditional-read-status",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ConditionalReadStatus",
+    "title" : "Conditional Read Status",
+    "description" : "A code that indicates how the server supports conditional read.",
+    "systems" : ["http://hl7.org/fhir/conditional-read-status"],
+    "oids" : ["2.16.840.1.113883.4.642.3.200",
+    "2.16.840.1.113883.4.642.3.190"],
+    "sources" : ["2.16.840.1.113883.4.642.3.200",
+    "2.16.840.1.113883.4.642.3.190"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/document-mode",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "DocumentMode",
+    "title" : "Document Mode",
+    "description" : "Whether the application produces or consumes documents.",
+    "systems" : ["http://hl7.org/fhir/document-mode"],
+    "oids" : ["2.16.840.1.113883.4.642.2.87",
+    "2.16.840.1.113883.4.642.3.186",
+    "2.16.840.1.113883.4.642.3.176"],
+    "sources" : ["2.16.840.1.113883.4.642.2.87",
+    "2.16.840.1.113883.4.642.3.186",
+    "2.16.840.1.113883.4.642.3.176"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/endpoint-connection-type",
@@ -139,6 +244,23 @@
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
   },
   {
+    "url" : "http://hl7.org/fhir/ValueSet/event-capability-mode",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "EventCapabilityMode",
+    "title" : "Event Capability Mode",
+    "description" : "The mode of a message capability statement.",
+    "systems" : ["http://hl7.org/fhir/event-capability-mode"],
+    "oids" : ["2.16.840.1.113883.4.642.3.182",
+    "2.16.840.1.113883.4.642.3.172"],
+    "sources" : ["2.16.840.1.113883.4.642.3.182",
+    "2.16.840.1.113883.4.642.3.172"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
     "url" : "http://hl7.org/fhir/ValueSet/identifier-type",
     "version" : "5.0.0",
     "status" : "active",
@@ -151,8 +273,8 @@
     "uses" : {
     },
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
+    "StructureDefinition-IneraPatient.html" : "Inera Patient"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/identifier-use",
@@ -167,8 +289,25 @@
     "uses" : {
     },
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
+    "StructureDefinition-IneraPatient.html" : "Inera Patient"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/jurisdiction",
+    "version" : "5.0.0",
+    "status" : "draft",
+    "name" : "JurisdictionValueSet",
+    "title" : "Jurisdiction ValueSet",
+    "description" : "This value set defines a base set of codes for country, country subdivision and region    for indicating where a resource is intended to be used.   \r\n   \r\n   Note: The codes for countries and country subdivisions are taken from    [ISO 3166](https://www.iso.org/iso-3166-country-codes.html)    while the codes for \"supra-national\" regions are from    [UN Standard country or area codes for statistical use (M49)](http://unstats.un.org/unsd/methods/m49/m49.htm).",
+    "systems" : ["http://unstats.un.org/unsd/methods/m49/m49.htm",
+    "urn:iso:std:iso:3166",
+    "urn:iso:std:iso:3166:-2"],
+    "oids" : ["2.16.840.1.113883.4.642.3.48"],
+    "sources" : ["2.16.840.1.113883.4.642.3.48"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/languages",
@@ -184,10 +323,13 @@
     "2.16.840.1.113883.4.642.3.20"],
     "uses" : {
     },
-    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
     "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
+    "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/link-type",
@@ -223,6 +365,25 @@
     "StructureDefinition-IneraPatient.html" : "Inera Patient"
   },
   {
+    "url" : "http://hl7.org/fhir/ValueSet/message-transport",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "MessageTransport",
+    "title" : "Message Transport",
+    "description" : "The protocol used for message transport.",
+    "systems" : ["http://hl7.org/fhir/message-transport"],
+    "oids" : ["2.16.840.1.113883.4.642.2.86",
+    "2.16.840.1.113883.4.642.3.184",
+    "2.16.840.1.113883.4.642.3.174"],
+    "sources" : ["2.16.840.1.113883.4.642.2.86",
+    "2.16.840.1.113883.4.642.3.184",
+    "2.16.840.1.113883.4.642.3.174"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
     "url" : "http://hl7.org/fhir/ValueSet/mimetypes",
     "version" : "5.0.0",
     "status" : "active",
@@ -234,7 +395,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.1024"],
     "uses" : {
     },
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/name-use",
@@ -269,6 +432,22 @@
     "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
+    "url" : "http://hl7.org/fhir/ValueSet/participation-role-type",
+    "version" : "5.0.0",
+    "status" : "draft",
+    "name" : "ParticipationRoleType",
+    "title" : "Participation Role Type",
+    "description" : "This FHIR value set is comprised of Actor participation Type codes, which can be used to value FHIR agents, actors, and other role elements. The codes are intended to express how the agent participated in some activity. Sometimes refered to the agent functional-role relative to the activity.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/extra-security-role-type",
+    "http://terminology.hl7.org/CodeSystem/provenance-participant-type",
+    "http://dicom.nema.org/resources/ontology/DCM"],
+    "oids" : ["2.16.840.1.113883.4.642.3.54"],
+    "sources" : ["2.16.840.1.113883.4.642.3.54"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance"
+  },
+  {
     "url" : "http://hl7.org/fhir/ValueSet/patient-contactrelationship",
     "version" : "5.0.0",
     "status" : "active",
@@ -283,6 +462,152 @@
     "StructureDefinition-IneraPatient.html" : "Inera Patient"
   },
   {
+    "url" : "http://hl7.org/fhir/ValueSet/provenance-activity-type",
+    "version" : "5.0.0",
+    "status" : "draft",
+    "name" : "ProvenanceActivityType",
+    "title" : "ValueSet of sample of representative activity type codes.",
+    "description" : "Some potential code systems are:\n- [v3-DocumentCompletion](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DocumentCompletion.html)\n- [v3-DataOperation](http://terminology.hl7.org/3.0.0/CodeSystem-v3-DataOperation.html)\n- [v3-ActCode](http://hl7.org/fhir/v3/ActCode/cs.html)\n- [ISO Lifecycle](http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle)",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/iso-21089-lifecycle"],
+    "oids" : ["2.16.840.1.113883.4.642.3.429",
+    "2.16.840.1.113883.4.642.3.438"],
+    "sources" : ["2.16.840.1.113883.4.642.3.429",
+    "2.16.840.1.113883.4.642.3.438"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/provenance-entity-role",
+    "version" : "5.0.0",
+    "status" : "draft",
+    "name" : "ProvenanceEntityRole",
+    "title" : "Provenance Entity Role",
+    "description" : "How an entity was used in an activity.",
+    "systems" : ["http://hl7.org/fhir/provenance-entity-role"],
+    "oids" : ["2.16.840.1.113883.4.642.3.436",
+    "2.16.840.1.113883.4.642.2.247",
+    "2.16.840.1.113883.4.642.3.427"],
+    "sources" : ["2.16.840.1.113883.4.642.3.436",
+    "2.16.840.1.113883.4.642.2.247",
+    "2.16.840.1.113883.4.642.3.427"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/publication-status",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "PublicationStatus",
+    "title" : "PublicationStatus",
+    "description" : "The lifecycle status of an artifact.",
+    "systems" : ["http://hl7.org/fhir/publication-status"],
+    "oids" : ["2.16.840.1.113883.4.642.3.3"],
+    "sources" : ["2.16.840.1.113883.4.642.3.3"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/reference-handling-policy",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ReferenceHandlingPolicy",
+    "title" : "Reference Handling Policy",
+    "description" : "A set of flags that defines how references are supported.",
+    "systems" : ["http://hl7.org/fhir/reference-handling-policy"],
+    "oids" : ["2.16.840.1.113883.4.642.3.202",
+    "2.16.840.1.113883.4.642.3.192"],
+    "sources" : ["2.16.840.1.113883.4.642.3.202",
+    "2.16.840.1.113883.4.642.3.192"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/resource-types",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ResourceType",
+    "title" : "Resource Types",
+    "description" : "Concrete FHIR Resource Types",
+    "systems" : ["http://hl7.org/fhir/fhir-types"],
+    "oids" : ["2.16.840.1.113883.4.642.3.27"],
+    "sources" : ["2.16.840.1.113883.4.642.3.27"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/restful-capability-mode",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "RestfulCapabilityMode",
+    "title" : "Restful Capability Mode",
+    "description" : "The mode of a RESTful capability statement.",
+    "systems" : ["http://hl7.org/fhir/restful-capability-mode"],
+    "oids" : ["2.16.840.1.113883.4.642.3.166",
+    "2.16.840.1.113883.4.642.3.176"],
+    "sources" : ["2.16.840.1.113883.4.642.3.166",
+    "2.16.840.1.113883.4.642.3.176"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/restful-security-service",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "RestfulSecurityService",
+    "title" : "Restful Security Service",
+    "description" : "Types of security services used with FHIR.",
+    "systems" : ["http://hl7.org/fhir/restful-security-service"],
+    "oids" : ["2.16.840.1.113883.4.642.3.168",
+    "2.16.840.1.113883.4.642.3.178",
+    "2.16.840.1.113883.4.642.2.82"],
+    "sources" : ["2.16.840.1.113883.4.642.3.168",
+    "2.16.840.1.113883.4.642.3.178",
+    "2.16.840.1.113883.4.642.2.82"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/search-param-type",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "SearchParamType",
+    "title" : "SearchParamType",
+    "description" : "Data types allowed to be used for search parameters.",
+    "systems" : ["http://hl7.org/fhir/search-param-type"],
+    "oids" : ["2.16.840.1.113883.4.642.3.11"],
+    "sources" : ["2.16.840.1.113883.4.642.3.11"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/security-role-type",
+    "version" : "5.0.0",
+    "status" : "draft",
+    "name" : "SecurityRoleType",
+    "title" : "Security Role Type",
+    "description" : "This value set contains example structural roles. In general, two types of roles can be distinguished: structural roles and functional roles. Structural Roles reflect human or organizational categories (hierarchies), and describe prerequisites, feasibilities, or competences for actions. Functional roles are bound to the realization or performance of actions.",
+    "systems" : ["sample-security-structural-roles"],
+    "oids" : ["2.16.840.1.113883.4.642.3.978"],
+    "sources" : ["2.16.840.1.113883.4.642.3.978"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance"
+  },
+  {
     "url" : "http://hl7.org/fhir/ValueSet/service-mode",
     "version" : "5.0.0",
     "status" : "draft",
@@ -295,6 +620,92 @@
     "uses" : {
     },
     "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/system-restful-interaction",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "SystemRestfulInteraction",
+    "title" : "System Restful Interaction",
+    "description" : "Operations supported by REST at the system level.",
+    "systems" : ["http://hl7.org/fhir/restful-interaction"],
+    "oids" : ["2.16.840.1.113883.4.642.3.171",
+    "2.16.840.1.113883.4.642.3.181",
+    "2.16.840.1.113883.4.642.2.84"],
+    "sources" : ["2.16.840.1.113883.4.642.3.171",
+    "2.16.840.1.113883.4.642.3.181",
+    "2.16.840.1.113883.4.642.2.84"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/type-restful-interaction",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "TypeRestfulInteraction",
+    "title" : "Type Restful Interaction",
+    "description" : "Operations supported by REST at the type or instance level.",
+    "systems" : ["http://hl7.org/fhir/restful-interaction"],
+    "oids" : ["2.16.840.1.113883.4.642.3.180",
+    "2.16.840.1.113883.4.642.3.170",
+    "2.16.840.1.113883.4.642.2.83"],
+    "sources" : ["2.16.840.1.113883.4.642.3.180",
+    "2.16.840.1.113883.4.642.3.170",
+    "2.16.840.1.113883.4.642.2.83"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/version-algorithm",
+    "version" : "5.0.0",
+    "status" : "draft",
+    "name" : "VersionAlgorithm",
+    "title" : "Version Algorithm",
+    "description" : "Indicates the mechanism used to compare versions to determine which is more current.",
+    "systems" : ["http://hl7.org/fhir/version-algorithm"],
+    "oids" : ["2.16.840.1.113883.4.642.3.3103"],
+    "sources" : ["2.16.840.1.113883.4.642.3.3103"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://hl7.org/fhir/ValueSet/versioning-policy",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "ResourceVersionPolicy",
+    "title" : "Resource Version Policy",
+    "description" : "How the system supports versioning for a resource.",
+    "systems" : ["http://hl7.org/fhir/versioning-policy"],
+    "oids" : ["2.16.840.1.113883.4.642.2.89",
+    "2.16.840.1.113883.4.642.3.190",
+    "2.16.840.1.113883.4.642.3.180"],
+    "sources" : ["2.16.840.1.113883.4.642.2.89",
+    "2.16.840.1.113883.4.642.3.190",
+    "2.16.840.1.113883.4.642.3.180"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+  },
+  {
+    "url" : "http://terminology.hl7.org/ValueSet/v3-PurposeOfUse",
+    "version" : "3.1.0",
+    "status" : "active",
+    "name" : "PurposeOfUse",
+    "title" : "PurposeOfUse",
+    "description" : "Supports communication of purpose of use at a general level.",
+    "systems" : ["http://terminology.hl7.org/CodeSystem/v3-ActReason"],
+    "oids" : ["2.16.840.1.113883.1.11.20448"],
+    "sources" : ["2.16.840.1.113883.1.11.20448"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance"
   },
   {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role",

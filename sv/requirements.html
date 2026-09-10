@@ -209,6 +209,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <li><a href="#req-exp--exponering-sök-api-externt-vs-admin-api-internt" id="markdown-toc-req-exp--exponering-sök-api-externt-vs-admin-api-internt">REQ-EXP — Exponering: sök-API externt vs. admin-API internt</a></li>
       <li><a href="#req-adm--administratörsbehörighet" id="markdown-toc-req-adm--administratörsbehörighet">REQ-ADM — Administratörsbehörighet</a></li>
       <li><a href="#req-dist--distributionfederering-till-lokala-kataloger" id="markdown-toc-req-dist--distributionfederering-till-lokala-kataloger">REQ-DIST — Distribution/federering till lokala kataloger</a></li>
+      <li><a href="#req-trc--spårbarhet-och-transaktionell-registrering" id="markdown-toc-req-trc--spårbarhet-och-transaktionell-registrering">REQ-TRC — Spårbarhet och transaktionell registrering</a></li>
     </ul>
   </li>
 </ul>
@@ -230,10 +231,13 @@ organisation, <code class="language-plaintext highlighter-rouge">REQ-END-*</code
 relationer på Organisation, <code class="language-plaintext highlighter-rouge">REQ-WRT-*</code> synkronisering mot EHM:s Organization
 Endpoint Writer, <code class="language-plaintext highlighter-rouge">REQ-MDL-*</code> övriga entiteter i informationsunderlaget och
 avgränsningar, <code class="language-plaintext highlighter-rouge">REQ-EXP-*</code> exponering (externt sök-API vs. internt admin-API),
-<code class="language-plaintext highlighter-rouge">REQ-ADM-*</code> administratörsbehörighet och <code class="language-plaintext highlighter-rouge">REQ-DIST-*</code> distribution/federering
-till lokala kataloger. De tre sistnämnda grupperna är stakeholder-beslutade
-tillägg utöver det ursprungliga informationsunderlaget — se
-<a href="mappings.html">Mappning till profiler</a>.</p>
+<code class="language-plaintext highlighter-rouge">REQ-ADM-*</code> administratörsbehörighet, <code class="language-plaintext highlighter-rouge">REQ-DIST-*</code> distribution/federering
+till lokala kataloger, och <code class="language-plaintext highlighter-rouge">REQ-TRC-*</code> spårbarhet och transaktionell
+registrering. De fyra sistnämnda grupperna är tillägg utöver det
+ursprungliga informationsunderlaget — se <a href="mappings.html">Mappning till profiler</a>
+för respektive motivering, inklusive vilka som är stakeholder-beslutade och
+vilka som tillkom efter jämförelse med en annan implementation av samma
+problem.</p>
 
 <hr />
 
@@ -266,6 +270,12 @@ tillägg utöver det ursprungliga informationsunderlaget — se
       <td>BÖR</td>
       <td>Servern BÖR, per nyttolast, ange vilka interoperabilitetsspecifikationer ändpunkten stödjer.</td>
       <td><a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a></td>
+    </tr>
+    <tr>
+      <td>REQ-SRCH-4</td>
+      <td>BÖR</td>
+      <td>Servern BÖR stödja sökning av <code class="language-plaintext highlighter-rouge">Endpoint</code> efter stödd interoperabilitetsspecifikation (<code class="language-plaintext highlighter-rouge">implements</code>).</td>
+      <td><a href="SearchParameter-tk-endpoint-implements.html">SearchParameter: implements</a></td>
     </tr>
   </tbody>
 </table>
@@ -421,7 +431,7 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
     <tr>
       <td>REQ-WRT-5</td>
       <td>SKA</td>
-      <td>Organisationsidentifierare till EHM SKA vara i EHM:s format (rätt system, siffror utan bindestreck) — se mappningstabellen.</td>
+      <td>Organisationsidentifierare till EHM SKA vara organisationsnummer i EHM:s format (<code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code>, siffror utan bindestreck). Personnummer/samordningsnummer SKA INTE användas här — de hör till EHM:s patientindex, inte till denna IG:s scope. Se mappningstabellen.</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.identifier</code></td>
     </tr>
     <tr>
@@ -472,20 +482,32 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
     <tr>
       <td>REQ-MDL-3</td>
       <td>SKA</td>
-      <td>Kopplingen Ändpunkt → API → API-specifikation SKA kunna uttryckas. Realiseras via <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> + extension, inte som egen resurs.</td>
-      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a><code class="language-plaintext highlighter-rouge">.payload</code>, <a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a></td>
+      <td>Kopplingen Ändpunkt → API → API-specifikation SKA kunna uttryckas — dels via <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> + extension (snabb sökbarhet), dels via en egen resurs, TKAPIInstance, som ger "API" egen identitet.</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a><code class="language-plaintext highlighter-rouge">.payload</code>, <a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a>, <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a></td>
     </tr>
     <tr>
       <td>REQ-MDL-4</td>
-      <td>BÖR</td>
-      <td>API-specifikation BÖR modelleras för spårbarhet. REST-exponering skjuts upp, men rekommenderas som en nedbantad profil på <code class="language-plaintext highlighter-rouge">ImplementationGuide</code> om/när den blir aktuell — inte <code class="language-plaintext highlighter-rouge">ActorDefinition</code> (EHM:s val, avvisat) eller <code class="language-plaintext highlighter-rouge">Basic</code>.</td>
-      <td><a href="StructureDefinition-tk-api-specification.html">TKAPISpecification</a> (logisk modell)</td>
+      <td>SKA</td>
+      <td>API-specifikation SKA kunna registreras och sökas som en egen resurs — <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (kind=requirements), sökbar på kanonisk url. Ersätter denna IG:s tidigare <code class="language-plaintext highlighter-rouge">ImplementationGuide</code>-rekommendation; fortfarande inte <code class="language-plaintext highlighter-rouge">ActorDefinition</code> (EHM:s val, avvisat) eller <code class="language-plaintext highlighter-rouge">Basic</code>.</td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a></td>
     </tr>
     <tr>
       <td>REQ-MDL-5</td>
-      <td>FÅR</td>
-      <td>Spårbarhet (vem skapade/senast uppdaterade en post) FÅR göras, men avgränsas bort från detta utkast — löses med serverloggning/<code class="language-plaintext highlighter-rouge">Provenance</code> i en framtida version.</td>
-      <td><em>(inte realiserat ännu)</em></td>
+      <td>SKA</td>
+      <td>Spårbarhet (vem skapade/senast uppdaterade en post) SKA finnas — löst via en obligatorisk Provenance-post per registrering (tidigare uppskjutet).</td>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance</a>, REQ-TRC-1/2</td>
+    </tr>
+    <tr>
+      <td>REQ-MDL-6</td>
+      <td>BÖR</td>
+      <td>En API-instans (TKAPIInstance) BÖR kunna ange sin egen giltighetsperiod, oberoende av ändpunktens.</td>
+      <td><a href="StructureDefinition-tk-api-instance-period.html">TKAPIInstancePeriod</a></td>
+    </tr>
+    <tr>
+      <td>REQ-MDL-7</td>
+      <td>SKA</td>
+      <td>Varje TKAPIInstance SKA referera den ändpunkt som tillgängliggör den och den/de API-specifikationer den följer, sökbart via en egen sökparameter.</td>
+      <td><a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html">SearchParameter: instantiates</a></td>
     </tr>
   </tbody>
 </table>
@@ -593,6 +615,38 @@ se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a
   </tbody>
 </table>
 
+<h3 id="req-trc--spårbarhet-och-transaktionell-registrering">REQ-TRC — Spårbarhet och transaktionell registrering</h3>
+
+<p>Inte del av det ursprungliga informationsunderlaget — tillagt efter
+jämförelse med en annan implementation av samma problem, som löser detta
+med en obligatorisk Provenance-post i en transaction-Bundle. Se
+"Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a>.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Krav</th>
+      <th>Konformans</th>
+      <th>Beskrivning</th>
+      <th>Realiseras av</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>REQ-TRC-1</td>
+      <td>SKA</td>
+      <td>Varje transaction-Bundle som registrerar en Organization, Endpoint eller CapabilityStatement SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna.</td>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance</a></td>
+    </tr>
+    <tr>
+      <td>REQ-TRC-2</td>
+      <td>SKA</td>
+      <td>Tjänstekatalogens administrativa API SKA stödja systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>, så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans.</td>
+      <td><a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+    </tr>
+  </tbody>
+</table>
+
 <hr />
 
 <blockquote>
@@ -631,8 +685,8 @@ eller id.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-09 11:47:00 +0000">
-    2026-09-09
+  <span title="2026-09-10 06:56:00 +0000">
+    2026-09-10
   </span>
 
           <br/>

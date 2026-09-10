@@ -33,7 +33,7 @@ Tillåtna värden för Ändpunkt.säkerhetsmetod. Exempelbindning (example) i de
   "title" : "Säkerhetsmetoder för tekniska ändpunkter",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-09T11:47:00+00:00",
+  "date" : "2026-09-10T06:56:47+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

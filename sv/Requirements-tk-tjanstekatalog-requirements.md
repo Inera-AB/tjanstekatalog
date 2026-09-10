@@ -60,6 +60,13 @@ Formell kravkatalog för tjänstekatalogen. Varje krav spåras till den/de FHIR-
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"]
   },
   {
+    "key" : "REQ-SRCH-4",
+    "label" : "Sök ändpunkter efter stödd interoperabilitetsspecifikation",
+    "conformance" : ["SHOULD"],
+    "requirement" : "Servern BÖR stödja sökning av Endpoint-resurser via en sökparameter (`implements`) som returnerar samtliga ändpunkter vars nyttolast stödjer en angiven interoperabilitetsspecifikation, som komplement till REQ-SRCH-3:s representation. Tillagt efter jämförelse med en annan implementation av samma problem.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements"]
+  },
+  {
     "key" : "REQ-END-1",
     "label" : "Ändpunkt.id",
     "conformance" : ["SHALL"],
@@ -165,7 +172,7 @@ Formell kravkatalog för tjänstekatalogen. Varje krav spåras till den/de FHIR-
     "key" : "REQ-WRT-2",
     "label" : "Anropa EHM:s $add-organization",
     "conformance" : ["MAY"],
-    "requirement" : "Synkroniseringstjänsten FÅR, i rollen Organization Endpoint Writer hos EHM, koppla en organisation till en ändpunkt genom att anropa POST [ehm-base]/Endpoint/[ehm-id]/$add-organization med organisationens identifierare (personnummer, samordningsnummer eller organisationsnummer) enligt EHM:s specifikation. Se mappningstabellen i mappings.html för hur `organization`-parametern fylls från tjänstekatalogens data.",
+    "requirement" : "Synkroniseringstjänsten FÅR, i rollen Organization Endpoint Writer hos EHM, koppla en organisation till en ändpunkt genom att anropa POST [ehm-base]/Endpoint/[ehm-id]/$add-organization med organisationens organisationsnummer enligt EHM:s specifikation. Personnummer/samordningsnummer hör till EHM:s patientindex och kombinerade sökningar däremellan — inte till organisationsidentifiering i detta anrop, se REQ-WRT-5. Se mappningstabellen i mappings.html för hur `organization`-parametern fylls från tjänstekatalogens data.",
     "satisfiedBy" : ["http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er",
     "http://electronichealth.se/fhir/NDI/OperationDefinition/AddOrganizationToEndpoint"]
   },
@@ -188,7 +195,7 @@ Formell kravkatalog för tjänstekatalogen. Varje krav spåras till den/de FHIR-
     "key" : "REQ-WRT-5",
     "label" : "Format på organisationsidentifierare mot EHM",
     "conformance" : ["SHALL"],
-    "requirement" : "Organisationsidentifierare som skickas till EHM:s $add-organization/$remove-organization SKA vara i det system och format EHM kräver (personnummer/samordningsnummer: http://electronichealth.se/identifier/{personnummer|samordningsnummer}, 12 siffror utan bindestreck; organisationsnummer: urn:oid:2.5.4.97, 10 siffror utan bindestreck) — se mappningstabellen i mappings.html.",
+    "requirement" : "Organisationsidentifierare som skickas till EHM:s $add-organization/$remove-organization SKA vara organisationsnummer i det system och format EHM kräver (urn:oid:2.5.4.97, 10 siffror utan bindestreck). Personnummer/samordningsnummer (http://electronichealth.se/identifier/{personnummer|samordningsnummer}) SKA INTE användas för att identifiera en organisation i detta anrop — de hör till EHM:s patientindex och till sökningar som kombinerar tjänstekatalog med patientindex, inte till denna IG:s scope. Se mappningstabellen i mappings.html.",
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"]
   },
   {
@@ -233,22 +240,54 @@ Formell kravkatalog för tjänstekatalogen. Varje krav spåras till den/de FHIR-
     "key" : "REQ-MDL-3",
     "label" : "API (Ändpunkt tillgängliggör API, API följer API-specifikation)",
     "conformance" : ["SHALL"],
-    "requirement" : "Kopplingen mellan en ändpunkt och de API:er den tillgängliggör, samt vilken API-specifikation respektive API följer, SKA kunna uttryckas. Detta realiseras via `Endpoint.payload` tillsammans med extensionen tk-endpoint-payload-profile, inte som en egen resurs — se \"Avvikelser och tillägg\" i mappings.html för motivering, inklusive varför API:ets egen giltigFrom/giltigTom inte bärs separat.",
+    "requirement" : "Kopplingen mellan en ändpunkt och de API:er den tillgängliggör, samt vilken/vilka API-specifikationer respektive API följer, SKA kunna uttryckas. Detta realiseras på två komplementära sätt (uppdaterat, se \"Avvikelser och tillägg\" i mappings.html): dels `Endpoint.payload` tillsammans med extensionen tk-endpoint-payload-profile (snabb, enhops sökbarhet, se REQ-SRCH-3/4), dels en egen resurs, TKAPIInstance (CapabilityStatement kind=instance), som ger \"API\" en egen identitet — se REQ-MDL-6/7 för vad den tillför utöver payload-extensionen.",
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint",
-    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"]
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile",
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"]
   },
   {
     "key" : "REQ-MDL-4",
     "label" : "API-specifikation",
-    "conformance" : ["SHOULD"],
-    "requirement" : "Entiteten API-specifikation BÖR modelleras för spårbarhet. Beslut om REST-exponering i det administrativa API:et skjuts upp till en framtida version av denna IG. Om/när den REST-exponeras rekommenderas en nedbantad profil på ImplementationGuide (som redan bär url/version/name/title/status/date), inte en profil på ActorDefinition — EHM:s val för sin motsvarande \"API Specification\"-profil, vilket denna IG avvisar eftersom ActorDefinition är avsett för aktörer, inte specifikationer — och inte heller Basic. Se \"Avvikelser och tillägg\" i mappings.html.",
-    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification"]
+    "conformance" : ["SHALL"],
+    "requirement" : "Entiteten API-specifikation SKA kunna registreras och sökas som en egen resurs. Realiseras som TKAPISpecificationCapability (CapabilityStatement kind=requirements), sökbar på kanonisk url — inte ActorDefinition (EHM:s val för sin motsvarande \"API Specification\"-profil, vilket denna IG avvisar eftersom ActorDefinition är avsett för aktörer, inte specifikationer), inte heller Basic eller ImplementationGuide (denna IG:s tidigare rekommendation, ersatt efter jämförelse med en annan implementation av samma problem — CapabilityStatement.kind=requirements är native FHIR-mekanik för en formell kravbild, och används redan av denna IG:s egna TKAdminAPI/TKSearchAPI). Se \"Avvikelser och tillägg\" i mappings.html.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability"]
   },
   {
     "key" : "REQ-MDL-5",
     "label" : "Spårbarhet: skapad/senast uppdaterad av",
-    "conformance" : ["MAY"],
-    "requirement" : "Vem som skapade eller senast uppdaterade en post FÅR göras spårbart, men avgränsas medvetet bort från detta utkast — stakeholder-beslut: löses med serverloggning och/eller `Provenance`-resurser i en framtida version, inte med ett attribut på `Organization`/`Endpoint` självt. Se \"Avvikelser och tillägg\" i mappings.html."
+    "conformance" : ["SHALL"],
+    "requirement" : "Vem som skapade eller senast uppdaterade en post SKA vara spårbart. Tidigare avgränsat bort och uppskjutet till en framtida version (löst med serverloggning och/eller Provenance) — nu realiserat via en obligatorisk Provenance-post per registrering, se REQ-TRC-1/2.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
+  },
+  {
+    "key" : "REQ-MDL-6",
+    "label" : "API-instansens egen giltighetsperiod",
+    "conformance" : ["SHOULD"],
+    "requirement" : "En API-instans (TKAPIInstance) BÖR kunna ange sin egen giltighetsperiod (giltigFrom/giltigTom), oberoende av den tillgängliggörande ändpunktens `Endpoint.period`. Löser den begränsning som tidigare dokumenterades i mappings.html (\"API:ets egen giltigFrom/giltigTom bärs inte separat\") — basresursen CapabilityStatement saknar ett eget giltighetsperiod-element, löst med en extension.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period"]
+  },
+  {
+    "key" : "REQ-MDL-7",
+    "label" : "API-instansens koppling till Ändpunkt och API-specifikation",
+    "conformance" : ["SHALL"],
+    "requirement" : "Varje TKAPIInstance SKA referera den ändpunkt som tillgängliggör den (\"tillgängliggör\", via extensionen tk-api-instance-endpoint) och SKA referera den/de API-specifikationer den följer (\"följer\", via `CapabilityStatement.instantiates`), sökbart via en egen sökparameter (`instantiates`, eftersom ingen standard-sökparameter finns för detta element).",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance",
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint",
+    "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates"]
+  },
+  {
+    "key" : "REQ-TRC-1",
+    "label" : "Provenance krävs vid registrering",
+    "conformance" : ["SHALL"],
+    "requirement" : "Varje transaction-Bundle som registrerar (skapar/uppdaterar) en Organization, Endpoint eller CapabilityStatement (API-specifikation/API-instans) SKA innehålla minst en Provenance-post (profilerad som TKProvenance) som via `Provenance.target` pekar ut den/de registrerade resurserna.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
+  },
+  {
+    "key" : "REQ-TRC-2",
+    "label" : "Registrering via transaction-Bundle",
+    "conformance" : ["SHALL"],
+    "requirement" : "Tjänstekatalogens administrativa API SKA stödja systeminteraktionen `transaction` (en Bundle av typen transaction), så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"]
   },
   {
     "key" : "REQ-EXP-1",

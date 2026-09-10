@@ -20,7 +20,7 @@
   fhir:title [ fhir:v "Säkerhetsmetoder för tekniska ändpunkter (kodsystem)"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
   fhir:experimental [ fhir:v true] ; # 
-  fhir:date [ fhir:v "2026-09-09T11:47:00+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-09-10T06:56:47+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;

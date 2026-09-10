@@ -12,7 +12,7 @@
   <name value="IneraTjanstekatalog"/>
   <title value="Tjänstekatalogen"/>
   <status value="draft"/>
-  <date value="2026-09-09T11:47:00+00:00"/>
+  <date value="2026-09-10T06:56:47+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>
@@ -76,13 +76,57 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
+        <valueString value="StructureDefinition:extension"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/tk-api-specification"/>
+        <reference value="StructureDefinition/tk-capabilitystatement-responsible-organization"/>
       </reference>
-      <name value="API-specifikation (logisk modell)"/>
-      <description value="Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4."/>
+      <name value="Ansvarig organisation (strukturerad referens)"/>
+      <description value="Strukturerad referens till organisationen som ansvarar för en TKAPISpecificationCapability (API-specifikation.ansvarigUtgivare i informationsunderlaget). Komplement till CapabilityStatement.publisher (string)."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/tk-api-instance-period"/>
+      </reference>
+      <name value="API-instansens giltighetsperiod"/>
+      <description value="API-instansens (TKAPIInstance) egen giltighetsperiod, oberoende av den ändpunkt som tillgängliggör den (API.giltigFrom/giltigTom i informationsunderlaget)."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="SearchParameter"/>
+      </extension>
+      <reference>
+        <reference value="SearchParameter/tk-capabilitystatement-instantiates"/>
+      </reference>
+      <name value="CapabilityStatement: instantiates"/>
+      <description value="Söker fram de TKAPIInstance-resurser som följer en angiven API-specifikation (CapabilityStatement.instantiates). Se REQ-MDL-7."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="SearchParameter"/>
+      </extension>
+      <reference>
+        <reference value="SearchParameter/tk-capabilitystatement-kind"/>
+      </reference>
+      <name value="CapabilityStatement: kind"/>
+      <description value="Söker CapabilityStatement-resurser efter kind (requirements = API-specifikation, instance = API-instans). Se REQ-MDL-4."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="SearchParameter"/>
+      </extension>
+      <reference>
+        <reference value="SearchParameter/tk-endpoint-implements"/>
+      </reference>
+      <name value="Endpoint: implements (stödd interoperabilitetsspecifikation)"/>
+      <description value="Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en angiven interoperabilitetsspecifikation, dvs. vars TKEndpointPayloadProfile-extension namner den angivna kanoniska URL:en. Se REQ-SRCH-4."/>
       <isExample value="false"/>
     </resource>
     <resource>
@@ -98,6 +142,30 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CapabilityStatement"/>
+      </extension>
+      <reference>
+        <reference value="CapabilityStatement/TKAPIInstanceExample"/>
+      </reference>
+      <name value="Exempel: API-instans i tjänstekatalogen"/>
+      <description value="Exempel på ett API som Exempelregionens ändpunkt tillgängliggör, och som följer specifikationen IneraPatientinformation."/>
+      <isExample value="true"/>
+      <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CapabilityStatement"/>
+      </extension>
+      <reference>
+        <reference value="CapabilityStatement/TKAPISpecificationCapabilityExample"/>
+      </reference>
+      <name value="Exempel: API-specifikation i tjänstekatalogen"/>
+      <description value="Exempel på en interoperabilitetsspecifikation (en FHIR IG) registrerad i tjänstekatalogen."/>
+      <isExample value="true"/>
+      <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="Organization"/>
       </extension>
       <reference>
@@ -107,6 +175,18 @@
       <description value="Exempel på en organisation som listar (&quot;har&quot;) en ändpunkt i tjänstekatalogen."/>
       <isExample value="true"/>
       <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="Provenance"/>
+      </extension>
+      <reference>
+        <reference value="Provenance/TKProvenanceExample"/>
+      </reference>
+      <name value="Exempel: spårbarhetspost för registrering"/>
+      <description value="Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle."/>
+      <isExample value="true"/>
+      <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -170,6 +250,28 @@
         <valueString value="StructureDefinition:extension"/>
       </extension>
       <reference>
+        <reference value="StructureDefinition/tk-api-specification-source-reference"/>
+      </reference>
+      <name value="Referens till källa"/>
+      <description value="Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten CapabilityStatement.url (API-specifikation.referensTillKälla i informationsunderlaget)."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/tk-api-specification-category"/>
+      </reference>
+      <name value="Specifikationskategori"/>
+      <description value="Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
         <reference value="StructureDefinition/tk-endpoint-payload-profile"/>
       </reference>
       <name value="Stödd specifikation (payload profile)"/>
@@ -222,6 +324,17 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:extension"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/tk-api-instance-endpoint"/>
+      </reference>
+      <name value="Tillgängliggörande ändpunkt"/>
+      <description value="Den ändpunkt (TKEndpoint) som tillgängliggör denna API-instans (&quot;tillgängliggör&quot;). Basresursen CapabilityStatement har inget element för detta."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
@@ -229,6 +342,28 @@
       </reference>
       <name value="Tjänstekatalogen administratörsbehörighet"/>
       <description value="Behörighet för en administratör att registrera/ändra poster i&#xA;tjänstekatalogen för en given organisation (`local-admin`), eller att&#xA;dessutom administrera andra administratörers behörigheter för samtliga&#xA;organisationer (`central-admin`, `organization` utelämnad). Se&#xA;[Roller och ansvar](roles-and-responsibilities.html) och&#xA;[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/tk-api-instance"/>
+      </reference>
+      <name value="Tjänstekatalogen API-instans"/>
+      <description value="Ett API som en teknisk ändpunkt tillgängliggör (&quot;tillgängliggör&quot;), och den&#xA;eller de interoperabilitetsspecifikationer det följer (&quot;följer&quot;), som en&#xA;egen resurs med egen identitet och egen giltighetsperiod — se&#xA;[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-MDL-3, REQ-MDL-6, REQ-MDL-7."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/tk-api-specification-capability"/>
+      </reference>
+      <name value="Tjänstekatalogen API-specifikation"/>
+      <description value="Metadata om en interoperabilitetsspecifikation (t.ex. en FHIR IG, ett&#xA;RIVTA-tjänstekontrakt eller en OpenAPI/REST-beskrivning) som en&#xA;[TKAPIInstance](StructureDefinition-tk-api-instance.html) kan referera via&#xA;`.instantiates` (&quot;följer&quot;). `CapabilityStatement.url` är specifikationens&#xA;egen kanoniska/maskinläsbara identitet — samma värde som&#xA;[TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html)&#xA;på `Endpoint.payload` refererar för snabb sökbarhet. Se&#xA;[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-MDL-4."/>
       <isExample value="false"/>
     </resource>
     <resource>
@@ -251,6 +386,17 @@
       </reference>
       <name value="Tjänstekatalogen Organization"/>
       <description value="Organisation i tjänstekatalogen. `Organization.endpoint` bär &quot;har&quot;-relationen&#xA;— de ändpunkter organisationen listar i sin katalogpost, oavsett vem som&#xA;förvaltar dem tekniskt. Sök efter dessa ändpunkter med&#xA;[SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html) på&#xA;Endpoint, med organisationens id/referens som värde. Den separata&#xA;&quot;förvaltar&quot;-relationen (vem som tekniskt driftar en given ändpunkt) uttrycks&#xA;istället av [TKEndpoint](StructureDefinition-tk-endpoint.html)s&#xA;`managingOrganization`, sökbar med standardparametern `organization`."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
+        <reference value="StructureDefinition/tk-provenance"/>
+      </reference>
+      <name value="Tjänstekatalogen Provenance"/>
+      <description value="Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera&#xA;resurser i tjänstekatalogen — vanligen skickad tillsammans med den/de&#xA;registrerade resurserna i samma transaction-Bundle. Se&#xA;[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och &quot;Distribution och&#xA;synkronisering&quot;/registrering i rest-interactions.html."/>
       <isExample value="false"/>
     </resource>
     <resource>
@@ -448,6 +594,13 @@
     <parameter>
       <code>
         <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
+        <code value="path-suppressed-warnings"/>
+      </code>
+      <value value="input/ignoreWarnings.txt"/>
+    </parameter>
+    <parameter>
+      <code>
+        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
         <code value="autoload-resources"/>
       </code>
       <value value="true"/>
@@ -598,13 +751,6 @@
         <code value="path-tx-cache"/>
       </code>
       <value value="input-cache/txcache"/>
-    </parameter>
-    <parameter>
-      <code>
-        <system value="http://hl7.org/fhir/tools/CodeSystem/ig-parameters"/>
-        <code value="path-suppressed-warnings"/>
-      </code>
-      <value value="input/ignoreWarnings.txt"/>
     </parameter>
     <parameter>
       <code>

@@ -8,8 +8,10 @@ Denna IG definierar två formella CapabilityStatement för sin egen serverroll, 
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| [Tjänstekatalogen: sök-API](CapabilityStatement-tk-search-api.md) | Server | **Externt**, via gateway | Läsande sökning (`read`/`search-type`) av[TKOrganization](StructureDefinition-tk-organization.md)och[TKEndpoint](StructureDefinition-tk-endpoint.md), inklusive sökparametern`listed-by`. |
-| [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) | Server | **Endast internt** | Samma resurser som sök-API:et, plus skrivinteraktioner (`create`/`update`) och administratörsbehörigheter ([TKAdministratorRole](StructureDefinition-tk-administrator-role.md)). |
+| [Tjänstekatalogen: sök-API](CapabilityStatement-tk-search-api.md) | Server | **Externt**, via gateway | Läsande sökning (`read`/`search-type`) av[TKOrganization](StructureDefinition-tk-organization.md),[TKEndpoint](StructureDefinition-tk-endpoint.md)och`CapabilityStatement`(API-specifikationer/API-instanser), inklusive sökparametrarna`listed-by`och`implements`. |
+| [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) | Server | **Endast internt** | Samma resurser som sök-API:et, plus skrivinteraktioner (`create`/`update`), systeminteraktionen`transaction`(REQ-TRC-2),`Provenance`och administratörsbehörigheter ([TKAdministratorRole](StructureDefinition-tk-administrator-role.md)). |
+
+**Notera den dubbla användningen av `CapabilityStatement`.** Tabellen ovan beskriver `CapabilityStatement`-resurser som beskriver **denna IG:s egna API:er** (metaanvändning, standard FHIR-praxis). Denna IG lagrar dessutom `CapabilityStatement`-resurser som **katalogens innehåll** — API-specifikationer ([TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.md), kind=requirements) och API-instanser ([TKAPIInstance](StructureDefinition-tk-api-instance.md), kind=instance) — sökbara via sök-/admin-API:et ovan. Se REQ-MDL-4/6/7 och [Mappning till profiler](mappings.md) för motiveringen till detta modelleringsval.
 
 Denna IG definierar också ett prenumerationsämne för distribution till lokala kataloger: [SubscriptionTopic: tk-organization-endpoint-changes](SubscriptionTopic-tk-organization-endpoint-changes.md) — se "Distribution och synkronisering" i [REST-interaktioner](rest-interactions.md) och REQ-DIST-*.
 

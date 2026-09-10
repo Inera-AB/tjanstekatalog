@@ -12,6 +12,7 @@ Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller pro
 
 * Använd denna Extension: [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
 * Exempel för denna Extension: [Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
+* Sökparametrar som använder denna Extension: [TKEndpointImplements](SearchParameter-tk-endpoint-implements.md)
 
 Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-endpoint-payload-profile)
 
@@ -61,7 +62,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-pay
   "name" : "TKEndpointPayloadProfile",
   "title" : "Stödd specifikation (payload profile)",
   "status" : "draft",
-  "date" : "2026-09-09T11:47:00+00:00",
+  "date" : "2026-09-10T06:56:47+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

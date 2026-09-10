@@ -94,6 +94,42 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens sök-API exponerar exte
         "definition" : "http://hl7.org/fhir/SearchParameter/Endpoint-status",
         "type" : "token",
         "documentation" : "Sök ändpunkter efter status."
+      },
+      {
+        "name" : "implements",
+        "definition" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements",
+        "type" : "uri",
+        "documentation" : "Sök ändpunkter efter stödd interoperabilitetsspecifikation. Se SearchParameter-tk-endpoint-implements.html."
+      }]
+    },
+    {
+      "type" : "CapabilityStatement",
+      "supportedProfile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability",
+      "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"],
+      "documentation" : "Interoperabilitetsspecifikationer (kind=requirements) och API-instanser (kind=instance) — för att upptäcka vilka specifikationer/API:er som finns.",
+      "interaction" : [{
+        "code" : "read"
+      },
+      {
+        "code" : "search-type"
+      }],
+      "searchParam" : [{
+        "name" : "url",
+        "definition" : "http://hl7.org/fhir/SearchParameter/CanonicalResource-url",
+        "type" : "uri",
+        "documentation" : "Sök på kanonisk URL."
+      },
+      {
+        "name" : "kind",
+        "definition" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-kind",
+        "type" : "token",
+        "documentation" : "Filtrera på requirements (API-specifikation) eller instance (API-instans)."
+      },
+      {
+        "name" : "instantiates",
+        "definition" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates",
+        "type" : "reference",
+        "documentation" : "Sök API-instanser efter vilken specifikation de följer."
       }]
     }]
   }]

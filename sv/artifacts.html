@@ -314,6 +314,42 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <tbody>
          <tr>
             <td style="column-width:30%">
+               <a href="SearchParameter-tk-capabilitystatement-instantiates.html"
+                  title="SearchParameter/tk-capabilitystatement-instantiates">
+                  <span title="SearchParameter/tk-capabilitystatement-instantiates">CapabilityStatement: instantiates
+</span>
+               </a>
+            </td>
+            <td>
+<p>Söker fram de TKAPIInstance-resurser som följer en angiven API-specifikation (CapabilityStatement.instantiates). Se REQ-MDL-7.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="SearchParameter-tk-capabilitystatement-kind.html"
+                  title="SearchParameter/tk-capabilitystatement-kind">
+                  <span title="SearchParameter/tk-capabilitystatement-kind">CapabilityStatement: kind
+</span>
+               </a>
+            </td>
+            <td>
+<p>Söker CapabilityStatement-resurser efter kind (requirements = API-specifikation, instance = API-instans). Se REQ-MDL-4.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="SearchParameter-tk-endpoint-implements.html"
+                  title="SearchParameter/tk-endpoint-implements">
+                  <span title="SearchParameter/tk-endpoint-implements">Endpoint: implements (stödd interoperabilitetsspecifikation)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en angiven interoperabilitetsspecifikation, dvs. vars TKEndpointPayloadProfile-extension namner den angivna kanoniska URL:en. Se REQ-SRCH-4.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="SearchParameter-tk-endpoint-listed-by.html"
                   title="SearchParameter/tk-endpoint-listed-by">
                   <span title="SearchParameter/tk-endpoint-listed-by">Endpoint: listed-by (organisation som listar ändpunkten)
@@ -352,18 +388,6 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <table class="grid">
       <col style="width:20%"/>
       <tbody>
-         <tr>
-            <td style="column-width:30%">
-               <a href="StructureDefinition-tk-api-specification.html"
-                  title="StructureDefinition/tk-api-specification">
-                  <span title="StructureDefinition/tk-api-specification">API-specifikation (logisk modell)
-</span>
-               </a>
-            </td>
-            <td>
-<p>Logisk modell för entiteten API-specifikation i informationsunderlaget. REST-exponering i det administrativa API:et är inte del av detta utkast — se REQ-MDL-4.</p>
-</td>
-         </tr>
          <tr>
             <td style="column-width:30%">
                <a href="StructureDefinition-tk-indexpost.html"
@@ -411,6 +435,40 @@ Authors should replace this description with the clinical purpose and scope of t
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="StructureDefinition-tk-api-instance.html"
+                  title="StructureDefinition/tk-api-instance">
+                  <span title="StructureDefinition/tk-api-instance">Tjänstekatalogen API-instans
+</span>
+               </a>
+            </td>
+            <td>
+<p>Ett API som en teknisk ändpunkt tillgängliggör ("tillgängliggör"), och den
+eller de interoperabilitetsspecifikationer det följer ("följer"), som en
+egen resurs med egen identitet och egen giltighetsperiod — se
+<a href="http://hl7.org/fhir/R5/requirements.html">Kravkatalog</a> REQ-MDL-3, REQ-MDL-6, REQ-MDL-7.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-api-specification-capability.html"
+                  title="StructureDefinition/tk-api-specification-capability">
+                  <span title="StructureDefinition/tk-api-specification-capability">Tjänstekatalogen API-specifikation
+</span>
+               </a>
+            </td>
+            <td>
+<p>Metadata om en interoperabilitetsspecifikation (t.ex. en FHIR IG, ett
+RIVTA-tjänstekontrakt eller en OpenAPI/REST-beskrivning) som en
+<a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a> kan referera via
+<code class="language-plaintext highlighter-rouge">.instantiates</code> ("följer"). <code class="language-plaintext highlighter-rouge">CapabilityStatement.url</code> är specifikationens
+egen kanoniska/maskinläsbara identitet — samma värde som
+<a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a>
+på <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> refererar för snabb sökbarhet. Se
+<a href="http://hl7.org/fhir/R5/requirements.html">Kravkatalog</a> REQ-MDL-4.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="StructureDefinition-tk-endpoint.html"
                   title="StructureDefinition/tk-endpoint">
                   <span title="StructureDefinition/tk-endpoint">Tjänstekatalogen Endpoint
@@ -452,6 +510,22 @@ istället av <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a>s
          </tr>
          <tr>
             <td style="column-width:30%">
+               <a href="StructureDefinition-tk-provenance.html"
+                  title="StructureDefinition/tk-provenance">
+                  <span title="StructureDefinition/tk-provenance">Tjänstekatalogen Provenance
+</span>
+               </a>
+            </td>
+            <td>
+<p>Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera
+resurser i tjänstekatalogen — vanligen skickad tillsammans med den/de
+registrerade resurserna i samma transaction-Bundle. Se
+<a href="http://hl7.org/fhir/R5/requirements.html">Kravkatalog</a> REQ-TRC-1/2 och "Distribution och
+synkronisering"/registrering i rest-interactions.html.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="StructureDefinition-tk-administrator-role.html"
                   title="StructureDefinition/tk-administrator-role">
                   <span title="StructureDefinition/tk-administrator-role">Tjänstekatalogen administratörsbehörighet
@@ -477,6 +551,54 @@ organisationer (<code class="language-plaintext highlighter-rouge">central-admin
       <tbody>
          <tr>
             <td style="column-width:30%">
+               <a href="StructureDefinition-tk-api-instance-period.html"
+                  title="StructureDefinition/tk-api-instance-period">
+                  <span title="StructureDefinition/tk-api-instance-period">API-instansens giltighetsperiod
+</span>
+               </a>
+            </td>
+            <td>
+<p>API-instansens (TKAPIInstance) egen giltighetsperiod, oberoende av den ändpunkt som tillgängliggör den (API.giltigFrom/giltigTom i informationsunderlaget).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-capabilitystatement-responsible-organization.html"
+                  title="StructureDefinition/tk-capabilitystatement-responsible-organization">
+                  <span title="StructureDefinition/tk-capabilitystatement-responsible-organization">Ansvarig organisation (strukturerad referens)
+</span>
+               </a>
+            </td>
+            <td>
+<p>Strukturerad referens till organisationen som ansvarar för en TKAPISpecificationCapability (API-specifikation.ansvarigUtgivare i informationsunderlaget). Komplement till CapabilityStatement.publisher (string).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-api-specification-source-reference.html"
+                  title="StructureDefinition/tk-api-specification-source-reference">
+                  <span title="StructureDefinition/tk-api-specification-source-reference">Referens till källa
+</span>
+               </a>
+            </td>
+            <td>
+<p>Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten CapabilityStatement.url (API-specifikation.referensTillKälla i informationsunderlaget).</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-api-specification-category.html"
+                  title="StructureDefinition/tk-api-specification-category">
+                  <span title="StructureDefinition/tk-api-specification-category">Specifikationskategori
+</span>
+               </a>
+            </td>
+            <td>
+<p>Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="StructureDefinition-tk-endpoint-payload-profile.html"
                   title="StructureDefinition/tk-endpoint-payload-profile">
                   <span title="StructureDefinition/tk-endpoint-payload-profile">Stödd specifikation (payload profile)
@@ -497,6 +619,18 @@ organisationer (<code class="language-plaintext highlighter-rouge">central-admin
             </td>
             <td>
 <p>Anger vilken säkerhetsmetod som skyddar åtkomst till ändpunkten (Ändpunkt.säkerhetsmetod i informationsunderlaget). Basresursen Endpoint saknar ett eget element för detta i R5.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="StructureDefinition-tk-api-instance-endpoint.html"
+                  title="StructureDefinition/tk-api-instance-endpoint">
+                  <span title="StructureDefinition/tk-api-instance-endpoint">Tillgängliggörande ändpunkt
+</span>
+               </a>
+            </td>
+            <td>
+<p>Den ändpunkt (TKEndpoint) som tillgängliggör denna API-instans ("tillgängliggör"). Basresursen CapabilityStatement har inget element för detta.</p>
 </td>
          </tr>
          <tr>
@@ -585,6 +719,30 @@ organisationer (<code class="language-plaintext highlighter-rouge">central-admin
       <tbody>
          <tr>
             <td style="column-width:30%">
+               <a href="CapabilityStatement-TKAPIInstanceExample.html"
+                  title="CapabilityStatement/TKAPIInstanceExample">
+                  <span title="CapabilityStatement/TKAPIInstanceExample">Exempel: API-instans i tjänstekatalogen
+</span>
+               </a>
+            </td>
+            <td>
+<p>Exempel på ett API som Exempelregionens ändpunkt tillgängliggör, och som följer specifikationen IneraPatientinformation.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="CapabilityStatement-TKAPISpecificationCapabilityExample.html"
+                  title="CapabilityStatement/TKAPISpecificationCapabilityExample">
+                  <span title="CapabilityStatement/TKAPISpecificationCapabilityExample">Exempel: API-specifikation i tjänstekatalogen
+</span>
+               </a>
+            </td>
+            <td>
+<p>Exempel på en interoperabilitetsspecifikation (en FHIR IG) registrerad i tjänstekatalogen.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
                <a href="Organization-TKOrganizationExample.html"
                   title="Organization/TKOrganizationExample">
                   <span title="Organization/TKOrganizationExample">Exempel: organisation i tjänstekatalogen
@@ -593,6 +751,18 @@ organisationer (<code class="language-plaintext highlighter-rouge">central-admin
             </td>
             <td>
 <p>Exempel på en organisation som listar ("har") en ändpunkt i tjänstekatalogen.</p>
+</td>
+         </tr>
+         <tr>
+            <td style="column-width:30%">
+               <a href="Provenance-TKProvenanceExample.html"
+                  title="Provenance/TKProvenanceExample">
+                  <span title="Provenance/TKProvenanceExample">Exempel: spårbarhetspost för registrering
+</span>
+               </a>
+            </td>
+            <td>
+<p>Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle.</p>
 </td>
          </tr>
          <tr>
@@ -648,8 +818,8 @@ organisationer (<code class="language-plaintext highlighter-rouge">central-admin
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-09 11:47:00 +0000">
-    2026-09-09
+  <span title="2026-09-10 06:56:00 +0000">
+    2026-09-10
   </span>
 
           <br/>

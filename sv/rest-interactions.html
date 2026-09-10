@@ -201,6 +201,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div class="markdown-toc">
 <ul id="markdown-toc">
   <li><a href="#rest-interaktioner-och-sökparametrar" id="markdown-toc-rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</a>    <ul>
+      <li><a href="#registrering" id="markdown-toc-registrering">Registrering</a></li>
       <li><a href="#sök-ändpunkter-för-en-organisation" id="markdown-toc-sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</a></li>
       <li><a href="#distribution-och-synkronisering" id="markdown-toc-distribution-och-synkronisering">Distribution och synkronisering</a></li>
     </ul>
@@ -229,8 +230,20 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
       <td>read, search-type (externt); create, update (endast internt)</td>
-      <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code></td>
+      <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation)</td>
       <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a> / <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>)</td>
+      <td>read, search-type (externt); create, update (endast internt)</td>
+      <td><code class="language-plaintext highlighter-rouge">url</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a></td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance</a></td>
+      <td>read, search-type</td>
+      <td><code class="language-plaintext highlighter-rouge">target</code></td>
+      <td>Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt)</td>
     </tr>
     <tr>
       <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a></td>
@@ -253,6 +266,52 @@ att koppla organisation och ändpunkt — det görs istället hos
 E-hälsomyndigheten (EHM), av en Synkroniseringstjänst som läser härifrån. Se
 <a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a> för EHM:s
 <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code>.</p>
+
+<hr />
+
+<h3 id="registrering">Registrering</h3>
+
+<p>Tillagt efter jämförelse med en annan implementation av samma problem —
+löser REQ-MDL-5:s tidigare uppskjutna spårbarhetsfråga (se
+<a href="mappings.html">Mappning till profiler</a>).</p>
+
+<p>Registrering (skapande/uppdatering av en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code> eller
+<code class="language-plaintext highlighter-rouge">CapabilityStatement</code>) SKA ske via systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>, med
+en obligatorisk <a href="StructureDefinition-tk-provenance.html">TKProvenance</a>-post
+i samma Bundle (REQ-TRC-1/2):</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bundle"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"type"</span><span class="p">:</span><span class="w"> </span><span class="s2">"transaction"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"entry"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"fullUrl"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:8f2e..."</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endpoint"</span><span class="p">,</span><span class="w"> </span><span class="nl">"..."</span><span class="p">:</span><span class="w"> </span><span class="s2">"..."</span><span class="w"> </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Endpoint"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">},</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"resource"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provenance"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:8f2e..."</span><span class="w"> </span><span class="p">}],</span><span class="w">
+        </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-09T10:00:00Z"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"who"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization/exempelregionen"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}]</span><span class="w">
+      </span><span class="p">},</span><span class="w">
+      </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provenance"</span><span class="w"> </span><span class="p">}</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>PUT [base]/
+</code></pre></div></div>
+
+<p>(FHIR:s systemnivå-transaktion skickas till bas-URL:en, inte till en
+resurstyps-URL.) Servern SKA behandla Bundlens poster atomiskt: antingen
+registreras samtliga poster, eller ingen. Enskilda <code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>-
+interaktioner per resurstyp (se tabellen ovan) kvarstår som del av
+respektive resurstyps förmågor, men klienter SKA använda transaction-vägen
+för faktisk registrering, för att garantera att Provenance-posten alltid
+följer med.</p>
 
 <hr />
 
@@ -398,8 +457,8 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-09 11:47:00 +0000">
-    2026-09-09
+  <span title="2026-09-10 06:56:00 +0000">
+    2026-09-10
   </span>
 
           <br/>

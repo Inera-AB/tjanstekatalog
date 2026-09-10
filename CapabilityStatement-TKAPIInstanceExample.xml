@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<CapabilityStatement xmlns="http://hl7.org/fhir">
+  <id value="TKAPIInstanceExample"/>
+  <meta>
+    <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"/>
+  </meta>
+  <text>
+    <status value="extensions"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: CapabilityStatement TKAPIInstanceExample</b></p><a name="TKAPIInstanceExample"> </a><a name="hcTKAPIInstanceExample"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="StructureDefinition-tk-api-instance.html">Tjänstekatalogen API-instans</a></p></div><h2 id="title"/><ul><li>Implementationsguidens version: 0.1.0 </li><li>FHIR-version: 5.0.0 </li><li>Format som stöds: <code>json</code></li><li>Publicerad: 2026-01-15 </li><li>Publicerad av: Inera AB </li></ul><blockquote class="impl-note"><p><strong>Notera till implementörer: FHIR-förmågor</strong></p><p>Vilken FHIR-förmåga som helst kan vara 'tillåten' av systemet om den inte uttryckligen är markerad som 'SHALL NOT'. Några objekt är markerade som MAY i implementationsguiden för att belysa deras potentiella relevans för användningsfallet.</p></blockquote><p>This CapabilityStatement instantiates the CapabilityStatement <a href="CapabilityStatement-TKAPISpecificationCapabilityExample.html">Patientinformation (Inera FHIR IG)</a></p><h2 id="rest">FHIR RESTful-förmågor</h2><div class="panel panel-default"><div class="panel-heading"><h3 id="mode1" class="panel-title">Mode: <code>server</code></h3></div><div class="panel-body"/></div></div>
+  </text>
+  <extension url="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint">
+    <valueReference>
+      <reference value="Endpoint/TKEndpointExample"/>
+    </valueReference>
+  </extension>
+  <extension url="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period">
+    <valuePeriod>
+      <start value="2026-01-01"/>
+    </valuePeriod>
+  </extension>
+  <url value="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/TKAPIInstanceExample"/>
+  <version value="0.1.0"/>
+  <status value="active"/>
+  <date value="2026-01-15"/>
+  <publisher value="Inera AB"/>
+  <contact>
+    <name value="Inera AB"/>
+    <telecom>
+      <system value="url"/>
+      <value value="https://www.inera.se"/>
+    </telecom>
+  </contact>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="SE"/>
+      <display value="Sweden"/>
+    </coding>
+  </jurisdiction>
+  <kind value="instance"/>
+  <instantiates value="https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation"/>
+  <implementation>
+    <description value="Exempelregionens patientinformations-API"/>
+    <url value="https://api.exempelregionen.se/patientinformation/fhir"/>
+    <custodian>
+      <reference value="Organization/TKOrganizationExample"/>
+    </custodian>
+  </implementation>
+  <fhirVersion value="5.0.0"/>
+  <format value="json"/>
+  <rest>
+    <mode value="server"/>
+  </rest>
+</CapabilityStatement>
