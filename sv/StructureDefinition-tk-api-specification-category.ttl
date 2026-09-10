@@ -26,7 +26,7 @@
   fhir:name [ fhir:v "TKAPISpecificationCategory"] ; # 
   fhir:title [ fhir:v "Specifikationskategori"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-09-10T06:56:47+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-09-10T07:38:29+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;

@@ -62,7 +62,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-pay
   "name" : "TKEndpointPayloadProfile",
   "title" : "Stödd specifikation (payload profile)",
   "status" : "draft",
-  "date" : "2026-09-10T06:56:47+00:00",
+  "date" : "2026-09-10T07:38:29+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -40,6 +40,7 @@ Söker fram de TKAPIInstance-resurser (kind=instance) som följer (instantiates)
   "base" : ["CapabilityStatement"],
   "type" : "reference",
   "expression" : "CapabilityStatement.instantiates",
+  "processingMode" : "normal",
   "target" : ["CapabilityStatement"]
 }
 

@@ -40,6 +40,7 @@ Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en a
   "base" : ["Endpoint"],
   "type" : "uri",
   "expression" : "Endpoint.payload.extension('https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile').value",
+  "processingMode" : "normal",
   "multipleOr" : true,
   "multipleAnd" : false
 }

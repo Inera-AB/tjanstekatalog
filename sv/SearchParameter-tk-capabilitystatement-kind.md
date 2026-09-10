@@ -39,7 +39,8 @@ Söker CapabilityStatement-resurser efter kind. Används för att skilja API-spe
   "code" : "kind",
   "base" : ["CapabilityStatement"],
   "type" : "token",
-  "expression" : "CapabilityStatement.kind"
+  "expression" : "CapabilityStatement.kind",
+  "processingMode" : "normal"
 }
 
 ```
