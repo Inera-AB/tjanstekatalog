@@ -64,7 +64,23 @@ jobs:
       - name: Build IG
         id: build
         continue-on-error: true
-        run: java -jar input-cache/publisher.jar -ig ig.ini -tx n/a 2>&1 | tee build.log
+        run: |
+          build() {
+            java -jar input-cache/publisher.jar -ig ig.ini "$@" 2>&1 | tee build.log
+            return "${PIPESTATUS[0]}"
+          }
+          if build -tx https://tx.fhir.org/r5; then
+            echo "Build succeeded with terminology server."
+          else
+            echo "TX attempt 1 failed, retrying in 30s..."
+            sleep 30
+            if build -tx https://tx.fhir.org/r5; then
+              echo "Build succeeded on retry."
+            else
+              echo "TX server unavailable — building without terminology validation."
+              build -tx n/a
+            fi
+          fi
 
       - name: Post QA comment
         uses: actions/github-script@v7

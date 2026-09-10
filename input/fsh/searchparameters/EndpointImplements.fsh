@@ -32,5 +32,6 @@ Description: "Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload)
 * base[0] = #Endpoint
 * type = #uri
 * expression = "Endpoint.payload.extension('https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile').value"
+* processingMode = #normal
 * multipleOr = true
 * multipleAnd = false
