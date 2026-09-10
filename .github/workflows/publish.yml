@@ -111,12 +111,12 @@ jobs:
           build() {
             java -jar input-cache/publisher.jar -ig ig.ini "$@"
           }
-          if build -tx https://tx.fhir.org/r4; then
+          if build -tx https://tx.fhir.org/r5; then
             echo "Build succeeded with terminology server."
           else
             echo "TX attempt 1 failed, retrying in 30s..."
             sleep 30
-            if build -tx https://tx.fhir.org/r4; then
+            if build -tx https://tx.fhir.org/r5; then
               echo "Build succeeded on retry."
             else
               echo "TX server unavailable — building without terminology validation."
