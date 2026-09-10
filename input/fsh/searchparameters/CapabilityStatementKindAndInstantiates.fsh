@@ -31,6 +31,7 @@ Description: "Söker CapabilityStatement-resurser efter kind (requirements = API
 * base[0] = #CapabilityStatement
 * type = #token
 * expression = "CapabilityStatement.kind"
+* processingMode = #normal
 
 Instance: TKCapabilityStatementInstantiates
 InstanceOf: SearchParameter
@@ -56,4 +57,5 @@ Description: "Söker fram de TKAPIInstance-resurser som följer en angiven API-s
 * base[0] = #CapabilityStatement
 * type = #reference
 * expression = "CapabilityStatement.instantiates"
+* processingMode = #normal
 * target[0] = #CapabilityStatement
