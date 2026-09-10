@@ -11,24 +11,31 @@ element realiserar — finns i [Kravkatalog](requirements.html); kravnycklarna
 
 ### Omfattade delar
 
-Denna IG realiserar entiteterna **Ändpunkt** och **Organisation**, inklusive
-båda relationerna mellan dem ("förvaltar" och "har"), fullt ut som FHIR-
-resurser med tillhörande sökparameter och skrivoperationer. Entiteterna
-**API**, **API-specifikation**, **Indexpost** och **Vård- och
-omsorgstagare** är modellerade som logiska modeller för spårbarhet, men är
-inte (ännu) REST-exponerade i det administrativa API:et — se
-"Avvikelser och tillägg" nedan för respektive entitet och
-[Kravkatalog](requirements.html) (REQ-MDL-*) för status.
+Denna IG realiserar entiteterna **Ändpunkt**, **Organisation**, **API** och
+**API-specifikation** fullt ut som FHIR-resurser med tillhörande
+sökparameter och skrivoperationer, inklusive båda relationerna mellan
+Ändpunkt och Organisation ("förvaltar" och "har"). Entiteterna **Indexpost**
+och **Vård- och omsorgstagare** är modellerade som logiska modeller för
+spårbarhet, men är inte (ännu) REST-exponerade i det administrativa API:et
+— se "Avvikelser och tillägg" nedan och [Kravkatalog](requirements.html)
+(REQ-MDL-1/2) för status.
 
-Utöver informationsunderlagets sex entiteter realiserar denna IG tre
-stakeholder-beslutade tillägg (se respektive punkt nedan under "Avvikelser
-och tillägg"): **administratörsbehörighet**
+API och API-specifikation var tidigare också logisk-modell-/extension-
+endast (REST-exponering uppskjuten respektive helt utelämnad); båda
+uppgraderades efter jämförelse med en annan implementation av samma
+problem — se "Avvikelser och tillägg" nedan.
+
+Utöver informationsunderlagets sex entiteter realiserar denna IG ytterligare
+tillägg (se respektive punkt nedan under "Avvikelser och tillägg"):
+**administratörsbehörighet**
 ([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)),
 **distribution/federering**
-([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html))
-och en **exponeringsgräns** mellan externt sök-API och internt admin-API
+([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html)),
+en **exponeringsgräns** mellan externt sök-API och internt admin-API
 ([TKSearchAPI](CapabilityStatement-tk-search-api.html) /
-[TKAdminAPI](CapabilityStatement-tk-admin-api.html)).
+[TKAdminAPI](CapabilityStatement-tk-admin-api.html)), och **spårbarhet vid
+registrering** ([TKProvenance](StructureDefinition-tk-provenance.html) +
+transaction-Bundle).
 
 ---
 
@@ -39,6 +46,13 @@ eller lägger till utöver, en bokstavlig läsning av informationsunderlaget —
 inklusive ställen där vi gjort andra modelleringsval än de som syns i det
 bifogade underlaget, i enlighet med anvisningen att sådana val ska
 dokumenteras tydligt.
+
+Flera punkter nedan (märkta "efter jämförelse med en annan implementation
+av samma problem") tillkom efter att denna IG:s design jämfördes mot en
+annan, oberoende genomförd implementation av samma problemställning
+(OpenAPI-spec + CapabilityStatement). Där den implementationen löste ett
+problem denna IG lämnat öppet eller löst svagare, har mönstret medvetet
+anpassats och adopterats här.
 
 - **`organization` räcker inte för "har".** Standardsökparametern
   `organization` på `Endpoint` är definierad som `Endpoint.managingOrganization`
@@ -65,20 +79,17 @@ dokumenteras tydligt.
   som en repeterbar `canonical`-extension på `Endpoint.payload` i väntan på
   det elementet. Se REQ-SRCH-3.
 
-- **Entiteten "API" realiseras inte som en egen resurs.** Informationsunderlaget
-  ger "API" en egen giltighetsperiod (giltigFrom/giltigTom), skild från
-  Ändpunktens. FHIR:s `Endpoint.payload` är en backbone-struktur utan egen
-  identitet/id och utan eget periodelement — den kan inte bära en sådan
-  självständig livscykel. Vi har valt att **inte** införa en separat
-  resurs eller logisk modell för "API": `Endpoint.payload` (typ + vår
-  `TKEndpointPayloadProfile`-extension) räcker för att uttrycka "Ändpunkt
-  tillgängliggör API" och "API följer API-specifikation". Konsekvensen är
-  att denna IG **inte** bär en separat giltighetsperiod per API — endast
-  `Endpoint.period` (Ändpunktens egen giltighetstid) används. Detta är ett
-  medvetet avsteg, inte en försummelse: se REQ-MDL-3. Implementatörer som
-  behöver oberoende livscykler per API bör registrera separata
-  `Endpoint`-instanser (en per API) tills vidare, eller lyfta frågan som ett
-  ändringsförslag mot en framtida version av denna IG.
+- ~~Entiteten "API" realiseras inte som en egen resurs~~ **— ändrat, se
+  nedan.** Informationsunderlaget ger "API" en egen giltighetsperiod
+  (giltigFrom/giltigTom), skild från Ändpunktens. `Endpoint.payload` är en
+  backbone-struktur utan egen identitet/id och utan eget periodelement, så
+  den kunde inte ensam bära en sådan självständig livscykel. Tidigare löste
+  denna IG detta genom att **inte** införa en separat resurs — `Endpoint.payload`
+  + `TKEndpointPayloadProfile` fick räcka, med den dokumenterade konsekvensen
+  att ingen separat giltighetsperiod per API bars. Det avstegets grundorsak
+  är nu åtgärdat genom [TKAPIInstance](StructureDefinition-tk-api-instance.html)
+  — se nästa punkt — men `Endpoint.payload`/`TKEndpointPayloadProfile`
+  behålls oförändrat vid sidan av, som den snabba sökvägen. Se REQ-MDL-3.
 
 - **`säkerhetsmetod` och `urlTillAuktorisationsserver` saknar hemvist i
   basresursen `Endpoint`.** R5 `Endpoint` har inget element för vare sig
@@ -146,16 +157,29 @@ dokumenteras tydligt.
   dokument/kontrakt, identifierat av sin egen kanoniska URI. Att låta en
   specifikation "vara" en ActorDefinition blandar samman två skilda begrepp
   och gör det svårare att t.ex. sökbart skilja "vilka aktörer finns" från
-  "vilka specifikationer finns". Skulle denna IG i en framtida version
-  REST-exponera `TKAPISpecification`, rekommenderas istället en nedbantad
-  profil på **`ImplementationGuide`**: den bär redan `url` (kanoniskUrl),
-  `version`, `name` (maskinläsbartNamn), `title` (titel), `status`,
-  `description` (beskrivning) och `date` (utgivningsdatum) som egna element,
-  vilket passar en versionerad, publicerad specifikations livscykel bättre
-  än både `ActorDefinition` och `Basic`. (`publisher` är dock `string` på
-  `ImplementationGuide`, inte `Reference` — `ansvarigUtgivare` som
-  `Reference(TKOrganization)` skulle då behöva uttryckas via en extension
-  istället, eller bytas till en identifierare/text.) Se REQ-MDL-4.
+  "vilka specifikationer finns".
+
+  ~~Rekommenderades tidigare: en nedbantad profil på `ImplementationGuide`
+  om/när REST-exponering blev aktuell.~~ **Ersatt.** Efter jämförelse med en
+  annan implementation av samma problem, som använder `CapabilityStatement`
+  (kind=requirements) för motsvarande entitet, realiseras
+  API-specifikation nu som
+  [TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.html)
+  — en profil på **`CapabilityStatement`**, inte `ImplementationGuide`.
+  `CapabilityStatement.kind=requirements` är native FHIR-mekanik för "en
+  formell kravbild ett konformt system måste uppfylla", vilket beskriver
+  en interoperabilitetsspecifikation minst lika träffande som
+  `ImplementationGuide`s dokumentationspaket-fokuserade form — och denna
+  IG använder redan `kind=requirements` för sina egna `TKAdminAPI`/
+  `TKSearchAPI`, så mönstret är konsekvent. `CapabilityStatement` bär
+  liksom `ImplementationGuide` `url` (kanoniskUrl), `version`, `name`
+  (maskinläsbartNamn), `title` (titel), `status`, `description`
+  (beskrivning) och `date` (utgivningsdatum) som egna element. `publisher`
+  är, precis som på `ImplementationGuide`, `string` snarare än `Reference`
+  — `ansvarigUtgivare` som `Reference(TKOrganization)` uttrycks därför via
+  en tillagd extension,
+  [TKCapabilityStatementResponsibleOrganization](StructureDefinition-tk-capabilitystatement-responsible-organization.html).
+  Se REQ-MDL-4.
 
 - **`Organization.identifier` är den "logiska adress" tjänstesökning slår
   upp.** Förstudien "Förstudie T2 Tjänstekatalog" beskriver tjänstesökningens
@@ -209,11 +233,54 @@ dokumenteras tydligt.
   (`create`/`update`) finns endast i [TKAdminAPI](CapabilityStatement-tk-admin-api.html),
   som är internt exponerat endast. Se REQ-EXP-1/2 och security.html.
 
-- **Spårbarhet (vem skapade/senast uppdaterade en post) skjuts upp.**
-  Förstudiens skrivmodell förutsätter attribut som `createdTime` och
-  `updatedByHsaId`. Stakeholder-beslut: löses med serverloggning och/eller
-  `Provenance`-resurser i en framtida version, snarare än ett attribut på
-  `Organization`/`Endpoint` självt — avvaktar för nu. Se REQ-MDL-5.
+- ~~Spårbarhet (vem skapade/senast uppdaterade en post) skjuts upp~~
+  **— löst, inte längre uppskjutet.** Förstudiens skrivmodell förutsätter
+  attribut som `createdTime` och `updatedByHsaId`; detta avsnitt sa
+  tidigare att det löses "i en framtida version". Efter jämförelse med en
+  annan implementation av samma problem, som kräver en `Provenance`-post
+  per registrering i en transaction-Bundle, antogs samma mönster här:
+  [`TKProvenance`](StructureDefinition-tk-provenance.html) SKA bifogas
+  (`Provenance.target` pekande ut den registrerade resursen) i samma
+  transaction-Bundle som registrerar en `Organization`, `Endpoint` eller
+  `CapabilityStatement`. Detta ger både spårbarhet och atomicitet (posten
+  och dess Provenance skapas/uppdateras tillsammans), vilket separata
+  `create`/`update`-anrop per resurstyp inte garanterar. Tjänstekatalogens
+  administrativa API SKA därför stödja systeminteraktionen `transaction`.
+  Se REQ-MDL-5, REQ-TRC-1/2 och `TKProvenance.fsh`.
+
+- **API-instans ([TKAPIInstance](StructureDefinition-tk-api-instance.html))
+  ger "API" en egen identitet, som komplement till `Endpoint.payload`.**
+  Föregående punkt ovan (`Endpoint.payload` + `TKEndpointPayloadProfile`)
+  kvarstår oförändrad som den snabba, enhops-sökbara realiseringen av
+  "tillgängliggör"/"följer" (REQ-SRCH-3/4) — men dess kända begränsning,
+  att "API" saknade egen identitet och egen giltighetsperiod, kvarstod
+  också. Efter jämförelse med en annan implementation av samma problem,
+  som representerar en tjänsteinstans som en egen `CapabilityStatement`
+  (kind=instance, med `.instantiates` och `.implementation.custodian`),
+  infördes samma mönster här som `TKAPIInstance`: en egen resurs för "API",
+  med `.instantiates` ("följer" API-specifikation, 1..\*) och en tillagd
+  extension som pekar ut den tillgängliggörande ändpunkten ("tillgängliggör",
+  eftersom basresursen saknar ett sådant element) samt en tillagd
+  giltighetsperiod-extension (löser REQ-MDL-3:s tidigare dokumenterade
+  avsteg). **Öppen fråga:** att hålla de två realiseringarna (payload-
+  extensionens spec-pekare och `TKAPIInstance.instantiates`) i sync är en
+  dokumenterad förväntan, inte mekaniskt garanterad — servern validerar
+  inte idag att de överensstämmer. Se REQ-MDL-3, REQ-MDL-6, REQ-MDL-7.
+
+- **CapabilityStatement (kind=requirements) kräver ett populerat
+  rest/messaging/document-element, även för icke-REST-specifikationer.**
+  Bas-FHIR:s invariant `cpb-1` ("A Capability Statement SHALL have at least
+  one of REST, messaging or document element") gäller alla
+  `CapabilityStatement`-instanser oavsett `kind`. För en FHIR/REST-baserad
+  specifikation (t.ex. exemplet nedan) är detta naturligt — `.rest`
+  beskriver då på riktigt vilka förmågor specifikationen kräver. För en
+  interoperabilitetsspecifikation som INTE är REST-baserad (t.ex. ett
+  RIVTA SOAP-tjänstekontrakt) krävs ändå ett minimalt `rest.mode`-värde
+  enbart för att uppfylla bas-invarianten — en känd modelleringsspänning i
+  att återanvända `CapabilityStatement` (byggt för att beskriva FHIR
+  REST/messaging/document-förmågor) för specifikationer som inte är det.
+  `TKAPISpecificationCapability` sätter `rest 1..1` och `rest.mode = server`
+  av denna anledning; se REQ-MDL-4.
 
 ---
 
@@ -269,30 +336,48 @@ maskinläsbara motsvarigheten (`Requirements.statement.satisfiedBy`).
 |----------------|-------|--------------------|------------|
 | id | 1..1 | [TKVardOchOmsorgstagare.id](StructureDefinition-tk-vard-och-omsorgstagare.html) | REQ-MDL-2 |
 
-#### API-specifikation → [TKAPISpecification](StructureDefinition-tk-api-specification.html) (logisk modell, ej REST-exponerad)
+#### API-specifikation → [TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.html)
 
 | Modellelement | Kard. | FHIR-profilelement | Noteringar |
 |----------------|-------|--------------------|------------|
-| id | 1..1 | [TKAPISpecification.id](StructureDefinition-tk-api-specification.html) | REQ-MDL-4 |
-| kanoniskUrl | 1..1 | [TKAPISpecification.kanoniskUrl](StructureDefinition-tk-api-specification.html) | Förväntas matcha värdet i `TKEndpointPayloadProfile`. REQ-MDL-4, REQ-SRCH-3 |
-| status | 1..1 | [TKAPISpecification.status](StructureDefinition-tk-api-specification.html) | REQ-MDL-4 |
-| maskinläsbartNamn | 0..1 | [TKAPISpecification.maskinlasbartNamn](StructureDefinition-tk-api-specification.html) | ASCII-elementnamn i FSH, se profilen. REQ-MDL-4 |
-| version | 0..1 | [TKAPISpecification.version](StructureDefinition-tk-api-specification.html) | REQ-MDL-4 |
-| referensTillKälla | 0..1 | [TKAPISpecification.referensTillKalla](StructureDefinition-tk-api-specification.html) | ASCII-elementnamn i FSH, se profilen. REQ-MDL-4 |
-| kategori | 0..1 | [TKAPISpecification.kategori](StructureDefinition-tk-api-specification.html) | REQ-MDL-4 |
-| titel | 1..1 | [TKAPISpecification.titel](StructureDefinition-tk-api-specification.html) | REQ-MDL-4 |
-| beskrivning | 0..1 | [TKAPISpecification.beskrivning](StructureDefinition-tk-api-specification.html) | REQ-MDL-4 |
-| ansvarigUtgivare | 0..1 | [TKAPISpecification.ansvarigUtgivare](StructureDefinition-tk-api-specification.html) | Reference(TKOrganization). REQ-MDL-4 |
-| utgivningsdatum | 0..1 | [TKAPISpecification.utgivningsdatum](StructureDefinition-tk-api-specification.html) | REQ-MDL-4 |
+| id | 1..1 | [TKAPISpecificationCapability.id](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
+| kanoniskUrl | 1..1 | [TKAPISpecificationCapability.url](StructureDefinition-tk-api-specification-capability.html) | Förväntas matcha värdet i `TKEndpointPayloadProfile`. REQ-MDL-4, REQ-SRCH-3 |
+| status | 1..1 | [TKAPISpecificationCapability.status](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
+| maskinläsbartNamn | 0..1 | [TKAPISpecificationCapability.name](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
+| version | 0..1 | [TKAPISpecificationCapability.version](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
+| referensTillKälla | 0..1 | [TKAPISpecificationSourceReference](StructureDefinition-tk-api-specification-source-reference.html) (extension) | REQ-MDL-4 |
+| kategori | 0..1 | [TKAPISpecificationCategory](StructureDefinition-tk-api-specification-category.html) (extension) | REQ-MDL-4 |
+| titel | 1..1 | [TKAPISpecificationCapability.title](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
+| beskrivning | 0..1 | [TKAPISpecificationCapability.description](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
+| ansvarigUtgivare | 0..1 | [TKCapabilityStatementResponsibleOrganization](StructureDefinition-tk-capabilitystatement-responsible-organization.html) (extension) | `.publisher` (string) täcker fritextnamn; denna extension bär strukturerad `Reference(TKOrganization)`. REQ-MDL-4 |
+| utgivningsdatum | 0..1 | [TKAPISpecificationCapability.date](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
+| *(kind)* | 1..1 | [TKAPISpecificationCapability.kind](StructureDefinition-tk-api-specification-capability.html) | Fixerat till `requirements`. Inte del av informationsunderlaget — krävs av basresursen. |
 
-#### API (join-entitet) → *ingen egen resurs*
+#### API (join-entitet) → [TKAPIInstance](StructureDefinition-tk-api-instance.html) + [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html)
+
+Två komplementära realiseringar — se avsteget ovan om varför båda finns
+kvar sida vid sida.
 
 | Modellelement | Kard. | FHIR-profilelement | Noteringar |
 |----------------|-------|--------------------|------------|
-| giltigFrom | — | *Ej separat realiserat* | Se avsteg ovan — `Endpoint.period` används istället. REQ-MDL-3 |
-| giltigTom | — | *Ej separat realiserat* | Se avsteg ovan — `Endpoint.period` används istället. REQ-MDL-3 |
-| *(tillgängliggörs av Ändpunkt)* | 0..* | [TKEndpoint.payload](StructureDefinition-tk-endpoint.html) | REQ-MDL-3 |
-| *(följer API-specifikation)* | 0..* | [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html) | REQ-MDL-3, REQ-SRCH-3 |
+| id | 1..1 | [TKAPIInstance.id](StructureDefinition-tk-api-instance.html) | REQ-MDL-7 |
+| giltigFrom | 0..1 | [TKAPIInstancePeriod](StructureDefinition-tk-api-instance-period.html) (extension) `.start` | REQ-MDL-6 |
+| giltigTom | 0..1 | [TKAPIInstancePeriod](StructureDefinition-tk-api-instance-period.html) (extension) `.end` | REQ-MDL-6 |
+| *(tillgängliggörs av Ändpunkt)* | 1..1 | [TKAPIInstanceEndpoint](StructureDefinition-tk-api-instance-endpoint.html) (extension) | Egen resurs. REQ-MDL-7 |
+| *(tillgängliggörs av Ändpunkt)* | 0..* | [TKEndpoint.payload](StructureDefinition-tk-endpoint.html) | Snabb sökväg (extension). REQ-MDL-3 |
+| *(följer API-specifikation)* | 1..* | [TKAPIInstance.instantiates](StructureDefinition-tk-api-instance.html) | Egen resurs, sökbar via SearchParameter-tk-capabilitystatement-instantiates.html. REQ-MDL-7 |
+| *(följer API-specifikation)* | 0..* | [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html) | Snabb sökväg (extension). REQ-MDL-3, REQ-SRCH-3/4 |
+| *(teknisk anropsadress)* | 1..1 | [TKAPIInstance.implementation.url](StructureDefinition-tk-api-instance.html) | Samma värde som `TKEndpoint.address` (medveten duplicering). |
+| *(ansvarig organisation)* | 0..1 | [TKAPIInstance.implementation.custodian](StructureDefinition-tk-api-instance.html) | Om annan än ändpunktens förvaltande organisation. |
+| *(kind)* | 1..1 | [TKAPIInstance.kind](StructureDefinition-tk-api-instance.html) | Fixerat till `instance`. |
+
+#### Spårbarhet vid registrering → [TKProvenance](StructureDefinition-tk-provenance.html) (utökning, ej del av informationsunderlaget)
+
+| Modellelement | Kard. | FHIR-profilelement | Noteringar |
+|----------------|-------|--------------------|------------|
+| registrerad resurs | 1..* | [TKProvenance.target](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
+| registreringstidpunkt | 1..1 | [TKProvenance.recorded](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
+| registrerande system/konto | 1..* | [TKProvenance.agent.who](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
 
 #### Administratörsbehörighet → [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) (utökning, ej del av informationsunderlaget)
 
@@ -372,7 +457,7 @@ mot EHM:s krav.
 | EHM-element (`organization-er`) | Kard./bindning hos EHM | Källa i tjänstekatalogen | Transformation |
 |---|---|---|---|
 | `Organization.identifier` (slice `organizationIdentifier`) | system fixed `urn:oid:2.5.4.97`, värde regex `^\d{6}\d{4}$` (10 siffror) | [TKOrganization.identifier](StructureDefinition-tk-organization.html)\[`organisationsnummer`\] | Systemet matchar redan. Bindestreck i värdet tas bort (samma som i operationsmappningen ovan). |
-| `Organization.identifier` (slice `personalIdentityNumber` / `coordinationNumber`) | system fixed resp. `http://electronichealth.se/identifier/personnummer` / `.../samordningsnummer`, värde regex för 12-siffrigt personnummer/samordningsnummer | — | Denna IG:s `TKOrganization` har idag bara en `organisationsnummer`-slice (se REQ-ORG-2) — inte personnummer/samordningsnummer-slicer för enskilda firmor. Öppen fråga, se nedan. |
+| `Organization.identifier` (slice `personalIdentityNumber` / `coordinationNumber`) | system fixed resp. `http://electronichealth.se/identifier/personnummer` / `.../samordningsnummer`, värde regex för 12-siffrigt personnummer/samordningsnummer | — (medvetet ej mappat) | **Medvetet utanför scope, inte en lucka att fylla** (stakeholder-bekräftat): personnummer/samordningsnummer hör till EHM:s patientindex och till sökningar som kombinerar tjänstekatalog med patientindex — inte till organisationsidentifiering i tjänstekatalogens synkronisering. Denna IG:s `TKOrganization.identifier` har därför avsiktligt bara en `organisationsnummer`-slice (REQ-ORG-2); dessa EHM-slicer lämnas obesatta vid synkronisering. |
 | `Organization.type` | 0..1, required binding: `http://electronichealth.se/fhir/NDI/ValueSet/er-organization-type` | — | **Saknar källa.** Informationsunderlagets Organisation-entitet har ingen "typ"-attribut att mappa från. Öppen fråga, se nedan. |
 | `Organization.endpoint` | `targetProfile` = EHM:s `endpoint-er` | [TKOrganization.endpoint](StructureDefinition-tk-organization.html) | Referenserna ska peka på `Endpoint`-resurser som redan skapats hos EHM (steg 2 ovan), inte på tjänstekatalogens egna `Endpoint`-id:n. |
 
@@ -398,7 +483,7 @@ organisationen läggs till eller tas bort).
 | EHM-parameter | Kard. | Typ | Källa i tjänstekatalogen | Transformation |
 |---|---|---|---|---|
 | `id` (URL-segment, EHM:s Endpoint-id) | 1..1 | `string` (UUID) | [TKEndpoint.identifier](StructureDefinition-tk-endpoint.html)\[`ehmEndpointId`\] | Ingen — värdet SKA redan vara EHM:s tilldelade id (se REQ-WRT-4). Om det saknas kan operationen inte anropas — ändpunkten måste först finnas hos EHM (steg 2 i flödet ovan). |
-| `organization` (body, `Parameters`) | 1..1 | `Identifier` (system + value) | [TKOrganization.identifier](StructureDefinition-tk-organization.html)\[`organisationsnummer`\] | Systemet `urn:oid:2.5.4.97` matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. Alternativt kan personnummer/samordningsnummer användas om organisationen identifieras så istället (samma system som `$personnummer`/`$samordningsnummer` i `aliases.fsh`, redan matchande). |
+| `organization` (body, `Parameters`) | 1..1 | `Identifier` (system + value) | [TKOrganization.identifier](StructureDefinition-tk-organization.html)\[`organisationsnummer`\] | Systemet `urn:oid:2.5.4.97` matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. **Endast organisationsnummer används här** — personnummer/samordningsnummer SKA INTE användas för att identifiera organisationen i detta anrop (stakeholder-bekräftat: de hör till EHM:s patientindex och kombinerade sökningar däremellan, inte till denna IG:s scope). Se REQ-WRT-5. |
 | *(retur)* `return` | 1..1 | `OperationOutcome` | — | Ingen resurs returneras (varken uppdaterad Organization eller Endpoint) — bara en `OperationOutcome` med en framgångs-, informations- eller felkod. Se svarshantering nedan. |
 
 Exempel på anropskropp (organisationsnummer, bindestreck borttaget):
@@ -444,12 +529,16 @@ i deras egen IG.
   sådant attribut, eller så behöver Synkroniseringstjänsten härleda/anta ett
   värde på annat sätt, eller så utelämnas elementet (tillåtet, eftersom det
   är 0..1 hos EHM).
-- **Personnummer/samordningsnummer för enskilda firmor saknas i `TKOrganization`.**
-  EHM:s `Organization`-profil har slicer för detta (en enskild firma
-  identifieras med ägarens personnummer, inte ett organisationsnummer) men
-  denna IG:s `TKOrganization.identifier` har idag bara en
-  `organisationsnummer`-slice. Behöver läggas till om tjänstekatalogen ska
-  hantera enskilda firmor.
+- ~~Personnummer/samordningsnummer för enskilda firmor saknas i
+  `TKOrganization`~~ **— rättat, inte längre en öppen fråga.** Tidigare
+  antogs personnummer/samordningsnummer kunna användas som alternativ
+  organisationsidentifierare mot EHM (t.ex. för enskilda firmor), utifrån
+  att EHM:s `organization-er`-profil har slicer för detta. Stakeholder har
+  bekräftat att detta är fel: personnummer/samordningsnummer hör till EHM:s
+  patientindex och till sökningar som kombinerar tjänstekatalog med
+  patientindex — inte till organisationsidentifiering i tjänstekatalogens
+  synkronisering mot EHM. Se rättningen i REQ-WRT-2/5 och
+  mappningstabellerna ovan.
 - **`saml2` som säkerhetsmetod saknar motsvarighet** i HL7:s
   `restful-security-service`-värdemängd, som EHM kräver för sin
   `securityMethod`-slice. Kräver antingen ett verksamhetsbeslut om hur
@@ -465,14 +554,22 @@ i deras egen IG.
 - **Om Inera bekräftar `urn:oid:2.5.4.97`** som sitt eget föredragna system
   för organisationsnummer, kan noteringen om att det är "valt för
   EHM-kompatibilitet" tas bort — se REQ-ORG-2.
-
----
+- **Om EHM identifierar en organisation med organisationsnummer i stället
+  för vårdgivarens HSA-id, behöver det organisationsnumret beständigas hos
+  Inera.** Observation från stakeholder: tjänstekatalogens ekosystem
+  använder i övrigt normalt HSA-id som organisationsidentifierare. Om EHM
+  väljer att identifiera en organisation med organisationsnummer (se
+  REQ-ORG-2, REQ-ORG-5, REQ-WRT-5) i stället för vårdgivarens HSA-id,
+  behöver Inera säkerställa att just det organisationsnumret är en stabil,
+  förvaltad identifierare hos Inera — inte bara ett värde som råkar
+  synkroniseras vidare till EHM. Hur denna beständighet säkerställs
+  (registervård, koppling till HSA-id, etc.) är inte löst i detta utkast.
 
 ### Omappade element
 
-| Modellelement | Orsak till att det inte mappas |
-|----------------|-------------------------------|
-| API.id | Modellen ger inte "API" ett eget id-attribut — se avsteg ovan; entiteten realiseras helt via `Endpoint.payload`, som saknar egen identitet. |
+~~API.id~~ **— inte längre omappat.** `API` har nu ett eget id via
+[TKAPIInstance](StructureDefinition-tk-api-instance.html)`.id`, se
+mappningstabellen ovan. Inga omappade element återstår i detta utkast.
 
 ---
 

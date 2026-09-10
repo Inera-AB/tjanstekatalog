@@ -14,10 +14,13 @@ organisation, `REQ-END-*` attribut på Ändpunkt, `REQ-ORG-*` attribut och
 relationer på Organisation, `REQ-WRT-*` synkronisering mot EHM:s Organization
 Endpoint Writer, `REQ-MDL-*` övriga entiteter i informationsunderlaget och
 avgränsningar, `REQ-EXP-*` exponering (externt sök-API vs. internt admin-API),
-`REQ-ADM-*` administratörsbehörighet och `REQ-DIST-*` distribution/federering
-till lokala kataloger. De tre sistnämnda grupperna är stakeholder-beslutade
-tillägg utöver det ursprungliga informationsunderlaget — se
-[Mappning till profiler](mappings.html).
+`REQ-ADM-*` administratörsbehörighet, `REQ-DIST-*` distribution/federering
+till lokala kataloger, och `REQ-TRC-*` spårbarhet och transaktionell
+registrering. De fyra sistnämnda grupperna är tillägg utöver det
+ursprungliga informationsunderlaget — se [Mappning till profiler](mappings.html)
+för respektive motivering, inklusive vilka som är stakeholder-beslutade och
+vilka som tillkom efter jämförelse med en annan implementation av samma
+problem.
 
 ---
 
@@ -28,6 +31,7 @@ tillägg utöver det ursprungliga informationsunderlaget — se
 | REQ-SRCH-1 | SKA | Servern SKA stödja sökning av `Endpoint` via en sökparameter som returnerar samtliga ändpunkter en organisation listar via `Organization.endpoint` ("har"), skild från `managingOrganization`. | [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html) |
 | REQ-SRCH-2 | SKA | Ändpunktens URL SKA anges i `Endpoint.address`. | [TKEndpoint](StructureDefinition-tk-endpoint.html) |
 | REQ-SRCH-3 | BÖR | Servern BÖR, per nyttolast, ange vilka interoperabilitetsspecifikationer ändpunkten stödjer. | [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html) |
+| REQ-SRCH-4 | BÖR | Servern BÖR stödja sökning av `Endpoint` efter stödd interoperabilitetsspecifikation (`implements`). | [SearchParameter: implements](SearchParameter-tk-endpoint-implements.html) |
 
 ### REQ-END — Attribut på Ändpunkt
 
@@ -64,7 +68,7 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
 | REQ-WRT-2 | FÅR | Synkroniseringstjänsten FÅR, som Organization Endpoint Writer hos EHM, anropa EHM:s `$add-organization`. | EHM:s [CapabilityStatement](http://electronichealth.se/fhir/NDI/CapabilityStatement/organization-endpoint-writer-capabilities-er) och OperationDefinition (extern, ej del av denna IG) |
 | REQ-WRT-3 | FÅR | Synkroniseringstjänsten FÅR anropa EHM:s `$remove-organization` analogt. | Som REQ-WRT-2 |
 | REQ-WRT-4 | SKA | Ändpunkter SKA kunna korreleras med EHM:s eget Endpoint-id, eftersom EHM:s operationer adresserar via deras id. | [TKEndpoint](StructureDefinition-tk-endpoint.html)`.identifier` (slice `ehmEndpointId`) |
-| REQ-WRT-5 | SKA | Organisationsidentifierare till EHM SKA vara i EHM:s format (rätt system, siffror utan bindestreck) — se mappningstabellen. | [TKOrganization](StructureDefinition-tk-organization.html)`.identifier` |
+| REQ-WRT-5 | SKA | Organisationsidentifierare till EHM SKA vara organisationsnummer i EHM:s format (`urn:oid:2.5.4.97`, siffror utan bindestreck). Personnummer/samordningsnummer SKA INTE användas här — de hör till EHM:s patientindex, inte till denna IG:s scope. Se mappningstabellen. | [TKOrganization](StructureDefinition-tk-organization.html)`.identifier` |
 | REQ-WRT-6 | SKA | Tjänstekatalogens admin-API SKA använda FHIR R5 (5.0.0) och JSON, liksom EHM:s gränssnitt. | [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.html) |
 | REQ-WRT-7 | SKA | Innan koppling till EHM SKA motsvarande `Endpoint` finnas hos EHM, mappad enligt EHM:s profil `endpoint-er`. | [TKEndpoint](StructureDefinition-tk-endpoint.html), EHM:s [Endpoint-profil](http://electronichealth.se/fhir/NDI/StructureDefinition/endpoint-er) |
 | REQ-WRT-8 | SKA | Organisationen SKA finnas hos EHM, mappad enligt EHM:s profil `organization-er`. `Organization.type` saknar källa — se öppen fråga i mappings.html. | [TKOrganization](StructureDefinition-tk-organization.html), EHM:s [Organization-profil](http://electronichealth.se/fhir/NDI/StructureDefinition/organization-er) |
@@ -75,9 +79,11 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
 |------|------------|-------------|----------------|
 | REQ-MDL-1 | BÖR | Indexpost BÖR modelleras för spårbarhet. REST-exponering ligger utanför detta utkast. | [TKIndexpost](StructureDefinition-tk-indexpost.html) (logisk modell) |
 | REQ-MDL-2 | BÖR | Vård- och omsorgstagare BÖR modelleras för spårbarhet i förhållande till `Indexpost.avser`. Personuppgifter omfattas inte av detta API. | [TKVardOchOmsorgstagare](StructureDefinition-tk-vard-och-omsorgstagare.html) (logisk modell) |
-| REQ-MDL-3 | SKA | Kopplingen Ändpunkt → API → API-specifikation SKA kunna uttryckas. Realiseras via `Endpoint.payload` + extension, inte som egen resurs. | [TKEndpoint](StructureDefinition-tk-endpoint.html)`.payload`, [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html) |
-| REQ-MDL-4 | BÖR | API-specifikation BÖR modelleras för spårbarhet. REST-exponering skjuts upp, men rekommenderas som en nedbantad profil på `ImplementationGuide` om/när den blir aktuell — inte `ActorDefinition` (EHM:s val, avvisat) eller `Basic`. | [TKAPISpecification](StructureDefinition-tk-api-specification.html) (logisk modell) |
-| REQ-MDL-5 | FÅR | Spårbarhet (vem skapade/senast uppdaterade en post) FÅR göras, men avgränsas bort från detta utkast — löses med serverloggning/`Provenance` i en framtida version. | *(inte realiserat ännu)* |
+| REQ-MDL-3 | SKA | Kopplingen Ändpunkt → API → API-specifikation SKA kunna uttryckas — dels via `Endpoint.payload` + extension (snabb sökbarhet), dels via en egen resurs, TKAPIInstance, som ger "API" egen identitet. | [TKEndpoint](StructureDefinition-tk-endpoint.html)`.payload`, [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.html), [TKAPIInstance](StructureDefinition-tk-api-instance.html) |
+| REQ-MDL-4 | SKA | API-specifikation SKA kunna registreras och sökas som en egen resurs — `CapabilityStatement` (kind=requirements), sökbar på kanonisk url. Ersätter denna IG:s tidigare `ImplementationGuide`-rekommendation; fortfarande inte `ActorDefinition` (EHM:s val, avvisat) eller `Basic`. | [TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.html) |
+| REQ-MDL-5 | SKA | Spårbarhet (vem skapade/senast uppdaterade en post) SKA finnas — löst via en obligatorisk Provenance-post per registrering (tidigare uppskjutet). | [TKProvenance](StructureDefinition-tk-provenance.html), REQ-TRC-1/2 |
+| REQ-MDL-6 | BÖR | En API-instans (TKAPIInstance) BÖR kunna ange sin egen giltighetsperiod, oberoende av ändpunktens. | [TKAPIInstancePeriod](StructureDefinition-tk-api-instance-period.html) |
+| REQ-MDL-7 | SKA | Varje TKAPIInstance SKA referera den ändpunkt som tillgängliggör den och den/de API-specifikationer den följer, sökbart via en egen sökparameter. | [TKAPIInstance](StructureDefinition-tk-api-instance.html), [SearchParameter: instantiates](SearchParameter-tk-capabilitystatement-instantiates.html) |
 
 ### REQ-EXP — Exponering: sök-API externt vs. admin-API internt
 
@@ -111,6 +117,18 @@ se "Avvikelser och tillägg" i [Mappning till profiler](mappings.html) och
 | REQ-DIST-1 | BÖR | Servern BÖR stödja R5 topic-baserad `Subscription` mot ämnet `tk-organization-endpoint-changes`. | [SubscriptionTopic: tk-organization-endpoint-changes](SubscriptionTopic-tk-organization-endpoint-changes.html) |
 | REQ-DIST-2 | BÖR | Servern BÖR stödja grundladdning/återsynk via `_lastUpdated`. | [TKAdminAPI](CapabilityStatement-tk-admin-api.html) |
 | REQ-DIST-3 | FÅR | Ett ursprungsmärke FÅR användas för att undvika rundgång i en dubbelriktad federerad miljö. Inte löst i detta utkast. | *(öppen fråga, se mappings.html)* |
+
+### REQ-TRC — Spårbarhet och transaktionell registrering
+
+Inte del av det ursprungliga informationsunderlaget — tillagt efter
+jämförelse med en annan implementation av samma problem, som löser detta
+med en obligatorisk Provenance-post i en transaction-Bundle. Se
+"Avvikelser och tillägg" i [Mappning till profiler](mappings.html).
+
+| Krav | Konformans | Beskrivning | Realiseras av |
+|------|------------|-------------|----------------|
+| REQ-TRC-1 | SKA | Varje transaction-Bundle som registrerar en Organization, Endpoint eller CapabilityStatement SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna. | [TKProvenance](StructureDefinition-tk-provenance.html) |
+| REQ-TRC-2 | SKA | Tjänstekatalogens administrativa API SKA stödja systeminteraktionen `transaction`, så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans. | [TKAdminAPI](CapabilityStatement-tk-admin-api.html) |
 
 ---
 

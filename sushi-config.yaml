@@ -20,6 +20,7 @@ parameters:
   show-inherited-invariants: false
   usage-stats-opt-out: true
   i18n-default-lang: sv
+  path-suppressed-warnings: input/ignoreWarnings.txt
 
 pages:
   index.md:

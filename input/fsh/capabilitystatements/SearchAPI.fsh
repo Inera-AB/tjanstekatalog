@@ -67,3 +67,27 @@ Description: "CapabilityStatement för tjänstekatalogens externt exponerade sö
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Endpoint-status"
 * rest[=].resource[=].searchParam[=].type = #token
 * rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter status."
+* rest[=].resource[=].searchParam[+].name = "implements"
+* rest[=].resource[=].searchParam[=].definition = Canonical(TKEndpointImplements)
+* rest[=].resource[=].searchParam[=].type = #uri
+* rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter stödd interoperabilitetsspecifikation. Se SearchParameter-tk-endpoint-implements.html."
+
+// --- CapabilityStatement (API-specifikation, API-instans) — läsning för upptäckt ---
+* rest[=].resource[+].type = #CapabilityStatement
+* rest[=].resource[=].supportedProfile[0] = Canonical(TKAPISpecificationCapability)
+* rest[=].resource[=].supportedProfile[+] = Canonical(TKAPIInstance)
+* rest[=].resource[=].documentation = "Interoperabilitetsspecifikationer (kind=requirements) och API-instanser (kind=instance) — för att upptäcka vilka specifikationer/API:er som finns."
+* rest[=].resource[=].interaction[0].code = #read
+* rest[=].resource[=].interaction[+].code = #search-type
+* rest[=].resource[=].searchParam[0].name = "url"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CanonicalResource-url"
+* rest[=].resource[=].searchParam[=].type = #uri
+* rest[=].resource[=].searchParam[=].documentation = "Sök på kanonisk URL."
+* rest[=].resource[=].searchParam[+].name = "kind"
+* rest[=].resource[=].searchParam[=].definition = Canonical(TKCapabilityStatementKind)
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Filtrera på requirements (API-specifikation) eller instance (API-instans)."
+* rest[=].resource[=].searchParam[+].name = "instantiates"
+* rest[=].resource[=].searchParam[=].definition = Canonical(TKCapabilityStatementInstantiates)
+* rest[=].resource[=].searchParam[=].type = #reference
+* rest[=].resource[=].searchParam[=].documentation = "Sök API-instanser efter vilken specifikation de följer."

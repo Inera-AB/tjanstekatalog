@@ -16,7 +16,11 @@ Utöver de generella kraven gäller specifikt för denna IG:
   och SKA inte nås via den externa gatewayen. Se [CapabilityStatement](capabilitystatement.html).
 - Skrivrättigheter i tjänstekatalogens administrativa API begränsas till
   system som är behöriga att registrera information om den aktuella
-  organisationen. **Administratörsbehörighet** — vilken organisation en
+  organisationen. Detta omfattar även registrering via systeminteraktionen
+  `transaction` (REQ-TRC-2) — en transaction-Bundle är inte ett sätt att
+  kringgå den vanliga skrivbehörighetskontrollen, samma regler gäller för
+  varje post i Bundlen som för motsvarande fristående `create`/`update`.
+  **Administratörsbehörighet** — vilken organisation en
   administratör representerar (`local-admin`), eller att administratören
   är `central-admin` (samtliga organisationer) — kan registreras i
   katalogen som [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)

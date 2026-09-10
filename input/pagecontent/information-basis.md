@@ -33,15 +33,20 @@ avvikelser eller tillägg i FHIR-realiseringen, och
 [Kravkatalog](requirements.html) för de formella krav som härletts från
 modellen.
 
-Utöver dessa sex entiteter innehåller denna IG tre stakeholder-beslutade
-tillägg som inte kommer från informationsunderlaget: administratörsbehörighet
+Utöver dessa sex entiteter innehåller denna IG tillägg som inte kommer
+direkt från informationsunderlaget: administratörsbehörighet
 ([TKAdministratorRole](StructureDefinition-tk-administrator-role.html),
 REQ-ADM-*), distribution/federering till lokala kataloger
 ([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html),
-REQ-DIST-*) och en explicit gräns för vilka API:er som exponeras externt
-respektive endast internt (REQ-EXP-*). Se
+REQ-DIST-*), en explicit gräns för vilka API:er som exponeras externt
+respektive endast internt (REQ-EXP-*), och spårbarhet vid registrering
+([TKProvenance](StructureDefinition-tk-provenance.html) + transaction-Bundle,
+REQ-TRC-*). API och API-specifikation realiseras numera fullt ut som
+FHIR-resurser ([TKAPIInstance](StructureDefinition-tk-api-instance.html)
+respektive [TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.html),
+båda `CapabilityStatement`-profiler), inte enbart logiska modeller. Se
 [Mappning till profiler](mappings.html) för motivering av respektive
-tillägg.
+tillägg och ändring.
 
 ---
 
