@@ -1,6 +1,4 @@
-# Användningsfall
-
-#### Sök ändpunkter för en organisation
+### Sök ändpunkter för en organisation
 
 En tjänstekonsument känner till en organisations identitet (t.ex.
 organisationsnummer eller FHIR-id) och behöver hitta samtliga tekniska
@@ -13,7 +11,7 @@ vilka interoperabilitetsspecifikationer (API:er) den stödjer.
 
 ---
 
-#### Registrera en ny ändpunkt
+### Registrera en ny ändpunkt
 
 En organisation, eller dess systemleverantör, registrerar en ny `Endpoint`
 i tjänstekatalogens administrativa API — med adress, protokoll, säkerhetsmetod
@@ -23,7 +21,7 @@ transaction-Bundle som SKA innehålla en tillhörande `Provenance`-post (se
 
 ---
 
-#### Synkronisera en organisation-ändpunkt-koppling mot EHM
+### Synkronisera en organisation-ändpunkt-koppling mot EHM
 
 En [Synkroniseringstjänst](ActorDefinition-tk-synkroniseringstjanst.html)
 upptäcker, via `listed-by`, att en organisation listar en ändpunkt i

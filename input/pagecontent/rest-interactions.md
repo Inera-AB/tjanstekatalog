@@ -1,5 +1,3 @@
-# REST-interaktioner och sökparametrar
-
 | Resurs/Profil | Interaktion | Sökparametrar | Exponering |
 |----------------|-------------|----------------|------------|
 | [TKOrganization](StructureDefinition-tk-organization.html) | read, search-type (externt); create, update (endast internt) | `identifier` ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), `name`, `_id`, `_lastUpdated`, `active`, `partof`; `_include=Organization:endpoint`; `_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.html) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.html) internt |

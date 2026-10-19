@@ -1,5 +1,3 @@
-# Förväntade svar
-
 | Interaktion | Statuskod vid lyckat anrop | Svarskropp |
 |---|---|---|
 | `read` (Organization, Endpoint) | `200 OK` | Resursen. |

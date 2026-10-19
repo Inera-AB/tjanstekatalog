@@ -1,5 +1,3 @@
-# Roller och ansvar
-
 | Roll | Ansvar |
 |------|--------|
 | **Tjänstekatalogen (server)** | Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive `listed-by`). |

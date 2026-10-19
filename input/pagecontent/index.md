@@ -1,5 +1,3 @@
-# Hem
-
 ### Tjänstekatalogen
 
 Tjänstekatalogen är Ineras register över organisationers tekniska ändpunkter

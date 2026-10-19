@@ -1,5 +1,3 @@
-# Informationsunderlag
-
 Denna sida beskriver informationsunderlaget som denna Implementation Guide
 bygger på. Detaljerade begrepps- och informationsmodeller, samt fullständiga
 processbeskrivningar, återfinns i den informationsspecifikation som anges

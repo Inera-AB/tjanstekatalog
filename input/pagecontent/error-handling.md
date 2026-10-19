@@ -1,5 +1,3 @@
-# Felhantering
-
 Fel rapporteras som `OperationOutcome`, i enlighet med FHIR:s standardmönster
 för REST-fel.
 
