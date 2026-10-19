@@ -3,9 +3,9 @@ Entries are generated from commit messages that follow [Conventional Commits](ht
 
 ---
 
-## [0.1.0] — 2026-09-08
+### [0.1.0] — 2026-09-08
 
-### Features
+#### Features
 
 - Första utkastet av tjänstekatalogens IG: sökparametern `listed-by` på
   `Endpoint` för att slå upp en organisations ändpunkter via

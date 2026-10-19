@@ -1,5 +1,3 @@
-# Testning och validering
-
 Implementatörer kan validera sina `Organization`- och `Endpoint`-instanser
 mot profilerna i denna IG med [HL7 FHIR Validator](https://confluence.hl7.org/display/FHIR/Using+the+FHIR+Validator)
 och det publicerade IG-paketet (se [Nedladdningar](downloads.html)), t.ex.:

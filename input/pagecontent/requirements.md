@@ -1,5 +1,3 @@
-# Kravkatalog
-
 Denna sida är den läsbara vyn av den formella kravkatalogen, uttryckt som en
 FHIR R5 [`Requirements`](Requirements-tk-tjanstekatalog-requirements.html)-resurs.
 Varje krav har en stabil nyckel (t.ex. `REQ-SRCH-1`) och en konformansnivå

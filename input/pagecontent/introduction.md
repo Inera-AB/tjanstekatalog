@@ -1,5 +1,3 @@
-# Inledning
-
 Detta är beskrivningen av tekniska ändpunkter i tjänstedomänen
 **Tjänstekatalogen** — sökning av organisationers ändpunkter och det
 administrativa API som används för att registrera dem.
