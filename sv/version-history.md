@@ -6,9 +6,9 @@ This page is maintained automatically by [release-please](https://github.com/goo
 
 -------
 
-## [0.1.0] — 2026-09-08
+### [0.1.0] — 2026-09-08
 
-### Features
+#### Features
 
 * Första utkastet av tjänstekatalogens IG: sökparametern `listed-by` på `Endpoint` för att slå upp en organisations ändpunkter via `Organization.endpoint` ("har"), skild från standardparametern `organization` ("förvaltar")
 * Profilerna `TKOrganization` och `TKEndpoint`, med extensions för stödda interoperabilitetsspecifikationer (`tk-endpoint-payload-profile`), säkerhetsmetod och URL till auktorisationsserver

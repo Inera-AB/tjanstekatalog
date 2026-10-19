@@ -96,58 +96,41 @@
             </button>
             <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
-              <div id="segment-navbar" class="segment">
-  <div id="stripe"> </div>
-  <div class="container">
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
-          <span class="icon-bar"> </span>
-          <span class="icon-bar"> </span>
-          <span class="icon-bar"> </span>
-        </button>
-        <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
-        <div class="nav-collapse collapse navbar-inverse-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Hem</a></li>
-            <li><a href="introduction.html">Inledning</a></li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="information-basis.html">Informationsunderlag</a></li>
-                <li><a href="use-cases.html">Användningsfall</a></li>
-                <li><a href="requirements.html">Kravkatalog</a></li>
-                <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
-                <li><a href="mappings.html">Mappning till profiler</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
-                <li><a href="expected-responses.html">Förväntade svar</a></li>
-                <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
-                <li><a href="error-handling.html">Felhantering</a></li>
-                <li><a href="security.html">Säkerhet och behörighet</a></li>
-                <li><a href="testing.html">Testning och validering</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="about.html">Styrning och förvaltning</a></li>
-                <li><a href="downloads.html">Nedladdningar</a></li>
-                <li><a href="version-history.html">Versionshistorik</a></li>
-              </ul>
-            </li>
-            <li><a href="artifacts.html">Artefakter</a></li>
-            <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</div>
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="introduction.html">Inledning</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="information-basis.html">Informationsunderlag</a></li>
+      <li><a href="use-cases.html">Användningsfall</a></li>
+      <li><a href="requirements.html">Kravkatalog</a></li>
+      <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
+      <li><a href="mappings.html">Mappning till profiler</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
+      <li><a href="expected-responses.html">Förväntade svar</a></li>
+      <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+      <li><a href="error-handling.html">Felhantering</a></li>
+      <li><a href="security.html">Säkerhet och behörighet</a></li>
+      <li><a href="testing.html">Testning och validering</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="about.html">Styrning och förvaltning</a></li>
+      <li><a href="downloads.html">Nedladdningar</a></li>
+      <li><a href="version-history.html">Versionshistorik</a></li>
+    </ul>
+  </li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+  <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
+</ul>
 
             </div>  <!-- /.nav-collapse -->
 
@@ -485,7 +468,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="" class="hierarchy xhtCellBorder0">0..*</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">Reference</a>(<a href="StructureDefinition-tk-endpoint.html">Tjänstekatalogen Endpoint</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Ändpunkter organisationen listar i tjänstekatalogen ("har")<br/></td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 81e2ae65-2441-4889-bf76-99d3294a1620
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e5161b6e-4acb-412d-b368-72136c6308fa
 document.getElementById('cbtk-organizationK-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-organizationK'), 'constraint', document.getElementById('cbtk-organizationK-constraint').checked, document.getElementById('pptk-organizationK'));
 document.getElementById('cbtk-organizationK-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -668,7 +651,7 @@ filterDesc(document.getElementById('tk-organizationK'), 'obligation', document.g
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">0</span><span class="xhtPieceDeEmphasized">..</span><span class="xhtPieceDeEmphasized">*</span></td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">Reference</a>(<a href="StructureDefinition-tk-endpoint.html">Tjänstekatalogen Endpoint</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Ändpunkter organisationen listar i tjänstekatalogen ("har")</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 81e2ae65-2441-4889-bf76-99d3294a1620
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e5161b6e-4acb-412d-b368-72136c6308fa
 document.getElementById('cbtk-organizationD-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-organizationD'), 'constraint', document.getElementById('cbtk-organizationD-constraint').checked, document.getElementById('pptk-organizationD'));
 document.getElementById('cbtk-organizationD-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -963,7 +946,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="" class="hierarchy xhtCellBorder0">0..1</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">Reference</a>(<a href="http://hl7.org/fhir/R5/organization.html">Organization</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Organization that regulates and issues the qualification</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 81e2ae65-2441-4889-bf76-99d3294a1620
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e5161b6e-4acb-412d-b368-72136c6308fa
 document.getElementById('cbtk-organizationS-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-organizationS'), 'constraint', document.getElementById('cbtk-organizationS-constraint').checked, document.getElementById('pptk-organizationS'));
 document.getElementById('cbtk-organizationS-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -1365,7 +1348,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="" class="hierarchy xhtCellBorder0">0..*</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">Reference</a>(<a href="StructureDefinition-tk-endpoint.html">Tjänstekatalogen Endpoint</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Ändpunkter organisationen listar i tjänstekatalogen ("har")<br/></td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 81e2ae65-2441-4889-bf76-99d3294a1620
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e5161b6e-4acb-412d-b368-72136c6308fa
 document.getElementById('cbtk-organizationKA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-organizationKA'), 'constraint', document.getElementById('cbtk-organizationKA-constraint').checked, document.getElementById('pptk-organizationKA'));
 document.getElementById('cbtk-organizationKA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -1547,7 +1530,7 @@ filterDesc(document.getElementById('tk-organizationKA'), 'obligation', document.
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">0</span><span class="xhtPieceDeEmphasized">..</span><span class="xhtPieceDeEmphasized">*</span></td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">Reference</a>(<a href="StructureDefinition-tk-endpoint.html">Tjänstekatalogen Endpoint</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Ändpunkter organisationen listar i tjänstekatalogen ("har")</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 81e2ae65-2441-4889-bf76-99d3294a1620
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e5161b6e-4acb-412d-b368-72136c6308fa
 document.getElementById('cbtk-organizationDA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-organizationDA'), 'constraint', document.getElementById('cbtk-organizationDA-constraint').checked, document.getElementById('pptk-organizationDA'));
 document.getElementById('cbtk-organizationDA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -1839,7 +1822,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="" class="hierarchy xhtCellBorder0">0..1</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">Reference</a>(<a href="http://hl7.org/fhir/R5/organization.html">Organization</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Organization that regulates and issues the qualification</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 81e2ae65-2441-4889-bf76-99d3294a1620
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e5161b6e-4acb-412d-b368-72136c6308fa
 document.getElementById('cbtk-organizationSA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-organizationSA'), 'constraint', document.getElementById('cbtk-organizationSA-constraint').checked, document.getElementById('pptk-organizationSA'));
 document.getElementById('cbtk-organizationSA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -2175,7 +2158,7 @@ Sammanfattning
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-10-19 12:45:00 +0000">
+  <span title="2026-10-19 13:06:00 +0000">
     2026-10-19
   </span>
 

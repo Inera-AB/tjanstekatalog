@@ -2,8 +2,6 @@
 
 ## Hem
 
-# Hem
-
 ### Tjänstekatalogen
 
 Tjänstekatalogen är Ineras register över organisationers tekniska ändpunkter (endpoints) och de API:er dessa ändpunkter tillgängliggör. Denna IG definierar dels ett sökgränssnitt för att slå upp en organisations ändpunkter, dels ett administrativt API för att registrera organisationer, ändpunkter och kopplingen mellan dem.

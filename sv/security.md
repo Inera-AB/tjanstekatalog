@@ -2,8 +2,6 @@
 
 ## Säkerhet och behörighet
 
-# Säkerhet och behörighet
-
 Ineras generella säkerhetskrav för anslutning till FHIR-gränssnitt gäller för denna IG — se [FHIR på Inera](https://fhir.inera.se/) för den auktoritativa, förvaltade beskrivningen av autentiseringsmetod, behörighetsmodell och nätverkskrav.
 
 Utöver de generella kraven gäller specifikt för denna IG:

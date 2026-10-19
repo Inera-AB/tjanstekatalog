@@ -58,7 +58,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-capabilityst
   "name" : "TKCapabilityStatementResponsibleOrganization",
   "title" : "Ansvarig organisation (strukturerad referens)",
   "status" : "draft",
-  "date" : "2026-10-19T12:45:34+00:00",
+  "date" : "2026-10-19T13:06:20+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -2,8 +2,6 @@
 
 ## Inledning
 
-# Inledning
-
 Detta är beskrivningen av tekniska ändpunkter i tjänstedomänen **Tjänstekatalogen** — sökning av organisationers ändpunkter och det administrativa API som används för att registrera dem.
 
 Denna IG är en kravspecifikation. Den ska fungera som ett teknikneutralt, formellt regelverk som reglerar integrationskrav för parter (tjänstekonsumenter, dvs. sökande klienter, och tjänsteproducenter, dvs. Organization Endpoint Writer-system) som avser ansluta system för samverkan enligt denna IG. IG:n är också ett viktigt underlag för skapandet av de tekniska artefakterna (FHIR-profiler och StructureDefinitions).

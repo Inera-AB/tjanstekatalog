@@ -2,8 +2,6 @@
 
 ## Kravkatalog
 
-# Kravkatalog
-
 Denna sida är den läsbara vyn av den formella kravkatalogen, uttryckt som en FHIR R5 [`Requirements`](Requirements-tk-tjanstekatalog-requirements.md)-resurs. Varje krav har en stabil nyckel (t.ex. `REQ-SRCH-1`) och en konformansnivå (SKA/BÖR/FÅR, motsvarande SHALL/SHOULD/MAY) och spåras via `satisfiedBy` till den eller de FHIR-artefakter (profilelement, extension, sökparameter, operation) som realiserar kravet — se länkarna i tabellerna nedan. Den omvända vyn, från attribut/profilelement till krav, finns i [Mappning till profiler](mappings.md).
 
 Krav grupperas efter ämne: `REQ-SRCH-*` sökning av ändpunkter per organisation, `REQ-END-*` attribut på Ändpunkt, `REQ-ORG-*` attribut och relationer på Organisation, `REQ-WRT-*` synkronisering mot EHM:s Organization Endpoint Writer, `REQ-MDL-*` övriga entiteter i informationsunderlaget och avgränsningar, `REQ-EXP-*` exponering (externt sök-API vs. internt admin-API), `REQ-ADM-*` administratörsbehörighet, `REQ-DIST-*` distribution/federering till lokala kataloger, och `REQ-TRC-*` spårbarhet och transaktionell registrering. De fyra sistnämnda grupperna är tillägg utöver det ursprungliga informationsunderlaget — se [Mappning till profiler](mappings.md) för respektive motivering, inklusive vilka som är stakeholder-beslutade och vilka som tillkom efter jämförelse med en annan implementation av samma problem.

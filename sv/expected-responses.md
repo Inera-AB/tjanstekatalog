@@ -2,15 +2,7 @@
 
 ## Förväntade svar
 
-# Förväntade svar
-
-| | | |
-| :--- | :--- | :--- |
-| `read`(Organization, Endpoint) | `200 OK` | Resursen. |
-| `search-type`(Organization, Endpoint, inkl.`listed-by`) | `200 OK` | `Bundle`av typen`searchset`, sidbrutet med`link.relation``self`/`next`/`previous`enligt FHIR:s standardpaginering. Tom träfflista ger en`Bundle`med`total = 0`, inte ett fel. |
-| `history-type`(Organization, Endpoint, med`_since`) | `200 OK` | `Bundle`av typen`history`, med en post per version sedan angiven tidpunkt, inklusive borttagningar (`request.method = DELETE`). Se REQ-DIST-4. |
-| `create` | `201 Created`med`Location`-header till den nya resursen. | Resursen (eller inget, enligt serverns policy för`Prefer: return=`). |
-| `update` | `200 OK`(eller`201 Created`vid "upsert" av ny resurs med klientangivet id). | Resursen. |
+| Interaktion | Statuskod vid lyckat anrop | Svarskropp | |—|—|—| | `read` (Organization, Endpoint) | `200 OK` | Resursen. | | `search-type` (Organization, Endpoint, inkl. `listed-by`) | `200 OK` | `Bundle` av typen `searchset`, sidbrutet med `link.relation` `self`/`next`/`previous` enligt FHIR:s standardpaginering. Tom träfflista ger en `Bundle` med `total = 0`, inte ett fel. | | `history-type` (Organization, Endpoint, med `_since`) | `200 OK` | `Bundle` av typen `history`, med en post per version sedan angiven tidpunkt, inklusive borttagningar (`request.method = DELETE`). Se REQ-DIST-4. | | `create` | `201 Created` med `Location`-header till den nya resursen. | Resursen (eller inget, enligt serverns policy för `Prefer: return=`). | | `update` | `200 OK` (eller `201 Created` vid "upsert" av ny resurs med klientangivet id). | Resursen. |
 
 Klienter ska inte anta att sökresultat returneras i någon viss ordning om inte `_sort` anges.
 

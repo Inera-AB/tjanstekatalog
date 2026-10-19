@@ -275,8 +275,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.1823"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R5/valueset-type-restful-interaction.html" : "Type Restful Interaction",
-    "http://hl7.org/fhir/R5/valueset-system-restful-interaction.html" : "System Restful Interaction"
+    "http://hl7.org/fhir/R5/valueset-system-restful-interaction.html" : "System Restful Interaction",
+    "http://hl7.org/fhir/R5/valueset-type-restful-interaction.html" : "Type Restful Interaction"
   },
   {
     "url" : "http://hl7.org/fhir/restful-security-service",

@@ -2,8 +2,6 @@
 
 ## CapabilityStatement
 
-# CapabilityStatement
-
 Denna IG definierar två formella CapabilityStatement för sin egen serverroll, med en medveten exponeringsgräns mellan dem (stakeholder-beslut, REQ-EXP-1/2 — se [Mappning till profiler](mappings.md)):
 
 | | | | |

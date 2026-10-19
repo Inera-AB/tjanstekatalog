@@ -2,21 +2,19 @@
 
 ## Användningsfall
 
-# Användningsfall
-
-#### Sök ändpunkter för en organisation
+### Sök ändpunkter för en organisation
 
 En tjänstekonsument känner till en organisations identitet (t.ex. organisationsnummer eller FHIR-id) och behöver hitta samtliga tekniska ändpunkter organisationen listar i tjänstekatalogen, för att t.ex. kunna ansluta till dess API:er. Konsumenten söker `Endpoint` med sökparametern `listed-by` (se [REST-interaktioner och sökparametrar](rest-interactions.md)) och får tillbaka de ändpunkter organisationen "har" — oavsett vem som tekniskt förvaltar respektive ändpunkt. Resultatet listar, per ändpunkt, vilka interoperabilitetsspecifikationer (API:er) den stödjer.
 
 -------
 
-#### Registrera en ny ändpunkt
+### Registrera en ny ändpunkt
 
 En organisation, eller dess systemleverantör, registrerar en ny `Endpoint` i tjänstekatalogens administrativa API — med adress, protokoll, säkerhetsmetod och de interoperabilitetsspecifikationer ändpunkten stödjer — via en transaction-Bundle som SKA innehålla en tillhörande `Provenance`-post (se [REST-interaktioner: Registrering](rest-interactions.md)).
 
 -------
 
-#### Synkronisera en organisation-ändpunkt-koppling mot EHM
+### Synkronisera en organisation-ändpunkt-koppling mot EHM
 
 En [Synkroniseringstjänst](ActorDefinition-tk-synkroniseringstjanst.md) upptäcker, via `listed-by`, att en organisation listar en ändpunkt i tjänstekatalogen som ännu inte är kopplad hos E-hälsomyndigheten (EHM). Tjänsten säkerställer att motsvarande ändpunkt finns registrerad hos EHM och anropar därefter EHM:s operation `$add-organization` — i rollen Organization Endpoint Writer mot EHM:s API, inte mot tjänstekatalogens — med organisationens identifierare mappad enligt [Mappning mot EHM:s Organization Endpoint Writer](mappings.md). Motsvarande operation `$remove-organization` används för att koppla loss en koppling som inte längre finns i tjänstekatalogen.
 

@@ -94,58 +94,41 @@
             </button>
             <a class="navbar-brand hidden" href="http://hl7.org/fhir/R5/index.html">FHIR</a>
             <div class="nav-collapse collapse navbar-inverse-collapse">
-              <div id="segment-navbar" class="segment">
-  <div id="stripe"> </div>
-  <div class="container">
-    <nav class="navbar navbar-inverse">
-      <div class="container">
-        <button data-target=".navbar-inverse-collapse" class="navbar-toggle" data-toggle="collapse" type="button">
-          <span class="icon-bar"> </span>
-          <span class="icon-bar"> </span>
-          <span class="icon-bar"> </span>
-        </button>
-        <a class="navbar-brand hidden" href="http://hl7.org/fhir/R4/index.html">FHIR</a>
-        <div class="nav-collapse collapse navbar-inverse-collapse">
-          <ul class="nav navbar-nav">
-            <li><a href="index.html">Hem</a></li>
-            <li><a href="introduction.html">Inledning</a></li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="information-basis.html">Informationsunderlag</a></li>
-                <li><a href="use-cases.html">Användningsfall</a></li>
-                <li><a href="requirements.html">Kravkatalog</a></li>
-                <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
-                <li><a href="mappings.html">Mappning till profiler</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
-                <li><a href="expected-responses.html">Förväntade svar</a></li>
-                <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
-                <li><a href="error-handling.html">Felhantering</a></li>
-                <li><a href="security.html">Säkerhet och behörighet</a></li>
-                <li><a href="testing.html">Testning och validering</a></li>
-              </ul>
-            </li>
-            <li class="dropdown">
-              <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
-              <ul class="dropdown-menu">
-                <li><a href="about.html">Styrning och förvaltning</a></li>
-                <li><a href="downloads.html">Nedladdningar</a></li>
-                <li><a href="version-history.html">Versionshistorik</a></li>
-              </ul>
-            </li>
-            <li><a href="artifacts.html">Artefakter</a></li>
-            <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
-          </ul>
-        </div>
-      </div>
-    </nav>
-  </div>
-</div>
+              <ul class="nav navbar-nav">
+  <li><a href="index.html">Hem</a></li>
+  <li><a href="introduction.html">Inledning</a></li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Funktionellt<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="information-basis.html">Informationsunderlag</a></li>
+      <li><a href="use-cases.html">Användningsfall</a></li>
+      <li><a href="requirements.html">Kravkatalog</a></li>
+      <li><a href="roles-and-responsibilities.html">Roller och ansvar</a></li>
+      <li><a href="mappings.html">Mappning till profiler</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Implementering<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="rest-interactions.html">REST-interaktioner och sökparametrar</a></li>
+      <li><a href="expected-responses.html">Förväntade svar</a></li>
+      <li><a href="capabilitystatement.html">CapabilityStatement</a></li>
+      <li><a href="error-handling.html">Felhantering</a></li>
+      <li><a href="security.html">Säkerhet och behörighet</a></li>
+      <li><a href="testing.html">Testning och validering</a></li>
+    </ul>
+  </li>
+  <li class="dropdown">
+    <a data-toggle="dropdown" href="#" class="dropdown-toggle">Om<b class="caret"> </b></a>
+    <ul class="dropdown-menu">
+      <li><a href="about.html">Styrning och förvaltning</a></li>
+      <li><a href="downloads.html">Nedladdningar</a></li>
+      <li><a href="version-history.html">Versionshistorik</a></li>
+    </ul>
+  </li>
+  <li><a href="artifacts.html">Artefakter</a></li>
+  <li><a href="https://fhir.inera.se/" target="_blank" rel="noopener">FHIR på Inera <span aria-hidden="true">&#8599;</span></a></li>
+</ul>
 
             </div>  <!-- /.nav-collapse -->
 
@@ -200,62 +183,22 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <p><!-- white space is critical inside of capture --></p>
 <div class="markdown-toc">
 <ul id="markdown-toc">
-  <li><a href="#rest-interaktioner-och-sökparametrar" id="markdown-toc-rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</a>    <ul>
-      <li><a href="#registrering" id="markdown-toc-registrering">Registrering</a></li>
-      <li><a href="#sök-ändpunkter-för-en-organisation" id="markdown-toc-sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</a></li>
-      <li><a href="#organisationsidentifierare" id="markdown-toc-organisationsidentifierare">Organisationsidentifierare</a></li>
-      <li><a href="#sökkonventioner" id="markdown-toc-sökkonventioner">Sökkonventioner</a></li>
-      <li><a href="#kanoniska-referenser-och-versioner" id="markdown-toc-kanoniska-referenser-och-versioner">Kanoniska referenser och versioner</a></li>
-      <li><a href="#distribution-och-synkronisering" id="markdown-toc-distribution-och-synkronisering">Distribution och synkronisering</a></li>
-    </ul>
-  </li>
+  <li><a href="#registrering" id="markdown-toc-registrering">Registrering</a></li>
+  <li><a href="#sök-ändpunkter-för-en-organisation" id="markdown-toc-sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</a></li>
+  <li><a href="#organisationsidentifierare" id="markdown-toc-organisationsidentifierare">Organisationsidentifierare</a></li>
+  <li><a href="#sökkonventioner" id="markdown-toc-sökkonventioner">Sökkonventioner</a></li>
+  <li><a href="#kanoniska-referenser-och-versioner" id="markdown-toc-kanoniska-referenser-och-versioner">Kanoniska referenser och versioner</a></li>
+  <li><a href="#distribution-och-synkronisering" id="markdown-toc-distribution-och-synkronisering">Distribution och synkronisering</a></li>
 </ul>
 
 </div>
-<h1 id="rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Resurs/Profil</th>
-      <th>Interaktion</th>
-      <th>Sökparametrar</th>
-      <th>Exponering</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a></td>
-      <td>read, search-type (externt); create, update (endast internt)</td>
-      <td><code class="language-plaintext highlighter-rouge">identifier</code> ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>, <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">partof</code>; <code class="language-plaintext highlighter-rouge">_include=Organization:endpoint</code>; <code class="language-plaintext highlighter-rouge">_history</code></td>
-      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
-    </tr>
-    <tr>
-      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
-      <td>read, search-type (externt); create, update (endast internt)</td>
-      <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation), <code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>; <code class="language-plaintext highlighter-rouge">_history</code></td>
-      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
-    </tr>
-    <tr>
-      <td><code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a> / <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>)</td>
-      <td>read, search-type (externt); create, update (endast internt)</td>
-      <td><code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">date</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code></td>
-      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
-    </tr>
-    <tr>
-      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance</a></td>
-      <td>read, search-type</td>
-      <td><code class="language-plaintext highlighter-rouge">target</code></td>
-      <td>Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt)</td>
-    </tr>
-    <tr>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a></td>
-      <td>read, search-type, create, update</td>
-      <td><code class="language-plaintext highlighter-rouge">organization</code>, <code class="language-plaintext highlighter-rouge">practitioner</code></td>
-      <td>Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt)</td>
-    </tr>
-  </tbody>
-</table>
+<p>| Resurs/Profil | Interaktion | Sökparametrar | Exponering |
+|—————-|————-|—————-|————|
+| <a href="StructureDefinition-tk-organization.html">TKOrganization</a> | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">identifier</code> ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>, <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">partof</code>; <code class="language-plaintext highlighter-rouge">_include=Organization:endpoint</code>; <code class="language-plaintext highlighter-rouge">_history</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
+| <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a> | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation), <code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>; <code class="language-plaintext highlighter-rouge">_history</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
+| <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a> / <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>) | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">date</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
+| <a href="StructureDefinition-tk-provenance.html">TKProvenance</a> | read, search-type | <code class="language-plaintext highlighter-rouge">target</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |
+| <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> | read, search-type, create, update | <code class="language-plaintext highlighter-rouge">organization</code>, <code class="language-plaintext highlighter-rouge">practitioner</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |</p>
 
 <p>Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning
 exponeras externt via gateway (<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>);
@@ -606,7 +549,7 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-10-19 12:45:00 +0000">
+  <span title="2026-10-19 13:06:00 +0000">
     2026-10-19
   </span>
 
