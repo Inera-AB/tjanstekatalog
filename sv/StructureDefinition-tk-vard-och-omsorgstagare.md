@@ -2,9 +2,6 @@
 
 ## Logisk modell: Vård- och omsorgstagare (logisk modell) 
 
- 
-Logisk modell för entiteten Vård- och omsorgstagare i informationsunderlaget. Tunn, avsiktligt begränsad till id — se REQ-MDL-2. 
-
 **Användningar:**
 
 * Referera till denna Logisk modell: [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md)
@@ -20,17 +17,17 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 *  [Statistik/referenser](#tabs-summ) 
 *  [Alla](#tabs-all) 
 
-** Sammanfattning **
+Denna struktur är härledd från [Base](http://hl7.org/fhir/R5/types.html#Base) 
 
-Obligatorisk: 0 element(1 nästlade obligatoriska element)
+Denna struktur är härledd från [Base](http://hl7.org/fhir/R5/types.html#Base) 
 
  **Differentialvy** 
 
+Denna struktur är härledd från [Base](http://hl7.org/fhir/R5/types.html#Base) 
+
  **ÖgonblicksbildsvyView** 
 
-** Sammanfattning **
-
-Obligatorisk: 0 element(1 nästlade obligatoriska element)
+Denna struktur är härledd från [Base](http://hl7.org/fhir/R5/types.html#Base) 
 
  
 
@@ -53,7 +50,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-vard-och-oms
   "name" : "TKVardOchOmsorgstagare",
   "title" : "Vård- och omsorgstagare (logisk modell)",
   "status" : "draft",
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -2,9 +2,6 @@
 
 ## CodeSystem: Säkerhetsmetoder för tekniska ändpunkter (kodsystem) (Experimentell) 
 
- 
-Kodsystem som anger vilken säkerhetsmetod som skyddar en teknisk ändpunkt (Ändpunkt.säkerhetsmetod i informationsunderlaget). Preliminärt förslag, se REQ-END-6 i kravkatalogen. 
-
 Detta kodsystem refereras i definitionen av följande värdemängder:
 
 * [Säkerhetsmetoder för tekniska ändpunkter](ValueSet-tk-endpoint-security-method.md)
@@ -27,7 +24,7 @@ Detta kodsystem refereras i definitionen av följande värdemängder:
   "title" : "Säkerhetsmetoder för tekniska ändpunkter (kodsystem)",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

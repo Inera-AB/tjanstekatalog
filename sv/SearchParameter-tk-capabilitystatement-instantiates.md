@@ -2,9 +2,6 @@
 
 ## SearchParameter: CapabilityStatement: instantiates (Experimentell) 
 
- 
-Söker fram de TKAPIInstance-resurser (kind=instance) som följer (instantiates) en angiven TKAPISpecificationCapability, identifierad via dess kanoniska URL. Se REQ-MDL-7. 
-
 
 
 ## Resource Content
@@ -28,7 +25,7 @@ Söker fram de TKAPIInstance-resurser (kind=instance) som följer (instantiates)
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Söker fram de TKAPIInstance-resurser (kind=instance) som följer (instantiates) en angiven TKAPISpecificationCapability, identifierad via dess kanoniska URL. Se REQ-MDL-7.",
+  "description" : "Söker fram de TKAPIInstance-resurser (kind=instance) som följer (instantiates) en angiven TKAPISpecificationCapability, identifierad via dess kanoniska URL. Typen är `reference` eftersom `CapabilityStatement.instantiates` är en `canonical`. Godtagna former: `[url]`, som matchar alla versioner (även referenser utan version), och `[url]|[version]`, som bara matchar den angivna versionen. Literala referenser (`CapabilityStatement/[id]`) stöds inte. Se REQ-MDL-7 och REQ-SRCH-6.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",

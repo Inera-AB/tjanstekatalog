@@ -47,7 +47,7 @@
     }]
   }],
   "kind" : "instance",
-  "instantiates" : ["https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation"],
+  "instantiates" : ["https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.0.0"],
   "implementation" : {
     "description" : "Exempelregionens patientinformations-API",
     "url" : "https://api.exempelregionen.se/patientinformation/fhir",

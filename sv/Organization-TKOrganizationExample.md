@@ -4,11 +4,14 @@
 
 Profil: [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
 
-**identifier**: `urn:oid:2.5.4.97`/232100-0016
+Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)
 
-**name**: Exempelregionen
+-------
 
-**endpoint**: [Endpoint Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
+| | |
+| :--- | :--- |
+| Annat id: | `urn:oid:2.5.4.97`/2321000016 |
+| Endpoint: | [Exempelregionens patientinformations-API (HL7 FHIR): https://api.exempelregionen.se/patientinformation/fhir](Endpoint-TKEndpointExample.md) |
 
 
 
@@ -22,8 +25,12 @@ Profil: [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
     "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"]
   },
   "identifier" : [{
+    "system" : "urn:oid:1.2.752.29.4.19",
+    "value" : "SE2321000016-1003"
+  },
+  {
     "system" : "urn:oid:2.5.4.97",
-    "value" : "232100-0016"
+    "value" : "2321000016"
   }],
   "name" : "Exempelregionen",
   "endpoint" : [{

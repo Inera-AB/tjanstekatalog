@@ -2,9 +2,6 @@
 
 ## Resursprofil: Tjänstekatalogen API-instans 
 
- 
-Ett API som en teknisk ändpunkt tillgängliggör ("tillgängliggör"), och den eller de interoperabilitetsspecifikationer det följer ("följer"), som en egen resurs med egen identitet och egen giltighetsperiod — se [Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-MDL-3, REQ-MDL-6, REQ-MDL-7. 
-
 **Användningar:**
 
 * Referera till denna Profil: [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
@@ -27,27 +24,13 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 #### Begränsningar
 
+Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
+
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 6 elements
- Måste stödjas: 8 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
-
-**Extensions**
-
-Denna struktur refererar till dessa extensions:
-
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint](StructureDefinition-tk-api-instance-endpoint.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period](StructureDefinition-tk-api-instance-period.md)
+Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
 
  **Vy med nyckelelement** 
 
@@ -57,29 +40,15 @@ Denna struktur refererar till dessa extensions:
 
  **Differentialvy** 
 
+Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
+
  **ÖgonblicksbildsvyView** 
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 6 elements
- Måste stödjas: 8 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
-
-**Extensions**
-
-Denna struktur refererar till dessa extensions:
-
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint](StructureDefinition-tk-api-instance-endpoint.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period](StructureDefinition-tk-api-instance-period.md)
+Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
 
  
 

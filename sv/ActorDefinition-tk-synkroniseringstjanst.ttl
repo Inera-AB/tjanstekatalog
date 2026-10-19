@@ -12,7 +12,7 @@
   fhir:language [ fhir:v "sv"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ActorDefinition tk-synkroniseringstjanst</b></p><a name=\"tk-synkroniseringstjanst\"> </a><a name=\"hctk-synkroniseringstjanst\"> </a><table class=\"grid\"><tr><td><b>Aktör: TKSynkroniseringstjanst </b></td><td>Synkroniseringstjänst</td><td>Typ: system </td></tr><tr><td colspan=\"3\"/></tr><tr><td>Förmågor:</td><td colspan=\"2\"><a href=\"CapabilityStatement-tk-admin-api.html\">Tjänstekatalogen: administrativt API</a></td></tr></table></div>"^^rdf:XMLLiteral ]
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ActorDefinition tk-synkroniseringstjanst</b></p><a name=\"tk-synkroniseringstjanst\"> </a><a name=\"hctk-synkroniseringstjanst\"> </a><table class=\"grid\"><tr><td><b>Aktör: TKSynkroniseringstjanst </b></td><td>Synkroniseringstjänst</td><td>Typ: system </td></tr><tr><td colspan=\"3\"/></tr></table></div>"^^rdf:XMLLiteral ]
   ] ; # 
   fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst"^^xsd:anyURI] ; # 
   fhir:version [ fhir:v "0.1.0"] ; # 
@@ -37,11 +37,7 @@
        fhir:display [ fhir:v "Sweden" ]
      ] )
   ] ) ; # 
-  fhir:type [ fhir:v "system"] ; # 
-  fhir:capabilities [
-     fhir:v "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"^^xsd:anyURI ;
-     fhir:link <https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api>
-  ] . # 
+  fhir:type [ fhir:v "system"] . # 
 
 # -------------------------------------------------------------------------------------
 

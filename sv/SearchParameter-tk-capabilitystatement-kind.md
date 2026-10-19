@@ -2,9 +2,6 @@
 
 ## SearchParameter: CapabilityStatement: kind (Experimentell) 
 
- 
-Söker CapabilityStatement-resurser efter kind. Används för att skilja API-specifikationer (kind=requirements, TKAPISpecificationCapability) från API-instanser (kind=instance, TKAPIInstance) vid sökning. 
-
 
 
 ## Resource Content

@@ -2,8 +2,6 @@
 
 ## Extension: Referens till källa 
 
-Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten CapabilityStatement.url (API-specifikation.referensTillKälla i informationsunderlaget).
-
 **Context of Use**
 
 **Usage info**
@@ -24,21 +22,21 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 *  [Statistik/referenser](#tabs-summ) 
 *  [Alla](#tabs-all) 
 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
+
 #### Begränsningar
 
-** Sammanfattning **
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
-Enkel extension med typen url: Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten CapabilityStatement.url (API-specifikation.referensTillKälla i informationsunderlaget).
+ **Differentialvy** 
 
- **DifferentialvyDifferential View** 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  **Ögonblicksbildsvy** 
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Enkel extension med typen url: Länk till specifikationens källa/publiceringsplats (t.ex. dokumentation eller repository), skild från den kanoniska maskinidentiteten CapabilityStatement.url (API-specifikation.referensTillKälla i informationsunderlaget).
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  
 
@@ -61,7 +59,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
   "name" : "TKAPISpecificationSourceReference",
   "title" : "Referens till källa",
   "status" : "draft",
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

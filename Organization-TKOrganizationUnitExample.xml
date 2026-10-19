@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Organization xmlns="http://hl7.org/fhir">
+  <id value="TKOrganizationUnitExample"/>
+  <meta>
+    <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"/>
+  </meta>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: Organization TKOrganizationUnitExample</b></p><a name="TKOrganizationUnitExample"> </a><a name="hcTKOrganizationUnitExample"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="StructureDefinition-tk-organization.html">Tjänstekatalogen Organization</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Exempelregionens vårdcentral (urn:oid:1.2.752.29.4.19#SE2321000016-2001)</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="The organization of which this organization forms a part">Part Of:</td><td colspan="3"><a href="Organization-TKOrganizationExample.html">Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)</a></td></tr></table></div>
+  </text>
+  <identifier>
+    <system value="urn:oid:1.2.752.29.4.19"/>
+    <value value="SE2321000016-2001"/>
+  </identifier>
+  <name value="Exempelregionens vårdcentral"/>
+  <partOf>
+    <reference value="Organization/TKOrganizationExample"/>
+  </partOf>
+</Organization>

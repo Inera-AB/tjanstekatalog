@@ -22,9 +22,9 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/liquid.css" rel="stylesheet" />
     <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <link href="inera.css" rel="stylesheet"/>
+  	<link href="inera.css" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="inera-thumbnail.png"/>
 <link rel="shortcut icon" href="inera-thumbnail.png"/>
 
@@ -276,10 +276,10 @@
   </table>
 
 
-<p>
+<div data-fhir="generated">
 <p>Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint ("har"-relationen i informationsunderlaget) — till skillnad från standardparametern <code class="language-plaintext highlighter-rouge">organization</code>, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, "förvaltar"-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med <code class="language-plaintext highlighter-rouge">_has:Organization:endpoint:_id=[organization-id]</code>.</p>
 
-</p>
+</div>
 
 
   <!-- insert intro if present -->
@@ -294,7 +294,7 @@
   
 
 
-  <div data-fhir="generated"><p class="res-header-id"/><a name="tk-endpoint-listed-by"> </a><a name="hctk-endpoint-listed-by"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Språk: sv</p></div><h2>TKEndpointListedBy</h2><p>Parameter <code>listed-by</code>:<code>reference</code></p><div><p>Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint (&quot;har&quot;-relationen i informationsunderlaget) — till skillnad från standardparametern <code>organization</code>, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, &quot;förvaltar&quot;-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med <code>_has:Organization:endpoint:_id=[organization-id]</code>.</p>
+  <div data-fhir="generated"><p class="res-header-id"/><a name="tk-endpoint-listed-by"> </a><a name="hctk-endpoint-listed-by"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Språk: sv</p></div><h3>TKEndpointListedBy</h3><p>Parameter <code>listed-by</code>:<code>reference</code></p><div><p>Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint (&quot;har&quot;-relationen i informationsunderlaget) — till skillnad från standardparametern <code>organization</code>, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, &quot;förvaltar&quot;-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med <code>_has:Organization:endpoint:_id=[organization-id]</code>.</p>
 </div><table class="grid" data-fhir="generated"><tr><td>Resurs</td><td><a href="http://hl7.org/fhir/R5/endpoint.html">Endpoint</a></td></tr><tr><td>Uttryck</td><td>(ingen)</td></tr><tr><td>Målresurser</td><td><a href="http://hl7.org/fhir/R5/organization.html">Organization</a></td></tr><tr><td>Multipler</td><td><ul><li>multipleAnd: Parametern får endast förekomma en gång</li><li>multipleOr: Parametern kan ha flera värden (separerade med kommatecken) där minst ett måste vara sant</li></ul></td></tr><tr><td>Kedjor</td><td>Tillåten: identifier</td></tr></table></div>
 
   <!-- insert notes if present -->
@@ -329,8 +329,8 @@
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-10 07:38:00 +0000">
-    2026-09-10
+  <span title="2026-10-19 12:45:00 +0000">
+    2026-10-19
   </span>
 
           <br/>

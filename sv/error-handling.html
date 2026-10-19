@@ -20,9 +20,9 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/liquid.css" rel="stylesheet" />
     <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <link href="inera.css" rel="stylesheet"/>
+  	<link href="inera.css" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="inera-thumbnail.png"/>
 <link rel="shortcut icon" href="inera-thumbnail.png"/>
 
@@ -231,6 +231,16 @@ för REST-fel.</p>
       <td>—</td>
     </tr>
     <tr>
+      <td>Organisationsnummer som inte är tio siffror, HSA-id i fel format, eller okänt identifierarsystem på <code class="language-plaintext highlighter-rouge">Organization</code> (<code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>/<code class="language-plaintext highlighter-rouge">transaction</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">invariant</code> respektive <code class="language-plaintext highlighter-rouge">business-rule</code></td>
+    </tr>
+    <tr>
+      <td>Registreringen skulle ge en dubblett: samma HSA-id eller organisationsnummer på två organisationer, eller samma <code class="language-plaintext highlighter-rouge">url</code> + <code class="language-plaintext highlighter-rouge">version</code> på två API-specifikationer</td>
+      <td><code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code></td>
+      <td><code class="language-plaintext highlighter-rouge">business-rule</code></td>
+    </tr>
+    <tr>
       <td>Autentisering saknas eller är ogiltig</td>
       <td><code class="language-plaintext highlighter-rouge">401 Unauthorized</code></td>
       <td><code class="language-plaintext highlighter-rouge">login</code></td>
@@ -289,8 +299,8 @@ behörighetsmodellen som styr <code class="language-plaintext highlighter-rouge"
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-10 07:38:00 +0000">
-    2026-09-10
+  <span title="2026-10-19 12:45:00 +0000">
+    2026-10-19
   </span>
 
           <br/>

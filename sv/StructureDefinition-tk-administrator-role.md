@@ -2,9 +2,6 @@
 
 ## Resursprofil: Tjänstekatalogen administratörsbehörighet 
 
- 
-Behörighet för en administratör att registrera/ändra poster i tjänstekatalogen för en given organisation (`local-admin`), eller att dessutom administrera andra administratörers behörigheter för samtliga organisationer (`central-admin`, `organization` utelämnad). Se [Roller och ansvar](roles-and-responsibilities.md) och [Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*. 
-
 **Användningar:**
 
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
@@ -26,22 +23,15 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 #### Begränsningar
 
+Denna struktur är härledd från [PractitionerRole](http://hl7.org/fhir/R5/practitionerrole.html) 
+
 #### Terminologibindningar (differential)
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 1 element
- Måste stödjas: 4 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
+Denna struktur är härledd från [PractitionerRole](http://hl7.org/fhir/R5/practitionerrole.html) 
 
  **Vy med nyckelelement** 
 
@@ -51,6 +41,8 @@ Denna struktur refererar till dessa andra strukturer:
 
  **Differentialvy** 
 
+Denna struktur är härledd från [PractitionerRole](http://hl7.org/fhir/R5/practitionerrole.html) 
+
 #### Terminologibindningar (differential)
 
  **ÖgonblicksbildsvyView** 
@@ -59,16 +51,7 @@ Denna struktur refererar till dessa andra strukturer:
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 1 element
- Måste stödjas: 4 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
+Denna struktur är härledd från [PractitionerRole](http://hl7.org/fhir/R5/practitionerrole.html) 
 
  
 

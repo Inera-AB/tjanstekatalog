@@ -2,8 +2,6 @@
 
 ## Extension: Stödd specifikation (payload profile) 
 
-Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller profil) som denna nyttolast/API stödjer. Motsvarar det kommande elementet Endpoint.payload.profile. Kan upprepas om nyttolasten stödjer flera specifikationer eller versioner.
-
 **Context of Use**
 
 **Usage info**
@@ -12,7 +10,7 @@ Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller pro
 
 * Använd denna Extension: [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
 * Exempel för denna Extension: [Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
-* Sökparametrar som använder denna Extension: [TKEndpointImplements](SearchParameter-tk-endpoint-implements.md)
+* Sökparametrar som använder denna Extension: [Endpoint: implements](SearchParameter-tk-endpoint-implements.md)
 
 Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-endpoint-payload-profile)
 
@@ -25,21 +23,21 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 *  [Statistik/referenser](#tabs-summ) 
 *  [Alla](#tabs-all) 
 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
+
 #### Begränsningar
 
-** Sammanfattning **
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
-Enkel extension med typen canonical: Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller profil) som denna nyttolast/API stödjer. Motsvarar det kommande elementet Endpoint.payload.profile. Kan upprepas om nyttolasten stödjer flera specifikationer eller versioner.
+ **Differentialvy** 
 
- **DifferentialvyDifferential View** 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  **Ögonblicksbildsvy** 
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Enkel extension med typen canonical: Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHIR IG eller profil) som denna nyttolast/API stödjer. Motsvarar det kommande elementet Endpoint.payload.profile. Kan upprepas om nyttolasten stödjer flera specifikationer eller versioner.
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  
 
@@ -62,7 +60,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-pay
   "name" : "TKEndpointPayloadProfile",
   "title" : "Stödd specifikation (payload profile)",
   "status" : "draft",
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

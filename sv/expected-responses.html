@@ -20,9 +20,9 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/liquid.css" rel="stylesheet" />
     <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <link href="inera.css" rel="stylesheet"/>
+  	<link href="inera.css" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="inera-thumbnail.png"/>
 <link rel="shortcut icon" href="inera-thumbnail.png"/>
 
@@ -223,6 +223,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td><code class="language-plaintext highlighter-rouge">Bundle</code> av typen <code class="language-plaintext highlighter-rouge">searchset</code>, sidbrutet med <code class="language-plaintext highlighter-rouge">link.relation</code> <code class="language-plaintext highlighter-rouge">self</code>/<code class="language-plaintext highlighter-rouge">next</code>/<code class="language-plaintext highlighter-rouge">previous</code> enligt FHIR:s standardpaginering. Tom träfflista ger en <code class="language-plaintext highlighter-rouge">Bundle</code> med <code class="language-plaintext highlighter-rouge">total = 0</code>, inte ett fel.</td>
     </tr>
     <tr>
+      <td><code class="language-plaintext highlighter-rouge">history-type</code> (Organization, Endpoint, med <code class="language-plaintext highlighter-rouge">_since</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle</code> av typen <code class="language-plaintext highlighter-rouge">history</code>, med en post per version sedan angiven tidpunkt, inklusive borttagningar (<code class="language-plaintext highlighter-rouge">request.method = DELETE</code>). Se REQ-DIST-4.</td>
+    </tr>
+    <tr>
       <td><code class="language-plaintext highlighter-rouge">create</code></td>
       <td><code class="language-plaintext highlighter-rouge">201 Created</code> med <code class="language-plaintext highlighter-rouge">Location</code>-header till den nya resursen.</td>
       <td>Resursen (eller inget, enligt serverns policy för <code class="language-plaintext highlighter-rouge">Prefer: return=</code>).</td>
@@ -236,7 +241,22 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </table>
 
 <p>Klienter ska inte anta att sökresultat returneras i någon viss ordning om
-inte <code class="language-plaintext highlighter-rouge">_sort</code> anges. Se <a href="error-handling.html">Felhantering</a> för svar vid
+inte <code class="language-plaintext highlighter-rouge">_sort</code> anges.</p>
+
+<p><strong>Filtrering av status och giltighetsperiod.</strong> Servern lägger inga
+implicita filter på sökresultat, med ett undantag: sökning på <code class="language-plaintext highlighter-rouge">Endpoint</code>
+utan parametern <code class="language-plaintext highlighter-rouge">status</code> utelämnar ändpunkter med status <code class="language-plaintext highlighter-rouge">entered-in-error</code>
+(REQ-SRCH-7). Sådana ändpunkter returneras när klienten uttryckligen söker
+<code class="language-plaintext highlighter-rouge">status=entered-in-error</code>, och alltid vid <code class="language-plaintext highlighter-rouge">read</code>, så att lokala kataloger
+och Synkroniseringstjänsten kan upptäcka att en post de redan har hämtat har
+felregistrerats. Övriga statusar (<code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">suspended</code>, <code class="language-plaintext highlighter-rouge">error</code>, <code class="language-plaintext highlighter-rouge">off</code>)
+returneras, liksom organisationer med <code class="language-plaintext highlighter-rouge">active = false</code>. <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>
+har ingen status <code class="language-plaintext highlighter-rouge">entered-in-error</code>.</p>
+
+<p>Servern filtrerar inte på <code class="language-plaintext highlighter-rouge">Endpoint.period</code> eller på API-instansens
+giltighetsperiod, och ändrar inte status när en period har löpt ut
+(REQ-SRCH-8). Klienten avgör: en ändpunkt kan användas om <code class="language-plaintext highlighter-rouge">status = active</code>
+och aktuell tidpunkt ligger inom <code class="language-plaintext highlighter-rouge">period</code>. Se <a href="error-handling.html">Felhantering</a> för svar vid
 misslyckade anrop.</p>
 
 <p>Denna sida beskriver bara tjänstekatalogens egna interaktioner. Förväntade
@@ -273,8 +293,8 @@ returnerar en <code class="language-plaintext highlighter-rouge">OperationOutcom
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-10 07:38:00 +0000">
-    2026-09-10
+  <span title="2026-10-19 12:45:00 +0000">
+    2026-10-19
   </span>
 
           <br/>

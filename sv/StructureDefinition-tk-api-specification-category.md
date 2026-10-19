@@ -2,8 +2,6 @@
 
 ## Extension: Specifikationskategori 
 
-Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.
-
 **Context of Use**
 
 **Usage info**
@@ -24,21 +22,21 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 *  [Statistik/referenser](#tabs-summ) 
 *  [Alla](#tabs-all) 
 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
+
 #### Begränsningar
 
-** Sammanfattning **
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
-Enkel extension med typen CodeableConcept: Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.
+ **Differentialvy** 
 
- **DifferentialvyDifferential View** 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  **Ögonblicksbildsvy** 
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Enkel extension med typen CodeableConcept: Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  
 
@@ -61,7 +59,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
   "name" : "TKAPISpecificationCategory",
   "title" : "Specifikationskategori",
   "status" : "draft",
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

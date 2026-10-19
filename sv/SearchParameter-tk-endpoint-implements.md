@@ -2,9 +2,6 @@
 
 ## SearchParameter: Endpoint: implements (stödd interoperabilitetsspecifikation) (Experimentell) 
 
- 
-Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en angiven interoperabilitetsspecifikation, dvs. vars TKEndpointPayloadProfile-extension (payload.extension) namner den angivna kanoniska URL:en. Kompletterar REQ-SRCH-3 (representation) med faktisk sökbarhet. 
-
 
 
 ## Resource Content
@@ -28,7 +25,7 @@ Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en a
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en angiven interoperabilitetsspecifikation, dvs. vars TKEndpointPayloadProfile-extension (payload.extension) namner den angivna kanoniska URL:en. Kompletterar REQ-SRCH-3 (representation) med faktisk sökbarhet.",
+  "description" : "Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en angiven interoperabilitetsspecifikation, dvs. vars TKEndpointPayloadProfile-extension (payload.extension) namner den angivna kanoniska URL:en. Kompletterar REQ-SRCH-3 (representation) med faktisk sökbarhet. Värdet anges som kanonisk URL, som matchar alla versioner (även referenser utan version), eller som `url|version`, som bara matchar den angivna versionen. Se REQ-SRCH-6.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -38,9 +35,10 @@ Söker fram de Endpoint-resurser vars nyttolast (Endpoint.payload) stödjer en a
   }],
   "code" : "implements",
   "base" : ["Endpoint"],
-  "type" : "uri",
+  "type" : "reference",
   "expression" : "Endpoint.payload.extension('https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile').value",
   "processingMode" : "normal",
+  "target" : ["CapabilityStatement"],
   "multipleOr" : true,
   "multipleAnd" : false
 }

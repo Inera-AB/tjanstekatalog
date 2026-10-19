@@ -2,9 +2,6 @@
 
 ## Logisk modell: Indexpost (logisk modell) 
 
- 
-Logisk modell för entiteten Indexpost i informationsunderlaget. Ej REST-exponerad i detta utkast av det administrativa API:et — se REQ-MDL-1. 
-
 **Användningar:**
 
 * Denna Logisk modell används inte av några profiler i denna implementationsguide
@@ -20,31 +17,17 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 *  [Statistik/referenser](#tabs-summ) 
 *  [Alla](#tabs-all) 
 
-** Sammanfattning **
+Denna struktur är härledd från [Base](http://hl7.org/fhir/R5/types.html#Base) 
 
-Obligatorisk: 0 element(3 nästlade obligatoriska elements)
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
-* [Vård- och omsorgstagare (logisk modell) (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare)](StructureDefinition-tk-vard-och-omsorgstagare.md)
+Denna struktur är härledd från [Base](http://hl7.org/fhir/R5/types.html#Base) 
 
  **Differentialvy** 
 
+Denna struktur är härledd från [Base](http://hl7.org/fhir/R5/types.html#Base) 
+
  **ÖgonblicksbildsvyView** 
 
-** Sammanfattning **
-
-Obligatorisk: 0 element(3 nästlade obligatoriska elements)
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
-* [Vård- och omsorgstagare (logisk modell) (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare)](StructureDefinition-tk-vard-och-omsorgstagare.md)
+Denna struktur är härledd från [Base](http://hl7.org/fhir/R5/types.html#Base) 
 
  
 
@@ -63,7 +46,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-indexpost.cs
   "name" : "TKIndexpost",
   "title" : "Indexpost (logisk modell)",
   "status" : "draft",
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

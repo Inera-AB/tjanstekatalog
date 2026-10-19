@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="6cc06825-c64c-4c40-bf67-36601f4518a9"/>
+  <id value="b7d6e683-8896-4e56-aa26-1217ad703dff"/>
   <meta>
-    <lastUpdated value="2026-09-10T07:38:29.977+00:00"/>
+    <lastUpdated value="2026-10-19T12:45:34.914+00:00"/>
   </meta>
   <type value="collection"/>
   <entry>
@@ -17,7 +17,7 @@
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion utförd internt baserad på 
               <a href="CodeSystem-tk-administrator-role.html">codesystem Administratörsroller (kodsystem) v0.1.0 (CodeSystem)</a>
               <span class="copy-text-inline">
-                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.0" title="Klicka för att kopiera URL" class="btn-copy"> </button>
+                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"> </button>
               </span>
             </p>
             <p>Denna värdemängd innehåller 2 begrepp</p>
@@ -54,12 +54,12 @@
                 <td>Får registrera och ändra poster för den eller de organisationer administratören representerar (TKAdministratorRole.organization).</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;local-admin&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;local-admin&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;local-admin&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;local-admin&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -75,12 +75,12 @@
                 <td>Får utöver lokal administratörs rättigheter även administrera andra administratörers behörigheter, för samtliga organisationer (TKAdministratorRole.organization utelämnas medvetet — se profilen).</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;central-admin&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;central-admin&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;central-admin&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;central-admin&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -93,7 +93,7 @@
         <title value="Administratörsroller"/>
         <status value="draft"/>
         <experimental value="true"/>
-        <date value="2026-09-10T07:38:29+00:00"/>
+        <date value="2026-10-19T12:45:34+00:00"/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -102,8 +102,8 @@
           </coding>
         </jurisdiction>
         <expansion>
-          <identifier value="urn:uuid:2772aae3-0774-4bae-bedc-f66090a16d04"/>
-          <timestamp value="2026-09-10T07:39:15+00:00"/>
+          <identifier value="urn:uuid:8b57b0d1-f074-444b-a770-382fc61ffc88"/>
+          <timestamp value="2026-10-19T12:46:27+00:00"/>
           <total value="2"/>
           <offset value="0"/>
           <parameter>
@@ -149,7 +149,7 @@
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion utförd internt baserad på 
               <a href="CodeSystem-tk-administrator-role.html">codesystem Administratörsroller (kodsystem) v0.1.0 (CodeSystem)</a>
               <span class="copy-text-inline">
-                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.0" title="Klicka för att kopiera URL" class="btn-copy"> </button>
+                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"> </button>
               </span>
             </p>
             <p>Denna värdemängd innehåller 2 begrepp</p>
@@ -186,12 +186,12 @@
                 <td>Får registrera och ändra poster för den eller de organisationer administratören representerar (TKAdministratorRole.organization).</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;local-admin&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;local-admin&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;local-admin&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;local-admin&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -207,12 +207,12 @@
                 <td>Får utöver lokal administratörs rättigheter även administrera andra administratörers behörigheter, för samtliga organisationer (TKAdministratorRole.organization utelämnas medvetet — se profilen).</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;central-admin&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;central-admin&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;central-admin&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;central-admin&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -225,7 +225,7 @@
         <title value="Administratörsroller"/>
         <status value="draft"/>
         <experimental value="true"/>
-        <date value="2026-09-10T07:38:29+00:00"/>
+        <date value="2026-10-19T12:45:34+00:00"/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -234,8 +234,8 @@
           </coding>
         </jurisdiction>
         <expansion>
-          <identifier value="urn:uuid:4a40e5d5-5a23-4451-a55c-64c4af285c23"/>
-          <timestamp value="2026-09-10T07:39:15+00:00"/>
+          <identifier value="urn:uuid:756a349a-359d-4151-9b6c-14d14a63e43d"/>
+          <timestamp value="2026-10-19T12:46:27+00:00"/>
           <total value="2"/>
           <offset value="0"/>
           <parameter>
@@ -281,7 +281,7 @@
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion utförd internt baserad på 
               <a href="CodeSystem-tk-endpoint-security-method.html">codesystem Säkerhetsmetoder för tekniska ändpunkter (kodsystem) v0.1.0 (CodeSystem)</a>
               <span class="copy-text-inline">
-                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0" title="Klicka för att kopiera URL" class="btn-copy"> </button>
+                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"> </button>
               </span>
             </p>
             <p>Denna värdemängd innehåller 5 begrepp</p>
@@ -318,12 +318,12 @@
                 <td>Klientautentisering enligt OAuth 2.0 client credentials grant.</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-client-credentials&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-client-credentials&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;oauth2-client-credentials&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;oauth2-client-credentials&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -339,12 +339,12 @@
                 <td>Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID.</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-authorization-code&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-authorization-code&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;oauth2-authorization-code&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;oauth2-authorization-code&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -360,12 +360,12 @@
                 <td>Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver.</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;mutual-tls&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;mutual-tls&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;mutual-tls&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;mutual-tls&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -381,12 +381,12 @@
                 <td>Federerad autentisering enligt SAML 2.0.</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;saml2&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;saml2&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;saml2&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;saml2&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -402,12 +402,12 @@
                 <td>Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS).</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;none&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;none&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;none&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;none&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -420,7 +420,7 @@
         <title value="Säkerhetsmetoder för tekniska ändpunkter"/>
         <status value="draft"/>
         <experimental value="true"/>
-        <date value="2026-09-10T07:38:29+00:00"/>
+        <date value="2026-10-19T12:45:34+00:00"/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -429,8 +429,8 @@
           </coding>
         </jurisdiction>
         <expansion>
-          <identifier value="urn:uuid:2a86dd3d-670d-4aa6-9509-887975718631"/>
-          <timestamp value="2026-09-10T07:39:15+00:00"/>
+          <identifier value="urn:uuid:bfeab040-cfe9-4724-87de-5501b5855e84"/>
+          <timestamp value="2026-10-19T12:46:27+00:00"/>
           <total value="5"/>
           <offset value="0"/>
           <parameter>
@@ -488,7 +488,7 @@
             <p style="border: black 1px dotted; background-color: #EEEEEE; padding: 8px; margin-bottom: 8px">Expansion utförd internt baserad på 
               <a href="CodeSystem-tk-endpoint-security-method.html">codesystem Säkerhetsmetoder för tekniska ändpunkter (kodsystem) v0.1.0 (CodeSystem)</a>
               <span class="copy-text-inline">
-                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0" title="Klicka för att kopiera URL" class="btn-copy"> </button>
+                <button data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"> </button>
               </span>
             </p>
             <p>Denna värdemängd innehåller 5 begrepp</p>
@@ -525,12 +525,12 @@
                 <td>Klientautentisering enligt OAuth 2.0 client credentials grant.</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-client-credentials&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-client-credentials&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;oauth2-client-credentials&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;oauth2-client-credentials&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -546,12 +546,12 @@
                 <td>Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID.</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-authorization-code&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;oauth2-authorization-code&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;oauth2-authorization-code&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;oauth2-authorization-code&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -567,12 +567,12 @@
                 <td>Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver.</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;mutual-tls&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;mutual-tls&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;mutual-tls&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;mutual-tls&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -588,12 +588,12 @@
                 <td>Federerad autentisering enligt SAML 2.0.</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;saml2&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;saml2&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;saml2&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;saml2&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -609,12 +609,12 @@
                 <td>Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS).</td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;none&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="{&quot;system&quot;: &quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;, &quot;version&quot;: &quot;0.1.0&quot;, &quot;code&quot;: &quot;none&quot;}" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
                 <td>
                   <span class="copy-text-inline">
-                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;&gt;&lt;version value=&quot;0.1.0&quot;&gt;&lt;code value=&quot;none&quot;&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy"> </button>
+                    <button data-clipboard-text="&lt;coding&gt;&lt;system value=&quot;https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method&quot;/&gt;&lt;version value=&quot;0.1.0&quot;/&gt;&lt;code value=&quot;none&quot;/&gt;&lt;/coding&gt;" title="Klicka för att kopiera som Coding" class="btn-copy" aria-label="copy"> </button>
                   </span>
                 </td>
               </tr>
@@ -627,7 +627,7 @@
         <title value="Säkerhetsmetoder för tekniska ändpunkter"/>
         <status value="draft"/>
         <experimental value="true"/>
-        <date value="2026-09-10T07:38:29+00:00"/>
+        <date value="2026-10-19T12:45:34+00:00"/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -636,8 +636,8 @@
           </coding>
         </jurisdiction>
         <expansion>
-          <identifier value="urn:uuid:fc7b4b73-669a-4b6c-a0a5-17b0336542cf"/>
-          <timestamp value="2026-09-10T07:39:15+00:00"/>
+          <identifier value="urn:uuid:fee44869-1163-4b5d-abbe-de6de855aa9d"/>
+          <timestamp value="2026-10-19T12:46:27+00:00"/>
           <total value="5"/>
           <offset value="0"/>
           <parameter>

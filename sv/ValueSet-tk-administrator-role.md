@@ -2,9 +2,6 @@
 
 ## ValueSet: Administratörsroller (Experimentell) 
 
- 
-Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1. 
-
  **References** 
 
 * [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md)
@@ -33,7 +30,7 @@ Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i det
   "title" : "Administratörsroller",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

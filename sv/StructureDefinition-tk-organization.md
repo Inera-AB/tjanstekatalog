@@ -2,13 +2,10 @@
 
 ## Resursprofil: Tjänstekatalogen Organization 
 
- 
-Organisation i tjänstekatalogen. `Organization.endpoint` bär "har"-relationen — de ändpunkter organisationen listar i sin katalogpost, oavsett vem som förvaltar dem tekniskt. Sök efter dessa ändpunkter med [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md) på Endpoint, med organisationens id/referens som värde. Den separata "förvaltar"-relationen (vem som tekniskt driftar en given ändpunkt) uttrycks istället av [TKEndpoint](StructureDefinition-tk-endpoint.md)s `managingOrganization`, sökbar med standardparametern `organization`. 
-
 **Användningar:**
 
-* Referera till denna Profil: [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md), [Tjänstekatalogen API-instans](StructureDefinition-tk-api-instance.md), [Ansvarig organisation (strukturerad referens)](StructureDefinition-tk-capabilitystatement-responsible-organization.md), [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)... Show 2 more, [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md) and [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
-* Exempel för denna Profil: [Exempelregionen](Organization-TKOrganizationExample.md)
+* Referera till denna Profil: [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md), [Tjänstekatalogen API-instans](StructureDefinition-tk-api-instance.md), [Ansvarig organisation (strukturerad referens)](StructureDefinition-tk-capabilitystatement-responsible-organization.md), [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)... Show 3 more, [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md), [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md) and [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
+* Exempel för denna Profil: [Exempelregionen](Organization-TKOrganizationExample.md) and [Exempelregionens vårdcentral](Organization-TKOrganizationUnitExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) and [Tjänstekatalogen: sök-API (externt)](CapabilityStatement-tk-search-api.md)
 
 Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-organization)
@@ -27,26 +24,15 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 #### Begränsningar
 
+Denna struktur är härledd från [Organization](http://hl7.org/fhir/R5/organization.html) 
+
+#### Begränsningar
+
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 1 element(2 nästlade obligatoriska elements)
- Måste stödjas: 6 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Endpoint (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint)](StructureDefinition-tk-endpoint.md)
-
-**Skivor**
-
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
-
-* Elementet 1 är uppdelat baserat på värdet av Organization.identifier
+Denna struktur är härledd från [Organization](http://hl7.org/fhir/R5/organization.html) 
 
  **Vy med nyckelelement** 
 
@@ -56,28 +42,17 @@ Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.ht
 
  **Differentialvy** 
 
+Denna struktur är härledd från [Organization](http://hl7.org/fhir/R5/organization.html) 
+
+#### Begränsningar
+
  **ÖgonblicksbildsvyView** 
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 1 element(2 nästlade obligatoriska elements)
- Måste stödjas: 6 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Endpoint (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint)](StructureDefinition-tk-endpoint.md)
-
-**Skivor**
-
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
-
-* Elementet 1 är uppdelat baserat på värdet av Organization.identifier
+Denna struktur är härledd från [Organization](http://hl7.org/fhir/R5/organization.html) 
 
  
 
@@ -176,19 +151,62 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-organization
         }],
         "rules" : "open"
       },
-      "short" : "Organisationsidentifierare (\"logisk adress\"), inklusive organisationsnummer",
+      "short" : "Organisationsidentifierare (\"logisk adress\"): HSA-id (primär) och organisationsnummer",
+      "min" : 1,
+      "mustSupport" : true
+    },
+    {
+      "id" : "Organization.identifier:hsaId",
+      "path" : "Organization.identifier",
+      "sliceName" : "hsaId",
+      "short" : "HSA-id (primär identifierare och logisk adress)",
+      "definition" : "Organisationens HSA-id. Består av prefixet `SE`, organisationsnumret för den direktanslutna producenten i formatet tio siffror utan bindestreck, samt ett bindestreck och en efterföljande identifierande del. Organisationsnumret i HSA-id:t behöver inte vara organisationsnumret för den organisatoriska enhet som HSA-id:t identifierar. Värdet lagras, returneras och söks exakt som det är skrivet.",
+      "min" : 1,
+      "max" : "1",
+      "constraint" : [{
+        "key" : "tk-org-hsaid-format",
+        "severity" : "error",
+        "human" : "HSA-id består av SE, tio siffror (den direktanslutna producentens organisationsnummer utan bindestreck), ett bindestreck och en efterföljande identifierande del.",
+        "expression" : "value.matches('^SE[0-9]{10}-.+$')",
+        "source" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+      }],
+      "mustSupport" : true,
+      "mapping" : [{
+        "identity" : "req",
+        "map" : "REQ-ORG-6, REQ-ORG-7"
+      }]
+    },
+    {
+      "id" : "Organization.identifier:hsaId.system",
+      "path" : "Organization.identifier.system",
+      "min" : 1,
+      "patternUri" : "urn:oid:1.2.752.29.4.19"
+    },
+    {
+      "id" : "Organization.identifier:hsaId.value",
+      "path" : "Organization.identifier.value",
+      "short" : "HSA-id, t.ex. SE2321000016-1003",
+      "min" : 1,
       "mustSupport" : true
     },
     {
       "id" : "Organization.identifier:organisationsnummer",
       "path" : "Organization.identifier",
       "sliceName" : "organisationsnummer",
+      "short" : "Organisationsnummer (anges bara på den juridiska personen)",
       "min" : 0,
       "max" : "1",
+      "constraint" : [{
+        "key" : "tk-org-orgnr-format",
+        "severity" : "error",
+        "human" : "Organisationsnummer anges som tio siffror utan bindestreck.",
+        "expression" : "value.matches('^[0-9]{10}$')",
+        "source" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+      }],
       "mustSupport" : true,
       "mapping" : [{
         "identity" : "req",
-        "map" : "REQ-ORG-2"
+        "map" : "REQ-ORG-2, REQ-ORG-8, REQ-WRT-5"
       }]
     },
     {
@@ -200,7 +218,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-organization
     {
       "id" : "Organization.identifier:organisationsnummer.value",
       "path" : "Organization.identifier.value",
-      "short" : "Svenskt organisationsnummer",
+      "short" : "Svenskt organisationsnummer, 10 siffror utan bindestreck (t.ex. 2321000016)",
       "min" : 1,
       "mustSupport" : true
     },
@@ -213,6 +231,24 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-organization
       "mapping" : [{
         "identity" : "req",
         "map" : "REQ-ORG-1"
+      }]
+    },
+    {
+      "id" : "Organization.partOf",
+      "path" : "Organization.partOf",
+      "short" : "Överordnad organisation, t.ex. vårdgivaren för en vårdenhet",
+      "type" : [{
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-hierarchy",
+          "valueBoolean" : true
+        }],
+        "code" : "Reference",
+        "targetProfile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"]
+      }],
+      "mustSupport" : true,
+      "mapping" : [{
+        "identity" : "req",
+        "map" : "REQ-ORG-8"
       }]
     },
     {

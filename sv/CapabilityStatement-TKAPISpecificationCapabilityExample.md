@@ -2,9 +2,6 @@
 
 ## CapabilityStatement: Exempel: API-specifikation i tjänstekatalogen 
 
- 
-Interoperabilitetsspecifikation för utbyte av patientinformation mellan vårdgivare. 
-
  [Rå OpenAPI-Swagger-definitionsfil](../TKAPISpecificationCapabilityExample.openapi.json) | [Ladda ner](../TKAPISpecificationCapabilityExample.openapi.json) 
 
 

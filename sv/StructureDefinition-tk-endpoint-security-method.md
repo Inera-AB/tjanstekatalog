@@ -2,8 +2,6 @@
 
 ## Extension: Säkerhetsmetod 
 
-Anger vilken säkerhetsmetod som skyddar åtkomst till ändpunkten (Ändpunkt.säkerhetsmetod i informationsunderlaget). Basresursen Endpoint saknar ett eget element för detta i R5.
-
 **Context of Use**
 
 **Usage info**
@@ -24,17 +22,19 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 *  [Statistik/referenser](#tabs-summ) 
 *  [Alla](#tabs-all) 
 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
+
 #### Terminologibindningar (differential)
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
-Enkel extension med typen CodeableConcept: Anger vilken säkerhetsmetod som skyddar åtkomst till ändpunkten (Ändpunkt.säkerhetsmetod i informationsunderlaget). Basresursen Endpoint saknar ett eget element för detta i R5.
+ **Differentialvy** 
 
- **DifferentialvyDifferential View** 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
 #### Terminologibindningar (differential)
 
@@ -44,9 +44,7 @@ Enkel extension med typen CodeableConcept: Anger vilken säkerhetsmetod som skyd
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Enkel extension med typen CodeableConcept: Anger vilken säkerhetsmetod som skyddar åtkomst till ändpunkten (Ändpunkt.säkerhetsmetod i informationsunderlaget). Basresursen Endpoint saknar ett eget element för detta i R5.
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  
 
@@ -69,7 +67,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-sec
   "name" : "TKEndpointSecurityMethod",
   "title" : "Säkerhetsmetod",
   "status" : "draft",
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

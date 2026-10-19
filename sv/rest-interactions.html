@@ -20,9 +20,9 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/liquid.css" rel="stylesheet" />
     <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <link href="inera.css" rel="stylesheet"/>
+  	<link href="inera.css" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="inera-thumbnail.png"/>
 <link rel="shortcut icon" href="inera-thumbnail.png"/>
 
@@ -203,6 +203,9 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#rest-interaktioner-och-sökparametrar" id="markdown-toc-rest-interaktioner-och-sökparametrar">REST-interaktioner och sökparametrar</a>    <ul>
       <li><a href="#registrering" id="markdown-toc-registrering">Registrering</a></li>
       <li><a href="#sök-ändpunkter-för-en-organisation" id="markdown-toc-sök-ändpunkter-för-en-organisation">Sök ändpunkter för en organisation</a></li>
+      <li><a href="#organisationsidentifierare" id="markdown-toc-organisationsidentifierare">Organisationsidentifierare</a></li>
+      <li><a href="#sökkonventioner" id="markdown-toc-sökkonventioner">Sökkonventioner</a></li>
+      <li><a href="#kanoniska-referenser-och-versioner" id="markdown-toc-kanoniska-referenser-och-versioner">Kanoniska referenser och versioner</a></li>
       <li><a href="#distribution-och-synkronisering" id="markdown-toc-distribution-och-synkronisering">Distribution och synkronisering</a></li>
     </ul>
   </li>
@@ -224,19 +227,19 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <tr>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a></td>
       <td>read, search-type (externt); create, update (endast internt)</td>
-      <td><code class="language-plaintext highlighter-rouge">identifier</code> ("logisk adress", se mappings.html REQ-ORG-5), <code class="language-plaintext highlighter-rouge">name</code></td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code> ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>, <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">partof</code>; <code class="language-plaintext highlighter-rouge">_include=Organization:endpoint</code>; <code class="language-plaintext highlighter-rouge">_history</code></td>
       <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
     </tr>
     <tr>
       <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
       <td>read, search-type (externt); create, update (endast internt)</td>
-      <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation)</td>
+      <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation), <code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>; <code class="language-plaintext highlighter-rouge">_history</code></td>
       <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a> / <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>)</td>
       <td>read, search-type (externt); create, update (endast internt)</td>
-      <td><code class="language-plaintext highlighter-rouge">url</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a></td>
+      <td><code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">date</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code></td>
       <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
     </tr>
     <tr>
@@ -322,9 +325,10 @@ följer med.</p>
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by=Organization/123
 </code></pre></div></div>
 
-<p>eller med identifierare (kedjad sökning):</p>
+<p>eller med identifierare (kedjad sökning), i första hand HSA-id:</p>
 
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by.identifier=urn:oid:2.5.4.97|2321000016
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Endpoint?listed-by.identifier=urn:oid:1.2.752.29.4.19|SE2321000016-1003
+GET [base]/Endpoint?listed-by.identifier=urn:oid:2.5.4.97|2321000016
 </code></pre></div></div>
 
 <p>Detta skiljer sig från att söka på den förvaltande organisationen
@@ -371,6 +375,133 @@ finns uppladdad.</li>
 
 <hr />
 
+<h3 id="organisationsidentifierare">Organisationsidentifierare</h3>
+
+<p>En organisation identifieras i första hand med sitt HSA-id och i andra hand
+med organisationsnummer (REQ-ORG-6..9). De två följer olika formatregler:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Identifierare</th>
+      <th>System</th>
+      <th>Lagras och returneras som</th>
+      <th>Vid sökning</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>HSA-id</td>
+      <td><code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.19</code></td>
+      <td>Exakt som det är skrivet, t.ex. <code class="language-plaintext highlighter-rouge">SE2321000016-1003</code></td>
+      <td>Exakt matchning. Bindestrecket ingår i identifieraren och tas aldrig bort.</td>
+    </tr>
+    <tr>
+      <td>Organisationsnummer</td>
+      <td><code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code></td>
+      <td>Tio siffror utan bindestreck, t.ex. <code class="language-plaintext highlighter-rouge">2321000016</code></td>
+      <td>Både <code class="language-plaintext highlighter-rouge">232100-0016</code> och <code class="language-plaintext highlighter-rouge">2321000016</code> ger samma träff.</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>HSA-id består av prefixet <code class="language-plaintext highlighter-rouge">SE</code>, organisationsnumret för den direktanslutna
+producenten i formatet tio siffror utan bindestreck, samt ett bindestreck
+och en efterföljande identifierande del. Organisationsnumret i HSA-id:t
+avser den direktanslutna producenten och behöver inte vara
+organisationsnumret för den enhet som HSA-id:t identifierar. Klienter och
+Synkroniseringstjänsten får därför aldrig härleda ett organisationsnummer
+ur ett HSA-id.</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Organization?identifier=urn:oid:1.2.752.29.4.19|SE2321000016-1003
+GET [base]/Organization?identifier=urn:oid:2.5.4.97|232100-0016
+</code></pre></div></div>
+
+<p>Normaliseringen av organisationsnummer görs bara när systemet
+<code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> anges. Vid skrivning i admin-API:t avvisas
+organisationsnummer som inte är exakt tio siffror (REQ-ORG-2), liksom
+dubbletter (REQ-ORG-7) och okända identifierarsystem (REQ-ORG-9), med
+<code class="language-plaintext highlighter-rouge">422 Unprocessable Entity</code>.</p>
+
+<p>Organisationsnummer anges bara på den juridiska personen. Underliggande
+enheter har eget HSA-id och pekar på den juridiska personen via
+<code class="language-plaintext highlighter-rouge">Organization.partOf</code> (REQ-ORG-8):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Organization?partof=Organization/123
+</code></pre></div></div>
+
+<hr />
+
+<h3 id="sökkonventioner">Sökkonventioner</h3>
+
+<p>Hämtade från IHE mCSD (ITI-90) och anpassade till tjänstekatalogen
+(REQ-SRCH-9). Uppslag från logisk adress till ändpunkter i ett enda anrop:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Organization?identifier=urn:oid:1.2.752.29.4.19|SE2321000016-1003&amp;_include=Organization:endpoint
+</code></pre></div></div>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">name</code> stödjer modifierarna <code class="language-plaintext highlighter-rouge">:contains</code> och <code class="language-plaintext highlighter-rouge">:exact</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">_count</code> och sidindelning stöds för alla sökningar.</li>
+  <li>Sökning på <code class="language-plaintext highlighter-rouge">Endpoint</code> utan <code class="language-plaintext highlighter-rouge">status</code> utelämnar ändpunkter med status
+<code class="language-plaintext highlighter-rouge">entered-in-error</code>; se <a href="expected-responses.html">Förväntade svar</a>
+(REQ-SRCH-7).</li>
+  <li>Servern filtrerar inte på giltighetsperiod (REQ-SRCH-8). En ändpunkt kan
+användas om <code class="language-plaintext highlighter-rouge">status = active</code> och aktuell tidpunkt ligger inom <code class="language-plaintext highlighter-rouge">period</code>.</li>
+</ul>
+
+<hr />
+
+<h3 id="kanoniska-referenser-och-versioner">Kanoniska referenser och versioner</h3>
+
+<p><code class="language-plaintext highlighter-rouge">CapabilityStatement.instantiates</code> och extensionen
+<a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a>
+är av datatypen <code class="language-plaintext highlighter-rouge">canonical</code>. Sökparametrarna
+<a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a> och
+<a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> är därför av typen
+<code class="language-plaintext highlighter-rouge">reference</code>, som FHIR använder för sökning på kanoniska referenser
+(REQ-SRCH-6):</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Form</th>
+      <th>Matchar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[url]</code></td>
+      <td>Alla versioner, även referenser utan version.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">[url]\|[version]</code></td>
+      <td>Endast den angivna versionen.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CapabilityStatement/[id]</code></td>
+      <td>Stöds inte — en canonical är ingen literal referens.</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/CapabilityStatement?kind=instance&amp;instantiates=https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation
+GET [base]/Endpoint?implements=https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.0.0
+</code></pre></div></div>
+
+<p>Flera versioner av samma API-specifikation får finnas samtidigt.
+<code class="language-plaintext highlighter-rouge">version</code> är obligatoriskt och <code class="language-plaintext highlighter-rouge">url</code> + <code class="language-plaintext highlighter-rouge">version</code> är unik (REQ-MDL-8).
+Sökning på <code class="language-plaintext highlighter-rouge">url</code> returnerar alla versioner; välj version med <code class="language-plaintext highlighter-rouge">version</code>,
+eller sortera med <code class="language-plaintext highlighter-rouge">_sort=-date</code> för att få den senaste först:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/CapabilityStatement?kind=requirements&amp;url=https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation&amp;_sort=-date
+</code></pre></div></div>
+
+<p>API-instanser och ändpunkter bör referera specifikationen som
+<code class="language-plaintext highlighter-rouge">url|version</code>, så att klienten vet exakt vilken version som stöds.</p>
+
+<hr />
+
 <h3 id="distribution-och-synkronisering">Distribution och synkronisering</h3>
 
 <p>Inte del av det ursprungliga informationsunderlaget — tillagt per
@@ -413,8 +544,26 @@ behöver definieras (REQ-DIST-2):</p>
 </code></pre></div></div>
 
 <p>En lokal katalog som initieras för första gången kan hämta allt (utan
-<code class="language-plaintext highlighter-rouge">_lastUpdated</code>); en katalog som ska återsynkas efter driftstopp kan
-avgränsa till perioden sedan senaste kända aktualitet.</p>
+<code class="language-plaintext highlighter-rouge">_lastUpdated</code>). <code class="language-plaintext highlighter-rouge">_lastUpdated</code> finns i både sök-API:t och admin-API:t, för
+<code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code> och <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>.</p>
+
+<p><strong>Återsynk.</strong> En katalog som ska återsynkas efter driftstopp BÖR använda
+<code class="language-plaintext highlighter-rouge">_history</code> med <code class="language-plaintext highlighter-rouge">_since</code> (REQ-DIST-4), samma mönster som IHE mCSD (ITI-91):</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Organization/_history?_since=2026-10-01T00:00:00Z
+GET [base]/Endpoint/_history?_since=2026-10-01T00:00:00Z
+</code></pre></div></div>
+
+<p>Till skillnad från en sökning med <code class="language-plaintext highlighter-rouge">_lastUpdated</code> syns här även borttagna
+poster. Bulkexport (<code class="language-plaintext highlighter-rouge">$export</code>) behövs inte, eftersom datamängderna väntas
+vara små.</p>
+
+<p><strong>Ändrade kopplingar.</strong> Kopplingen "har" lagras i <code class="language-plaintext highlighter-rouge">Organization.endpoint</code>.
+En ändring av den är därför en uppdatering av <code class="language-plaintext highlighter-rouge">Organization</code>: ny version,
+nytt <code class="language-plaintext highlighter-rouge">meta.lastUpdated</code> och en notifiering (REQ-DIST-5). Det omvända gäller
+inte — en ändrad <code class="language-plaintext highlighter-rouge">Endpoint</code>, inklusive <code class="language-plaintext highlighter-rouge">managingOrganization</code> ("förvaltar"),
+ändrar inte organisationen. En klient som cachar "organisation med
+ändpunkter" behöver därför synkronisera båda resurstyperna.</p>
 
 <p><strong>Rundgång i en dubbelriktad federerad miljö</strong> (en lokal katalogs egna
 uppdateringar studsar tillbaka via prenumerationen) är inte löst i detta
@@ -457,8 +606,8 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-10 07:38:00 +0000">
-    2026-09-10
+  <span title="2026-10-19 12:45:00 +0000">
+    2026-10-19
   </span>
 
           <br/>

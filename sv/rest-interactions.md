@@ -6,9 +6,9 @@
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| [TKOrganization](StructureDefinition-tk-organization.md) | read, search-type (externt); create, update (endast internt) | `identifier`("logisk adress", se mappings.html REQ-ORG-5),`name` | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
-| [TKEndpoint](StructureDefinition-tk-endpoint.md) | read, search-type (externt); create, update (endast internt) | `organization`(standard, "förvaltar"),[`listed-by`](SearchParameter-tk-endpoint-listed-by.md)(egen, "har"),`status`,[`implements`](SearchParameter-tk-endpoint-implements.md)(stödd interoperabilitetsspecifikation) | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
-| `CapabilityStatement`([TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.md)/[TKAPIInstance](StructureDefinition-tk-api-instance.md)) | read, search-type (externt); create, update (endast internt) | `url`,[`kind`](SearchParameter-tk-capabilitystatement-kind.md),[`instantiates`](SearchParameter-tk-capabilitystatement-instantiates.md) | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
+| [TKOrganization](StructureDefinition-tk-organization.md) | read, search-type (externt); create, update (endast internt) | `identifier`("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5),`name`,`_id`,`_lastUpdated`,`active`,`partof`;`_include=Organization:endpoint`;`_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
+| [TKEndpoint](StructureDefinition-tk-endpoint.md) | read, search-type (externt); create, update (endast internt) | `organization`(standard, "förvaltar"),[`listed-by`](SearchParameter-tk-endpoint-listed-by.md)(egen, "har"),`status`,[`implements`](SearchParameter-tk-endpoint-implements.md)(stödd interoperabilitetsspecifikation),`identifier`,`_id`,`_lastUpdated`;`_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
+| `CapabilityStatement`([TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.md)/[TKAPIInstance](StructureDefinition-tk-api-instance.md)) | read, search-type (externt); create, update (endast internt) | `url`,`version`,`date`,[`kind`](SearchParameter-tk-capabilitystatement-kind.md),[`instantiates`](SearchParameter-tk-capabilitystatement-instantiates.md),`_id`,`_lastUpdated` | [TKSearchAPI](CapabilityStatement-tk-search-api.md)externt,[TKAdminAPI](CapabilityStatement-tk-admin-api.md)internt |
 | [TKProvenance](StructureDefinition-tk-provenance.md) | read, search-type | `target` | Endast[TKAdminAPI](CapabilityStatement-tk-admin-api.md)(internt) |
 | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md) | read, search-type, create, update | `organization`,`practitioner` | Endast[TKAdminAPI](CapabilityStatement-tk-admin-api.md)(internt) |
 
@@ -66,9 +66,10 @@ GET [base]/Endpoint?listed-by=Organization/123
 
 ```
 
-eller med identifierare (kedjad sökning):
+eller med identifierare (kedjad sökning), i första hand HSA-id:
 
 ```
+GET [base]/Endpoint?listed-by.identifier=urn:oid:1.2.752.29.4.19|SE2321000016-1003
 GET [base]/Endpoint?listed-by.identifier=urn:oid:2.5.4.97|2321000016
 
 ```
@@ -95,6 +96,77 @@ HAPI FHIR JPA-servern stödjer normalt egna sökparametrar genom att man laddar 
 
 1. **Enklast:**låt klienter använda HAPI:s inbyggda stöd för`_has`direkt (`Endpoint?_has:Organization:endpoint:_id=[id]`) — det kräver ingen serverkonfiguration alls, eftersom`_has`bygger på`Organization`s redan existerande standardsökparameter`endpoint`.
 1. **Om `listed-by` ändå ska exponeras som ett eget, vänligare parameternamn:**ladda upp`SearchParameter`-resursen (utan`.expression`, precis som den definieras här) så att den syns i serverns`CapabilityStatement`, men registrera dessutom en`IServerInterceptor`på en lämplig pointcut (t.ex.`SERVER_INCOMING_REQUEST_POST_PROCESSED`) som, innan sökningen exekveras, skriver om`listed-by=X`till motsvarande`_has:Organization:endpoint:_id=X`. Förlita dig inte på att HAPI indexerar`listed-by`automatiskt bara för att`SearchParameter`-resursen finns uppladdad.
+
+-------
+
+### Organisationsidentifierare
+
+En organisation identifieras i första hand med sitt HSA-id och i andra hand med organisationsnummer (REQ-ORG-6..9). De två följer olika formatregler:
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| HSA-id | `urn:oid:1.2.752.29.4.19` | Exakt som det är skrivet, t.ex.`SE2321000016-1003` | Exakt matchning. Bindestrecket ingår i identifieraren och tas aldrig bort. |
+| Organisationsnummer | `urn:oid:2.5.4.97` | Tio siffror utan bindestreck, t.ex.`2321000016` | Både`232100-0016`och`2321000016`ger samma träff. |
+
+HSA-id består av prefixet `SE`, organisationsnumret för den direktanslutna producenten i formatet tio siffror utan bindestreck, samt ett bindestreck och en efterföljande identifierande del. Organisationsnumret i HSA-id:t avser den direktanslutna producenten och behöver inte vara organisationsnumret för den enhet som HSA-id:t identifierar. Klienter och Synkroniseringstjänsten får därför aldrig härleda ett organisationsnummer ur ett HSA-id.
+
+```
+GET [base]/Organization?identifier=urn:oid:1.2.752.29.4.19|SE2321000016-1003
+GET [base]/Organization?identifier=urn:oid:2.5.4.97|232100-0016
+
+```
+
+Normaliseringen av organisationsnummer görs bara när systemet `urn:oid:2.5.4.97` anges. Vid skrivning i admin-API:t avvisas organisationsnummer som inte är exakt tio siffror (REQ-ORG-2), liksom dubbletter (REQ-ORG-7) och okända identifierarsystem (REQ-ORG-9), med `422 Unprocessable Entity`.
+
+Organisationsnummer anges bara på den juridiska personen. Underliggande enheter har eget HSA-id och pekar på den juridiska personen via `Organization.partOf` (REQ-ORG-8):
+
+```
+GET [base]/Organization?partof=Organization/123
+
+```
+
+-------
+
+### Sökkonventioner
+
+Hämtade från IHE mCSD (ITI-90) och anpassade till tjänstekatalogen (REQ-SRCH-9). Uppslag från logisk adress till ändpunkter i ett enda anrop:
+
+```
+GET [base]/Organization?identifier=urn:oid:1.2.752.29.4.19|SE2321000016-1003&_include=Organization:endpoint
+
+```
+
+* `name` stödjer modifierarna `:contains` och `:exact`.
+* `_count` och sidindelning stöds för alla sökningar.
+* Sökning på `Endpoint` utan `status` utelämnar ändpunkter med status `entered-in-error`; se [Förväntade svar](expected-responses.md) (REQ-SRCH-7).
+* Servern filtrerar inte på giltighetsperiod (REQ-SRCH-8). En ändpunkt kan användas om `status = active` och aktuell tidpunkt ligger inom `period`.
+
+-------
+
+### Kanoniska referenser och versioner
+
+`CapabilityStatement.instantiates` och extensionen [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.md) är av datatypen `canonical`. Sökparametrarna [`instantiates`](SearchParameter-tk-capabilitystatement-instantiates.md) och [`implements`](SearchParameter-tk-endpoint-implements.md) är därför av typen `reference`, som FHIR använder för sökning på kanoniska referenser (REQ-SRCH-6):
+
+| | |
+| :--- | :--- |
+| `[url]` | Alla versioner, även referenser utan version. |
+| `[url]\|[version]` | Endast den angivna versionen. |
+| `CapabilityStatement/[id]` | Stöds inte — en canonical är ingen literal referens. |
+
+```
+GET [base]/CapabilityStatement?kind=instance&instantiates=https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation
+GET [base]/Endpoint?implements=https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.0.0
+
+```
+
+Flera versioner av samma API-specifikation får finnas samtidigt. `version` är obligatoriskt och `url` + `version` är unik (REQ-MDL-8). Sökning på `url` returnerar alla versioner; välj version med `version`, eller sortera med `_sort=-date` för att få den senaste först:
+
+```
+GET [base]/CapabilityStatement?kind=requirements&url=https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation&_sort=-date
+
+```
+
+API-instanser och ändpunkter bör referera specifikationen som `url|version`, så att klienten vet exakt vilken version som stöds.
 
 -------
 
@@ -128,7 +200,19 @@ GET [base]/Endpoint?_lastUpdated=ge2026-01-01&_lastUpdated=lt2026-02-01
 
 ```
 
-En lokal katalog som initieras för första gången kan hämta allt (utan `_lastUpdated`); en katalog som ska återsynkas efter driftstopp kan avgränsa till perioden sedan senaste kända aktualitet.
+En lokal katalog som initieras för första gången kan hämta allt (utan `_lastUpdated`). `_lastUpdated` finns i både sök-API:t och admin-API:t, för `Organization`, `Endpoint` och `CapabilityStatement`.
+
+**Återsynk.** En katalog som ska återsynkas efter driftstopp BÖR använda `_history` med `_since` (REQ-DIST-4), samma mönster som IHE mCSD (ITI-91):
+
+```
+GET [base]/Organization/_history?_since=2026-10-01T00:00:00Z
+GET [base]/Endpoint/_history?_since=2026-10-01T00:00:00Z
+
+```
+
+Till skillnad från en sökning med `_lastUpdated` syns här även borttagna poster. Bulkexport (`$export`) behövs inte, eftersom datamängderna väntas vara små.
+
+**Ändrade kopplingar.** Kopplingen "har" lagras i `Organization.endpoint`. En ändring av den är därför en uppdatering av `Organization`: ny version, nytt `meta.lastUpdated` och en notifiering (REQ-DIST-5). Det omvända gäller inte — en ändrad `Endpoint`, inklusive `managingOrganization` ("förvaltar"), ändrar inte organisationen. En klient som cachar "organisation med ändpunkter" behöver därför synkronisera båda resurstyperna.
 
 **Rundgång i en dubbelriktad federerad miljö** (en lokal katalogs egna uppdateringar studsar tillbaka via prenumerationen) är inte löst i detta utkast — det kräver ett ursprungsmärke på posten, vilket lämnas som en öppen fråga (REQ-DIST-3, se mappings.html).
 

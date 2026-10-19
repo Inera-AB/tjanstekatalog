@@ -2,8 +2,6 @@
 
 ## Extension: URL till auktorisationsserver 
 
-URL till den auktorisationsserver (t.ex. OAuth 2.0-token-endpoint) som klienter ska använda för att erhålla åtkomst till ändpunkten (Ändpunkt.urlTillAuktorisationsserver i informationsunderlaget). Relevant framför allt när Ändpunkt.säkerhetsmetod anger en OAuth 2.0-baserad metod.
-
 **Context of Use**
 
 **Usage info**
@@ -24,21 +22,21 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 *  [Statistik/referenser](#tabs-summ) 
 *  [Alla](#tabs-all) 
 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
+
 #### Begränsningar
 
-** Sammanfattning **
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
-Enkel extension med typen url: URL till den auktorisationsserver (t.ex. OAuth 2.0-token-endpoint) som klienter ska använda för att erhålla åtkomst till ändpunkten (Ändpunkt.urlTillAuktorisationsserver i informationsunderlaget). Relevant framför allt när Ändpunkt.säkerhetsmetod anger en OAuth 2.0-baserad metod.
+ **Differentialvy** 
 
- **DifferentialvyDifferential View** 
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  **Ögonblicksbildsvy** 
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Enkel extension med typen url: URL till den auktorisationsserver (t.ex. OAuth 2.0-token-endpoint) som klienter ska använda för att erhålla åtkomst till ändpunkten (Ändpunkt.urlTillAuktorisationsserver i informationsunderlaget). Relevant framför allt när Ändpunkt.säkerhetsmetod anger en OAuth 2.0-baserad metod.
+Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  
 
@@ -61,7 +59,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-aut
   "name" : "TKEndpointAuthorizationServerUrl",
   "title" : "URL till auktorisationsserver",
   "status" : "draft",
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

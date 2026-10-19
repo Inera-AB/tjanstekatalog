@@ -19,7 +19,7 @@
   fhir:name [ fhir:v "IneraTjanstekatalog"] ; # 
   fhir:title [ fhir:v "Tjänstekatalogen"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-09-10T07:38:29+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-10-19T12:45:34+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
@@ -37,7 +37,6 @@
      ] )
   ] ) ; # 
   fhir:packageId [ fhir:v "inera.tjanstekatalog"] ; # 
-  fhir:license [ fhir:v "CC0-1.0"] ; # 
   fhir:fhirVersion ( [ fhir:v "5.0.0"] ) ; # 
   fhir:dependsOn ( [
      fhir:id [ fhir:v "hl7tx" ] ;
@@ -53,7 +52,7 @@
        fhir:link <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
      ] ;
      fhir:packageId [ fhir:v "hl7.terminology.r5" ] ;
-     fhir:version [ fhir:v "7.3.0" ]
+     fhir:version [ fhir:v "7.4.0" ]
   ] [
      fhir:id [ fhir:v "hl7ext" ] ;
      fhir:extension ( [
@@ -75,7 +74,7 @@
        fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency"^^xsd:anyURI ] ;
        fhir:value [
          a fhir:code ;
-         fhir:v "hl7.fhir.uv.tools.r5#1.1.2"
+         fhir:v "hl7.fhir.uv.tools.r5#1.3.0"
        ]
      ] ) ;
      fhir:resource ( [
@@ -292,6 +291,25 @@
        fhir:profile ( [
          fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"^^xsd:anyURI ;
          fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint>
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Organization"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/Organization/TKOrganizationUnitExample> ;
+         fhir:reference [ fhir:v "Organization/TKOrganizationUnitExample" ]
+       ] ;
+       fhir:name [ fhir:v "Exempel: underliggande enhet i tjänstekatalogen" ] ;
+       fhir:description [ fhir:v "Exempel på en vårdenhet under Exempelregionen. Enheten har eget HSA-id men inget eget organisationsnummer; den juridiska personen nås via partOf." ] ;
+       fhir:isExample [ fhir:v true ] ;
+       fhir:profile ( [
+         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"^^xsd:anyURI ;
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization>
        ] )
      ] [
        fhir:extension ( [

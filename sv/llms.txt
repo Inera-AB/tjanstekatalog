@@ -3,22 +3,22 @@
 ## Pages
 
 * [Hem](index.md)
-* [Om](about.md)
-* [Mappning till profiler](mappings.md)
-* [Kravkatalog](requirements.md)
 * [Användningsfall](use-cases.md)
-* [Förväntade svar](expected-responses.md)
-* [Informationsunderlag](information-basis.md)
+* [Om](about.md)
 * [Testning och validering](testing.md)
 * [Felhantering](error-handling.md)
-* [REST-interaktioner och sökparametrar](rest-interactions.md)
-* [Säkerhet och behörighet](security.md)
-* [Sammanfattning av artefakter](artifacts.md)
 * [Inledning](introduction.md)
-* [Roller och ansvar](roles-and-responsibilities.md)
+* [Mappning till profiler](mappings.md)
+* [Sammanfattning av artefakter](artifacts.md)
+* [Förväntade svar](expected-responses.md)
 * [Nedladdningar](downloads.md)
 * [CapabilityStatement](capabilitystatement.md)
+* [Säkerhet och behörighet](security.md)
 * [Versionshistorik](version-history.md)
+* [Informationsunderlag](information-basis.md)
+* [Kravkatalog](requirements.md)
+* [REST-interaktioner och sökparametrar](rest-interactions.md)
+* [Roller och ansvar](roles-and-responsibilities.md)
 
 ## Resources
 
@@ -92,5 +92,6 @@
 * [Patientinformation (Inera FHIR IG) (CapabilityStatement)](CapabilityStatement-TKAPISpecificationCapabilityExample.md)
 * [Exempelregionens patientinformations-API (Endpoint)](Endpoint-TKEndpointExample.md)
 * [Exempelregionen (Organization)](Organization-TKOrganizationExample.md)
+* [Exempelregionens vårdcentral (Organization)](Organization-TKOrganizationUnitExample.md)
 * [IneraPatientExample (Patient)](Patient-IneraPatientExample.md)
 * [TKProvenanceExample (Provenance)](Provenance-TKProvenanceExample.md)

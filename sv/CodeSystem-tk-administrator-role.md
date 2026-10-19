@@ -2,9 +2,6 @@
 
 ## CodeSystem: Administratörsroller (kodsystem) (Experimentell) 
 
- 
-Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen. 
-
 Detta kodsystem refereras i definitionen av följande värdemängder:
 
 * [Administratörsroller](ValueSet-tk-administrator-role.md)
@@ -27,7 +24,7 @@ Detta kodsystem refereras i definitionen av följande värdemängder:
   "title" : "Administratörsroller (kodsystem)",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -2,9 +2,6 @@
 
 ## ActorDefinition: Synkroniseringstjänst (Experimentell) 
 
- 
-System som läser organisationer och tekniska ändpunkter från tjänstekatalogens administrativa API (se [CapabilityStatement: administrativt API](CapabilityStatement-tk-admin-api.md)), särskilt vilka ändpunkter en organisation listar via [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md). Håller därefter E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat genom att i EHM:s system anta rollen [Organization Endpoint Writer](https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/) och anropa deras `$add-organization`/`$remove-organization`. Se "Mappning mot EHM:s Organization Endpoint Writer" i mappings.html för hur informationen mappas mellan de två gränssnitten. 
-
 
 
 ## Resource Content
@@ -36,8 +33,7 @@ System som läser organisationer och tekniska ändpunkter från tjänstekataloge
       "display" : "Sweden"
     }]
   }],
-  "type" : "system",
-  "capabilities" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+  "type" : "system"
 }
 
 ```

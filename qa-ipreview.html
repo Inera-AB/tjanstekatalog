@@ -1,10 +1,11 @@
-<html>
+<html lang="en">
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <title>IP Review</title>
     <link rel="stylesheet" href="fhir.css"/>
   </head>
   <body>
+    <h1>IP Review</h1>
     <h2>Unattributed Code Systems</h2>
     <ul>
       <li>
@@ -27,20 +28,20 @@
 
         <li>
 This material derives from the HL7 Terminology (THO). THO is copyright &copy;1989+ Health Level Seven International and is made available under the CC0 designation. For more licensing information see:           <a href="https://terminology.hl7.org/license.html">https://terminology.hl7.org/license.html</a>
-          <div onClick="if (document.getElementById('ipp2_1').innerHTML != '') {document.getElementById('ipp_1').innerHTML = document.getElementById('ipp2_1').innerHTML; document.getElementById('ipp2_1').innerHTML = ''}" id="ipp_1" data-fhir="generated">
-             <span style="cursor: pointer; border: 1px grey solid; background-color: #fcdcb3; padding-left: 3px; padding-right: 3px; color: black">Show Usage</span>
+          <div id="ipp_1" data-fhir="generated">
+             <button onClick="var t = document.getElementById('ipp_1'); var s = document.getElementById('ipp2_1'); if (s.innerHTML != '') { t.innerHTML = s.innerHTML; s.innerHTML = ''; var a = t.querySelector('a, button'); if (a) a.focus(); }" style="cursor: pointer; border: 1px grey solid; background-color: #fcdcb3; padding: 0 3px; margin: 0; color: black; font: inherit" type="button">Show Usage</button>
           </div>
           <div style="display: none" id="ipp2_1">
 
             <ul>
 
               <li>
-                <a href="http://terminology.hl7.org/7.3.0/CodeSystem-endpoint-connection-type.html">Endpoint Connection Type</a>
+                <a href="http://terminology.hl7.org/7.4.0/CodeSystem-endpoint-connection-type.html">Endpoint Connection Type</a>
 :                 <a href="Endpoint-TKEndpointExample.html">Exempelregionens patientinformations-API</a>
               </li>
 
               <li>
-                <a href="http://terminology.hl7.org/7.3.0/CodeSystem-endpoint-payload-type.html">Endpoint Payload Type</a>
+                <a href="http://terminology.hl7.org/7.4.0/CodeSystem-endpoint-payload-type.html">Endpoint Payload Type</a>
 :                 <a href="Endpoint-TKEndpointExample.html">Exempelregionens patientinformations-API</a>
               </li>
 
@@ -67,7 +68,7 @@ This material derives from the HL7 Terminology (THO). THO is copyright &copy;198
           Paket inera.tjanstekatalog#0.1.0 baserat på FHIR 5.0.0.
           Genererad 
   
-    2026-09-10
+    2026-10-19
   
 
           
@@ -82,9 +83,17 @@ This material derives from the HL7 Terminology (THO). THO is copyright &copy;198
       </li>
       <li>
 
-          hl7.fhir.us.hai: Healthcare Associated Infection Implementation Guide  &reg;&copy; HL7 |
+            &reg;&copy; HL7 |
              
-                CC0
+                Creative Commons 0
+         (        <a href="searchform.html">src</a>
+)
+      </li>
+      <li>
+
+          Tjänstekatalogen  &reg;&copy; HL7 |
+             
+                Creative Commons 0
          (        <a href="sv/searchform.html">src</a>
 )
       </li>
@@ -115,11 +124,10 @@ Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7&reg; FHIR
           <a href="Endpoint-TKEndpointExample.html">web</a>
         </td>
         <td>
-          <a href="https://auth.exempelregionen.se/oauth2/token">auth.exempelregionen.se</a>
+          <a href="https://api.exempelregionen.se/patientinformation/fhir">api.exempelregionen.se</a>
         </td>
         <td>
-          <b>URL till auktorisationsserver</b>
-:           <a href="https://auth.exempelregionen.se/oauth2/token">https://auth.exempelregionen.se/oauth2/token</a>
+          <a href="https://api.exempelregionen.se/patientinformation/fhir">https://api.exempelregionen.se/patientinformation/fhir</a>
         </td>
       </tr>
       <tr>
@@ -127,11 +135,10 @@ Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7&reg; FHIR
           <a href="Endpoint-TKEndpointExample.html">web</a>
         </td>
         <td>
-          <a href="https://api.exempelregionen.se/patientinformation/fhir">api.exempelregionen.se</a>
+          <a href="https://auth.exempelregionen.se/oauth2/token">auth.exempelregionen.se</a>
         </td>
         <td>
-          <b>address</b>
-:           <a href="https://api.exempelregionen.se/patientinformation/fhir">https://api.exempelregionen.se/patientinformation/fhir</a>
+          <a href="https://auth.exempelregionen.se/oauth2/token">https://auth.exempelregionen.se/oauth2/token</a>
         </td>
       </tr>
       <tr>
@@ -176,6 +183,89 @@ Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/Structur
         </td>
         <td>
 Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements">Endpoint: implements</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates">CapabilityStatement: instantiates</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements">Endpoint: implements</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates">CapabilityStatement: instantiates</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements">Endpoint: implements</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">Tjänstekatalogen Endpoint</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period">API-instansens giltighetsperiod</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">Tjänstekatalogen Endpoint</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period">API-instansens giltighetsperiod</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
         </td>
       </tr>
       <tr>
@@ -257,6 +347,30 @@ Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/Structur
         <td>
 Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">Tjänstekatalogen Organization</a>
 ,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">Tjänstekatalogen Organization</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization">Tjänstekatalogen Organization</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
         </td>
       </tr>
       <tr>
@@ -541,10 +655,11 @@ Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/Structur
           <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
         </td>
         <td>
-          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">fhir.inera.se</a>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability">fhir.inera.se</a>
         </td>
         <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability">Tjänstekatalogen API-specifikation</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
         </td>
       </tr>
       <tr>
@@ -555,7 +670,19 @@ Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/Capabili
           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">fhir.inera.se</a>
         </td>
         <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability">Tjänstekatalogen API-specifikation</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
         </td>
       </tr>
       <tr>
@@ -578,6 +705,30 @@ Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/Structur
         </td>
         <td>
 Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes">Ändringar i Organisation/Ändpunkt</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes">Ändringar i Organisation/Ändpunkt</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes">Ändringar i Organisation/Ändpunkt</a>
         </td>
       </tr>
       <tr>
@@ -627,8 +778,8 @@ FHIR på Inera <span aria-hidden="true">↗</span>          </a>
           Paket inera.tjanstekatalog#0.1.0 baserat på           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>
 .
           Genererad 
-            <span title="2026-09-10 07:38:00 +0000">
-    2026-09-10
+            <span title="2026-10-19 12:45:00 +0000">
+    2026-10-19
   </span>
 
 

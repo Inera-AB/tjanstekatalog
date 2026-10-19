@@ -2,9 +2,6 @@
 
 ## CapabilityStatement: Tjänstekatalogen: administrativt API (Experimentell) 
 
- 
-Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer, tekniska ändpunkter, API-specifikationer och API-instanser (inklusive sökning av ändpunkter per organisation, se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md)), samt registrering av administratörsbehörigheter. Registrering SKA ske via transaction-Bundle med en tillhörande Provenance-post (REQ-TRC-1/2). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen "Organization Endpoint Writer" — se "Mappning mot EHM:s Organization Endpoint Writer" i mappings.html. Detta API är endast internt exponerat — se [TKSearchAPI](CapabilityStatement-tk-search-api.md) för det externt exponerade, läsande sök-API:et. 
-
  [Rå OpenAPI-Swagger-definitionsfil](../tk-admin-api.openapi.json) | [Ladda ner](../tk-admin-api.openapi.json) 
 
 
@@ -59,18 +56,47 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
       },
       {
         "code" : "update"
+      },
+      {
+        "code" : "history-type",
+        "documentation" : "BÖR stödjas för återsynkronisering: `GET [base]/Organization/_history?_since=[tidpunkt]`. Till skillnad från sökning med `_lastUpdated` syns även borttagna poster. Se REQ-DIST-4."
       }],
+      "searchInclude" : ["Organization:endpoint"],
       "searchParam" : [{
         "name" : "identifier",
         "definition" : "http://hl7.org/fhir/SearchParameter/Organization-identifier",
         "type" : "token",
-        "documentation" : "Sök organisation på identifierare, t.ex. organisationsnummer."
+        "documentation" : "Sök organisation på identifierare (\"logisk adress\"). HSA-id (`urn:oid:1.2.752.29.4.19`) matchas exakt, bindestrecket ingår i identifieraren. För organisationsnummer (`urn:oid:2.5.4.97`) godtas värdet med eller utan bindestreck. Se REQ-SRCH-5."
       },
       {
         "name" : "name",
         "definition" : "http://hl7.org/fhir/SearchParameter/Organization-name",
         "type" : "string",
-        "documentation" : "Sök organisation på namn."
+        "documentation" : "Sök organisation på namn. Modifierarna `:contains` och `:exact` stöds."
+      },
+      {
+        "name" : "_id",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Resource-id",
+        "type" : "token",
+        "documentation" : "Sök organisation på logiskt id."
+      },
+      {
+        "name" : "_lastUpdated",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+        "type" : "date",
+        "documentation" : "Avgränsa organisationer på senaste ändringstidpunkt, t.ex. för grundladdning. Se REQ-DIST-2."
+      },
+      {
+        "name" : "active",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Organization-active",
+        "type" : "token",
+        "documentation" : "Sök aktiva eller inaktiva organisationer. Inaktiva organisationer filtreras inte bort som standard."
+      },
+      {
+        "name" : "partof",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Organization-partof",
+        "type" : "reference",
+        "documentation" : "Sök underliggande enheter till en organisation, t.ex. vårdenheter under en vårdgivare. Se REQ-ORG-8."
       }]
     },
     {
@@ -88,6 +114,10 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
       },
       {
         "code" : "update"
+      },
+      {
+        "code" : "history-type",
+        "documentation" : "BÖR stödjas för återsynkronisering: `GET [base]/Endpoint/_history?_since=[tidpunkt]`. Till skillnad från sökning med `_lastUpdated` syns även borttagna poster. Se REQ-DIST-4."
       }],
       "searchParam" : [{
         "name" : "organization",
@@ -105,13 +135,31 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
         "name" : "status",
         "definition" : "http://hl7.org/fhir/SearchParameter/Endpoint-status",
         "type" : "token",
-        "documentation" : "Sök ändpunkter efter status."
+        "documentation" : "Sök ändpunkter efter status. Ändpunkter med status `entered-in-error` returneras bara när de efterfrågas uttryckligen (`status=entered-in-error`). Se REQ-SRCH-7."
       },
       {
         "name" : "implements",
         "definition" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements",
-        "type" : "uri",
-        "documentation" : "Sök ändpunkter efter stödd interoperabilitetsspecifikation. Se SearchParameter-tk-endpoint-implements.html."
+        "type" : "reference",
+        "documentation" : "Sök ändpunkter efter stödd interoperabilitetsspecifikation, som kanonisk URL (alla versioner) eller `url|version` (endast den versionen). Se SearchParameter-tk-endpoint-implements.html och REQ-SRCH-6."
+      },
+      {
+        "name" : "_id",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Resource-id",
+        "type" : "token",
+        "documentation" : "Sök ändpunkt på logiskt id."
+      },
+      {
+        "name" : "_lastUpdated",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+        "type" : "date",
+        "documentation" : "Avgränsa ändpunkter på senaste ändringstidpunkt, t.ex. för grundladdning. Se REQ-DIST-2."
+      },
+      {
+        "name" : "identifier",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Endpoint-identifier",
+        "type" : "token",
+        "documentation" : "Sök ändpunkt på identifierare, t.ex. EHM:s Endpoint-id."
       }]
     },
     {
@@ -135,7 +183,7 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
         "name" : "url",
         "definition" : "http://hl7.org/fhir/SearchParameter/CanonicalResource-url",
         "type" : "uri",
-        "documentation" : "Sök på kanonisk URL."
+        "documentation" : "Sök på kanonisk URL. Returnerar alla versioner av specifikationen, se REQ-MDL-8."
       },
       {
         "name" : "kind",
@@ -147,7 +195,31 @@ Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stö
         "name" : "instantiates",
         "definition" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates",
         "type" : "reference",
-        "documentation" : "Sök API-instanser efter vilken specifikation de följer. Se SearchParameter-tk-capabilitystatement-instantiates.html."
+        "documentation" : "Sök API-instanser efter vilken specifikation de följer, som kanonisk URL (alla versioner) eller `url|version` (endast den versionen). Literala referenser (`CapabilityStatement/[id]`) stöds inte. Se SearchParameter-tk-capabilitystatement-instantiates.html och REQ-SRCH-6."
+      },
+      {
+        "name" : "_id",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Resource-id",
+        "type" : "token",
+        "documentation" : "Sök på logiskt id."
+      },
+      {
+        "name" : "_lastUpdated",
+        "definition" : "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated",
+        "type" : "date",
+        "documentation" : "Avgränsa API-specifikationer och API-instanser på senaste ändringstidpunkt, t.ex. för grundladdning. Se REQ-DIST-2."
+      },
+      {
+        "name" : "version",
+        "definition" : "http://hl7.org/fhir/SearchParameter/CanonicalResource-version",
+        "type" : "token",
+        "documentation" : "Sök på version, t.ex. tillsammans med `url`. Se REQ-MDL-8."
+      },
+      {
+        "name" : "date",
+        "definition" : "http://hl7.org/fhir/SearchParameter/CanonicalResource-date",
+        "type" : "date",
+        "documentation" : "Sök på utgivningsdatum. Används med `_sort=-date` för att få den senaste versionen först. Se REQ-MDL-8."
       }]
     },
     {

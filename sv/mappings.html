@@ -20,9 +20,9 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/liquid.css" rel="stylesheet" />
     <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <link href="inera.css" rel="stylesheet"/>
+  	<link href="inera.css" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="inera-thumbnail.png"/>
 <link rel="shortcut icon" href="inera-thumbnail.png"/>
 
@@ -331,9 +331,49 @@ Writer-operation (se "Mappning mot EHM:s Organization Endpoint Writer"
 nedan) — inte från ett internt Inera-beslut. En tidigare, ej verifierad
 gissning (<code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.13</code>) är ersatt. Att återanvända samma
 system som EHM kräver innebär att <code class="language-plaintext highlighter-rouge">Organization.identifier</code>-värden inte
-behöver systemöversättas vid synkronisering, bara formatteras om
-(bindestreck bort). Inera bör ändå separat bekräfta att detta även är
-Ineras egna föredragna kanoniska system. Se REQ-ORG-2.</p>
+behöver systemöversättas vid synkronisering. Organisationsnummer lagras
+dessutom i EHM:s format (tio siffror utan bindestreck), så värdet kan
+skickas vidare oförändrat. Inera bör ändå separat bekräfta att detta även
+är Ineras egna föredragna kanoniska system. Se REQ-ORG-2.</p>
+  </li>
+  <li>
+    <p><strong>HSA-id är organisationens primära identifierare, utöver
+informationsunderlaget.</strong> Informationsunderlaget nämner bara
+organisationsnummer. Tjänstekatalogens ekosystem använder normalt HSA-id
+som organisationsidentifierare, och på den nationella tjänsteplattformen
+är den logiska adressen normalt ett HSA-id. <code class="language-plaintext highlighter-rouge">TKOrganization.identifier</code>
+har därför slicen <code class="language-plaintext highlighter-rouge">hsaId</code> (system <code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.19</code>, 1..1), som
+är unik i katalogen. HSA-id och organisationsnummer följer olika
+formatregler:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Identifierare</th>
+          <th>Exempel</th>
+          <th>Format</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Organisationsnummer</td>
+          <td><code class="language-plaintext highlighter-rouge">2321000016</code> (skrivs ofta <code class="language-plaintext highlighter-rouge">232100-0016</code>)</td>
+          <td>Tio siffror utan bindestreck. Vid sökning godtas även formen med bindestreck.</td>
+        </tr>
+        <tr>
+          <td>HSA-id</td>
+          <td><code class="language-plaintext highlighter-rouge">SE2321000016-1003</code></td>
+          <td><code class="language-plaintext highlighter-rouge">SE</code>, den direktanslutna producentens organisationsnummer (tio siffror utan bindestreck), ett bindestreck och en identifierande del. Bindestrecket ingår i identifieraren; värdet matchas exakt.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Organisationsnumret i ett HSA-id avser den direktanslutna producenten,
+inte nödvändigtvis den organisatoriska enhet som HSA-id:t identifierar.
+Det får därför inte användas för att härleda organisationens eget
+organisationsnummer. Organisationsnummer anges bara på den juridiska
+personen; underliggande enheter pekar på den via <code class="language-plaintext highlighter-rouge">Organization.partOf</code>
+(samma hierarkimönster som IHE mCSD). Se REQ-ORG-6..9 och REQ-SRCH-5.</p>
   </li>
   <li>
     <p><strong>Ny identifierare för korrelation med EHM, utanför informationsunderlaget.</strong>
@@ -413,9 +453,8 @@ upp.</strong> Förstudien "Förstudie T2 Tjänstekatalog" beskriver tjänstesök
 huvudsakliga söknyckel som en "logisk adress" (organisatorisk identifierare,
 t.ex. <code class="language-plaintext highlighter-rouge">SE1611</code>), skild från den tekniska anslutningsadressen den slås upp
 mot. Stakeholder-beslut: ingen separat <code class="language-plaintext highlighter-rouge">logiskAdress</code>-identifierare införs
-— den rollen fylls av <code class="language-plaintext highlighter-rouge">Organization.identifier</code> (idag <code class="language-plaintext highlighter-rouge">organisationsnummer</code>,
-öppet sliced för fler system vid behov), sökbar med standardparametern
-<code class="language-plaintext highlighter-rouge">identifier</code>. Se REQ-ORG-5.</p>
+— den rollen fylls av <code class="language-plaintext highlighter-rouge">Organization.identifier</code>, i första hand HSA-id
+(se ovan), sökbar med standardparametern <code class="language-plaintext highlighter-rouge">identifier</code>. Se REQ-ORG-5/6.</p>
   </li>
   <li>
     <p><strong>Administratörsbehörighet (<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>)
@@ -447,8 +486,10 @@ en egen händelsemodell — R5:s topic-baserade <code class="language-plaintext 
 definierar ämnet <code class="language-plaintext highlighter-rouge">tk-organization-endpoint-changes</code>, se
 <code class="language-plaintext highlighter-rouge">OrganizationEndpointChanges.fsh</code>) för händelsebaserad distribution, och
 standardsökparametern <code class="language-plaintext highlighter-rouge">_lastUpdated</code> (tidsintervall, ingen ny artefakt
-behövs) för grundladdning och återsynk. Se "Distribution och
-synkronisering" i rest-interactions.html och REQ-DIST-1/2. Att undvika
+behövs) för grundladdning, och <code class="language-plaintext highlighter-rouge">_history</code> med <code class="language-plaintext highlighter-rouge">_since</code> för återsynk, som
+i IHE mCSD (ITI-91). Bulkexport (<code class="language-plaintext highlighter-rouge">$export</code>) behövs inte, eftersom
+datamängderna väntas vara små. Se "Distribution och synkronisering" i
+rest-interactions.html och REQ-DIST-1/2/4/5. Att undvika
 rundgång i en dubbelriktad federerad miljö (en lokal katalogs egna
 uppdateringar studsar tillbaka via prenumerationen) kräver ett
 ursprungsmärke på posten — inte löst i detta utkast, se öppen fråga
@@ -639,7 +680,19 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
       <td>organisationsnummer</td>
       <td>0..1</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization.identifier</a> (slice <code class="language-plaintext highlighter-rouge">organisationsnummer</code>)</td>
-      <td>Identifierarsystem valt för EHM-kompatibilitet, se avsteg ovan. REQ-ORG-2</td>
+      <td>Tio siffror utan bindestreck. Identifierarsystem valt för EHM-kompatibilitet, se avsteg ovan. Anges bara på den juridiska personen. REQ-ORG-2, REQ-ORG-8</td>
+    </tr>
+    <tr>
+      <td><em>(hsaId)</em></td>
+      <td>1..1</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization.identifier</a> (slice <code class="language-plaintext highlighter-rouge">hsaId</code>)</td>
+      <td>Utökning: primär identifierare och logisk adress, se avsteg ovan. REQ-ORG-6, REQ-ORG-7</td>
+    </tr>
+    <tr>
+      <td><em>(överordnad organisation)</em></td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization.partOf</a></td>
+      <td>Utökning: underliggande enheter pekar på den juridiska personen. Sökbar via <code class="language-plaintext highlighter-rouge">partof</code>. REQ-ORG-8</td>
     </tr>
     <tr>
       <td><em>(har)</em></td>
@@ -742,9 +795,9 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
     </tr>
     <tr>
       <td>version</td>
-      <td>0..1</td>
+      <td>1..1</td>
       <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability.version</a></td>
-      <td>REQ-MDL-4</td>
+      <td>Obligatorisk eftersom flera versioner av samma specifikation kan finnas samtidigt; <code class="language-plaintext highlighter-rouge">url</code> + <code class="language-plaintext highlighter-rouge">version</code> är unik. REQ-MDL-4, REQ-MDL-8</td>
     </tr>
     <tr>
       <td>referensTillKälla</td>
@@ -1094,7 +1147,7 @@ mot EHM:s krav.</p>
       <td><code class="language-plaintext highlighter-rouge">Organization.identifier</code> (slice <code class="language-plaintext highlighter-rouge">organizationIdentifier</code>)</td>
       <td>system fixed <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code>, värde regex <code class="language-plaintext highlighter-rouge">^\d{6}\d{4}$</code> (10 siffror)</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization.identifier</a>[<code class="language-plaintext highlighter-rouge">organisationsnummer</code>]</td>
-      <td>Systemet matchar redan. Bindestreck i värdet tas bort (samma som i operationsmappningen ovan).</td>
+      <td>Ingen — systemet och formatet (tio siffror utan bindestreck) matchar redan. Endast den juridiska personen har organisationsnummer (REQ-ORG-8); underliggande enheter kan inte skapas som egna organisationer hos EHM med organisationsnummer.</td>
     </tr>
     <tr>
       <td><code class="language-plaintext highlighter-rouge">Organization.identifier</code> (slice <code class="language-plaintext highlighter-rouge">personalIdentityNumber</code> / <code class="language-plaintext highlighter-rouge">coordinationNumber</code>)</td>
@@ -1188,7 +1241,7 @@ organisationen läggs till eller tas bort).</p>
       <td>1..1</td>
       <td><code class="language-plaintext highlighter-rouge">Identifier</code> (system + value)</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization.identifier</a>[<code class="language-plaintext highlighter-rouge">organisationsnummer</code>]</td>
-      <td>Systemet <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> matchar redan (se avsteg ovan) — bara bindestrecket i värdet ("232100-0016" → "2321000016") behöver tas bort. <strong>Endast organisationsnummer används här</strong> — personnummer/samordningsnummer SKA INTE användas för att identifiera organisationen i detta anrop (stakeholder-bekräftat: de hör till EHM:s patientindex och kombinerade sökningar däremellan, inte till denna IG:s scope). Se REQ-WRT-5.</td>
+      <td>Ingen — systemet <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> och formatet (tio siffror utan bindestreck) matchar redan (se avsteg ovan). <strong>Endast organisationsnummer används här</strong> — personnummer/samordningsnummer SKA INTE användas för att identifiera organisationen i detta anrop (stakeholder-bekräftat: de hör till EHM:s patientindex och kombinerade sökningar däremellan, inte till denna IG:s scope). Se REQ-WRT-5.</td>
     </tr>
     <tr>
       <td><em>(retur)</em> <code class="language-plaintext highlighter-rouge">return</code></td>
@@ -1200,7 +1253,7 @@ organisationen läggs till eller tas bort).</p>
   </tbody>
 </table>
 
-<p>Exempel på anropskropp (organisationsnummer, bindestreck borttaget):</p>
+<p>Exempel på anropskropp (organisationsnummer, i det format det lagras):</p>
 
 <div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
   </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Parameters"</span><span class="p">,</span><span class="w">
@@ -1303,16 +1356,21 @@ faktiska serveradress.</li>
   <li><strong>Om Inera bekräftar <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code></strong> som sitt eget föredragna system
 för organisationsnummer, kan noteringen om att det är "valt för
 EHM-kompatibilitet" tas bort — se REQ-ORG-2.</li>
-  <li><strong>Om EHM identifierar en organisation med organisationsnummer i stället
-för vårdgivarens HSA-id, behöver det organisationsnumret beständigas hos
-Inera.</strong> Observation från stakeholder: tjänstekatalogens ekosystem
-använder i övrigt normalt HSA-id som organisationsidentifierare. Om EHM
-väljer att identifiera en organisation med organisationsnummer (se
-REQ-ORG-2, REQ-ORG-5, REQ-WRT-5) i stället för vårdgivarens HSA-id,
-behöver Inera säkerställa att just det organisationsnumret är en stabil,
-förvaltad identifierare hos Inera — inte bara ett värde som råkar
-synkroniseras vidare till EHM. Hur denna beständighet säkerställs
-(registervård, koppling till HSA-id, etc.) är inte löst i detta utkast.</li>
+  <li><strong>Organisationsnummer hos Inera.</strong> EHM identifierar organisationer med
+organisationsnummer, medan tjänstekatalogen använder HSA-id som primär
+identifierare (REQ-ORG-6). Organisationsnumret lagras därför som en egen,
+sekundär identifierare på den juridiska personen (REQ-ORG-8) och får inte
+härledas ur HSA-id:t, eftersom organisationsnumret där avser den
+direktanslutna producenten. Hur registervården av organisationsnumret
+säkerställs (t.ex. källa i HSA) är inte löst i detta utkast.</li>
+  <li><strong>Enskilda näringsidkare saknar organisationsnummer.</strong> EHM identifierar
+dem med personnummer eller samordningsnummer, som denna IG medvetet har
+valt bort (REQ-WRT-5). Hur sådana vårdgivare ska synkroniseras till EHM är
+inte löst.</li>
+  <li><strong>EHM:s eget Organization-id.</strong> Om Synkroniseringstjänsten behöver
+uppdatera organisationsposten hos EHM kan en slice motsvarande
+<code class="language-plaintext highlighter-rouge">ehmEndpointId</code> behövas på <code class="language-plaintext highlighter-rouge">TKOrganization.identifier</code>. Inte infört i
+detta utkast.</li>
 </ul>
 
 <h3 id="omappade-element">Omappade element</h3>
@@ -1357,8 +1415,8 @@ att profilerna utvecklas. Mappningar kan också uttryckas med FHIR
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-10 07:38:00 +0000">
-    2026-09-10
+  <span title="2026-10-19 12:45:00 +0000">
+    2026-10-19
   </span>
 
           <br/>

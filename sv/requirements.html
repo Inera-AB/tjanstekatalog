@@ -20,9 +20,9 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/liquid.css" rel="stylesheet" />
     <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <link href="inera.css" rel="stylesheet"/>
+  	<link href="inera.css" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="inera-thumbnail.png"/>
 <link rel="shortcut icon" href="inera-thumbnail.png"/>
 
@@ -277,6 +277,36 @@ problem.</p>
       <td>Servern BÖR stödja sökning av <code class="language-plaintext highlighter-rouge">Endpoint</code> efter stödd interoperabilitetsspecifikation (<code class="language-plaintext highlighter-rouge">implements</code>).</td>
       <td><a href="SearchParameter-tk-endpoint-implements.html">SearchParameter: implements</a></td>
     </tr>
+    <tr>
+      <td>REQ-SRCH-5</td>
+      <td>SKA</td>
+      <td>Vid sökning med <code class="language-plaintext highlighter-rouge">identifier</code> på <code class="language-plaintext highlighter-rouge">Organization</code> SKA HSA-id matchas exakt (bindestrecket ingår). För organisationsnummer (<code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code>) SKA värdet godtas både med och utan bindestreck. Ingen normalisering görs när system saknas.</td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+    </tr>
+    <tr>
+      <td>REQ-SRCH-6</td>
+      <td>SKA</td>
+      <td><code class="language-plaintext highlighter-rouge">instantiates</code> och <code class="language-plaintext highlighter-rouge">implements</code> är av typen <code class="language-plaintext highlighter-rouge">reference</code> och SKA godta en kanonisk URL (matchar alla versioner) och <code class="language-plaintext highlighter-rouge">url\|version</code> (matchar endast den versionen). Literala referenser (<code class="language-plaintext highlighter-rouge">CapabilityStatement/[id]</code>) stöds inte.</td>
+      <td><a href="SearchParameter-tk-capabilitystatement-instantiates.html">SearchParameter: instantiates</a>, <a href="SearchParameter-tk-endpoint-implements.html">SearchParameter: implements</a></td>
+    </tr>
+    <tr>
+      <td>REQ-SRCH-7</td>
+      <td>SKA</td>
+      <td>Sökning på <code class="language-plaintext highlighter-rouge">Endpoint</code> utan <code class="language-plaintext highlighter-rouge">status</code> SKA utelämna ändpunkter med status <code class="language-plaintext highlighter-rouge">entered-in-error</code>. De returneras vid <code class="language-plaintext highlighter-rouge">status=entered-in-error</code> och alltid vid <code class="language-plaintext highlighter-rouge">read</code>. Övriga statusar och inaktiva organisationer filtreras inte bort.</td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+    </tr>
+    <tr>
+      <td>REQ-SRCH-8</td>
+      <td>SKA</td>
+      <td>Servern SKA INTE filtrera på giltighetsperiod eller ändra status när en period har löpt ut. En ändpunkt kan användas om <code class="language-plaintext highlighter-rouge">status = active</code> och aktuell tidpunkt ligger inom <code class="language-plaintext highlighter-rouge">period</code>.</td>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a><code class="language-plaintext highlighter-rouge">.period</code>, <a href="StructureDefinition-tk-api-instance-period.html">TKAPIInstancePeriod</a></td>
+    </tr>
+    <tr>
+      <td>REQ-SRCH-9</td>
+      <td>SKA</td>
+      <td>Sök-API:t SKA stödja de sökparametrar som deklareras i TKSearchAPI, inklusive <code class="language-plaintext highlighter-rouge">_include=Organization:endpoint</code>, <code class="language-plaintext highlighter-rouge">partof</code>, <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">_count</code> och sidindelning. <code class="language-plaintext highlighter-rouge">name</code> SKA stödja <code class="language-plaintext highlighter-rouge">:contains</code> och <code class="language-plaintext highlighter-rouge">:exact</code>. Följer IHE mCSD (ITI-90).</td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a></td>
+    </tr>
   </tbody>
 </table>
 
@@ -364,7 +394,7 @@ problem.</p>
     <tr>
       <td>REQ-ORG-2</td>
       <td>BÖR</td>
-      <td>Organisationsnumret BÖR anges som identifierare, med systemet <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> (valt för att matcha vad EHM:s Organization Endpoint Writer kräver — se mappings.html). Inera bör separat bekräfta att detta även är Ineras eget föredragna system.</td>
+      <td>Den juridiska personens organisationsnummer BÖR anges som identifierare, med systemet <code class="language-plaintext highlighter-rouge">urn:oid:2.5.4.97</code> (valt för att matcha vad EHM:s Organization Endpoint Writer kräver — se mappings.html). Värdet SKA anges som tio siffror utan bindestreck, t.ex. <code class="language-plaintext highlighter-rouge">2321000016</code>. Inera bör separat bekräfta att systemet även är Ineras eget föredragna.</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.identifier</code></td>
     </tr>
     <tr>
@@ -384,6 +414,30 @@ problem.</p>
       <td>SKA</td>
       <td><code class="language-plaintext highlighter-rouge">Organization.identifier</code> SKA fungera som den "logiska adress" tjänstesökning slår upp. Ingen separat identifierare för detta införs.</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.identifier</code>, <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a></td>
+    </tr>
+    <tr>
+      <td>REQ-ORG-6</td>
+      <td>SKA</td>
+      <td>Varje organisation SKA ha exakt ett HSA-id (<code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.19</code>), som är dess primära identifierare. Format: <code class="language-plaintext highlighter-rouge">SE</code>, den direktanslutna producentens organisationsnummer (tio siffror utan bindestreck), ett bindestreck och en identifierande del, t.ex. <code class="language-plaintext highlighter-rouge">SE2321000016-1003</code>. Organisationsnumret i HSA-id:t SKA INTE användas för att härleda organisationens eget organisationsnummer.</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.identifier</code> (slice <code class="language-plaintext highlighter-rouge">hsaId</code>)</td>
+    </tr>
+    <tr>
+      <td>REQ-ORG-7</td>
+      <td>SKA</td>
+      <td>Ett HSA-id, och likaså ett organisationsnummer, SKA identifiera högst en organisation. Admin-API:t avvisar dubbletter med <code class="language-plaintext highlighter-rouge">422</code> (<code class="language-plaintext highlighter-rouge">business-rule</code>). Gäller identifierare som är aktuella.</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+    </tr>
+    <tr>
+      <td>REQ-ORG-8</td>
+      <td>SKA</td>
+      <td>Organisationsnummer SKA endast anges på den juridiska personen. Underliggande enheter har eget HSA-id och SKA ange den överordnade organisationen i <code class="language-plaintext highlighter-rouge">Organization.partOf</code>.</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.partOf</code></td>
+    </tr>
+    <tr>
+      <td>REQ-ORG-9</td>
+      <td>SKA</td>
+      <td>Admin-API:t SKA i denna version endast godta organisationsidentifierare med systemen för HSA-id och organisationsnummer. Andra system avvisas med <code class="language-plaintext highlighter-rouge">422</code>.</td>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
     </tr>
   </tbody>
 </table>
@@ -509,6 +563,12 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
       <td>Varje TKAPIInstance SKA referera den ändpunkt som tillgängliggör den och den/de API-specifikationer den följer, sökbart via en egen sökparameter.</td>
       <td><a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html">SearchParameter: instantiates</a></td>
     </tr>
+    <tr>
+      <td>REQ-MDL-8</td>
+      <td>SKA</td>
+      <td>Flera versioner av samma API-specifikation FÅR finnas samtidigt. <code class="language-plaintext highlighter-rouge">version</code> SKA anges och <code class="language-plaintext highlighter-rouge">url</code> + <code class="language-plaintext highlighter-rouge">version</code> SKA vara unik. Sökning på <code class="language-plaintext highlighter-rouge">url</code> returnerar alla versioner; <code class="language-plaintext highlighter-rouge">version</code> och <code class="language-plaintext highlighter-rouge">date</code> (med <code class="language-plaintext highlighter-rouge">_sort=-date</code>) används för att välja. API-instanser och ändpunkter BÖR referera specifikationen som <code class="language-plaintext highlighter-rouge">url\|version</code>.</td>
+      <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a>, <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a></td>
+    </tr>
   </tbody>
 </table>
 
@@ -603,14 +663,26 @@ se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a
     <tr>
       <td>REQ-DIST-2</td>
       <td>BÖR</td>
-      <td>Servern BÖR stödja grundladdning/återsynk via <code class="language-plaintext highlighter-rouge">_lastUpdated</code>.</td>
-      <td><a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+      <td>Servern BÖR stödja grundladdning via <code class="language-plaintext highlighter-rouge">_lastUpdated</code> på <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code> och <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>, i sök-API:t som notifieringarna hänvisar till.</td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
     </tr>
     <tr>
       <td>REQ-DIST-3</td>
       <td>FÅR</td>
       <td>Ett ursprungsmärke FÅR användas för att undvika rundgång i en dubbelriktad federerad miljö. Inte löst i detta utkast.</td>
       <td><em>(öppen fråga, se mappings.html)</em></td>
+    </tr>
+    <tr>
+      <td>REQ-DIST-4</td>
+      <td>BÖR</td>
+      <td>Servern BÖR stödja <code class="language-plaintext highlighter-rouge">history-type</code> med <code class="language-plaintext highlighter-rouge">_since</code> på <code class="language-plaintext highlighter-rouge">Organization</code> och <code class="language-plaintext highlighter-rouge">Endpoint</code> för återsynk; till skillnad från <code class="language-plaintext highlighter-rouge">_lastUpdated</code> syns även borttagna poster. <code class="language-plaintext highlighter-rouge">$export</code> behövs inte.</td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+    </tr>
+    <tr>
+      <td>REQ-DIST-5</td>
+      <td>SKA</td>
+      <td>En ändring av <code class="language-plaintext highlighter-rouge">Organization.endpoint</code> ("har") SKA hanteras som en uppdatering av <code class="language-plaintext highlighter-rouge">Organization</code> (ny version, nytt <code class="language-plaintext highlighter-rouge">meta.lastUpdated</code>, notifiering). En ändring av en <code class="language-plaintext highlighter-rouge">Endpoint</code>, inklusive <code class="language-plaintext highlighter-rouge">managingOrganization</code>, ändrar inte organisationen.</td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>, <a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic: tk-organization-endpoint-changes</a></td>
     </tr>
   </tbody>
 </table>
@@ -685,8 +757,8 @@ eller id.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-10 07:38:00 +0000">
-    2026-09-10
+  <span title="2026-10-19 12:45:00 +0000">
+    2026-10-19
   </span>
 
           <br/>

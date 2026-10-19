@@ -2,9 +2,6 @@
 
 ## Resursprofil: Tjänstekatalogen Endpoint 
 
- 
-Teknisk ändpunkt i tjänstekatalogen. Realiserar entiteten Ändpunkt i det bifogade informationsunderlaget: `Endpoint.address` bär ändpunktens URL, `Endpoint.managingOrganization` bär "förvaltar"-relationen till den förvaltande organisationen, och `Endpoint.payload` (tillsammans med [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.md)) bär "tillgängliggör"/"följer"-relationerna till de API:er och interoperabilitetsspecifikationer som ändpunkten stödjer. Sök efter ändpunkter som en organisation **listar** (Organization.endpoint, "har") med [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md); sök efter ändpunkter en organisation **förvaltar** med standardparametern `organization`. 
-
 **Användningar:**
 
 * Referera till denna Profil: [Tillgängliggörande ändpunkt](StructureDefinition-tk-api-instance-endpoint.md), [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md) and [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
@@ -27,34 +24,13 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 #### Begränsningar
 
+Denna struktur är härledd från [Endpoint](http://hl7.org/fhir/R5/endpoint.html) 
+
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 2 elements(3 nästlade obligatoriska elements)
- Måste stödjas: 17 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
-
-**Extensions**
-
-Denna struktur refererar till dessa extensions:
-
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method](StructureDefinition-tk-endpoint-security-method.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url](StructureDefinition-tk-endpoint-authorization-server-url.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile](StructureDefinition-tk-endpoint-payload-profile.md)
-
-**Skivor**
-
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
-
-* Elementet 1 är uppdelat baserat på värdet av Endpoint.identifier
+Denna struktur är härledd från [Endpoint](http://hl7.org/fhir/R5/endpoint.html) 
 
  **Vy med nyckelelement** 
 
@@ -64,36 +40,15 @@ Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.ht
 
  **Differentialvy** 
 
+Denna struktur är härledd från [Endpoint](http://hl7.org/fhir/R5/endpoint.html) 
+
  **ÖgonblicksbildsvyView** 
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 2 elements(3 nästlade obligatoriska elements)
- Måste stödjas: 17 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
-
-**Extensions**
-
-Denna struktur refererar till dessa extensions:
-
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method](StructureDefinition-tk-endpoint-security-method.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url](StructureDefinition-tk-endpoint-authorization-server-url.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile](StructureDefinition-tk-endpoint-payload-profile.md)
-
-**Skivor**
-
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
-
-* Elementet 1 är uppdelat baserat på värdet av Endpoint.identifier
+Denna struktur är härledd från [Endpoint](http://hl7.org/fhir/R5/endpoint.html) 
 
  
 

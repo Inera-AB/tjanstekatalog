@@ -2,9 +2,6 @@
 
 ## SubscriptionTopic: Ändringar i Organisation/Ändpunkt (prenumerationsämne) (Experimentell) 
 
- 
-Prenumerationsämne (topic) för att låta lokala kataloger prenumerera på förändringar i Organization och Endpoint i tjänstekatalogen, som ett alternativ till periodisk pollning. Klienter skapar en `Subscription` som refererar detta ämnes url som `Subscription.topic`. Se "Distribution och synkronisering" i rest-interactions.html för grundladdning (`_lastUpdated`) och återsynk. 
-
 
 
 ## Resource Content

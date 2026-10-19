@@ -2,9 +2,6 @@
 
 ## Resursprofil: Tjänstekatalogen Provenance 
 
- 
-Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera resurser i tjänstekatalogen — vanligen skickad tillsammans med den/de registrerade resurserna i samma transaction-Bundle. Se [Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och "Distribution och synkronisering"/registrering i rest-interactions.html. 
-
 **Användningar:**
 
 * Exempel för denna Profil: [Provenance/TKProvenanceExample](Provenance-TKProvenanceExample.md)
@@ -24,23 +21,13 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 #### Begränsningar
 
+Denna struktur är härledd från [Provenance](http://hl7.org/fhir/R5/provenance.html) 
+
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 1 element
- Måste stödjas: 4 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
-* [Tjänstekatalogen Endpoint (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint)](StructureDefinition-tk-endpoint.md)
-* [Tjänstekatalogen API-instans (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance)](StructureDefinition-tk-api-instance.md)
-* [Tjänstekatalogen API-specifikation (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability)](StructureDefinition-tk-api-specification-capability.md)
+Denna struktur är härledd från [Provenance](http://hl7.org/fhir/R5/provenance.html) 
 
  **Vy med nyckelelement** 
 
@@ -48,25 +35,15 @@ Denna struktur refererar till dessa andra strukturer:
 
  **Differentialvy** 
 
+Denna struktur är härledd från [Provenance](http://hl7.org/fhir/R5/provenance.html) 
+
  **ÖgonblicksbildsvyView** 
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 1 element
- Måste stödjas: 4 elements
-
-**Strukturer**
-
-Denna struktur refererar till dessa andra strukturer:
-
-* [Tjänstekatalogen Organization (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization)](StructureDefinition-tk-organization.md)
-* [Tjänstekatalogen Endpoint (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint)](StructureDefinition-tk-endpoint.md)
-* [Tjänstekatalogen API-instans (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance)](StructureDefinition-tk-api-instance.md)
-* [Tjänstekatalogen API-specifikation (https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability)](StructureDefinition-tk-api-specification-capability.md)
+Denna struktur är härledd från [Provenance](http://hl7.org/fhir/R5/provenance.html) 
 
  
 

@@ -2,9 +2,6 @@
 
 ## Resursprofil: Tjänstekatalogen API-specifikation 
 
- 
-Metadata om en interoperabilitetsspecifikation (t.ex. en FHIR IG, ett RIVTA-tjänstekontrakt eller en OpenAPI/REST-beskrivning) som en [TKAPIInstance](StructureDefinition-tk-api-instance.md) kan referera via `.instantiates` ("följer"). `CapabilityStatement.url` är specifikationens egen kanoniska/maskinläsbara identitet — samma värde som [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.md) på `Endpoint.payload` refererar för snabb sökbarhet. Se [Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-MDL-4. 
-
 **Användningar:**
 
 * Referera till denna Profil: [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
@@ -27,22 +24,13 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 #### Begränsningar
 
+Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
+
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 3 elements
- Måste stödjas: 12 elements
-
-**Extensions**
-
-Denna struktur refererar till dessa extensions:
-
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-category](StructureDefinition-tk-api-specification-category.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference](StructureDefinition-tk-api-specification-source-reference.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-capabilitystatement-responsible-organization](StructureDefinition-tk-capabilitystatement-responsible-organization.md)
+Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
 
  **Vy med nyckelelement** 
 
@@ -52,24 +40,15 @@ Denna struktur refererar till dessa extensions:
 
  **Differentialvy** 
 
+Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
+
  **ÖgonblicksbildsvyView** 
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 3 elements
- Måste stödjas: 12 elements
-
-**Extensions**
-
-Denna struktur refererar till dessa extensions:
-
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-category](StructureDefinition-tk-api-specification-category.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference](StructureDefinition-tk-api-specification-source-reference.md)
-* [https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-capabilitystatement-responsible-organization](StructureDefinition-tk-capabilitystatement-responsible-organization.md)
+Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
 
  
 
@@ -217,10 +196,12 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
     {
       "id" : "CapabilityStatement.version",
       "path" : "CapabilityStatement.version",
+      "short" : "Specifikationens version. url + version är unik i katalogen",
+      "min" : 1,
       "mustSupport" : true,
       "mapping" : [{
         "identity" : "req",
-        "map" : "REQ-MDL-4"
+        "map" : "REQ-MDL-4, REQ-MDL-8"
       }]
     },
     {

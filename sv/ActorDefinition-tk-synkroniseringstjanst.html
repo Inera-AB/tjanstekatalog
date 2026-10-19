@@ -22,9 +22,9 @@
     <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
     <link href="assets/css/jquery-ui.css" rel="stylesheet"/>
   	<link href="assets/css/prism.css" rel="stylesheet" />
+    <link href="assets/css/liquid.css" rel="stylesheet" />
     <link href="assets/css/project.css" rel="stylesheet"/>
-  	<link href="assets/css/cqf.css" rel="stylesheet" />
-    <link href="inera.css" rel="stylesheet"/>
+  	<link href="inera.css" rel="stylesheet"/>
 <link rel="icon" type="image/png" href="inera-thumbnail.png"/>
 <link rel="shortcut icon" href="inera-thumbnail.png"/>
 
@@ -276,10 +276,10 @@
   </table>
 
 
-<p>
+<div data-fhir="generated">
 <p>System som läser organisationer och tekniska ändpunkter från tjänstekatalogens administrativa API (se <a href="CapabilityStatement-tk-admin-api.html">CapabilityStatement: administrativt API</a>), särskilt vilka ändpunkter en organisation listar via <a href="SearchParameter-tk-endpoint-listed-by.html">SearchParameter: listed-by</a>. Håller därefter E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat genom att i EHM:s system anta rollen <a href="https://simplifier.net/guide/SwedishMedicalRecordIndexAndEndpointRegistry/">Organization Endpoint Writer</a> och anropa deras <code class="language-plaintext highlighter-rouge">$add-organization</code>/<code class="language-plaintext highlighter-rouge">$remove-organization</code>. Se "Mappning mot EHM:s Organization Endpoint Writer" i mappings.html för hur informationen mappas mellan de två gränssnitten.</p>
 
-</p>
+</div>
 
 
   <!-- insert intro if present -->
@@ -294,7 +294,7 @@
   
 
 
-  <div data-fhir="generated"><p class="res-header-id"/><a name="tk-synkroniseringstjanst"> </a><a name="hctk-synkroniseringstjanst"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Språk: sv</p></div><table class="grid"><tr><td><b>Aktör: TKSynkroniseringstjanst </b></td><td>Synkroniseringstjänst</td><td>Typ: system </td></tr><tr><td colspan="3"/></tr><tr><td>Förmågor:</td><td colspan="2"><a href="CapabilityStatement-tk-admin-api.html">Tjänstekatalogen: administrativt API</a></td></tr></table></div>
+  <div data-fhir="generated"><p class="res-header-id"/><a name="tk-synkroniseringstjanst"> </a><a name="hctk-synkroniseringstjanst"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px">Språk: sv</p></div><table class="grid"><tr><td><b>Aktör: TKSynkroniseringstjanst </b></td><td>Synkroniseringstjänst</td><td>Typ: system </td></tr><tr><td colspan="3"/></tr></table></div>
 
   <!-- insert notes if present -->
   
@@ -328,8 +328,8 @@
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-09-10 07:38:00 +0000">
-    2026-09-10
+  <span title="2026-10-19 12:45:00 +0000">
+    2026-10-19
   </span>
 
           <br/>

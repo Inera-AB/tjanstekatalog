@@ -16,6 +16,7 @@
       <sch:assert test="count(f:extension[@url = 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference']) &lt;= 1">extension with URL = 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:extension[@url = 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-capabilitystatement-responsible-organization']) &lt;= 1">extension with URL = 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-capabilitystatement-responsible-organization': maximum cardinality of 'extension' is 1</sch:assert>
       <sch:assert test="count(f:url) &gt;= 1">url: minimum cardinality of 'url' is 1</sch:assert>
+      <sch:assert test="count(f:version) &gt;= 1">version: minimum cardinality of 'version' is 1</sch:assert>
       <sch:assert test="count(f:title) &gt;= 1">title: minimum cardinality of 'title' is 1</sch:assert>
       <sch:assert test="count(f:rest) &gt;= 1">rest: minimum cardinality of 'rest' is 1</sch:assert>
       <sch:assert test="count(f:rest) &lt;= 1">rest: maximum cardinality of 'rest' is 1</sch:assert>

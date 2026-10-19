@@ -2,9 +2,6 @@
 
 ## SearchParameter: Endpoint: listed-by (organisation som listar ändpunkten) (Experimentell) 
 
- 
-Söker fram de Endpoint-resurser som en angiven Organization listar i sin ändpunktskatalog, dvs. de ändpunkter som förekommer i Organization.endpoint ("har"-relationen i informationsunderlaget) — till skillnad från standardparametern `organization`, som endast matchar den förvaltande organisationen (Endpoint.managingOrganization, "förvaltar"-relationen). Servrar SKA implementera denna parameter med sökbeteende likvärdigt med `_has:Organization:endpoint:_id=[organization-id]`. 
-
 
 
 ## Resource Content

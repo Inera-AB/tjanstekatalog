@@ -7,11 +7,15 @@
   </meta>
   <language value="sv"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: Organization TKOrganizationExample</b></p><a name="TKOrganizationExample"> </a><a name="hcTKOrganizationExample"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="StructureDefinition-tk-organization.html">Tjänstekatalogen Organization</a></p></div><p><b>identifier</b>: <code>urn:oid:2.5.4.97</code>/232100-0016</p><p><b>name</b>: Exempelregionen</p><p><b>endpoint</b>: <a href="Endpoint-TKEndpointExample.html">Endpoint Exempelregionens patientinformations-API</a></p></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: Organization TKOrganizationExample</b></p><a name="TKOrganizationExample"> </a><a name="hcTKOrganizationExample"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="StructureDefinition-tk-organization.html">Tjänstekatalogen Organization</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="Annat id (se det ovan)">Annat id:</td><td colspan="3"><code>urn:oid:2.5.4.97</code>/2321000016</td></tr><tr><td style="background-color: #f3f5da" title="Technical endpoints providing access to services">Endpoint:</td><td colspan="3"><a href="Endpoint-TKEndpointExample.html">Exempelregionens patientinformations-API (HL7 FHIR): https://api.exempelregionen.se/patientinformation/fhir</a></td></tr></table></div>
   </text>
   <identifier>
+    <system value="urn:oid:1.2.752.29.4.19"/>
+    <value value="SE2321000016-1003"/>
+  </identifier>
+  <identifier>
     <system value="urn:oid:2.5.4.97"/>
-    <value value="232100-0016"/>
+    <value value="2321000016"/>
   </identifier>
   <name value="Exempelregionen"/>
   <endpoint>

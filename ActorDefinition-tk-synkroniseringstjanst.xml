@@ -3,7 +3,7 @@
 <ActorDefinition xmlns="http://hl7.org/fhir">
   <id value="tk-synkroniseringstjanst"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: ActorDefinition tk-synkroniseringstjanst</b></p><a name="tk-synkroniseringstjanst"> </a><a name="hctk-synkroniseringstjanst"> </a><table class="grid"><tr><td><b>Aktör: TKSynkroniseringstjanst </b></td><td>Synkroniseringstjänst</td><td>Typ: system </td></tr><tr><td colspan="3"/></tr><tr><td>Förmågor:</td><td colspan="2"><a href="CapabilityStatement-tk-admin-api.html">Tjänstekatalogen: administrativt API</a></td></tr></table></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: ActorDefinition tk-synkroniseringstjanst</b></p><a name="tk-synkroniseringstjanst"> </a><a name="hctk-synkroniseringstjanst"> </a><table class="grid"><tr><td><b>Aktör: TKSynkroniseringstjanst </b></td><td>Synkroniseringstjänst</td><td>Typ: system </td></tr><tr><td colspan="3"/></tr></table></div>
   </text>
   <url value="https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst"/>
   <version value="0.1.0"/>
@@ -29,5 +29,4 @@
     </coding>
   </jurisdiction>
   <type value="system"/>
-  <capabilities value="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"/>
 </ActorDefinition>

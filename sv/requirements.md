@@ -18,6 +18,11 @@ Krav grupperas efter ämne: `REQ-SRCH-*` sökning av ändpunkter per organisatio
 | REQ-SRCH-2 | SKA | Ändpunktens URL SKA anges i`Endpoint.address`. | [TKEndpoint](StructureDefinition-tk-endpoint.md) |
 | REQ-SRCH-3 | BÖR | Servern BÖR, per nyttolast, ange vilka interoperabilitetsspecifikationer ändpunkten stödjer. | [TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.md) |
 | REQ-SRCH-4 | BÖR | Servern BÖR stödja sökning av`Endpoint`efter stödd interoperabilitetsspecifikation (`implements`). | [SearchParameter: implements](SearchParameter-tk-endpoint-implements.md) |
+| REQ-SRCH-5 | SKA | Vid sökning med`identifier`på`Organization`SKA HSA-id matchas exakt (bindestrecket ingår). För organisationsnummer (`urn:oid:2.5.4.97`) SKA värdet godtas både med och utan bindestreck. Ingen normalisering görs när system saknas. | [TKSearchAPI](CapabilityStatement-tk-search-api.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+| REQ-SRCH-6 | SKA | `instantiates`och`implements`är av typen`reference`och SKA godta en kanonisk URL (matchar alla versioner) och`url\|version`(matchar endast den versionen). Literala referenser (`CapabilityStatement/[id]`) stöds inte. | [SearchParameter: instantiates](SearchParameter-tk-capabilitystatement-instantiates.md),[SearchParameter: implements](SearchParameter-tk-endpoint-implements.md) |
+| REQ-SRCH-7 | SKA | Sökning på`Endpoint`utan`status`SKA utelämna ändpunkter med status`entered-in-error`. De returneras vid`status=entered-in-error`och alltid vid`read`. Övriga statusar och inaktiva organisationer filtreras inte bort. | [TKSearchAPI](CapabilityStatement-tk-search-api.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+| REQ-SRCH-8 | SKA | Servern SKA INTE filtrera på giltighetsperiod eller ändra status när en period har löpt ut. En ändpunkt kan användas om`status = active`och aktuell tidpunkt ligger inom`period`. | [TKEndpoint](StructureDefinition-tk-endpoint.md)`.period`,[TKAPIInstancePeriod](StructureDefinition-tk-api-instance-period.md) |
+| REQ-SRCH-9 | SKA | Sök-API:t SKA stödja de sökparametrar som deklareras i TKSearchAPI, inklusive`_include=Organization:endpoint`,`partof`,`active`,`_count`och sidindelning.`name`SKA stödja`:contains`och`:exact`. Följer IHE mCSD (ITI-90). | [TKSearchAPI](CapabilityStatement-tk-search-api.md) |
 
 ### REQ-END — Attribut på Ändpunkt
 
@@ -37,10 +42,14 @@ Krav grupperas efter ämne: `REQ-SRCH-*` sökning av ändpunkter per organisatio
 | | | | |
 | :--- | :--- | :--- | :--- |
 | REQ-ORG-1 | SKA | Varje organisation SKA ha ett unikt id och namn. | [TKOrganization](StructureDefinition-tk-organization.md) |
-| REQ-ORG-2 | BÖR | Organisationsnumret BÖR anges som identifierare, med systemet`urn:oid:2.5.4.97`(valt för att matcha vad EHM:s Organization Endpoint Writer kräver — se mappings.html). Inera bör separat bekräfta att detta även är Ineras eget föredragna system. | [TKOrganization](StructureDefinition-tk-organization.md)`.identifier` |
+| REQ-ORG-2 | BÖR | Den juridiska personens organisationsnummer BÖR anges som identifierare, med systemet`urn:oid:2.5.4.97`(valt för att matcha vad EHM:s Organization Endpoint Writer kräver — se mappings.html). Värdet SKA anges som tio siffror utan bindestreck, t.ex.`2321000016`. Inera bör separat bekräfta att systemet även är Ineras eget föredragna. | [TKOrganization](StructureDefinition-tk-organization.md)`.identifier` |
 | REQ-ORG-3 | SKA | En organisation SKA kunna lista ("har") de ändpunkter den listar i tjänstekatalogen. | [TKOrganization](StructureDefinition-tk-organization.md)`.endpoint`,[SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.md) |
 | REQ-ORG-4 | SKA | Varje ändpunkt SKA ange sin förvaltande organisation ("förvaltar"). | [TKEndpoint](StructureDefinition-tk-endpoint.md)`.managingOrganization` |
 | REQ-ORG-5 | SKA | `Organization.identifier`SKA fungera som den "logiska adress" tjänstesökning slår upp. Ingen separat identifierare för detta införs. | [TKOrganization](StructureDefinition-tk-organization.md)`.identifier`,[TKSearchAPI](CapabilityStatement-tk-search-api.md) |
+| REQ-ORG-6 | SKA | Varje organisation SKA ha exakt ett HSA-id (`urn:oid:1.2.752.29.4.19`), som är dess primära identifierare. Format:`SE`, den direktanslutna producentens organisationsnummer (tio siffror utan bindestreck), ett bindestreck och en identifierande del, t.ex.`SE2321000016-1003`. Organisationsnumret i HSA-id:t SKA INTE användas för att härleda organisationens eget organisationsnummer. | [TKOrganization](StructureDefinition-tk-organization.md)`.identifier`(slice`hsaId`) |
+| REQ-ORG-7 | SKA | Ett HSA-id, och likaså ett organisationsnummer, SKA identifiera högst en organisation. Admin-API:t avvisar dubbletter med`422`(`business-rule`). Gäller identifierare som är aktuella. | [TKOrganization](StructureDefinition-tk-organization.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+| REQ-ORG-8 | SKA | Organisationsnummer SKA endast anges på den juridiska personen. Underliggande enheter har eget HSA-id och SKA ange den överordnade organisationen i`Organization.partOf`. | [TKOrganization](StructureDefinition-tk-organization.md)`.partOf` |
+| REQ-ORG-9 | SKA | Admin-API:t SKA i denna version endast godta organisationsidentifierare med systemen för HSA-id och organisationsnummer. Andra system avvisas med`422`. | [TKOrganization](StructureDefinition-tk-organization.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
 
 ### REQ-WRT — Synkronisering mot EHM:s Organization Endpoint Writer
 
@@ -68,6 +77,7 @@ Organization Endpoint Writer är E-hälsomyndighetens (EHM) egen aktörsroll, in
 | REQ-MDL-5 | SKA | Spårbarhet (vem skapade/senast uppdaterade en post) SKA finnas — löst via en obligatorisk Provenance-post per registrering (tidigare uppskjutet). | [TKProvenance](StructureDefinition-tk-provenance.md), REQ-TRC-1/2 |
 | REQ-MDL-6 | BÖR | En API-instans (TKAPIInstance) BÖR kunna ange sin egen giltighetsperiod, oberoende av ändpunktens. | [TKAPIInstancePeriod](StructureDefinition-tk-api-instance-period.md) |
 | REQ-MDL-7 | SKA | Varje TKAPIInstance SKA referera den ändpunkt som tillgängliggör den och den/de API-specifikationer den följer, sökbart via en egen sökparameter. | [TKAPIInstance](StructureDefinition-tk-api-instance.md),[SearchParameter: instantiates](SearchParameter-tk-capabilitystatement-instantiates.md) |
+| REQ-MDL-8 | SKA | Flera versioner av samma API-specifikation FÅR finnas samtidigt.`version`SKA anges och`url`+`version`SKA vara unik. Sökning på`url`returnerar alla versioner;`version`och`date`(med`_sort=-date`) används för att välja. API-instanser och ändpunkter BÖR referera specifikationen som`url\|version`. | [TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.md),[TKSearchAPI](CapabilityStatement-tk-search-api.md) |
 
 ### REQ-EXP — Exponering: sök-API externt vs. admin-API internt
 
@@ -95,8 +105,10 @@ Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget — se "
 | | | | |
 | :--- | :--- | :--- | :--- |
 | REQ-DIST-1 | BÖR | Servern BÖR stödja R5 topic-baserad`Subscription`mot ämnet`tk-organization-endpoint-changes`. | [SubscriptionTopic: tk-organization-endpoint-changes](SubscriptionTopic-tk-organization-endpoint-changes.md) |
-| REQ-DIST-2 | BÖR | Servern BÖR stödja grundladdning/återsynk via`_lastUpdated`. | [TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+| REQ-DIST-2 | BÖR | Servern BÖR stödja grundladdning via`_lastUpdated`på`Organization`,`Endpoint`och`CapabilityStatement`, i sök-API:t som notifieringarna hänvisar till. | [TKSearchAPI](CapabilityStatement-tk-search-api.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
 | REQ-DIST-3 | FÅR | Ett ursprungsmärke FÅR användas för att undvika rundgång i en dubbelriktad federerad miljö. Inte löst i detta utkast. | **(öppen fråga, se mappings.html)** |
+| REQ-DIST-4 | BÖR | Servern BÖR stödja`history-type`med`_since`på`Organization`och`Endpoint`för återsynk; till skillnad från`_lastUpdated`syns även borttagna poster.`$export`behövs inte. | [TKSearchAPI](CapabilityStatement-tk-search-api.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+| REQ-DIST-5 | SKA | En ändring av`Organization.endpoint`("har") SKA hanteras som en uppdatering av`Organization`(ny version, nytt`meta.lastUpdated`, notifiering). En ändring av en`Endpoint`, inklusive`managingOrganization`, ändrar inte organisationen. | [TKSearchAPI](CapabilityStatement-tk-search-api.md),[SubscriptionTopic: tk-organization-endpoint-changes](SubscriptionTopic-tk-organization-endpoint-changes.md) |
 
 ### REQ-TRC — Spårbarhet och transaktionell registrering
 

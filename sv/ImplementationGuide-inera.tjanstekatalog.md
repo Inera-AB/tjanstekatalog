@@ -14,7 +14,7 @@
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -32,7 +32,6 @@
     }]
   }],
   "packageId" : "inera.tjanstekatalog",
-  "license" : "CC0-1.0",
   "fhirVersion" : ["5.0.0"],
   "dependsOn" : [{
     "id" : "hl7tx",
@@ -42,7 +41,7 @@
     }],
     "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
     "packageId" : "hl7.terminology.r5",
-    "version" : "7.3.0"
+    "version" : "7.4.0"
   },
   {
     "id" : "hl7ext",
@@ -57,7 +56,7 @@
   "definition" : {
     "extension" : [{
       "url" : "http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency",
-      "valueCode" : "hl7.fhir.uv.tools.r5#1.1.2"
+      "valueCode" : "hl7.fhir.uv.tools.r5#1.3.0"
     }],
     "resource" : [{
       "extension" : [{
@@ -271,6 +270,23 @@
       "description" : "Exempel på en teknisk ändpunkt som förvaltas av en organisation, tillgängliggör ett FHIR-API och skyddas med OAuth 2.0 client credentials.",
       "isExample" : true,
       "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Organization"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Organization-TKOrganizationUnitExample.html"
+      }],
+      "reference" : {
+        "reference" : "Organization/TKOrganizationUnitExample"
+      },
+      "name" : "Exempel: underliggande enhet i tjänstekatalogen",
+      "description" : "Exempel på en vårdenhet under Exempelregionen. Enheten har eget HSA-id men inget eget organisationsnummer; den juridiska personen nås via partOf.",
+      "isExample" : true,
+      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"]
     },
     {
       "extension" : [{

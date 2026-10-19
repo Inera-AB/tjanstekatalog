@@ -2,9 +2,6 @@
 
 ## ValueSet: Säkerhetsmetoder för tekniska ändpunkter (Experimentell) 
 
- 
-Tillåtna värden för Ändpunkt.säkerhetsmetod. Exempelbindning (example) i detta utkast — se REQ-END-6. 
-
  **References** 
 
 * [Säkerhetsmetod](StructureDefinition-tk-endpoint-security-method.md)
@@ -33,7 +30,7 @@ Tillåtna värden för Ändpunkt.säkerhetsmetod. Exempelbindning (example) i de
   "title" : "Säkerhetsmetoder för tekniska ändpunkter",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-09-10T07:38:29+00:00",
+  "date" : "2026-10-19T12:45:34+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

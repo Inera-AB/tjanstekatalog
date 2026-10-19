@@ -6,8 +6,8 @@ Profil: [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
 
 Härkomst för: 
 
-* [Organization Exempelregionen](Organization-TKOrganizationExample.md)
-* [Endpoint Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
+* [Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)](Organization-TKOrganizationExample.md)
+* [Exempelregionens patientinformations-API (HL7 FHIR): https://api.exempelregionen.se/patientinformation/fhir](Endpoint-TKEndpointExample.md)
 
 Sammanfattning
 
@@ -17,7 +17,7 @@ Sammanfattning
 
 **Agenter**
 
-* **vem**: [Organization Exempelregionen](Organization-TKOrganizationExample.md)
+* **vem**: [Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)](Organization-TKOrganizationExample.md)
 
 
 

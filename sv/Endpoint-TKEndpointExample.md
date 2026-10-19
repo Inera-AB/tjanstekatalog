@@ -4,30 +4,20 @@
 
 Profil: [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
 
-**Säkerhetsmetod**: OAuth 2.0 client credentials
+Exempelregionens patientinformations-API (HL7 FHIR): https://api.exempelregionen.se/patientinformation/fhir
 
-**URL till auktorisationsserver**: [https://auth.exempelregionen.se/oauth2/token](https://auth.exempelregionen.se/oauth2/token)
+-------
 
-**identifier**: `http://electronichealth.se/fhir/NDI/Endpoint`/625aac66-a744-472c-8496-417fce2ada44
-
-**status**: Active
-
-**connectionType**: HL7 FHIR
-
-**name**: Exempelregionens patientinformations-API
-
-**managingOrganization**: [Organization Exempelregionen](Organization-TKOrganizationExample.md)
-
-**period**: 2026-01-01 --> (pågående)
-
-### Payloads
-
-| | | |
-| :--- | :--- | :--- |
-| - | **Extension** | **Type** |
-| * |  | Any |
-
-**address**: [https://api.exempelregionen.se/patientinformation/fhir](https://api.exempelregionen.se/patientinformation/fhir)
+| | | | |
+| :--- | :--- | :--- | :--- |
+| Status: | Active | Giltig period: | 2026-01-01 --> (pågående) |
+| Address: | [https://api.exempelregionen.se/patientinformation/fhir](https://api.exempelregionen.se/patientinformation/fhir) | | |
+| Connection Type: | HL7 FHIR | | |
+| Payload: | * Payload Type: Any
+ | | |
+| Managed By: | [Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)](Organization-TKOrganizationExample.md) | | |
+| [Säkerhetsmetod](StructureDefinition-tk-endpoint-security-method.md) | OAuth 2.0 client credentials | | |
+| [URL till auktorisationsserver](StructureDefinition-tk-endpoint-authorization-server-url.md) | [https://auth.exempelregionen.se/oauth2/token](https://auth.exempelregionen.se/oauth2/token) | | |
 
 
 
@@ -75,7 +65,7 @@ Profil: [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
   "payload" : [{
     "extension" : [{
       "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile",
-      "valueCanonical" : "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation"
+      "valueCanonical" : "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.0.0"
     }],
     "type" : [{
       "coding" : [{

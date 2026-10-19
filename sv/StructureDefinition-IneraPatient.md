@@ -2,9 +2,6 @@
 
 ## Resursprofil: Inera Patient 
 
- 
-A template patient profile demonstrating Inera's FHIR profiling conventions. Authors should replace this description with the clinical purpose and scope of the profile. 
-
 **Användningar:**
 
 * Exempel för denna Profil: [Patient/IneraPatientExample](Patient-IneraPatientExample.md)
@@ -25,20 +22,13 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 #### Begränsningar
 
+Denna struktur är härledd från [Patient](http://hl7.org/fhir/R5/patient.html) 
+
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 0 element(2 nästlade obligatoriska elements)
- Måste stödjas: 12 elements
-
-**Skivor**
-
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
-
-* Elementet 1 är uppdelat baserat på värdet av Patient.identifier
+Denna struktur är härledd från [Patient](http://hl7.org/fhir/R5/patient.html) 
 
  **Vy med nyckelelement** 
 
@@ -48,22 +38,15 @@ Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.ht
 
  **Differentialvy** 
 
+Denna struktur är härledd från [Patient](http://hl7.org/fhir/R5/patient.html) 
+
  **ÖgonblicksbildsvyView** 
 
 #### Terminologibindningar
 
 #### Begränsningar
 
-** Sammanfattning **
-
-Obligatorisk: 0 element(2 nästlade obligatoriska elements)
- Måste stödjas: 12 elements
-
-**Skivor**
-
-Denna struktur definierar följande [skivor](http://hl7.org/fhir/R5/profiling.html#slices):
-
-* Elementet 1 är uppdelat baserat på värdet av Patient.identifier
+Denna struktur är härledd från [Patient](http://hl7.org/fhir/R5/patient.html) 
 
  
 
