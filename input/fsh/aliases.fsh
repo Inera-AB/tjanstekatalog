@@ -18,11 +18,19 @@ Alias: $capabilitystatement-expectation = http://hl7.org/fhir/StructureDefinitio
 // published OperationDefinition documentation for $add-organization /
 // $remove-organization, see mappings.html). Adopting the same system here
 // (rather than guessing at a different OID) means Organization.identifier
-// values need no system translation when mapped to EHM's API — only the
-// value's hyphen needs stripping, see mappings.html. This was changed from
+// values need no system translation when mapped to EHM's API. Values are
+// also stored in EHM's format (10 digits, no hyphen, REQ-ORG-2), so they pass
+// through unchanged, see mappings.html. This was changed from
 // an earlier, unverified guess (urn:oid:1.2.752.29.4.13) once EHM's real
 // requirement was confirmed. Still worth Inera separately confirming this is
 // also Inera's own preferred canonical system for organisationsnummer, since
 // it is adopted here for EHM-compatibility rather than from an Inera-internal
 // OID/URI registry. Tracked as REQ-ORG-2 in the requirements catalog.
 Alias: $organisationsnummer = urn:oid:2.5.4.97
+
+// HSA-id, the primary organisation identifier in tjänstekatalogen (REQ-ORG-6).
+// Format: "SE" + the 10-digit organisationsnummer (no hyphen) of the directly
+// connected producer + "-" + an identifying part, e.g. SE2321000016-1003.
+// The embedded organisationsnummer belongs to the directly connected
+// producer, not necessarily to the unit the HSA-id identifies.
+Alias: $hsaid = urn:oid:1.2.752.29.4.19
