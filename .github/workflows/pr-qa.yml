@@ -58,6 +58,11 @@ jobs:
               -o input-cache/publisher.jar
           fi
 
+      # release-please writes "## [x.y.z]" entries, which clash with the
+      # template's <h2> page title (WCAG heading check). See the script.
+      - name: Normalise version history headings
+        run: node .github/scripts/version-history.js
+
       - name: Run SUSHI
         run: sushi .
 
