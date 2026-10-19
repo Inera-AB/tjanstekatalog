@@ -68,11 +68,30 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * rest[=].resource[=].searchParam[0].name = "identifier"
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-identifier"
 * rest[=].resource[=].searchParam[=].type = #token
-* rest[=].resource[=].searchParam[=].documentation = "Sök organisation på identifierare, t.ex. organisationsnummer."
+* rest[=].resource[=].searchParam[=].documentation = "Sök organisation på identifierare (\"logisk adress\"). HSA-id (`urn:oid:1.2.752.29.4.19`) matchas exakt, bindestrecket ingår i identifieraren. För organisationsnummer (`urn:oid:2.5.4.97`) godtas värdet med eller utan bindestreck. Se REQ-SRCH-5."
 * rest[=].resource[=].searchParam[+].name = "name"
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-name"
 * rest[=].resource[=].searchParam[=].type = #string
-* rest[=].resource[=].searchParam[=].documentation = "Sök organisation på namn."
+* rest[=].resource[=].searchParam[=].documentation = "Sök organisation på namn. Modifierarna `:contains` och `:exact` stöds."
+* rest[=].resource[=].searchParam[+].name = "_id"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Sök organisation på logiskt id."
+* rest[=].resource[=].searchParam[+].name = "_lastUpdated"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
+* rest[=].resource[=].searchParam[=].type = #date
+* rest[=].resource[=].searchParam[=].documentation = "Avgränsa organisationer på senaste ändringstidpunkt, t.ex. för grundladdning. Se REQ-DIST-2."
+* rest[=].resource[=].searchParam[+].name = "active"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-active"
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Sök aktiva eller inaktiva organisationer. Inaktiva organisationer filtreras inte bort som standard."
+* rest[=].resource[=].searchParam[+].name = "partof"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Organization-partof"
+* rest[=].resource[=].searchParam[=].type = #reference
+* rest[=].resource[=].searchParam[=].documentation = "Sök underliggande enheter till en organisation, t.ex. vårdenheter under en vårdgivare. Se REQ-ORG-8."
+* rest[=].resource[=].searchInclude[0] = "Organization:endpoint"
+* rest[=].resource[=].interaction[+].code = #history-type
+* rest[=].resource[=].interaction[=].documentation = "BÖR stödjas för återsynkronisering: `GET [base]/Organization/_history?_since=[tidpunkt]`. Till skillnad från sökning med `_lastUpdated` syns även borttagna poster. Se REQ-DIST-4."
 
 // --- Endpoint ---
 * rest[=].resource[+].type = #Endpoint
@@ -93,11 +112,25 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * rest[=].resource[=].searchParam[+].name = "status"
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Endpoint-status"
 * rest[=].resource[=].searchParam[=].type = #token
-* rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter status."
+* rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter status. Ändpunkter med status `entered-in-error` returneras bara när de efterfrågas uttryckligen (`status=entered-in-error`). Se REQ-SRCH-7."
 * rest[=].resource[=].searchParam[+].name = "implements"
 * rest[=].resource[=].searchParam[=].definition = Canonical(TKEndpointImplements)
-* rest[=].resource[=].searchParam[=].type = #uri
-* rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter stödd interoperabilitetsspecifikation. Se SearchParameter-tk-endpoint-implements.html."
+* rest[=].resource[=].searchParam[=].type = #reference
+* rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkter efter stödd interoperabilitetsspecifikation, som kanonisk URL (alla versioner) eller `url|version` (endast den versionen). Se SearchParameter-tk-endpoint-implements.html och REQ-SRCH-6."
+* rest[=].resource[=].searchParam[+].name = "_id"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkt på logiskt id."
+* rest[=].resource[=].searchParam[+].name = "_lastUpdated"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
+* rest[=].resource[=].searchParam[=].type = #date
+* rest[=].resource[=].searchParam[=].documentation = "Avgränsa ändpunkter på senaste ändringstidpunkt, t.ex. för grundladdning. Se REQ-DIST-2."
+* rest[=].resource[=].searchParam[+].name = "identifier"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Endpoint-identifier"
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Sök ändpunkt på identifierare, t.ex. EHM:s Endpoint-id."
+* rest[=].resource[=].interaction[+].code = #history-type
+* rest[=].resource[=].interaction[=].documentation = "BÖR stödjas för återsynkronisering: `GET [base]/Endpoint/_history?_since=[tidpunkt]`. Till skillnad från sökning med `_lastUpdated` syns även borttagna poster. Se REQ-DIST-4."
 
 // --- CapabilityStatement (API-specifikation, API-instans) ---
 // TKAPISpecificationCapability (kind=requirements) och TKAPIInstance
@@ -114,7 +147,7 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * rest[=].resource[=].searchParam[0].name = "url"
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CanonicalResource-url"
 * rest[=].resource[=].searchParam[=].type = #uri
-* rest[=].resource[=].searchParam[=].documentation = "Sök på kanonisk URL."
+* rest[=].resource[=].searchParam[=].documentation = "Sök på kanonisk URL. Returnerar alla versioner av specifikationen, se REQ-MDL-8."
 * rest[=].resource[=].searchParam[+].name = "kind"
 * rest[=].resource[=].searchParam[=].definition = Canonical(TKCapabilityStatementKind)
 * rest[=].resource[=].searchParam[=].type = #token
@@ -122,7 +155,23 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * rest[=].resource[=].searchParam[+].name = "instantiates"
 * rest[=].resource[=].searchParam[=].definition = Canonical(TKCapabilityStatementInstantiates)
 * rest[=].resource[=].searchParam[=].type = #reference
-* rest[=].resource[=].searchParam[=].documentation = "Sök API-instanser efter vilken specifikation de följer. Se SearchParameter-tk-capabilitystatement-instantiates.html."
+* rest[=].resource[=].searchParam[=].documentation = "Sök API-instanser efter vilken specifikation de följer, som kanonisk URL (alla versioner) eller `url|version` (endast den versionen). Literala referenser (`CapabilityStatement/[id]`) stöds inte. Se SearchParameter-tk-capabilitystatement-instantiates.html och REQ-SRCH-6."
+* rest[=].resource[=].searchParam[+].name = "_id"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-id"
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Sök på logiskt id."
+* rest[=].resource[=].searchParam[+].name = "_lastUpdated"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Resource-lastUpdated"
+* rest[=].resource[=].searchParam[=].type = #date
+* rest[=].resource[=].searchParam[=].documentation = "Avgränsa API-specifikationer och API-instanser på senaste ändringstidpunkt, t.ex. för grundladdning. Se REQ-DIST-2."
+* rest[=].resource[=].searchParam[+].name = "version"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CanonicalResource-version"
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Sök på version, t.ex. tillsammans med `url`. Se REQ-MDL-8."
+* rest[=].resource[=].searchParam[+].name = "date"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/CanonicalResource-date"
+* rest[=].resource[=].searchParam[=].type = #date
+* rest[=].resource[=].searchParam[=].documentation = "Sök på utgivningsdatum. Används med `_sort=-date` för att få den senaste versionen först. Se REQ-MDL-8."
 
 // --- Provenance (spårbarhet vid registrering) ---
 // Se TKProvenance.fsh och REQ-TRC-*. Inte del av det ursprungliga

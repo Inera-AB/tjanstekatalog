@@ -7,7 +7,7 @@ Description: "Exempel på ett API som Exempelregionens ändpunkt tillgängliggö
 * status = #active
 * date = "2026-01-15"
 * kind = #instance
-* instantiates[0] = "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation"
+* instantiates[0] = "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.0.0"
 * fhirVersion = #5.0.0
 * format[0] = #json
 * rest.mode = #server

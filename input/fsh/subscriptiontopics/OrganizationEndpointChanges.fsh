@@ -9,7 +9,9 @@
 //
 // Scope: this topic only announces THAT Organization/Endpoint changed, and
 // which interaction occurred — clients fetch the current state via the
-// administrative API afterwards. It does not itself solve avoiding
+// search API afterwards. A changed "har" link (Organization.endpoint) is an
+// update of the Organization and triggers this topic like any other update
+// (REQ-DIST-5). It does not itself solve avoiding
 // update loops in a bidirectional federated setup (see the open question in
 // mappings.html) — that requires an origin marker on the resource, which is
 // tracked as an open question, not solved by this topic alone.

@@ -66,6 +66,40 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].requirement = "Servern BÖR stödja sökning av Endpoint-resurser via en sökparameter (`implements`) som returnerar samtliga ändpunkter vars nyttolast stödjer en angiven interoperabilitetsspecifikation, som komplement till REQ-SRCH-3:s representation. Tillagt efter jämförelse med en annan implementation av samma problem."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements"
 
+* statement[+].key = "REQ-SRCH-5"
+* statement[=].label = "Sökning på organisationsidentifierare"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Vid sökning med `identifier` på Organization SKA HSA-id (`urn:oid:1.2.752.29.4.19`) matchas exakt som det är skrivet; bindestrecket ingår i identifieraren. För organisationsnummer (`urn:oid:2.5.4.97`) SKA servern godta värdet både med och utan bindestreck (`232100-0016` och `2321000016` ger samma träff). Ingen normalisering görs när system saknas i sökvärdet."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+
+* statement[+].key = "REQ-SRCH-6"
+* statement[=].label = "Sökning på kanoniska referenser (instantiates, implements)"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Sökparametrarna `instantiates` (CapabilityStatement) och `implements` (Endpoint) är av typen `reference` och SKA godta en kanonisk URL, som matchar alla versioner (även referenser utan version), och `url|version`, som endast matchar den angivna versionen. Literala referenser (`CapabilityStatement/[id]`) stöds inte. Kedjad sökning krävs inte."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements"
+
+* statement[+].key = "REQ-SRCH-7"
+* statement[=].label = "Felregistrerade ändpunkter"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Vid sökning på Endpoint utan parametern `status` SKA ändpunkter med status `entered-in-error` utelämnas. De SKA returneras när klienten uttryckligen söker `status=entered-in-error`, och alltid vid `read`. Övriga statusar, och organisationer med `active=false`, filtreras inte bort."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+
+* statement[+].key = "REQ-SRCH-8"
+* statement[=].label = "Giltighetsperiod filtreras inte av servern"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Servern SKA INTE filtrera sökresultat på `Endpoint.period` eller på API-instansens giltighetsperiod, och SKA INTE ändra status när en period har löpt ut. Klienten avgör användbarhet: en ändpunkt kan användas om `status = active` och aktuell tidpunkt ligger inom `period`."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period"
+
+* statement[+].key = "REQ-SRCH-9"
+* statement[=].label = "Sökkonventioner"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Sök-API:t SKA stödja de sökparametrar som deklareras i TKSearchAPI, inklusive `_id`, `_lastUpdated`, `partof` och `active` på Organization, `_include=Organization:endpoint` (logisk adress till ändpunkter i ett anrop) samt `_count` och sidindelning. Strängparametern `name` SKA stödja modifierarna `:contains` och `:exact`. Konventionerna följer IHE mCSD (ITI-90)."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+
 // --- REQ-END: attribut på Ändpunkt ---
 
 * statement[+].key = "REQ-END-1"
@@ -128,7 +162,7 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-ORG-2"
 * statement[=].label = "Organisation.organisationsnummer"
 * statement[=].conformance[0] = #SHOULD
-* statement[=].requirement = "Organisationens organisationsnummer BÖR anges som identifierare. Identifierarsystemets URI är i detta utkast ett antagande i väntan på bekräftelse mot Ineras auktoritativa OID/URI-register — se aliases.fsh."
+* statement[=].requirement = "Den juridiska personens organisationsnummer BÖR anges som identifierare med systemet `urn:oid:2.5.4.97` (samma system som EHM:s Organization Endpoint Writer kräver, se mappings.html). Värdet SKA anges som tio siffror utan bindestreck, t.ex. `2321000016`; admin-API:t avvisar andra format med `422 Unprocessable Entity`. Organisationsnummer krävs för att organisationen ska kunna synkroniseras till EHM (REQ-WRT-5)."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
 
 * statement[+].key = "REQ-ORG-3"
@@ -150,6 +184,32 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].requirement = "`Organization.identifier` SKA fungera som den \"logiska adress\" tjänstesökning slår upp, sökbar med standardparametern `identifier`. Ingen separat identifierare för \"logisk adress\" införs — stakeholder-beslut, se mappings.html."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
 * statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+
+* statement[+].key = "REQ-ORG-6"
+* statement[=].label = "HSA-id som primär identifierare"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Varje organisation SKA ha exakt ett HSA-id (system `urn:oid:1.2.752.29.4.19`), som är organisationens primära identifierare och logiska adress. HSA-id består av prefixet `SE`, organisationsnumret för den direktanslutna producenten i formatet tio siffror utan bindestreck, samt ett bindestreck och en efterföljande identifierande del (t.ex. `SE2321000016-1003`). Organisationsnumret i HSA-id:t avser den direktanslutna producenten och SKA INTE användas för att härleda organisationens eget organisationsnummer."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+
+* statement[+].key = "REQ-ORG-7"
+* statement[=].label = "Unika organisationsidentifierare"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Ett HSA-id SKA identifiera högst en organisation i katalogen, och detsamma gäller organisationsnummer. Admin-API:t SKA avvisa en registrering som skulle ge en dubblett med `422 Unprocessable Entity` (OperationOutcome med koden `business-rule`). Kravet gäller identifierare som är aktuella; en identifierare som inte längre gäller får ligga kvar med `period.end` satt."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+
+* statement[+].key = "REQ-ORG-8"
+* statement[=].label = "Organisationsnummer på den juridiska personen"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Organisationsnummer SKA endast anges på den organisation som är den juridiska personen (t.ex. vårdgivaren). Underliggande organisatoriska enheter har eget HSA-id och SKA ange den överordnade organisationen i `Organization.partOf`, sökbart med `partof`. Samma hierarkimönster som IHE mCSD."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+
+* statement[+].key = "REQ-ORG-9"
+* statement[=].label = "Godkända identifierarsystem"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Admin-API:t SKA i denna version endast godta organisationsidentifierare med systemen `urn:oid:1.2.752.29.4.19` (HSA-id) och `urn:oid:2.5.4.97` (organisationsnummer). Andra system avvisas med `422 Unprocessable Entity`. Profilens slicing är öppen så att fler system kan läggas till i en senare version."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 // --- REQ-WRT: Synkronisering mot EHM:s Organization Endpoint Writer ---
 //
@@ -262,6 +322,13 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint"
 * statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates"
 
+* statement[+].key = "REQ-MDL-8"
+* statement[=].label = "Flera versioner av samma API-specifikation"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Flera versioner av samma API-specifikation (samma `url`) FÅR finnas samtidigt i katalogen. `version` SKA anges, och kombinationen `url` + `version` SKA vara unik; admin-API:t avvisar dubbletter med `422 Unprocessable Entity`. Sökning på `url` returnerar alla versioner; sökparametrarna `version` och `date` (med `_sort=-date`) används för att välja version. API-instanser och ändpunkter BÖR referera specifikationen som `url|version`."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+
 // --- REQ-TRC: spårbarhet och transaktionell registrering ---
 //
 // Inte del av det ursprungliga informationsunderlaget. Tillagt efter
@@ -340,10 +407,25 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-DIST-2"
 * statement[=].label = "Grundladdning via _lastUpdated"
 * statement[=].conformance[0] = #SHOULD
-* statement[=].requirement = "Servern BÖR stödja grundladdning och återsynk genom att sökningarna på Organization/Endpoint kan avgränsas med det generella FHIR-sökparametern `_lastUpdated` (tidsintervall), utan att en separat grundladdnings-operation behöver definieras."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+* statement[=].requirement = "Servern BÖR stödja grundladdning genom att sökningar på Organization, Endpoint och CapabilityStatement kan avgränsas med den generella sökparametern `_lastUpdated`, utan att en separat grundladdningsoperation behöver definieras. Parametern finns i sök-API:t, som notifieringarna (REQ-DIST-1) hänvisar klienterna till."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 * statement[+].key = "REQ-DIST-3"
 * statement[=].label = "Undvik rundgång — öppen fråga"
 * statement[=].conformance[0] = #MAY
 * statement[=].requirement = "I en dubbelriktad federerad miljö FÅR ett ursprungsmärke på Organization/Endpoint användas för att undvika att en lokal katalogs egna uppdateringar studsar tillbaka via prenumerationen. Inte löst i detta utkast — se öppen fråga i mappings.html."
+
+* statement[+].key = "REQ-DIST-4"
+* statement[=].label = "Återsynkronisering via _history"
+* statement[=].conformance[0] = #SHOULD
+* statement[=].requirement = "Servern BÖR stödja interaktionen `history-type` med parametern `_since` på Organization och Endpoint (t.ex. `GET [base]/Endpoint/_history?_since=[tidpunkt]`) för återsynkronisering. Till skillnad från sökning med `_lastUpdated` syns även borttagna poster. Bulkexport (`$export`) behövs inte, eftersom datamängderna väntas vara små."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+
+* statement[+].key = "REQ-DIST-5"
+* statement[=].label = "Ändrad koppling är en ändring av organisationen"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "Kopplingen \"har\" lagras i `Organization.endpoint`. En ändring av den SKA hanteras som en uppdatering av Organization: ny version, nytt `meta.lastUpdated` och notifiering via prenumerationsämnet. En ändring av en Endpoint, inklusive `managingOrganization` (\"förvaltar\"), är en ändring av Endpoint och ändrar inte organisationen."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes"

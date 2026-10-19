@@ -81,9 +81,13 @@ på `Endpoint.payload` refererar för snabb sökbarhet. Se
 * title ^mapping.map = "REQ-MDL-4"
 
 // API-specifikation.version
-* version MS
+// Obligatorisk: flera versioner av samma specifikation (samma url) kan finnas
+// samtidigt i katalogen, och kombinationen url + version SKA vara unik
+// (REQ-MDL-8). Utan version går versionerna inte att skilja åt.
+* version 1..1 MS
+* version ^short = "Specifikationens version. url + version är unik i katalogen"
 * version ^mapping.identity = "req"
-* version ^mapping.map = "REQ-MDL-4"
+* version ^mapping.map = "REQ-MDL-4, REQ-MDL-8"
 
 // API-specifikation.beskrivning
 * description MS
