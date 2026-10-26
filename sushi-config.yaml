@@ -1,4 +1,4 @@
-id: inera.tjanstekatalog
+id: inera.infra.tjanstekatalog
 canonical: https://fhir.inera.se/ig/tjanstekatalog
 name: IneraTjanstekatalog
 title: "Tjänstekatalogen"
