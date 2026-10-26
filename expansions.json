@@ -1,8 +1,8 @@
 {
   "resourceType" : "Bundle",
-  "id" : "6788085a-e125-478b-a958-b8d21836beb2",
+  "id" : "18ec5de0-ca87-4874-82c3-ece4b1470344",
   "meta" : {
-    "lastUpdated" : "2026-10-26T20:15:49.139+00:00"
+    "lastUpdated" : "2026-10-26T20:25:02.055+00:00"
   },
   "type" : "collection",
   "entry" : [{
@@ -19,7 +19,7 @@
       "title" : "Administratörsroller",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-10-26T20:15:49+00:00",
+      "date" : "2026-10-26T20:25:02+00:00",
       "jurisdiction" : [{
         "coding" : [{
           "system" : "urn:iso:std:iso:3166",
@@ -28,8 +28,8 @@
         }]
       }],
       "expansion" : {
-        "identifier" : "urn:uuid:cdf93fe8-fe55-4097-920d-95d3270c0e87",
-        "timestamp" : "2026-10-26T20:16:32+00:00",
+        "identifier" : "urn:uuid:94b42b88-6fc0-4039-8bf9-47d2f6d0cc58",
+        "timestamp" : "2026-10-26T20:25:39+00:00",
         "total" : 2,
         "offset" : 0,
         "parameter" : [{
@@ -77,7 +77,7 @@
       "title" : "Administratörsroller",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-10-26T20:15:49+00:00",
+      "date" : "2026-10-26T20:25:02+00:00",
       "jurisdiction" : [{
         "coding" : [{
           "system" : "urn:iso:std:iso:3166",
@@ -86,8 +86,8 @@
         }]
       }],
       "expansion" : {
-        "identifier" : "urn:uuid:a8e921eb-00e4-4467-90fe-cb8af926f7f9",
-        "timestamp" : "2026-10-26T20:16:32+00:00",
+        "identifier" : "urn:uuid:fbef8c74-66ab-4c8c-8fa4-bb4c585f5fc5",
+        "timestamp" : "2026-10-26T20:25:39+00:00",
         "total" : 2,
         "offset" : 0,
         "parameter" : [{
@@ -135,7 +135,7 @@
       "title" : "Säkerhetsmetoder för tekniska ändpunkter",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-10-26T20:15:49+00:00",
+      "date" : "2026-10-26T20:25:02+00:00",
       "jurisdiction" : [{
         "coding" : [{
           "system" : "urn:iso:std:iso:3166",
@@ -144,8 +144,8 @@
         }]
       }],
       "expansion" : {
-        "identifier" : "urn:uuid:701d04d0-53f2-441c-8843-d84194a106dc",
-        "timestamp" : "2026-10-26T20:16:32+00:00",
+        "identifier" : "urn:uuid:994e6cca-2856-4783-9c31-97ff00f11776",
+        "timestamp" : "2026-10-26T20:25:39+00:00",
         "total" : 5,
         "offset" : 0,
         "parameter" : [{
@@ -205,7 +205,7 @@
       "title" : "Säkerhetsmetoder för tekniska ändpunkter",
       "status" : "draft",
       "experimental" : true,
-      "date" : "2026-10-26T20:15:49+00:00",
+      "date" : "2026-10-26T20:25:02+00:00",
       "jurisdiction" : [{
         "coding" : [{
           "system" : "urn:iso:std:iso:3166",
@@ -214,8 +214,8 @@
         }]
       }],
       "expansion" : {
-        "identifier" : "urn:uuid:fc2156f8-c6d5-4a34-aa8f-a12c6e1ecc71",
-        "timestamp" : "2026-10-26T20:16:33+00:00",
+        "identifier" : "urn:uuid:d4f020f0-c6e3-45f5-90c4-c78031ad2813",
+        "timestamp" : "2026-10-26T20:25:39+00:00",
         "total" : 5,
         "offset" : 0,
         "parameter" : [{

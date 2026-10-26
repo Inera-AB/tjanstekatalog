@@ -24,7 +24,7 @@ Detta kodsystem refereras i definitionen av följande värdemängder:
   "title" : "Administratörsroller (kodsystem)",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-10-26T20:15:49+00:00",
+  "date" : "2026-10-26T20:25:02+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
