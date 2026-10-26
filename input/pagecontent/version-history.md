@@ -1,11 +1,12 @@
-This page is maintained automatically by [release-please](https://github.com/googleapis/release-please).
-Entries are generated from commit messages that follow [Conventional Commits](https://www.conventionalcommits.org/).
+{::options header_offset="1" /}
+
+Den här sidan beskriver vad som har ändrats i varje version. Listan över alla publicerade versioner nås via länken i bannern överst på varje sida.
 
 ---
 
-### [0.1.0] — 2026-09-08
+## [0.1.0] — 2026-09-08
 
-#### Features
+### Features
 
 - Första utkastet av tjänstekatalogens IG: sökparametern `listed-by` på
   `Endpoint` för att slå upp en organisations ändpunkter via
