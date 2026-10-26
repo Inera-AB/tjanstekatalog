@@ -47,9 +47,9 @@
   "name" : "TKEndpointSecurityMethodCS"
 },
 {
-  "id" : "inera.tjanstekatalog",
+  "id" : "inera.infra.tjanstekatalog",
   "type" : "ImplementationGuide",
-  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.tjanstekatalog",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog",
   "version" : "0.1.0",
   "name" : "IneraTjanstekatalog"
 },

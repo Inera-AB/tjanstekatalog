@@ -30,7 +30,7 @@
   "title" : "Administratörsroller",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-10-19T13:06:20+00:00",
+  "date" : "2026-10-26T20:15:49+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

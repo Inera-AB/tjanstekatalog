@@ -12,7 +12,7 @@
 * Exempel för denna Extension: [Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
 * Sökparametrar som använder denna Extension: [Endpoint: implements](SearchParameter-tk-endpoint-implements.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-endpoint-payload-profile)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-endpoint-payload-profile)
 
 ### Formella vyer av extensioninnehåll
 
@@ -60,7 +60,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-pay
   "name" : "TKEndpointPayloadProfile",
   "title" : "Stödd specifikation (payload profile)",
   "status" : "draft",
-  "date" : "2026-10-19T13:06:20+00:00",
+  "date" : "2026-10-26T20:15:49+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

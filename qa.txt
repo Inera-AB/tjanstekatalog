@@ -3,7 +3,7 @@ IneraTjanstekatalog : Validation Results
 
 err = 0, warn = 119, info = 110, broken links = 0
 IG Publisher Version: 3.0.1
-Generated Mon Oct 19 13:07:24 UTC 2026. FHIR version 5.0.0 for inera.tjanstekatalog#0.1.0 (canonical = https://fhir.inera.se/ig/tjanstekatalog)
+Generated Mon Oct 26 20:16:57 UTC 2026. FHIR version 5.0.0 for inera.infra.tjanstekatalog#0.1.0 (canonical = https://fhir.inera.se/ig/tjanstekatalog)
  Build Errors : 0 / 76 / 0
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ActorDefinition-tk-synkroniseringstjanst : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-TKAPIInstanceExample : 0 / 0 / 3
@@ -13,7 +13,7 @@ Generated Mon Oct 19 13:07:24 UTC 2026. FHIR version 5.0.0 for inera.tjanstekata
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CodeSystem-tk-administrator-role : 0 / 1 / 3
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CodeSystem-tk-endpoint-security-method : 0 / 1 / 3
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Endpoint-TKEndpointExample : 0 / 2 / 2
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ImplementationGuide-inera.tjanstekatalog : 0 / 0 / 20
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ImplementationGuide-inera.infra.tjanstekatalog : 0 / 0 / 20
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Organization-TKOrganizationExample : 0 / 2 / 1
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Organization-TKOrganizationUnitExample : 0 / 1 / 1
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Patient-IneraPatientExample : 0 / 1 / 1
@@ -171,26 +171,26 @@ WARNING: Endpoint/TKEndpointExample: Endpoint.extension[1].value.ofType(url): In
 WARNING: Endpoint/TKEndpointExample: Endpoint.identifier[0].system: Ingen definition kunde hittas för URL-värdet 'http://electronichealth.se/fhir/NDI/Endpoint'
 
 
-== fsh-generated/resources/ImplementationGuide-inera.tjanstekatalog.json ==
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[7].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[8].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[9].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[10].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[11].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[12].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[13].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[14].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[15].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[16].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[17].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[18].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[19].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[20].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[21].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: ImplementationGuide/inera.tjanstekatalog: ImplementationGuide.definition.parameter[27].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
-INFORMATION: Resource: The resource ImplementationGuide/inera.tjanstekatalog could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+== fsh-generated/resources/ImplementationGuide-inera.infra.tjanstekatalog.json ==
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[7].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[8].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[9].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[10].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[11].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[12].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[13].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[14].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[15].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[16].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[17].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[18].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[19].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[20].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[21].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: ImplementationGuide/inera.infra.tjanstekatalog: ImplementationGuide.definition.parameter[27].code: Referens till experimentell CodeSystem http://hl7.org/fhir/guide-parameter-code|5.0.0
+INFORMATION: Resource: The resource ImplementationGuide/inera.infra.tjanstekatalog could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
 
 
 == fsh-generated/resources/Organization-TKOrganizationExample.json ==

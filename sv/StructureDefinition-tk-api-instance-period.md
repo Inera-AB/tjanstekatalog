@@ -11,7 +11,7 @@
 * Använd denna Extension: [Tjänstekatalogen API-instans](StructureDefinition-tk-api-instance.md)
 * Exempel för denna Extension: [CapabilityStatement/TKAPIInstanceExample](CapabilityStatement-TKAPIInstanceExample.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-api-instance-period)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-api-instance-period)
 
 ### Formella vyer av extensioninnehåll
 
@@ -59,7 +59,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-instance
   "name" : "TKAPIInstancePeriod",
   "title" : "API-instansens giltighetsperiod",
   "status" : "draft",
-  "date" : "2026-10-19T13:06:20+00:00",
+  "date" : "2026-10-26T20:15:49+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

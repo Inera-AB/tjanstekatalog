@@ -6,7 +6,7 @@
 
 * Denna Logisk modell används inte av några profiler i denna implementationsguide
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-indexpost)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-indexpost)
 
 ### Formella vyer av profilinnehåll
 
@@ -46,7 +46,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-indexpost.cs
   "name" : "TKIndexpost",
   "title" : "Indexpost (logisk modell)",
   "status" : "draft",
-  "date" : "2026-10-19T13:06:20+00:00",
+  "date" : "2026-10-26T20:15:49+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

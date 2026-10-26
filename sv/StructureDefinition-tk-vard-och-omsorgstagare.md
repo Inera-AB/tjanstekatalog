@@ -6,7 +6,7 @@
 
 * Referera till denna Logisk modell: [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.tjanstekatalog|current/StructureDefinition/tk-vard-och-omsorgstagare)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-vard-och-omsorgstagare)
 
 ### Formella vyer av profilinnehåll
 
@@ -50,7 +50,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-vard-och-oms
   "name" : "TKVardOchOmsorgstagare",
   "title" : "Vård- och omsorgstagare (logisk modell)",
   "status" : "draft",
-  "date" : "2026-10-19T13:06:20+00:00",
+  "date" : "2026-10-26T20:15:49+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
