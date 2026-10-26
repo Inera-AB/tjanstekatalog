@@ -11,3 +11,6 @@ permissions:
 jobs:
   qa:
     uses: Inera-AB/fhir-ig-workflows/.github/workflows/pr-qa.yml@v1
+    # An R5 IG validates against the R5 terminology server.
+    with:
+      tx-server: https://tx.fhir.org/r5
