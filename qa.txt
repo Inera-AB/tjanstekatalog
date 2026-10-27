@@ -1,10 +1,10 @@
 IneraTjanstekatalog : Validation Results
 =========================================
 
-err = 0, warn = 119, info = 110, broken links = 0
+err = 0, warn = 124, info = 112, broken links = 0
 IG Publisher Version: 3.0.1
-Generated Mon Oct 26 20:25:55 UTC 2026. FHIR version 5.0.0 for inera.infra.tjanstekatalog#0.1.0 (canonical = https://fhir.inera.se/ig/tjanstekatalog)
- Build Errors : 0 / 76 / 0
+Generated Tue Oct 27 17:55:39 UTC 2026. FHIR version 5.0.0 for inera.infra.tjanstekatalog#0.1.0 (canonical = https://fhir.inera.se/ig/tjanstekatalog)
+ Build Errors : 0 / 80 / 0
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ActorDefinition-tk-synkroniseringstjanst : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-TKAPIInstanceExample : 0 / 0 / 3
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-TKAPISpecificationCapabilityExample : 0 / 1 / 3
@@ -17,14 +17,17 @@ Generated Mon Oct 26 20:25:55 UTC 2026. FHIR version 5.0.0 for inera.infra.tjans
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Organization-TKOrganizationExample : 0 / 2 / 1
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Organization-TKOrganizationUnitExample : 0 / 1 / 1
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Patient-IneraPatientExample : 0 / 1 / 1
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/PractitionerRole-TKCentralAdministratorRoleExample : 0 / 1 / 2
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/PractitionerRole-TKLocalAdministratorRoleExample : 0 / 1 / 2
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Provenance-TKProvenanceAdministratorRoleExample : 0 / 0 / 1
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Provenance-TKProvenanceExample : 0 / 0 / 1
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements : 0 / 69 / 4
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements : 0 / 73 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-capabilitystatement-instantiates : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-capabilitystatement-kind : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-endpoint-implements : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-endpoint-listed-by : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-IneraPatient : 0 / 0 / 4
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-administrator-role : 0 / 2 / 4
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-administrator-role : 0 / 1 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-instance : 0 / 4 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-instance-endpoint : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-instance-period : 0 / 0 / 4
@@ -102,19 +105,23 @@ WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/
 WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 322, column 186: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for "Tjänstekatalogen: sök-API (externt)" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 323, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance' for "Tjänstekatalogen Provenance" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 324, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for "Tjänstekatalogen: administrativt API" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 325, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for "Tjänstekatalogen: sök-API (externt)" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 326, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for "Tjänstekatalogen: administrativt API" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 327, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' for "Tjänstekatalogen administratörsbehörighet" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 325, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance' for "Tjänstekatalogen Provenance" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 325, column 161: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for "Tjänstekatalogen: administrativt API" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 326, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for "Tjänstekatalogen: sök-API (externt)" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 327, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for "Tjänstekatalogen: administrativt API" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 328, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' for "Tjänstekatalogen administratörsbehörighet" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 329, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' for "Tjänstekatalogen administratörsbehörighet" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 330, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes' for "Ändringar i Organisation/Ändpunkt" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 331, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for "Tjänstekatalogen: sök-API (externt)" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 331, column 169: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for "Tjänstekatalogen: administrativt API" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 330, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' for "Tjänstekatalogen administratörsbehörighet" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 331, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role' for "Tjänstekatalogen administratörsbehörighet" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 331, column 183: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for "Tjänstekatalogen: administrativt API" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 332, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes' for "Ändringar i Organisation/Ändpunkt" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 333, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for "Tjänstekatalogen: sök-API (externt)" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 333, column 169: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for "Tjänstekatalogen: administrativt API" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 334, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for "Tjänstekatalogen: sök-API (externt)" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 334, column 169: The link 'https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes' for "Ändringar i Organisation/Ändpunkt" is a canonical link and is therefore unsafe with regard to versions
-WARNING: sv/StructureDefinition-tk-administrator-role-mappings.html#/html/body/div/div/div/div/div/table/tr/th/a at Line 263, column 492: The link 'https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements' for "Kravkatalog" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 335, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for "Tjänstekatalogen: sök-API (externt)" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 335, column 169: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api' for "Tjänstekatalogen: administrativt API" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 336, column 44: The link 'https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api' for "Tjänstekatalogen: sök-API (externt)" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/Requirements-tk-tjanstekatalog-requirements.html#/html/body/div/div/div/div/div/div/table/tr/td/ul/li/a at Line 336, column 169: The link 'https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes' for "Ändringar i Organisation/Ändpunkt" is a canonical link and is therefore unsafe with regard to versions
+WARNING: sv/StructureDefinition-tk-administrator-role-mappings.html#/html/body/div/div/div/div/div/table/tr/th/a at Line 273, column 492: The link 'https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements' for "Kravkatalog" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/StructureDefinition-tk-api-instance-mappings.html#/html/body/div/div/div/div/div/table/tr/th/a at Line 273, column 486: The link 'https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements' for "Kravkatalog" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/StructureDefinition-tk-api-specification-capability-mappings.html#/html/body/div/div/div/div/div/table/tr/th/a at Line 273, column 502: The link 'https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements' for "Kravkatalog" is a canonical link and is therefore unsafe with regard to versions
 WARNING: sv/StructureDefinition-tk-endpoint-mappings.html#/html/body/div/div/div/div/div/table/tr/th/a at Line 273, column 482: The link 'https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements' for "Kravkatalog" is a canonical link and is therefore unsafe with regard to versions
@@ -206,6 +213,19 @@ WARNING: Organization/TKOrganizationUnitExample: Organization.identifier[0].syst
 WARNING: Patient/IneraPatientExample: Patient.identifier[0].system: Ingen definition kunde hittas för URL-värdet 'http://electronichealth.se/identifier/personnummer'
 
 
+== fsh-generated/resources/PractitionerRole-TKCentralAdministratorRoleExample.json ==
+WARNING: PractitionerRole/TKCentralAdministratorRoleExample: PractitionerRole.practitioner.identifier.system: Ingen definition kunde hittas för URL-värdet 'urn:oid:1.2.752.29.4.19'
+INFORMATION: PractitionerRole/TKCentralAdministratorRoleExample: PractitionerRole.code[0]: Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.0
+
+
+== fsh-generated/resources/PractitionerRole-TKLocalAdministratorRoleExample.json ==
+WARNING: PractitionerRole/TKLocalAdministratorRoleExample: PractitionerRole.practitioner.identifier.system: Ingen definition kunde hittas för URL-värdet 'urn:oid:1.2.752.29.4.19'
+INFORMATION: PractitionerRole/TKLocalAdministratorRoleExample: PractitionerRole.code[0]: Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.0
+
+
+== fsh-generated/resources/Provenance-TKProvenanceAdministratorRoleExample.json ==
+
+
 == fsh-generated/resources/Provenance-TKProvenanceExample.json ==
 
 
@@ -269,9 +289,8 @@ INFORMATION: Resource: The resource StructureDefinition/IneraPatient could usefu
 == fsh-generated/resources/StructureDefinition-tk-administrator-role.json ==
 INFORMATION: StructureDefinition/tk-administrator-role: StructureDefinition.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 INFORMATION: StructureDefinition/tk-administrator-role: StructureDefinition.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
-WARNING: StructureDefinition/tk-administrator-role: StructureDefinition.snapshot.element[15].binding: Definitionen för elementet 'PractitionerRole.specialty' binder till värdemängden 'http://hl7.org/fhir/ValueSet/c80-practice-codes|5.0.0' som är experimentell, men denna struktur är inte märkt som experimentell
+WARNING: StructureDefinition/tk-administrator-role: StructureDefinition.snapshot.element[19].binding: Definitionen för elementet 'PractitionerRole.specialty' binder till värdemängden 'http://hl7.org/fhir/ValueSet/c80-practice-codes|5.0.0' som är experimentell, men denna struktur är inte märkt som experimentell
 INFORMATION: Resource: The resource StructureDefinition/tk-administrator-role could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
-WARNING: StructureDefinition.where(url = 'https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role'): The Implementation Guide contains no examples for this profile
 
 
 == fsh-generated/resources/StructureDefinition-tk-api-instance.json ==

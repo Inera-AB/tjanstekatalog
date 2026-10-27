@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PractitionerRole xmlns="http://hl7.org/fhir">
+  <id value="TKCentralAdministratorRoleExample"/>
+  <meta>
+    <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"/>
+  </meta>
+  <language value="sv"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: PractitionerRole TKCentralAdministratorRoleExample</b></p><a name="TKCentralAdministratorRoleExample"> </a><a name="hcTKCentralAdministratorRoleExample"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="StructureDefinition-tk-administrator-role.html">Tjänstekatalogen administratörsbehörighet</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Central administratör, Inera: Central administratör</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="Posten är aktiv">Aktiv:</td><td>true</td><td style="background-color: #f3f5da" title="The period during which this record applies">Giltig period:</td><td>2026-01-01 --&gt; (pågående)</td></tr><tr><td style="background-color: #f3f5da" title="The practitioner who is able to provide the services in this role">Practitioner:</td><td colspan="3">Central administratör, Inera (Identifier: <code>urn:oid:1.2.752.29.4.19</code>/SE2321000016-ADM1)</td></tr><tr><td style="background-color: #f3f5da" title="Roles which this practitioner is authorized to perform for the organization">Role:</td><td colspan="3"><span title="Koder:{https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role central-admin}">Central administratör</span></td></tr></table></div>
+  </text>
+  <active value="true"/>
+  <period>
+    <start value="2026-01-01"/>
+  </period>
+  <practitioner>
+    <identifier>
+      <system value="urn:oid:1.2.752.29.4.19"/>
+      <value value="SE2321000016-ADM1"/>
+    </identifier>
+    <display value="Central administratör, Inera"/>
+  </practitioner>
+  <code>
+    <coding>
+      <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role"/>
+      <code value="central-admin"/>
+      <display value="Central administratör"/>
+    </coding>
+  </code>
+</PractitionerRole>

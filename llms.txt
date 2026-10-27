@@ -94,4 +94,7 @@
 * [Exempelregionen (Organization)](sv/Organization-TKOrganizationExample.md)
 * [Exempelregionens vårdcentral (Organization)](sv/Organization-TKOrganizationUnitExample.md)
 * [IneraPatientExample (Patient)](sv/Patient-IneraPatientExample.md)
+* [TKCentralAdministratorRoleExample (PractitionerRole)](sv/PractitionerRole-TKCentralAdministratorRoleExample.md)
+* [TKLocalAdministratorRoleExample (PractitionerRole)](sv/PractitionerRole-TKLocalAdministratorRoleExample.md)
+* [TKProvenanceAdministratorRoleExample (Provenance)](sv/Provenance-TKProvenanceAdministratorRoleExample.md)
 * [TKProvenanceExample (Provenance)](sv/Provenance-TKProvenanceExample.md)

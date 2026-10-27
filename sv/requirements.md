@@ -95,6 +95,7 @@ Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget — se "
 | REQ-ADM-1 | SKA | Varje administratörsbehörighet SKA ange en administrationsnivå (`local-admin`/`central-admin`). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md)`.code` |
 | REQ-ADM-2 | SKA (villkorat) | En`local-admin`-behörighet SKA ange representerad organisation, analogt med`Endpoint.managingOrganization`.`central-admin`utelämnar detta medvetet (= alla organisationer). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md)`.organization` |
 | REQ-ADM-3 | BÖR | En administratörsbehörighet BÖR ange innehavare. | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md)`.practitioner` |
+| REQ-ADM-4 | SKA | En behörighet gäller bara om`active`inte är`false`och aktuell tidpunkt ligger inom`period`. Den SKA återkallas genom en uppdatering (`active = false`och/eller`period.end`), inte genom borttagning, så att återkallandet spåras med Provenance (REQ-TRC-1/3). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md)`.active`/`.period`,[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
 
 ### REQ-DIST — Distribution/federering till lokala kataloger
 
@@ -114,8 +115,9 @@ Inte del av det ursprungliga informationsunderlaget — tillagt efter jämförel
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| REQ-TRC-1 | SKA | Varje transaction-Bundle som registrerar en Organization, Endpoint eller CapabilityStatement SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna. | [TKProvenance](StructureDefinition-tk-provenance.md) |
+| REQ-TRC-1 | SKA | Varje transaction-Bundle som registrerar en Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet) SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna. | [TKProvenance](StructureDefinition-tk-provenance.md) |
 | REQ-TRC-2 | SKA | Tjänstekatalogens administrativa API SKA stödja systeminteraktionen`transaction`, så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans. | [TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+| REQ-TRC-3 | BÖR | När en administratörsbehörighet skapas eller ändras BÖR`Provenance.agent.who`peka ut den ändrande administratörens egen[TKAdministratorRole](StructureDefinition-tk-administrator-role.md), så att det framgår vem som gjorde ändringen och med vilken behörighet. | [TKProvenance](StructureDefinition-tk-provenance.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
 
 -------
 

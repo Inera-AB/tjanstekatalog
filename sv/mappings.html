@@ -451,7 +451,9 @@ uttryckas som en enskild referens — där utelämnas <code class="language-plai
 <code class="language-plaintext highlighter-rouge">TKEndpointSecurityMethod</code>s <code class="language-plaintext highlighter-rouge">none</code>). Den faktiska behörighetskontrollen
 (att en skrivning bara får avse en organisation anroparen representerar)
 är en serverimplementationsfråga, inte specificerad ytterligare av denna
-IG — se security.html. Se REQ-ADM-1..3.</p>
+IG — se security.html. En behörighet återkallas med en uppdatering
+(<code class="language-plaintext highlighter-rouge">active = false</code> och/eller <code class="language-plaintext highlighter-rouge">period.end</code>), inte med borttagning, så att
+återkallandet spåras med Provenance. Se REQ-ADM-1..4.</p>
   </li>
   <li>
     <p><strong>Distribution/federering till lokala kataloger
@@ -491,12 +493,16 @@ annan implementation av samma problem, som kräver en <code class="language-plai
 per registrering i en transaction-Bundle, antogs samma mönster här:
 <a href="StructureDefinition-tk-provenance.html"><code class="language-plaintext highlighter-rouge">TKProvenance</code></a> SKA bifogas
 (<code class="language-plaintext highlighter-rouge">Provenance.target</code> pekande ut den registrerade resursen) i samma
-transaction-Bundle som registrerar en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code> eller
-<code class="language-plaintext highlighter-rouge">CapabilityStatement</code>. Detta ger både spårbarhet och atomicitet (posten
+transaction-Bundle som registrerar en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code>,
+<code class="language-plaintext highlighter-rouge">CapabilityStatement</code> eller en administratörsbehörighet
+(<code class="language-plaintext highlighter-rouge">PractitionerRole</code>, <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>).
+Detta ger både spårbarhet och atomicitet (posten
 och dess Provenance skapas/uppdateras tillsammans), vilket separata
 <code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>-anrop per resurstyp inte garanterar. Tjänstekatalogens
 administrativa API SKA därför stödja systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>.
-Se REQ-MDL-5, REQ-TRC-1/2 och <code class="language-plaintext highlighter-rouge">TKProvenance.fsh</code>.</p>
+Vid ändring av en administratörsbehörighet BÖR <code class="language-plaintext highlighter-rouge">agent.who</code> vara den
+ändrande administratörens egen <code class="language-plaintext highlighter-rouge">TKAdministratorRole</code> (REQ-TRC-3).
+Se REQ-MDL-5, REQ-TRC-1..3 och <code class="language-plaintext highlighter-rouge">TKProvenance.fsh</code>.</p>
   </li>
   <li>
     <p><strong>API-instans (<a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>)
@@ -916,7 +922,7 @@ kvar sida vid sida.</p>
       <td>registrerad resurs</td>
       <td>1..*</td>
       <td><a href="StructureDefinition-tk-provenance.html">TKProvenance.target</a></td>
-      <td>REQ-TRC-1</td>
+      <td>Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet). REQ-TRC-1</td>
     </tr>
     <tr>
       <td>registreringstidpunkt</td>
@@ -928,7 +934,7 @@ kvar sida vid sida.</p>
       <td>registrerande system/konto</td>
       <td>1..*</td>
       <td><a href="StructureDefinition-tk-provenance.html">TKProvenance.agent.who</a></td>
-      <td>REQ-TRC-1</td>
+      <td>Vid ändrad administratörsbehörighet: den ändrandes TKAdministratorRole. REQ-TRC-1, REQ-TRC-3</td>
     </tr>
   </tbody>
 </table>
@@ -962,6 +968,18 @@ kvar sida vid sida.</p>
       <td>0..1</td>
       <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.practitioner</a></td>
       <td>REQ-ADM-3</td>
+    </tr>
+    <tr>
+      <td><em>(gäller)</em></td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.active</a></td>
+      <td><code class="language-plaintext highlighter-rouge">false</code> = återkallad. REQ-ADM-4</td>
+    </tr>
+    <tr>
+      <td><em>(giltighetsperiod)</em></td>
+      <td>0..1</td>
+      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.period</a></td>
+      <td>Återkallande kan också uttryckas med <code class="language-plaintext highlighter-rouge">period.end</code>. REQ-ADM-4</td>
     </tr>
   </tbody>
 </table>
@@ -1393,8 +1411,8 @@ att profilerna utvecklas. Mappningar kan också uttryckas med FHIR
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-10-26 20:25:00 +0000">
-    2026-10-26
+  <span title="2026-10-27 17:54:00 +0000">
+    2026-10-27
   </span>
 
           <br/>

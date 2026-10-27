@@ -68,13 +68,13 @@
     "sources" : ["2.16.840.1.113883.4.642.3.21"],
     "uses" : {
     },
-    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
     "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance",
-    "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
+    "StructureDefinition-IneraPatient.html" : "Inera Patient"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/c80-practice-codes",
@@ -323,13 +323,13 @@
     "2.16.840.1.113883.4.642.3.20"],
     "uses" : {
     },
-    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
     "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance",
-    "StructureDefinition-IneraPatient.html" : "Inera Patient",
-    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet",
+    "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
+    "StructureDefinition-IneraPatient.html" : "Inera Patient"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/link-type",

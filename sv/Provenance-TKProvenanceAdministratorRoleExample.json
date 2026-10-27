@@ -1,0 +1,21 @@
+{
+  "resourceType" : "Provenance",
+  "id" : "TKProvenanceAdministratorRoleExample",
+  "meta" : {
+    "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
+  },
+  "language" : "sv",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: Provenance TKProvenanceAdministratorRoleExample</b></p><a name=\"TKProvenanceAdministratorRoleExample\"> </a><a name=\"hcTKProvenanceAdministratorRoleExample\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"StructureDefinition-tk-provenance.html\">Tjänstekatalogen Provenance</a></p></div><p>Härkomst för <a href=\"PractitionerRole-TKLocalAdministratorRoleExample.html\">Lokal administratör, Exempelregionen: Lokal administratör at Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)</a></p><p>Sammanfattning</p><table class=\"grid\"><tr><td>Registrerad</td><td>2026-01-02 10:00:00+0000</td></tr></table><p><b>Agenter</b></p><table class=\"grid\"><tr><td><b>vem</b></td></tr><tr><td><a href=\"PractitionerRole-TKCentralAdministratorRoleExample.html\">Central administratör, Inera: Central administratör</a></td></tr></table></div>"
+  },
+  "target" : [{
+    "reference" : "PractitionerRole/TKLocalAdministratorRoleExample"
+  }],
+  "recorded" : "2026-01-02T10:00:00Z",
+  "agent" : [{
+    "who" : {
+      "reference" : "PractitionerRole/TKCentralAdministratorRoleExample"
+    }
+  }]
+}

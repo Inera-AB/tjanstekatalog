@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<PractitionerRole xmlns="http://hl7.org/fhir">
+  <id value="TKLocalAdministratorRoleExample"/>
+  <meta>
+    <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"/>
+  </meta>
+  <language value="sv"/>
+  <text>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: PractitionerRole TKLocalAdministratorRoleExample</b></p><a name="TKLocalAdministratorRoleExample"> </a><a name="hcTKLocalAdministratorRoleExample"> </a><div style="display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%"><p style="margin-bottom: 0px"/><p style="margin-bottom: 0px">Profil: <a href="StructureDefinition-tk-administrator-role.html">Tjänstekatalogen administratörsbehörighet</a></p></div><p style="border: 1px #661aff solid; background-color: #e6e6ff; padding: 10px;">Lokal administratör, Exempelregionen: Lokal administratör at Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)</p><hr/><table class="grid"><tr><td style="background-color: #f3f5da" title="Posten är aktiv">Aktiv:</td><td>true</td><td style="background-color: #f3f5da" title="The period during which this record applies">Giltig period:</td><td>2026-01-02 --&gt; (pågående)</td></tr><tr><td style="background-color: #f3f5da" title="The practitioner who is able to provide the services in this role">Practitioner:</td><td colspan="3">Lokal administratör, Exempelregionen (Identifier: <code>urn:oid:1.2.752.29.4.19</code>/SE2321000016-ADM2)</td></tr><tr><td style="background-color: #f3f5da" title="The organization where the practitioner performs the roles">Organization:</td><td colspan="3"><a href="Organization-TKOrganizationExample.html">Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)</a></td></tr><tr><td style="background-color: #f3f5da" title="Roles which this practitioner is authorized to perform for the organization">Role:</td><td colspan="3"><span title="Koder:{https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role local-admin}">Lokal administratör</span></td></tr></table></div>
+  </text>
+  <active value="true"/>
+  <period>
+    <start value="2026-01-02"/>
+  </period>
+  <practitioner>
+    <identifier>
+      <system value="urn:oid:1.2.752.29.4.19"/>
+      <value value="SE2321000016-ADM2"/>
+    </identifier>
+    <display value="Lokal administratör, Exempelregionen"/>
+  </practitioner>
+  <organization>
+    <reference value="Organization/TKOrganizationExample"/>
+  </organization>
+  <code>
+    <coding>
+      <system value="https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role"/>
+      <code value="local-admin"/>
+      <display value="Lokal administratör"/>
+    </coding>
+  </code>
+</PractitionerRole>

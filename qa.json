@@ -6,15 +6,15 @@
   "status" : "draft",
   "package-id" : "inera.infra.tjanstekatalog",
   "ig-ver" : "0.1.0",
-  "date" : "Mon, 26 Oct, 2026 20:25:02 +0000",
-  "dateISO8601" : "2026-10-26T20:25:02+00:00",
+  "date" : "Tue, 27 Oct, 2026 17:54:53 +0000",
+  "dateISO8601" : "2026-10-27T17:54:53+00:00",
   "errs" : 0,
-  "warnings" : 119,
-  "hints" : 110,
+  "warnings" : 124,
+  "hints" : 112,
   "broken-links" : 0,
   "suppressed-hints" : 1,
   "suppressed-warnings" : 14,
   "version" : "5.0.0",
   "tool" : "6.0.0-snapshot1 (3)",
-  "maxMemory" : 815241648
+  "maxMemory" : 1355924864
 }

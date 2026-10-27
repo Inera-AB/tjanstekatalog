@@ -19,7 +19,7 @@
   fhir:name [ fhir:v "IneraTjanstekatalog"] ; # 
   fhir:title [ fhir:v "Tjänstekatalogen"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-10-26T20:25:02+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-10-27T17:54:53+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
@@ -52,7 +52,7 @@
        fhir:link <http://terminology.hl7.org/ImplementationGuide/hl7.terminology>
      ] ;
      fhir:packageId [ fhir:v "hl7.terminology.r5" ] ;
-     fhir:version [ fhir:v "7.4.0" ]
+     fhir:version [ fhir:v "7.5.0" ]
   ] [
      fhir:id [ fhir:v "hl7ext" ] ;
      fhir:extension ( [
@@ -240,6 +240,44 @@
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:string ;
+           fhir:v "PractitionerRole"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/PractitionerRole/TKCentralAdministratorRoleExample> ;
+         fhir:reference [ fhir:v "PractitionerRole/TKCentralAdministratorRoleExample" ]
+       ] ;
+       fhir:name [ fhir:v "Exempel: central administratör" ] ;
+       fhir:description [ fhir:v "Exempel på en central administratörsbehörighet. `organization` utelämnas, eftersom behörigheten gäller samtliga organisationer." ] ;
+       fhir:isExample [ fhir:v true ] ;
+       fhir:profile ( [
+         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"^^xsd:anyURI ;
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role>
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "PractitionerRole"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/PractitionerRole/TKLocalAdministratorRoleExample> ;
+         fhir:reference [ fhir:v "PractitionerRole/TKLocalAdministratorRoleExample" ]
+       ] ;
+       fhir:name [ fhir:v "Exempel: lokal administratör" ] ;
+       fhir:description [ fhir:v "Exempel på en lokal administratörsbehörighet för Exempelregionen." ] ;
+       fhir:isExample [ fhir:v true ] ;
+       fhir:profile ( [
+         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"^^xsd:anyURI ;
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role>
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
            fhir:v "Organization"
          ]
        ] ) ;
@@ -268,6 +306,25 @@
        ] ;
        fhir:name [ fhir:v "Exempel: spårbarhetspost för registrering" ] ;
        fhir:description [ fhir:v "Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle." ] ;
+       fhir:isExample [ fhir:v true ] ;
+       fhir:profile ( [
+         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"^^xsd:anyURI ;
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance>
+       ] )
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "Provenance"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/Provenance/TKProvenanceAdministratorRoleExample> ;
+         fhir:reference [ fhir:v "Provenance/TKProvenanceAdministratorRoleExample" ]
+       ] ;
+       fhir:name [ fhir:v "Exempel: spårbarhetspost för ändrad administratörsbehörighet" ] ;
+       fhir:description [ fhir:v "Exempel på en Provenance-post som visar att den centrala administratören gav Exempelregionens lokala administratör sin behörighet. `agent.who` är den ändrande administratörens egen behörighet (REQ-TRC-3)." ] ;
        fhir:isExample [ fhir:v true ] ;
        fhir:profile ( [
          fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"^^xsd:anyURI ;
@@ -583,7 +640,7 @@
          fhir:reference [ fhir:v "StructureDefinition/tk-provenance" ]
        ] ;
        fhir:name [ fhir:v "Tjänstekatalogen Provenance" ] ;
-       fhir:description [ fhir:v "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen — vanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html." ] ;
+       fhir:description [ fhir:v "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen, inklusive administratörsbehörigheter\n([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)) —\nvanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html." ] ;
        fhir:isExample [ fhir:v false ]
      ] [
        fhir:extension ( [

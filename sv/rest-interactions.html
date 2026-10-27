@@ -198,7 +198,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 | <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a> | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation), <code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>; <code class="language-plaintext highlighter-rouge">_history</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
 | <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a> / <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>) | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">date</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
 | <a href="StructureDefinition-tk-provenance.html">TKProvenance</a> | read, search-type | <code class="language-plaintext highlighter-rouge">target</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |
-| <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> | read, search-type, create, update | <code class="language-plaintext highlighter-rouge">organization</code>, <code class="language-plaintext highlighter-rouge">practitioner</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |</p>
+| <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> | read, search-type, create, update | <code class="language-plaintext highlighter-rouge">organization</code>, <code class="language-plaintext highlighter-rouge">practitioner</code>, <code class="language-plaintext highlighter-rouge">active</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |</p>
 
 <p>Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning
 exponeras externt via gateway (<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>);
@@ -221,8 +221,9 @@ E-hälsomyndigheten (EHM), av en Synkroniseringstjänst som läser härifrån. S
 löser REQ-MDL-5:s tidigare uppskjutna spårbarhetsfråga (se
 <a href="mappings.html">Mappning till profiler</a>).</p>
 
-<p>Registrering (skapande/uppdatering av en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code> eller
-<code class="language-plaintext highlighter-rouge">CapabilityStatement</code>) SKA ske via systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>, med
+<p>Registrering (skapande/uppdatering av en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code>,
+<code class="language-plaintext highlighter-rouge">CapabilityStatement</code> eller administratörsbehörighet, <code class="language-plaintext highlighter-rouge">PractitionerRole</code>)
+SKA ske via systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>, med
 en obligatorisk <a href="StructureDefinition-tk-provenance.html">TKProvenance</a>-post
 i samma Bundle (REQ-TRC-1/2):</p>
 
@@ -258,6 +259,20 @@ interaktioner per resurstyp (se tabellen ovan) kvarstår som del av
 respektive resurstyps förmågor, men klienter SKA använda transaction-vägen
 för faktisk registrering, för att garantera att Provenance-posten alltid
 följer med.</p>
+
+<p><strong>Ändrade administratörsbehörigheter.</strong> Samma sak gäller när en
+<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>
+skapas eller ändras. <code class="language-plaintext highlighter-rouge">agent.who</code> BÖR då vara den ändrande administratörens
+egen <code class="language-plaintext highlighter-rouge">TKAdministratorRole</code>, så att det framgår vem som gjorde ändringen och
+med vilken behörighet (REQ-TRC-3). En behörighet återkallas på samma sätt,
+med en uppdatering som sätter <code class="language-plaintext highlighter-rouge">active = false</code> och/eller <code class="language-plaintext highlighter-rouge">period.end</code>. Den
+tas aldrig bort, så att även återkallandet får en Provenance-post
+(REQ-ADM-4). Se
+<a href="Provenance-TKProvenanceAdministratorRoleExample.html">exemplet</a>. Historiken
+för en behörighet hämtas med:</p>
+
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Provenance?target=PractitionerRole/[id]
+</code></pre></div></div>
 
 <hr />
 
@@ -549,8 +564,8 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-10-26 20:25:00 +0000">
-    2026-10-26
+  <span title="2026-10-27 17:54:00 +0000">
+    2026-10-27
   </span>
 
           <br/>

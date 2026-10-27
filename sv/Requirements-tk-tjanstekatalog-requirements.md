@@ -353,7 +353,7 @@
     "key" : "REQ-TRC-1",
     "label" : "Provenance krävs vid registrering",
     "conformance" : ["SHALL"],
-    "requirement" : "Varje transaction-Bundle som registrerar (skapar/uppdaterar) en Organization, Endpoint eller CapabilityStatement (API-specifikation/API-instans) SKA innehålla minst en Provenance-post (profilerad som TKProvenance) som via `Provenance.target` pekar ut den/de registrerade resurserna.",
+    "requirement" : "Varje transaction-Bundle som registrerar (skapar/uppdaterar) en Organization, Endpoint, CapabilityStatement (API-specifikation/API-instans) eller PractitionerRole (administratörsbehörighet, TKAdministratorRole) SKA innehålla minst en Provenance-post (profilerad som TKProvenance) som via `Provenance.target` pekar ut den/de registrerade resurserna.",
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
   },
   {
@@ -362,6 +362,14 @@
     "conformance" : ["SHALL"],
     "requirement" : "Tjänstekatalogens administrativa API SKA stödja systeminteraktionen `transaction` (en Bundle av typen transaction), så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans.",
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"]
+  },
+  {
+    "key" : "REQ-TRC-3",
+    "label" : "Spårbarhet för ändrade administratörsbehörigheter",
+    "conformance" : ["SHOULD"],
+    "requirement" : "När en administratörsbehörighet (TKAdministratorRole) skapas eller ändras BÖR `Provenance.agent.who` peka ut den ändrande administratörens egen TKAdministratorRole, så att det framgår både vem som gjorde ändringen och med vilken behörighet. Sökbart med `Provenance?target=PractitionerRole/[id]`.",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance",
+    "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"]
   },
   {
     "key" : "REQ-EXP-1",
@@ -398,6 +406,14 @@
     "conformance" : ["SHOULD"],
     "requirement" : "En administratörsbehörighet BÖR ange vilket konto/system som innehar den.",
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"]
+  },
+  {
+    "key" : "REQ-ADM-4",
+    "label" : "Giltighet och återkallande",
+    "conformance" : ["SHALL"],
+    "requirement" : "En administratörsbehörighet gäller bara om `active` inte är `false` och aktuell tidpunkt ligger inom `period`. En behörighet SKA återkallas genom en uppdatering som sätter `active = false` och/eller `period.end`, inte genom att den tas bort, så att återkallandet spåras med en Provenance-post (REQ-TRC-1/3).",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role",
+    "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"]
   },
   {
     "key" : "REQ-DIST-1",

@@ -1195,6 +1195,14 @@
             "schema": {
               "type": "string"
             }
+          },
+          {
+            "name": "active",
+            "in": "query",
+            "description": "Whether this practitioner role record is in active use",
+            "schema": {
+              "type": "string"
+            }
           }
         ]
       },

@@ -2,7 +2,7 @@
 
 ## REST-interaktioner och sökparametrar
 
-| Resurs/Profil | Interaktion | Sökparametrar | Exponering | |—————-|————-|—————-|————| | [TKOrganization](StructureDefinition-tk-organization.md) | read, search-type (externt); create, update (endast internt) | `identifier` ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), `name`, `_id`, `_lastUpdated`, `active`, `partof`; `_include=Organization:endpoint`; `_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.md) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.md) internt | | [TKEndpoint](StructureDefinition-tk-endpoint.md) | read, search-type (externt); create, update (endast internt) | `organization` (standard, "förvaltar"), [`listed-by`](SearchParameter-tk-endpoint-listed-by.md) (egen, "har"), `status`, [`implements`](SearchParameter-tk-endpoint-implements.md) (stödd interoperabilitetsspecifikation), `identifier`, `_id`, `_lastUpdated`; `_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.md) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.md) internt | | `CapabilityStatement` ([TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.md) / [TKAPIInstance](StructureDefinition-tk-api-instance.md)) | read, search-type (externt); create, update (endast internt) | `url`, `version`, `date`, [`kind`](SearchParameter-tk-capabilitystatement-kind.md), [`instantiates`](SearchParameter-tk-capabilitystatement-instantiates.md), `_id`, `_lastUpdated` | [TKSearchAPI](CapabilityStatement-tk-search-api.md) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.md) internt | | [TKProvenance](StructureDefinition-tk-provenance.md) | read, search-type | `target` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.md) (internt) | | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md) | read, search-type, create, update | `organization`, `practitioner` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.md) (internt) |
+| Resurs/Profil | Interaktion | Sökparametrar | Exponering | |—————-|————-|—————-|————| | [TKOrganization](StructureDefinition-tk-organization.md) | read, search-type (externt); create, update (endast internt) | `identifier` ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), `name`, `_id`, `_lastUpdated`, `active`, `partof`; `_include=Organization:endpoint`; `_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.md) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.md) internt | | [TKEndpoint](StructureDefinition-tk-endpoint.md) | read, search-type (externt); create, update (endast internt) | `organization` (standard, "förvaltar"), [`listed-by`](SearchParameter-tk-endpoint-listed-by.md) (egen, "har"), `status`, [`implements`](SearchParameter-tk-endpoint-implements.md) (stödd interoperabilitetsspecifikation), `identifier`, `_id`, `_lastUpdated`; `_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.md) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.md) internt | | `CapabilityStatement` ([TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.md) / [TKAPIInstance](StructureDefinition-tk-api-instance.md)) | read, search-type (externt); create, update (endast internt) | `url`, `version`, `date`, [`kind`](SearchParameter-tk-capabilitystatement-kind.md), [`instantiates`](SearchParameter-tk-capabilitystatement-instantiates.md), `_id`, `_lastUpdated` | [TKSearchAPI](CapabilityStatement-tk-search-api.md) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.md) internt | | [TKProvenance](StructureDefinition-tk-provenance.md) | read, search-type | `target` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.md) (internt) | | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md) | read, search-type, create, update | `organization`, `practitioner`, `active` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.md) (internt) |
 
 Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning exponeras externt via gateway ([TKSearchAPI](CapabilityStatement-tk-search-api.md)); skrivinteraktioner och administratörsbehörigheter finns endast i det internt exponerade [TKAdminAPI](CapabilityStatement-tk-admin-api.md). Se [CapabilityStatement](capabilitystatement.md) och [Säkerhet och behörighet](security.md).
 
@@ -14,7 +14,7 @@ Tjänstekatalogens administrativa API exponerar inga egna skrivoperationer för 
 
 Tillagt efter jämförelse med en annan implementation av samma problem — löser REQ-MDL-5:s tidigare uppskjutna spårbarhetsfråga (se [Mappning till profiler](mappings.md)).
 
-Registrering (skapande/uppdatering av en `Organization`, `Endpoint` eller `CapabilityStatement`) SKA ske via systeminteraktionen `transaction`, med en obligatorisk [TKProvenance](StructureDefinition-tk-provenance.md)-post i samma Bundle (REQ-TRC-1/2):
+Registrering (skapande/uppdatering av en `Organization`, `Endpoint`, `CapabilityStatement` eller administratörsbehörighet, `PractitionerRole`) SKA ske via systeminteraktionen `transaction`, med en obligatorisk [TKProvenance](StructureDefinition-tk-provenance.md)-post i samma Bundle (REQ-TRC-1/2):
 
 ```
 {
@@ -46,6 +46,13 @@ PUT [base]/
 ```
 
 (FHIR:s systemnivå-transaktion skickas till bas-URL:en, inte till en resurstyps-URL.) Servern SKA behandla Bundlens poster atomiskt: antingen registreras samtliga poster, eller ingen. Enskilda `create`/`update`- interaktioner per resurstyp (se tabellen ovan) kvarstår som del av respektive resurstyps förmågor, men klienter SKA använda transaction-vägen för faktisk registrering, för att garantera att Provenance-posten alltid följer med.
+
+**Ändrade administratörsbehörigheter.** Samma sak gäller när en [TKAdministratorRole](StructureDefinition-tk-administrator-role.md) skapas eller ändras. `agent.who` BÖR då vara den ändrande administratörens egen `TKAdministratorRole`, så att det framgår vem som gjorde ändringen och med vilken behörighet (REQ-TRC-3). En behörighet återkallas på samma sätt, med en uppdatering som sätter `active = false` och/eller `period.end`. Den tas aldrig bort, så att även återkallandet får en Provenance-post (REQ-ADM-4). Se [exemplet](Provenance-TKProvenanceAdministratorRoleExample.md). Historiken för en behörighet hämtas med:
+
+```
+GET [base]/Provenance?target=PractitionerRole/[id]
+
+```
 
 -------
 

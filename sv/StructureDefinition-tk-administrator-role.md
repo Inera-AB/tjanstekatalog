@@ -4,8 +4,9 @@
 
 **Användningar:**
 
+* Referera till denna Profil: [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
+* Exempel för denna Profil: [PractitionerRole/TKCentralAdministratorRoleExample](PractitionerRole-TKCentralAdministratorRoleExample.md) and [PractitionerRole/TKLocalAdministratorRoleExample](PractitionerRole-TKLocalAdministratorRoleExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
-* Denna Profil används inte av några profiler i denna implementationsguide
 
 Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-administrator-role)
 
@@ -139,6 +140,36 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-administrato
         "identity" : "req",
         "map" : "REQ-ADM-1"
       }]
+    },
+    {
+      "id" : "PractitionerRole.active",
+      "path" : "PractitionerRole.active",
+      "short" : "Om behörigheten gäller (false = återkallad)",
+      "mustSupport" : true,
+      "mapping" : [{
+        "identity" : "req",
+        "map" : "REQ-ADM-4"
+      }]
+    },
+    {
+      "id" : "PractitionerRole.period",
+      "path" : "PractitionerRole.period",
+      "short" : "Behörighetens giltighetsperiod",
+      "mustSupport" : true,
+      "mapping" : [{
+        "identity" : "req",
+        "map" : "REQ-ADM-4"
+      }]
+    },
+    {
+      "id" : "PractitionerRole.period.start",
+      "path" : "PractitionerRole.period.start",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.period.end",
+      "path" : "PractitionerRole.period.end",
+      "mustSupport" : true
     },
     {
       "id" : "PractitionerRole.practitioner",

@@ -14,7 +14,7 @@
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-10-26T20:25:02+00:00",
+  "date" : "2026-10-27T17:54:53+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -41,7 +41,7 @@
     }],
     "uri" : "http://terminology.hl7.org/ImplementationGuide/hl7.terminology",
     "packageId" : "hl7.terminology.r5",
-    "version" : "7.4.0"
+    "version" : "7.5.0"
   },
   {
     "id" : "hl7ext",
@@ -223,6 +223,40 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PractitionerRole"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "PractitionerRole-TKCentralAdministratorRoleExample.html"
+      }],
+      "reference" : {
+        "reference" : "PractitionerRole/TKCentralAdministratorRoleExample"
+      },
+      "name" : "Exempel: central administratör",
+      "description" : "Exempel på en central administratörsbehörighet. `organization` utelämnas, eftersom behörigheten gäller samtliga organisationer.",
+      "isExample" : true,
+      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "PractitionerRole"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "PractitionerRole-TKLocalAdministratorRoleExample.html"
+      }],
+      "reference" : {
+        "reference" : "PractitionerRole/TKLocalAdministratorRoleExample"
+      },
+      "name" : "Exempel: lokal administratör",
+      "description" : "Exempel på en lokal administratörsbehörighet för Exempelregionen.",
+      "isExample" : true,
+      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Organization"
       },
       {
@@ -251,6 +285,23 @@
       },
       "name" : "Exempel: spårbarhetspost för registrering",
       "description" : "Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle.",
+      "isExample" : true,
+      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "Provenance"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "Provenance-TKProvenanceAdministratorRoleExample.html"
+      }],
+      "reference" : {
+        "reference" : "Provenance/TKProvenanceAdministratorRoleExample"
+      },
+      "name" : "Exempel: spårbarhetspost för ändrad administratörsbehörighet",
+      "description" : "Exempel på en Provenance-post som visar att den centrala administratören gav Exempelregionens lokala administratör sin behörighet. `agent.who` är den ändrande administratörens egen behörighet (REQ-TRC-3).",
       "isExample" : true,
       "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
     },
@@ -574,7 +625,7 @@
         "reference" : "StructureDefinition/tk-provenance"
       },
       "name" : "Tjänstekatalogen Provenance",
-      "description" : "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen — vanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html.",
+      "description" : "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen, inklusive administratörsbehörigheter\n([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)) —\nvanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html.",
       "isExample" : false
     },
     {
