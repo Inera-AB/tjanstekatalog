@@ -55,7 +55,7 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 // resurstyps förmågor (t.ex. för HAPI FHIR:s standardmekanismer), men
 // klienter SKA använda transaction-vägen för faktisk registrering.
 * rest[=].interaction[0].code = #transaction
-* rest[=].interaction[=].documentation = "Registrering av en eller flera resurser (Organization, Endpoint, CapabilityStatement) tillsammans med en obligatorisk Provenance-post i samma transaction-Bundle. Se REQ-TRC-1/2."
+* rest[=].interaction[=].documentation = "Registrering av en eller flera resurser (Organization, Endpoint, CapabilityStatement, PractitionerRole) tillsammans med en obligatorisk Provenance-post i samma transaction-Bundle. Se REQ-TRC-1/2."
 
 // --- Organization ---
 * rest[=].resource[0].type = #Organization
@@ -178,20 +178,20 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 // informationsunderlaget — se mappings.html.
 * rest[=].resource[+].type = #Provenance
 * rest[=].resource[=].profile = Canonical(TKProvenance)
-* rest[=].resource[=].documentation = "Spårbarhetsposter för registreringar (skapande/uppdatering) av Organization, Endpoint, CapabilityStatement (API-specifikation/API-instans)."
+* rest[=].resource[=].documentation = "Spårbarhetsposter för registreringar (skapande/uppdatering) av Organization, Endpoint, CapabilityStatement (API-specifikation/API-instans) och PractitionerRole (administratörsbehörighet). Se REQ-TRC-1/3."
 * rest[=].resource[=].interaction[0].code = #read
 * rest[=].resource[=].interaction[+].code = #search-type
 * rest[=].resource[=].searchParam[0].name = "target"
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/Provenance-target"
 * rest[=].resource[=].searchParam[=].type = #reference
-* rest[=].resource[=].searchParam[=].documentation = "Den registrerade resursen, t.ex. Endpoint/{id}."
+* rest[=].resource[=].searchParam[=].documentation = "Den registrerade resursen, t.ex. Endpoint/{id} eller PractitionerRole/{id} (vem som ändrat en administratörsbehörighet)."
 
 // --- PractitionerRole (administratörsbehörighet) ---
 // Se TKAdministratorRole.fsh och REQ-ADM-*. Inte del av det ursprungliga
 // informationsunderlaget — se mappings.html.
 * rest[=].resource[+].type = #PractitionerRole
 * rest[=].resource[=].profile = Canonical(TKAdministratorRole)
-* rest[=].resource[=].documentation = "Administratörsbehörigheter: vilken organisation en administratör representerar (local-admin), eller att administratören är central-admin (organization utelämnad)."
+* rest[=].resource[=].documentation = "Administratörsbehörigheter: vilken organisation en administratör representerar (local-admin), eller att administratören är central-admin (organization utelämnad). Registreras, liksom övriga resurser, via transaction-Bundle med en Provenance-post (REQ-TRC-1/3)."
 * rest[=].resource[=].interaction[0].code = #read
 * rest[=].resource[=].interaction[+].code = #search-type
 * rest[=].resource[=].interaction[+].code = #create

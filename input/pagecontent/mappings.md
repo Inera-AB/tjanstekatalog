@@ -262,12 +262,16 @@ anpassats och adopterats här.
   per registrering i en transaction-Bundle, antogs samma mönster här:
   [`TKProvenance`](StructureDefinition-tk-provenance.html) SKA bifogas
   (`Provenance.target` pekande ut den registrerade resursen) i samma
-  transaction-Bundle som registrerar en `Organization`, `Endpoint` eller
-  `CapabilityStatement`. Detta ger både spårbarhet och atomicitet (posten
+  transaction-Bundle som registrerar en `Organization`, `Endpoint`,
+  `CapabilityStatement` eller en administratörsbehörighet
+  (`PractitionerRole`, [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)).
+  Detta ger både spårbarhet och atomicitet (posten
   och dess Provenance skapas/uppdateras tillsammans), vilket separata
   `create`/`update`-anrop per resurstyp inte garanterar. Tjänstekatalogens
   administrativa API SKA därför stödja systeminteraktionen `transaction`.
-  Se REQ-MDL-5, REQ-TRC-1/2 och `TKProvenance.fsh`.
+  Vid ändring av en administratörsbehörighet BÖR `agent.who` vara den
+  ändrande administratörens egen `TKAdministratorRole` (REQ-TRC-3).
+  Se REQ-MDL-5, REQ-TRC-1..3 och `TKProvenance.fsh`.
 
 - **API-instans ([TKAPIInstance](StructureDefinition-tk-api-instance.html))
   ger "API" en egen identitet, som komplement till `Endpoint.payload`.**
@@ -398,9 +402,9 @@ kvar sida vid sida.
 
 | Modellelement | Kard. | FHIR-profilelement | Noteringar |
 |----------------|-------|--------------------|------------|
-| registrerad resurs | 1..* | [TKProvenance.target](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
+| registrerad resurs | 1..* | [TKProvenance.target](StructureDefinition-tk-provenance.html) | Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet). REQ-TRC-1 |
 | registreringstidpunkt | 1..1 | [TKProvenance.recorded](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
-| registrerande system/konto | 1..* | [TKProvenance.agent.who](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
+| registrerande system/konto | 1..* | [TKProvenance.agent.who](StructureDefinition-tk-provenance.html) | Vid ändrad administratörsbehörighet: den ändrandes TKAdministratorRole. REQ-TRC-1, REQ-TRC-3 |
 
 #### Administratörsbehörighet → [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) (utökning, ej del av informationsunderlaget)
 

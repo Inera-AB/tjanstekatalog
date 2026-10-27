@@ -137,8 +137,9 @@ med en obligatorisk Provenance-post i en transaction-Bundle. Se
 
 | Krav | Konformans | Beskrivning | Realiseras av |
 |------|------------|-------------|----------------|
-| REQ-TRC-1 | SKA | Varje transaction-Bundle som registrerar en Organization, Endpoint eller CapabilityStatement SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna. | [TKProvenance](StructureDefinition-tk-provenance.html) |
+| REQ-TRC-1 | SKA | Varje transaction-Bundle som registrerar en Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet) SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna. | [TKProvenance](StructureDefinition-tk-provenance.html) |
 | REQ-TRC-2 | SKA | Tjänstekatalogens administrativa API SKA stödja systeminteraktionen `transaction`, så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans. | [TKAdminAPI](CapabilityStatement-tk-admin-api.html) |
+| REQ-TRC-3 | BÖR | När en administratörsbehörighet skapas eller ändras BÖR `Provenance.agent.who` peka ut den ändrande administratörens egen [TKAdministratorRole](StructureDefinition-tk-administrator-role.html), så att det framgår vem som gjorde ändringen och med vilken behörighet. | [TKProvenance](StructureDefinition-tk-provenance.html), [TKAdminAPI](CapabilityStatement-tk-admin-api.html) |
 
 ---
 
