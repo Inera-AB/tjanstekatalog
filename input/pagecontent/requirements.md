@@ -113,6 +113,7 @@ se "Avvikelser och tillägg" i [Mappning till profiler](mappings.html).
 | REQ-ADM-1 | SKA | Varje administratörsbehörighet SKA ange en administrationsnivå (`local-admin`/`central-admin`). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)`.code` |
 | REQ-ADM-2 | SKA (villkorat) | En `local-admin`-behörighet SKA ange representerad organisation, analogt med `Endpoint.managingOrganization`. `central-admin` utelämnar detta medvetet (= alla organisationer). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)`.organization` |
 | REQ-ADM-3 | BÖR | En administratörsbehörighet BÖR ange innehavare. | [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)`.practitioner` |
+| REQ-ADM-4 | SKA | En behörighet gäller bara om `active` inte är `false` och aktuell tidpunkt ligger inom `period`. Den SKA återkallas genom en uppdatering (`active = false` och/eller `period.end`), inte genom borttagning, så att återkallandet spåras med Provenance (REQ-TRC-1/3). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)`.active`/`.period`, [TKAdminAPI](CapabilityStatement-tk-admin-api.html) |
 
 ### REQ-DIST — Distribution/federering till lokala kataloger
 

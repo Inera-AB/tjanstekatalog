@@ -398,6 +398,13 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].requirement = "En administratörsbehörighet BÖR ange vilket konto/system som innehar den."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
 
+* statement[+].key = "REQ-ADM-4"
+* statement[=].label = "Giltighet och återkallande"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "En administratörsbehörighet gäller bara om `active` inte är `false` och aktuell tidpunkt ligger inom `period`. En behörighet SKA återkallas genom en uppdatering som sätter `active = false` och/eller `period.end`, inte genom att den tas bort, så att återkallandet spåras med en Provenance-post (REQ-TRC-1/3)."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+
 // --- REQ-DIST: distribution/federering till lokala kataloger ---
 //
 // Inte del av det ursprungliga informationsunderlaget. Stakeholder-beslut:

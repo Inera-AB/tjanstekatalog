@@ -225,7 +225,9 @@ anpassats och adopterats här.
   `TKEndpointSecurityMethod`s `none`). Den faktiska behörighetskontrollen
   (att en skrivning bara får avse en organisation anroparen representerar)
   är en serverimplementationsfråga, inte specificerad ytterligare av denna
-  IG — se security.html. Se REQ-ADM-1..3.
+  IG — se security.html. En behörighet återkallas med en uppdatering
+  (`active = false` och/eller `period.end`), inte med borttagning, så att
+  återkallandet spåras med Provenance. Se REQ-ADM-1..4.
 
 - **Distribution/federering till lokala kataloger
   ([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html))
@@ -413,6 +415,8 @@ kvar sida vid sida.
 | administrationsnivå | 1..1 | [TKAdministratorRole.code](StructureDefinition-tk-administrator-role.html) | `local-admin` &#124; `central-admin`. REQ-ADM-1 |
 | representerad organisation | 0..1 | [TKAdministratorRole.organization](StructureDefinition-tk-administrator-role.html) | `Reference(TKOrganization)`. Utelämnad för `central-admin` (= alla organisationer). Samma mönster som `TKEndpoint.managingOrganization`. REQ-ADM-2 |
 | innehavare | 0..1 | [TKAdministratorRole.practitioner](StructureDefinition-tk-administrator-role.html) | REQ-ADM-3 |
+| *(gäller)* | 0..1 | [TKAdministratorRole.active](StructureDefinition-tk-administrator-role.html) | `false` = återkallad. REQ-ADM-4 |
+| *(giltighetsperiod)* | 0..1 | [TKAdministratorRole.period](StructureDefinition-tk-administrator-role.html) | Återkallande kan också uttryckas med `period.end`. REQ-ADM-4 |
 
 ---
 

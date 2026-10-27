@@ -191,7 +191,7 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 // informationsunderlaget — se mappings.html.
 * rest[=].resource[+].type = #PractitionerRole
 * rest[=].resource[=].profile = Canonical(TKAdministratorRole)
-* rest[=].resource[=].documentation = "Administratörsbehörigheter: vilken organisation en administratör representerar (local-admin), eller att administratören är central-admin (organization utelämnad). Registreras, liksom övriga resurser, via transaction-Bundle med en Provenance-post (REQ-TRC-1/3)."
+* rest[=].resource[=].documentation = "Administratörsbehörigheter: vilken organisation en administratör representerar (local-admin), eller att administratören är central-admin (organization utelämnad). Registreras, liksom övriga resurser, via transaction-Bundle med en Provenance-post (REQ-TRC-1/3). Återkallas med update (active = false och/eller period.end), aldrig delete (REQ-ADM-4)."
 * rest[=].resource[=].interaction[0].code = #read
 * rest[=].resource[=].interaction[+].code = #search-type
 * rest[=].resource[=].interaction[+].code = #create
@@ -204,3 +204,7 @@ Description: "CapabilityStatement för tjänstekatalogens administrativa API (se
 * rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/PractitionerRole-practitioner"
 * rest[=].resource[=].searchParam[=].type = #reference
 * rest[=].resource[=].searchParam[=].documentation = "Sök administratörsbehörigheter efter innehavare."
+* rest[=].resource[=].searchParam[+].name = "active"
+* rest[=].resource[=].searchParam[=].definition = "http://hl7.org/fhir/SearchParameter/PractitionerRole-active"
+* rest[=].resource[=].searchParam[=].type = #token
+* rest[=].resource[=].searchParam[=].documentation = "Sök gällande (true) eller återkallade (false) behörigheter. Kontrollera även period, se REQ-ADM-4."

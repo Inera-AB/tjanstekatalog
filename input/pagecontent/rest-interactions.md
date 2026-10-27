@@ -4,7 +4,7 @@
 | [TKEndpoint](StructureDefinition-tk-endpoint.html) | read, search-type (externt); create, update (endast internt) | `organization` (standard, "förvaltar"), [`listed-by`](SearchParameter-tk-endpoint-listed-by.html) (egen, "har"), `status`, [`implements`](SearchParameter-tk-endpoint-implements.html) (stödd interoperabilitetsspecifikation), `identifier`, `_id`, `_lastUpdated`; `_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.html) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.html) internt |
 | `CapabilityStatement` ([TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.html) / [TKAPIInstance](StructureDefinition-tk-api-instance.html)) | read, search-type (externt); create, update (endast internt) | `url`, `version`, `date`, [`kind`](SearchParameter-tk-capabilitystatement-kind.html), [`instantiates`](SearchParameter-tk-capabilitystatement-instantiates.html), `_id`, `_lastUpdated` | [TKSearchAPI](CapabilityStatement-tk-search-api.html) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.html) internt |
 | [TKProvenance](StructureDefinition-tk-provenance.html) | read, search-type | `target` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.html) (internt) |
-| [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) | read, search-type, create, update | `organization`, `practitioner` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.html) (internt) |
+| [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) | read, search-type, create, update | `organization`, `practitioner`, `active` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.html) (internt) |
 
 Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning
 exponeras externt via gateway ([TKSearchAPI](CapabilityStatement-tk-search-api.html));
@@ -72,7 +72,10 @@ följer med.
 [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)
 skapas eller ändras. `agent.who` BÖR då vara den ändrande administratörens
 egen `TKAdministratorRole`, så att det framgår vem som gjorde ändringen och
-med vilken behörighet (REQ-TRC-3). Se
+med vilken behörighet (REQ-TRC-3). En behörighet återkallas på samma sätt,
+med en uppdatering som sätter `active = false` och/eller `period.end`. Den
+tas aldrig bort, så att även återkallandet får en Provenance-post
+(REQ-ADM-4). Se
 [exemplet](Provenance-TKProvenanceAdministratorRoleExample.html). Historiken
 för en behörighet hämtas med:
 
