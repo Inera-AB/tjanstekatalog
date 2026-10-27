@@ -62,7 +62,7 @@ After the release, open a pull request to [FHIR/ig-registry](https://github.com/
 
 1. Create a feature branch from `develop`, e.g. `feature/hsa-id`.
 2. Push. `validate.yml` runs SUSHI and `publish.yml` builds the branch to `https://inera-ab.github.io/tjanstekatalog/branches/feature-hsa-id/`.
-3. Open a pull request against `develop`. `pr-qa.yml` posts the IG Publisher QA report as a comment.
+3. Open a pull request against `develop`. The pull request template asks what changes, whether it is backwards compatible and, in the PR that bumps the version, for the release checklist. `pr-qa.yml` posts the IG Publisher QA report as a comment.
 4. Merge when QA is green. The feature branch's build is removed when the branch is deleted (`cleanup.yml`).
 
 Use [Conventional Commits](https://www.conventionalcommits.org/) (`feat:`, `fix:`, `docs:`, `chore:` …). `git log --oneline <previous version>..HEAD` lists the changes for the next version history entry.
@@ -90,7 +90,10 @@ The result is in `output/index.html`. `output/`, `temp/`, `template/`, `input-ca
 ## Repository structure
 
 ```
-.github/workflows/         Callers of the shared workflows in Inera-AB/fhir-ig-workflows
+.github/
+  pull_request_template.md Pull request template (Swedish): change, impact, checklists
+  ISSUE_TEMPLATE/          Issue templates for change requests and bugs
+  workflows/               Callers of the shared workflows in Inera-AB/fhir-ig-workflows
 publication-request.json   What the next release is (desc, mode, status, sequence)
 sushi-config.yaml          IG metadata, dependencies, pages and menu
 ig.ini                     IG Publisher configuration

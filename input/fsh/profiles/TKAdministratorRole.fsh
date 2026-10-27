@@ -74,3 +74,19 @@ organisationer (`central-admin`, `organization` utelämnad). Se
 * practitioner ^short = "Kontot/systemet som innehar behörigheten"
 * practitioner ^mapping.identity = "req"
 * practitioner ^mapping.map = "REQ-ADM-3"
+
+// Om behörigheten gäller. En behörighet återkallas med update (active =
+// false och/eller period.end), aldrig med delete, så att återkallandet
+// spåras med en Provenance-post som alla andra ändringar (REQ-TRC-1/3).
+// En behörighet gäller bara om active inte är false och aktuell tidpunkt
+// ligger inom period.
+* active MS
+* active ^short = "Om behörigheten gäller (false = återkallad)"
+* active ^mapping.identity = "req"
+* active ^mapping.map = "REQ-ADM-4"
+* period MS
+* period.start MS
+* period.end MS
+* period ^short = "Behörighetens giltighetsperiod"
+* period ^mapping.identity = "req"
+* period ^mapping.map = "REQ-ADM-4"

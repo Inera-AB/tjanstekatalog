@@ -339,7 +339,7 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-TRC-1"
 * statement[=].label = "Provenance krävs vid registrering"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Varje transaction-Bundle som registrerar (skapar/uppdaterar) en Organization, Endpoint eller CapabilityStatement (API-specifikation/API-instans) SKA innehålla minst en Provenance-post (profilerad som TKProvenance) som via `Provenance.target` pekar ut den/de registrerade resurserna."
+* statement[=].requirement = "Varje transaction-Bundle som registrerar (skapar/uppdaterar) en Organization, Endpoint, CapabilityStatement (API-specifikation/API-instans) eller PractitionerRole (administratörsbehörighet, TKAdministratorRole) SKA innehålla minst en Provenance-post (profilerad som TKProvenance) som via `Provenance.target` pekar ut den/de registrerade resurserna."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"
 
 * statement[+].key = "REQ-TRC-2"
@@ -347,6 +347,13 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].conformance[0] = #SHALL
 * statement[=].requirement = "Tjänstekatalogens administrativa API SKA stödja systeminteraktionen `transaction` (en Bundle av typen transaction), så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
+
+* statement[+].key = "REQ-TRC-3"
+* statement[=].label = "Spårbarhet för ändrade administratörsbehörigheter"
+* statement[=].conformance[0] = #SHOULD
+* statement[=].requirement = "När en administratörsbehörighet (TKAdministratorRole) skapas eller ändras BÖR `Provenance.agent.who` peka ut den ändrande administratörens egen TKAdministratorRole, så att det framgår både vem som gjorde ändringen och med vilken behörighet. Sökbart med `Provenance?target=PractitionerRole/[id]`."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 // --- REQ-EXP: exponering (sök-API externt via gateway, admin-API internt) ---
 //
@@ -390,6 +397,13 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].conformance[0] = #SHOULD
 * statement[=].requirement = "En administratörsbehörighet BÖR ange vilket konto/system som innehar den."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
+
+* statement[+].key = "REQ-ADM-4"
+* statement[=].label = "Giltighet och återkallande"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "En administratörsbehörighet gäller bara om `active` inte är `false` och aktuell tidpunkt ligger inom `period`. En behörighet SKA återkallas genom en uppdatering som sätter `active = false` och/eller `period.end`, inte genom att den tas bort, så att återkallandet spåras med en Provenance-post (REQ-TRC-1/3)."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 // --- REQ-DIST: distribution/federering till lokala kataloger ---
 //

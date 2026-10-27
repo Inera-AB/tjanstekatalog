@@ -225,7 +225,9 @@ anpassats och adopterats här.
   `TKEndpointSecurityMethod`s `none`). Den faktiska behörighetskontrollen
   (att en skrivning bara får avse en organisation anroparen representerar)
   är en serverimplementationsfråga, inte specificerad ytterligare av denna
-  IG — se security.html. Se REQ-ADM-1..3.
+  IG — se security.html. En behörighet återkallas med en uppdatering
+  (`active = false` och/eller `period.end`), inte med borttagning, så att
+  återkallandet spåras med Provenance. Se REQ-ADM-1..4.
 
 - **Distribution/federering till lokala kataloger
   ([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html))
@@ -262,12 +264,16 @@ anpassats och adopterats här.
   per registrering i en transaction-Bundle, antogs samma mönster här:
   [`TKProvenance`](StructureDefinition-tk-provenance.html) SKA bifogas
   (`Provenance.target` pekande ut den registrerade resursen) i samma
-  transaction-Bundle som registrerar en `Organization`, `Endpoint` eller
-  `CapabilityStatement`. Detta ger både spårbarhet och atomicitet (posten
+  transaction-Bundle som registrerar en `Organization`, `Endpoint`,
+  `CapabilityStatement` eller en administratörsbehörighet
+  (`PractitionerRole`, [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)).
+  Detta ger både spårbarhet och atomicitet (posten
   och dess Provenance skapas/uppdateras tillsammans), vilket separata
   `create`/`update`-anrop per resurstyp inte garanterar. Tjänstekatalogens
   administrativa API SKA därför stödja systeminteraktionen `transaction`.
-  Se REQ-MDL-5, REQ-TRC-1/2 och `TKProvenance.fsh`.
+  Vid ändring av en administratörsbehörighet BÖR `agent.who` vara den
+  ändrande administratörens egen `TKAdministratorRole` (REQ-TRC-3).
+  Se REQ-MDL-5, REQ-TRC-1..3 och `TKProvenance.fsh`.
 
 - **API-instans ([TKAPIInstance](StructureDefinition-tk-api-instance.html))
   ger "API" en egen identitet, som komplement till `Endpoint.payload`.**
@@ -398,9 +404,9 @@ kvar sida vid sida.
 
 | Modellelement | Kard. | FHIR-profilelement | Noteringar |
 |----------------|-------|--------------------|------------|
-| registrerad resurs | 1..* | [TKProvenance.target](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
+| registrerad resurs | 1..* | [TKProvenance.target](StructureDefinition-tk-provenance.html) | Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet). REQ-TRC-1 |
 | registreringstidpunkt | 1..1 | [TKProvenance.recorded](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
-| registrerande system/konto | 1..* | [TKProvenance.agent.who](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
+| registrerande system/konto | 1..* | [TKProvenance.agent.who](StructureDefinition-tk-provenance.html) | Vid ändrad administratörsbehörighet: den ändrandes TKAdministratorRole. REQ-TRC-1, REQ-TRC-3 |
 
 #### Administratörsbehörighet → [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) (utökning, ej del av informationsunderlaget)
 
@@ -409,6 +415,8 @@ kvar sida vid sida.
 | administrationsnivå | 1..1 | [TKAdministratorRole.code](StructureDefinition-tk-administrator-role.html) | `local-admin` &#124; `central-admin`. REQ-ADM-1 |
 | representerad organisation | 0..1 | [TKAdministratorRole.organization](StructureDefinition-tk-administrator-role.html) | `Reference(TKOrganization)`. Utelämnad för `central-admin` (= alla organisationer). Samma mönster som `TKEndpoint.managingOrganization`. REQ-ADM-2 |
 | innehavare | 0..1 | [TKAdministratorRole.practitioner](StructureDefinition-tk-administrator-role.html) | REQ-ADM-3 |
+| *(gäller)* | 0..1 | [TKAdministratorRole.active](StructureDefinition-tk-administrator-role.html) | `false` = återkallad. REQ-ADM-4 |
+| *(giltighetsperiod)* | 0..1 | [TKAdministratorRole.period](StructureDefinition-tk-administrator-role.html) | Återkallande kan också uttryckas med `period.end`. REQ-ADM-4 |
 
 ---
 
