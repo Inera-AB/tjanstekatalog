@@ -124,12 +124,14 @@ anpassats och adopterats här.
   | Identifierare | Exempel | Format |
   |---|---|---|
   | Organisationsnummer | `2321000016` (skrivs ofta `232100-0016`) | Tio siffror utan bindestreck. Vid sökning godtas även formen med bindestreck. |
-  | HSA-id | `SE2321000016-1003` | `SE`, den direktanslutna producentens organisationsnummer (tio siffror utan bindestreck), ett bindestreck och en identifierande del. Bindestrecket ingår i identifieraren; värdet matchas exakt. |
+  | HSA-id | `SE2321000016-1003` | 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck, enligt [HSA:s styrande dokument](https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument). Värdet matchas exakt. |
 
-  Organisationsnumret i ett HSA-id avser den direktanslutna producenten,
-  inte nödvändigtvis den organisatoriska enhet som HSA-id:t identifierar.
-  Det får därför inte användas för att härleda organisationens eget
-  organisationsnummer. Organisationsnummer anges bara på den juridiska
+  Ett HSA-id har vanligen formen `SE`, den direktanslutna producentens
+  organisationsnummer, ett bindestreck och en identifierande del. Formen är
+  inte garanterad, och det finns undantag även i produktion. Organisationsnumret
+  i den vanliga formen avser dessutom producenten, inte nödvändigtvis den
+  enhet som HSA-id:t identifierar. Ingenting får därför härledas ur ett
+  HSA-id, inte heller organisationens organisationsnummer. Organisationsnummer anges bara på den juridiska
   personen; underliggande enheter pekar på den via `Organization.partOf`
   (samma hierarkimönster som IHE mCSD). Se REQ-ORG-6..9 och REQ-SRCH-5.
 
@@ -592,6 +594,10 @@ i deras egen IG.
   härledas ur HSA-id:t, eftersom organisationsnumret där avser den
   direktanslutna producenten. Hur registervården av organisationsnumret
   säkerställs (t.ex. källa i HSA) är inte löst i detta utkast.
+- **Kontroll mot HSA-katalogen.** Formatkontrollen (REQ-ORG-6) säkerställer
+  inte att HSA-id:t finns. Admin-API:t skulle kunna slå upp HSA-id:t i
+  HSA-katalogen vid registrering, så att bara existerande HSA-id godtas. Om
+  och hur det ska göras är inte bestämt.
 - **Enskilda näringsidkare saknar organisationsnummer.** EHM identifierar
   dem med personnummer eller samordningsnummer, som denna IG medvetet har
   valt bort (REQ-WRT-5). Hur sådana vårdgivare ska synkroniseras till EHM är
