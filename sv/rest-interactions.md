@@ -107,7 +107,7 @@ En organisation identifieras i första hand med sitt HSA-id och i andra hand med
 | HSA-id | `urn:oid:1.2.752.29.4.19` | Exakt som det är skrivet, t.ex.`SE2321000016-1003` | Exakt matchning. Bindestrecket ingår i identifieraren och tas aldrig bort. |
 | Organisationsnummer | `urn:oid:2.5.4.97` | Tio siffror utan bindestreck, t.ex.`2321000016` | Både`232100-0016`och`2321000016`ger samma träff. |
 
-HSA-id består av prefixet `SE`, organisationsnumret för den direktanslutna producenten i formatet tio siffror utan bindestreck, samt ett bindestreck och en efterföljande identifierande del. Organisationsnumret i HSA-id:t avser den direktanslutna producenten och behöver inte vara organisationsnumret för den enhet som HSA-id:t identifierar. Klienter och Synkroniseringstjänsten får därför aldrig härleda ett organisationsnummer ur ett HSA-id.
+Ett HSA-id är 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck, enligt [HSA:s styrande dokument](https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument). Det har vanligen formen `SE`, den direktanslutna producentens organisationsnummer, ett bindestreck och en identifierande del, men formen är inte garanterad. Klienter och Synkroniseringstjänsten får därför aldrig tolka ett HSA-id eller härleda ett organisationsnummer ur det.
 
 ```
 GET [base]/Organization?identifier=urn:oid:1.2.752.29.4.19|SE2321000016-1003

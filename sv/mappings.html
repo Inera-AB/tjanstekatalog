@@ -341,15 +341,17 @@ formatregler:</p>
         <tr>
           <td>HSA-id</td>
           <td><code class="language-plaintext highlighter-rouge">SE2321000016-1003</code></td>
-          <td><code class="language-plaintext highlighter-rouge">SE</code>, den direktanslutna producentens organisationsnummer (tio siffror utan bindestreck), ett bindestreck och en identifierande del. Bindestrecket ingår i identifieraren; värdet matchas exakt.</td>
+          <td>1–31 tecken ur a–z, A–Z, 0–9 och bindestreck, enligt <a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">HSA:s styrande dokument</a>. Värdet matchas exakt.</td>
         </tr>
       </tbody>
     </table>
 
-    <p>Organisationsnumret i ett HSA-id avser den direktanslutna producenten,
-inte nödvändigtvis den organisatoriska enhet som HSA-id:t identifierar.
-Det får därför inte användas för att härleda organisationens eget
-organisationsnummer. Organisationsnummer anges bara på den juridiska
+    <p>Ett HSA-id har vanligen formen <code class="language-plaintext highlighter-rouge">SE</code>, den direktanslutna producentens
+organisationsnummer, ett bindestreck och en identifierande del. Formen är
+inte garanterad, och det finns undantag även i produktion. Organisationsnumret
+i den vanliga formen avser dessutom producenten, inte nödvändigtvis den
+enhet som HSA-id:t identifierar. Ingenting får därför härledas ur ett
+HSA-id, inte heller organisationens organisationsnummer. Organisationsnummer anges bara på den juridiska
 personen; underliggande enheter pekar på den via <code class="language-plaintext highlighter-rouge">Organization.partOf</code>
 (samma hierarkimönster som IHE mCSD). Se REQ-ORG-6..9 och REQ-SRCH-5.</p>
   </li>
@@ -1359,6 +1361,10 @@ sekundär identifierare på den juridiska personen (REQ-ORG-8) och får inte
 härledas ur HSA-id:t, eftersom organisationsnumret där avser den
 direktanslutna producenten. Hur registervården av organisationsnumret
 säkerställs (t.ex. källa i HSA) är inte löst i detta utkast.</li>
+  <li><strong>Kontroll mot HSA-katalogen.</strong> Formatkontrollen (REQ-ORG-6) säkerställer
+inte att HSA-id:t finns. Admin-API:t skulle kunna slå upp HSA-id:t i
+HSA-katalogen vid registrering, så att bara existerande HSA-id godtas. Om
+och hur det ska göras är inte bestämt.</li>
   <li><strong>Enskilda näringsidkare saknar organisationsnummer.</strong> EHM identifierar
 dem med personnummer eller samordningsnummer, som denna IG medvetet har
 valt bort (REQ-WRT-5). Hur sådana vårdgivare ska synkroniseras till EHM är
@@ -1411,8 +1417,8 @@ att profilerna utvecklas. Mappningar kan också uttryckas med FHIR
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-10-27 17:54:00 +0000">
-    2026-10-27
+  <span title="2026-10-28 11:26:00 +0000">
+    2026-10-28
   </span>
 
           <br/>

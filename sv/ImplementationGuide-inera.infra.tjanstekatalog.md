@@ -14,7 +14,7 @@
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-10-27T17:54:53+00:00",
+  "date" : "2026-10-28T11:26:14+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -51,7 +51,7 @@
     }],
     "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
     "packageId" : "hl7.fhir.uv.extensions.r5",
-    "version" : "5.3.0"
+    "version" : "5.4.0"
   }],
   "definition" : {
     "extension" : [{

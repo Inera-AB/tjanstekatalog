@@ -160,14 +160,14 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-organization
       "path" : "Organization.identifier",
       "sliceName" : "hsaId",
       "short" : "HSA-id (primär identifierare och logisk adress)",
-      "definition" : "Organisationens HSA-id. Består av prefixet `SE`, organisationsnumret för den direktanslutna producenten i formatet tio siffror utan bindestreck, samt ett bindestreck och en efterföljande identifierande del. Organisationsnumret i HSA-id:t behöver inte vara organisationsnumret för den organisatoriska enhet som HSA-id:t identifierar. Värdet lagras, returneras och söks exakt som det är skrivet.",
+      "definition" : "Organisationens HSA-id. Enligt HSA:s styrande dokument är ett HSA-id 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck. Vanligen består det av `SE`, den direktanslutna producentens organisationsnummer utan bindestreck, ett bindestreck och en identifierande del (t.ex. `SE2321000016-1003`), men det finns undantag även i produktion. Ingenting får därför härledas ur ett HSA-id, inte heller ett organisationsnummer. Värdet lagras, returneras och söks exakt som det är skrivet.",
       "min" : 1,
       "max" : "1",
       "constraint" : [{
         "key" : "tk-org-hsaid-format",
         "severity" : "error",
-        "human" : "HSA-id består av SE, tio siffror (den direktanslutna producentens organisationsnummer utan bindestreck), ett bindestreck och en efterföljande identifierande del.",
-        "expression" : "value.matches('^SE[0-9]{10}-.+$')",
+        "human" : "HSA-id är 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck, enligt HSA:s styrande dokument.",
+        "expression" : "value.matches('^[a-zA-Z0-9-]{1,31}$')",
         "source" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
       }],
       "mustSupport" : true,

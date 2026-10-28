@@ -363,13 +363,12 @@ med organisationsnummer (REQ-ORG-6..9). De två följer olika formatregler:</p>
   </tbody>
 </table>
 
-<p>HSA-id består av prefixet <code class="language-plaintext highlighter-rouge">SE</code>, organisationsnumret för den direktanslutna
-producenten i formatet tio siffror utan bindestreck, samt ett bindestreck
-och en efterföljande identifierande del. Organisationsnumret i HSA-id:t
-avser den direktanslutna producenten och behöver inte vara
-organisationsnumret för den enhet som HSA-id:t identifierar. Klienter och
-Synkroniseringstjänsten får därför aldrig härleda ett organisationsnummer
-ur ett HSA-id.</p>
+<p>Ett HSA-id är 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck, enligt
+<a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">HSA:s styrande dokument</a>. Det har vanligen formen <code class="language-plaintext highlighter-rouge">SE</code>,
+den direktanslutna producentens organisationsnummer, ett bindestreck och en
+identifierande del, men formen är inte garanterad. Klienter och
+Synkroniseringstjänsten får därför aldrig tolka ett HSA-id eller härleda ett
+organisationsnummer ur det.</p>
 
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Organization?identifier=urn:oid:1.2.752.29.4.19|SE2321000016-1003
 GET [base]/Organization?identifier=urn:oid:2.5.4.97|232100-0016
@@ -564,8 +563,8 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-10-27 17:54:00 +0000">
-    2026-10-27
+  <span title="2026-10-28 11:26:00 +0000">
+    2026-10-28
   </span>
 
           <br/>

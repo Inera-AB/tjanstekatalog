@@ -3,7 +3,7 @@ IneraTjanstekatalog : Validation Results
 
 err = 0, warn = 124, info = 112, broken links = 0
 IG Publisher Version: 3.0.1
-Generated Tue Oct 27 17:55:39 UTC 2026. FHIR version 5.0.0 for inera.infra.tjanstekatalog#0.1.0 (canonical = https://fhir.inera.se/ig/tjanstekatalog)
+Generated Wed Oct 28 11:27:29 UTC 2026. FHIR version 5.0.0 for inera.infra.tjanstekatalog#0.1.0 (canonical = https://fhir.inera.se/ig/tjanstekatalog)
  Build Errors : 0 / 80 / 0
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ActorDefinition-tk-synkroniseringstjanst : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-TKAPIInstanceExample : 0 / 0 / 3

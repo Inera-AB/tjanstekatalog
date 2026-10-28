@@ -396,7 +396,7 @@ problem.</p>
     <tr>
       <td>REQ-ORG-6</td>
       <td>SKA</td>
-      <td>Varje organisation SKA ha exakt ett HSA-id (<code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.19</code>), som är dess primära identifierare. Format: <code class="language-plaintext highlighter-rouge">SE</code>, den direktanslutna producentens organisationsnummer (tio siffror utan bindestreck), ett bindestreck och en identifierande del, t.ex. <code class="language-plaintext highlighter-rouge">SE2321000016-1003</code>. Organisationsnumret i HSA-id:t SKA INTE användas för att härleda organisationens eget organisationsnummer.</td>
+      <td>Varje organisation SKA ha exakt ett HSA-id (<code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.19</code>), som är dess primära identifierare. Format enligt <a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">HSA:s styrande dokument</a>: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck. Den vanliga formen <code class="language-plaintext highlighter-rouge">SE</code> + producentens organisationsnummer + suffix (t.ex. <code class="language-plaintext highlighter-rouge">SE2321000016-1003</code>) är inte garanterad, och ingenting SKA härledas ur ett HSA-id, inte heller organisationsnumret.</td>
       <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a><code class="language-plaintext highlighter-rouge">.identifier</code> (slice <code class="language-plaintext highlighter-rouge">hsaId</code>)</td>
     </tr>
     <tr>
@@ -747,8 +747,8 @@ eller id.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-10-27 17:54:00 +0000">
-    2026-10-27
+  <span title="2026-10-28 11:26:00 +0000">
+    2026-10-28
   </span>
 
           <br/>

@@ -72,7 +72,7 @@ This material derives from the HL7 Terminology (THO). THO is copyright &copy;198
           Paket inera.infra.tjanstekatalog#0.1.0 baserat på FHIR 5.0.0.
           Genererad 
   
-    2026-10-27
+    2026-10-28
   
 
           
@@ -830,8 +830,8 @@ FHIR på Inera <span aria-hidden="true">↗</span>          </a>
           Paket inera.infra.tjanstekatalog#0.1.0 baserat på           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>
 .
           Genererad 
-            <span title="2026-10-27 17:54:00 +0000">
-    2026-10-27
+            <span title="2026-10-28 11:26:00 +0000">
+    2026-10-28
   </span>
 
 
@@ -943,6 +943,33 @@ sjukvård.
       </tr>
       <tr>
         <td>
+          <a href="sv/mappings.html">web</a>
+        </td>
+        <td>
+          <a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">inera.atlassian.net</a>
+        </td>
+        <td>
+1–31 tecken ur a–z, A–Z, 0–9 och bindestreck, enligt           <a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">HSA:s styrande dokument</a>
+. Värdet matchas exakt.
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="sv/requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">inera.atlassian.net</a>
+        </td>
+        <td>
+Varje organisation SKA ha exakt ett HSA-id (          <code class="language-plaintext highlighter-rouge">urn:oid:1.2.752.29.4.19</code>
+), som är dess primära identifierare. Format enligt           <a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">HSA:s styrande dokument</a>
+: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck. Den vanliga formen           <code class="language-plaintext highlighter-rouge">SE</code>
+ + producentens organisationsnummer + suffix (t.ex.           <code class="language-plaintext highlighter-rouge">SE2321000016-1003</code>
+) är inte garanterad, och ingenting SKA härledas ur ett HSA-id, inte heller organisationsnumret.
+        </td>
+      </tr>
+      <tr>
+        <td>
           <a href="sv/requirements.html">web</a>
         </td>
         <td>
@@ -975,6 +1002,24 @@ EHM:s           <a href="http://electronichealth.se/fhir/NDI/CapabilityStatement
         <td>
           <a href="StructureDefinition-tk-organization.html">TKOrganization</a>
 , EHM:s           <a href="http://electronichealth.se/fhir/NDI/StructureDefinition/organization-er">Organization-profil</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="sv/rest-interactions.html">web</a>
+        </td>
+        <td>
+          <a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">inera.atlassian.net</a>
+        </td>
+        <td>
+Ett HSA-id är 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck, enligt
+          <a href="https://inera.atlassian.net/wiki/spaces/OIKH/pages/346985304/Styrande+dokument">HSA:s styrande dokument</a>
+. Det har vanligen formen           <code class="language-plaintext highlighter-rouge">SE</code>
+,
+den direktanslutna producentens organisationsnummer, ett bindestreck och en
+identifierande del, men formen är inte garanterad. Klienter och
+Synkroniseringstjänsten får därför aldrig tolka ett HSA-id eller härleda ett
+organisationsnummer ur det.
         </td>
       </tr>
       <tr>
