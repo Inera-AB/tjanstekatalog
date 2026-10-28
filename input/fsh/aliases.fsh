@@ -29,8 +29,8 @@ Alias: $capabilitystatement-expectation = http://hl7.org/fhir/StructureDefinitio
 Alias: $organisationsnummer = urn:oid:2.5.4.97
 
 // HSA-id, the primary organisation identifier in tjänstekatalogen (REQ-ORG-6).
-// Format: "SE" + the 10-digit organisationsnummer (no hyphen) of the directly
-// connected producer + "-" + an identifying part, e.g. SE2321000016-1003.
-// The embedded organisationsnummer belongs to the directly connected
-// producer, not necessarily to the unit the HSA-id identifies.
+// HSA's governing documents only require 1-31 characters from [a-zA-Z0-9-]
+// (invariant tk-org-hsaid-format), and production HSA-ids have exceptions to
+// the usual "SE" + producer organisationsnummer + "-" + suffix shape. That
+// shape is informative only; nothing may be parsed out of an HSA-id.
 Alias: $hsaid = urn:oid:1.2.752.29.4.19

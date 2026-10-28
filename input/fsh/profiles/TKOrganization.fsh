@@ -50,9 +50,10 @@ istället av [TKEndpoint](StructureDefinition-tk-endpoint.html)s
 // Organisationsnummer är sekundärt och anges bara på den juridiska personen
 // (REQ-ORG-2/8). De två följer OLIKA formatregler: organisationsnummer lagras
 // som 10 siffror utan bindestreck, medan bindestrecket i ett HSA-id ingår i
-// identifieraren och aldrig normaliseras bort. Organisationsnumret inuti ett
-// HSA-id avser den direktanslutna producenten och får inte härledas till
-// organisationens eget organisationsnummer.
+// identifieraren och aldrig normaliseras bort. HSA-id valideras bara mot
+// HSA:s styrande dokument (1-31 tecken ur [a-zA-Z0-9-]); den vanliga formen
+// SE + organisationsnummer + suffix är inte garanterad, och ingenting får
+// härledas ur ett HSA-id, inte heller organisationens organisationsnummer.
 //
 // Slicingen är öppen så att fler identifierartyper kan läggas till utan att
 // profilen bryts, men admin-API:t godtar i denna version bara systemen nedan
@@ -74,7 +75,7 @@ istället av [TKEndpoint](StructureDefinition-tk-endpoint.html)s
 * identifier[hsaId].value ^short = "HSA-id, t.ex. SE2321000016-1003"
 * identifier[hsaId] obeys tk-org-hsaid-format
 * identifier[hsaId] ^short = "HSA-id (primär identifierare och logisk adress)"
-* identifier[hsaId] ^definition = "Organisationens HSA-id. Består av prefixet `SE`, organisationsnumret för den direktanslutna producenten i formatet tio siffror utan bindestreck, samt ett bindestreck och en efterföljande identifierande del. Organisationsnumret i HSA-id:t behöver inte vara organisationsnumret för den organisatoriska enhet som HSA-id:t identifierar. Värdet lagras, returneras och söks exakt som det är skrivet."
+* identifier[hsaId] ^definition = "Organisationens HSA-id. Enligt HSA:s styrande dokument är ett HSA-id 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck. Vanligen består det av `SE`, den direktanslutna producentens organisationsnummer utan bindestreck, ett bindestreck och en identifierande del (t.ex. `SE2321000016-1003`), men det finns undantag även i produktion. Ingenting får därför härledas ur ett HSA-id, inte heller ett organisationsnummer. Värdet lagras, returneras och söks exakt som det är skrivet."
 * identifier[hsaId] ^mapping.identity = "req"
 * identifier[hsaId] ^mapping.map = "REQ-ORG-6, REQ-ORG-7"
 
@@ -109,8 +110,8 @@ istället av [TKEndpoint](StructureDefinition-tk-endpoint.html)s
 * endpoint ^mapping.map = "REQ-ORG-3, REQ-SRCH-1"
 
 Invariant: tk-org-hsaid-format
-Description: "HSA-id består av SE, tio siffror (den direktanslutna producentens organisationsnummer utan bindestreck), ett bindestreck och en efterföljande identifierande del."
-Expression: "value.matches('^SE[0-9]{10}-.+$')"
+Description: "HSA-id är 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck, enligt HSA:s styrande dokument."
+Expression: "value.matches('^[a-zA-Z0-9-]{1,31}$')"
 Severity: #error
 
 Invariant: tk-org-orgnr-format

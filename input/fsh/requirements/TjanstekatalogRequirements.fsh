@@ -188,7 +188,7 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-ORG-6"
 * statement[=].label = "HSA-id som primär identifierare"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Varje organisation SKA ha exakt ett HSA-id (system `urn:oid:1.2.752.29.4.19`), som är organisationens primära identifierare och logiska adress. HSA-id består av prefixet `SE`, organisationsnumret för den direktanslutna producenten i formatet tio siffror utan bindestreck, samt ett bindestreck och en efterföljande identifierande del (t.ex. `SE2321000016-1003`). Organisationsnumret i HSA-id:t avser den direktanslutna producenten och SKA INTE användas för att härleda organisationens eget organisationsnummer."
+* statement[=].requirement = "Varje organisation SKA ha exakt ett HSA-id (system `urn:oid:1.2.752.29.4.19`), som är organisationens primära identifierare och logiska adress. Enligt HSA:s styrande dokument är ett HSA-id 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck (`^[a-zA-Z0-9-]{1,31}$`). Den vanliga formen, `SE` + den direktanslutna producentens organisationsnummer + bindestreck + identifierande del (t.ex. `SE2321000016-1003`), är inte garanterad. Ingenting SKA härledas ur ett HSA-id, inte heller organisationens organisationsnummer."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization"
 
 * statement[+].key = "REQ-ORG-7"
