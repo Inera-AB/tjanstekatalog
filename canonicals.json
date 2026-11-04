@@ -54,6 +54,20 @@
   "name" : "IneraTjanstekatalog"
 },
 {
+  "id" : "hsa-id",
+  "type" : "NamingSystem",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/hsa-id",
+  "version" : "0.1.0",
+  "name" : "TKHsaIdNamingSystem"
+},
+{
+  "id" : "organisationsnummer",
+  "type" : "NamingSystem",
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/organisationsnummer",
+  "version" : "0.1.0",
+  "name" : "TKOrganisationsnummerNamingSystem"
+},
+{
   "id" : "tk-tjanstekatalog-requirements",
   "type" : "Requirements",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements",

@@ -1,0 +1,43 @@
+{
+  "resourceType" : "NamingSystem",
+  "id" : "hsa-id",
+  "language" : "sv",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: NamingSystem hsa-id</b></p><a name=\"hsa-id\"> </a><a name=\"hchsa-id\"> </a><h3>Sammanfattning</h3><table class=\"grid\"><tr><td>Definierande URL</td><td>https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/hsa-id</td></tr><tr><td>Version</td><td>0.1.0</td></tr><tr><td>Namn</td><td>TKHsaIdNamingSystem</td></tr><tr><td>Titel</td><td>HSA-id</td></tr><tr><td>Status</td><td>active</td></tr><tr><td>Definition</td><td><div><p>Identifierarsystemet för HSA-id, den primära organisationsidentifieraren i tjänstekatalogen (REQ-ORG-6). Formatet följer HSA:s styrande dokument: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck.</p>\n</div></td></tr><tr><td>Utgivare</td><td>Inera AB</td></tr></table><h3>Identifierare</h3><table class=\"grid\"><tr><td><b>Typ</b></td><td><b>Värde</b></td><td><b>Föredragen</b></td></tr><tr><td>URI</td><td>urn:oid:1.2.752.29.4.19</td><td>true</td></tr><tr><td>OID</td><td>1.2.752.29.4.19</td><td/></tr></table></div>"
+  },
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/hsa-id",
+  "version" : "0.1.0",
+  "name" : "TKHsaIdNamingSystem",
+  "title" : "HSA-id",
+  "status" : "active",
+  "kind" : "identifier",
+  "date" : "2026-11-04",
+  "publisher" : "Inera AB",
+  "contact" : [{
+    "name" : "Inera AB",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "responsible" : "Inera AB",
+  "description" : "Identifierarsystemet för HSA-id, den primära organisationsidentifieraren i tjänstekatalogen (REQ-ORG-6). Formatet följer HSA:s styrande dokument: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "SE",
+      "display" : "Sweden"
+    }]
+  }],
+  "usage" : "Används i TKOrganization.identifier (slicen hsaId) och för administratörer i TKAdministratorRole.practitioner.",
+  "uniqueId" : [{
+    "type" : "uri",
+    "value" : "urn:oid:1.2.752.29.4.19",
+    "preferred" : true
+  },
+  {
+    "type" : "oid",
+    "value" : "1.2.752.29.4.19"
+  }]
+}

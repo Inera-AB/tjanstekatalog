@@ -4,13 +4,13 @@
 
 Profil: [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
 
-Exempelregionens vårdcentral (urn:oid:1.2.752.29.4.19#SE2321000016-2001)
+Exempelregionens vårdcentral (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-2001)
 
 -------
 
 | | |
 | :--- | :--- |
-| Part Of: | [Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)](Organization-TKOrganizationExample.md) |
+| Part Of: | [Exempelregionen (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-1003)](Organization-TKOrganizationExample.md) |
 
 
 

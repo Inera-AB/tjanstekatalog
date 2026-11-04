@@ -4,7 +4,7 @@
 
 Profil: [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
 
-Härkomst för [Lokal administratör, Exempelregionen: Lokal administratör at Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)](PractitionerRole-TKLocalAdministratorRoleExample.md)
+Härkomst för [Lokal administratör, Exempelregionen: Lokal administratör at Exempelregionen (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-1003)](PractitionerRole-TKLocalAdministratorRoleExample.md)
 
 Sammanfattning
 

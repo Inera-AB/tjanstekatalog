@@ -12,14 +12,14 @@
   fhir:language [ fhir:v "sv"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"sv\" lang=\"sv\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.infra.tjanstekatalog</b></p><a name=\"inera.infra.tjanstekatalog\"> </a><a name=\"hcinera.infra.tjanstekatalog\"> </a><div style=\"display: inline-block; background-color: #d9e0e7; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Språk: sv</p></div><h2>IneraTjanstekatalog</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog</pre><div><p>FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat.</p>\n</div></div>"^^rdf:XMLLiteral ]
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"sv\" lang=\"sv\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.infra.tjanstekatalog</b></p><a name=\"inera.infra.tjanstekatalog\"> </a><a name=\"hcinera.infra.tjanstekatalog\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Språk: sv</p></div><h2>IneraTjanstekatalog</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog</pre><div><p>FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat.</p>\n</div></div>"^^rdf:XMLLiteral ]
   ] ; # 
   fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog"^^xsd:anyURI] ; # 
   fhir:version [ fhir:v "0.1.0"] ; # 
   fhir:name [ fhir:v "IneraTjanstekatalog"] ; # 
   fhir:title [ fhir:v "Tjänstekatalogen"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-10-28T11:26:14+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-11-04T14:56:15+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
@@ -373,6 +373,21 @@
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:string ;
+           fhir:v "NamingSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/hsa-id> ;
+         fhir:reference [ fhir:v "NamingSystem/hsa-id" ]
+       ] ;
+       fhir:name [ fhir:v "HSA-id" ] ;
+       fhir:description [ fhir:v "Identifierarsystemet för HSA-id, den primära organisationsidentifieraren i tjänstekatalogen (REQ-ORG-6). Formatet följer HSA:s styrande dokument: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
            fhir:v "StructureDefinition:logical"
          ]
        ] ) ;
@@ -431,6 +446,21 @@
        ] ;
        fhir:name [ fhir:v "Kravkatalog: Tjänstekatalogen" ] ;
        fhir:description [ fhir:v "Formell kravkatalog för tjänstekatalogen, med spårning från krav till realiserande FHIR-artefakter." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "NamingSystem"
+         ]
+       ] ) ;
+       fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/organisationsnummer> ;
+         fhir:reference [ fhir:v "NamingSystem/organisationsnummer" ]
+       ] ;
+       fhir:name [ fhir:v "Organisationsnummer" ] ;
+       fhir:description [ fhir:v "Identifierarsystemet för svenska organisationsnummer som tjänstekatalogen använder (REQ-ORG-2): samma system som E-hälsomyndighetens Organization Endpoint Writer kräver. Värdet anges som tio siffror utan bindestreck." ] ;
        fhir:isExample [ fhir:v false ]
      ] [
        fhir:extension ( [

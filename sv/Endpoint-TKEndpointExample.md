@@ -15,7 +15,7 @@ Exempelregionens patientinformations-API (HL7 FHIR): https://api.exempelregionen
 | Connection Type: | HL7 FHIR | | |
 | Payload: | * Payload Type: Any
  | | |
-| Managed By: | [Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)](Organization-TKOrganizationExample.md) | | |
+| Managed By: | [Exempelregionen (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-1003)](Organization-TKOrganizationExample.md) | | |
 | [Säkerhetsmetod](StructureDefinition-tk-endpoint-security-method.md) | OAuth 2.0 client credentials | | |
 | [URL till auktorisationsserver](StructureDefinition-tk-endpoint-authorization-server-url.md) | [https://auth.exempelregionen.se/oauth2/token](https://auth.exempelregionen.se/oauth2/token) | | |
 

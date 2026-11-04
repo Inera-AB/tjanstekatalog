@@ -50,7 +50,6 @@
 	  <script type="text/javascript" src="assets/js/prism.js"></script>
 	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
-    <script type="text/javascript" src="assets/js/mermaid.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
     <style type="text/css">h2{--heading-prefix:"17.14"}
     h3,h4,h5,h6{--heading-prefix:"17.14"}</style>
@@ -391,7 +390,7 @@ egen resurs med egen identitet och egen giltighetsperiod — se
 <td style="" class="hierarchy xhtCellBorder0"></td>
 <td style="" class="hierarchy xhtCellBorder0">1..*</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/extensibility.html#Extension">Extension</a></td>
-<td style="" class="hierarchy xhtCellBorder0">Extension<br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/><br/><span class="xhtPieceBold">Slicing Note: </span>The rules on this element (including its children) apply to all the slices, but are not repeated in them</td></tr>
+<td style="" class="hierarchy xhtCellBorder0">Extension<br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/></td></tr>
 <tr fhir="generated-heirarchy" id="k-aca" class="xhtRowBorder0 xhtRowEven" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck134.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_slicer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_slice_item.png" alt="" style="background-color: white; background-color: inherit" title="Skivobjekt" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">CapabilityStatement.Skivor för extension.</span><a no-external="true" href="StructureDefinition-tk-api-instance-definitions.html#CapabilityStatement.extension:endpoint" title="Extension-URL = https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint" data-no-external="true">extension:endpoint</a><a name="k-CapabilityStatement.extension:endpoint"> </a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span aria-hidden="true" style="padding-left: 3px; padding-right: 3px; color: white; background-color: #B60000" title="Detta element måste stödjas">S</span><span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only"> Detta element måste stödjas. </span></td>
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
@@ -525,7 +524,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">canonical</a>(<a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Constraint on the resources used in the document</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e27f46aa-1514-4f2a-b52f-f6eaddd41710
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 31180aeb-c765-46c2-83f8-730e782cb12b
 document.getElementById('cbtk-api-instanceK-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-api-instanceK'), 'constraint', document.getElementById('cbtk-api-instanceK-constraint').checked, document.getElementById('pptk-api-instanceK'));
 document.getElementById('cbtk-api-instanceK-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -562,10 +561,10 @@ filterDesc(document.getElementById('tk-api-instanceK'), 'obligation', document.g
     <td>CapabilityStatement.​status</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The lifecycle status of an artifact.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-publication-status.html">PublicationStatus</a>
+      <a href="http://hl7.org/fhir/R5/valueset-publication-status.html">PublicationStatus</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/publication-status|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -577,10 +576,10 @@ filterDesc(document.getElementById('tk-api-instanceK'), 'obligation', document.g
     <td>CapabilityStatement.​kind</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="How a capability statement is intended to be used.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-capability-statement-kind.html">Capability Statement Kind</a>
+      <a href="http://hl7.org/fhir/R5/valueset-capability-statement-kind.html">Capability Statement Kind</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/capability-statement-kind|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -592,10 +591,10 @@ filterDesc(document.getElementById('tk-api-instanceK'), 'obligation', document.g
     <td>CapabilityStatement.​fhirVersion</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="All published FHIR Versions.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-FHIR-version.html">FHIRVersion</a>
+      <a href="http://hl7.org/fhir/R5/valueset-FHIR-version.html">FHIRVersion</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/FHIR-version|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -607,10 +606,10 @@ filterDesc(document.getElementById('tk-api-instanceK'), 'obligation', document.g
     <td>CapabilityStatement.​format</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mime type of an attachment. Any valid mime type is allowed.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
+      <a href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/mimetypes|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -622,10 +621,10 @@ filterDesc(document.getElementById('tk-api-instanceK'), 'obligation', document.g
     <td>CapabilityStatement.​rest.mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mode of a RESTful capability statement.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-restful-capability-mode.html">Restful Capability Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-restful-capability-mode.html">Restful Capability Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/restful-capability-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -637,10 +636,10 @@ filterDesc(document.getElementById('tk-api-instanceK'), 'obligation', document.g
     <td>CapabilityStatement.​document.mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Whether the application produces or consumes documents.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-document-mode.html">Document Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-document-mode.html">Document Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/document-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -699,7 +698,7 @@ filterDesc(document.getElementById('tk-api-instanceK'), 'obligation', document.g
 <td style="" class="hierarchy xhtCellBorder0"></td>
 <td style="" class="hierarchy xhtCellBorder0">1..<span class="xhtPieceDeEmphasized">*</span></td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/extensibility.html#Extension" class="xhtPieceDeEmphasized">Extension</a></td>
-<td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">Extension</span><br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/><span class="xhtPieceBold">Slicing Note: </span>The rules on this element (including its children) apply to all the slices, but are not repeated in them</td></tr>
+<td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">Extension</span><br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url</td></tr>
 <tr fhir="generated-heirarchy" id="aaa" class="xhtRowBorder0 xhtRowEven" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck134.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_slicer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_slice_item.png" alt="" style="background-color: white; background-color: inherit" title="Skivobjekt" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">CapabilityStatement.Skivor för extension.</span><a no-external="true" href="StructureDefinition-tk-api-instance-definitions.html#CapabilityStatement.extension:endpoint" title="Extension-URL = https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint" data-no-external="true">extension:endpoint</a><a name="CapabilityStatement.extension:endpoint"> </a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span aria-hidden="true" style="padding-left: 3px; padding-right: 3px; color: white; background-color: #B60000" title="Detta element måste stödjas">S</span><span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only"> Detta element måste stödjas. </span></td>
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
@@ -750,7 +749,7 @@ filterDesc(document.getElementById('tk-api-instanceK'), 'obligation', document.g
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">1</span><span class="xhtPieceDeEmphasized">..</span><span class="xhtPieceDeEmphasized">1</span></td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/datatypes.html#code" class="xhtPieceDeEmphasized">code</a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">client | server</span><br/><span class="xhtPieceBold">Obligatoriskt mönster: </span><span class="xhtPieceDarkGreen">server</span> (extensions allowed)</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e27f46aa-1514-4f2a-b52f-f6eaddd41710
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 31180aeb-c765-46c2-83f8-730e782cb12b
 document.getElementById('cbtk-api-instanceD-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-api-instanceD'), 'constraint', document.getElementById('cbtk-api-instanceD-constraint').checked, document.getElementById('pptk-api-instanceD'));
 document.getElementById('cbtk-api-instanceD-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -818,7 +817,7 @@ filterDesc(document.getElementById('tk-api-instanceD'), 'obligation', document.g
 <td style="" class="hierarchy xhtCellBorder0"></td>
 <td style="" class="hierarchy xhtCellBorder0">1..*</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/extensibility.html#Extension">Extension</a></td>
-<td style="" class="hierarchy xhtCellBorder0">Extension<br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/><br/><span class="xhtPieceBold">Slicing Note: </span>The rules on this element (including its children) apply to all the slices, but are not repeated in them</td></tr>
+<td style="" class="hierarchy xhtCellBorder0">Extension<br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/></td></tr>
 <tr fhir="generated-heirarchy" id="s-a6.a" class="xhtRowBorder0 xhtRowEven" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck134.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_slicer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_slice_item.png" alt="" style="background-color: white; background-color: inherit" title="Skivobjekt" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">CapabilityStatement.Skivor för extension.</span><a no-external="true" href="StructureDefinition-tk-api-instance-definitions.html#CapabilityStatement.extension:endpoint" title="Extension-URL = https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint" data-no-external="true">extension:endpoint</a><a name="s-CapabilityStatement.extension:endpoint"> </a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span aria-hidden="true" style="padding-left: 3px; padding-right: 3px; color: white; background-color: #B60000" title="Detta element måste stödjas">S</span><span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only"> Detta element måste stödjas. </span></td>
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
@@ -1508,7 +1507,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">canonical</a>(<a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Constraint on the resources used in the document</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e27f46aa-1514-4f2a-b52f-f6eaddd41710
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 31180aeb-c765-46c2-83f8-730e782cb12b
 document.getElementById('cbtk-api-instanceS-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-api-instanceS'), 'constraint', document.getElementById('cbtk-api-instanceS-constraint').checked, document.getElementById('pptk-api-instanceS'));
 document.getElementById('cbtk-api-instanceS-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -1546,10 +1545,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​language</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="IETF language tag for a human language">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-all-languages.html">All Languages</a>
+      <a href="http://hl7.org/fhir/R5/valueset-all-languages.html">All Languages</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/all-languages|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1561,10 +1560,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​versionAlgorithm[x]</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
     </td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-version-algorithm.html">Version Algorithm</a>
+      <a href="http://hl7.org/fhir/R5/valueset-version-algorithm.html">Version Algorithm</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/version-algorithm|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1576,10 +1575,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​status</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The lifecycle status of an artifact.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-publication-status.html">PublicationStatus</a>
+      <a href="http://hl7.org/fhir/R5/valueset-publication-status.html">PublicationStatus</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/publication-status|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1591,10 +1590,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​jurisdiction</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
     </td>
     <td title="Countries and regions within which this artifact is targeted for use.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-jurisdiction.html">Jurisdiction ValueSet</a>
+      <a href="http://hl7.org/fhir/R5/valueset-jurisdiction.html">Jurisdiction ValueSet</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1606,10 +1605,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​kind</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="How a capability statement is intended to be used.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-capability-statement-kind.html">Capability Statement Kind</a>
+      <a href="http://hl7.org/fhir/R5/valueset-capability-statement-kind.html">Capability Statement Kind</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/capability-statement-kind|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1621,10 +1620,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​fhirVersion</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="All published FHIR Versions.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-FHIR-version.html">FHIRVersion</a>
+      <a href="http://hl7.org/fhir/R5/valueset-FHIR-version.html">FHIRVersion</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/FHIR-version|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1636,10 +1635,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​format</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mime type of an attachment. Any valid mime type is allowed.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
+      <a href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/mimetypes|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1651,10 +1650,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​patchFormat</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
+      <a href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/mimetypes|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1666,10 +1665,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​acceptLanguage</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="IETF language tag for a human language">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-all-languages.html">All Languages</a>
+      <a href="http://hl7.org/fhir/R5/valueset-all-languages.html">All Languages</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/all-languages|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1681,10 +1680,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mode of a RESTful capability statement.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-restful-capability-mode.html">Restful Capability Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-restful-capability-mode.html">Restful Capability Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/restful-capability-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1696,10 +1695,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.security.service</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
     </td>
     <td title="Types of security services used with FHIR.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-restful-security-service.html">Restful Security Service</a>
+      <a href="http://hl7.org/fhir/R5/valueset-restful-security-service.html">Restful Security Service</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/restful-security-service|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1711,10 +1710,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.resource.type</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="One of the resource types defined as part of this version of FHIR.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-resource-types.html">Resource Types</a>
+      <a href="http://hl7.org/fhir/R5/valueset-resource-types.html">Resource Types</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/resource-types|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1726,10 +1725,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.resource.interaction.​code</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Operations supported by REST at the type or instance level.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-type-restful-interaction.html">Type Restful Interaction</a>
+      <a href="http://hl7.org/fhir/R5/valueset-type-restful-interaction.html">Type Restful Interaction</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/type-restful-interaction|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1741,10 +1740,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.resource.versioning</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="How the system supports versioning for a resource.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-versioning-policy.html">Resource Version Policy</a>
+      <a href="http://hl7.org/fhir/R5/valueset-versioning-policy.html">Resource Version Policy</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/versioning-policy|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1756,10 +1755,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.resource.conditionalRead</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="A code that indicates how the server supports conditional read.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-conditional-read-status.html">Conditional Read Status</a>
+      <a href="http://hl7.org/fhir/R5/valueset-conditional-read-status.html">Conditional Read Status</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/conditional-read-status|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1771,10 +1770,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.resource.conditionalDelete</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="A code that indicates how the server supports conditional delete.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-conditional-delete-status.html">Conditional Delete Status</a>
+      <a href="http://hl7.org/fhir/R5/valueset-conditional-delete-status.html">Conditional Delete Status</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/conditional-delete-status|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1786,10 +1785,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.resource.referencePolicy</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="A set of flags that defines how references are supported.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-reference-handling-policy.html">Reference Handling Policy</a>
+      <a href="http://hl7.org/fhir/R5/valueset-reference-handling-policy.html">Reference Handling Policy</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/reference-handling-policy|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1801,10 +1800,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.resource.searchParam.​type</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Data types allowed to be used for search parameters.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-search-param-type.html">SearchParamType</a>
+      <a href="http://hl7.org/fhir/R5/valueset-search-param-type.html">SearchParamType</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/search-param-type|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1816,10 +1815,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​rest.interaction.code</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Operations supported by REST at the system level.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-system-restful-interaction.html">System Restful Interaction</a>
+      <a href="http://hl7.org/fhir/R5/valueset-system-restful-interaction.html">System Restful Interaction</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/system-restful-interaction|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1831,10 +1830,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​messaging.endpoint.protocol</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
     </td>
     <td title="The protocol used for message transport.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-message-transport.html">Message Transport</a>
+      <a href="http://hl7.org/fhir/R5/valueset-message-transport.html">Message Transport</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/message-transport|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1846,10 +1845,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​messaging.supportedMessage.​mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mode of a message capability statement.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-event-capability-mode.html">Event Capability Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-event-capability-mode.html">Event Capability Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/event-capability-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -1861,10 +1860,10 @@ filterDesc(document.getElementById('tk-api-instanceS'), 'obligation', document.g
     <td>CapabilityStatement.​document.mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Whether the application produces or consumes documents.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-document-mode.html">Document Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-document-mode.html">Document Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/document-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -2147,7 +2146,7 @@ Sammanfattning
 <td style="" class="hierarchy xhtCellBorder0"></td>
 <td style="" class="hierarchy xhtCellBorder0">1..*</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/extensibility.html#Extension">Extension</a></td>
-<td style="" class="hierarchy xhtCellBorder0">Extension<br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/><br/><span class="xhtPieceBold">Slicing Note: </span>The rules on this element (including its children) apply to all the slices, but are not repeated in them</td></tr>
+<td style="" class="hierarchy xhtCellBorder0">Extension<br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/></td></tr>
 <tr fhir="generated-heirarchy" id="ka-aca" class="xhtRowBorder0 xhtRowEven" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck134.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_slicer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_slice_item.png" alt="" style="background-color: white; background-color: inherit" title="Skivobjekt" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">CapabilityStatement.Skivor för extension.</span><a no-external="true" href="StructureDefinition-tk-api-instance-definitions.html#CapabilityStatement.extension:endpoint" title="Extension-URL = https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint" data-no-external="true">extension:endpoint</a><a name="ka-CapabilityStatement.extension:endpoint"> </a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span aria-hidden="true" style="padding-left: 3px; padding-right: 3px; color: white; background-color: #B60000" title="Detta element måste stödjas">S</span><span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only"> Detta element måste stödjas. </span></td>
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
@@ -2281,7 +2280,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">canonical</a>(<a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Constraint on the resources used in the document</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e27f46aa-1514-4f2a-b52f-f6eaddd41710
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 31180aeb-c765-46c2-83f8-730e782cb12b
 document.getElementById('cbtk-api-instanceKA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-api-instanceKA'), 'constraint', document.getElementById('cbtk-api-instanceKA-constraint').checked, document.getElementById('pptk-api-instanceKA'));
 document.getElementById('cbtk-api-instanceKA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -2317,10 +2316,10 @@ filterDesc(document.getElementById('tk-api-instanceKA'), 'obligation', document.
     <td>CapabilityStatement.​status</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The lifecycle status of an artifact.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-publication-status.html">PublicationStatus</a>
+      <a href="http://hl7.org/fhir/R5/valueset-publication-status.html">PublicationStatus</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/publication-status|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -2332,10 +2331,10 @@ filterDesc(document.getElementById('tk-api-instanceKA'), 'obligation', document.
     <td>CapabilityStatement.​kind</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="How a capability statement is intended to be used.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-capability-statement-kind.html">Capability Statement Kind</a>
+      <a href="http://hl7.org/fhir/R5/valueset-capability-statement-kind.html">Capability Statement Kind</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/capability-statement-kind|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -2347,10 +2346,10 @@ filterDesc(document.getElementById('tk-api-instanceKA'), 'obligation', document.
     <td>CapabilityStatement.​fhirVersion</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="All published FHIR Versions.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-FHIR-version.html">FHIRVersion</a>
+      <a href="http://hl7.org/fhir/R5/valueset-FHIR-version.html">FHIRVersion</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/FHIR-version|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -2362,10 +2361,10 @@ filterDesc(document.getElementById('tk-api-instanceKA'), 'obligation', document.
     <td>CapabilityStatement.​format</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mime type of an attachment. Any valid mime type is allowed.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
+      <a href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/mimetypes|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -2377,10 +2376,10 @@ filterDesc(document.getElementById('tk-api-instanceKA'), 'obligation', document.
     <td>CapabilityStatement.​rest.mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mode of a RESTful capability statement.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-restful-capability-mode.html">Restful Capability Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-restful-capability-mode.html">Restful Capability Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/restful-capability-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -2392,10 +2391,10 @@ filterDesc(document.getElementById('tk-api-instanceKA'), 'obligation', document.
     <td>CapabilityStatement.​document.mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Whether the application produces or consumes documents.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-document-mode.html">Document Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-document-mode.html">Document Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/document-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -2454,7 +2453,7 @@ filterDesc(document.getElementById('tk-api-instanceKA'), 'obligation', document.
 <td style="" class="hierarchy xhtCellBorder0"></td>
 <td style="" class="hierarchy xhtCellBorder0">1..<span class="xhtPieceDeEmphasized">*</span></td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/extensibility.html#Extension" class="xhtPieceDeEmphasized">Extension</a></td>
-<td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">Extension</span><br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/><span class="xhtPieceBold">Slicing Note: </span>The rules on this element (including its children) apply to all the slices, but are not repeated in them</td></tr>
+<td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">Extension</span><br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url</td></tr>
 <tr fhir="generated-heirarchy" id="a-aaa" class="xhtRowBorder0 xhtRowEven" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck134.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_slicer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_slice_item.png" alt="" style="background-color: white; background-color: inherit" title="Skivobjekt" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">CapabilityStatement.Skivor för extension.</span><a no-external="true" href="StructureDefinition-tk-api-instance-definitions.html#CapabilityStatement.extension:endpoint" title="Extension-URL = https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint" data-no-external="true">extension:endpoint</a><a name="a-CapabilityStatement.extension:endpoint"> </a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span aria-hidden="true" style="padding-left: 3px; padding-right: 3px; color: white; background-color: #B60000" title="Detta element måste stödjas">S</span><span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only"> Detta element måste stödjas. </span></td>
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
@@ -2505,7 +2504,7 @@ filterDesc(document.getElementById('tk-api-instanceKA'), 'obligation', document.
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">1</span><span class="xhtPieceDeEmphasized">..</span><span class="xhtPieceDeEmphasized">1</span></td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/datatypes.html#code" class="xhtPieceDeEmphasized">code</a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDeEmphasized">client | server</span><br/><span class="xhtPieceBold">Obligatoriskt mönster: </span><span class="xhtPieceDarkGreen">server</span> (extensions allowed)</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e27f46aa-1514-4f2a-b52f-f6eaddd41710
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 31180aeb-c765-46c2-83f8-730e782cb12b
 document.getElementById('cbtk-api-instanceDA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-api-instanceDA'), 'constraint', document.getElementById('cbtk-api-instanceDA-constraint').checked, document.getElementById('pptk-api-instanceDA'));
 document.getElementById('cbtk-api-instanceDA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -2570,7 +2569,7 @@ filterDesc(document.getElementById('tk-api-instanceDA'), 'obligation', document.
 <td style="" class="hierarchy xhtCellBorder0"></td>
 <td style="" class="hierarchy xhtCellBorder0">1..*</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/extensibility.html#Extension">Extension</a></td>
-<td style="" class="hierarchy xhtCellBorder0">Extension<br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/><br/><span class="xhtPieceBold">Slicing Note: </span>The rules on this element (including its children) apply to all the slices, but are not repeated in them</td></tr>
+<td style="" class="hierarchy xhtCellBorder0">Extension<br/><span class="xhtPieceBold">Skiva: </span>Oordnad, Öppen av value:url<br/></td></tr>
 <tr fhir="generated-heirarchy" id="sa-a6.a" class="xhtRowBorder0 xhtRowEven" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck134.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vline.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_slicer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_slice_item.png" alt="" style="background-color: white; background-color: inherit" title="Skivobjekt" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">CapabilityStatement.Skivor för extension.</span><a no-external="true" href="StructureDefinition-tk-api-instance-definitions.html#CapabilityStatement.extension:endpoint" title="Extension-URL = https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint" data-no-external="true">extension:endpoint</a><a name="sa-CapabilityStatement.extension:endpoint"> </a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span aria-hidden="true" style="padding-left: 3px; padding-right: 3px; color: white; background-color: #B60000" title="Detta element måste stödjas">S</span><span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only"> Detta element måste stödjas. </span></td>
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
@@ -3260,7 +3259,7 @@ Modifier extensions SHALL NOT change the meaning of any elements on Resource or 
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">canonical</a>(<a href="http://hl7.org/fhir/R5/structuredefinition.html">StructureDefinition</a>)</td>
 <td style="" class="hierarchy xhtCellBorder0">Constraint on the resources used in the document</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // e27f46aa-1514-4f2a-b52f-f6eaddd41710
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 31180aeb-c765-46c2-83f8-730e782cb12b
 document.getElementById('cbtk-api-instanceSA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-api-instanceSA'), 'constraint', document.getElementById('cbtk-api-instanceSA-constraint').checked, document.getElementById('pptk-api-instanceSA'));
 document.getElementById('cbtk-api-instanceSA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -3296,10 +3295,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​language</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="IETF language tag for a human language">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-all-languages.html">All Languages</a>
+      <a href="http://hl7.org/fhir/R5/valueset-all-languages.html">All Languages</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/all-languages|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3311,10 +3310,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​versionAlgorithm[x]</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
     </td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-version-algorithm.html">Version Algorithm</a>
+      <a href="http://hl7.org/fhir/R5/valueset-version-algorithm.html">Version Algorithm</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/version-algorithm|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3326,10 +3325,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​status</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The lifecycle status of an artifact.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-publication-status.html">PublicationStatus</a>
+      <a href="http://hl7.org/fhir/R5/valueset-publication-status.html">PublicationStatus</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/publication-status|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3341,10 +3340,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​jurisdiction</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
     </td>
     <td title="Countries and regions within which this artifact is targeted for use.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-jurisdiction.html">Jurisdiction ValueSet</a>
+      <a href="http://hl7.org/fhir/R5/valueset-jurisdiction.html">Jurisdiction ValueSet</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3356,10 +3355,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​kind</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="How a capability statement is intended to be used.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-capability-statement-kind.html">Capability Statement Kind</a>
+      <a href="http://hl7.org/fhir/R5/valueset-capability-statement-kind.html">Capability Statement Kind</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/capability-statement-kind|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3371,10 +3370,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​fhirVersion</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="All published FHIR Versions.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-FHIR-version.html">FHIRVersion</a>
+      <a href="http://hl7.org/fhir/R5/valueset-FHIR-version.html">FHIRVersion</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/FHIR-version|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3386,10 +3385,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​format</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mime type of an attachment. Any valid mime type is allowed.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
+      <a href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/mimetypes|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3401,10 +3400,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​patchFormat</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="BCP 13 (RFCs 2045, 2046, 2047, 4288, 4289 and 2049)">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
+      <a href="http://hl7.org/fhir/R5/valueset-mimetypes.html">Mime Types</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/mimetypes|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3416,10 +3415,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​acceptLanguage</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="IETF language tag for a human language">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-all-languages.html">All Languages</a>
+      <a href="http://hl7.org/fhir/R5/valueset-all-languages.html">All Languages</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/all-languages|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3431,10 +3430,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mode of a RESTful capability statement.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-restful-capability-mode.html">Restful Capability Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-restful-capability-mode.html">Restful Capability Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/restful-capability-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3446,10 +3445,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.security.service</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
     </td>
     <td title="Types of security services used with FHIR.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-restful-security-service.html">Restful Security Service</a>
+      <a href="http://hl7.org/fhir/R5/valueset-restful-security-service.html">Restful Security Service</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/restful-security-service|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3461,10 +3460,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.resource.type</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="One of the resource types defined as part of this version of FHIR.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-resource-types.html">Resource Types</a>
+      <a href="http://hl7.org/fhir/R5/valueset-resource-types.html">Resource Types</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/resource-types|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3476,10 +3475,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.resource.interaction.​code</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Operations supported by REST at the type or instance level.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-type-restful-interaction.html">Type Restful Interaction</a>
+      <a href="http://hl7.org/fhir/R5/valueset-type-restful-interaction.html">Type Restful Interaction</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/type-restful-interaction|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3491,10 +3490,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.resource.versioning</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="How the system supports versioning for a resource.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-versioning-policy.html">Resource Version Policy</a>
+      <a href="http://hl7.org/fhir/R5/valueset-versioning-policy.html">Resource Version Policy</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/versioning-policy|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3506,10 +3505,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.resource.conditionalRead</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="A code that indicates how the server supports conditional read.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-conditional-read-status.html">Conditional Read Status</a>
+      <a href="http://hl7.org/fhir/R5/valueset-conditional-read-status.html">Conditional Read Status</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/conditional-read-status|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3521,10 +3520,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.resource.conditionalDelete</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="A code that indicates how the server supports conditional delete.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-conditional-delete-status.html">Conditional Delete Status</a>
+      <a href="http://hl7.org/fhir/R5/valueset-conditional-delete-status.html">Conditional Delete Status</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/conditional-delete-status|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3536,10 +3535,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.resource.referencePolicy</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="A set of flags that defines how references are supported.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-reference-handling-policy.html">Reference Handling Policy</a>
+      <a href="http://hl7.org/fhir/R5/valueset-reference-handling-policy.html">Reference Handling Policy</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/reference-handling-policy|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3551,10 +3550,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.resource.searchParam.​type</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Data types allowed to be used for search parameters.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-search-param-type.html">SearchParamType</a>
+      <a href="http://hl7.org/fhir/R5/valueset-search-param-type.html">SearchParamType</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/search-param-type|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3566,10 +3565,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​rest.interaction.code</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Operations supported by REST at the system level.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-system-restful-interaction.html">System Restful Interaction</a>
+      <a href="http://hl7.org/fhir/R5/valueset-system-restful-interaction.html">System Restful Interaction</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/system-restful-interaction|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3581,10 +3580,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​messaging.endpoint.protocol</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[extensible]">extensible</a>
     </td>
     <td title="The protocol used for message transport.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-message-transport.html">Message Transport</a>
+      <a href="http://hl7.org/fhir/R5/valueset-message-transport.html">Message Transport</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/message-transport|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3596,10 +3595,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​messaging.supportedMessage.​mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="The mode of a message capability statement.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-event-capability-mode.html">Event Capability Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-event-capability-mode.html">Event Capability Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/event-capability-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3611,10 +3610,10 @@ filterDesc(document.getElementById('tk-api-instanceSA'), 'obligation', document.
     <td>CapabilityStatement.​document.mode</td>
     <td>Base</td>
     <td>
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
+      <a href="http://hl7.org/fhir/R5/terminologies.html#Enumeration[required]">required</a>
     </td>
     <td title="Whether the application produces or consumes documents.">
-      <a style="opacity: 1.0" href="http://hl7.org/fhir/R5/valueset-document-mode.html">Document Mode</a>
+      <a href="http://hl7.org/fhir/R5/valueset-document-mode.html">Document Mode</a>
       <button data-clipboard-text="http://hl7.org/fhir/ValueSet/document-mode|5.0.0" title="Klicka för att kopiera URL" class="btn-copy" aria-label="copy"></button>
     </td>
     <td title="Versionen anges uttryckligen vara 5.0.0">&#x1F4CD;5.0.0</td>
@@ -3906,8 +3905,8 @@ Sammanfattning
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-10-28 11:26:00 +0000">
-    2026-10-28
+  <span title="2026-11-04 14:56:00 +0000">
+    2026-11-04
   </span>
 
           <br/>

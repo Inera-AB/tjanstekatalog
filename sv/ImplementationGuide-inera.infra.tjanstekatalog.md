@@ -14,7 +14,7 @@
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-10-28T11:26:14+00:00",
+  "date" : "2026-11-04T14:56:15+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -342,6 +342,22 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "NamingSystem-hsa-id.html"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/hsa-id"
+      },
+      "name" : "HSA-id",
+      "description" : "Identifierarsystemet för HSA-id, den primära organisationsidentifieraren i tjänstekatalogen (REQ-ORG-6). Formatet följer HSA:s styrande dokument: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:logical"
       },
       {
@@ -402,6 +418,22 @@
       },
       "name" : "Kravkatalog: Tjänstekatalogen",
       "description" : "Formell kravkatalog för tjänstekatalogen, med spårning från krav till realiserande FHIR-artefakter.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "NamingSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "NamingSystem-organisationsnummer.html"
+      }],
+      "reference" : {
+        "reference" : "NamingSystem/organisationsnummer"
+      },
+      "name" : "Organisationsnummer",
+      "description" : "Identifierarsystemet för svenska organisationsnummer som tjänstekatalogen använder (REQ-ORG-2): samma system som E-hälsomyndighetens Organization Endpoint Writer kräver. Värdet anges som tio siffror utan bindestreck.",
       "isExample" : false
     },
     {

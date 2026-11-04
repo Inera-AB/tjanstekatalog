@@ -4,13 +4,13 @@
 
 Profil: [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
 
-Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)
+Exempelregionen (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-1003)
 
 -------
 
 | | |
 | :--- | :--- |
-| Annat id: | `urn:oid:2.5.4.97`/2321000016 |
+| Annat id: | [Organisationsnummer](NamingSystem-organisationsnummer.md)/2321000016 |
 | Endpoint: | [Exempelregionens patientinformations-API (HL7 FHIR): https://api.exempelregionen.se/patientinformation/fhir](Endpoint-TKEndpointExample.md) |
 
 

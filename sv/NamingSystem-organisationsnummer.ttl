@@ -1,0 +1,51 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/organisationsnummer> a fhir:NamingSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "organisationsnummer"] ; # 
+  fhir:language [ fhir:v "sv"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: NamingSystem organisationsnummer</b></p><a name=\"organisationsnummer\"> </a><a name=\"hcorganisationsnummer\"> </a><h3>Sammanfattning</h3><table class=\"grid\"><tr><td>Definierande URL</td><td>https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/organisationsnummer</td></tr><tr><td>Version</td><td>0.1.0</td></tr><tr><td>Namn</td><td>TKOrganisationsnummerNamingSystem</td></tr><tr><td>Titel</td><td>Organisationsnummer</td></tr><tr><td>Status</td><td>active</td></tr><tr><td>Definition</td><td><div><p>Identifierarsystemet för svenska organisationsnummer som tjänstekatalogen använder (REQ-ORG-2): samma system som E-hälsomyndighetens Organization Endpoint Writer kräver. Värdet anges som tio siffror utan bindestreck.</p>\n</div></td></tr><tr><td>Utgivare</td><td>Inera AB</td></tr></table><h3>Identifierare</h3><table class=\"grid\"><tr><td><b>Typ</b></td><td><b>Värde</b></td><td><b>Föredragen</b></td></tr><tr><td>URI</td><td>urn:oid:2.5.4.97</td><td>true</td></tr><tr><td>OID</td><td>2.5.4.97</td><td/></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/organisationsnummer"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:name [ fhir:v "TKOrganisationsnummerNamingSystem"] ; # 
+  fhir:title [ fhir:v "Organisationsnummer"] ; # 
+  fhir:status [ fhir:v "active"] ; # 
+  fhir:kind [ fhir:v "identifier"] ; # 
+  fhir:date [ fhir:v "2026-11-04"^^xsd:date] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Identifierarsystemet för svenska organisationsnummer som tjänstekatalogen använder (REQ-ORG-2): samma system som E-hälsomyndighetens Organization Endpoint Writer kräver. Värdet anges som tio siffror utan bindestreck."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:usage [ fhir:v "Används i TKOrganization.identifier (slicen organisationsnummer), bara på den juridiska personen (REQ-ORG-8)."] ; # 
+  fhir:uniqueId ( [
+     fhir:type [ fhir:v "uri" ] ;
+     fhir:value [ fhir:v "urn:oid:2.5.4.97" ] ;
+     fhir:preferred [ fhir:v true ]
+  ] [
+     fhir:type [ fhir:v "oid" ] ;
+     fhir:value [ fhir:v "2.5.4.97" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

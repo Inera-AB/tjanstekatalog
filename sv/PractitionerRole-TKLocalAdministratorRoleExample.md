@@ -4,15 +4,15 @@
 
 Profil: [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md)
 
-Lokal administratör, Exempelregionen: Lokal administratör at Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)
+Lokal administratör, Exempelregionen: Lokal administratör at Exempelregionen (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-1003)
 
 -------
 
 | | | | |
 | :--- | :--- | :--- | :--- |
 | Aktiv: | true | Giltig period: | 2026-01-02 --> (pågående) |
-| Practitioner: | Lokal administratör, Exempelregionen (Identifier:`urn:oid:1.2.752.29.4.19`/SE2321000016-ADM2) | | |
-| Organization: | [Exempelregionen (urn:oid:1.2.752.29.4.19#SE2321000016-1003)](Organization-TKOrganizationExample.md) | | |
+| Practitioner: | Lokal administratör, Exempelregionen (Identifier:[HSA-id](NamingSystem-hsa-id.md)/SE2321000016-ADM2) | | |
+| Organization: | [Exempelregionen (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-1003)](Organization-TKOrganizationExample.md) | | |
 | Role: | Lokal administratör | | |
 
 
