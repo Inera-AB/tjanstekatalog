@@ -14,6 +14,16 @@ There are no valid display names found for the code urn:iso:std:iso:3166#SE
 The link 'StructureDefinition-IneraPatient.html' for "fake generated link for Implementation Guide" cannot be resolved
 The link 'Patient-IneraPatientExample.html' for "fake generated link for Implementation Guide" cannot be resolved
 
+# Requirements.satisfiedBy is by definition a canonical URL to the artefact
+# that satisfies the requirement, and the publisher renders each one as a
+# link: once in the Requirements resource's narrative and once on its page.
+# The publisher warns about every such link in two wordings. The links are
+# intended; all of them are on the requirements catalogue
+# (Requirements-tk-tjanstekatalog-requirements), about 100 messages that
+# otherwise hide new, real warnings. Wrapped in `%...%` for contains-matching.
+%is a canonical link and is therefore unsafe with regard to versions%
+%is a canonical reference, and is unsafe because of version handling%
+
 # The download link is absolute against the canonical URL so that it stays
 # valid wherever the IG is served from. The publisher resolves canonical-
 # prefixed links against the local build, where the package sits at the output
