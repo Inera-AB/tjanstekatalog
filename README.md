@@ -41,7 +41,7 @@ The full process, in Swedish, is in the template's [`docs/`](https://github.com/
 
 On `main` (or `support/<major>.x` for a patch to an older major version), via a pull request:
 
-1. Set `version` in `sushi-config.yaml` and add an entry `## [X.Y.Z] — YYYY-MM-DD` with `###` sections to `input/pagecontent/version-history.md`. Keep its first line, `{::options header_offset="1" /}`.
+1. Set `version` in `sushi-config.yaml` and add an entry `### [X.Y.Z] — YYYY-MM-DD` with `####` sections to `input/pagecontent/version-history.md`. Like every other page, it starts at `###` below the `<h2>` page title the template adds.
 2. Update `publication-request.json`: a new `desc` that differs from every earlier release, and `mode` (`milestone`, or `working` for a release candidate or a patch to an older major version). Set `"first": false` after the first release.
 3. Pin dependencies to published versions, never `current`.
 4. Optionally run *Publish release* manually on the branch to publish to the test web root.
