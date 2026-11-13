@@ -140,4 +140,4 @@ IneraTjanstekatalog
 /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ValueSet-tk-endpoint-security-method.json: line 0, col 0, Warning - The resource ValueSet/tk-endpoint-security-method should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html) (BUSINESSRULE)
 
 err = 0, warn = 19, info = 118, broken links = 0
-IG Publisher Version: 3.0.2
+IG Publisher Version: 3.0.3

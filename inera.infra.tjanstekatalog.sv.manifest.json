@@ -1,7 +1,7 @@
 {
   "version" : "0.1.0",
   "fhirVersion" : ["5.0.0"],
-  "date" : "20261104145615",
+  "date" : "20261113151901",
   "name" : "inera.infra.tjanstekatalog",
   "jurisdiction" : "urn:iso:std:iso:3166#SE"
 }

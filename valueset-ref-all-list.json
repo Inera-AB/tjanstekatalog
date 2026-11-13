@@ -68,12 +68,12 @@
     "sources" : ["2.16.840.1.113883.4.642.3.21"],
     "uses" : {
     },
-    "StructureDefinition-IneraPatient.html" : "Inera Patient",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
     "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance",
     "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
     "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-IneraPatient.html" : "Inera Patient",
     "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
   },
   {
@@ -272,9 +272,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.45"],
     "uses" : {
     },
-    "StructureDefinition-IneraPatient.html" : "Inera Patient",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
+    "StructureDefinition-IneraPatient.html" : "Inera Patient"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/identifier-use",
@@ -288,9 +288,9 @@
     "sources" : ["2.16.840.1.113883.4.642.3.57"],
     "uses" : {
     },
-    "StructureDefinition-IneraPatient.html" : "Inera Patient",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
+    "StructureDefinition-IneraPatient.html" : "Inera Patient"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/jurisdiction",
@@ -323,12 +323,12 @@
     "2.16.840.1.113883.4.642.3.20"],
     "uses" : {
     },
-    "StructureDefinition-IneraPatient.html" : "Inera Patient",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
     "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance",
     "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
     "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-IneraPatient.html" : "Inera Patient",
     "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
   },
   {
@@ -396,8 +396,8 @@
     "uses" : {
     },
     "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/name-use",
