@@ -100,10 +100,12 @@ ig.ini                     IG Publisher configuration
 input/
   fsh/                     Profiles, extensions, search parameters, CapabilityStatements, examples, requirements
   pagecontent/             Narrative pages (.md); no leading "# Title", the template renders the page title
-  images/                  Inera CSS and logos
-  includes/                Fragment overrides (CSS, header) and menu.xml (only the <ul>)
+  images/                  The IG's own images (Inera's CSS and logos come from the template, see below)
+  includes/                menu.xml (only the <ul>)
   ignoreWarnings.txt       Suppressed IG Publisher messages (registered via path-suppressed-warnings)
 ```
+
+The Inera look comes from the shared IG Publisher template in [Inera-AB/inera-fhir-graphic-profile](https://github.com/Inera-AB/inera-fhir-graphic-profile), set in `ig.ini` as `template = https://github.com/Inera-AB/inera-fhir-graphic-profile/tree/v1`. Do not add `fragment-css.html` or `fragment-header.html` to `input/includes/`: they replace the template's files and the Inera styling disappears.
 
 ---
 
