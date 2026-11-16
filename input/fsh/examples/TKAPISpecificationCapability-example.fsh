@@ -15,5 +15,5 @@ Description: "Exempel på en interoperabilitetsspecifikation (en FHIR IG) regist
 * format[0] = #json
 * rest.mode = #server
 * rest.documentation = "Se specifikationens egen IG för fullständiga REST-förmågor."
-* extension[category].valueCodeableConcept.text = "FHIR"
+* extension[category].valueCodeableConcept = TKAPISpecificationCategoryCS#fhir "FHIR"
 * extension[sourceReference].valueUrl = "https://fhir.inera.se/ig/patientinformation/"

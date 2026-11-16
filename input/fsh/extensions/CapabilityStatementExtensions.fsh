@@ -10,10 +10,11 @@
 Extension: TKAPISpecificationCategory
 Id: tk-api-specification-category
 Title: "Specifikationskategori"
-Description: "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag."
+Description: "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget), bunden extensible till TKAPISpecificationCategoryVS. Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag."
 Context: CapabilityStatement
 * value[x] only CodeableConcept
 * valueCodeableConcept 1..1
+* valueCodeableConcept from TKAPISpecificationCategoryVS (extensible)
 
 // --- API-specifikation.referensTillKälla ---
 Extension: TKAPISpecificationSourceReference

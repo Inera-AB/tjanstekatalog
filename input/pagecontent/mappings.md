@@ -377,7 +377,7 @@ maskinläsbara motsvarigheten (`Requirements.statement.satisfiedBy`).
 | maskinläsbartNamn | 0..1 | [TKAPISpecificationCapability.name](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
 | version | 1..1 | [TKAPISpecificationCapability.version](StructureDefinition-tk-api-specification-capability.html) | Obligatorisk eftersom flera versioner av samma specifikation kan finnas samtidigt; `url` + `version` är unik. REQ-MDL-4, REQ-MDL-8 |
 | referensTillKälla | 0..1 | [TKAPISpecificationSourceReference](StructureDefinition-tk-api-specification-source-reference.html) (extension) | REQ-MDL-4 |
-| kategori | 0..1 | [TKAPISpecificationCategory](StructureDefinition-tk-api-specification-category.html) (extension) | REQ-MDL-4 |
+| kategori | 0..1 | [TKAPISpecificationCategory](StructureDefinition-tk-api-specification-category.html) (extension) | Kodverk [TKAPISpecificationCategoryVS](ValueSet-tk-api-specification-category.html) (`fhir`, `rest-openapi`, `soap-rivta`), extensible-bindning. Preliminärt kodverk. REQ-MDL-4 |
 | titel | 1..1 | [TKAPISpecificationCapability.title](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
 | beskrivning | 0..1 | [TKAPISpecificationCapability.description](StructureDefinition-tk-api-specification-capability.html) | REQ-MDL-4 |
 | ansvarigUtgivare | 0..1 | [TKCapabilityStatementResponsibleOrganization](StructureDefinition-tk-capabilitystatement-responsible-organization.html) (extension) | `.publisher` (string) täcker fritextnamn; denna extension bär strukturerad `Reference(TKOrganization)`. REQ-MDL-4 |
