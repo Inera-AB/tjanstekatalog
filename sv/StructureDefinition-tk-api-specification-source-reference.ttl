@@ -22,11 +22,11 @@
      ]
   ] ) ; # 
   fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-source-reference"^^xsd:anyURI] ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:version [ fhir:v "0.1.1"] ; # 
   fhir:name [ fhir:v "TKAPISpecificationSourceReference"] ; # 
   fhir:title [ fhir:v "Referens till källa"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-11-13T15:19:01+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-11-16T14:31:08+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;

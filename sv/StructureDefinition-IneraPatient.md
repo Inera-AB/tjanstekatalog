@@ -1,4 +1,4 @@
-# Inera Patient - Tjänstekatalogen v0.1.0
+# Inera Patient - Tjänstekatalogen v0.1.1
 
 ## Resursprofil: Inera Patient 
 
@@ -6,7 +6,7 @@
 
 * Exempel för denna Profil: [Patient/IneraPatientExample](Patient-IneraPatientExample.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/IneraPatient)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-IneraPatient.json)
 
 ### Formella vyer av profilinnehåll
 
@@ -64,7 +64,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-IneraPatient.cs
   "identifier" : [{
     "value" : "IneraPatient"
   }],
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "IneraPatient",
   "title" : "Inera Patient",
   "status" : "draft",

@@ -1,4 +1,4 @@
-# Säkerhet och behörighet - Tjänstekatalogen v0.1.0
+# Säkerhet och behörighet - Tjänstekatalogen v0.1.1
 
 ## Säkerhet och behörighet
 

@@ -1,4 +1,4 @@
-# Administratörsroller (kodsystem) - Tjänstekatalogen v0.1.0
+# Administratörsroller (kodsystem) - Tjänstekatalogen v0.1.1
 
 ## CodeSystem: Administratörsroller (kodsystem) (Experimentell) 
 
@@ -19,12 +19,12 @@ Detta kodsystem refereras i definitionen av följande värdemängder:
   "resourceType" : "CodeSystem",
   "id" : "tk-administrator-role",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKAdministratorRoleCS",
   "title" : "Administratörsroller (kodsystem)",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-13T15:19:01+00:00",
+  "date" : "2026-11-16T14:31:08+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

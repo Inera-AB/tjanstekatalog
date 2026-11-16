@@ -31,7 +31,7 @@
   <identifier>
     <value value="TKEndpoint"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="0.1.1"/>
   <name value="TKEndpoint"/>
   <title value="Tjänstekatalogen Endpoint"/>
   <status value="draft"/>

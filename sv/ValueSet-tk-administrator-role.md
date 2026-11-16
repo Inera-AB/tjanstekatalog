@@ -1,4 +1,4 @@
-# Administratörsroller - Tjänstekatalogen v0.1.0
+# Administratörsroller - Tjänstekatalogen v0.1.1
 
 ## ValueSet: Administratörsroller (Experimentell) 
 
@@ -25,12 +25,12 @@
   "resourceType" : "ValueSet",
   "id" : "tk-administrator-role",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKAdministratorRoleVS",
   "title" : "Administratörsroller",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-13T15:19:01+00:00",
+  "date" : "2026-11-16T14:31:08+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

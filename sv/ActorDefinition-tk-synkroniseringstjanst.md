@@ -1,4 +1,4 @@
-# Synkroniseringstjänst - Tjänstekatalogen v0.1.0
+# Synkroniseringstjänst - Tjänstekatalogen v0.1.1
 
 ## ActorDefinition: Synkroniseringstjänst (Experimentell) 
 
@@ -11,7 +11,7 @@
   "resourceType" : "ActorDefinition",
   "id" : "tk-synkroniseringstjanst",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ActorDefinition/tk-synkroniseringstjanst",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKSynkroniseringstjanst",
   "title" : "Synkroniseringstjänst",
   "status" : "draft",

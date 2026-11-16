@@ -1,0 +1,50 @@
+{
+  "resourceType" : "CodeSystem",
+  "id" : "tk-api-specification-category",
+  "language" : "sv",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: CodeSystem tk-api-specification-category</b></p><a name=\"tk-api-specification-category\"> </a><a name=\"hctk-api-specification-category\"> </a><p>Detta case-sensitive kodsystem <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code> definierar följande koder:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Kod</b></td><td><b>Visning</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">fhir<a name=\"tk-api-specification-category-fhir\"> </a></td><td>FHIR</td><td>Specifikationen är en HL7 FHIR-specifikation, t.ex. en implementationsguide (IG).</td></tr><tr><td style=\"white-space:nowrap\">rest-openapi<a name=\"tk-api-specification-category-rest-openapi\"> </a></td><td>REST/OpenAPI</td><td>Specifikationen är ett REST-API beskrivet med OpenAPI.</td></tr><tr><td style=\"white-space:nowrap\">soap-rivta<a name=\"tk-api-specification-category-soap-rivta\"> </a></td><td>SOAP/RIVTA</td><td>Specifikationen är ett SOAP-baserat tjänstekontrakt enligt RIVTA.</td></tr></table></div>"
+  },
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category",
+  "version" : "0.1.1",
+  "name" : "TKAPISpecificationCategoryCS",
+  "title" : "Kategorier för API-specifikationer (kodsystem)",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-16T14:31:08+00:00",
+  "publisher" : "Inera AB",
+  "contact" : [{
+    "name" : "Inera AB",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Kodsystem som anger vilken typ av interoperabilitetsspecifikation en API-specifikation är (API-specifikation.kategori i informationsunderlaget). Preliminärt förslag.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "SE",
+      "display" : "Sweden"
+    }]
+  }],
+  "caseSensitive" : true,
+  "content" : "complete",
+  "count" : 3,
+  "concept" : [{
+    "code" : "fhir",
+    "display" : "FHIR",
+    "definition" : "Specifikationen är en HL7 FHIR-specifikation, t.ex. en implementationsguide (IG)."
+  },
+  {
+    "code" : "rest-openapi",
+    "display" : "REST/OpenAPI",
+    "definition" : "Specifikationen är ett REST-API beskrivet med OpenAPI."
+  },
+  {
+    "code" : "soap-rivta",
+    "display" : "SOAP/RIVTA",
+    "definition" : "Specifikationen är ett SOAP-baserat tjänstekontrakt enligt RIVTA."
+  }]
+}

@@ -5,16 +5,16 @@
   "description" : "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat.",
   "status" : "draft",
   "package-id" : "inera.infra.tjanstekatalog",
-  "ig-ver" : "0.1.0",
-  "date" : "Fri, 13 Nov, 2026 15:19:01 +0000",
-  "dateISO8601" : "2026-11-13T15:19:01+00:00",
+  "ig-ver" : "0.1.1",
+  "date" : "Mon, 16 Nov, 2026 14:31:08 +0000",
+  "dateISO8601" : "2026-11-16T14:31:08+00:00",
   "errs" : 0,
-  "warnings" : 19,
-  "hints" : 118,
+  "warnings" : 23,
+  "hints" : 123,
   "broken-links" : 0,
   "suppressed-hints" : 1,
   "suppressed-warnings" : 166,
   "version" : "5.0.0",
   "tool" : "6.0.0-snapshot1 (3)",
-  "maxMemory" : 1055158864
+  "maxMemory" : 810471456
 }

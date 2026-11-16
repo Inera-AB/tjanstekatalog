@@ -1,4 +1,4 @@
-# Om - Tjänstekatalogen v0.1.0
+# Om - Tjänstekatalogen v0.1.1
 
 ## Om
 

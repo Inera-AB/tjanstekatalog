@@ -1,4 +1,4 @@
-# Exempel: lokal administratör - Tjänstekatalogen v0.1.0
+# Exempel: lokal administratör - Tjänstekatalogen v0.1.1
 
 ## Exempel PractitionerRole: Exempel: lokal administratör
 

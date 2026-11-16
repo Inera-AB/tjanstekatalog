@@ -1,4 +1,4 @@
-# Tjänstekatalogen Provenance - Tjänstekatalogen v0.1.0
+# Tjänstekatalogen Provenance - Tjänstekatalogen v0.1.1
 
 ## Resursprofil: Tjänstekatalogen Provenance 
 
@@ -7,7 +7,7 @@
 * Exempel för denna Profil: [Provenance/TKProvenanceAdministratorRoleExample](Provenance-TKProvenanceAdministratorRoleExample.md) and [Provenance/TKProvenanceExample](Provenance-TKProvenanceExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-provenance)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-provenance.json)
 
 ### Formella vyer av profilinnehåll
 
@@ -61,7 +61,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-provenance.c
   "identifier" : [{
     "value" : "TKProvenance"
   }],
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKProvenance",
   "title" : "Tjänstekatalogen Provenance",
   "status" : "draft",

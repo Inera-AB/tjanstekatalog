@@ -1,4 +1,4 @@
-# Testning och validering - Tjänstekatalogen v0.1.0
+# Testning och validering - Tjänstekatalogen v0.1.1
 
 ## Testning och validering
 

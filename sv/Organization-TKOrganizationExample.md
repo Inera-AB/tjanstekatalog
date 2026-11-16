@@ -1,4 +1,4 @@
-# Exempel: organisation i tjänstekatalogen - Tjänstekatalogen v0.1.0
+# Exempel: organisation i tjänstekatalogen - Tjänstekatalogen v0.1.1
 
 ## Exempel Organization: Exempel: organisation i tjänstekatalogen
 

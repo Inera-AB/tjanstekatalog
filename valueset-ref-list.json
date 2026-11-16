@@ -1,7 +1,7 @@
 {
   "codeSystems" : [{
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "status" : "draft",
     "name" : "TKAdministratorRoleVS",
     "title" : "Administratörsroller",
@@ -12,8 +12,20 @@
     "StructureDefinition-tk-administrator-role.html" : "Tjänstekatalogen administratörsbehörighet"
   },
   {
+    "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-api-specification-category",
+    "version" : "0.1.1",
+    "status" : "draft",
+    "name" : "TKAPISpecificationCategoryVS",
+    "title" : "Kategorier för API-specifikationer",
+    "description" : "Värden för API-specifikation.kategori. Extensible-bindning: använd en kod härifrån när någon passar, annars får en annan kod eller text anges.",
+    "systems" : ["https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category"],
+    "uses" : {
+    },
+    "StructureDefinition-tk-api-specification-category.html" : "Specifikationskategori"
+  },
+  {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "status" : "draft",
     "name" : "TKEndpointSecurityMethodVS",
     "title" : "Säkerhetsmetoder för tekniska ändpunkter",

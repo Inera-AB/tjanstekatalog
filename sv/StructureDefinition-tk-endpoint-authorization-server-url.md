@@ -1,4 +1,4 @@
-# URL till auktorisationsserver - Tjänstekatalogen v0.1.0
+# URL till auktorisationsserver - Tjänstekatalogen v0.1.1
 
 ## Extension: URL till auktorisationsserver 
 
@@ -11,7 +11,7 @@
 * Använd denna Extension: [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
 * Exempel för denna Extension: [Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-endpoint-authorization-server-url)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-endpoint-authorization-server-url.json)
 
 ### Formella vyer av extensioninnehåll
 
@@ -55,11 +55,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-aut
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKEndpointAuthorizationServerUrl",
   "title" : "URL till auktorisationsserver",
   "status" : "draft",
-  "date" : "2026-11-13T15:19:01+00:00",
+  "date" : "2026-11-16T14:31:08+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -1,4 +1,4 @@
-# Exempel: underliggande enhet i tjänstekatalogen - Tjänstekatalogen v0.1.0
+# Exempel: underliggande enhet i tjänstekatalogen - Tjänstekatalogen v0.1.1
 
 ## Exempel Organization: Exempel: underliggande enhet i tjänstekatalogen
 

@@ -1,0 +1,37 @@
+{
+  "resourceType" : "ValueSet",
+  "id" : "tk-api-specification-category",
+  "language" : "sv",
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ValueSet tk-api-specification-category</b></p><a name=\"tk-api-specification-category\"> </a><a name=\"hctk-api-specification-category\"> </a><ul><li>Include alla koder som definieras i <a href=\"CodeSystem-tk-api-specification-category.html\"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code></a><span title=\"Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation\"> version &#x1F4E6;0.1.1</span></li></ul></div>"
+  },
+  "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-api-specification-category",
+  "version" : "0.1.1",
+  "name" : "TKAPISpecificationCategoryVS",
+  "title" : "Kategorier för API-specifikationer",
+  "status" : "draft",
+  "experimental" : true,
+  "date" : "2026-11-16T14:31:08+00:00",
+  "publisher" : "Inera AB",
+  "contact" : [{
+    "name" : "Inera AB",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "https://www.inera.se"
+    }]
+  }],
+  "description" : "Värden för API-specifikation.kategori. Extensible-bindning: använd en kod härifrån när någon passar, annars får en annan kod eller text anges.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "SE",
+      "display" : "Sweden"
+    }]
+  }],
+  "compose" : {
+    "include" : [{
+      "system" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category"
+    }]
+  }
+}

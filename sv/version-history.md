@@ -1,8 +1,16 @@
-# Versionshistorik - Tjänstekatalogen v0.1.0
+# Versionshistorik - Tjänstekatalogen v0.1.1
 
 ## Versionshistorik
 
 Den här sidan beskriver vad som har ändrats i varje version. Listan över alla publicerade versioner nås via länken i bannern överst på varje sida.
+
+-------
+
+### [0.1.1] — 2026-11-16
+
+#### Features
+
+* Kodsystemet och värdemängden `tk-api-specification-category` med koderna `fhir`, `rest-openapi` och `soap-rivta`. Extensionen `tk-api-specification-category` (API-specifikation.kategori) är nu bunden till värdemängden med extensible-bindning; tidigare saknade den bindning helt. Exemplet för API-specifikation använder nu en kod i stället för enbart text.
 
 -------
 

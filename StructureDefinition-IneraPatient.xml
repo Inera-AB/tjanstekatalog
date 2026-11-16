@@ -23,7 +23,7 @@
   <identifier>
     <value value="IneraPatient"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="0.1.1"/>
   <name value="IneraPatient"/>
   <title value="Inera Patient"/>
   <status value="draft"/>

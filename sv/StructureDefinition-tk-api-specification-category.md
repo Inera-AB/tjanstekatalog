@@ -1,4 +1,4 @@
-# Specifikationskategori - Tjänstekatalogen v0.1.0
+# Specifikationskategori - Tjänstekatalogen v0.1.1
 
 ## Extension: Specifikationskategori 
 
@@ -11,7 +11,7 @@
 * Använd denna Extension: [Tjänstekatalogen API-specifikation](StructureDefinition-tk-api-specification-capability.md)
 * Exempel för denna Extension: [IneraPatientinformation](CapabilityStatement-TKAPISpecificationCapabilityExample.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-api-specification-category)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-api-specification-category.json)
 
 ### Formella vyer av extensioninnehåll
 
@@ -24,6 +24,10 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
+#### Terminologibindningar (differential)
+
+#### Terminologibindningar
+
 #### Begränsningar
 
 Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
@@ -32,7 +36,11 @@ Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibili
 
 Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
+#### Terminologibindningar (differential)
+
  **Ögonblicksbildsvy** 
+
+#### Terminologibindningar
 
 #### Begränsningar
 
@@ -55,11 +63,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-category",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKAPISpecificationCategory",
   "title" : "Specifikationskategori",
   "status" : "draft",
-  "date" : "2026-11-13T15:19:01+00:00",
+  "date" : "2026-11-16T14:31:08+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -68,7 +76,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.",
+  "description" : "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget), bunden extensible till TKAPISpecificationCategoryVS. Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -96,7 +104,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
       "id" : "Extension",
       "path" : "Extension",
       "short" : "Specifikationskategori",
-      "definition" : "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag."
+      "definition" : "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget), bunden extensible till TKAPISpecificationCategoryVS. Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag."
     },
     {
       "id" : "Extension.extension",
@@ -114,7 +122,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
       "min" : 1,
       "type" : [{
         "code" : "CodeableConcept"
-      }]
+      }],
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-api-specification-category"
+      }
     }]
   }
 }

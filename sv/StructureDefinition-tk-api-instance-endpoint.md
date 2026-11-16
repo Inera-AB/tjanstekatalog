@@ -1,4 +1,4 @@
-# Tillgängliggörande ändpunkt - Tjänstekatalogen v0.1.0
+# Tillgängliggörande ändpunkt - Tjänstekatalogen v0.1.1
 
 ## Extension: Tillgängliggörande ändpunkt 
 
@@ -11,7 +11,7 @@
 * Använd denna Extension: [Tjänstekatalogen API-instans](StructureDefinition-tk-api-instance.md)
 * Exempel för denna Extension: [CapabilityStatement/TKAPIInstanceExample](CapabilityStatement-TKAPIInstanceExample.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-api-instance-endpoint)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-api-instance-endpoint.json)
 
 ### Formella vyer av extensioninnehåll
 
@@ -55,11 +55,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-instance
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-endpoint",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKAPIInstanceEndpoint",
   "title" : "Tillgängliggörande ändpunkt",
   "status" : "draft",
-  "date" : "2026-11-13T15:19:01+00:00",
+  "date" : "2026-11-16T14:31:08+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

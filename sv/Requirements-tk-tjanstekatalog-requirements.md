@@ -1,4 +1,4 @@
-# Kravkatalog: Tjänstekatalogen - Tjänstekatalogen v0.1.0
+# Kravkatalog: Tjänstekatalogen - Tjänstekatalogen v0.1.1
 
 ## Requirements: Kravkatalog: Tjänstekatalogen (Experimentell) 
 
@@ -11,7 +11,7 @@
   "resourceType" : "Requirements",
   "id" : "tk-tjanstekatalog-requirements",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKTjanstekatalogRequirements",
   "title" : "Kravkatalog: Tjänstekatalogen",
   "status" : "draft",

@@ -1,4 +1,4 @@
-# Vård- och omsorgstagare (logisk modell) - Tjänstekatalogen v0.1.0
+# Vård- och omsorgstagare (logisk modell) - Tjänstekatalogen v0.1.1
 
 ## Logisk modell: Vård- och omsorgstagare (logisk modell) 
 
@@ -6,7 +6,7 @@
 
 * Referera till denna Logisk modell: [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-vard-och-omsorgstagare)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-vard-och-omsorgstagare.json)
 
 ### Formella vyer av profilinnehåll
 
@@ -46,11 +46,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-vard-och-oms
     "valueCode" : "can-be-target"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKVardOchOmsorgstagare",
   "title" : "Vård- och omsorgstagare (logisk modell)",
   "status" : "draft",
-  "date" : "2026-11-13T15:19:01+00:00",
+  "date" : "2026-11-16T14:31:08+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

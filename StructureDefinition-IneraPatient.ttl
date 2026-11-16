@@ -17,7 +17,7 @@
   fhir:identifier ( [
      fhir:value [ fhir:v "IneraPatient" ]
   ] ) ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:version [ fhir:v "0.1.1"] ; # 
   fhir:name [ fhir:v "IneraPatient"] ; # 
   fhir:title [ fhir:v "Inera Patient"] ; # 
   fhir:status [ fhir:v "draft"] ; # 

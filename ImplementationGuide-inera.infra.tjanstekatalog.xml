@@ -8,11 +8,11 @@
 </div></div>
   </text>
   <url value="https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog"/>
-  <version value="0.1.0"/>
+  <version value="0.1.1"/>
   <name value="IneraTjanstekatalog"/>
   <title value="Tjänstekatalogen"/>
   <status value="draft"/>
-  <date value="2026-11-13T15:19:01+00:00"/>
+  <date value="2026-11-16T14:31:08+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>
@@ -294,6 +294,28 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="ValueSet"/>
+      </extension>
+      <reference>
+        <reference value="ValueSet/tk-api-specification-category"/>
+      </reference>
+      <name value="Kategorier för API-specifikationer"/>
+      <description value="Värden för API-specifikation.kategori. Extensible-bindning: använd en kod härifrån när någon passar, annars får en annan kod eller text anges."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="CodeSystem"/>
+      </extension>
+      <reference>
+        <reference value="CodeSystem/tk-api-specification-category"/>
+      </reference>
+      <name value="Kategorier för API-specifikationer (kodsystem)"/>
+      <description value="Kodsystem som anger vilken typ av interoperabilitetsspecifikation en API-specifikation är (API-specifikation.kategori i informationsunderlaget). Preliminärt förslag."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="Requirements"/>
       </extension>
       <reference>
@@ -333,7 +355,7 @@
         <reference value="StructureDefinition/tk-api-specification-category"/>
       </reference>
       <name value="Specifikationskategori"/>
-      <description value="Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag."/>
+      <description value="Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget), bunden extensible till TKAPISpecificationCategoryVS. Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag."/>
       <isExample value="false"/>
     </resource>
     <resource>

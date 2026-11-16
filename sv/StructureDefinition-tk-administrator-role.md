@@ -1,4 +1,4 @@
-# Tjänstekatalogen administratörsbehörighet - Tjänstekatalogen v0.1.0
+# Tjänstekatalogen administratörsbehörighet - Tjänstekatalogen v0.1.1
 
 ## Resursprofil: Tjänstekatalogen administratörsbehörighet 
 
@@ -8,7 +8,7 @@
 * Exempel för denna Profil: [PractitionerRole/TKCentralAdministratorRoleExample](PractitionerRole-TKCentralAdministratorRoleExample.md) and [PractitionerRole/TKLocalAdministratorRoleExample](PractitionerRole-TKLocalAdministratorRoleExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-administrator-role)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-administrator-role.json)
 
 ### Formella vyer av profilinnehåll
 
@@ -70,7 +70,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-administrato
   "identifier" : [{
     "value" : "TKAdministratorRole"
   }],
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKAdministratorRole",
   "title" : "Tjänstekatalogen administratörsbehörighet",
   "status" : "draft",

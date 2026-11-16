@@ -1,4 +1,4 @@
-# Säkerhetsmetod - Tjänstekatalogen v0.1.0
+# Säkerhetsmetod - Tjänstekatalogen v0.1.1
 
 ## Extension: Säkerhetsmetod 
 
@@ -11,7 +11,7 @@
 * Använd denna Extension: [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
 * Exempel för denna Extension: [Exempelregionens patientinformations-API](Endpoint-TKEndpointExample.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-endpoint-security-method)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-endpoint-security-method.json)
 
 ### Formella vyer av extensioninnehåll
 
@@ -63,11 +63,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-sec
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKEndpointSecurityMethod",
   "title" : "Säkerhetsmetod",
   "status" : "draft",
-  "date" : "2026-11-13T15:19:01+00:00",
+  "date" : "2026-11-16T14:31:08+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

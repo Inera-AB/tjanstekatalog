@@ -1,4 +1,4 @@
-# Exempel: spårbarhetspost för ändrad administratörsbehörighet - Tjänstekatalogen v0.1.0
+# Exempel: spårbarhetspost för ändrad administratörsbehörighet - Tjänstekatalogen v0.1.1
 
 ## Exempel Provenance: Exempel: spårbarhetspost för ändrad administratörsbehörighet
 

@@ -1,0 +1,58 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category> a fhir:CodeSystem ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "tk-api-specification-category"] ; # 
+  fhir:language [ fhir:v "sv"] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: CodeSystem tk-api-specification-category</b></p><a name=\"tk-api-specification-category\"> </a><a name=\"hctk-api-specification-category\"> </a><p>Detta case-sensitive kodsystem <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code> definierar följande koder:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Kod</b></td><td><b>Visning</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">fhir<a name=\"tk-api-specification-category-fhir\"> </a></td><td>FHIR</td><td>Specifikationen är en HL7 FHIR-specifikation, t.ex. en implementationsguide (IG).</td></tr><tr><td style=\"white-space:nowrap\">rest-openapi<a name=\"tk-api-specification-category-rest-openapi\"> </a></td><td>REST/OpenAPI</td><td>Specifikationen är ett REST-API beskrivet med OpenAPI.</td></tr><tr><td style=\"white-space:nowrap\">soap-rivta<a name=\"tk-api-specification-category-soap-rivta\"> </a></td><td>SOAP/RIVTA</td><td>Specifikationen är ett SOAP-baserat tjänstekontrakt enligt RIVTA.</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category"^^xsd:anyURI] ; # 
+  fhir:version [ fhir:v "0.1.1"] ; # 
+  fhir:name [ fhir:v "TKAPISpecificationCategoryCS"] ; # 
+  fhir:title [ fhir:v "Kategorier för API-specifikationer (kodsystem)"] ; # 
+  fhir:status [ fhir:v "draft"] ; # 
+  fhir:experimental [ fhir:v true] ; # 
+  fhir:date [ fhir:v "2026-11-16T14:31:08+00:00"^^xsd:dateTime] ; # 
+  fhir:publisher [ fhir:v "Inera AB"] ; # 
+  fhir:contact ( [
+     fhir:name [ fhir:v "Inera AB" ] ;
+     fhir:telecom ( [
+       fhir:system [ fhir:v "url" ] ;
+       fhir:value [ fhir:v "https://www.inera.se" ]
+     ] )
+  ] ) ; # 
+  fhir:description [ fhir:v "Kodsystem som anger vilken typ av interoperabilitetsspecifikation en API-specifikation är (API-specifikation.kategori i informationsunderlaget). Preliminärt förslag."] ; # 
+  fhir:jurisdiction ( [
+     fhir:coding ( [
+       fhir:system [ fhir:v "urn:iso:std:iso:3166"^^xsd:anyURI ] ;
+       fhir:code [ fhir:v "SE" ] ;
+       fhir:display [ fhir:v "Sweden" ]
+     ] )
+  ] ) ; # 
+  fhir:caseSensitive [ fhir:v true] ; # 
+  fhir:content [ fhir:v "complete"] ; # 
+  fhir:count [ fhir:v "3"^^xsd:nonNegativeInteger] ; # 
+  fhir:concept ( [
+     fhir:code [ fhir:v "fhir" ] ;
+     fhir:display [ fhir:v "FHIR" ] ;
+     fhir:definition [ fhir:v "Specifikationen är en HL7 FHIR-specifikation, t.ex. en implementationsguide (IG)." ]
+  ] [
+     fhir:code [ fhir:v "rest-openapi" ] ;
+     fhir:display [ fhir:v "REST/OpenAPI" ] ;
+     fhir:definition [ fhir:v "Specifikationen är ett REST-API beskrivet med OpenAPI." ]
+  ] [
+     fhir:code [ fhir:v "soap-rivta" ] ;
+     fhir:display [ fhir:v "SOAP/RIVTA" ] ;
+     fhir:definition [ fhir:v "Specifikationen är ett SOAP-baserat tjänstekontrakt enligt RIVTA." ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

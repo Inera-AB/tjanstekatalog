@@ -1,12 +1,12 @@
 ﻿{
   "openapi": "3.0.2",
   "info": {
-    "title": "CapabilityStatement[https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/TKAPIInstanceExample|0.1.0]",
+    "title": "CapabilityStatement[https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/TKAPIInstanceExample|0.1.1]",
     "license": {
       "name": "Creative Commons Zero v1.0 Universal",
       "url": "http://spdx.org/licenses/CC0-1.0.html"
     },
-    "version": "0.1.0",
+    "version": "0.1.1",
     "contact": {
       "name": "Inera AB",
       "url": "https://www.inera.se"

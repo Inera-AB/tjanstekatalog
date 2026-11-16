@@ -1,4 +1,4 @@
-# Mappning till profiler - Tjänstekatalogen v0.1.0
+# Mappning till profiler - Tjänstekatalogen v0.1.1
 
 ## Mappning till profiler
 
@@ -110,7 +110,7 @@ Mappningarna nedan spårar varje element i informationsmodellen till det FHIR-pr
 | maskinläsbartNamn | 0..1 | [TKAPISpecificationCapability.name](StructureDefinition-tk-api-specification-capability.md) | REQ-MDL-4 |
 | version | 1..1 | [TKAPISpecificationCapability.version](StructureDefinition-tk-api-specification-capability.md) | Obligatorisk eftersom flera versioner av samma specifikation kan finnas samtidigt;`url`+`version`är unik. REQ-MDL-4, REQ-MDL-8 |
 | referensTillKälla | 0..1 | [TKAPISpecificationSourceReference](StructureDefinition-tk-api-specification-source-reference.md)(extension) | REQ-MDL-4 |
-| kategori | 0..1 | [TKAPISpecificationCategory](StructureDefinition-tk-api-specification-category.md)(extension) | REQ-MDL-4 |
+| kategori | 0..1 | [TKAPISpecificationCategory](StructureDefinition-tk-api-specification-category.md)(extension) | Kodverk[TKAPISpecificationCategoryVS](ValueSet-tk-api-specification-category.md)(`fhir`,`rest-openapi`,`soap-rivta`), extensible-bindning. Preliminärt kodverk. REQ-MDL-4 |
 | titel | 1..1 | [TKAPISpecificationCapability.title](StructureDefinition-tk-api-specification-capability.md) | REQ-MDL-4 |
 | beskrivning | 0..1 | [TKAPISpecificationCapability.description](StructureDefinition-tk-api-specification-capability.md) | REQ-MDL-4 |
 | ansvarigUtgivare | 0..1 | [TKCapabilityStatementResponsibleOrganization](StructureDefinition-tk-capabilitystatement-responsible-organization.md)(extension) | `.publisher`(string) täcker fritextnamn; denna extension bär strukturerad`Reference(TKOrganization)`. REQ-MDL-4 |

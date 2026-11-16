@@ -1,4 +1,4 @@
-# Tjänstekatalogen API-instans - Tjänstekatalogen v0.1.0
+# Tjänstekatalogen API-instans - Tjänstekatalogen v0.1.1
 
 ## Resursprofil: Tjänstekatalogen API-instans 
 
@@ -8,7 +8,7 @@
 * Exempel för denna Profil: [CapabilityStatement/TKAPIInstanceExample](CapabilityStatement-TKAPIInstanceExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) and [Tjänstekatalogen: sök-API (externt)](CapabilityStatement-tk-search-api.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-api-instance)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-api-instance.json)
 
 ### Formella vyer av profilinnehåll
 
@@ -70,7 +70,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-instance
   "identifier" : [{
     "value" : "TKAPIInstance"
   }],
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKAPIInstance",
   "title" : "Tjänstekatalogen API-instans",
   "status" : "draft",

@@ -10,11 +10,11 @@
   "id" : "inera.infra.tjanstekatalog",
   "language" : "sv",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-11-13T15:19:01+00:00",
+  "date" : "2026-11-16T14:31:08+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -407,6 +407,38 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "ValueSet"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "ValueSet-tk-api-specification-category.html"
+      }],
+      "reference" : {
+        "reference" : "ValueSet/tk-api-specification-category"
+      },
+      "name" : "Kategorier för API-specifikationer",
+      "description" : "Värden för API-specifikation.kategori. Extensible-bindning: använd en kod härifrån när någon passar, annars får en annan kod eller text anges.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "CodeSystem"
+      },
+      {
+        "url" : "http://hl7.org/fhir/StructureDefinition/implementationguide-page",
+        "valueUri" : "CodeSystem-tk-api-specification-category.html"
+      }],
+      "reference" : {
+        "reference" : "CodeSystem/tk-api-specification-category"
+      },
+      "name" : "Kategorier för API-specifikationer (kodsystem)",
+      "description" : "Kodsystem som anger vilken typ av interoperabilitetsspecifikation en API-specifikation är (API-specifikation.kategori i informationsunderlaget). Preliminärt förslag.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "Requirements"
       },
       {
@@ -465,7 +497,7 @@
         "reference" : "StructureDefinition/tk-api-specification-category"
       },
       "name" : "Specifikationskategori",
-      "description" : "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget). Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.",
+      "description" : "Typ av specifikation, t.ex. FHIR, REST/OpenAPI, SOAP/RIVTA-tjänstekontrakt (API-specifikation.kategori i informationsunderlaget), bunden extensible till TKAPISpecificationCategoryVS. Basresursen CapabilityStatement saknar ett eget element för klassificering av detta slag.",
       "isExample" : false
     },
     {

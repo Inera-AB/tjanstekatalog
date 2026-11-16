@@ -1,4 +1,4 @@
-# Kravkatalog - Tjänstekatalogen v0.1.0
+# Kravkatalog - Tjänstekatalogen v0.1.1
 
 ## Kravkatalog
 

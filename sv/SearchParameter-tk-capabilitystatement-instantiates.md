@@ -1,4 +1,4 @@
-# CapabilityStatement: instantiates - Tjänstekatalogen v0.1.0
+# CapabilityStatement: instantiates - Tjänstekatalogen v0.1.1
 
 ## SearchParameter: CapabilityStatement: instantiates (Experimentell) 
 
@@ -11,7 +11,7 @@
   "resourceType" : "SearchParameter",
   "id" : "tk-capabilitystatement-instantiates",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-instantiates",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKCapabilityStatementInstantiates",
   "title" : "CapabilityStatement: instantiates",
   "status" : "draft",

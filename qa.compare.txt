@@ -1,16 +1,17 @@
 IneraTjanstekatalog : Validation Results
 =========================================
 
-err = 0, warn = 19, info = 118, broken links = 0
+err = 0, warn = 23, info = 123, broken links = 0
 $--
 Generated $--. FHIR version $-- for inera.infra.tjanstekatalog#$-- (canonical = https://fhir.inera.se/ig/tjanstekatalog)
  Build Errors : 0 / 0 / 0
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ActorDefinition-tk-synkroniseringstjanst : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-TKAPIInstanceExample : 0 / 0 / 3
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-TKAPISpecificationCapabilityExample : 0 / 1 / 3
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-TKAPISpecificationCapabilityExample : 0 / 1 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-tk-admin-api : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-tk-search-api : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CodeSystem-tk-administrator-role : 0 / 1 / 3
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CodeSystem-tk-api-specification-category : 0 / 1 / 3
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CodeSystem-tk-endpoint-security-method : 0 / 1 / 3
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Endpoint-TKEndpointExample : 0 / 2 / 2
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ImplementationGuide-inera.infra.tjanstekatalog : 0 / 0 / 20
@@ -34,7 +35,7 @@ Generated $--. FHIR version $-- for inera.infra.tjanstekatalog#$-- (canonical = 
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-instance-endpoint : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-instance-period : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-specification-capability : 0 / 4 / 4
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-specification-category : 0 / 0 / 4
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-specification-category : 0 / 2 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-api-specification-source-reference : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-capabilitystatement-responsible-organization : 0 / 1 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-endpoint : 0 / 0 / 4
@@ -47,6 +48,7 @@ Generated $--. FHIR version $-- for inera.infra.tjanstekatalog#$-- (canonical = 
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/StructureDefinition-tk-vard-och-omsorgstagare : 0 / 4 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SubscriptionTopic-tk-organization-endpoint-changes : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ValueSet-tk-administrator-role : 0 / 1 / 3
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ValueSet-tk-api-specification-category : 0 / 1 / 3
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ValueSet-tk-endpoint-security-method : 0 / 1 / 3
 </table>
 
@@ -65,6 +67,7 @@ INFORMATION: CapabilityStatement/TKAPIInstanceExample: CapabilityStatement.juris
 
 
 == fsh-generated/resources/CapabilityStatement-TKAPISpecificationCapabilityExample.json ==
+INFORMATION: CapabilityStatement/TKAPISpecificationCapabilityExample: CapabilityStatement.extension[0].value.ofType(CodeableConcept): Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category|0.1.1
 WARNING: CapabilityStatement/TKAPISpecificationCapabilityExample: CapabilityStatement.extension[1].value.ofType(url): Ingen definition kunde hittas för URL-värdet 'https://fhir.inera.se/ig/patientinformation/'
 INFORMATION: CapabilityStatement/TKAPISpecificationCapabilityExample: CapabilityStatement.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 INFORMATION: CapabilityStatement/TKAPISpecificationCapabilityExample: CapabilityStatement.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
@@ -88,6 +91,12 @@ INFORMATION: CodeSystem/tk-administrator-role: CodeSystem.jurisdiction[0].coding
 WARNING: Resource: The resource CodeSystem/tk-administrator-role should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
 
 
+== fsh-generated/resources/CodeSystem-tk-api-specification-category.json ==
+INFORMATION: CodeSystem/tk-api-specification-category: CodeSystem.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+INFORMATION: CodeSystem/tk-api-specification-category: CodeSystem.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
+WARNING: Resource: The resource CodeSystem/tk-api-specification-category should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+
 == fsh-generated/resources/CodeSystem-tk-endpoint-security-method.json ==
 INFORMATION: CodeSystem/tk-endpoint-security-method: CodeSystem.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 INFORMATION: CodeSystem/tk-endpoint-security-method: CodeSystem.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
@@ -95,7 +104,7 @@ WARNING: Resource: The resource CodeSystem/tk-endpoint-security-method should ha
 
 
 == fsh-generated/resources/Endpoint-TKEndpointExample.json ==
-INFORMATION: Endpoint/TKEndpointExample: Endpoint.extension[0].value.ofType(CodeableConcept): Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.0
+INFORMATION: Endpoint/TKEndpointExample: Endpoint.extension[0].value.ofType(CodeableConcept): Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method|0.1.1
 WARNING: Endpoint/TKEndpointExample: Endpoint.extension[1].value.ofType(url): Ingen definition kunde hittas för URL-värdet 'https://auth.exempelregionen.se/oauth2/token'
 WARNING: Endpoint/TKEndpointExample: Endpoint.identifier[0].system: Ingen definition kunde hittas för URL-värdet 'http://electronichealth.se/fhir/NDI/Endpoint'
 
@@ -145,11 +154,11 @@ WARNING: Patient/IneraPatientExample: Patient.identifier[0].system: Ingen defini
 
 
 == fsh-generated/resources/PractitionerRole-TKCentralAdministratorRoleExample.json ==
-INFORMATION: PractitionerRole/TKCentralAdministratorRoleExample: PractitionerRole.code[0]: Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.0
+INFORMATION: PractitionerRole/TKCentralAdministratorRoleExample: PractitionerRole.code[0]: Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.1
 
 
 == fsh-generated/resources/PractitionerRole-TKLocalAdministratorRoleExample.json ==
-INFORMATION: PractitionerRole/TKLocalAdministratorRoleExample: PractitionerRole.code[0]: Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.0
+INFORMATION: PractitionerRole/TKLocalAdministratorRoleExample: PractitionerRole.code[0]: Referens till experimentell CodeSystem https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role|0.1.1
 
 
 == fsh-generated/resources/Provenance-TKProvenanceAdministratorRoleExample.json ==
@@ -237,6 +246,8 @@ INFORMATION: Resource: The resource StructureDefinition/tk-api-specification-cap
 == fsh-generated/resources/StructureDefinition-tk-api-specification-category.json ==
 INFORMATION: StructureDefinition/tk-api-specification-category: StructureDefinition.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 INFORMATION: StructureDefinition/tk-api-specification-category: StructureDefinition.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
+WARNING: StructureDefinition/tk-api-specification-category: StructureDefinition.differential.element[3].binding: Definitionen för elementet 'Extension.value[x]' binder till värdemängden 'https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-api-specification-category' som är experimentell, men denna struktur är inte märkt som experimentell
+WARNING: StructureDefinition/tk-api-specification-category: StructureDefinition.snapshot.element[4].binding: Definitionen för elementet 'Extension.value[x]' binder till värdemängden 'https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-api-specification-category' som är experimentell, men denna struktur är inte märkt som experimentell
 INFORMATION: Resource: The resource StructureDefinition/tk-api-specification-category could usefully have an OID assigned (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
 
 
@@ -311,6 +322,12 @@ INFORMATION: Resource: The resource SubscriptionTopic/tk-organization-endpoint-c
 INFORMATION: ValueSet/tk-administrator-role: ValueSet.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
 INFORMATION: ValueSet/tk-administrator-role: ValueSet.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
 WARNING: Resource: The resource ValueSet/tk-administrator-role should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
+
+
+== fsh-generated/resources/ValueSet-tk-api-specification-category.json ==
+INFORMATION: ValueSet/tk-api-specification-category: ValueSet.jurisdiction[0]: Reference to deprecated ValueSet http://hl7.org/fhir/ValueSet/jurisdiction|5.0.0
+INFORMATION: ValueSet/tk-api-specification-category: ValueSet.jurisdiction[0].coding[0].display: There are no valid display names found for the code urn:iso:std:iso:3166#SE for language(s) 'sv'. The display is 'Sweden' which is a valid display for the default language
+WARNING: Resource: The resource ValueSet/tk-api-specification-category should have an OID assigned to cater for possible use with OID based terminology systems e.g. CDA usage (OIDs are easy to assign - see https://build.fhir.org/ig/FHIR/ig-guidance/oids.html)
 
 
 == fsh-generated/resources/ValueSet-tk-endpoint-security-method.json ==

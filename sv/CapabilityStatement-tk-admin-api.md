@@ -1,4 +1,4 @@
-# Tjänstekatalogen: administrativt API - Tjänstekatalogen v0.1.0
+# Tjänstekatalogen: administrativt API - Tjänstekatalogen v0.1.1
 
 ## CapabilityStatement: Tjänstekatalogen: administrativt API (Experimentell) 
 
@@ -13,7 +13,7 @@
   "resourceType" : "CapabilityStatement",
   "id" : "tk-admin-api",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKAdminAPICapabilityStatement",
   "title" : "Tjänstekatalogen: administrativt API",
   "status" : "draft",

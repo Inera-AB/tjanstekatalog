@@ -19,7 +19,7 @@
   <identifier>
     <value value="TKAdministratorRole"/>
   </identifier>
-  <version value="0.1.0"/>
+  <version value="0.1.1"/>
   <name value="TKAdministratorRole"/>
   <title value="Tjänstekatalogen administratörsbehörighet"/>
   <status value="draft"/>

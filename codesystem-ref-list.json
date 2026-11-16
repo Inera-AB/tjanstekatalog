@@ -1,7 +1,7 @@
 {
   "codeSystems" : [{
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "status" : "draft",
     "name" : "TKAdministratorRoleCS",
     "title" : "Administratörsroller (kodsystem)",
@@ -11,8 +11,19 @@
     "ValueSet-tk-administrator-role.html" : "Administratörsroller"
   },
   {
+    "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category",
+    "version" : "0.1.1",
+    "status" : "draft",
+    "name" : "TKAPISpecificationCategoryCS",
+    "title" : "Kategorier för API-specifikationer (kodsystem)",
+    "description" : "Kodsystem som anger vilken typ av interoperabilitetsspecifikation en API-specifikation är (API-specifikation.kategori i informationsunderlaget). Preliminärt förslag.",
+    "uses" : {
+    },
+    "ValueSet-tk-api-specification-category.html" : "Kategorier för API-specifikationer"
+  },
+  {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method",
-    "version" : "0.1.0",
+    "version" : "0.1.1",
     "status" : "draft",
     "name" : "TKEndpointSecurityMethodCS",
     "title" : "Säkerhetsmetoder för tekniska ändpunkter (kodsystem)",

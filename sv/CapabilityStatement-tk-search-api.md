@@ -1,4 +1,4 @@
-# Tjänstekatalogen: sök-API (externt) - Tjänstekatalogen v0.1.0
+# Tjänstekatalogen: sök-API (externt) - Tjänstekatalogen v0.1.1
 
 ## CapabilityStatement: Tjänstekatalogen: sök-API (externt) (Experimentell) 
 
@@ -13,7 +13,7 @@
   "resourceType" : "CapabilityStatement",
   "id" : "tk-search-api",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKSearchAPICapabilityStatement",
   "title" : "Tjänstekatalogen: sök-API (externt)",
   "status" : "draft",

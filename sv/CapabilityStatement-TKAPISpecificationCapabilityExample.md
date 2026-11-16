@@ -1,4 +1,4 @@
-# Exempel: API-specifikation i tjänstekatalogen - Tjänstekatalogen v0.1.0
+# Exempel: API-specifikation i tjänstekatalogen - Tjänstekatalogen v0.1.1
 
 ## CapabilityStatement: Exempel: API-specifikation i tjänstekatalogen 
 
@@ -18,7 +18,11 @@
   "extension" : [{
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-category",
     "valueCodeableConcept" : {
-      "text" : "FHIR"
+      "coding" : [{
+        "system" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category",
+        "code" : "fhir",
+        "display" : "FHIR"
+      }]
     }
   },
   {
@@ -26,7 +30,7 @@
     "valueUrl" : "https://fhir.inera.se/ig/patientinformation/"
   }],
   "url" : "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "IneraPatientinformation",
   "title" : "Patientinformation (Inera FHIR IG)",
   "status" : "active",

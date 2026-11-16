@@ -1,4 +1,4 @@
-# REST-interaktioner och sökparametrar - Tjänstekatalogen v0.1.0
+# REST-interaktioner och sökparametrar - Tjänstekatalogen v0.1.1
 
 ## REST-interaktioner och sökparametrar
 

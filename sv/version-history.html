@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Versionshistorik - Tjänstekatalogen v0.1.0</title>
+    <title>Versionshistorik - Tjänstekatalogen v0.1.1</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -64,7 +64,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">0.1.0 - ci-build
+            <span style="display:inline-block;">0.1.1 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Versionshistorik</h2>
   
 
@@ -180,16 +180,35 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#011--2026-11-16" id="markdown-toc-011--2026-11-16">[0.1.1] — 2026-11-16</a></li>
+  <li><a href="#010--2026-09-08" id="markdown-toc-010--2026-09-08">[0.1.0] — 2026-09-08</a></li>
+</ul>
+
 </div>
 <p>Den här sidan beskriver vad som har ändrats i varje version. Listan över alla publicerade versioner nås via länken i bannern överst på varje sida.</p>
 
 <hr />
 
-<h3 id="010--2026-09-08">[0.1.0] — 2026-09-08</h3>
+<h3 id="011--2026-11-16">[0.1.1] — 2026-11-16</h3>
 
 <h4 id="features">Features</h4>
+
+<ul>
+  <li>Kodsystemet och värdemängden <code class="language-plaintext highlighter-rouge">tk-api-specification-category</code> med koderna
+<code class="language-plaintext highlighter-rouge">fhir</code>, <code class="language-plaintext highlighter-rouge">rest-openapi</code> och <code class="language-plaintext highlighter-rouge">soap-rivta</code>. Extensionen
+<code class="language-plaintext highlighter-rouge">tk-api-specification-category</code> (API-specifikation.kategori) är nu bunden
+till värdemängden med extensible-bindning; tidigare saknade den bindning
+helt. Exemplet för API-specifikation använder nu en kod i stället för
+enbart text.</li>
+</ul>
+
+<hr />
+
+<h3 id="010--2026-09-08">[0.1.0] — 2026-09-08</h3>
+
+<h4 id="features-1">Features</h4>
 
 <ul>
   <li>Första utkastet av tjänstekatalogens IG: sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på
@@ -238,10 +257,10 @@ API-specifikation, för spårbarhet mot det bifogade informationsunderlaget</li>
 
 
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.infra.tjanstekatalog#0.1.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-13 15:19:00 +0000">
-    2026-11-13
+  <span title="2026-11-16 14:31:00 +0000">
+    2026-11-16
   </span>
 
           <br/>

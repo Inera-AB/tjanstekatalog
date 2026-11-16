@@ -9,7 +9,7 @@
   "identifier" : [{
     "value" : "IneraPatient"
   }],
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "IneraPatient",
   "title" : "Inera Patient",
   "status" : "draft",

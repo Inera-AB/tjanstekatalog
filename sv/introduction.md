@@ -1,4 +1,4 @@
-# Inledning - Tjänstekatalogen v0.1.0
+# Inledning - Tjänstekatalogen v0.1.1
 
 ## Inledning
 

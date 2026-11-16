@@ -1,4 +1,4 @@
-# CapabilityStatement - Tjänstekatalogen v0.1.0
+# CapabilityStatement - Tjänstekatalogen v0.1.1
 
 ## CapabilityStatement
 

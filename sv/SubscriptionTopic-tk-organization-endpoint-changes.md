@@ -1,4 +1,4 @@
-# Ändringar i Organisation/Ändpunkt (prenumerationsämne) - Tjänstekatalogen v0.1.0
+# Ändringar i Organisation/Ändpunkt (prenumerationsämne) - Tjänstekatalogen v0.1.1
 
 ## SubscriptionTopic: Ändringar i Organisation/Ändpunkt (prenumerationsämne) (Experimentell) 
 
@@ -11,7 +11,7 @@
   "resourceType" : "SubscriptionTopic",
   "id" : "tk-organization-endpoint-changes",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes",
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKOrganizationEndpointChangesTopic",
   "title" : "Ändringar i Organisation/Ändpunkt",
   "status" : "draft",

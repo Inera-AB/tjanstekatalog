@@ -25,7 +25,7 @@
   fhir:identifier ( [
      fhir:value [ fhir:v "TKAPIInstance" ]
   ] ) ; # 
-  fhir:version [ fhir:v "0.1.0"] ; # 
+  fhir:version [ fhir:v "0.1.1"] ; # 
   fhir:name [ fhir:v "TKAPIInstance"] ; # 
   fhir:title [ fhir:v "Tjänstekatalogen API-instans"] ; # 
   fhir:status [ fhir:v "draft"] ; # 

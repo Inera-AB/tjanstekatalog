@@ -1,4 +1,4 @@
-# Inera Patient Example - Tjänstekatalogen v0.1.0
+# Inera Patient Example - Tjänstekatalogen v0.1.1
 
 ## Exempel Patient: Inera Patient Example
 

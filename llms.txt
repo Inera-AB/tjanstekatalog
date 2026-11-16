@@ -1,4 +1,4 @@
-# inera.infra.tjanstekatalog#0.1.0: Tjänstekatalogen(sv)
+# inera.infra.tjanstekatalog#0.1.1: Tjänstekatalogen(sv)
 
 ## Pages
 
@@ -25,11 +25,13 @@
 ### CodeSystems
 
 * [Administratörsroller (kodsystem)](sv/CodeSystem-tk-administrator-role.md)
+* [Kategorier för API-specifikationer (kodsystem)](sv/CodeSystem-tk-api-specification-category.md)
 * [Säkerhetsmetoder för tekniska ändpunkter (kodsystem)](sv/CodeSystem-tk-endpoint-security-method.md)
 
 ### ValueSets
 
 * [Administratörsroller](sv/ValueSet-tk-administrator-role.md)
+* [Kategorier för API-specifikationer](sv/ValueSet-tk-api-specification-category.md)
 * [Säkerhetsmetoder för tekniska ändpunkter](sv/ValueSet-tk-endpoint-security-method.md)
 
 ### Logicals

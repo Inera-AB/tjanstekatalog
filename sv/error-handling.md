@@ -1,4 +1,4 @@
-# Felhantering - Tjänstekatalogen v0.1.0
+# Felhantering - Tjänstekatalogen v0.1.1
 
 ## Felhantering
 

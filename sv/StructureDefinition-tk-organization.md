@@ -1,4 +1,4 @@
-# Tjänstekatalogen Organization - Tjänstekatalogen v0.1.0
+# Tjänstekatalogen Organization - Tjänstekatalogen v0.1.1
 
 ## Resursprofil: Tjänstekatalogen Organization 
 
@@ -8,7 +8,7 @@
 * Exempel för denna Profil: [Exempelregionen](Organization-TKOrganizationExample.md) and [Exempelregionens vårdcentral](Organization-TKOrganizationUnitExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) and [Tjänstekatalogen: sök-API (externt)](CapabilityStatement-tk-search-api.md)
 
-Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/inera.infra.tjanstekatalog|current/StructureDefinition/tk-organization)
+Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-organization.json)
 
 ### Formella vyer av profilinnehåll
 
@@ -70,7 +70,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-organization
   "identifier" : [{
     "value" : "TKOrganization"
   }],
-  "version" : "0.1.0",
+  "version" : "0.1.1",
   "name" : "TKOrganization",
   "title" : "Tjänstekatalogen Organization",
   "status" : "draft",

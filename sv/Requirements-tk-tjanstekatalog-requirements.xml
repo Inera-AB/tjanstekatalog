@@ -63,7 +63,7 @@
 </div><p>Länkar: </p><ul><li>Uppfylld av: <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>, <a href="https://fhir.inera.se/ig/tjanstekatalog/SubscriptionTopic/tk-organization-endpoint-changes">Ändringar i Organisation/Ändpunkt</a></li></ul></td></tr></table></div>
   </text>
   <url value="https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements"/>
-  <version value="0.1.0"/>
+  <version value="0.1.1"/>
   <name value="TKTjanstekatalogRequirements"/>
   <title value="Kravkatalog: Tjänstekatalogen"/>
   <status value="draft"/>

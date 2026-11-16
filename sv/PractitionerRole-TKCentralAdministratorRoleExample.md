@@ -1,4 +1,4 @@
-# Exempel: central administratör - Tjänstekatalogen v0.1.0
+# Exempel: central administratör - Tjänstekatalogen v0.1.1
 
 ## Exempel PractitionerRole: Exempel: central administratör
 
