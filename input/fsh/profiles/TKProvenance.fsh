@@ -18,9 +18,9 @@ synkronisering"/registrering i rest-interactions.html.
 """
 
 * ^status = #draft
-* ^version = "0.1.0"
+* ^version = "0.2.0"
 * ^identifier.value = "TKProvenance"
-* ^date = "2026-09-09"
+* ^date = "2026-11-17"
 * ^publisher = "Inera AB"
 * ^contact.name = "Inera AB"
 * ^contact.telecom.system = #url
