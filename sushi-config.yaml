@@ -4,11 +4,15 @@ name: IneraTjanstekatalog
 title: "Tjänstekatalogen"
 description: "FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat."
 status: draft
-version: 0.1.1
+version: 0.2.0
 fhirVersion: 5.0.0
 copyrightYear: 2026+
 releaseLabel: ci-build
 license: CC0-1.0
+
+dependencies:
+  # Standardextensionen operationoutcome-instance-id (REQ-ERR-1) finns från 5.4.0.
+  hl7.fhir.uv.extensions.r5: 5.4.0
 
 publisher:
   name: Inera AB

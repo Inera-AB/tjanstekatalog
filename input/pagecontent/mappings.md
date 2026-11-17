@@ -13,21 +13,17 @@ Denna IG realiserar entiteterna **Ändpunkt**, **Organisation**, **API** och
 **API-specifikation** fullt ut som FHIR-resurser med tillhörande
 sökparameter och skrivoperationer, inklusive båda relationerna mellan
 Ändpunkt och Organisation ("förvaltar" och "har"). Entiteterna **Indexpost**
-och **Vård- och omsorgstagare** är modellerade som logiska modeller för
-spårbarhet, men är inte (ännu) REST-exponerade i det administrativa API:et
-— se "Avvikelser och tillägg" nedan och [Kravkatalog](requirements.html)
-(REQ-MDL-1/2) för status.
+och **Vård- och omsorgstagare**, som hör till ett patientindex, ingår inte i
+IG:n sedan version 0.2.0 — se "Avvikelser och tillägg" nedan.
 
 API och API-specifikation var tidigare också logisk-modell-/extension-
 endast (REST-exponering uppskjuten respektive helt utelämnad); båda
 uppgraderades efter jämförelse med en annan implementation av samma
 problem — se "Avvikelser och tillägg" nedan.
 
-Utöver informationsunderlagets sex entiteter realiserar denna IG ytterligare
+Utöver informationsunderlagets entiteter realiserar denna IG ytterligare
 tillägg (se respektive punkt nedan under "Avvikelser och tillägg"):
-**administratörsbehörighet**
-([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)),
-**distribution/federering**
+**distribution/federering** (utkast, se [Synkronisering är ett utkast](#synk-utkast))
 ([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html)),
 en **exponeringsgräns** mellan externt sök-API och internt admin-API
 ([TKSearchAPI](CapabilityStatement-tk-search-api.html) /
@@ -144,30 +140,13 @@ anpassats och adopterats här.
   `http://electronichealth.se/fhir/NDI/Endpoint` är ett ANTAGET värde i
   väntan på bekräftelse av EHM:s faktiska bas-URL.
 
-- **"Vård- och omsorgstagare" ges ingen egen FHIR-profil.** Informationsunderlaget
-  ger entiteten ett enda attribut (id) utan ytterligare persondata — den
-  fungerar som en opak pekare i modellen, inte som en plats för
-  persondata. Vi har därför avstått från att införa en egen FHIR-resursprofil
-  och representerar den enbart med en tunn logisk modell,
-  [`TKVardOchOmsorgstagare`](StructureDefinition-tk-vard-och-omsorgstagare.html),
-  som `Indexpost.avser` kan referera. Implementatörer som behöver faktiska
-  persondata om en vård- och omsorgstagare får slå upp identifieraren mot
-  Ineras patientvända tjänster, t.ex. en profil som
-  [IneraPatient](StructureDefinition-IneraPatient.html) — vilket ligger
-  utanför denna IG:s scope. Se REQ-MDL-2.
-
-- **Indexpost, Vård- och omsorgstagare och API-specifikation exponeras inte
-  via REST i detta utkast.** Det administrativa API:ets uppdrag i denna
-  version är teknisk ändpunkts-/organisationsmetadata (Ändpunkt, Organisation
-  och kopplingen dem emellan), inte personidentitet eller katalogisering av
-  specifikationer i sig. En indexpost förväntas dessutom vara en
-  serverhärledd sidoeffekt av att registrera en Organisation eller en Vård-
-  och omsorgstagare, snarare än något en klient skapar direkt. Dessa tre
-  entiteter är modellerade som logiska modeller för spårbarhet (se nedan),
-  men REST-exponering skjuts medvetet upp till en framtida version. Se
-  REQ-MDL-1, REQ-MDL-2, REQ-MDL-4. Om/när API-specifikation REST-exponeras
-  rekommenderas en nedbantad profil på `ImplementationGuide`, inte `Basic`
-  — se nästa punkt.
+- **Patientindexet ingår inte i IG:n.** Informationsunderlaget innehåller
+  entiteterna Indexpost och Vård- och omsorgstagare, där en indexpost avser
+  en organisation eller en vård- och omsorgstagare. De beskriver ett
+  patientindex, inte tjänstekatalogens uppdrag att registrera organisationer
+  och deras tekniska ändpunkter. De logiska modellerna `TKIndexpost` och
+  `TKVardOchOmsorgstagare`, kraven REQ-MDL-1 och REQ-MDL-2 och mallprofilen
+  `IneraPatient` togs därför bort i version 0.2.0.
 
 - **EHM realiserar "API-specifikation" som en profil på `ActorDefinition`
   ("API Specification (ActorDefinition)") — ett modelleringsval vi
@@ -211,25 +190,23 @@ anpassats och adopterats här.
   — den rollen fylls av `Organization.identifier`, i första hand HSA-id
   (se ovan), sökbar med standardparametern `identifier`. Se REQ-ORG-5/6.
 
-- **Administratörsbehörighet ([TKAdministratorRole](StructureDefinition-tk-administrator-role.html))
-  är inte del av informationsunderlaget.** Förstudien förutsätter att
-  katalogen håller reda på vilka administratörer (`local-admin`/`central-admin`)
-  som får administrera vilka organisationers poster. Stakeholder-beslut:
-  detta realiseras med ett FHIR-attribut, `TKAdministratorRole.organization`
-  (`Reference(TKOrganization)`, 0..1), på samma sätt som
-  `TKEndpoint.managingOrganization` uttrycker "förvaltar" — inte en helt
-  egen behörighetsmodell. En administratör som representerar flera
-  organisationer får flera `TKAdministratorRole`-instanser (en per
-  organisation), det normala FHIR PractitionerRole-mönstret.
-  `central-admin`, som representerar samtliga organisationer, kan inte
-  uttryckas som en enskild referens — där utelämnas `organization` medvetet
-  (samma "frånvaro betyder bredare"-konvention som redan används för
-  `TKEndpointSecurityMethod`s `none`). Den faktiska behörighetskontrollen
-  (att en skrivning bara får avse en organisation anroparen representerar)
-  är en serverimplementationsfråga, inte specificerad ytterligare av denna
-  IG — se security.html. En behörighet återkallas med en uppdatering
-  (`active = false` och/eller `period.end`), inte med borttagning, så att
-  återkallandet spåras med Provenance. Se REQ-ADM-1..4.
+- **Skrivbehörighet registreras inte i katalogen.** Förstudien förutsätter
+  att katalogen håller reda på vilka administratörer som får administrera
+  vilka organisationers poster. Fram till version 0.1.1 fanns därför en
+  profil på `PractitionerRole` (`TKAdministratorRole`) med nivåerna
+  `local-admin` och `central-admin`. Den togs bort i version 0.2.0: admin-API:t
+  får användarens och organisationens HSA-id i claims från Inera IdP och
+  avgör behörigheten från dem, och på sikt från medarbetaruppdrag. Då
+  behövs ingen lokal lagring av behörigheter. Se REQ-ADM-5 och
+  [Säkerhet och behörighet](security.html).
+
+- <a name="synk-utkast"></a>**Synkronisering är ett utkast.** Den fasta
+  versionen av IG:n omfattar sök-API:t ([TKSearchAPI](CapabilityStatement-tk-search-api.html))
+  och admin-API:t ([TKAdminAPI](CapabilityStatement-tk-admin-api.html)).
+  Synkroniseringen mot EHM (Synkroniseringstjänsten, REQ-WRT-*) och
+  distributionen till lokala kataloger (prenumerationsämnet, REQ-DIST-*)
+  ligger kvar som utkast inför en framtida version. Artefakterna har status
+  `draft` och kraven kan ändras.
 
 - **Distribution/federering till lokala kataloger
   ([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html))
@@ -267,14 +244,13 @@ anpassats och adopterats här.
   [`TKProvenance`](StructureDefinition-tk-provenance.html) SKA bifogas
   (`Provenance.target` pekande ut den registrerade resursen) i samma
   transaction-Bundle som registrerar en `Organization`, `Endpoint`,
-  `CapabilityStatement` eller en administratörsbehörighet
-  (`PractitionerRole`, [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)).
+  eller `CapabilityStatement`.
   Detta ger både spårbarhet och atomicitet (posten
   och dess Provenance skapas/uppdateras tillsammans), vilket separata
   `create`/`update`-anrop per resurstyp inte garanterar. Tjänstekatalogens
   administrativa API SKA därför stödja systeminteraktionen `transaction`.
-  Vid ändring av en administratörsbehörighet BÖR `agent.who` vara den
-  ändrande administratörens egen `TKAdministratorRole` (REQ-TRC-3).
+  `agent.who` BÖR ange användarens HSA-id från Inera IdP och
+  `agent.onBehalfOf` den organisation användaren företrädde (REQ-TRC-3).
   Se REQ-MDL-5, REQ-TRC-1..3 och `TKProvenance.fsh`.
 
 - **API-instans ([TKAPIInstance](StructureDefinition-tk-api-instance.html))
@@ -353,20 +329,6 @@ maskinläsbara motsvarigheten (`Requirements.statement.satisfiedBy`).
 | *(överordnad organisation)* | 0..1 | [TKOrganization.partOf](StructureDefinition-tk-organization.html) | Utökning: underliggande enheter pekar på den juridiska personen. Sökbar via `partof`. REQ-ORG-8 |
 | *(har)* | 0..* | [TKOrganization.endpoint](StructureDefinition-tk-organization.html) | Sökbar via `listed-by`. REQ-ORG-3, REQ-SRCH-1 |
 
-#### Indexpost → [TKIndexpost](StructureDefinition-tk-indexpost.html) (logisk modell, ej REST-exponerad)
-
-| Modellelement | Kard. | FHIR-profilelement | Noteringar |
-|----------------|-------|--------------------|------------|
-| id | 1..1 | [TKIndexpost.id](StructureDefinition-tk-indexpost.html) | REQ-MDL-1 |
-| registreringstidpunkt | 1..1 | [TKIndexpost.registreringstidpunkt](StructureDefinition-tk-indexpost.html) | REQ-MDL-1 |
-| avser | 1..1 | [TKIndexpost.avser](StructureDefinition-tk-indexpost.html) | Reference(TKOrganization &#124; TKVardOchOmsorgstagare). REQ-MDL-1, REQ-MDL-2 |
-
-#### Vård- och omsorgstagare → [TKVardOchOmsorgstagare](StructureDefinition-tk-vard-och-omsorgstagare.html) (logisk modell, ej REST-exponerad)
-
-| Modellelement | Kard. | FHIR-profilelement | Noteringar |
-|----------------|-------|--------------------|------------|
-| id | 1..1 | [TKVardOchOmsorgstagare.id](StructureDefinition-tk-vard-och-omsorgstagare.html) | REQ-MDL-2 |
-
 #### API-specifikation → [TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.html)
 
 | Modellelement | Kard. | FHIR-profilelement | Noteringar |
@@ -406,23 +368,19 @@ kvar sida vid sida.
 
 | Modellelement | Kard. | FHIR-profilelement | Noteringar |
 |----------------|-------|--------------------|------------|
-| registrerad resurs | 1..* | [TKProvenance.target](StructureDefinition-tk-provenance.html) | Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet). REQ-TRC-1 |
+| registrerad resurs | 1..* | [TKProvenance.target](StructureDefinition-tk-provenance.html) | Organization, Endpoint eller CapabilityStatement. REQ-TRC-1 |
 | registreringstidpunkt | 1..1 | [TKProvenance.recorded](StructureDefinition-tk-provenance.html) | REQ-TRC-1 |
-| registrerande system/konto | 1..* | [TKProvenance.agent.who](StructureDefinition-tk-provenance.html) | Vid ändrad administratörsbehörighet: den ändrandes TKAdministratorRole. REQ-TRC-1, REQ-TRC-3 |
-
-#### Administratörsbehörighet → [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) (utökning, ej del av informationsunderlaget)
-
-| Modellelement | Kard. | FHIR-profilelement | Noteringar |
-|----------------|-------|--------------------|------------|
-| administrationsnivå | 1..1 | [TKAdministratorRole.code](StructureDefinition-tk-administrator-role.html) | `local-admin` &#124; `central-admin`. REQ-ADM-1 |
-| representerad organisation | 0..1 | [TKAdministratorRole.organization](StructureDefinition-tk-administrator-role.html) | `Reference(TKOrganization)`. Utelämnad för `central-admin` (= alla organisationer). Samma mönster som `TKEndpoint.managingOrganization`. REQ-ADM-2 |
-| innehavare | 0..1 | [TKAdministratorRole.practitioner](StructureDefinition-tk-administrator-role.html) | REQ-ADM-3 |
-| *(gäller)* | 0..1 | [TKAdministratorRole.active](StructureDefinition-tk-administrator-role.html) | `false` = återkallad. REQ-ADM-4 |
-| *(giltighetsperiod)* | 0..1 | [TKAdministratorRole.period](StructureDefinition-tk-administrator-role.html) | Återkallande kan också uttryckas med `period.end`. REQ-ADM-4 |
+| registrerande användare | 1..* | [TKProvenance.agent.who](StructureDefinition-tk-provenance.html) | Användarens HSA-id från Inera IdP i `who.identifier`. REQ-TRC-1, REQ-TRC-3 |
+| företrädd organisation | 0..1 | [TKProvenance.agent.onBehalfOf](StructureDefinition-tk-provenance.html) | Organisationen enligt IdP:ns claims. REQ-TRC-3 |
 
 ---
 
 ### Mappning mot EHM:s Organization Endpoint Writer
+
+> **Utkast.** Synkroniseringen mot EHM ingår inte i den fasta versionen av
+> IG:n, som omfattar sök-API:t och admin-API:t. Avsnittet beskriver en
+> möjlig framtida synkronisering och kan ändras. Se
+> [Synkronisering är ett utkast](#synk-utkast).
 
 Detta avsnitt är inte en mappning mellan informationsunderlaget och denna
 IG:s egna profiler (som avsnitten ovan) — det är en mappning mellan **denna

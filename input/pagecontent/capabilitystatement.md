@@ -5,7 +5,7 @@ med en medveten exponeringsgräns mellan dem (stakeholder-beslut, REQ-EXP-1/2
 | CapabilityStatement | Roll | Exponering | Beskriver |
 |---|---|---|---|
 | [Tjänstekatalogen: sök-API](CapabilityStatement-tk-search-api.html) | Server | **Externt**, via gateway | Läsande sökning (`read`/`search-type`) av [TKOrganization](StructureDefinition-tk-organization.html), [TKEndpoint](StructureDefinition-tk-endpoint.html) och `CapabilityStatement` (API-specifikationer/API-instanser), inklusive sökparametrarna `listed-by` och `implements`. |
-| [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.html) | Server | **Endast internt** | Samma resurser som sök-API:et, plus skrivinteraktioner (`create`/`update`), systeminteraktionen `transaction` (REQ-TRC-2), `Provenance` och administratörsbehörigheter ([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)). |
+| [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.html) | Server | **Endast internt** | Samma resurser som sök-API:et, plus skrivinteraktioner (`create`/`update`), systeminteraktionen `transaction` (REQ-TRC-2), och `Provenance`. Skrivbehörighet avgörs från claims från Inera IdP (REQ-ADM-5). |
 
 **Notera den dubbla användningen av `CapabilityStatement`.** Tabellen ovan
 beskriver `CapabilityStatement`-resurser som beskriver *denna IG:s egna

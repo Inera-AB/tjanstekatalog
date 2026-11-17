@@ -21,7 +21,7 @@ Denna IG omfattar:
 - **Ett administrativt API** för att skapa, uppdatera, läsa och söka
   organisationer och ändpunkter i tjänstekatalogen. Se
   [CapabilityStatement](capabilitystatement.html).
-- **En Synkroniseringstjänst** som läser organisationer och ändpunkter
+- **En Synkroniseringstjänst (utkast)** som läser organisationer och ändpunkter
   härifrån och håller E-hälsomyndighetens (EHM) nationella register —
   Swedish Medical Record Index And Endpoint Registry — synkroniserat, genom
   att i **EHM:s** system anta rollen Organization Endpoint Writer och
@@ -30,13 +30,11 @@ Denna IG omfattar:
   [Mappning mot EHM:s Organization Endpoint Writer](mappings.html) för hur
   data mappas mellan de två gränssnitten.
 
-Denna IG realiserar en delmängd av ett bredare informationsunderlag som även
-omfattar entiteterna Indexpost, Vård- och omsorgstagare och API-specifikation.
-Dessa är modellerade (se [Mappning till profiler](mappings.html)) och
-spårbara i [Kravkatalog](requirements.html), men REST-exponering av dem i det
-administrativa API:et ligger utanför detta utkast — se "Avvikelser och
-tillägg" i [Mappning till profiler](mappings.html) för motivering per
-entitet.
+Sök-API:t och admin-API:t är den del av IG:n som ska gå till en fast
+version. Synkroniseringen mot EHM och distributionen till lokala kataloger
+är utkast inför en framtida version. Informationsunderlagets entiteter för
+patientindex (Indexpost och Vård- och omsorgstagare) ingår inte i IG:n. Se
+"Avvikelser och tillägg" i [Mappning till profiler](mappings.html).
 
 Denna IG är avsedd att samverka med E-hälsomyndighetens nationella register
 över tekniska ändpunkter — se [Mappning mot EHM:s Organization Endpoint

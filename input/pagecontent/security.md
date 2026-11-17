@@ -10,7 +10,7 @@ Utöver de generella kraven gäller specifikt för denna IG:
   (`read`, `search-type`, inklusive `listed-by`) — exponeras externt, via
   gateway, för sökande konsumenter. [TKAdminAPI](CapabilityStatement-tk-admin-api.html),
   inklusive skrivinteraktionerna (`create`, `update`) på
-  `Organization`/`Endpoint`/`PractitionerRole`, är endast internt exponerat
+  `Organization`/`Endpoint`/`CapabilityStatement`, är endast internt exponerat
   och SKA inte nås via den externa gatewayen. Se [CapabilityStatement](capabilitystatement.html).
 - Skrivrättigheter i tjänstekatalogens administrativa API begränsas till
   system som är behöriga att registrera information om den aktuella
@@ -18,18 +18,17 @@ Utöver de generella kraven gäller specifikt för denna IG:
   `transaction` (REQ-TRC-2) — en transaction-Bundle är inte ett sätt att
   kringgå den vanliga skrivbehörighetskontrollen, samma regler gäller för
   varje post i Bundlen som för motsvarande fristående `create`/`update`.
-  **Administratörsbehörighet** — vilken organisation en
-  administratör representerar (`local-admin`), eller att administratören
-  är `central-admin` (samtliga organisationer) — kan registreras i
-  katalogen som [TKAdministratorRole](StructureDefinition-tk-administrator-role.html)
-  (REQ-ADM-1..3, stakeholder-beslut). Hur en anropande klients identitet
-  knyts till dess `TKAdministratorRole`-poster (t.ex. via
-  certifikatets/klientens registrerade organisationstillhörighet), och den
-  faktiska kontrollen att en skrivning bara avser en organisation
-  anroparen representerar, är en driftsfråga/serverimplementationsfråga
-  för respektive tjänstekatalog-instans och beskrivs inte ytterligare i
-  denna IG.
-- Synkroniseringstjänstens behörighet mot **EHM:s** `$add-organization`/
+
+- **Skrivbehörighet från Inera IdP (REQ-ADM-5).** Användaren loggar in via
+  Inera IdP. Admin-API:t avgör skrivbehörigheten från de claims IdP:n
+  utfärdar: användarens HSA-id och HSA-id för den organisation användaren
+  företräder. En skrivning får bara avse poster för den organisationen.
+  Behörigheter registreras inte som resurser i katalogen, och IG:n
+  definierar ingen egen behörighetsmodell. På sikt kopplas behörigheten
+  till medarbetaruppdrag, så att ingen lokal behörighetsdatabas behövs.
+  Användarens HSA-id och organisationen anges i registreringens
+  Provenance-post (REQ-TRC-3).
+- Synkroniseringstjänstens (utkast) behörighet mot **EHM:s** `$add-organization`/
   `$remove-organization` (rollen Organization Endpoint Writer) styrs av
   EHM, inte av denna IG — se EHM:s egen IG för deras säkerhetskrav.
 - Sökning (`read`, `search-type`, inklusive `listed-by`) förutsätts vara

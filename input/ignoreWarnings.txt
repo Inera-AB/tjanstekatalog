@@ -3,17 +3,6 @@
 # Display name for Sweden not available in sv-SE on tx server — acceptable
 There are no valid display names found for the code urn:iso:std:iso:3166#SE
 
-# Auto-generated links in the IG narrative point to the canonical URL which is not live yet.
-# These will resolve once the IG is published at https://fhir.inera.se/ig/tjanstekatalog
-# NOTE: this list was carried over from the template and updated for the new
-# canonical, but has not been verified against a full IG Publisher build in
-# this environment (outbound access to build.fhir.org/packages.fhir.org is
-# blocked here — see the PR description). Re-check this list against the
-# first real CI build and add any further "fake generated link" entries for
-# the new artefacts (TKOrganization, TKEndpoint, etc.) if they appear.
-The link 'StructureDefinition-IneraPatient.html' for "fake generated link for Implementation Guide" cannot be resolved
-The link 'Patient-IneraPatientExample.html' for "fake generated link for Implementation Guide" cannot be resolved
-
 # Requirements.satisfiedBy is by definition a canonical URL to the artefact
 # that satisfies the requirement, and the publisher renders each one as a
 # link: once in the Requirements resource's narrative and once on its page.
@@ -52,19 +41,6 @@ The link 'https://fhir.inera.se/ig/tjanstekatalog/package.tgz' for "Paket (tgz)"
 # required for contains-style matching; using that below fixed it.
 # Version Independent Resource Types validator bug
 %hittades inte i värdemängden 'Version Independent Resource Types (All)'%
-
-# Logical models (TKIndexpost, TKAPISpecification, TKVardOchOmsorgstagare) get
-# their `.type` set to their own canonical URL, per FHIR's own convention for
-# logical models that don't map onto a concrete data type (this is standard
-# FSH `Logical:` behaviour, not a mistake). That makes every element's
-# generated `.path` start with that URL, which trips the eld-20 "first path
-# component should be UpperCamelCase" invariant on every single element (36
-# occurrences across the three logical models, snapshot + differential). The
-# invariant's own text explicitly carves this out: "Logical models may be
-# less concerned about this implication." Wrapped in `%...%` — see the entry
-# above for how the exact/contains distinction was determined.
-# eld-20 on logical model canonical-URL paths
-%The first component of the path should be UpperCamelCase%
 
 # Same root cause as the Sweden-display-name suppression above (offline
 # `-tx n/a` build can't reach a terminology server to validate
