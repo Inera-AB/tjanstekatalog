@@ -57,10 +57,16 @@ egen resurs med egen identitet och egen giltighetsperiod — se
 // "följer" API-specifikation(er). En API-instans kan följa flera
 // specifikationer, och en specifikation kan följas av flera instanser —
 // samma many-to-many-relation som informationsunderlaget beskriver.
+// Varje referens SKA ange version (url|version, REQ-MDL-9). En canonical
+// utan version är inte "alla versioner": den löses till den senaste
+// versionen när den slås upp, så påståendet skulle ändras i tysthet när en
+// ny version av specifikationen registreras. En instans som följer flera
+// versioner listar en referens per version.
 * instantiates 1..* MS
-* instantiates ^short = "Den/de API-specifikationer denna instans följer (\"följer\")"
+* instantiates obeys tk-canonical-versioned
+* instantiates ^short = "Den/de API-specifikationer denna instans följer (\"följer\"), som url|version"
 * instantiates ^mapping.identity = "req"
-* instantiates ^mapping.map = "REQ-MDL-7"
+* instantiates ^mapping.map = "REQ-MDL-7, REQ-MDL-9"
 
 * implementation 1..1 MS
 * implementation ^mapping.identity = "req"
@@ -86,3 +92,8 @@ egen resurs med egen identitet och egen giltighetsperiod — se
 * extension contains TKAPIInstancePeriod named period 0..1 MS
 * extension[period] ^mapping.identity = "req"
 * extension[period] ^mapping.map = "REQ-MDL-6"
+
+Invariant: tk-canonical-versioned
+Description: "Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0."
+Expression: "matches('^[^|]+[|][^|]+$')"
+Severity: #error
