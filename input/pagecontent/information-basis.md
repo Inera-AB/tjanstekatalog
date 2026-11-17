@@ -31,10 +31,11 @@ avvikelser eller tillägg i FHIR-realiseringen, och
 [Kravkatalog](requirements.html) för de formella krav som härletts från
 modellen.
 
-Utöver dessa sex entiteter innehåller denna IG tillägg som inte kommer
-direkt från informationsunderlaget: administratörsbehörighet
-([TKAdministratorRole](StructureDefinition-tk-administrator-role.html),
-REQ-ADM-*), distribution/federering till lokala kataloger
+Indexpost och Vård- och omsorgstagare beskriver ett patientindex och
+realiseras inte i IG:n (borttagna i version 0.2.0).
+
+Utöver entiteterna innehåller denna IG tillägg som inte kommer
+direkt från informationsunderlaget: distribution/federering (utkast) till lokala kataloger
 ([SubscriptionTopic](SubscriptionTopic-tk-organization-endpoint-changes.html),
 REQ-DIST-*), en explicit gräns för vilka API:er som exponeras externt
 respektive endast internt (REQ-EXP-*), och spårbarhet vid registrering

@@ -1,5 +1,5 @@
 // Identifier systems used in TKOrganization.identifier (REQ-ORG-2, REQ-ORG-6)
-// and TKAdministratorRole.practitioner. Defining them here lets the
+// and for users in TKProvenance.agent.who. Defining them here lets the
 // validator resolve the system URLs instead of warning that they have no
 // definition, and documents both systems in the IG. Both carry the system as
 // a URI (what instances use) and as a bare OID.
@@ -24,7 +24,7 @@ Description: "Identifierarsystemet för HSA-id, den primära organisationsidenti
 * responsible = "Inera AB"
 * description = "Identifierarsystemet för HSA-id, den primära organisationsidentifieraren i tjänstekatalogen (REQ-ORG-6). Formatet följer HSA:s styrande dokument: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck."
 * jurisdiction = urn:iso:std:iso:3166#SE "Sweden"
-* usage = "Används i TKOrganization.identifier (slicen hsaId) och för administratörer i TKAdministratorRole.practitioner."
+* usage = "Används i TKOrganization.identifier (slicen hsaId) och för användare i TKProvenance.agent.who (HSA-id från Inera IdP)."
 * uniqueId[0].type = #uri
 * uniqueId[=].value = "urn:oid:1.2.752.29.4.19"
 * uniqueId[=].preferred = true

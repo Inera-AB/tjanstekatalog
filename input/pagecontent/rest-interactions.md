@@ -4,11 +4,10 @@
 | [TKEndpoint](StructureDefinition-tk-endpoint.html) | read, search-type (externt); create, update (endast internt) | `organization` (standard, "förvaltar"), [`listed-by`](SearchParameter-tk-endpoint-listed-by.html) (egen, "har"), `status`, [`implements`](SearchParameter-tk-endpoint-implements.html) (stödd interoperabilitetsspecifikation), `identifier`, `_id`, `_lastUpdated`; `_history` | [TKSearchAPI](CapabilityStatement-tk-search-api.html) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.html) internt |
 | `CapabilityStatement` ([TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.html) / [TKAPIInstance](StructureDefinition-tk-api-instance.html)) | read, search-type (externt); create, update (endast internt) | `url`, `version`, `date`, [`kind`](SearchParameter-tk-capabilitystatement-kind.html), [`instantiates`](SearchParameter-tk-capabilitystatement-instantiates.html), `_id`, `_lastUpdated` | [TKSearchAPI](CapabilityStatement-tk-search-api.html) externt, [TKAdminAPI](CapabilityStatement-tk-admin-api.html) internt |
 | [TKProvenance](StructureDefinition-tk-provenance.html) | read, search-type | `target` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.html) (internt) |
-| [TKAdministratorRole](StructureDefinition-tk-administrator-role.html) | read, search-type, create, update | `organization`, `practitioner`, `active` | Endast [TKAdminAPI](CapabilityStatement-tk-admin-api.html) (internt) |
 
 Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning
 exponeras externt via gateway ([TKSearchAPI](CapabilityStatement-tk-search-api.html));
-skrivinteraktioner och administratörsbehörigheter finns endast i det internt
+skrivinteraktionerna finns endast i det internt
 exponerade [TKAdminAPI](CapabilityStatement-tk-admin-api.html). Se
 [CapabilityStatement](capabilitystatement.html) och
 [Säkerhet och behörighet](security.html).
@@ -27,9 +26,8 @@ Tillagt efter jämförelse med en annan implementation av samma problem —
 löser REQ-MDL-5:s tidigare uppskjutna spårbarhetsfråga (se
 [Mappning till profiler](mappings.html)).
 
-Registrering (skapande/uppdatering av en `Organization`, `Endpoint`,
-`CapabilityStatement` eller administratörsbehörighet, `PractitionerRole`)
-SKA ske via systeminteraktionen `transaction`, med
+Registrering (skapande/uppdatering av en `Organization`, `Endpoint` eller
+`CapabilityStatement`) SKA ske via systeminteraktionen `transaction`, med
 en obligatorisk [TKProvenance](StructureDefinition-tk-provenance.html)-post
 i samma Bundle (REQ-TRC-1/2):
 
@@ -48,7 +46,12 @@ i samma Bundle (REQ-TRC-1/2):
         "resourceType": "Provenance",
         "target": [{ "reference": "urn:uuid:8f2e..." }],
         "recorded": "2026-09-09T10:00:00Z",
-        "agent": [{ "who": { "reference": "Organization/exempelregionen" } }]
+        "agent": [{
+          "who": {
+            "identifier": { "system": "urn:oid:1.2.752.29.4.19", "value": "SE2321000016-A1B2" }
+          },
+          "onBehalfOf": { "reference": "Organization/exempelregionen" }
+        }]
       },
       "request": { "method": "POST", "url": "Provenance" }
     }
@@ -68,20 +71,10 @@ respektive resurstyps förmågor, men klienter SKA använda transaction-vägen
 för faktisk registrering, för att garantera att Provenance-posten alltid
 följer med.
 
-**Ändrade administratörsbehörigheter.** Samma sak gäller när en
-[TKAdministratorRole](StructureDefinition-tk-administrator-role.html)
-skapas eller ändras. `agent.who` BÖR då vara den ändrande administratörens
-egen `TKAdministratorRole`, så att det framgår vem som gjorde ändringen och
-med vilken behörighet (REQ-TRC-3). En behörighet återkallas på samma sätt,
-med en uppdatering som sätter `active = false` och/eller `period.end`. Den
-tas aldrig bort, så att även återkallandet får en Provenance-post
-(REQ-ADM-4). Se
-[exemplet](Provenance-TKProvenanceAdministratorRoleExample.html). Historiken
-för en behörighet hämtas med:
-
-```
-GET [base]/Provenance?target=PractitionerRole/[id]
-```
+**Vem som registrerade.** `agent.who` BÖR ange användarens HSA-id från
+Inera IdP i `who.identifier`, och `agent.onBehalfOf` den organisation
+användaren företrädde enligt IdP:ns claims (REQ-TRC-3, REQ-ADM-5). Se
+[exemplet](Provenance-TKProvenanceExample.html).
 
 ---
 
@@ -252,6 +245,9 @@ utan version fortfarande alla versioner (REQ-SRCH-6).
 ---
 
 ### Distribution och synkronisering
+
+> **Utkast.** Distributionen ingår inte i den fasta versionen av IG:n och
+> kan ändras (REQ-DIST-\*).
 
 Inte del av det ursprungliga informationsunderlaget — tillagt per
 stakeholder-beslut: "Distribution/federering kan tänkas på, prenumeration

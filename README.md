@@ -5,7 +5,7 @@
 [![FHIR R5](https://img.shields.io/badge/FHIR-R5-blue)](https://hl7.org/fhir/R5/)
 [![License: CC0-1.0](https://img.shields.io/badge/License-CC0_1.0-lightgrey.svg)](https://creativecommons.org/publicdomain/zero/1.0/)
 
-FHIR R5 Implementation Guide for Inera's tjänstekatalog: an external search API for organisations' technical endpoints, an internal administrative API for registering organisations, endpoints, their links and administrator authorisations, and the Synkroniseringstjänst actor that keeps E-hälsomyndigheten's Organization Endpoint Writer register in sync.
+FHIR R5 Implementation Guide for Inera's tjänstekatalog: an external search API for organisations' technical endpoints, an internal administrative API for registering organisations, endpoints and their links, and (as a draft) the Synkroniseringstjänst actor that keeps E-hälsomyndigheten's Organization Endpoint Writer register in sync.
 
 | | |
 |---|---|

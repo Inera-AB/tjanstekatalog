@@ -12,7 +12,8 @@
 //   REQ-WRT-*   Synkronisering mot EHM:s Organization Endpoint Writer
 //   REQ-MDL-*   Övriga entiteter i informationsunderlaget / avgränsningar
 //   REQ-EXP-*   Exponering: sök-API externt (gateway) vs. admin-API internt
-//   REQ-ADM-*   Administratörsbehörighet (utökning utöver informationsunderlaget)
+//   REQ-ADM-*   Skrivbehörighet via claims från Inera IdP
+//   REQ-ERR-*   Felsvar och korrelations-id
 //   REQ-DIST-*  Distribution/federering till lokala kataloger
 //   REQ-TRC-*   Spårbarhet och transaktionell registrering (Provenance)
 Instance: TKTjanstekatalogRequirements
@@ -276,18 +277,6 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 
 // --- REQ-MDL: övriga entiteter i informationsunderlaget / avgränsningar ---
 
-* statement[+].key = "REQ-MDL-1"
-* statement[=].label = "Indexpost"
-* statement[=].conformance[0] = #SHOULD
-* statement[=].requirement = "Entiteten Indexpost BÖR modelleras för spårbarhet. REST-exponering (läsning/sökning) i det administrativa API:et är avgränsat bort från detta utkast; direkt skapande/uppdatering från klient är inte avsett, då en indexpost förväntas vara en serverhärledd effekt av registrering av Organisation eller Vård- och omsorgstagare."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost"
-
-* statement[+].key = "REQ-MDL-2"
-* statement[=].label = "Vård- och omsorgstagare"
-* statement[=].conformance[0] = #SHOULD
-* statement[=].requirement = "Entiteten Vård- och omsorgstagare BÖR modelleras för spårbarhet i förhållande till Indexpost.avser. Personuppgifter om vård- och omsorgstagare omfattas inte av detta administrativa API för tjänstekatalogen (teknisk ändpunktskatalog) — se \"Avvikelser och tillägg\" i mappings.html."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare"
-
 * statement[+].key = "REQ-MDL-3"
 * statement[=].label = "API (Ändpunkt tillgängliggör API, API följer API-specifikation)"
 * statement[=].conformance[0] = #SHALL
@@ -346,7 +335,7 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-TRC-1"
 * statement[=].label = "Provenance krävs vid registrering"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Varje transaction-Bundle som registrerar (skapar/uppdaterar) en Organization, Endpoint, CapabilityStatement (API-specifikation/API-instans) eller PractitionerRole (administratörsbehörighet, TKAdministratorRole) SKA innehålla minst en Provenance-post (profilerad som TKProvenance) som via `Provenance.target` pekar ut den/de registrerade resurserna."
+* statement[=].requirement = "Varje transaction-Bundle som registrerar (skapar/uppdaterar) en Organization, Endpoint, CapabilityStatement (API-specifikation/API-instans) SKA innehålla minst en Provenance-post (profilerad som TKProvenance) som via `Provenance.target` pekar ut den/de registrerade resurserna."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"
 
 * statement[+].key = "REQ-TRC-2"
@@ -356,11 +345,10 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 * statement[+].key = "REQ-TRC-3"
-* statement[=].label = "Spårbarhet för ändrade administratörsbehörigheter"
+* statement[=].label = "Vem som utförde registreringen"
 * statement[=].conformance[0] = #SHOULD
-* statement[=].requirement = "När en administratörsbehörighet (TKAdministratorRole) skapas eller ändras BÖR `Provenance.agent.who` peka ut den ändrande administratörens egen TKAdministratorRole, så att det framgår både vem som gjorde ändringen och med vilken behörighet. Sökbart med `Provenance?target=PractitionerRole/[id]`."
+* statement[=].requirement = "`Provenance.agent.who` BÖR identifiera användaren som utförde registreringen med användarens HSA-id från Inera IdP (logisk referens med `identifier`), och `Provenance.agent.onBehalfOf` BÖR ange den organisation användaren företrädde enligt IdP:ns claims (se REQ-ADM-5)."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"
-* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 // --- REQ-EXP: exponering (sök-API externt via gateway, admin-API internt) ---
 //
@@ -377,39 +365,31 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-EXP-2"
 * statement[=].label = "Administrativa API:er endast interna"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Skrivande interaktioner (create/update på Organization/Endpoint/PractitionerRole) SKA vara internt exponerade endast och SKA INTE nås via den externa gatewayen."
+* statement[=].requirement = "Skrivande interaktioner (create/update/transaction på Organization, Endpoint och CapabilityStatement) SKA vara internt exponerade endast och SKA INTE nås via den externa gatewayen."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
-// --- REQ-ADM: administratörsbehörighet ---
+// --- REQ-ADM: skrivbehörighet ---
 //
-// Inte del av det ursprungliga informationsunderlaget. Stakeholder-beslut:
-// "Behörighet att administrera behöver hållas reda på, kanske via
-// fhir-attribut, så som managingOrganization." Se TKAdministratorRole.fsh.
+// Behörigheten registreras inte i katalogen. Den avgörs från claims som
+// Inera IdP utfärdar (användarens och organisationens HSA-id), och på sikt
+// från medarbetaruppdrag. Tidigare fanns en profil på PractitionerRole
+// (TKAdministratorRole) för detta. Den och kraven REQ-ADM-1–4 togs bort
+// i 0.2.0. Nycklarna återanvänds inte.
 
-* statement[+].key = "REQ-ADM-1"
-* statement[=].label = "Administratörsbehörighetens nivå"
+* statement[+].key = "REQ-ADM-5"
+* statement[=].label = "Skrivbehörighet från Inera IdP"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Varje administratörsbehörighet SKA ange en administrationsnivå (local-admin eller central-admin)."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
+* statement[=].requirement = "Admin-API:t SKA avgöra skrivbehörighet från de claims som Inera IdP utfärdar för anroparen: användarens HSA-id och HSA-id för den organisation användaren företräder. Behörigheten registreras inte som en resurs i katalogen. Hur claims översätts till ett behörighetsbeslut, och en framtida koppling till medarbetaruppdrag, beskrivs i security.html."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
-* statement[+].key = "REQ-ADM-2"
-* statement[=].label = "Representerad organisation"
+// --- REQ-ERR: felsvar och korrelations-id ---
+
+* statement[+].key = "REQ-ERR-1"
+* statement[=].label = "Korrelations-id i felsvar"
 * statement[=].conformance[0] = #SHALL
-* statement[=].conditionality = true
-* statement[=].requirement = "En local-admin-behörighet SKA ange vilken organisation den representerar (`TKAdministratorRole.organization`), analogt med `Endpoint.managingOrganization`. En central-admin-behörighet representerar samtliga organisationer och utelämnar medvetet detta element."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
-
-* statement[+].key = "REQ-ADM-3"
-* statement[=].label = "Behörighetens innehavare"
-* statement[=].conformance[0] = #SHOULD
-* statement[=].requirement = "En administratörsbehörighet BÖR ange vilket konto/system som innehar den."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
-
-* statement[+].key = "REQ-ADM-4"
-* statement[=].label = "Giltighet och återkallande"
-* statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "En administratörsbehörighet gäller bara om `active` inte är `false` och aktuell tidpunkt ligger inom `period`. En behörighet SKA återkallas genom en uppdatering som sätter `active = false` och/eller `period.end`, inte genom att den tas bort, så att återkallandet spåras med en Provenance-post (REQ-TRC-1/3)."
-* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"
+* statement[=].requirement = "Ett felsvar (`OperationOutcome`) SKA i varje `issue` ange anropets korrelations-id med standardextensionen `operationoutcome-instance-id`. Värdet är anropets `traceparent` enligt W3C Trace Context. Samma värde returneras även i svarshuvudet `traceparent`. Se error-handling.html."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
 * statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api"
 
 // --- REQ-DIST: distribution/federering till lokala kataloger ---

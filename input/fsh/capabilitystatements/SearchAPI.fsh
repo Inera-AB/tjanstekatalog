@@ -32,7 +32,7 @@ Description: "CapabilityStatement för tjänstekatalogens externt exponerade sö
 * fhirVersion = #5.0.0
 * format[0] = #json
 * rest[0].mode = #server
-* rest[=].documentation = "Externt exponerat sök-API för tjänstekatalogen, nått via gateway. Endast läsande interaktioner."
+* rest[=].documentation = "Externt exponerat sök-API för tjänstekatalogen, nått via gateway. Endast läsande interaktioner. Felsvar ges som TKOperationOutcome, med korrelations-id i varje issue (REQ-ERR-1)."
 
 // --- Organization ---
 * rest[=].resource[0].type = #Organization
