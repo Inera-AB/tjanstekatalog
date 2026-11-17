@@ -165,7 +165,17 @@ GET [base]/CapabilityStatement?kind=requirements&url=https://fhir.inera.se/ig/pa
 
 ```
 
-API-instanser och ändpunkter bör referera specifikationen som `url|version`, så att klienten vet exakt vilken version som stöds.
+API-instanser och ändpunkter SKA referera specifikationen som `url|version`, så att klienten vet exakt vilken version som stöds (REQ-MDL-9). En referens utan version betyder inte att alla versioner stöds: den löses till den senaste versionen, och påståendet skulle då ändras i tysthet när en ny version av specifikationen registreras. En instans som stödjer flera versioner anger en referens per version:
+
+```
+"instantiates": [
+  "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.0.0",
+  "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.1.0"
+]
+
+```
+
+Admin-API:t avvisar en referens utan version med `422 Unprocessable Entity`. Det gäller bara vad som registreras: vid sökning matchar en url utan version fortfarande alla versioner (REQ-SRCH-6).
 
 -------
 

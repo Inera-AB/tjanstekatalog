@@ -345,9 +345,17 @@
     "key" : "REQ-MDL-8",
     "label" : "Flera versioner av samma API-specifikation",
     "conformance" : ["SHALL"],
-    "requirement" : "Flera versioner av samma API-specifikation (samma `url`) FÅR finnas samtidigt i katalogen. `version` SKA anges, och kombinationen `url` + `version` SKA vara unik; admin-API:t avvisar dubbletter med `422 Unprocessable Entity`. Sökning på `url` returnerar alla versioner; sökparametrarna `version` och `date` (med `_sort=-date`) används för att välja version. API-instanser och ändpunkter BÖR referera specifikationen som `url|version`.",
+    "requirement" : "Flera versioner av samma API-specifikation (samma `url`) FÅR finnas samtidigt i katalogen. `version` SKA anges, och kombinationen `url` + `version` SKA vara unik; admin-API:t avvisar dubbletter med `422 Unprocessable Entity`. Sökning på `url` returnerar alla versioner; sökparametrarna `version` och `date` (med `_sort=-date`) används för att välja version. Hur API-instanser och ändpunkter refererar specifikationen anges i REQ-MDL-9.",
     "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability",
     "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"]
+  },
+  {
+    "key" : "REQ-MDL-9",
+    "label" : "Referenser till API-specifikation anger version",
+    "conformance" : ["SHALL"],
+    "requirement" : "API-instanser (`TKAPIInstance.instantiates`) och ändpunkter (extensionen tk-endpoint-payload-profile på `Endpoint.payload`) SKA referera en API-specifikation som `url|version`, där version är en registrerad version av specifikationen. En referens utan version betyder inte att alla versioner stöds; den löses till den senaste versionen och skulle därför ändra innebörd när en ny version registreras. En instans eller ändpunkt som stödjer flera versioner anger en referens per version. Admin-API:t avvisar en referens utan version med `422 Unprocessable Entity` (`invariant`). Sökning på en url utan version matchar fortfarande alla versioner (REQ-SRCH-6).",
+    "satisfiedBy" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance",
+    "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"]
   },
   {
     "key" : "REQ-TRC-1",

@@ -257,7 +257,7 @@
           
 
             per 
-2026-11-16
+2026-11-17
 
           
         
@@ -365,11 +365,11 @@ Element-ID:     <code>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/datatypes.html#uri" class="xhtPieceDeEmphasized">uri</a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDarkGreen">"https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"</span></td></tr>
 <tr fhir="generated-heirarchy" id="ac" class="xhtRowBorder0 xhtRowOdd" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck00.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="" style="background-color: #F7F7F7; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">Extension.</span><a no-external="true" href="StructureDefinition-tk-endpoint-payload-profile-definitions.html#Extension.value[x]" data-no-external="true">value[x]</a><a name="Extension.value_x_"> </a></td>
-<td style="" class="hierarchy xhtCellBorder0"></td>
+<td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/conformance-rules.html#constraints" title="Detta element har eller påverkas av begränsningar ( tk-canonical-versioned )" class="xhtConstraintStyle">C</a></td>
 <td style="" class="hierarchy xhtCellBorder0">1..<span class="xhtPieceDeEmphasized">1</span></td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">canonical</a>()</td>
-<td style="" class="hierarchy xhtCellBorder0">Kanonisk URL till den stödda interoperabilitetsspecifikationen</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 0affb41d-8dcc-4540-b8b5-df5f9f00300d
+<td style="" class="hierarchy xhtCellBorder0">Kanonisk URL med version (url|version) till den stödda interoperabilitetsspecifikationen, se REQ-MDL-9<br class="constraint"/><span class="constraint">Constraints: </span><span title="Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0." class="xhtPieceBold constraint">tk-canonical-versioned</span></td></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // ce6499ec-4fca-4a91-b5c4-9a77135bbe9a
 document.getElementById('cbtk-endpoint-payload-profileD-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-endpoint-payload-profileD'), 'constraint', document.getElementById('cbtk-endpoint-payload-profileD-constraint').checked, document.getElementById('pptk-endpoint-payload-profileD'));
 document.getElementById('cbtk-endpoint-payload-profileD-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -386,6 +386,39 @@ filterDesc(document.getElementById('tk-endpoint-payload-profileD'), 'obligation'
         
           
           <!-- 218 is size of empty table -->
+          
+            <a name="inv-diff"> </a>
+            <!--Constraints  heading in the fragment -->
+            <h4>Begränsningar</h4>
+<table class="list presentation" data-fhir="generated-heirarchy">
+  <tr>
+    <td width="60">
+      <b>Id</b>
+    </td>
+    <td>
+      <b>Grad</b>
+    </td>
+    <td>
+      <b>Sökväg(ar)</b>
+    </td>
+    <td>
+      <b>Beskrivning</b>
+    </td>
+    <td>
+      <b>Uttryck</b>
+    </td>
+  </tr>
+  <tr>
+    <td>tk-canonical-versioned</td>
+    <td>error</td>
+    <td>Extension.value[x]</td>
+    <td>Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0.</td>
+    <td>
+      <code>matches('^[^|]+[|][^|]+$')</code>
+    </td>
+  </tr>
+</table>
+
           
 
         </div>
@@ -417,11 +450,11 @@ filterDesc(document.getElementById('tk-endpoint-payload-profileD'), 'obligation'
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/datatypes.html#uri">uri</a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDarkGreen">"https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"</span></td></tr>
 <tr fhir="generated-heirarchy" id="s-ad" class="xhtRowBorder0 xhtRowEven" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck00.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="" style="background-color: white; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">Extension.</span><a no-external="true" href="StructureDefinition-tk-endpoint-payload-profile-definitions.html#Extension.value[x]" title="Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R5/extensibility.html) for a list)." data-no-external="true">value[x]</a><a name="s-Extension.value_x_"> </a></td>
-<td style="" class="hierarchy xhtCellBorder0"></td>
+<td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/conformance-rules.html#constraints" title="Detta element har eller påverkas av begränsningar ( tk-canonical-versioned )" class="xhtConstraintStyle">C</a></td>
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">canonical</a>()</td>
-<td style="" class="hierarchy xhtCellBorder0">Kanonisk URL till den stödda interoperabilitetsspecifikationen</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 0affb41d-8dcc-4540-b8b5-df5f9f00300d
+<td style="" class="hierarchy xhtCellBorder0">Kanonisk URL med version (url|version) till den stödda interoperabilitetsspecifikationen, se REQ-MDL-9<br class="constraint"/><span class="constraint">Constraints: </span><span title="Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0." class="xhtPieceBold constraint">tk-canonical-versioned</span></td></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // ce6499ec-4fca-4a91-b5c4-9a77135bbe9a
 document.getElementById('cbtk-endpoint-payload-profileS-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-endpoint-payload-profileS'), 'constraint', document.getElementById('cbtk-endpoint-payload-profileS-constraint').checked, document.getElementById('pptk-endpoint-payload-profileS'));
 document.getElementById('cbtk-endpoint-payload-profileS-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -459,6 +492,15 @@ filterDesc(document.getElementById('tk-endpoint-payload-profileS'), 'obligation'
       <b>Uttryck</b>
     </td>
   </tr>
+  <tr>
+    <td>tk-canonical-versioned</td>
+    <td>error</td>
+    <td>Extension.value[x]</td>
+    <td>Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0.</td>
+    <td>
+      <code>matches('^[^|]+[|][^|]+$')</code>
+    </td>
+  </tr>
 </table>
 
           
@@ -486,7 +528,7 @@ filterDesc(document.getElementById('tk-endpoint-payload-profileS'), 'obligation'
  {
     "<a href="StructureDefinition-tk-endpoint-payload-profile.html#Extension.id" title="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces" class="dict"><span style="text-decoration: underline">id</span></a>" : "&lt;<span style="color: darkgreen"><a href="http://hl7.org/fhir/R5/datatypes.html#id">id</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">Unique id for inter-element referencing</span>
     "<a href="StructureDefinition-tk-endpoint-payload-profile.html#Extension.url" title="Source of the definition for the extension code - a logical name or a URL" class="dict"><span style="text-decoration: underline">url</span></a>" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile", <span style="color: Gray">//</span> <span style="color: brown" title="Detta element är obligatoriskt"><b>R!</b></span>
-    "<a href="StructureDefinition-tk-endpoint-payload-profile.html#Extension.valueCanonical" title="Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R5/extensibility.html) for a list)" class="dict"><span style="text-decoration: underline">valueCanonical</span></a>" : "&lt;<span style="color: darkgreen"><a href="http://hl7.org/fhir/R5/datatypes.html#canonical">canonical</a></span>&gt;" <span style="color: Gray">//</span> <span style="color: brown" title=""><b>C?</b></span> <span style="color: brown" title="Detta element är obligatoriskt"><b>R!</b></span> <span style="color: navy; opacity: 0.8">Kanonisk URL till den stödda interoperabilitetsspecifikationen</span>
+    "<a href="StructureDefinition-tk-endpoint-payload-profile.html#Extension.valueCanonical" title="Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R5/extensibility.html) for a list)" class="dict"><span style="text-decoration: underline">valueCanonical</span></a>" : "&lt;<span style="color: darkgreen"><a href="http://hl7.org/fhir/R5/datatypes.html#canonical">canonical</a></span>&gt;" <span style="color: Gray">//</span> <span style="color: brown" title="tk-canonical-versioned: Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0."><b>C?</b></span> <span style="color: brown" title="Detta element är obligatoriskt"><b>R!</b></span> <span style="color: navy; opacity: 0.8">Kanonisk URL med version (url|version) till den stödda interoperabilitetsspecifikationen, se REQ-MDL-9</span>
   }
 
         </div>
@@ -547,11 +589,11 @@ Sammanfattning
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/datatypes.html#uri" class="xhtPieceDeEmphasized">uri</a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDarkGreen">"https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"</span></td></tr>
 <tr fhir="generated-heirarchy" id="a-ac" class="xhtRowBorder0 xhtRowOdd" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck00.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="" style="background-color: #F7F7F7; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">Extension.</span><a no-external="true" href="StructureDefinition-tk-endpoint-payload-profile-definitions.html#Extension.value[x]" data-no-external="true">value[x]</a><a name="a-Extension.value_x_"> </a></td>
-<td style="" class="hierarchy xhtCellBorder0"></td>
+<td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/conformance-rules.html#constraints" title="Detta element har eller påverkas av begränsningar ( tk-canonical-versioned )" class="xhtConstraintStyle">C</a></td>
 <td style="" class="hierarchy xhtCellBorder0">1..<span class="xhtPieceDeEmphasized">1</span></td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">canonical</a>()</td>
-<td style="" class="hierarchy xhtCellBorder0">Kanonisk URL till den stödda interoperabilitetsspecifikationen</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 0affb41d-8dcc-4540-b8b5-df5f9f00300d
+<td style="" class="hierarchy xhtCellBorder0">Kanonisk URL med version (url|version) till den stödda interoperabilitetsspecifikationen, se REQ-MDL-9<br class="constraint"/><span class="constraint">Constraints: </span><span title="Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0." class="xhtPieceBold constraint">tk-canonical-versioned</span></td></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // ce6499ec-4fca-4a91-b5c4-9a77135bbe9a
 document.getElementById('cbtk-endpoint-payload-profileDA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-endpoint-payload-profileDA'), 'constraint', document.getElementById('cbtk-endpoint-payload-profileDA-constraint').checked, document.getElementById('pptk-endpoint-payload-profileDA'));
 document.getElementById('cbtk-endpoint-payload-profileDA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -565,6 +607,39 @@ filterDesc(document.getElementById('tk-endpoint-payload-profileDA'), 'obligation
         
           
           <!-- 218 is size of empty table -->
+          
+            <a name="inv-all-diff"> </a>
+            <!--Constraints  heading in the fragment -->
+            <h4>Begränsningar</h4>
+<table class="list presentation" data-fhir="generated-heirarchy">
+  <tr>
+    <td width="60">
+      <b>Id</b>
+    </td>
+    <td>
+      <b>Grad</b>
+    </td>
+    <td>
+      <b>Sökväg(ar)</b>
+    </td>
+    <td>
+      <b>Beskrivning</b>
+    </td>
+    <td>
+      <b>Uttryck</b>
+    </td>
+  </tr>
+  <tr>
+    <td>tk-canonical-versioned</td>
+    <td>error</td>
+    <td>Extension.value[x]</td>
+    <td>Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0.</td>
+    <td>
+      <code>matches('^[^|]+[|][^|]+$')</code>
+    </td>
+  </tr>
+</table>
+
           
         </div>
       </div>
@@ -595,11 +670,11 @@ filterDesc(document.getElementById('tk-endpoint-payload-profileDA'), 'obligation
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/datatypes.html#uri">uri</a></td>
 <td style="" class="hierarchy xhtCellBorder0"><span class="xhtPieceDarkGreen">"https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"</span></td></tr>
 <tr fhir="generated-heirarchy" id="sa-ad" class="xhtRowBorder0 xhtRowEven" data-fhir="generated-heirarchy"><td role="rowheader" style="background-image: url(tbl_bck00.png)" class="hierarchy xhtCellBorder0 xhtCellNoWrap"><img src="tbl_spacer.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="tbl_vjoin_end.png" alt="" style="background-color: inherit" class="hierarchy"/><img src="icon_primitive.png" alt="" style="background-color: white; background-color: inherit" title="Primitiv datatyp" class="hierarchy"/> <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0" class="sr-only">Extension.</span><a no-external="true" href="StructureDefinition-tk-endpoint-payload-profile-definitions.html#Extension.value[x]" title="Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R5/extensibility.html) for a list)." data-no-external="true">value[x]</a><a name="sa-Extension.value_x_"> </a></td>
-<td style="" class="hierarchy xhtCellBorder0"></td>
+<td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/conformance-rules.html#constraints" title="Detta element har eller påverkas av begränsningar ( tk-canonical-versioned )" class="xhtConstraintStyle">C</a></td>
 <td style="" class="hierarchy xhtCellBorder0">1..1</td>
 <td style="" class="hierarchy xhtCellBorder0"><a href="http://hl7.org/fhir/R5/references.html">canonical</a>()</td>
-<td style="" class="hierarchy xhtCellBorder0">Kanonisk URL till den stödda interoperabilitetsspecifikationen</td></tr>
-<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // 0affb41d-8dcc-4540-b8b5-df5f9f00300d
+<td style="" class="hierarchy xhtCellBorder0">Kanonisk URL med version (url|version) till den stödda interoperabilitetsspecifikationen, se REQ-MDL-9<br class="constraint"/><span class="constraint">Constraints: </span><span title="Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0." class="xhtPieceBold constraint">tk-canonical-versioned</span></td></tr>
+<tr fhir="generated-heirarchy" data-fhir="generated-heirarchy"><td colspan="5" class="hierarchy"><br/><a href="https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#table-views" title="Förklaring för detta format"><img src="https://hl7.org/fhir/R5/help16.png" alt="doco" style="background-color: inherit"/> Dokumentation för detta format</a></td></tr><script type="text/javascript">  // ce6499ec-4fca-4a91-b5c4-9a77135bbe9a
 document.getElementById('cbtk-endpoint-payload-profileSA-constraint').checked = 'false' != localStorage.getItem('ht-table-states-constraint');
 filterDesc(document.getElementById('tk-endpoint-payload-profileSA'), 'constraint', document.getElementById('cbtk-endpoint-payload-profileSA-constraint').checked, document.getElementById('pptk-endpoint-payload-profileSA'));
 document.getElementById('cbtk-endpoint-payload-profileSA-binding').checked = 'false' != localStorage.getItem('ht-table-states-binding');
@@ -635,6 +710,15 @@ filterDesc(document.getElementById('tk-endpoint-payload-profileSA'), 'obligation
       <b>Uttryck</b>
     </td>
   </tr>
+  <tr>
+    <td>tk-canonical-versioned</td>
+    <td>error</td>
+    <td>Extension.value[x]</td>
+    <td>Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0.</td>
+    <td>
+      <code>matches('^[^|]+[|][^|]+$')</code>
+    </td>
+  </tr>
 </table>
 
           
@@ -662,7 +746,7 @@ filterDesc(document.getElementById('tk-endpoint-payload-profileSA'), 'obligation
  {
     "<a href="StructureDefinition-tk-endpoint-payload-profile.html#Extension.id" title="Unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces" class="dict"><span style="text-decoration: underline">id</span></a>" : "&lt;<span style="color: darkgreen"><a href="http://hl7.org/fhir/R5/datatypes.html#id">id</a></span>&gt;", <span style="color: Gray">//</span> <span style="color: navy; opacity: 0.8">Unique id for inter-element referencing</span>
     "<a href="StructureDefinition-tk-endpoint-payload-profile.html#Extension.url" title="Source of the definition for the extension code - a logical name or a URL" class="dict"><span style="text-decoration: underline">url</span></a>" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile", <span style="color: Gray">//</span> <span style="color: brown" title="Detta element är obligatoriskt"><b>R!</b></span>
-    "<a href="StructureDefinition-tk-endpoint-payload-profile.html#Extension.valueCanonical" title="Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R5/extensibility.html) for a list)" class="dict"><span style="text-decoration: underline">valueCanonical</span></a>" : "&lt;<span style="color: darkgreen"><a href="http://hl7.org/fhir/R5/datatypes.html#canonical">canonical</a></span>&gt;" <span style="color: Gray">//</span> <span style="color: brown" title=""><b>C?</b></span> <span style="color: brown" title="Detta element är obligatoriskt"><b>R!</b></span> <span style="color: navy; opacity: 0.8">Kanonisk URL till den stödda interoperabilitetsspecifikationen</span>
+    "<a href="StructureDefinition-tk-endpoint-payload-profile.html#Extension.valueCanonical" title="Value of extension - must be one of a constrained set of the data types (see [Extensibility](http://hl7.org/fhir/R5/extensibility.html) for a list)" class="dict"><span style="text-decoration: underline">valueCanonical</span></a>" : "&lt;<span style="color: darkgreen"><a href="http://hl7.org/fhir/R5/datatypes.html#canonical">canonical</a></span>&gt;" <span style="color: Gray">//</span> <span style="color: brown" title="tk-canonical-versioned: Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0."><b>C?</b></span> <span style="color: brown" title="Detta element är obligatoriskt"><b>R!</b></span> <span style="color: navy; opacity: 0.8">Kanonisk URL med version (url|version) till den stödda interoperabilitetsspecifikationen, se REQ-MDL-9</span>
   }
 
         </div>
@@ -730,8 +814,8 @@ Sammanfattning
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-16 14:31:00 +0000">
-    2026-11-16
+  <span title="2026-11-17 10:59:00 +0000">
+    2026-11-17
   </span>
 
           <br/>

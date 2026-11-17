@@ -3,7 +3,7 @@ IneraTjanstekatalog : Validation Results
 
 err = 0, warn = 23, info = 123, broken links = 0
 IG Publisher Version: 3.0.4
-Generated Mon Nov 16 14:31:58 UTC 2026. FHIR version 5.0.0 for inera.infra.tjanstekatalog#0.1.1 (canonical = https://fhir.inera.se/ig/tjanstekatalog)
+Generated Tue Nov 17 11:00:07 UTC 2026. FHIR version 5.0.0 for inera.infra.tjanstekatalog#0.1.1 (canonical = https://fhir.inera.se/ig/tjanstekatalog)
  Build Errors : 0 / 0 / 0
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/ActorDefinition-tk-synkroniseringstjanst : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/CapabilityStatement-TKAPIInstanceExample : 0 / 0 / 3
@@ -24,7 +24,7 @@ Generated Mon Nov 16 14:31:58 UTC 2026. FHIR version 5.0.0 for inera.infra.tjans
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/PractitionerRole-TKLocalAdministratorRoleExample : 0 / 0 / 2
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Provenance-TKProvenanceAdministratorRoleExample : 0 / 0 / 1
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Provenance-TKProvenanceExample : 0 / 0 / 1
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements : 0 / 73 / 4
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements : 0 / 75 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-capabilitystatement-instantiates : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-capabilitystatement-kind : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-endpoint-implements : 0 / 0 / 4

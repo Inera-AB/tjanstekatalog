@@ -26,6 +26,8 @@ Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages
 
 Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
 
+#### Begränsningar
+
 #### Terminologibindningar
 
 #### Begränsningar
@@ -41,6 +43,8 @@ Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/c
  **Differentialvy** 
 
 Denna struktur är härledd från [CapabilityStatement](http://hl7.org/fhir/R5/capabilitystatement.html) 
+
+#### Begränsningar
 
  **ÖgonblicksbildsvyView** 
 
@@ -176,12 +180,19 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-instance
     {
       "id" : "CapabilityStatement.instantiates",
       "path" : "CapabilityStatement.instantiates",
-      "short" : "Den/de API-specifikationer denna instans följer (\"följer\")",
+      "short" : "Den/de API-specifikationer denna instans följer (\"följer\"), som url|version",
       "min" : 1,
+      "constraint" : [{
+        "key" : "tk-canonical-versioned",
+        "severity" : "error",
+        "human" : "Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0.",
+        "expression" : "matches('^[^|]+[|][^|]+$')",
+        "source" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"
+      }],
       "mustSupport" : true,
       "mapping" : [{
         "identity" : "req",
-        "map" : "REQ-MDL-7"
+        "map" : "REQ-MDL-7, REQ-MDL-9"
       }]
     },
     {

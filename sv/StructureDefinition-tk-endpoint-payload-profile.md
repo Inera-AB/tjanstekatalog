@@ -27,11 +27,15 @@ Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibili
 
 #### Begränsningar
 
+#### Begränsningar
+
 Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
 
  **Differentialvy** 
 
 Denna struktur är härledd från [Extension](http://hl7.org/fhir/R5/extensibility.html#Extension) 
+
+#### Begränsningar
 
  **Ögonblicksbildsvy** 
 
@@ -60,7 +64,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-pay
   "name" : "TKEndpointPayloadProfile",
   "title" : "Stödd specifikation (payload profile)",
   "status" : "draft",
-  "date" : "2026-11-16T14:31:08+00:00",
+  "date" : "2026-11-17T10:59:28+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -112,10 +116,17 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-pay
     {
       "id" : "Extension.value[x]",
       "path" : "Extension.value[x]",
-      "short" : "Kanonisk URL till den stödda interoperabilitetsspecifikationen",
+      "short" : "Kanonisk URL med version (url|version) till den stödda interoperabilitetsspecifikationen, se REQ-MDL-9",
       "min" : 1,
       "type" : [{
         "code" : "canonical"
+      }],
+      "constraint" : [{
+        "key" : "tk-canonical-versioned",
+        "severity" : "error",
+        "human" : "Referensen till API-specifikationen anger version: url|version, t.ex. https://example.org/spec|1.0.0.",
+        "expression" : "matches('^[^|]+[|][^|]+$')",
+        "source" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"
       }]
     }]
   }

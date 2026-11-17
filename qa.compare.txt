@@ -24,7 +24,7 @@ Generated $--. FHIR version $-- for inera.infra.tjanstekatalog#$-- (canonical = 
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/PractitionerRole-TKLocalAdministratorRoleExample : 0 / 0 / 2
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Provenance-TKProvenanceAdministratorRoleExample : 0 / 0 / 1
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Provenance-TKProvenanceExample : 0 / 0 / 1
- /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements : 0 / 73 / 4
+ /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/Requirements-tk-tjanstekatalog-requirements : 0 / 75 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-capabilitystatement-instantiates : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-capabilitystatement-kind : 0 / 0 / 4
  /home/runner/work/tjanstekatalog/tjanstekatalog/fsh-generated/resources/SearchParameter-tk-endpoint-implements : 0 / 0 / 4

@@ -453,8 +453,22 @@ eller sortera med <code class="language-plaintext highlighter-rouge">_sort=-date
 <div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/CapabilityStatement?kind=requirements&amp;url=https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation&amp;_sort=-date
 </code></pre></div></div>
 
-<p>API-instanser och ändpunkter bör referera specifikationen som
-<code class="language-plaintext highlighter-rouge">url|version</code>, så att klienten vet exakt vilken version som stöds.</p>
+<p>API-instanser och ändpunkter SKA referera specifikationen som
+<code class="language-plaintext highlighter-rouge">url|version</code>, så att klienten vet exakt vilken version som stöds
+(REQ-MDL-9). En referens utan version betyder inte att alla versioner
+stöds: den löses till den senaste versionen, och påståendet skulle då ändras
+i tysthet när en ny version av specifikationen registreras. En instans som
+stödjer flera versioner anger en referens per version:</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nl">"instantiates"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+  </span><span class="s2">"https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.0.0"</span><span class="p">,</span><span class="w">
+  </span><span class="s2">"https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation|1.1.0"</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Admin-API:t avvisar en referens utan version med <code class="language-plaintext highlighter-rouge">422 Unprocessable
+Entity</code>. Det gäller bara vad som registreras: vid sökning matchar en url
+utan version fortfarande alla versioner (REQ-SRCH-6).</p>
 
 <hr />
 
@@ -562,8 +576,8 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-16 14:31:00 +0000">
-    2026-11-16
+  <span title="2026-11-17 10:59:00 +0000">
+    2026-11-17
   </span>
 
           <br/>

@@ -543,8 +543,14 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
     <tr>
       <td>REQ-MDL-8</td>
       <td>SKA</td>
-      <td>Flera versioner av samma API-specifikation FÅR finnas samtidigt. <code class="language-plaintext highlighter-rouge">version</code> SKA anges och <code class="language-plaintext highlighter-rouge">url</code> + <code class="language-plaintext highlighter-rouge">version</code> SKA vara unik. Sökning på <code class="language-plaintext highlighter-rouge">url</code> returnerar alla versioner; <code class="language-plaintext highlighter-rouge">version</code> och <code class="language-plaintext highlighter-rouge">date</code> (med <code class="language-plaintext highlighter-rouge">_sort=-date</code>) används för att välja. API-instanser och ändpunkter BÖR referera specifikationen som <code class="language-plaintext highlighter-rouge">url\|version</code>.</td>
+      <td>Flera versioner av samma API-specifikation FÅR finnas samtidigt. <code class="language-plaintext highlighter-rouge">version</code> SKA anges och <code class="language-plaintext highlighter-rouge">url</code> + <code class="language-plaintext highlighter-rouge">version</code> SKA vara unik. Sökning på <code class="language-plaintext highlighter-rouge">url</code> returnerar alla versioner; <code class="language-plaintext highlighter-rouge">version</code> och <code class="language-plaintext highlighter-rouge">date</code> (med <code class="language-plaintext highlighter-rouge">_sort=-date</code>) används för att välja. Hur API-instanser och ändpunkter refererar specifikationen anges i REQ-MDL-9.</td>
       <td><a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a>, <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a></td>
+    </tr>
+    <tr>
+      <td>REQ-MDL-9</td>
+      <td>SKA</td>
+      <td>API-instanser (<code class="language-plaintext highlighter-rouge">instantiates</code>) och ändpunkter (<code class="language-plaintext highlighter-rouge">Endpoint.payload</code>-extensionen) SKA referera en API-specifikation som <code class="language-plaintext highlighter-rouge">url\|version</code>. En referens utan version betyder inte "alla versioner" utan löses till den senaste, och skulle ändra innebörd när en ny version registreras. Flera versioner anges som flera referenser. Admin-API:t avvisar en referens utan version med <code class="language-plaintext highlighter-rouge">422</code> (<code class="language-plaintext highlighter-rouge">invariant</code>).</td>
+      <td><a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a><code class="language-plaintext highlighter-rouge">.instantiates</code>, <a href="StructureDefinition-tk-endpoint-payload-profile.html">TKEndpointPayloadProfile</a></td>
     </tr>
   </tbody>
 </table>
@@ -746,8 +752,8 @@ eller id.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-16 14:31:00 +0000">
-    2026-11-16
+  <span title="2026-11-17 10:59:00 +0000">
+    2026-11-17
   </span>
 
           <br/>
