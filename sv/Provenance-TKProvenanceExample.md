@@ -1,4 +1,4 @@
-# Exempel: spårbarhetspost för registrering - Tjänstekatalogen v0.1.1
+# Exempel: spårbarhetspost för registrering - Tjänstekatalogen v0.2.0
 
 ## Exempel Provenance: Exempel: spårbarhetspost för registrering
 
@@ -17,7 +17,8 @@ Sammanfattning
 
 **Agenter**
 
-* **vem**: [Exempelregionen (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-1003)](Organization-TKOrganizationExample.md)
+* **vem**: Exempeladministratör (Identifier:[HSA-id](NamingSystem-hsa-id.md)/SE2321000016-A1B2)
+  * **På uppdrag av**: [Exempelregionen (urn:oid:1.2.752.29.4.19#HSA-id#SE2321000016-1003)](Organization-TKOrganizationExample.md)
 
 
 
@@ -39,6 +40,13 @@ Sammanfattning
   "recorded" : "2026-01-01T09:00:00Z",
   "agent" : [{
     "who" : {
+      "identifier" : {
+        "system" : "urn:oid:1.2.752.29.4.19",
+        "value" : "SE2321000016-A1B2"
+      },
+      "display" : "Exempeladministratör"
+    },
+    "onBehalfOf" : {
       "reference" : "Organization/TKOrganizationExample"
     }
   }]

@@ -1,4 +1,4 @@
-# Stödd specifikation (payload profile) - Tjänstekatalogen v0.1.1
+# Stödd specifikation (payload profile) - Tjänstekatalogen v0.2.0
 
 ## Extension: Stödd specifikation (payload profile) 
 
@@ -60,11 +60,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-pay
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKEndpointPayloadProfile",
   "title" : "Stödd specifikation (payload profile)",
   "status" : "draft",
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

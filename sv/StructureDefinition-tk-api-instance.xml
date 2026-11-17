@@ -25,7 +25,7 @@
   <identifier>
     <value value="TKAPIInstance"/>
   </identifier>
-  <version value="0.1.1"/>
+  <version value="0.2.0"/>
   <name value="TKAPIInstance"/>
   <title value="Tjänstekatalogen API-instans"/>
   <status value="draft"/>

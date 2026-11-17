@@ -12,15 +12,15 @@
   fhir:language [ fhir:v "sv"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ValueSet tk-api-specification-category</b></p><a name=\"tk-api-specification-category\"> </a><a name=\"hctk-api-specification-category\"> </a><ul><li>Include alla koder som definieras i <a href=\"CodeSystem-tk-api-specification-category.html\"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code></a><span title=\"Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation\"> version ?0.1.1</span></li></ul></div>"^^rdf:XMLLiteral ]
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ValueSet tk-api-specification-category</b></p><a name=\"tk-api-specification-category\"> </a><a name=\"hctk-api-specification-category\"> </a><ul><li>Include alla koder som definieras i <a href=\"CodeSystem-tk-api-specification-category.html\"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code></a><span title=\"Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation\"> version ?0.2.0</span></li></ul></div>"^^rdf:XMLLiteral ]
   ] ; # 
   fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-api-specification-category"^^xsd:anyURI] ; # 
-  fhir:version [ fhir:v "0.1.1"] ; # 
+  fhir:version [ fhir:v "0.2.0"] ; # 
   fhir:name [ fhir:v "TKAPISpecificationCategoryVS"] ; # 
   fhir:title [ fhir:v "Kategorier för API-specifikationer"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
   fhir:experimental [ fhir:v true] ; # 
-  fhir:date [ fhir:v "2026-11-17T10:59:28+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-11-17T13:36:46+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;

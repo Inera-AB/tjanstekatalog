@@ -1,4 +1,4 @@
-# Tjänstekatalogen Endpoint - Tjänstekatalogen v0.1.1
+# Tjänstekatalogen Endpoint - Tjänstekatalogen v0.2.0
 
 ## Resursprofil: Tjänstekatalogen Endpoint 
 
@@ -66,7 +66,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint.csv
   "identifier" : [{
     "value" : "TKEndpoint"
   }],
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKEndpoint",
   "title" : "Tjänstekatalogen Endpoint",
   "status" : "draft",

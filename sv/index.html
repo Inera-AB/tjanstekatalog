@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Hem - Tjänstekatalogen v0.1.1</title>
+    <title>Hem - Tjänstekatalogen v0.2.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -64,7 +64,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">0.1.1 - ci-build
+            <span style="display:inline-block;">0.2.0 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Hem</h2>
   
 
@@ -176,7 +176,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
       <td colspan="4"><i>Officiell URL</i>: <span class="copy-text">https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog<button title="Klicka för att kopiera URL" class="btn-copy" data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog"/></span>
       </td>
       <td><i>Version</i>:
-      <span class="copy-text">0.1.1<button title="Klicka för att kopiera versionsspecificerad URL" class="btn-copy" data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog|0.1.1"/></span>
+      <span class="copy-text">0.2.0<button title="Klicka för att kopiera versionsspecificerad URL" class="btn-copy" data-clipboard-text="https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog|0.2.0"/></span>
       </td>
       <td style="text-align: right;border-left-style: hidden" title="Aktivera detta för att se ändringar sedan den senaste officiella versionen">
         <span id="toggle-change-display"><label style="margin:0;font-weight:normal" for="showChanges">Markera textändringar?</label>
@@ -266,7 +266,7 @@ given ändpunkt (<code class="language-plaintext highlighter-rouge">Endpoint.man
   <li><strong>Ett administrativt API</strong> för att skapa, uppdatera, läsa och söka
 organisationer och ändpunkter i tjänstekatalogen. Se
 <a href="capabilitystatement.html">CapabilityStatement</a>.</li>
-  <li><strong>En Synkroniseringstjänst</strong> som läser organisationer och ändpunkter
+  <li><strong>En Synkroniseringstjänst (utkast)</strong> som läser organisationer och ändpunkter
 härifrån och håller E-hälsomyndighetens (EHM) nationella register —
 Swedish Medical Record Index And Endpoint Registry — synkroniserat, genom
 att i <strong>EHM:s</strong> system anta rollen Organization Endpoint Writer och
@@ -276,13 +276,11 @@ anropa deras <code class="language-plaintext highlighter-rouge">$add-organizatio
 data mappas mellan de två gränssnitten.</li>
 </ul>
 
-<p>Denna IG realiserar en delmängd av ett bredare informationsunderlag som även
-omfattar entiteterna Indexpost, Vård- och omsorgstagare och API-specifikation.
-Dessa är modellerade (se <a href="mappings.html">Mappning till profiler</a>) och
-spårbara i <a href="requirements.html">Kravkatalog</a>, men REST-exponering av dem i det
-administrativa API:et ligger utanför detta utkast — se "Avvikelser och
-tillägg" i <a href="mappings.html">Mappning till profiler</a> för motivering per
-entitet.</p>
+<p>Sök-API:t och admin-API:t är den del av IG:n som ska gå till en fast
+version. Synkroniseringen mot EHM och distributionen till lokala kataloger
+är utkast inför en framtida version. Informationsunderlagets entiteter för
+patientindex (Indexpost och Vård- och omsorgstagare) ingår inte i IG:n. Se
+"Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a>.</p>
 
 <p>Denna IG är avsedd att samverka med E-hälsomyndighetens nationella register
 över tekniska ändpunkter — se <a href="mappings.html">Mappning mot EHM:s Organization Endpoint
@@ -380,9 +378,9 @@ undviker att IG:n och specifikationen glider isär över tid.</p>
 
 
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 10:59:00 +0000">
+  <span title="2026-11-17 13:36:00 +0000">
     2026-11-17
   </span>
 

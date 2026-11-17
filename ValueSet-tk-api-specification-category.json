@@ -3,15 +3,15 @@
   "id" : "tk-api-specification-category",
   "text" : {
     "status" : "generated",
-    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ValueSet tk-api-specification-category</b></p><a name=\"tk-api-specification-category\"> </a><a name=\"hctk-api-specification-category\"> </a><ul><li>Include alla koder som definieras i <a href=\"CodeSystem-tk-api-specification-category.html\"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code></a><span title=\"Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation\"> version &#x1F4E6;0.1.1</span></li></ul></div>"
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ValueSet tk-api-specification-category</b></p><a name=\"tk-api-specification-category\"> </a><a name=\"hctk-api-specification-category\"> </a><ul><li>Include alla koder som definieras i <a href=\"CodeSystem-tk-api-specification-category.html\"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code></a><span title=\"Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation\"> version &#x1F4E6;0.2.0</span></li></ul></div>"
   },
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-api-specification-category",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKAPISpecificationCategoryVS",
   "title" : "Kategorier för API-specifikationer",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

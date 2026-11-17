@@ -1,4 +1,4 @@
-# Organisationsnummer - Tjänstekatalogen v0.1.1
+# Organisationsnummer - Tjänstekatalogen v0.2.0
 
 ## NamingSystem: Organisationsnummer 
 
@@ -11,7 +11,7 @@
   "resourceType" : "NamingSystem",
   "id" : "organisationsnummer",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/organisationsnummer",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKOrganisationsnummerNamingSystem",
   "title" : "Organisationsnummer",
   "status" : "active",

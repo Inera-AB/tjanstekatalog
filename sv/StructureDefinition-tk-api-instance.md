@@ -1,4 +1,4 @@
-# Tjänstekatalogen API-instans - Tjänstekatalogen v0.1.1
+# Tjänstekatalogen API-instans - Tjänstekatalogen v0.2.0
 
 ## Resursprofil: Tjänstekatalogen API-instans 
 
@@ -74,7 +74,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-instance
   "identifier" : [{
     "value" : "TKAPIInstance"
   }],
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKAPIInstance",
   "title" : "Tjänstekatalogen API-instans",
   "status" : "draft",

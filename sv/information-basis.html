@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Informationsunderlag - Tjänstekatalogen v0.1.1</title>
+    <title>Informationsunderlag - Tjänstekatalogen v0.2.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -64,7 +64,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">0.1.1 - ci-build
+            <span style="display:inline-block;">0.2.0 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Informationsunderlag</h2>
   
 
@@ -258,15 +258,16 @@ avvikelser eller tillägg i FHIR-realiseringen, och
 <a href="requirements.html">Kravkatalog</a> för de formella krav som härletts från
 modellen.</p>
 
-<p>Utöver dessa sex entiteter innehåller denna IG tillägg som inte kommer
-direkt från informationsunderlaget: administratörsbehörighet
-(<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>,
-REQ-ADM-<em>), distribution/federering till lokala kataloger
+<p>Indexpost och Vård- och omsorgstagare beskriver ett patientindex och
+realiseras inte i IG:n (borttagna i version 0.2.0).</p>
+
+<p>Utöver entiteterna innehåller denna IG tillägg som inte kommer
+direkt från informationsunderlaget: distribution/federering (utkast) till lokala kataloger
 (<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic</a>,
-REQ-DIST-</em>), en explicit gräns för vilka API:er som exponeras externt
-respektive endast internt (REQ-EXP-<em>), och spårbarhet vid registrering
+REQ-DIST-<em>), en explicit gräns för vilka API:er som exponeras externt
+respektive endast internt (REQ-EXP-</em>), och spårbarhet vid registrering
 (<a href="StructureDefinition-tk-provenance.html">TKProvenance</a> + transaction-Bundle,
-REQ-TRC-</em>). API och API-specifikation realiseras numera fullt ut som
+REQ-TRC-*). API och API-specifikation realiseras numera fullt ut som
 FHIR-resurser (<a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>
 respektive <a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a>,
 båda <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>-profiler), inte enbart logiska modeller. Se
@@ -307,9 +308,9 @@ roller och ansvar beskrivs under <a href="use-cases.html">Användningsfall</a> o
 
 
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 10:59:00 +0000">
+  <span title="2026-11-17 13:36:00 +0000">
     2026-11-17
   </span>
 

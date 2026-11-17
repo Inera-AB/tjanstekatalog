@@ -1,4 +1,4 @@
-# URL till auktorisationsserver - Tjänstekatalogen v0.1.1
+# URL till auktorisationsserver - Tjänstekatalogen v0.2.0
 
 ## Extension: URL till auktorisationsserver 
 
@@ -55,11 +55,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-aut
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-authorization-server-url",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKEndpointAuthorizationServerUrl",
   "title" : "URL till auktorisationsserver",
   "status" : "draft",
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

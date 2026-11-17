@@ -1,4 +1,4 @@
-# Förväntade svar - Tjänstekatalogen v0.1.1
+# Förväntade svar - Tjänstekatalogen v0.2.0
 
 ## Förväntade svar
 

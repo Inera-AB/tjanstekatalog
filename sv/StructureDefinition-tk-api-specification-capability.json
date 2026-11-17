@@ -14,7 +14,7 @@
   "identifier" : [{
     "value" : "TKAPISpecificationCapability"
   }],
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKAPISpecificationCapability",
   "title" : "Tjänstekatalogen API-specifikation",
   "status" : "draft",

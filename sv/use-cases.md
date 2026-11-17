@@ -1,4 +1,4 @@
-# Användningsfall - Tjänstekatalogen v0.1.1
+# Användningsfall - Tjänstekatalogen v0.2.0
 
 ## Användningsfall
 

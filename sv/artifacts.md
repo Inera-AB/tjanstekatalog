@@ -1,4 +1,4 @@
-# Sammanfattning av artefakter - Tjänstekatalogen v0.1.1
+# Sammanfattning av artefakter - Tjänstekatalogen v0.2.0
 
 ## Sammanfattning av artefakter
 

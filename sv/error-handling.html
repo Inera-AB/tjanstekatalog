@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Felhantering - Tjänstekatalogen v0.1.1</title>
+    <title>Felhantering - Tjänstekatalogen v0.2.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -64,7 +64,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">0.1.1 - ci-build
+            <span style="display:inline-block;">0.2.0 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Felhantering</h2>
   
 
@@ -180,11 +180,61 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 
     <p><!-- white space is critical inside of capture --></p>
-<div>
-<!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
+<div class="markdown-toc">
+<ul id="markdown-toc">
+  <li><a href="#korrelations-id" id="markdown-toc-korrelations-id">Korrelations-id</a></li>
+  <li><a href="#statuskoder" id="markdown-toc-statuskoder">Statuskoder</a></li>
+</ul>
+
 </div>
 <p>Fel rapporteras som <code class="language-plaintext highlighter-rouge">OperationOutcome</code>, i enlighet med FHIR:s standardmönster
 för REST-fel.</p>
+
+<h3 id="korrelations-id">Korrelations-id</h3>
+
+<p>Varje felsvar SKA bära anropets korrelations-id, så att den som gör ett
+supportärende kan ange ett id som går att hitta i serverns loggar
+(REQ-ERR-1):</p>
+
+<ul>
+  <li><strong>I svarshuvudet.</strong> Servern returnerar anropets <code class="language-plaintext highlighter-rouge">traceparent</code> enligt
+<a href="https://www.w3.org/TR/trace-context/">W3C Trace Context</a> i svarshuvudet
+<code class="language-plaintext highlighter-rouge">traceparent</code>.</li>
+  <li><strong>I svarskroppen.</strong> Varje <code class="language-plaintext highlighter-rouge">issue</code> i <code class="language-plaintext highlighter-rouge">OperationOutcome</code> bär samma värde i
+standardextensionen
+<a href="http://hl7.org/fhir/extensions/StructureDefinition-operationoutcome-instance-id.html"><code class="language-plaintext highlighter-rouge">operationoutcome-instance-id</code></a>
+(<code class="language-plaintext highlighter-rouge">valueString</code>). Svaret följer profilen
+<a href="StructureDefinition-tk-operation-outcome.html">TKOperationOutcome</a>.</li>
+</ul>
+
+<p>Ett id i svarskroppen syns där användare och klientloggar faktiskt tittar,
+även när svarshuvuden inte loggas eller visas. Standardextensionen används i
+stället för en egen extension, eftersom den är avsedd för just detta: ett id
+för den enskilda förekomsten av felet som kan knytas till en post i
+källsystemets logg. Den sitter på <code class="language-plaintext highlighter-rouge">issue</code>, inte på <code class="language-plaintext highlighter-rouge">OperationOutcome</code>, så ett
+svar med flera <code class="language-plaintext highlighter-rouge">issue</code> har samma värde i varje.</p>
+
+<div class="language-json highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"OperationOutcome"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"issue"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+      </span><span class="nl">"extension"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+          </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"http://hl7.org/fhir/StructureDefinition/operationoutcome-instance-id"</span><span class="p">,</span><span class="w">
+          </span><span class="nl">"valueString"</span><span class="p">:</span><span class="w"> </span><span class="s2">"00-dfa31425ee41c53febe657bf8cc5b9d0-03a1b50d69809d06-01"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+      </span><span class="p">],</span><span class="w">
+      </span><span class="nl">"severity"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"code"</span><span class="p">:</span><span class="w"> </span><span class="s2">"invalid"</span><span class="p">,</span><span class="w">
+      </span><span class="nl">"diagnostics"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Ogiltig sökparameter: instantiates"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+  </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre></div></div>
+
+<p>Se även <a href="OperationOutcome-TKOperationOutcomeExample.html">exemplet</a>.</p>
+
+<h3 id="statuskoder">Statuskoder</h3>
 
 <table>
   <thead>
@@ -282,9 +332,9 @@ behörighetsmodellen som styr <code class="language-plaintext highlighter-rouge"
 
 
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 10:59:00 +0000">
+  <span title="2026-11-17 13:36:00 +0000">
     2026-11-17
   </span>
 

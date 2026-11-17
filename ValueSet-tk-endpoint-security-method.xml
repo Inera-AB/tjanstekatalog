@@ -3,15 +3,15 @@
 <ValueSet xmlns="http://hl7.org/fhir">
   <id value="tk-endpoint-security-method"/>
   <text>
-    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: ValueSet tk-endpoint-security-method</b></p><a name="tk-endpoint-security-method"> </a><a name="hctk-endpoint-security-method"> </a><ul><li>Include alla koder som definieras i <a href="CodeSystem-tk-endpoint-security-method.html"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code></a><span title="Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation"> version &#x1F4E6;0.1.1</span></li></ul></div>
+    <status value="generated"/><div xmlns="http://www.w3.org/1999/xhtml"><p class="res-header-id"><b>Genererad berättande text: ValueSet tk-endpoint-security-method</b></p><a name="tk-endpoint-security-method"> </a><a name="hctk-endpoint-security-method"> </a><ul><li>Include alla koder som definieras i <a href="CodeSystem-tk-endpoint-security-method.html"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code></a><span title="Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation"> version &#x1F4E6;0.2.0</span></li></ul></div>
   </text>
   <url value="https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method"/>
-  <version value="0.1.1"/>
+  <version value="0.2.0"/>
   <name value="TKEndpointSecurityMethodVS"/>
   <title value="Säkerhetsmetoder för tekniska ändpunkter"/>
   <status value="draft"/>
   <experimental value="true"/>
-  <date value="2026-11-17T10:59:28+00:00"/>
+  <date value="2026-11-17T13:36:46+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>

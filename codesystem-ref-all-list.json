@@ -12,42 +12,6 @@
     "http://hl7.org/fhir/R5/valueset-FHIR-version.html" : "FHIRVersion"
   },
   {
-    "url" : "http://hl7.org/fhir/address-type",
-    "version" : "5.0.0",
-    "status" : "active",
-    "name" : "AddressType",
-    "title" : "AddressType",
-    "description" : "The type of an address (physical / postal).",
-    "oids" : ["2.16.840.1.113883.4.642.1.70"],
-    "uses" : {
-    },
-    "http://hl7.org/fhir/R5/valueset-address-type.html" : "AddressType"
-  },
-  {
-    "url" : "http://hl7.org/fhir/address-use",
-    "version" : "5.0.0",
-    "status" : "active",
-    "name" : "AddressUse",
-    "title" : "AddressUse",
-    "description" : "The use of an address.",
-    "oids" : ["2.16.840.1.113883.4.642.1.68"],
-    "uses" : {
-    },
-    "http://hl7.org/fhir/R5/valueset-address-use.html" : "AddressUse"
-  },
-  {
-    "url" : "http://hl7.org/fhir/administrative-gender",
-    "version" : "5.0.0",
-    "status" : "active",
-    "name" : "AdministrativeGender",
-    "title" : "AdministrativeGender",
-    "description" : "The gender of a person used for administrative purposes.",
-    "oids" : ["2.16.840.1.113883.4.642.4.2"],
-    "uses" : {
-    },
-    "http://hl7.org/fhir/R5/valueset-administrative-gender.html" : "AdministrativeGender"
-  },
-  {
     "url" : "http://hl7.org/fhir/capability-statement-kind",
     "version" : "5.0.0",
     "status" : "active",
@@ -176,18 +140,32 @@
     "http://hl7.org/fhir/R5/valueset-identifier-use.html" : "IdentifierUse"
   },
   {
-    "url" : "http://hl7.org/fhir/link-type",
+    "url" : "http://hl7.org/fhir/issue-severity",
     "version" : "5.0.0",
     "status" : "active",
-    "name" : "LinkType",
-    "title" : "Link Type",
-    "description" : "The type of link between this Patient resource and other Patient/RelatedPerson resource(s).",
-    "oids" : ["2.16.840.1.113883.4.642.1.413",
-    "2.16.840.1.113883.4.642.2.234",
-    "2.16.840.1.113883.4.642.4.424"],
+    "name" : "IssueSeverity",
+    "title" : "Issue Severity",
+    "description" : "How the issue affects the success of the action.",
+    "oids" : ["2.16.840.1.113883.4.642.2.223",
+    "2.16.840.1.113883.4.642.1.398",
+    "2.16.840.1.113883.4.642.4.409"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R5/valueset-link-type.html" : "Link Type"
+    "http://hl7.org/fhir/R5/valueset-issue-severity.html" : "Issue Severity"
+  },
+  {
+    "url" : "http://hl7.org/fhir/issue-type",
+    "version" : "5.0.0",
+    "status" : "active",
+    "name" : "IssueType",
+    "title" : "Issue Type",
+    "description" : "A code that describes the type of issue.",
+    "oids" : ["2.16.840.1.113883.4.642.4.411",
+    "2.16.840.1.113883.4.642.2.224",
+    "2.16.840.1.113883.4.642.1.400"],
+    "uses" : {
+    },
+    "http://hl7.org/fhir/R5/valueset-issue-type.html" : "Issue Type"
   },
   {
     "url" : "http://hl7.org/fhir/message-transport",
@@ -202,16 +180,15 @@
     "http://hl7.org/fhir/R5/valueset-message-transport.html" : "Message Transport"
   },
   {
-    "url" : "http://hl7.org/fhir/name-use",
+    "url" : "http://hl7.org/fhir/operation-outcome",
     "version" : "5.0.0",
-    "status" : "active",
-    "name" : "NameUse",
-    "title" : "NameUse",
-    "description" : "The use of a human name.",
-    "oids" : ["2.16.840.1.113883.4.642.4.66"],
+    "status" : "draft",
+    "name" : "OperationOutcomeCodes",
+    "title" : "Operation Outcome Codes",
+    "description" : "Operation Outcome codes for translatable phrases used by FHIR test servers (see Implementation file translations.xml)",
     "uses" : {
     },
-    "http://hl7.org/fhir/R5/valueset-name-use.html" : "NameUse"
+    "http://hl7.org/fhir/R5/valueset-operation-outcome.html" : "Operation Outcome Codes"
   },
   {
     "url" : "http://hl7.org/fhir/provenance-entity-role",
@@ -275,8 +252,8 @@
     "oids" : ["2.16.840.1.113883.4.642.4.1823"],
     "uses" : {
     },
-    "http://hl7.org/fhir/R5/valueset-system-restful-interaction.html" : "System Restful Interaction",
-    "http://hl7.org/fhir/R5/valueset-type-restful-interaction.html" : "Type Restful Interaction"
+    "http://hl7.org/fhir/R5/valueset-type-restful-interaction.html" : "Type Restful Interaction",
+    "http://hl7.org/fhir/R5/valueset-system-restful-interaction.html" : "System Restful Interaction"
   },
   {
     "url" : "http://hl7.org/fhir/restful-security-service",
@@ -313,18 +290,6 @@
     "uses" : {
     },
     "http://hl7.org/fhir/R5/valueset-search-param-type.html" : "SearchParamType"
-  },
-  {
-    "url" : "http://hl7.org/fhir/service-mode",
-    "version" : "5.0.0",
-    "status" : "active",
-    "name" : "ServiceMode",
-    "title" : "Service Mode",
-    "description" : "An example set of Service Modes that could be applicable to use to characterize HealthcareServices or PractitionerRoles while searching",
-    "oids" : ["2.16.840.1.113883.4.642.4.2116"],
-    "uses" : {
-    },
-    "http://hl7.org/fhir/R5/valueset-service-mode.html" : "Service Mode"
   },
   {
     "url" : "http://hl7.org/fhir/version-algorithm",
@@ -411,18 +376,6 @@
     "http://hl7.org/fhir/R5/valueset-organization-type.html" : "Organization Type"
   },
   {
-    "url" : "http://terminology.hl7.org/CodeSystem/v2-0131",
-    "version" : "3.0.0",
-    "status" : "active",
-    "name" : "ContactRole2",
-    "title" : "contactRole2",
-    "description" : "Code system of concepts which specify a relationship role that the next of kin/associated parties plays with regard to the patient. Also used in referrals, for example, it may be necessary to identify the contact representative at the clinic that sent a referral. Used in HL7 Version 2 messaging in the NK1 and CTD segments after 2.5, when it replace 2.16.840.1.113883.18.57.",
-    "oids" : ["2.16.840.1.113883.18.58"],
-    "uses" : {
-    },
-    "http://hl7.org/fhir/R5/valueset-patient-contactrelationship.html" : "Patient Contact Relationship "
-  },
-  {
     "url" : "http://terminology.hl7.org/CodeSystem/v2-0203",
     "version" : "5.0.0",
     "status" : "active",
@@ -447,43 +400,8 @@
     "http://terminology.hl7.org/7.5.0/ValueSet-v3-PurposeOfUse.html" : "PurposeOfUse"
   },
   {
-    "url" : "http://terminology.hl7.org/CodeSystem/v3-MaritalStatus",
-    "version" : "5.0.0",
-    "status" : "active",
-    "name" : "MaritalStatus",
-    "title" : "MaritalStatus",
-    "description" : "\\* \\* \\* No description supplied \\* \\* \\*\r\n\r\n*Open Issue:* The specific meanings of these codes can vary somewhat by jurisdiction and implementation so caution should be used when determining equivalency.\r\n\r\n*Open Issue:* fixing and completion of the hierarchy and proper good definitions of all the concepts is badly needed.",
-    "oids" : ["2.16.840.1.113883.5.2"],
-    "uses" : {
-    },
-    "http://hl7.org/fhir/R5/valueset-marital-status.html" : "Marital Status Codes"
-  },
-  {
-    "url" : "http://terminology.hl7.org/CodeSystem/v3-NullFlavor",
-    "version" : "4.0.0",
-    "status" : "active",
-    "name" : "NullFlavor",
-    "title" : "NullFlavor",
-    "description" : "A collection of codes specifying why a valid value is not present.",
-    "oids" : ["2.16.840.1.113883.5.1008"],
-    "uses" : {
-    },
-    "http://hl7.org/fhir/R5/valueset-marital-status.html" : "Marital Status Codes"
-  },
-  {
-    "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role",
-    "version" : "0.1.1",
-    "status" : "draft",
-    "name" : "TKAdministratorRoleCS",
-    "title" : "Administratörsroller (kodsystem)",
-    "description" : "Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen.",
-    "uses" : {
-    },
-    "ValueSet-tk-administrator-role.html" : "Administratörsroller"
-  },
-  {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category",
-    "version" : "0.1.1",
+    "version" : "0.2.0",
     "status" : "draft",
     "name" : "TKAPISpecificationCategoryCS",
     "title" : "Kategorier för API-specifikationer (kodsystem)",
@@ -494,7 +412,7 @@
   },
   {
     "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method",
-    "version" : "0.1.1",
+    "version" : "0.2.0",
     "status" : "draft",
     "name" : "TKEndpointSecurityMethodCS",
     "title" : "Säkerhetsmetoder för tekniska ändpunkter (kodsystem)",

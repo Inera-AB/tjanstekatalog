@@ -1,4 +1,4 @@
-# Ansvarig organisation (strukturerad referens) - Tjänstekatalogen v0.1.1
+# Ansvarig organisation (strukturerad referens) - Tjänstekatalogen v0.2.0
 
 ## Extension: Ansvarig organisation (strukturerad referens) 
 
@@ -54,11 +54,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-capabilityst
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-capabilitystatement-responsible-organization",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKCapabilityStatementResponsibleOrganization",
   "title" : "Ansvarig organisation (strukturerad referens)",
   "status" : "draft",
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

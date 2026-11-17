@@ -1,4 +1,4 @@
-# inera.infra.tjanstekatalog#0.1.1: Tjänstekatalogen(sv)
+# inera.infra.tjanstekatalog#0.2.0: Tjänstekatalogen(sv)
 
 ## Pages
 
@@ -24,28 +24,20 @@
 
 ### CodeSystems
 
-* [Administratörsroller (kodsystem)](CodeSystem-tk-administrator-role.md)
 * [Kategorier för API-specifikationer (kodsystem)](CodeSystem-tk-api-specification-category.md)
 * [Säkerhetsmetoder för tekniska ändpunkter (kodsystem)](CodeSystem-tk-endpoint-security-method.md)
 
 ### ValueSets
 
-* [Administratörsroller](ValueSet-tk-administrator-role.md)
 * [Kategorier för API-specifikationer](ValueSet-tk-api-specification-category.md)
 * [Säkerhetsmetoder för tekniska ändpunkter](ValueSet-tk-endpoint-security-method.md)
 
-### Logicals
-
-* [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md)
-* [Vård- och omsorgstagare (logisk modell)](StructureDefinition-tk-vard-och-omsorgstagare.md)
-
 ### Resource Profiles
 
-* [Inera Patient](StructureDefinition-IneraPatient.md)
-* [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md)
 * [Tjänstekatalogen API-instans](StructureDefinition-tk-api-instance.md)
 * [Tjänstekatalogen API-specifikation](StructureDefinition-tk-api-specification-capability.md)
 * [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)
+* [Tjänstekatalogen OperationOutcome](StructureDefinition-tk-operation-outcome.md)
 * [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md)
 * [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
 
@@ -98,10 +90,7 @@
 * [TKAPIInstanceExample (CapabilityStatement)](CapabilityStatement-TKAPIInstanceExample.md)
 * [Patientinformation (Inera FHIR IG) (CapabilityStatement)](CapabilityStatement-TKAPISpecificationCapabilityExample.md)
 * [Exempelregionens patientinformations-API (Endpoint)](Endpoint-TKEndpointExample.md)
+* [TKOperationOutcomeExample (OperationOutcome)](OperationOutcome-TKOperationOutcomeExample.md)
 * [Exempelregionen (Organization)](Organization-TKOrganizationExample.md)
 * [Exempelregionens vårdcentral (Organization)](Organization-TKOrganizationUnitExample.md)
-* [IneraPatientExample (Patient)](Patient-IneraPatientExample.md)
-* [TKCentralAdministratorRoleExample (PractitionerRole)](PractitionerRole-TKCentralAdministratorRoleExample.md)
-* [TKLocalAdministratorRoleExample (PractitionerRole)](PractitionerRole-TKLocalAdministratorRoleExample.md)
-* [TKProvenanceAdministratorRoleExample (Provenance)](Provenance-TKProvenanceAdministratorRoleExample.md)
 * [TKProvenanceExample (Provenance)](Provenance-TKProvenanceExample.md)

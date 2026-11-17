@@ -1,6 +1,6 @@
 {
   "package": "inera.infra.tjanstekatalog",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "fhirVersion": "5.0.0",
   "jurisdiction": "SE",
   "extensions": [
@@ -62,18 +62,6 @@
     }
   ],
   "profiles": {
-    "Patient": [
-      {
-        "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient",
-        "title": "Inera Patient"
-      }
-    ],
-    "PractitionerRole": [
-      {
-        "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role",
-        "title": "Tjänstekatalogen administratörsbehörighet"
-      }
-    ],
     "CapabilityStatement": [
       {
         "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance",
@@ -88,6 +76,12 @@
       {
         "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint",
         "title": "Tjänstekatalogen Endpoint"
+      }
+    ],
+    "OperationOutcome": [
+      {
+        "url": "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome",
+        "title": "Tjänstekatalogen OperationOutcome"
       }
     ],
     "Organization": [
@@ -115,6 +109,9 @@
     ],
     "http://hl7.org/fhir/StructureDefinition/elementdefinition-translatable": [
       "StructureDefinition.snapshot.element"
+    ],
+    "http://hl7.org/fhir/StructureDefinition/operationoutcome-instance-id": [
+      "OperationOutcome.issue"
     ],
     "http://hl7.org/fhir/StructureDefinition/structuredefinition-fhir-type": [
       "StructureDefinition.snapshot.element.type"

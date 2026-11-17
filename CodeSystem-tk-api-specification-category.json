@@ -6,12 +6,12 @@
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: CodeSystem tk-api-specification-category</b></p><a name=\"tk-api-specification-category\"> </a><a name=\"hctk-api-specification-category\"> </a><p>Detta case-sensitive kodsystem <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code> definierar följande koder:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Kod</b></td><td><b>Visning</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">fhir<a name=\"tk-api-specification-category-fhir\"> </a></td><td>FHIR</td><td>Specifikationen är en HL7 FHIR-specifikation, t.ex. en implementationsguide (IG).</td></tr><tr><td style=\"white-space:nowrap\">rest-openapi<a name=\"tk-api-specification-category-rest-openapi\"> </a></td><td>REST/OpenAPI</td><td>Specifikationen är ett REST-API beskrivet med OpenAPI.</td></tr><tr><td style=\"white-space:nowrap\">soap-rivta<a name=\"tk-api-specification-category-soap-rivta\"> </a></td><td>SOAP/RIVTA</td><td>Specifikationen är ett SOAP-baserat tjänstekontrakt enligt RIVTA.</td></tr></table></div>"
   },
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKAPISpecificationCategoryCS",
   "title" : "Kategorier för API-specifikationer (kodsystem)",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -1,0 +1,36 @@
+@prefix fhir: <http://hl7.org/fhir/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+# - resource -------------------------------------------------------------------
+
+<https://fhir.inera.se/ig/tjanstekatalog/OperationOutcome/TKOperationOutcomeExample> a fhir:OperationOutcome ;
+  fhir:nodeRole fhir:treeRoot ;
+  fhir:id [ fhir:v "TKOperationOutcomeExample"] ; # 
+  fhir:meta [
+     fhir:profile ( [
+       fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome"^^xsd:anyURI ;
+       fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome>
+     ] )
+  ] ; # 
+  fhir:text [
+     fhir:status [ fhir:v "generated" ] ;
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: OperationOutcome TKOperationOutcomeExample</b></p><a name=\"TKOperationOutcomeExample\"> </a><a name=\"hcTKOperationOutcomeExample\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"StructureDefinition-tk-operation-outcome.html\">Tjänstekatalogen OperationOutcome</a></p></div><h3>Issues</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Extension</b></td><td><b>Severity</b></td><td><b>Code</b></td><td><b>Diagnostics</b></td></tr><tr><td style=\"display: none\">*</td><td/><td>Error</td><td>Invalid Content</td><td>Ogiltig sökparameter: instantiates</td></tr></table></div>"^^rdf:XMLLiteral ]
+  ] ; # 
+  fhir:issue ( [
+     fhir:extension ( [
+       fhir:url [ fhir:v "http://hl7.org/fhir/StructureDefinition/operationoutcome-instance-id"^^xsd:anyURI ] ;
+       fhir:value [
+         a fhir:string ;
+         fhir:v "00-dfa31425ee41c53febe657bf8cc5b9d0-03a1b50d69809d06-01"
+       ]
+     ] ) ;
+     fhir:severity [ fhir:v "error" ] ;
+     fhir:code [ fhir:v "invalid" ] ;
+     fhir:diagnostics [ fhir:v "Ogiltig sökparameter: instantiates" ]
+  ] ) . # 
+
+# -------------------------------------------------------------------------------------
+

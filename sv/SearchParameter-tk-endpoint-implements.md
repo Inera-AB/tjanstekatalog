@@ -1,4 +1,4 @@
-# Endpoint: implements (stödd interoperabilitetsspecifikation) - Tjänstekatalogen v0.1.1
+# Endpoint: implements (stödd interoperabilitetsspecifikation) - Tjänstekatalogen v0.2.0
 
 ## SearchParameter: Endpoint: implements (stödd interoperabilitetsspecifikation) (Experimentell) 
 
@@ -11,7 +11,7 @@
   "resourceType" : "SearchParameter",
   "id" : "tk-endpoint-implements",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-implements",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKEndpointImplements",
   "title" : "Endpoint: implements",
   "status" : "draft",

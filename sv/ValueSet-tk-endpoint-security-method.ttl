@@ -12,15 +12,15 @@
   fhir:language [ fhir:v "sv"] ; # 
   fhir:text [
      fhir:status [ fhir:v "generated" ] ;
-     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ValueSet tk-endpoint-security-method</b></p><a name=\"tk-endpoint-security-method\"> </a><a name=\"hctk-endpoint-security-method\"> </a><ul><li>Include alla koder som definieras i <a href=\"CodeSystem-tk-endpoint-security-method.html\"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code></a><span title=\"Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation\"> version ?0.1.1</span></li></ul></div>"^^rdf:XMLLiteral ]
+     fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: ValueSet tk-endpoint-security-method</b></p><a name=\"tk-endpoint-security-method\"> </a><a name=\"hctk-endpoint-security-method\"> </a><ul><li>Include alla koder som definieras i <a href=\"CodeSystem-tk-endpoint-security-method.html\"><code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code></a><span title=\"Versionen är inte uttryckligen angiven, vilket innebär att den är fast till den version som tillhandahålls i denna specifikation\"> version ?0.2.0</span></li></ul></div>"^^rdf:XMLLiteral ]
   ] ; # 
   fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method"^^xsd:anyURI] ; # 
-  fhir:version [ fhir:v "0.1.1"] ; # 
+  fhir:version [ fhir:v "0.2.0"] ; # 
   fhir:name [ fhir:v "TKEndpointSecurityMethodVS"] ; # 
   fhir:title [ fhir:v "Säkerhetsmetoder för tekniska ändpunkter"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
   fhir:experimental [ fhir:v true] ; # 
-  fhir:date [ fhir:v "2026-11-17T10:59:28+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-11-17T13:36:46+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;

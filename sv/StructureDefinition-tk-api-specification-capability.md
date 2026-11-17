@@ -1,4 +1,4 @@
-# Tjänstekatalogen API-specifikation - Tjänstekatalogen v0.1.1
+# Tjänstekatalogen API-specifikation - Tjänstekatalogen v0.2.0
 
 ## Resursprofil: Tjänstekatalogen API-specifikation 
 
@@ -70,7 +70,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-specific
   "identifier" : [{
     "value" : "TKAPISpecificationCapability"
   }],
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKAPISpecificationCapability",
   "title" : "Tjänstekatalogen API-specifikation",
   "status" : "draft",

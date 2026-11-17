@@ -1,10 +1,10 @@
-# Tjänstekatalogen Organization - Tjänstekatalogen v0.1.1
+# Tjänstekatalogen Organization - Tjänstekatalogen v0.2.0
 
 ## Resursprofil: Tjänstekatalogen Organization 
 
 **Användningar:**
 
-* Referera till denna Profil: [Tjänstekatalogen administratörsbehörighet](StructureDefinition-tk-administrator-role.md), [Tjänstekatalogen API-instans](StructureDefinition-tk-api-instance.md), [Ansvarig organisation (strukturerad referens)](StructureDefinition-tk-capabilitystatement-responsible-organization.md), [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md)... Show 3 more, [Indexpost (logisk modell)](StructureDefinition-tk-indexpost.md), [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md) and [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
+* Referera till denna Profil: [Tjänstekatalogen API-instans](StructureDefinition-tk-api-instance.md), [Ansvarig organisation (strukturerad referens)](StructureDefinition-tk-capabilitystatement-responsible-organization.md), [Tjänstekatalogen Endpoint](StructureDefinition-tk-endpoint.md), [Tjänstekatalogen Organization](StructureDefinition-tk-organization.md) and [Tjänstekatalogen Provenance](StructureDefinition-tk-provenance.md)
 * Exempel för denna Profil: [Exempelregionen](Organization-TKOrganizationExample.md) and [Exempelregionens vårdcentral](Organization-TKOrganizationUnitExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md) and [Tjänstekatalogen: sök-API (externt)](CapabilityStatement-tk-search-api.md)
 
@@ -70,7 +70,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-organization
   "identifier" : [{
     "value" : "TKOrganization"
   }],
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKOrganization",
   "title" : "Tjänstekatalogen Organization",
   "status" : "draft",

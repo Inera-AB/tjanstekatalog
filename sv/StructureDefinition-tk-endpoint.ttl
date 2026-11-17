@@ -18,7 +18,7 @@
   fhir:identifier ( [
      fhir:value [ fhir:v "TKEndpoint" ]
   ] ) ; # 
-  fhir:version [ fhir:v "0.1.1"] ; # 
+  fhir:version [ fhir:v "0.2.0"] ; # 
   fhir:name [ fhir:v "TKEndpoint"] ; # 
   fhir:title [ fhir:v "Tjänstekatalogen Endpoint"] ; # 
   fhir:status [ fhir:v "draft"] ; # 

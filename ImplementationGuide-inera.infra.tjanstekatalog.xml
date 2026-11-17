@@ -8,11 +8,11 @@
 </div></div>
   </text>
   <url value="https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog"/>
-  <version value="0.1.1"/>
+  <version value="0.2.0"/>
   <name value="IneraTjanstekatalog"/>
   <title value="Tjänstekatalogen"/>
   <status value="draft"/>
-  <date value="2026-11-17T10:59:28+00:00"/>
+  <date value="2026-11-17T13:36:46+00:00"/>
   <publisher value="Inera AB"/>
   <contact>
     <name value="Inera AB"/>
@@ -39,10 +39,7 @@
     <packageId value="hl7.terminology.r5"/>
     <version value="7.5.0"/>
   </dependsOn>
-  <dependsOn id="hl7ext">
-    <extension url="http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment">
-      <valueMarkdown value="Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"/>
-    </extension>
+  <dependsOn id="hl7_fhir_uv_extensions_r5">
     <uri value="http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"/>
     <packageId value="hl7.fhir.uv.extensions.r5"/>
     <version value="5.4.0"/>
@@ -51,28 +48,6 @@
     <extension url="http://hl7.org/fhir/tools/StructureDefinition/ig-internal-dependency">
       <valueCode value="hl7.fhir.uv.tools.r5#1.3.0"/>
     </extension>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="ValueSet"/>
-      </extension>
-      <reference>
-        <reference value="ValueSet/tk-administrator-role"/>
-      </reference>
-      <name value="Administratörsroller"/>
-      <description value="Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1."/>
-      <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="CodeSystem"/>
-      </extension>
-      <reference>
-        <reference value="CodeSystem/tk-administrator-role"/>
-      </reference>
-      <name value="Administratörsroller (kodsystem)"/>
-      <description value="Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen."/>
-      <isExample value="false"/>
-    </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
         <valueString value="StructureDefinition:extension"/>
@@ -165,27 +140,15 @@
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="PractitionerRole"/>
+        <valueString value="OperationOutcome"/>
       </extension>
       <reference>
-        <reference value="PractitionerRole/TKCentralAdministratorRoleExample"/>
+        <reference value="OperationOutcome/TKOperationOutcomeExample"/>
       </reference>
-      <name value="Exempel: central administratör"/>
-      <description value="Exempel på en central administratörsbehörighet. `organization` utelämnas, eftersom behörigheten gäller samtliga organisationer."/>
+      <name value="Exempel: felsvar med korrelations-id"/>
+      <description value="Felsvar på en sökning med en sökparameter som inte stöds. Korrelations-id:t anges i `issue` med standardextensionen operationoutcome-instance-id (REQ-ERR-1)."/>
       <isExample value="true"/>
-      <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="PractitionerRole"/>
-      </extension>
-      <reference>
-        <reference value="PractitionerRole/TKLocalAdministratorRoleExample"/>
-      </reference>
-      <name value="Exempel: lokal administratör"/>
-      <description value="Exempel på en lokal administratörsbehörighet för Exempelregionen."/>
-      <isExample value="true"/>
-      <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"/>
+      <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -207,19 +170,7 @@
         <reference value="Provenance/TKProvenanceExample"/>
       </reference>
       <name value="Exempel: spårbarhetspost för registrering"/>
-      <description value="Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle."/>
-      <isExample value="true"/>
-      <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="Provenance"/>
-      </extension>
-      <reference>
-        <reference value="Provenance/TKProvenanceAdministratorRoleExample"/>
-      </reference>
-      <name value="Exempel: spårbarhetspost för ändrad administratörsbehörighet"/>
-      <description value="Exempel på en Provenance-post som visar att den centrala administratören gav Exempelregionens lokala administratör sin behörighet. `agent.who` är den ändrande administratörens egen behörighet (REQ-TRC-3)."/>
+      <description value="Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle. Användaren anges med HSA-id från Inera IdP och organisationen i `onBehalfOf` (REQ-TRC-3)."/>
       <isExample value="true"/>
       <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"/>
     </resource>
@@ -257,40 +208,6 @@
       <name value="HSA-id"/>
       <description value="Identifierarsystemet för HSA-id, den primära organisationsidentifieraren i tjänstekatalogen (REQ-ORG-6). Formatet följer HSA:s styrande dokument: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck."/>
       <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/tk-indexpost"/>
-      </reference>
-      <name value="Indexpost (logisk modell)"/>
-      <description value="Logisk modell för entiteten Indexpost i informationsunderlaget. Ej REST-exponerad i detta utkast av det administrativa API:et — se REQ-MDL-1."/>
-      <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/IneraPatient"/>
-      </reference>
-      <name value="Inera Patient"/>
-      <description value="A template patient profile demonstrating Inera's FHIR profiling conventions.&#xA;Authors should replace this description with the clinical purpose and scope of the profile."/>
-      <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="Patient"/>
-      </extension>
-      <reference>
-        <reference value="Patient/IneraPatientExample"/>
-      </reference>
-      <name value="Inera Patient Example"/>
-      <description value="A minimal example of a patient conforming to the IneraPatient profile."/>
-      <isExample value="true"/>
-      <profile value="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient"/>
     </resource>
     <resource>
       <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
@@ -429,17 +346,6 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
-        <reference value="StructureDefinition/tk-administrator-role"/>
-      </reference>
-      <name value="Tjänstekatalogen administratörsbehörighet"/>
-      <description value="Behörighet för en administratör att registrera/ändra poster i&#xA;tjänstekatalogen för en given organisation (`local-admin`), eller att&#xA;dessutom administrera andra administratörers behörigheter för samtliga&#xA;organisationer (`central-admin`, `organization` utelämnad). Se&#xA;[Roller och ansvar](roles-and-responsibilities.html) och&#xA;[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*."/>
-      <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:resource"/>
-      </extension>
-      <reference>
         <reference value="StructureDefinition/tk-api-instance"/>
       </reference>
       <name value="Tjänstekatalogen API-instans"/>
@@ -473,6 +379,17 @@
         <valueString value="StructureDefinition:resource"/>
       </extension>
       <reference>
+        <reference value="StructureDefinition/tk-operation-outcome"/>
+      </reference>
+      <name value="Tjänstekatalogen OperationOutcome"/>
+      <description value="Felsvar från tjänstekatalogens API:er. Varje `issue` bär anropets&#xA;korrelations-id i standardextensionen&#xA;[operationoutcome-instance-id](http://hl7.org/fhir/extensions/StructureDefinition-operationoutcome-instance-id.html),&#xA;med anropets `traceparent` enligt [W3C Trace Context](https://www.w3.org/TR/trace-context/)&#xA;som värde. Se [Felhantering](error-handling.html) och REQ-ERR-1."/>
+      <isExample value="false"/>
+    </resource>
+    <resource>
+      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
+        <valueString value="StructureDefinition:resource"/>
+      </extension>
+      <reference>
         <reference value="StructureDefinition/tk-organization"/>
       </reference>
       <name value="Tjänstekatalogen Organization"/>
@@ -487,7 +404,7 @@
         <reference value="StructureDefinition/tk-provenance"/>
       </reference>
       <name value="Tjänstekatalogen Provenance"/>
-      <description value="Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera&#xA;resurser i tjänstekatalogen, inklusive administratörsbehörigheter&#xA;([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)) —&#xA;vanligen skickad tillsammans med den/de&#xA;registrerade resurserna i samma transaction-Bundle. Se&#xA;[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och &quot;Distribution och&#xA;synkronisering&quot;/registrering i rest-interactions.html."/>
+      <description value="Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera&#xA;resurser i tjänstekatalogen, vanligen skickad tillsammans med den/de&#xA;registrerade resurserna i samma transaction-Bundle. Se&#xA;[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och &quot;Distribution och&#xA;synkronisering&quot;/registrering i rest-interactions.html."/>
       <isExample value="false"/>
     </resource>
     <resource>
@@ -521,17 +438,6 @@
       </reference>
       <name value="URL till auktorisationsserver"/>
       <description value="URL till den auktorisationsserver (t.ex. OAuth 2.0-token-endpoint) som klienter ska använda för att erhålla åtkomst till ändpunkten (Ändpunkt.urlTillAuktorisationsserver i informationsunderlaget). Relevant framför allt när Ändpunkt.säkerhetsmetod anger en OAuth 2.0-baserad metod."/>
-      <isExample value="false"/>
-    </resource>
-    <resource>
-      <extension url="http://hl7.org/fhir/tools/StructureDefinition/resource-information">
-        <valueString value="StructureDefinition:logical"/>
-      </extension>
-      <reference>
-        <reference value="StructureDefinition/tk-vard-och-omsorgstagare"/>
-      </reference>
-      <name value="Vård- och omsorgstagare (logisk modell)"/>
-      <description value="Logisk modell för entiteten Vård- och omsorgstagare i informationsunderlaget. Tunn, avsiktligt begränsad till id — se REQ-MDL-2."/>
       <isExample value="false"/>
     </resource>
     <resource>

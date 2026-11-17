@@ -1,4 +1,4 @@
-# Exempel: API-instans i tjänstekatalogen - Tjänstekatalogen v0.1.1
+# Exempel: API-instans i tjänstekatalogen - Tjänstekatalogen v0.2.0
 
 ## CapabilityStatement: Exempel: API-instans i tjänstekatalogen 
 
@@ -28,7 +28,7 @@
     }
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/TKAPIInstanceExample",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "status" : "active",
   "date" : "2026-01-15",
   "publisher" : "Inera AB",

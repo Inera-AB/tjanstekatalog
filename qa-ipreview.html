@@ -9,10 +9,6 @@
     <h2>Unattributed Code Systems</h2>
     <ul>
       <li>
-        <a href="PractitionerRole-TKLocalAdministratorRoleExample.html">
-<code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role</code>        </a>
-      </li>
-      <li>
         <a href="CapabilityStatement-TKAPISpecificationCapabilityExample.html">
 <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-api-specification-category</code>        </a>
       </li>
@@ -73,7 +69,7 @@ This material derives from the HL7 Terminology (THO). THO is copyright &copy;198
 
 
           IG &copy; 2026+ Inera AB.  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på FHIR 5.0.0.
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på FHIR 5.0.0.
           Genererad 
   
     2026-11-17
@@ -110,7 +106,7 @@ The (c) symbol should NOT be included in this string. It will be added by softwa
 )
       </li>
       <li>
-Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. Se katalogen över publicerade versioner (        <a href="version-history.html">src</a>
+Tjänstekatalogen - Lokal utvecklingsbygge (v0.2.0) byggt av FHIR (HL7&reg; FHIR&reg; Standard) Build Tools. Se katalogen över publicerade versioner (        <a href="version-history.html">src</a>
 )
       </li>
     </ul>
@@ -530,28 +526,6 @@ Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/Structur
           <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
         </td>
         <td>
-          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost">fhir.inera.se</a>
-        </td>
-        <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost">Indexpost (logisk modell)</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
-        </td>
-        <td>
-          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare">fhir.inera.se</a>
-        </td>
-        <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare">Vård- och omsorgstagare (logisk modell)</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
-        </td>
-        <td>
           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint">fhir.inera.se</a>
         </td>
         <td>
@@ -722,10 +696,24 @@ Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/Capabili
           <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
         </td>
         <td>
-          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance">fhir.inera.se</a>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome">fhir.inera.se</a>
         </td>
         <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance">Tjänstekatalogen Provenance</a>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome">Tjänstekatalogen OperationOutcome</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
+        </td>
+        <td>
+          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">fhir.inera.se</a>
+        </td>
+        <td>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome">Tjänstekatalogen OperationOutcome</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
 ,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
         </td>
       </tr>
@@ -737,42 +725,8 @@ Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/Structur
           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">fhir.inera.se</a>
         </td>
         <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance">Tjänstekatalogen Provenance</a>
-,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
-        </td>
-        <td>
-          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role">fhir.inera.se</a>
-        </td>
-        <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role">Tjänstekatalogen administratörsbehörighet</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
-        </td>
-        <td>
-          <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role">fhir.inera.se</a>
-        </td>
-        <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role">Tjänstekatalogen administratörsbehörighet</a>
-,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <a href="Requirements-tk-tjanstekatalog-requirements.html">web</a>
-        </td>
-        <td>
-          <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">fhir.inera.se</a>
-        </td>
-        <td>
-Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role">Tjänstekatalogen administratörsbehörighet</a>
+Uppfylld av:           <a href="https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome">Tjänstekatalogen OperationOutcome</a>
+,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api">Tjänstekatalogen: sök-API (externt)</a>
 ,           <a href="https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api">Tjänstekatalogen: administrativt API</a>
         </td>
       </tr>
@@ -855,10 +809,10 @@ FHIR på Inera <span aria-hidden="true">↗</span>          </a>
 
           IG &copy; 2026+           <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>
 .  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på           <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>
 .
           Genererad 
-            <span title="2026-11-17 10:59:00 +0000">
+            <span title="2026-11-17 13:36:00 +0000">
     2026-11-17
   </span>
 
@@ -879,7 +833,7 @@ FHIR på Inera <span aria-hidden="true">↗</span>          </a>
       </tr>
       <tr>
         <td>
-          <a href="sv/StructureDefinition-tk-administrator-role-mappings.html">web</a>
+          <a href="sv/StructureDefinition-tk-api-instance-mappings.html">web</a>
         </td>
         <td>
           <a href="https://fhir.inera.se/ig/tjanstekatalog/Requirements/tk-tjanstekatalog-requirements">fhir.inera.se</a>
@@ -890,7 +844,7 @@ FHIR på Inera <span aria-hidden="true">↗</span>          </a>
       </tr>
       <tr>
         <td>
-          <a href="sv/StructureDefinition-tk-administrator-role-mappings.html">web</a>
+          <a href="sv/StructureDefinition-tk-organization-mappings.html">web</a>
         </td>
         <td>
           <a href="http://www.omg.org/spec/ServD/1.0/">www.omg.org</a>

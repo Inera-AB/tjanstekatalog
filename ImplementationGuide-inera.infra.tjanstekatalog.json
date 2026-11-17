@@ -7,11 +7,11 @@
     "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"sv\" lang=\"sv\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.infra.tjanstekatalog</b></p><a name=\"inera.infra.tjanstekatalog\"> </a><a name=\"hcinera.infra.tjanstekatalog\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Språk: sv</p></div><h2>IneraTjanstekatalog</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog</pre><div><p>FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat.</p>\n</div></div>"
   },
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "IneraTjanstekatalog",
   "title" : "Tjänstekatalogen",
   "status" : "draft",
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -41,11 +41,7 @@
     "version" : "7.5.0"
   },
   {
-    "id" : "hl7ext",
-    "extension" : [{
-      "url" : "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment",
-      "valueMarkdown" : "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"
-    }],
+    "id" : "hl7_fhir_uv_extensions_r5",
     "uri" : "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions",
     "packageId" : "hl7.fhir.uv.extensions.r5",
     "version" : "5.4.0"
@@ -56,30 +52,6 @@
       "valueCode" : "hl7.fhir.uv.tools.r5#1.3.0"
     }],
     "resource" : [{
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "ValueSet"
-      }],
-      "reference" : {
-        "reference" : "ValueSet/tk-administrator-role"
-      },
-      "name" : "Administratörsroller",
-      "description" : "Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1.",
-      "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "CodeSystem"
-      }],
-      "reference" : {
-        "reference" : "CodeSystem/tk-administrator-role"
-      },
-      "name" : "Administratörsroller (kodsystem)",
-      "description" : "Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen.",
-      "isExample" : false
-    },
-    {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
         "valueString" : "StructureDefinition:extension"
@@ -180,28 +152,15 @@
     {
       "extension" : [{
         "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "PractitionerRole"
+        "valueString" : "OperationOutcome"
       }],
       "reference" : {
-        "reference" : "PractitionerRole/TKCentralAdministratorRoleExample"
+        "reference" : "OperationOutcome/TKOperationOutcomeExample"
       },
-      "name" : "Exempel: central administratör",
-      "description" : "Exempel på en central administratörsbehörighet. `organization` utelämnas, eftersom behörigheten gäller samtliga organisationer.",
+      "name" : "Exempel: felsvar med korrelations-id",
+      "description" : "Felsvar på en sökning med en sökparameter som inte stöds. Korrelations-id:t anges i `issue` med standardextensionen operationoutcome-instance-id (REQ-ERR-1).",
       "isExample" : true,
-      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"]
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "PractitionerRole"
-      }],
-      "reference" : {
-        "reference" : "PractitionerRole/TKLocalAdministratorRoleExample"
-      },
-      "name" : "Exempel: lokal administratör",
-      "description" : "Exempel på en lokal administratörsbehörighet för Exempelregionen.",
-      "isExample" : true,
-      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"]
+      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome"]
     },
     {
       "extension" : [{
@@ -225,20 +184,7 @@
         "reference" : "Provenance/TKProvenanceExample"
       },
       "name" : "Exempel: spårbarhetspost för registrering",
-      "description" : "Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle.",
-      "isExample" : true,
-      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Provenance"
-      }],
-      "reference" : {
-        "reference" : "Provenance/TKProvenanceAdministratorRoleExample"
-      },
-      "name" : "Exempel: spårbarhetspost för ändrad administratörsbehörighet",
-      "description" : "Exempel på en Provenance-post som visar att den centrala administratören gav Exempelregionens lokala administratör sin behörighet. `agent.who` är den ändrande administratörens egen behörighet (REQ-TRC-3).",
+      "description" : "Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle. Användaren anges med HSA-id från Inera IdP och organisationen i `onBehalfOf` (REQ-TRC-3).",
       "isExample" : true,
       "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"]
     },
@@ -279,43 +225,6 @@
       "name" : "HSA-id",
       "description" : "Identifierarsystemet för HSA-id, den primära organisationsidentifieraren i tjänstekatalogen (REQ-ORG-6). Formatet följer HSA:s styrande dokument: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck.",
       "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/tk-indexpost"
-      },
-      "name" : "Indexpost (logisk modell)",
-      "description" : "Logisk modell för entiteten Indexpost i informationsunderlaget. Ej REST-exponerad i detta utkast av det administrativa API:et — se REQ-MDL-1.",
-      "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/IneraPatient"
-      },
-      "name" : "Inera Patient",
-      "description" : "A template patient profile demonstrating Inera's FHIR profiling conventions.\nAuthors should replace this description with the clinical purpose and scope of the profile.",
-      "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "Patient"
-      }],
-      "reference" : {
-        "reference" : "Patient/IneraPatientExample"
-      },
-      "name" : "Inera Patient Example",
-      "description" : "A minimal example of a patient conforming to the IneraPatient profile.",
-      "isExample" : true,
-      "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient"]
     },
     {
       "extension" : [{
@@ -467,18 +376,6 @@
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
-        "reference" : "StructureDefinition/tk-administrator-role"
-      },
-      "name" : "Tjänstekatalogen administratörsbehörighet",
-      "description" : "Behörighet för en administratör att registrera/ändra poster i\ntjänstekatalogen för en given organisation (`local-admin`), eller att\ndessutom administrera andra administratörers behörigheter för samtliga\norganisationer (`central-admin`, `organization` utelämnad). Se\n[Roller och ansvar](roles-and-responsibilities.html) och\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*.",
-      "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:resource"
-      }],
-      "reference" : {
         "reference" : "StructureDefinition/tk-api-instance"
       },
       "name" : "Tjänstekatalogen API-instans",
@@ -515,6 +412,18 @@
         "valueString" : "StructureDefinition:resource"
       }],
       "reference" : {
+        "reference" : "StructureDefinition/tk-operation-outcome"
+      },
+      "name" : "Tjänstekatalogen OperationOutcome",
+      "description" : "Felsvar från tjänstekatalogens API:er. Varje `issue` bär anropets\nkorrelations-id i standardextensionen\n[operationoutcome-instance-id](http://hl7.org/fhir/extensions/StructureDefinition-operationoutcome-instance-id.html),\nmed anropets `traceparent` enligt [W3C Trace Context](https://www.w3.org/TR/trace-context/)\nsom värde. Se [Felhantering](error-handling.html) och REQ-ERR-1.",
+      "isExample" : false
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
+        "valueString" : "StructureDefinition:resource"
+      }],
+      "reference" : {
         "reference" : "StructureDefinition/tk-organization"
       },
       "name" : "Tjänstekatalogen Organization",
@@ -530,7 +439,7 @@
         "reference" : "StructureDefinition/tk-provenance"
       },
       "name" : "Tjänstekatalogen Provenance",
-      "description" : "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen, inklusive administratörsbehörigheter\n([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)) —\nvanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html.",
+      "description" : "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen, vanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html.",
       "isExample" : false
     },
     {
@@ -567,18 +476,6 @@
       },
       "name" : "URL till auktorisationsserver",
       "description" : "URL till den auktorisationsserver (t.ex. OAuth 2.0-token-endpoint) som klienter ska använda för att erhålla åtkomst till ändpunkten (Ändpunkt.urlTillAuktorisationsserver i informationsunderlaget). Relevant framför allt när Ändpunkt.säkerhetsmetod anger en OAuth 2.0-baserad metod.",
-      "isExample" : false
-    },
-    {
-      "extension" : [{
-        "url" : "http://hl7.org/fhir/tools/StructureDefinition/resource-information",
-        "valueString" : "StructureDefinition:logical"
-      }],
-      "reference" : {
-        "reference" : "StructureDefinition/tk-vard-och-omsorgstagare"
-      },
-      "name" : "Vård- och omsorgstagare (logisk modell)",
-      "description" : "Logisk modell för entiteten Vård- och omsorgstagare i informationsunderlaget. Tunn, avsiktligt begränsad till id — se REQ-MDL-2.",
       "isExample" : false
     },
     {

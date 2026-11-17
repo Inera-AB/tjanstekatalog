@@ -28,7 +28,7 @@
   <identifier>
     <value value="TKAPISpecificationCapability"/>
   </identifier>
-  <version value="0.1.1"/>
+  <version value="0.2.0"/>
   <name value="TKAPISpecificationCapability"/>
   <title value="Tjänstekatalogen API-specifikation"/>
   <status value="draft"/>

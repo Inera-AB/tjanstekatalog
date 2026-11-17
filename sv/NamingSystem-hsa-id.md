@@ -1,4 +1,4 @@
-# HSA-id - Tjänstekatalogen v0.1.1
+# HSA-id - Tjänstekatalogen v0.2.0
 
 ## NamingSystem: HSA-id 
 
@@ -11,7 +11,7 @@
   "resourceType" : "NamingSystem",
   "id" : "hsa-id",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/NamingSystem/hsa-id",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKHsaIdNamingSystem",
   "title" : "HSA-id",
   "status" : "active",
@@ -34,7 +34,7 @@
       "display" : "Sweden"
     }]
   }],
-  "usage" : "Används i TKOrganization.identifier (slicen hsaId) och för administratörer i TKAdministratorRole.practitioner.",
+  "usage" : "Används i TKOrganization.identifier (slicen hsaId) och för användare i TKProvenance.agent.who (HSA-id från Inera IdP).",
   "uniqueId" : [{
     "type" : "uri",
     "value" : "urn:oid:1.2.752.29.4.19",

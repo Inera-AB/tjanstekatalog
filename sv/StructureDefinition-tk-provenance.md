@@ -1,10 +1,10 @@
-# Tjänstekatalogen Provenance - Tjänstekatalogen v0.1.1
+# Tjänstekatalogen Provenance - Tjänstekatalogen v0.2.0
 
 ## Resursprofil: Tjänstekatalogen Provenance 
 
 **Användningar:**
 
-* Exempel för denna Profil: [Provenance/TKProvenanceAdministratorRoleExample](Provenance-TKProvenanceAdministratorRoleExample.md) and [Provenance/TKProvenanceExample](Provenance-TKProvenanceExample.md)
+* Exempel för denna Profil: [Provenance/TKProvenanceExample](Provenance-TKProvenanceExample.md)
 * CapabilityStatements som använder denna Profil: [Tjänstekatalogen: administrativt API](CapabilityStatement-tk-admin-api.md)
 
 Du kan också kontrollera [användningar i FHIR IG-statistiken](https://packages2.fhir.org/xig/resource/inera.infra.tjanstekatalog|current/StructureDefinition/StructureDefinition-tk-provenance.json)
@@ -61,11 +61,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-provenance.c
   "identifier" : [{
     "value" : "TKProvenance"
   }],
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKProvenance",
   "title" : "Tjänstekatalogen Provenance",
   "status" : "draft",
-  "date" : "2026-09-09",
+  "date" : "2026-11-17",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
@@ -74,7 +74,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-provenance.c
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen, inklusive administratörsbehörigheter\n([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)) —\nvanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html.",
+  "description" : "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen, vanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -132,8 +132,7 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-provenance.c
         "targetProfile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization",
         "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint",
         "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance",
-        "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability",
-        "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"]
+        "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability"]
       }],
       "mustSupport" : true,
       "mapping" : [{
@@ -164,7 +163,18 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-provenance.c
     {
       "id" : "Provenance.agent.who",
       "path" : "Provenance.agent.who",
+      "short" : "Användaren, med HSA-id från Inera IdP i who.identifier",
       "mustSupport" : true
+    },
+    {
+      "id" : "Provenance.agent.onBehalfOf",
+      "path" : "Provenance.agent.onBehalfOf",
+      "short" : "Organisationen användaren företrädde enligt IdP:ns claims",
+      "mustSupport" : true,
+      "mapping" : [{
+        "identity" : "req",
+        "map" : "REQ-TRC-3"
+      }]
     }]
   }
 }

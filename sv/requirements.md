@@ -1,10 +1,10 @@
-# Kravkatalog - Tjänstekatalogen v0.1.1
+# Kravkatalog - Tjänstekatalogen v0.2.0
 
 ## Kravkatalog
 
 Denna sida är den läsbara vyn av den formella kravkatalogen, uttryckt som en FHIR R5 [`Requirements`](Requirements-tk-tjanstekatalog-requirements.md)-resurs. Varje krav har en stabil nyckel (t.ex. `REQ-SRCH-1`) och en konformansnivå (SKA/BÖR/FÅR, motsvarande SHALL/SHOULD/MAY) och spåras via `satisfiedBy` till den eller de FHIR-artefakter (profilelement, extension, sökparameter, operation) som realiserar kravet — se länkarna i tabellerna nedan. Den omvända vyn, från attribut/profilelement till krav, finns i [Mappning till profiler](mappings.md).
 
-Krav grupperas efter ämne: `REQ-SRCH-*` sökning av ändpunkter per organisation, `REQ-END-*` attribut på Ändpunkt, `REQ-ORG-*` attribut och relationer på Organisation, `REQ-WRT-*` synkronisering mot EHM:s Organization Endpoint Writer, `REQ-MDL-*` övriga entiteter i informationsunderlaget och avgränsningar, `REQ-EXP-*` exponering (externt sök-API vs. internt admin-API), `REQ-ADM-*` administratörsbehörighet, `REQ-DIST-*` distribution/federering till lokala kataloger, och `REQ-TRC-*` spårbarhet och transaktionell registrering. De fyra sistnämnda grupperna är tillägg utöver det ursprungliga informationsunderlaget — se [Mappning till profiler](mappings.md) för respektive motivering, inklusive vilka som är stakeholder-beslutade och vilka som tillkom efter jämförelse med en annan implementation av samma problem.
+Krav grupperas efter ämne: `REQ-SRCH-*` sökning av ändpunkter per organisation, `REQ-END-*` attribut på Ändpunkt, `REQ-ORG-*` attribut och relationer på Organisation, `REQ-WRT-*` synkronisering mot EHM:s Organization Endpoint Writer, `REQ-MDL-*` övriga entiteter i informationsunderlaget och avgränsningar, `REQ-EXP-*` exponering (externt sök-API vs. internt admin-API), `REQ-ADM-*` skrivbehörighet, `REQ-ERR-*` felsvar, `REQ-DIST-*` distribution/federering till lokala kataloger, och `REQ-TRC-*` spårbarhet och transaktionell registrering. De fyra sistnämnda grupperna är tillägg utöver det ursprungliga informationsunderlaget — se [Mappning till profiler](mappings.md) för respektive motivering, inklusive vilka som är stakeholder-beslutade och vilka som tillkom efter jämförelse med en annan implementation av samma problem.
 
 -------
 
@@ -51,6 +51,8 @@ Krav grupperas efter ämne: `REQ-SRCH-*` sökning av ändpunkter per organisatio
 
 ### REQ-WRT — Synkronisering mot EHM:s Organization Endpoint Writer
 
+> **Utkast.** Kraven för synkronisering (REQ-WRT-*) och distribution (REQ-DIST-*) ingår inte i den fasta versionen av IG:n och kan ändras.
+
 Organization Endpoint Writer är E-hälsomyndighetens (EHM) egen aktörsroll, inte en roll tjänstekatalogens administrativa API implementerar — se [Mappning mot EHM:s Organization Endpoint Writer](mappings.md).
 
 | | | | |
@@ -68,8 +70,6 @@ Organization Endpoint Writer är E-hälsomyndighetens (EHM) egen aktörsroll, in
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| REQ-MDL-1 | BÖR | Indexpost BÖR modelleras för spårbarhet. REST-exponering ligger utanför detta utkast. | [TKIndexpost](StructureDefinition-tk-indexpost.md)(logisk modell) |
-| REQ-MDL-2 | BÖR | Vård- och omsorgstagare BÖR modelleras för spårbarhet i förhållande till`Indexpost.avser`. Personuppgifter omfattas inte av detta API. | [TKVardOchOmsorgstagare](StructureDefinition-tk-vard-och-omsorgstagare.md)(logisk modell) |
 | REQ-MDL-3 | SKA | Kopplingen Ändpunkt → API → API-specifikation SKA kunna uttryckas — dels via`Endpoint.payload`+ extension (snabb sökbarhet), dels via en egen resurs, TKAPIInstance, som ger "API" egen identitet. | [TKEndpoint](StructureDefinition-tk-endpoint.md)`.payload`,[TKEndpointPayloadProfile](StructureDefinition-tk-endpoint-payload-profile.md),[TKAPIInstance](StructureDefinition-tk-api-instance.md) |
 | REQ-MDL-4 | SKA | API-specifikation SKA kunna registreras och sökas som en egen resurs —`CapabilityStatement`(kind=requirements), sökbar på kanonisk url. Ersätter denna IG:s tidigare`ImplementationGuide`-rekommendation; fortfarande inte`ActorDefinition`(EHM:s val, avvisat) eller`Basic`. | [TKAPISpecificationCapability](StructureDefinition-tk-api-specification-capability.md) |
 | REQ-MDL-5 | SKA | Spårbarhet (vem skapade/senast uppdaterade en post) SKA finnas — löst via en obligatorisk Provenance-post per registrering (tidigare uppskjutet). | [TKProvenance](StructureDefinition-tk-provenance.md), REQ-TRC-1/2 |
@@ -87,18 +87,23 @@ Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget — se "
 | REQ-EXP-1 | SKA | Läsande sökning SKA exponeras externt, via gateway, för sökande konsumenter. | [TKSearchAPI](CapabilityStatement-tk-search-api.md) |
 | REQ-EXP-2 | SKA | Skrivande interaktioner SKA vara internt exponerade endast, inte nåbara via den externa gatewayen. | [TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
 
-### REQ-ADM — Administratörsbehörighet
+### REQ-ADM — Skrivbehörighet
 
-Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget — se "Avvikelser och tillägg" i [Mappning till profiler](mappings.md).
+Behörigheten registreras inte i katalogen. Se [Säkerhet och behörighet](security.md).
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| REQ-ADM-1 | SKA | Varje administratörsbehörighet SKA ange en administrationsnivå (`local-admin`/`central-admin`). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md)`.code` |
-| REQ-ADM-2 | SKA (villkorat) | En`local-admin`-behörighet SKA ange representerad organisation, analogt med`Endpoint.managingOrganization`.`central-admin`utelämnar detta medvetet (= alla organisationer). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md)`.organization` |
-| REQ-ADM-3 | BÖR | En administratörsbehörighet BÖR ange innehavare. | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md)`.practitioner` |
-| REQ-ADM-4 | SKA | En behörighet gäller bara om`active`inte är`false`och aktuell tidpunkt ligger inom`period`. Den SKA återkallas genom en uppdatering (`active = false`och/eller`period.end`), inte genom borttagning, så att återkallandet spåras med Provenance (REQ-TRC-1/3). | [TKAdministratorRole](StructureDefinition-tk-administrator-role.md)`.active`/`.period`,[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+| REQ-ADM-5 | SKA | Admin-API:t SKA avgöra skrivbehörighet från de claims som Inera IdP utfärdar för anroparen: användarens HSA-id och HSA-id för den organisation användaren företräder. Behörigheten registreras inte som en resurs i katalogen. | [TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+
+### REQ-ERR — Felsvar
+
+| | | | |
+| :--- | :--- | :--- | :--- |
+| REQ-ERR-1 | SKA | Ett felsvar (`OperationOutcome`) SKA i varje`issue`ange anropets korrelations-id med standardextensionen`operationoutcome-instance-id`. Värdet är anropets`traceparent`enligt W3C Trace Context, samma värde som i svarshuvudet`traceparent`. Se[Felhantering](error-handling.md). | [TKOperationOutcome](StructureDefinition-tk-operation-outcome.md),[TKSearchAPI](CapabilityStatement-tk-search-api.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
 
 ### REQ-DIST — Distribution/federering till lokala kataloger
+
+> **Utkast**, se REQ-WRT ovan.
 
 Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget — se "Avvikelser och tillägg" i [Mappning till profiler](mappings.md) och "Distribution och synkronisering" i [REST-interaktioner](rest-interactions.md).
 
@@ -116,9 +121,18 @@ Inte del av det ursprungliga informationsunderlaget — tillagt efter jämförel
 
 | | | | |
 | :--- | :--- | :--- | :--- |
-| REQ-TRC-1 | SKA | Varje transaction-Bundle som registrerar en Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet) SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna. | [TKProvenance](StructureDefinition-tk-provenance.md) |
+| REQ-TRC-1 | SKA | Varje transaction-Bundle som registrerar en Organization, Endpoint eller CapabilityStatement SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna. | [TKProvenance](StructureDefinition-tk-provenance.md) |
 | REQ-TRC-2 | SKA | Tjänstekatalogens administrativa API SKA stödja systeminteraktionen`transaction`, så att en registrerad resurs och dess Provenance-post skapas/uppdateras atomiskt tillsammans. | [TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
-| REQ-TRC-3 | BÖR | När en administratörsbehörighet skapas eller ändras BÖR`Provenance.agent.who`peka ut den ändrande administratörens egen[TKAdministratorRole](StructureDefinition-tk-administrator-role.md), så att det framgår vem som gjorde ändringen och med vilken behörighet. | [TKProvenance](StructureDefinition-tk-provenance.md),[TKAdminAPI](CapabilityStatement-tk-admin-api.md) |
+| REQ-TRC-3 | BÖR | `Provenance.agent.who`BÖR ange användarens HSA-id från Inera IdP, och`Provenance.agent.onBehalfOf`den organisation användaren företrädde (REQ-ADM-5). | [TKProvenance](StructureDefinition-tk-provenance.md) |
+
+### Borttagna krav
+
+Nycklarna nedan används inte längre och återanvänds inte.
+
+| | | |
+| :--- | :--- | :--- |
+| REQ-MDL-1, REQ-MDL-2 | 0.2.0 | Indexpost och Vård- och omsorgstagare hör till ett patientindex, inte till tjänstekatalogen. |
+| REQ-ADM-1–4 | 0.2.0 | Administratörsbehörighet registreras inte längre i katalogen (TKAdministratorRole). Ersatt av REQ-ADM-5. |
 
 -------
 

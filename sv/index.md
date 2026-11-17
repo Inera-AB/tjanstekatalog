@@ -1,4 +1,4 @@
-# Hem - Tjänstekatalogen v0.1.1
+# Hem - Tjänstekatalogen v0.2.0
 
 ## Hem
 
@@ -14,9 +14,9 @@ Denna IG omfattar:
 
 * **Sökning av tekniska ändpunkter per organisation** — hitta samtliga ändpunkter som en organisation listar i sin katalogpost (`Organization.endpoint`, "har"), skilt från vem som tekniskt förvaltar en given ändpunkt (`Endpoint.managingOrganization`, "förvaltar"). Se [Kravkatalog](requirements.md) (REQ-SRCH-*) och [REST-interaktioner och sökparametrar](rest-interactions.md).
 * **Ett administrativt API** för att skapa, uppdatera, läsa och söka organisationer och ändpunkter i tjänstekatalogen. Se [CapabilityStatement](capabilitystatement.md).
-* **En Synkroniseringstjänst** som läser organisationer och ändpunkter härifrån och håller E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat, genom att i **EHM:s** system anta rollen Organization Endpoint Writer och anropa deras `$add-organization`/`$remove-organization`. Se [Roller och ansvar](roles-and-responsibilities.md) och [Mappning mot EHM:s Organization Endpoint Writer](mappings.md) för hur data mappas mellan de två gränssnitten.
+* **En Synkroniseringstjänst (utkast)** som läser organisationer och ändpunkter härifrån och håller E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat, genom att i **EHM:s** system anta rollen Organization Endpoint Writer och anropa deras `$add-organization`/`$remove-organization`. Se [Roller och ansvar](roles-and-responsibilities.md) och [Mappning mot EHM:s Organization Endpoint Writer](mappings.md) för hur data mappas mellan de två gränssnitten.
 
-Denna IG realiserar en delmängd av ett bredare informationsunderlag som även omfattar entiteterna Indexpost, Vård- och omsorgstagare och API-specifikation. Dessa är modellerade (se [Mappning till profiler](mappings.md)) och spårbara i [Kravkatalog](requirements.md), men REST-exponering av dem i det administrativa API:et ligger utanför detta utkast — se "Avvikelser och tillägg" i [Mappning till profiler](mappings.md) för motivering per entitet.
+Sök-API:t och admin-API:t är den del av IG:n som ska gå till en fast version. Synkroniseringen mot EHM och distributionen till lokala kataloger är utkast inför en framtida version. Informationsunderlagets entiteter för patientindex (Indexpost och Vård- och omsorgstagare) ingår inte i IG:n. Se "Avvikelser och tillägg" i [Mappning till profiler](mappings.md).
 
 Denna IG är avsedd att samverka med E-hälsomyndighetens nationella register över tekniska ändpunkter — se [Mappning mot EHM:s Organization Endpoint Writer](mappings.md).
 

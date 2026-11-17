@@ -1,4 +1,4 @@
-# Kategorier för API-specifikationer - Tjänstekatalogen v0.1.1
+# Kategorier för API-specifikationer - Tjänstekatalogen v0.2.0
 
 ## ValueSet: Kategorier för API-specifikationer (Experimentell) 
 
@@ -25,12 +25,12 @@
   "resourceType" : "ValueSet",
   "id" : "tk-api-specification-category",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-api-specification-category",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKAPISpecificationCategoryVS",
   "title" : "Kategorier för API-specifikationer",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

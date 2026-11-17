@@ -14,12 +14,12 @@
      fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: CodeSystem tk-endpoint-security-method</b></p><a name=\"tk-endpoint-security-method\"> </a><a name=\"hctk-endpoint-security-method\"> </a><p>Detta case-sensitive kodsystem <code>https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method</code> definierar följande koder:</p><table class=\"codes\"><tr><td style=\"white-space:nowrap\"><b>Kod</b></td><td><b>Visning</b></td><td><b>Definition</b></td></tr><tr><td style=\"white-space:nowrap\">oauth2-client-credentials<a name=\"tk-endpoint-security-method-oauth2-client-credentials\"> </a></td><td>OAuth 2.0 client credentials</td><td>Klientautentisering enligt OAuth 2.0 client credentials grant.</td></tr><tr><td style=\"white-space:nowrap\">oauth2-authorization-code<a name=\"tk-endpoint-security-method-oauth2-authorization-code\"> </a></td><td>OAuth 2.0 authorization code</td><td>Användarautentisering enligt OAuth 2.0 authorization code grant, t.ex. via SITHS eller Freja eID.</td></tr><tr><td style=\"white-space:nowrap\">mutual-tls<a name=\"tk-endpoint-security-method-mutual-tls\"> </a></td><td>Ömsesidig TLS (mTLS)</td><td>Klientcertifikatbaserad autentisering (mutual TLS) utan separat auktorisationsserver.</td></tr><tr><td style=\"white-space:nowrap\">saml2<a name=\"tk-endpoint-security-method-saml2\"> </a></td><td>SAML 2.0</td><td>Federerad autentisering enligt SAML 2.0.</td></tr><tr><td style=\"white-space:nowrap\">none<a name=\"tk-endpoint-security-method-none\"> </a></td><td>Ingen</td><td>Ändpunkten kräver ingen ytterligare säkerhetsmetod utöver transportsäkerhet (TLS).</td></tr></table></div>"^^rdf:XMLLiteral ]
   ] ; # 
   fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method"^^xsd:anyURI] ; # 
-  fhir:version [ fhir:v "0.1.1"] ; # 
+  fhir:version [ fhir:v "0.2.0"] ; # 
   fhir:name [ fhir:v "TKEndpointSecurityMethodCS"] ; # 
   fhir:title [ fhir:v "Säkerhetsmetoder för tekniska ändpunkter (kodsystem)"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
   fhir:experimental [ fhir:v true] ; # 
-  fhir:date [ fhir:v "2026-11-17T10:59:28+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-11-17T13:36:46+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;

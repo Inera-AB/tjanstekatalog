@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Kravkatalog - Tjänstekatalogen v0.1.1</title>
+    <title>Kravkatalog - Tjänstekatalogen v0.2.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -64,7 +64,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">0.1.1 - ci-build
+            <span style="display:inline-block;">0.2.0 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Kravkatalog</h2>
   
 
@@ -188,9 +188,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
   <li><a href="#req-wrt--synkronisering-mot-ehms-organization-endpoint-writer" id="markdown-toc-req-wrt--synkronisering-mot-ehms-organization-endpoint-writer">REQ-WRT — Synkronisering mot EHM:s Organization Endpoint Writer</a></li>
   <li><a href="#req-mdl--övriga-entiteter-i-informationsunderlaget-och-avgränsningar" id="markdown-toc-req-mdl--övriga-entiteter-i-informationsunderlaget-och-avgränsningar">REQ-MDL — Övriga entiteter i informationsunderlaget och avgränsningar</a></li>
   <li><a href="#req-exp--exponering-sök-api-externt-vs-admin-api-internt" id="markdown-toc-req-exp--exponering-sök-api-externt-vs-admin-api-internt">REQ-EXP — Exponering: sök-API externt vs. admin-API internt</a></li>
-  <li><a href="#req-adm--administratörsbehörighet" id="markdown-toc-req-adm--administratörsbehörighet">REQ-ADM — Administratörsbehörighet</a></li>
+  <li><a href="#req-adm--skrivbehörighet" id="markdown-toc-req-adm--skrivbehörighet">REQ-ADM — Skrivbehörighet</a></li>
+  <li><a href="#req-err--felsvar" id="markdown-toc-req-err--felsvar">REQ-ERR — Felsvar</a></li>
   <li><a href="#req-dist--distributionfederering-till-lokala-kataloger" id="markdown-toc-req-dist--distributionfederering-till-lokala-kataloger">REQ-DIST — Distribution/federering till lokala kataloger</a></li>
   <li><a href="#req-trc--spårbarhet-och-transaktionell-registrering" id="markdown-toc-req-trc--spårbarhet-och-transaktionell-registrering">REQ-TRC — Spårbarhet och transaktionell registrering</a></li>
+  <li><a href="#borttagna-krav" id="markdown-toc-borttagna-krav">Borttagna krav</a></li>
 </ul>
 
 </div>
@@ -208,7 +210,7 @@ organisation, <code class="language-plaintext highlighter-rouge">REQ-END-*</code
 relationer på Organisation, <code class="language-plaintext highlighter-rouge">REQ-WRT-*</code> synkronisering mot EHM:s Organization
 Endpoint Writer, <code class="language-plaintext highlighter-rouge">REQ-MDL-*</code> övriga entiteter i informationsunderlaget och
 avgränsningar, <code class="language-plaintext highlighter-rouge">REQ-EXP-*</code> exponering (externt sök-API vs. internt admin-API),
-<code class="language-plaintext highlighter-rouge">REQ-ADM-*</code> administratörsbehörighet, <code class="language-plaintext highlighter-rouge">REQ-DIST-*</code> distribution/federering
+<code class="language-plaintext highlighter-rouge">REQ-ADM-*</code> skrivbehörighet, <code class="language-plaintext highlighter-rouge">REQ-ERR-*</code> felsvar, <code class="language-plaintext highlighter-rouge">REQ-DIST-*</code> distribution/federering
 till lokala kataloger, och <code class="language-plaintext highlighter-rouge">REQ-TRC-*</code> spårbarhet och transaktionell
 registrering. De fyra sistnämnda grupperna är tillägg utöver det
 ursprungliga informationsunderlaget — se <a href="mappings.html">Mappning till profiler</a>
@@ -421,6 +423,11 @@ problem.</p>
 
 <h3 id="req-wrt--synkronisering-mot-ehms-organization-endpoint-writer">REQ-WRT — Synkronisering mot EHM:s Organization Endpoint Writer</h3>
 
+<blockquote>
+  <p><strong>Utkast.</strong> Kraven för synkronisering (REQ-WRT-*) och distribution
+(REQ-DIST-*) ingår inte i den fasta versionen av IG:n och kan ändras.</p>
+</blockquote>
+
 <p>Organization Endpoint Writer är E-hälsomyndighetens (EHM) egen aktörsroll,
 inte en roll tjänstekatalogens administrativa API implementerar — se
 <a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a>.</p>
@@ -499,18 +506,6 @@ inte en roll tjänstekatalogens administrativa API implementerar — se
   </thead>
   <tbody>
     <tr>
-      <td>REQ-MDL-1</td>
-      <td>BÖR</td>
-      <td>Indexpost BÖR modelleras för spårbarhet. REST-exponering ligger utanför detta utkast.</td>
-      <td><a href="StructureDefinition-tk-indexpost.html">TKIndexpost</a> (logisk modell)</td>
-    </tr>
-    <tr>
-      <td>REQ-MDL-2</td>
-      <td>BÖR</td>
-      <td>Vård- och omsorgstagare BÖR modelleras för spårbarhet i förhållande till <code class="language-plaintext highlighter-rouge">Indexpost.avser</code>. Personuppgifter omfattas inte av detta API.</td>
-      <td><a href="StructureDefinition-tk-vard-och-omsorgstagare.html">TKVardOchOmsorgstagare</a> (logisk modell)</td>
-    </tr>
-    <tr>
       <td>REQ-MDL-3</td>
       <td>SKA</td>
       <td>Kopplingen Ändpunkt → API → API-specifikation SKA kunna uttryckas — dels via <code class="language-plaintext highlighter-rouge">Endpoint.payload</code> + extension (snabb sökbarhet), dels via en egen resurs, TKAPIInstance, som ger "API" egen identitet.</td>
@@ -585,10 +580,9 @@ se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a
   </tbody>
 </table>
 
-<h3 id="req-adm--administratörsbehörighet">REQ-ADM — Administratörsbehörighet</h3>
+<h3 id="req-adm--skrivbehörighet">REQ-ADM — Skrivbehörighet</h3>
 
-<p>Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget —
-se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a>.</p>
+<p>Behörigheten registreras inte i katalogen. Se <a href="security.html">Säkerhet och behörighet</a>.</p>
 
 <table>
   <thead>
@@ -601,33 +595,40 @@ se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a
   </thead>
   <tbody>
     <tr>
-      <td>REQ-ADM-1</td>
+      <td>REQ-ADM-5</td>
       <td>SKA</td>
-      <td>Varje administratörsbehörighet SKA ange en administrationsnivå (<code class="language-plaintext highlighter-rouge">local-admin</code>/<code class="language-plaintext highlighter-rouge">central-admin</code>).</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a><code class="language-plaintext highlighter-rouge">.code</code></td>
+      <td>Admin-API:t SKA avgöra skrivbehörighet från de claims som Inera IdP utfärdar för anroparen: användarens HSA-id och HSA-id för den organisation användaren företräder. Behörigheten registreras inte som en resurs i katalogen.</td>
+      <td><a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
     </tr>
+  </tbody>
+</table>
+
+<h3 id="req-err--felsvar">REQ-ERR — Felsvar</h3>
+
+<table>
+  <thead>
     <tr>
-      <td>REQ-ADM-2</td>
-      <td>SKA (villkorat)</td>
-      <td>En <code class="language-plaintext highlighter-rouge">local-admin</code>-behörighet SKA ange representerad organisation, analogt med <code class="language-plaintext highlighter-rouge">Endpoint.managingOrganization</code>. <code class="language-plaintext highlighter-rouge">central-admin</code> utelämnar detta medvetet (= alla organisationer).</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a><code class="language-plaintext highlighter-rouge">.organization</code></td>
+      <th>Krav</th>
+      <th>Konformans</th>
+      <th>Beskrivning</th>
+      <th>Realiseras av</th>
     </tr>
+  </thead>
+  <tbody>
     <tr>
-      <td>REQ-ADM-3</td>
-      <td>BÖR</td>
-      <td>En administratörsbehörighet BÖR ange innehavare.</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a><code class="language-plaintext highlighter-rouge">.practitioner</code></td>
-    </tr>
-    <tr>
-      <td>REQ-ADM-4</td>
+      <td>REQ-ERR-1</td>
       <td>SKA</td>
-      <td>En behörighet gäller bara om <code class="language-plaintext highlighter-rouge">active</code> inte är <code class="language-plaintext highlighter-rouge">false</code> och aktuell tidpunkt ligger inom <code class="language-plaintext highlighter-rouge">period</code>. Den SKA återkallas genom en uppdatering (<code class="language-plaintext highlighter-rouge">active = false</code> och/eller <code class="language-plaintext highlighter-rouge">period.end</code>), inte genom borttagning, så att återkallandet spåras med Provenance (REQ-TRC-1/3).</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a><code class="language-plaintext highlighter-rouge">.active</code>/<code class="language-plaintext highlighter-rouge">.period</code>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+      <td>Ett felsvar (<code class="language-plaintext highlighter-rouge">OperationOutcome</code>) SKA i varje <code class="language-plaintext highlighter-rouge">issue</code> ange anropets korrelations-id med standardextensionen <code class="language-plaintext highlighter-rouge">operationoutcome-instance-id</code>. Värdet är anropets <code class="language-plaintext highlighter-rouge">traceparent</code> enligt W3C Trace Context, samma värde som i svarshuvudet <code class="language-plaintext highlighter-rouge">traceparent</code>. Se <a href="error-handling.html">Felhantering</a>.</td>
+      <td><a href="StructureDefinition-tk-operation-outcome.html">TKOperationOutcome</a>, <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
     </tr>
   </tbody>
 </table>
 
 <h3 id="req-dist--distributionfederering-till-lokala-kataloger">REQ-DIST — Distribution/federering till lokala kataloger</h3>
+
+<blockquote>
+  <p><strong>Utkast</strong>, se REQ-WRT ovan.</p>
+</blockquote>
 
 <p>Stakeholder-beslut, inte del av det ursprungliga informationsunderlaget —
 se "Avvikelser och tillägg" i <a href="mappings.html">Mappning till profiler</a> och
@@ -696,7 +697,7 @@ med en obligatorisk Provenance-post i en transaction-Bundle. Se
     <tr>
       <td>REQ-TRC-1</td>
       <td>SKA</td>
-      <td>Varje transaction-Bundle som registrerar en Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet) SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna.</td>
+      <td>Varje transaction-Bundle som registrerar en Organization, Endpoint eller CapabilityStatement SKA innehålla minst en Provenance-post som pekar ut den/de registrerade resurserna.</td>
       <td><a href="StructureDefinition-tk-provenance.html">TKProvenance</a></td>
     </tr>
     <tr>
@@ -708,8 +709,34 @@ med en obligatorisk Provenance-post i en transaction-Bundle. Se
     <tr>
       <td>REQ-TRC-3</td>
       <td>BÖR</td>
-      <td>När en administratörsbehörighet skapas eller ändras BÖR <code class="language-plaintext highlighter-rouge">Provenance.agent.who</code> peka ut den ändrande administratörens egen <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>, så att det framgår vem som gjorde ändringen och med vilken behörighet.</td>
-      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance</a>, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a></td>
+      <td><code class="language-plaintext highlighter-rouge">Provenance.agent.who</code> BÖR ange användarens HSA-id från Inera IdP, och <code class="language-plaintext highlighter-rouge">Provenance.agent.onBehalfOf</code> den organisation användaren företrädde (REQ-ADM-5).</td>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<h3 id="borttagna-krav">Borttagna krav</h3>
+
+<p>Nycklarna nedan används inte längre och återanvänds inte.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Krav</th>
+      <th>Borttaget i</th>
+      <th>Orsak</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>REQ-MDL-1, REQ-MDL-2</td>
+      <td>0.2.0</td>
+      <td>Indexpost och Vård- och omsorgstagare hör till ett patientindex, inte till tjänstekatalogen.</td>
+    </tr>
+    <tr>
+      <td>REQ-ADM-1–4</td>
+      <td>0.2.0</td>
+      <td>Administratörsbehörighet registreras inte längre i katalogen (TKAdministratorRole). Ersatt av REQ-ADM-5.</td>
     </tr>
   </tbody>
 </table>
@@ -750,9 +777,9 @@ eller id.</p>
 
 
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 10:59:00 +0000">
+  <span title="2026-11-17 13:36:00 +0000">
     2026-11-17
   </span>
 

@@ -1,8 +1,28 @@
-# Versionshistorik - Tjänstekatalogen v0.1.1
+# Versionshistorik - Tjänstekatalogen v0.2.0
 
 ## Versionshistorik
 
 Den här sidan beskriver vad som har ändrats i varje version. Listan över alla publicerade versioner nås via länken i bannern överst på varje sida.
+
+-------
+
+### [0.2.0] — 2026-11-17
+
+Förberedelse för en fast version av sök-API:t och admin-API:t.
+
+#### Features
+
+* Felsvar bär anropets korrelations-id i varje `issue`, med standardextensionen `operationoutcome-instance-id` och anropets `traceparent` (W3C Trace Context) som värde. Ny profil [TKOperationOutcome](StructureDefinition-tk-operation-outcome.md), nytt krav REQ-ERR-1 och nytt avsnitt i [Felhantering](error-handling.md#korrelations-id). IG:n beror nu på `hl7.fhir.uv.extensions.r5` 5.4.0, där extensionen finns.
+* `TKProvenance.agent.onBehalfOf` anger den organisation användaren företrädde, och `agent.who` användarens HSA-id från Inera IdP (REQ-TRC-3).
+
+#### Borttaget
+
+* Profilen `TKAdministratorRole` (PractitionerRole), värdemängden för administrationsnivåer, `PractitionerRole` i admin-API:t och kraven REQ-ADM-1–4. Skrivbehörighet avgörs i stället från claims från Inera IdP (nytt krav REQ-ADM-5), och på sikt från medarbetaruppdrag.
+* Patientindexet: de logiska modellerna `TKIndexpost` och `TKVardOchOmsorgstagare`, kraven REQ-MDL-1 och REQ-MDL-2 samt mallprofilen `IneraPatient` med exempel.
+
+#### Ändrat
+
+* Synkroniseringen mot EHM (REQ-WRT-*, Synkroniseringstjänsten) och distributionen till lokala kataloger (REQ-DIST-*, prenumerationsämnet) är märkta som utkast. De ingår inte i den fasta versionen.
 
 -------
 

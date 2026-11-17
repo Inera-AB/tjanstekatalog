@@ -1,4 +1,4 @@
-# API-instansens giltighetsperiod - Tjänstekatalogen v0.1.1
+# API-instansens giltighetsperiod - Tjänstekatalogen v0.2.0
 
 ## Extension: API-instansens giltighetsperiod 
 
@@ -55,11 +55,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-api-instance
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance-period",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKAPIInstancePeriod",
   "title" : "API-instansens giltighetsperiod",
   "status" : "draft",
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -1,8 +1,41 @@
-# Felhantering - Tjänstekatalogen v0.1.1
+# Felhantering - Tjänstekatalogen v0.2.0
 
 ## Felhantering
 
 Fel rapporteras som `OperationOutcome`, i enlighet med FHIR:s standardmönster för REST-fel.
+
+### Korrelations-id
+
+Varje felsvar SKA bära anropets korrelations-id, så att den som gör ett supportärende kan ange ett id som går att hitta i serverns loggar (REQ-ERR-1):
+
+* **I svarshuvudet.** Servern returnerar anropets `traceparent` enligt [W3C Trace Context](https://www.w3.org/TR/trace-context/) i svarshuvudet `traceparent`.
+* **I svarskroppen.** Varje `issue` i `OperationOutcome` bär samma värde i standardextensionen [`operationoutcome-instance-id`](http://hl7.org/fhir/extensions/StructureDefinition-operationoutcome-instance-id.html) (`valueString`). Svaret följer profilen [TKOperationOutcome](StructureDefinition-tk-operation-outcome.md).
+
+Ett id i svarskroppen syns där användare och klientloggar faktiskt tittar, även när svarshuvuden inte loggas eller visas. Standardextensionen används i stället för en egen extension, eftersom den är avsedd för just detta: ett id för den enskilda förekomsten av felet som kan knytas till en post i källsystemets logg. Den sitter på `issue`, inte på `OperationOutcome`, så ett svar med flera `issue` har samma värde i varje.
+
+```
+{
+  "resourceType": "OperationOutcome",
+  "issue": [
+    {
+      "extension": [
+        {
+          "url": "http://hl7.org/fhir/StructureDefinition/operationoutcome-instance-id",
+          "valueString": "00-dfa31425ee41c53febe657bf8cc5b9d0-03a1b50d69809d06-01"
+        }
+      ],
+      "severity": "error",
+      "code": "invalid",
+      "diagnostics": "Ogiltig sökparameter: instantiates"
+    }
+  ]
+}
+
+```
+
+Se även [exemplet](OperationOutcome-TKOperationOutcomeExample.md).
+
+### Statuskoder
 
 | | | |
 | :--- | :--- | :--- |

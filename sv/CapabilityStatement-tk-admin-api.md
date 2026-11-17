@@ -1,4 +1,4 @@
-# Tjänstekatalogen: administrativt API - Tjänstekatalogen v0.1.1
+# Tjänstekatalogen: administrativt API - Tjänstekatalogen v0.2.0
 
 ## CapabilityStatement: Tjänstekatalogen: administrativt API (Experimentell) 
 
@@ -13,7 +13,7 @@
   "resourceType" : "CapabilityStatement",
   "id" : "tk-admin-api",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-admin-api",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKAdminAPICapabilityStatement",
   "title" : "Tjänstekatalogen: administrativt API",
   "status" : "draft",
@@ -27,7 +27,7 @@
       "value" : "https://www.inera.se"
     }]
   }],
-  "description" : "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer, tekniska ändpunkter, API-specifikationer och API-instanser (inklusive sökning av ändpunkter per organisation, se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)), samt registrering av administratörsbehörigheter. Registrering SKA ske via transaction-Bundle med en tillhörande Provenance-post (REQ-TRC-1/2). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html. Detta API är endast internt exponerat — se [TKSearchAPI](CapabilityStatement-tk-search-api.html) för det externt exponerade, läsande sök-API:et.",
+  "description" : "Beskriver de FHIR REST-förmågor som tjänstekatalogens administrativa API stödjer: registrering och sökning av organisationer, tekniska ändpunkter, API-specifikationer och API-instanser (inklusive sökning av ändpunkter per organisation, se [SearchParameter: listed-by](SearchParameter-tk-endpoint-listed-by.html)). Skrivbehörighet avgörs från claims från Inera IdP (REQ-ADM-5). Registrering SKA ske via transaction-Bundle med en tillhörande Provenance-post (REQ-TRC-1/2). Läses av en Synkroniseringstjänst som separat, mot E-hälsomyndighetens (EHM) egna API, antar rollen \"Organization Endpoint Writer\" — se \"Mappning mot EHM:s Organization Endpoint Writer\" i mappings.html. Detta API är endast internt exponerat — se [TKSearchAPI](CapabilityStatement-tk-search-api.html) för det externt exponerade, läsande sök-API:et.",
   "jurisdiction" : [{
     "coding" : [{
       "system" : "urn:iso:std:iso:3166",
@@ -40,7 +40,7 @@
   "format" : ["json"],
   "rest" : [{
     "mode" : "server",
-    "documentation" : "Administrativt API för tjänstekatalogen.",
+    "documentation" : "Administrativt API för tjänstekatalogen. Felsvar ges som TKOperationOutcome, med korrelations-id i varje issue (REQ-ERR-1).",
     "resource" : [{
       "type" : "Organization",
       "profile" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization",
@@ -225,7 +225,7 @@
     {
       "type" : "Provenance",
       "profile" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance",
-      "documentation" : "Spårbarhetsposter för registreringar (skapande/uppdatering) av Organization, Endpoint, CapabilityStatement (API-specifikation/API-instans) och PractitionerRole (administratörsbehörighet). Se REQ-TRC-1/3.",
+      "documentation" : "Spårbarhetsposter för registreringar (skapande/uppdatering) av Organization, Endpoint och CapabilityStatement (API-specifikation/API-instans). Se REQ-TRC-1/3.",
       "interaction" : [{
         "code" : "read"
       },
@@ -236,47 +236,12 @@
         "name" : "target",
         "definition" : "http://hl7.org/fhir/SearchParameter/Provenance-target",
         "type" : "reference",
-        "documentation" : "Den registrerade resursen, t.ex. Endpoint/{id} eller PractitionerRole/{id} (vem som ändrat en administratörsbehörighet)."
-      }]
-    },
-    {
-      "type" : "PractitionerRole",
-      "profile" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role",
-      "documentation" : "Administratörsbehörigheter: vilken organisation en administratör representerar (local-admin), eller att administratören är central-admin (organization utelämnad). Registreras, liksom övriga resurser, via transaction-Bundle med en Provenance-post (REQ-TRC-1/3). Återkallas med update (active = false och/eller period.end), aldrig delete (REQ-ADM-4).",
-      "interaction" : [{
-        "code" : "read"
-      },
-      {
-        "code" : "search-type"
-      },
-      {
-        "code" : "create"
-      },
-      {
-        "code" : "update"
-      }],
-      "searchParam" : [{
-        "name" : "organization",
-        "definition" : "http://hl7.org/fhir/SearchParameter/PractitionerRole-organization",
-        "type" : "reference",
-        "documentation" : "Sök administratörsbehörigheter efter representerad organisation."
-      },
-      {
-        "name" : "practitioner",
-        "definition" : "http://hl7.org/fhir/SearchParameter/PractitionerRole-practitioner",
-        "type" : "reference",
-        "documentation" : "Sök administratörsbehörigheter efter innehavare."
-      },
-      {
-        "name" : "active",
-        "definition" : "http://hl7.org/fhir/SearchParameter/PractitionerRole-active",
-        "type" : "token",
-        "documentation" : "Sök gällande (true) eller återkallade (false) behörigheter. Kontrollera även period, se REQ-ADM-4."
+        "documentation" : "Den registrerade resursen, t.ex. Endpoint/{id}."
       }]
     }],
     "interaction" : [{
       "code" : "transaction",
-      "documentation" : "Registrering av en eller flera resurser (Organization, Endpoint, CapabilityStatement, PractitionerRole) tillsammans med en obligatorisk Provenance-post i samma transaction-Bundle. Se REQ-TRC-1/2."
+      "documentation" : "Registrering av en eller flera resurser (Organization, Endpoint, CapabilityStatement) tillsammans med en obligatorisk Provenance-post i samma transaction-Bundle. Se REQ-TRC-1/2."
     }]
   }]
 }

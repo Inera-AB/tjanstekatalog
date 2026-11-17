@@ -1,4 +1,4 @@
-# Exempel: teknisk ändpunkt i tjänstekatalogen - Tjänstekatalogen v0.1.1
+# Exempel: teknisk ändpunkt i tjänstekatalogen - Tjänstekatalogen v0.2.0
 
 ## Exempel Endpoint: Exempel: teknisk ändpunkt i tjänstekatalogen
 

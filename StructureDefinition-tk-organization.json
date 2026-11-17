@@ -9,7 +9,7 @@
   "identifier" : [{
     "value" : "TKOrganization"
   }],
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKOrganization",
   "title" : "Tjänstekatalogen Organization",
   "status" : "draft",

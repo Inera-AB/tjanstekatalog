@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Mappning till profiler - Tjänstekatalogen v0.1.1</title>
+    <title>Mappning till profiler - Tjänstekatalogen v0.2.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -64,7 +64,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">0.1.1 - ci-build
+            <span style="display:inline-block;">0.2.0 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Mappning till profiler</h2>
   
 
@@ -206,21 +206,17 @@ element realiserar — finns i <a href="requirements.html">Kravkatalog</a>; krav
 <strong>API-specifikation</strong> fullt ut som FHIR-resurser med tillhörande
 sökparameter och skrivoperationer, inklusive båda relationerna mellan
 Ändpunkt och Organisation ("förvaltar" och "har"). Entiteterna <strong>Indexpost</strong>
-och <strong>Vård- och omsorgstagare</strong> är modellerade som logiska modeller för
-spårbarhet, men är inte (ännu) REST-exponerade i det administrativa API:et
-— se "Avvikelser och tillägg" nedan och <a href="requirements.html">Kravkatalog</a>
-(REQ-MDL-1/2) för status.</p>
+och <strong>Vård- och omsorgstagare</strong>, som hör till ett patientindex, ingår inte i
+IG:n sedan version 0.2.0 — se "Avvikelser och tillägg" nedan.</p>
 
 <p>API och API-specifikation var tidigare också logisk-modell-/extension-
 endast (REST-exponering uppskjuten respektive helt utelämnad); båda
 uppgraderades efter jämförelse med en annan implementation av samma
 problem — se "Avvikelser och tillägg" nedan.</p>
 
-<p>Utöver informationsunderlagets sex entiteter realiserar denna IG ytterligare
+<p>Utöver informationsunderlagets entiteter realiserar denna IG ytterligare
 tillägg (se respektive punkt nedan under "Avvikelser och tillägg"):
-<strong>administratörsbehörighet</strong>
-(<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>),
-<strong>distribution/federering</strong>
+<strong>distribution/federering</strong> (utkast, se <a href="#synk-utkast">Synkronisering är ett utkast</a>)
 (<a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic</a>),
 en <strong>exponeringsgräns</strong> mellan externt sök-API och internt admin-API
 (<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> /
@@ -365,31 +361,13 @@ EHM:s eget id (se REQ-WRT-4 och mappningen mot EHM nedan). Systemet
 väntan på bekräftelse av EHM:s faktiska bas-URL.</p>
   </li>
   <li>
-    <p><strong>"Vård- och omsorgstagare" ges ingen egen FHIR-profil.</strong> Informationsunderlaget
-ger entiteten ett enda attribut (id) utan ytterligare persondata — den
-fungerar som en opak pekare i modellen, inte som en plats för
-persondata. Vi har därför avstått från att införa en egen FHIR-resursprofil
-och representerar den enbart med en tunn logisk modell,
-<a href="StructureDefinition-tk-vard-och-omsorgstagare.html"><code class="language-plaintext highlighter-rouge">TKVardOchOmsorgstagare</code></a>,
-som <code class="language-plaintext highlighter-rouge">Indexpost.avser</code> kan referera. Implementatörer som behöver faktiska
-persondata om en vård- och omsorgstagare får slå upp identifieraren mot
-Ineras patientvända tjänster, t.ex. en profil som
-<a href="StructureDefinition-IneraPatient.html">IneraPatient</a> — vilket ligger
-utanför denna IG:s scope. Se REQ-MDL-2.</p>
-  </li>
-  <li>
-    <p><strong>Indexpost, Vård- och omsorgstagare och API-specifikation exponeras inte
-via REST i detta utkast.</strong> Det administrativa API:ets uppdrag i denna
-version är teknisk ändpunkts-/organisationsmetadata (Ändpunkt, Organisation
-och kopplingen dem emellan), inte personidentitet eller katalogisering av
-specifikationer i sig. En indexpost förväntas dessutom vara en
-serverhärledd sidoeffekt av att registrera en Organisation eller en Vård-
-och omsorgstagare, snarare än något en klient skapar direkt. Dessa tre
-entiteter är modellerade som logiska modeller för spårbarhet (se nedan),
-men REST-exponering skjuts medvetet upp till en framtida version. Se
-REQ-MDL-1, REQ-MDL-2, REQ-MDL-4. Om/när API-specifikation REST-exponeras
-rekommenderas en nedbantad profil på <code class="language-plaintext highlighter-rouge">ImplementationGuide</code>, inte <code class="language-plaintext highlighter-rouge">Basic</code>
-— se nästa punkt.</p>
+    <p><strong>Patientindexet ingår inte i IG:n.</strong> Informationsunderlaget innehåller
+entiteterna Indexpost och Vård- och omsorgstagare, där en indexpost avser
+en organisation eller en vård- och omsorgstagare. De beskriver ett
+patientindex, inte tjänstekatalogens uppdrag att registrera organisationer
+och deras tekniska ändpunkter. De logiska modellerna <code class="language-plaintext highlighter-rouge">TKIndexpost</code> och
+<code class="language-plaintext highlighter-rouge">TKVardOchOmsorgstagare</code>, kraven REQ-MDL-1 och REQ-MDL-2 och mallprofilen
+<code class="language-plaintext highlighter-rouge">IneraPatient</code> togs därför bort i version 0.2.0.</p>
   </li>
   <li>
     <p><strong>EHM realiserar "API-specifikation" som en profil på <code class="language-plaintext highlighter-rouge">ActorDefinition</code>
@@ -436,25 +414,24 @@ mot. Stakeholder-beslut: ingen separat <code class="language-plaintext highlight
 (se ovan), sökbar med standardparametern <code class="language-plaintext highlighter-rouge">identifier</code>. Se REQ-ORG-5/6.</p>
   </li>
   <li>
-    <p><strong>Administratörsbehörighet (<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>)
-är inte del av informationsunderlaget.</strong> Förstudien förutsätter att
-katalogen håller reda på vilka administratörer (<code class="language-plaintext highlighter-rouge">local-admin</code>/<code class="language-plaintext highlighter-rouge">central-admin</code>)
-som får administrera vilka organisationers poster. Stakeholder-beslut:
-detta realiseras med ett FHIR-attribut, <code class="language-plaintext highlighter-rouge">TKAdministratorRole.organization</code>
-(<code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code>, 0..1), på samma sätt som
-<code class="language-plaintext highlighter-rouge">TKEndpoint.managingOrganization</code> uttrycker "förvaltar" — inte en helt
-egen behörighetsmodell. En administratör som representerar flera
-organisationer får flera <code class="language-plaintext highlighter-rouge">TKAdministratorRole</code>-instanser (en per
-organisation), det normala FHIR PractitionerRole-mönstret.
-<code class="language-plaintext highlighter-rouge">central-admin</code>, som representerar samtliga organisationer, kan inte
-uttryckas som en enskild referens — där utelämnas <code class="language-plaintext highlighter-rouge">organization</code> medvetet
-(samma "frånvaro betyder bredare"-konvention som redan används för
-<code class="language-plaintext highlighter-rouge">TKEndpointSecurityMethod</code>s <code class="language-plaintext highlighter-rouge">none</code>). Den faktiska behörighetskontrollen
-(att en skrivning bara får avse en organisation anroparen representerar)
-är en serverimplementationsfråga, inte specificerad ytterligare av denna
-IG — se security.html. En behörighet återkallas med en uppdatering
-(<code class="language-plaintext highlighter-rouge">active = false</code> och/eller <code class="language-plaintext highlighter-rouge">period.end</code>), inte med borttagning, så att
-återkallandet spåras med Provenance. Se REQ-ADM-1..4.</p>
+    <p><strong>Skrivbehörighet registreras inte i katalogen.</strong> Förstudien förutsätter
+att katalogen håller reda på vilka administratörer som får administrera
+vilka organisationers poster. Fram till version 0.1.1 fanns därför en
+profil på <code class="language-plaintext highlighter-rouge">PractitionerRole</code> (<code class="language-plaintext highlighter-rouge">TKAdministratorRole</code>) med nivåerna
+<code class="language-plaintext highlighter-rouge">local-admin</code> och <code class="language-plaintext highlighter-rouge">central-admin</code>. Den togs bort i version 0.2.0: admin-API:t
+får användarens och organisationens HSA-id i claims från Inera IdP och
+avgör behörigheten från dem, och på sikt från medarbetaruppdrag. Då
+behövs ingen lokal lagring av behörigheter. Se REQ-ADM-5 och
+<a href="security.html">Säkerhet och behörighet</a>.</p>
+  </li>
+  <li>
+    <p><a name="synk-utkast"></a><strong>Synkronisering är ett utkast.</strong> Den fasta
+versionen av IG:n omfattar sök-API:t (<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>)
+och admin-API:t (<a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a>).
+Synkroniseringen mot EHM (Synkroniseringstjänsten, REQ-WRT-<em>) och
+distributionen till lokala kataloger (prenumerationsämnet, REQ-DIST-</em>)
+ligger kvar som utkast inför en framtida version. Artefakterna har status
+<code class="language-plaintext highlighter-rouge">draft</code> och kraven kan ändras.</p>
   </li>
   <li>
     <p><strong>Distribution/federering till lokala kataloger
@@ -495,14 +472,13 @@ per registrering i en transaction-Bundle, antogs samma mönster här:
 <a href="StructureDefinition-tk-provenance.html"><code class="language-plaintext highlighter-rouge">TKProvenance</code></a> SKA bifogas
 (<code class="language-plaintext highlighter-rouge">Provenance.target</code> pekande ut den registrerade resursen) i samma
 transaction-Bundle som registrerar en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code>,
-<code class="language-plaintext highlighter-rouge">CapabilityStatement</code> eller en administratörsbehörighet
-(<code class="language-plaintext highlighter-rouge">PractitionerRole</code>, <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>).
+eller <code class="language-plaintext highlighter-rouge">CapabilityStatement</code>.
 Detta ger både spårbarhet och atomicitet (posten
 och dess Provenance skapas/uppdateras tillsammans), vilket separata
 <code class="language-plaintext highlighter-rouge">create</code>/<code class="language-plaintext highlighter-rouge">update</code>-anrop per resurstyp inte garanterar. Tjänstekatalogens
 administrativa API SKA därför stödja systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>.
-Vid ändring av en administratörsbehörighet BÖR <code class="language-plaintext highlighter-rouge">agent.who</code> vara den
-ändrande administratörens egen <code class="language-plaintext highlighter-rouge">TKAdministratorRole</code> (REQ-TRC-3).
+<code class="language-plaintext highlighter-rouge">agent.who</code> BÖR ange användarens HSA-id från Inera IdP och
+<code class="language-plaintext highlighter-rouge">agent.onBehalfOf</code> den organisation användaren företrädde (REQ-TRC-3).
 Se REQ-MDL-5, REQ-TRC-1..3 och <code class="language-plaintext highlighter-rouge">TKProvenance.fsh</code>.</p>
   </li>
   <li>
@@ -688,60 +664,6 @@ maskinläsbara motsvarigheten (<code class="language-plaintext highlighter-rouge
   </tbody>
 </table>
 
-<h4 id="indexpost--tkindexpost-logisk-modell-ej-rest-exponerad">Indexpost → <a href="StructureDefinition-tk-indexpost.html">TKIndexpost</a> (logisk modell, ej REST-exponerad)</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Modellelement</th>
-      <th>Kard.</th>
-      <th>FHIR-profilelement</th>
-      <th>Noteringar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id</td>
-      <td>1..1</td>
-      <td><a href="StructureDefinition-tk-indexpost.html">TKIndexpost.id</a></td>
-      <td>REQ-MDL-1</td>
-    </tr>
-    <tr>
-      <td>registreringstidpunkt</td>
-      <td>1..1</td>
-      <td><a href="StructureDefinition-tk-indexpost.html">TKIndexpost.registreringstidpunkt</a></td>
-      <td>REQ-MDL-1</td>
-    </tr>
-    <tr>
-      <td>avser</td>
-      <td>1..1</td>
-      <td><a href="StructureDefinition-tk-indexpost.html">TKIndexpost.avser</a></td>
-      <td>Reference(TKOrganization | TKVardOchOmsorgstagare). REQ-MDL-1, REQ-MDL-2</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="vård--och-omsorgstagare--tkvardochomsorgstagare-logisk-modell-ej-rest-exponerad">Vård- och omsorgstagare → <a href="StructureDefinition-tk-vard-och-omsorgstagare.html">TKVardOchOmsorgstagare</a> (logisk modell, ej REST-exponerad)</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Modellelement</th>
-      <th>Kard.</th>
-      <th>FHIR-profilelement</th>
-      <th>Noteringar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>id</td>
-      <td>1..1</td>
-      <td><a href="StructureDefinition-tk-vard-och-omsorgstagare.html">TKVardOchOmsorgstagare.id</a></td>
-      <td>REQ-MDL-2</td>
-    </tr>
-  </tbody>
-</table>
-
 <h4 id="api-specifikation--tkapispecificationcapability">API-specifikation → <a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a></h4>
 
 <table>
@@ -923,7 +845,7 @@ kvar sida vid sida.</p>
       <td>registrerad resurs</td>
       <td>1..*</td>
       <td><a href="StructureDefinition-tk-provenance.html">TKProvenance.target</a></td>
-      <td>Organization, Endpoint, CapabilityStatement eller PractitionerRole (administratörsbehörighet). REQ-TRC-1</td>
+      <td>Organization, Endpoint eller CapabilityStatement. REQ-TRC-1</td>
     </tr>
     <tr>
       <td>registreringstidpunkt</td>
@@ -932,55 +854,16 @@ kvar sida vid sida.</p>
       <td>REQ-TRC-1</td>
     </tr>
     <tr>
-      <td>registrerande system/konto</td>
+      <td>registrerande användare</td>
       <td>1..*</td>
       <td><a href="StructureDefinition-tk-provenance.html">TKProvenance.agent.who</a></td>
-      <td>Vid ändrad administratörsbehörighet: den ändrandes TKAdministratorRole. REQ-TRC-1, REQ-TRC-3</td>
-    </tr>
-  </tbody>
-</table>
-
-<h4 id="administratörsbehörighet--tkadministratorrole-utökning-ej-del-av-informationsunderlaget">Administratörsbehörighet → <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> (utökning, ej del av informationsunderlaget)</h4>
-
-<table>
-  <thead>
-    <tr>
-      <th>Modellelement</th>
-      <th>Kard.</th>
-      <th>FHIR-profilelement</th>
-      <th>Noteringar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>administrationsnivå</td>
-      <td>1..1</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.code</a></td>
-      <td><code class="language-plaintext highlighter-rouge">local-admin</code> | <code class="language-plaintext highlighter-rouge">central-admin</code>. REQ-ADM-1</td>
+      <td>Användarens HSA-id från Inera IdP i <code class="language-plaintext highlighter-rouge">who.identifier</code>. REQ-TRC-1, REQ-TRC-3</td>
     </tr>
     <tr>
-      <td>representerad organisation</td>
+      <td>företrädd organisation</td>
       <td>0..1</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.organization</a></td>
-      <td><code class="language-plaintext highlighter-rouge">Reference(TKOrganization)</code>. Utelämnad för <code class="language-plaintext highlighter-rouge">central-admin</code> (= alla organisationer). Samma mönster som <code class="language-plaintext highlighter-rouge">TKEndpoint.managingOrganization</code>. REQ-ADM-2</td>
-    </tr>
-    <tr>
-      <td>innehavare</td>
-      <td>0..1</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.practitioner</a></td>
-      <td>REQ-ADM-3</td>
-    </tr>
-    <tr>
-      <td><em>(gäller)</em></td>
-      <td>0..1</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.active</a></td>
-      <td><code class="language-plaintext highlighter-rouge">false</code> = återkallad. REQ-ADM-4</td>
-    </tr>
-    <tr>
-      <td><em>(giltighetsperiod)</em></td>
-      <td>0..1</td>
-      <td><a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole.period</a></td>
-      <td>Återkallande kan också uttryckas med <code class="language-plaintext highlighter-rouge">period.end</code>. REQ-ADM-4</td>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance.agent.onBehalfOf</a></td>
+      <td>Organisationen enligt IdP:ns claims. REQ-TRC-3</td>
     </tr>
   </tbody>
 </table>
@@ -988,6 +871,13 @@ kvar sida vid sida.</p>
 <hr />
 
 <h3 id="mappning-mot-ehms-organization-endpoint-writer">Mappning mot EHM:s Organization Endpoint Writer</h3>
+
+<blockquote>
+  <p><strong>Utkast.</strong> Synkroniseringen mot EHM ingår inte i den fasta versionen av
+IG:n, som omfattar sök-API:t och admin-API:t. Avsnittet beskriver en
+möjlig framtida synkronisering och kan ändras. Se
+<a href="#synk-utkast">Synkronisering är ett utkast</a>.</p>
+</blockquote>
 
 <p>Detta avsnitt är inte en mappning mellan informationsunderlaget och denna
 IG:s egna profiler (som avsnitten ovan) — det är en mappning mellan <strong>denna
@@ -1414,9 +1304,9 @@ att profilerna utvecklas. Mappningar kan också uttryckas med FHIR
 
 
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 10:59:00 +0000">
+  <span title="2026-11-17 13:36:00 +0000">
     2026-11-17
   </span>
 

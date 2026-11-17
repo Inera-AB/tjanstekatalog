@@ -21,7 +21,7 @@
   <identifier>
     <value value="TKOrganization"/>
   </identifier>
-  <version value="0.1.1"/>
+  <version value="0.2.0"/>
   <name value="TKOrganization"/>
   <title value="Tjänstekatalogen Organization"/>
   <status value="draft"/>

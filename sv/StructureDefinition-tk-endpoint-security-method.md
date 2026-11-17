@@ -1,4 +1,4 @@
-# Säkerhetsmetod - Tjänstekatalogen v0.1.1
+# Säkerhetsmetod - Tjänstekatalogen v0.2.0
 
 ## Extension: Säkerhetsmetod 
 
@@ -63,11 +63,11 @@ Andra representationer av profilen: [CSV](../StructureDefinition-tk-endpoint-sec
     "valueCode" : "can-bind"
   }],
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-security-method",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKEndpointSecurityMethod",
   "title" : "Säkerhetsmetod",
   "status" : "draft",
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

@@ -1,4 +1,4 @@
-# Endpoint: listed-by (organisation som listar ändpunkten) - Tjänstekatalogen v0.1.1
+# Endpoint: listed-by (organisation som listar ändpunkten) - Tjänstekatalogen v0.2.0
 
 ## SearchParameter: Endpoint: listed-by (organisation som listar ändpunkten) (Experimentell) 
 
@@ -11,7 +11,7 @@
   "resourceType" : "SearchParameter",
   "id" : "tk-endpoint-listed-by",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-endpoint-listed-by",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKEndpointListedBy",
   "title" : "Endpoint: listed-by",
   "status" : "draft",

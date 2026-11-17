@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>Versionshistorik - Tjänstekatalogen v0.1.1</title>
+    <title>Versionshistorik - Tjänstekatalogen v0.2.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -64,7 +64,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">0.1.1 - ci-build
+            <span style="display:inline-block;">0.2.0 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>Versionshistorik</h2>
   
 
@@ -182,6 +182,7 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
     <p><!-- white space is critical inside of capture --></p>
 <div class="markdown-toc">
 <ul id="markdown-toc">
+  <li><a href="#020--2026-11-17" id="markdown-toc-020--2026-11-17">[0.2.0] — 2026-11-17</a></li>
   <li><a href="#011--2026-11-16" id="markdown-toc-011--2026-11-16">[0.1.1] — 2026-11-16</a></li>
   <li><a href="#010--2026-09-08" id="markdown-toc-010--2026-09-08">[0.1.0] — 2026-09-08</a></li>
 </ul>
@@ -191,9 +192,48 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 
 <hr />
 
-<h3 id="011--2026-11-16">[0.1.1] — 2026-11-16</h3>
+<h3 id="020--2026-11-17">[0.2.0] — 2026-11-17</h3>
+
+<p>Förberedelse för en fast version av sök-API:t och admin-API:t.</p>
 
 <h4 id="features">Features</h4>
+
+<ul>
+  <li>Felsvar bär anropets korrelations-id i varje <code class="language-plaintext highlighter-rouge">issue</code>, med
+standardextensionen <code class="language-plaintext highlighter-rouge">operationoutcome-instance-id</code> och anropets
+<code class="language-plaintext highlighter-rouge">traceparent</code> (W3C Trace Context) som värde. Ny profil
+<a href="StructureDefinition-tk-operation-outcome.html">TKOperationOutcome</a>,
+nytt krav REQ-ERR-1 och nytt avsnitt i <a href="error-handling.html#korrelations-id">Felhantering</a>.
+IG:n beror nu på <code class="language-plaintext highlighter-rouge">hl7.fhir.uv.extensions.r5</code> 5.4.0, där extensionen finns.</li>
+  <li><code class="language-plaintext highlighter-rouge">TKProvenance.agent.onBehalfOf</code> anger den organisation användaren
+företrädde, och <code class="language-plaintext highlighter-rouge">agent.who</code> användarens HSA-id från Inera IdP (REQ-TRC-3).</li>
+</ul>
+
+<h4 id="borttaget">Borttaget</h4>
+
+<ul>
+  <li>Profilen <code class="language-plaintext highlighter-rouge">TKAdministratorRole</code> (PractitionerRole), värdemängden för
+administrationsnivåer, <code class="language-plaintext highlighter-rouge">PractitionerRole</code> i admin-API:t och kraven
+REQ-ADM-1–4. Skrivbehörighet avgörs i stället från claims från Inera IdP
+(nytt krav REQ-ADM-5), och på sikt från medarbetaruppdrag.</li>
+  <li>Patientindexet: de logiska modellerna <code class="language-plaintext highlighter-rouge">TKIndexpost</code> och
+<code class="language-plaintext highlighter-rouge">TKVardOchOmsorgstagare</code>, kraven REQ-MDL-1 och REQ-MDL-2 samt
+mallprofilen <code class="language-plaintext highlighter-rouge">IneraPatient</code> med exempel.</li>
+</ul>
+
+<h4 id="ändrat">Ändrat</h4>
+
+<ul>
+  <li>Synkroniseringen mot EHM (REQ-WRT-*, Synkroniseringstjänsten) och
+distributionen till lokala kataloger (REQ-DIST-*, prenumerationsämnet)
+är märkta som utkast. De ingår inte i den fasta versionen.</li>
+</ul>
+
+<hr />
+
+<h3 id="011--2026-11-16">[0.1.1] — 2026-11-16</h3>
+
+<h4 id="features-1">Features</h4>
 
 <ul>
   <li>Kodsystemet och värdemängden <code class="language-plaintext highlighter-rouge">tk-api-specification-category</code> med koderna
@@ -208,7 +248,7 @@ enbart text.</li>
 
 <h3 id="010--2026-09-08">[0.1.0] — 2026-09-08</h3>
 
-<h4 id="features-1">Features</h4>
+<h4 id="features-2">Features</h4>
 
 <ul>
   <li>Första utkastet av tjänstekatalogens IG: sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på
@@ -257,9 +297,9 @@ API-specifikation, för spårbarhet mot det bifogade informationsunderlaget</li>
 
 
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 10:59:00 +0000">
+  <span title="2026-11-17 13:36:00 +0000">
     2026-11-17
   </span>
 

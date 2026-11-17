@@ -1,4 +1,4 @@
-# Exempel: API-specifikation i tjänstekatalogen - Tjänstekatalogen v0.1.1
+# Exempel: API-specifikation i tjänstekatalogen - Tjänstekatalogen v0.2.0
 
 ## CapabilityStatement: Exempel: API-specifikation i tjänstekatalogen 
 
@@ -30,7 +30,7 @@
     "valueUrl" : "https://fhir.inera.se/ig/patientinformation/"
   }],
   "url" : "https://fhir.inera.se/ig/patientinformation/ImplementationGuide/inera.patientinformation",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "IneraPatientinformation",
   "title" : "Patientinformation (Inera FHIR IG)",
   "status" : "active",

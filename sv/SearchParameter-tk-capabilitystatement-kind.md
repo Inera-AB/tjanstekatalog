@@ -1,4 +1,4 @@
-# CapabilityStatement: kind - Tjänstekatalogen v0.1.1
+# CapabilityStatement: kind - Tjänstekatalogen v0.2.0
 
 ## SearchParameter: CapabilityStatement: kind (Experimentell) 
 
@@ -11,7 +11,7 @@
   "resourceType" : "SearchParameter",
   "id" : "tk-capabilitystatement-kind",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/SearchParameter/tk-capabilitystatement-kind",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKCapabilityStatementKind",
   "title" : "CapabilityStatement: kind",
   "status" : "draft",

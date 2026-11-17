@@ -1,4 +1,4 @@
-# Säkerhetsmetoder för tekniska ändpunkter - Tjänstekatalogen v0.1.1
+# Säkerhetsmetoder för tekniska ändpunkter - Tjänstekatalogen v0.2.0
 
 ## ValueSet: Säkerhetsmetoder för tekniska ändpunkter (Experimentell) 
 
@@ -25,12 +25,12 @@
   "resourceType" : "ValueSet",
   "id" : "tk-endpoint-security-method",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-endpoint-security-method",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKEndpointSecurityMethodVS",
   "title" : "Säkerhetsmetoder för tekniska ändpunkter",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",

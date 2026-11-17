@@ -6,7 +6,7 @@
 <html xml:lang="sv" xmlns="http://www.w3.org/1999/xhtml" lang="sv" dir="ltr">
   <head>
     <meta content="text/html;charset=utf-8" http-equiv="Content-Type"/>
-    <title>REST-interaktioner och sökparametrar - Tjänstekatalogen v0.1.1</title>
+    <title>REST-interaktioner och sökparametrar - Tjänstekatalogen v0.2.0</title>
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <meta name="author" content="http://hl7.org/fhir"/>
@@ -64,7 +64,7 @@
         <div id="ig-status" data-fhir="generated">
           <p><span style="font-size:12pt;font-weight:bold">Tjänstekatalogen</span>
             <br/>
-            <span style="display:inline-block;">0.1.1 - ci-build
+            <span style="display:inline-block;">0.2.0 - ci-build
 
 
 
@@ -163,7 +163,7 @@ h5:before{color:silver;counter-increment:detail;content:var(--heading-prefix) ".
 h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefix) "." counter(sub-section) "." counter(composite) "." counter(detail) "." counter(more-detail)" ";}
 </style>
 <div class="col-12">
-  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.1.1) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
+  <!--ReleaseHeader--><p id="publish-box">Tjänstekatalogen - Lokal utvecklingsbygge (v0.2.0) byggt av FHIR (HL7® FHIR® Standard) Build Tools. Se <a href='https://fhir.inera.se/ig/tjanstekatalog/history.html'>katalogen över publicerade versioner</a></p><!--EndReleaseHeader-->
   <h2>REST-interaktioner och sökparametrar</h2>
   
 
@@ -196,12 +196,11 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 | <a href="StructureDefinition-tk-organization.html">TKOrganization</a> | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">identifier</code> ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>, <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">partof</code>; <code class="language-plaintext highlighter-rouge">_include=Organization:endpoint</code>; <code class="language-plaintext highlighter-rouge">_history</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
 | <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a> | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation), <code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>; <code class="language-plaintext highlighter-rouge">_history</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
 | <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a> / <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>) | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">date</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
-| <a href="StructureDefinition-tk-provenance.html">TKProvenance</a> | read, search-type | <code class="language-plaintext highlighter-rouge">target</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |
-| <a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a> | read, search-type, create, update | <code class="language-plaintext highlighter-rouge">organization</code>, <code class="language-plaintext highlighter-rouge">practitioner</code>, <code class="language-plaintext highlighter-rouge">active</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |</p>
+| <a href="StructureDefinition-tk-provenance.html">TKProvenance</a> | read, search-type | <code class="language-plaintext highlighter-rouge">target</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |</p>
 
 <p>Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning
 exponeras externt via gateway (<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>);
-skrivinteraktioner och administratörsbehörigheter finns endast i det internt
+skrivinteraktionerna finns endast i det internt
 exponerade <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a>. Se
 <a href="capabilitystatement.html">CapabilityStatement</a> och
 <a href="security.html">Säkerhet och behörighet</a>.</p>
@@ -220,9 +219,8 @@ E-hälsomyndigheten (EHM), av en Synkroniseringstjänst som läser härifrån. S
 löser REQ-MDL-5:s tidigare uppskjutna spårbarhetsfråga (se
 <a href="mappings.html">Mappning till profiler</a>).</p>
 
-<p>Registrering (skapande/uppdatering av en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code>,
-<code class="language-plaintext highlighter-rouge">CapabilityStatement</code> eller administratörsbehörighet, <code class="language-plaintext highlighter-rouge">PractitionerRole</code>)
-SKA ske via systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>, med
+<p>Registrering (skapande/uppdatering av en <code class="language-plaintext highlighter-rouge">Organization</code>, <code class="language-plaintext highlighter-rouge">Endpoint</code> eller
+<code class="language-plaintext highlighter-rouge">CapabilityStatement</code>) SKA ske via systeminteraktionen <code class="language-plaintext highlighter-rouge">transaction</code>, med
 en obligatorisk <a href="StructureDefinition-tk-provenance.html">TKProvenance</a>-post
 i samma Bundle (REQ-TRC-1/2):</p>
 
@@ -240,7 +238,12 @@ i samma Bundle (REQ-TRC-1/2):</p>
         </span><span class="nl">"resourceType"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provenance"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"target"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:uuid:8f2e..."</span><span class="w"> </span><span class="p">}],</span><span class="w">
         </span><span class="nl">"recorded"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2026-09-09T10:00:00Z"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w"> </span><span class="nl">"who"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization/exempelregionen"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}]</span><span class="w">
+        </span><span class="nl">"agent"</span><span class="p">:</span><span class="w"> </span><span class="p">[{</span><span class="w">
+          </span><span class="nl">"who"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+            </span><span class="nl">"identifier"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"system"</span><span class="p">:</span><span class="w"> </span><span class="s2">"urn:oid:1.2.752.29.4.19"</span><span class="p">,</span><span class="w"> </span><span class="nl">"value"</span><span class="p">:</span><span class="w"> </span><span class="s2">"SE2321000016-A1B2"</span><span class="w"> </span><span class="p">}</span><span class="w">
+          </span><span class="p">},</span><span class="w">
+          </span><span class="nl">"onBehalfOf"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"reference"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Organization/exempelregionen"</span><span class="w"> </span><span class="p">}</span><span class="w">
+        </span><span class="p">}]</span><span class="w">
       </span><span class="p">},</span><span class="w">
       </span><span class="nl">"request"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nl">"method"</span><span class="p">:</span><span class="w"> </span><span class="s2">"POST"</span><span class="p">,</span><span class="w"> </span><span class="nl">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Provenance"</span><span class="w"> </span><span class="p">}</span><span class="w">
     </span><span class="p">}</span><span class="w">
@@ -259,19 +262,10 @@ respektive resurstyps förmågor, men klienter SKA använda transaction-vägen
 för faktisk registrering, för att garantera att Provenance-posten alltid
 följer med.</p>
 
-<p><strong>Ändrade administratörsbehörigheter.</strong> Samma sak gäller när en
-<a href="StructureDefinition-tk-administrator-role.html">TKAdministratorRole</a>
-skapas eller ändras. <code class="language-plaintext highlighter-rouge">agent.who</code> BÖR då vara den ändrande administratörens
-egen <code class="language-plaintext highlighter-rouge">TKAdministratorRole</code>, så att det framgår vem som gjorde ändringen och
-med vilken behörighet (REQ-TRC-3). En behörighet återkallas på samma sätt,
-med en uppdatering som sätter <code class="language-plaintext highlighter-rouge">active = false</code> och/eller <code class="language-plaintext highlighter-rouge">period.end</code>. Den
-tas aldrig bort, så att även återkallandet får en Provenance-post
-(REQ-ADM-4). Se
-<a href="Provenance-TKProvenanceAdministratorRoleExample.html">exemplet</a>. Historiken
-för en behörighet hämtas med:</p>
-
-<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>GET [base]/Provenance?target=PractitionerRole/[id]
-</code></pre></div></div>
+<p><strong>Vem som registrerade.</strong> <code class="language-plaintext highlighter-rouge">agent.who</code> BÖR ange användarens HSA-id från
+Inera IdP i <code class="language-plaintext highlighter-rouge">who.identifier</code>, och <code class="language-plaintext highlighter-rouge">agent.onBehalfOf</code> den organisation
+användaren företrädde enligt IdP:ns claims (REQ-TRC-3, REQ-ADM-5). Se
+<a href="Provenance-TKProvenanceExample.html">exemplet</a>.</p>
 
 <hr />
 
@@ -474,6 +468,11 @@ utan version fortfarande alla versioner (REQ-SRCH-6).</p>
 
 <h3 id="distribution-och-synkronisering">Distribution och synkronisering</h3>
 
+<blockquote>
+  <p><strong>Utkast.</strong> Distributionen ingår inte i den fasta versionen av IG:n och
+kan ändras (REQ-DIST-*).</p>
+</blockquote>
+
 <p>Inte del av det ursprungliga informationsunderlaget — tillagt per
 stakeholder-beslut: "Distribution/federering kan tänkas på, prenumeration
 via fhir-mekanismer för det är bra + grundladdning." (REQ-DIST-*, se
@@ -574,9 +573,9 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
 
 
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
-          Paket inera.infra.tjanstekatalog#0.1.1 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
+          Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 10:59:00 +0000">
+  <span title="2026-11-17 13:36:00 +0000">
     2026-11-17
   </span>
 

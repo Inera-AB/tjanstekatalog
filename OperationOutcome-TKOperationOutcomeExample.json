@@ -1,0 +1,20 @@
+{
+  "resourceType" : "OperationOutcome",
+  "id" : "TKOperationOutcomeExample",
+  "meta" : {
+    "profile" : ["https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome"]
+  },
+  "text" : {
+    "status" : "generated",
+    "div" : "<div xmlns=\"http://www.w3.org/1999/xhtml\"><p class=\"res-header-id\"><b>Genererad berättande text: OperationOutcome TKOperationOutcomeExample</b></p><a name=\"TKOperationOutcomeExample\"> </a><a name=\"hcTKOperationOutcomeExample\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\"/><p style=\"margin-bottom: 0px\">Profil: <a href=\"StructureDefinition-tk-operation-outcome.html\">Tjänstekatalogen OperationOutcome</a></p></div><h3>Issues</h3><table class=\"grid\"><tr><td style=\"display: none\">-</td><td><b>Extension</b></td><td><b>Severity</b></td><td><b>Code</b></td><td><b>Diagnostics</b></td></tr><tr><td style=\"display: none\">*</td><td/><td>Error</td><td>Invalid Content</td><td>Ogiltig sökparameter: instantiates</td></tr></table></div>"
+  },
+  "issue" : [{
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/operationoutcome-instance-id",
+      "valueString" : "00-dfa31425ee41c53febe657bf8cc5b9d0-03a1b50d69809d06-01"
+    }],
+    "severity" : "error",
+    "code" : "invalid",
+    "diagnostics" : "Ogiltig sökparameter: instantiates"
+  }]
+}

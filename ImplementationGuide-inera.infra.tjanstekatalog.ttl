@@ -15,11 +15,11 @@
      fhir:div [ fhir:v "<div xmlns=\"http://www.w3.org/1999/xhtml\" xml:lang=\"sv\" lang=\"sv\"><p class=\"res-header-id\"><b>Genererad berättande text: ImplementationGuide inera.infra.tjanstekatalog</b></p><a name=\"inera.infra.tjanstekatalog\"> </a><a name=\"hcinera.infra.tjanstekatalog\"> </a><div style=\"display: inline-block; background-color: #fbffeb; padding: 6px; margin: 4px; border: 1px solid #8da1b4; border-radius: 5px; line-height: 60%\"><p style=\"margin-bottom: 0px\">Språk: sv</p></div><h2>IneraTjanstekatalog</h2><p>Den officiella URL:en för denna implementationsguide är: </p><pre>https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog</pre><div><p>FHIR-gränssnitt för sökning av organisationers tekniska ändpunkter (endpoints) i tjänstekatalogen (externt sök-API), samt administrativt API (internt) för att registrera organisationer, ändpunkter, deras kopplingar och administratörsbehörigheter. Definierar aktören Synkroniseringstjänst, som läser härifrån och håller E-hälsomyndighetens Organization Endpoint Writer-register synkroniserat.</p>\n</div></div>"^^rdf:XMLLiteral ]
   ] ; # 
   fhir:url [ fhir:v "https://fhir.inera.se/ig/tjanstekatalog/ImplementationGuide/inera.infra.tjanstekatalog"^^xsd:anyURI] ; # 
-  fhir:version [ fhir:v "0.1.1"] ; # 
+  fhir:version [ fhir:v "0.2.0"] ; # 
   fhir:name [ fhir:v "IneraTjanstekatalog"] ; # 
   fhir:title [ fhir:v "Tjänstekatalogen"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
-  fhir:date [ fhir:v "2026-11-17T10:59:28+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-11-17T13:36:46+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;
@@ -54,14 +54,7 @@
      fhir:packageId [ fhir:v "hl7.terminology.r5" ] ;
      fhir:version [ fhir:v "7.5.0" ]
   ] [
-     fhir:id [ fhir:v "hl7ext" ] ;
-     fhir:extension ( [
-       fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/implementationguide-dependency-comment"^^xsd:anyURI ] ;
-       fhir:value [
-         a fhir:markdown ;
-         fhir:v "Automatically added as a dependency - all IGs depend on the HL7 Extension Pack"
-       ]
-     ] ) ;
+     fhir:id [ fhir:v "hl7_fhir_uv_extensions_r5" ] ;
      fhir:uri [
        fhir:v "http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions"^^xsd:anyURI ;
        fhir:link <http://hl7.org/fhir/extensions/ImplementationGuide/hl7.fhir.uv.extensions>
@@ -78,36 +71,6 @@
        ]
      ] ) ;
      fhir:resource ( [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "ValueSet"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/ValueSet/tk-administrator-role> ;
-         fhir:reference [ fhir:v "ValueSet/tk-administrator-role" ]
-       ] ;
-       fhir:name [ fhir:v "Administratörsroller" ] ;
-       fhir:description [ fhir:v "Tillåtna värden för TKAdministratorRole.code. Exempelbindning (example) i detta utkast — se REQ-ADM-1." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "CodeSystem"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-administrator-role> ;
-         fhir:reference [ fhir:v "CodeSystem/tk-administrator-role" ]
-       ] ;
-       fhir:name [ fhir:v "Administratörsroller (kodsystem)" ] ;
-       fhir:description [ fhir:v "Kodsystem för vilken behörighetsnivå en administratör av tjänstekatalogens innehåll har. Preliminärt förslag, se REQ-ADM-1 i kravkatalogen." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [
@@ -240,38 +203,19 @@
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
          fhir:value [
            a fhir:string ;
-           fhir:v "PractitionerRole"
+           fhir:v "OperationOutcome"
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/PractitionerRole/TKCentralAdministratorRoleExample> ;
-         fhir:reference [ fhir:v "PractitionerRole/TKCentralAdministratorRoleExample" ]
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/OperationOutcome/TKOperationOutcomeExample> ;
+         fhir:reference [ fhir:v "OperationOutcome/TKOperationOutcomeExample" ]
        ] ;
-       fhir:name [ fhir:v "Exempel: central administratör" ] ;
-       fhir:description [ fhir:v "Exempel på en central administratörsbehörighet. `organization` utelämnas, eftersom behörigheten gäller samtliga organisationer." ] ;
+       fhir:name [ fhir:v "Exempel: felsvar med korrelations-id" ] ;
+       fhir:description [ fhir:v "Felsvar på en sökning med en sökparameter som inte stöds. Korrelations-id:t anges i `issue` med standardextensionen operationoutcome-instance-id (REQ-ERR-1)." ] ;
        fhir:isExample [ fhir:v true ] ;
        fhir:profile ( [
-         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"^^xsd:anyURI ;
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role>
-       ] )
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "PractitionerRole"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/PractitionerRole/TKLocalAdministratorRoleExample> ;
-         fhir:reference [ fhir:v "PractitionerRole/TKLocalAdministratorRoleExample" ]
-       ] ;
-       fhir:name [ fhir:v "Exempel: lokal administratör" ] ;
-       fhir:description [ fhir:v "Exempel på en lokal administratörsbehörighet för Exempelregionen." ] ;
-       fhir:isExample [ fhir:v true ] ;
-       fhir:profile ( [
-         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role"^^xsd:anyURI ;
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role>
+         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome"^^xsd:anyURI ;
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome>
        ] )
      ] [
        fhir:extension ( [
@@ -305,26 +249,7 @@
          fhir:reference [ fhir:v "Provenance/TKProvenanceExample" ]
        ] ;
        fhir:name [ fhir:v "Exempel: spårbarhetspost för registrering" ] ;
-       fhir:description [ fhir:v "Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle." ] ;
-       fhir:isExample [ fhir:v true ] ;
-       fhir:profile ( [
-         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"^^xsd:anyURI ;
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance>
-       ] )
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "Provenance"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/Provenance/TKProvenanceAdministratorRoleExample> ;
-         fhir:reference [ fhir:v "Provenance/TKProvenanceAdministratorRoleExample" ]
-       ] ;
-       fhir:name [ fhir:v "Exempel: spårbarhetspost för ändrad administratörsbehörighet" ] ;
-       fhir:description [ fhir:v "Exempel på en Provenance-post som visar att den centrala administratören gav Exempelregionens lokala administratör sin behörighet. `agent.who` är den ändrande administratörens egen behörighet (REQ-TRC-3)." ] ;
+       fhir:description [ fhir:v "Exempel på en Provenance-post som spårar registreringen av Exempelregionens organisation och ändpunkt, skickad i samma transaction-Bundle. Användaren anges med HSA-id från Inera IdP och organisationen i `onBehalfOf` (REQ-TRC-3)." ] ;
        fhir:isExample [ fhir:v true ] ;
        fhir:profile ( [
          fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-provenance"^^xsd:anyURI ;
@@ -383,55 +308,6 @@
        fhir:name [ fhir:v "HSA-id" ] ;
        fhir:description [ fhir:v "Identifierarsystemet för HSA-id, den primära organisationsidentifieraren i tjänstekatalogen (REQ-ORG-6). Formatet följer HSA:s styrande dokument: 1–31 tecken ur a–z, A–Z, 0–9 och bindestreck." ] ;
        fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-indexpost> ;
-         fhir:reference [ fhir:v "StructureDefinition/tk-indexpost" ]
-       ] ;
-       fhir:name [ fhir:v "Indexpost (logisk modell)" ] ;
-       fhir:description [ fhir:v "Logisk modell för entiteten Indexpost i informationsunderlaget. Ej REST-exponerad i detta utkast av det administrativa API:et — se REQ-MDL-1." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:resource"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient> ;
-         fhir:reference [ fhir:v "StructureDefinition/IneraPatient" ]
-       ] ;
-       fhir:name [ fhir:v "Inera Patient" ] ;
-       fhir:description [ fhir:v "A template patient profile demonstrating Inera's FHIR profiling conventions.\nAuthors should replace this description with the clinical purpose and scope of the profile." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "Patient"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/Patient/IneraPatientExample> ;
-         fhir:reference [ fhir:v "Patient/IneraPatientExample" ]
-       ] ;
-       fhir:name [ fhir:v "Inera Patient Example" ] ;
-       fhir:description [ fhir:v "A minimal example of a patient conforming to the IneraPatient profile." ] ;
-       fhir:isExample [ fhir:v true ] ;
-       fhir:profile ( [
-         fhir:v "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient"^^xsd:anyURI ;
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/IneraPatient>
-       ] )
      ] [
        fhir:extension ( [
          fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
@@ -621,21 +497,6 @@
          ]
        ] ) ;
        fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-administrator-role> ;
-         fhir:reference [ fhir:v "StructureDefinition/tk-administrator-role" ]
-       ] ;
-       fhir:name [ fhir:v "Tjänstekatalogen administratörsbehörighet" ] ;
-       fhir:description [ fhir:v "Behörighet för en administratör att registrera/ändra poster i\ntjänstekatalogen för en given organisation (`local-admin`), eller att\ndessutom administrera andra administratörers behörigheter för samtliga\norganisationer (`central-admin`, `organization` utelämnad). Se\n[Roller och ansvar](roles-and-responsibilities.html) och\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-ADM-*." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:resource"
-         ]
-       ] ) ;
-       fhir:reference [
          fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance> ;
          fhir:reference [ fhir:v "StructureDefinition/tk-api-instance" ]
        ] ;
@@ -681,6 +542,21 @@
          ]
        ] ) ;
        fhir:reference [
+         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-operation-outcome> ;
+         fhir:reference [ fhir:v "StructureDefinition/tk-operation-outcome" ]
+       ] ;
+       fhir:name [ fhir:v "Tjänstekatalogen OperationOutcome" ] ;
+       fhir:description [ fhir:v "Felsvar från tjänstekatalogens API:er. Varje `issue` bär anropets\nkorrelations-id i standardextensionen\n[operationoutcome-instance-id](http://hl7.org/fhir/extensions/StructureDefinition-operationoutcome-instance-id.html),\nmed anropets `traceparent` enligt [W3C Trace Context](https://www.w3.org/TR/trace-context/)\nsom värde. Se [Felhantering](error-handling.html) och REQ-ERR-1." ] ;
+       fhir:isExample [ fhir:v false ]
+     ] [
+       fhir:extension ( [
+         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
+         fhir:value [
+           a fhir:string ;
+           fhir:v "StructureDefinition:resource"
+         ]
+       ] ) ;
+       fhir:reference [
          fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-organization> ;
          fhir:reference [ fhir:v "StructureDefinition/tk-organization" ]
        ] ;
@@ -700,7 +576,7 @@
          fhir:reference [ fhir:v "StructureDefinition/tk-provenance" ]
        ] ;
        fhir:name [ fhir:v "Tjänstekatalogen Provenance" ] ;
-       fhir:description [ fhir:v "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen, inklusive administratörsbehörigheter\n([TKAdministratorRole](StructureDefinition-tk-administrator-role.html)) —\nvanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html." ] ;
+       fhir:description [ fhir:v "Spårbarhetspost för en registrering (skapande/uppdatering) av en eller flera\nresurser i tjänstekatalogen, vanligen skickad tillsammans med den/de\nregistrerade resurserna i samma transaction-Bundle. Se\n[Kravkatalog](http://hl7.org/fhir/R5/requirements.html) REQ-TRC-1/2 och \"Distribution och\nsynkronisering\"/registrering i rest-interactions.html." ] ;
        fhir:isExample [ fhir:v false ]
      ] [
        fhir:extension ( [
@@ -746,21 +622,6 @@
        ] ;
        fhir:name [ fhir:v "URL till auktorisationsserver" ] ;
        fhir:description [ fhir:v "URL till den auktorisationsserver (t.ex. OAuth 2.0-token-endpoint) som klienter ska använda för att erhålla åtkomst till ändpunkten (Ändpunkt.urlTillAuktorisationsserver i informationsunderlaget). Relevant framför allt när Ändpunkt.säkerhetsmetod anger en OAuth 2.0-baserad metod." ] ;
-       fhir:isExample [ fhir:v false ]
-     ] [
-       fhir:extension ( [
-         fhir:url [ fhir:v "http://hl7.org/fhir/tools/StructureDefinition/resource-information"^^xsd:anyURI ] ;
-         fhir:value [
-           a fhir:string ;
-           fhir:v "StructureDefinition:logical"
-         ]
-       ] ) ;
-       fhir:reference [
-         fhir:link <https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-vard-och-omsorgstagare> ;
-         fhir:reference [ fhir:v "StructureDefinition/tk-vard-och-omsorgstagare" ]
-       ] ;
-       fhir:name [ fhir:v "Vård- och omsorgstagare (logisk modell)" ] ;
-       fhir:description [ fhir:v "Logisk modell för entiteten Vård- och omsorgstagare i informationsunderlaget. Tunn, avsiktligt begränsad till id — se REQ-MDL-2." ] ;
        fhir:isExample [ fhir:v false ]
      ] [
        fhir:extension ( [

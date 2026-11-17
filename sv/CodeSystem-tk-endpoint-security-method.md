@@ -1,4 +1,4 @@
-# Säkerhetsmetoder för tekniska ändpunkter (kodsystem) - Tjänstekatalogen v0.1.1
+# Säkerhetsmetoder för tekniska ändpunkter (kodsystem) - Tjänstekatalogen v0.2.0
 
 ## CodeSystem: Säkerhetsmetoder för tekniska ändpunkter (kodsystem) (Experimentell) 
 
@@ -19,12 +19,12 @@ Detta kodsystem refereras i definitionen av följande värdemängder:
   "resourceType" : "CodeSystem",
   "id" : "tk-endpoint-security-method",
   "url" : "https://fhir.inera.se/ig/tjanstekatalog/CodeSystem/tk-endpoint-security-method",
-  "version" : "0.1.1",
+  "version" : "0.2.0",
   "name" : "TKEndpointSecurityMethodCS",
   "title" : "Säkerhetsmetoder för tekniska ändpunkter (kodsystem)",
   "status" : "draft",
   "experimental" : true,
-  "date" : "2026-11-17T10:59:28+00:00",
+  "date" : "2026-11-17T13:36:46+00:00",
   "publisher" : "Inera AB",
   "contact" : [{
     "name" : "Inera AB",
