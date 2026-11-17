@@ -27,7 +27,8 @@ Description: "Kanonisk URL för en interoperabilitetsspecifikation (t.ex. en FHI
 Context: Endpoint.payload
 * value[x] only canonical
 * valueCanonical 1..1
-* valueCanonical ^short = "Kanonisk URL till den stödda interoperabilitetsspecifikationen"
+* valueCanonical obeys tk-canonical-versioned
+* valueCanonical ^short = "Kanonisk URL med version (url|version) till den stödda interoperabilitetsspecifikationen, se REQ-MDL-9"
 
 // --- Ändpunkt.säkerhetsmetod ---
 Extension: TKEndpointSecurityMethod

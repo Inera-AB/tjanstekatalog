@@ -325,9 +325,16 @@ Description: "Formell kravkatalog för tjänstekatalogen, med spårning från kr
 * statement[+].key = "REQ-MDL-8"
 * statement[=].label = "Flera versioner av samma API-specifikation"
 * statement[=].conformance[0] = #SHALL
-* statement[=].requirement = "Flera versioner av samma API-specifikation (samma `url`) FÅR finnas samtidigt i katalogen. `version` SKA anges, och kombinationen `url` + `version` SKA vara unik; admin-API:t avvisar dubbletter med `422 Unprocessable Entity`. Sökning på `url` returnerar alla versioner; sökparametrarna `version` och `date` (med `_sort=-date`) används för att välja version. API-instanser och ändpunkter BÖR referera specifikationen som `url|version`."
+* statement[=].requirement = "Flera versioner av samma API-specifikation (samma `url`) FÅR finnas samtidigt i katalogen. `version` SKA anges, och kombinationen `url` + `version` SKA vara unik; admin-API:t avvisar dubbletter med `422 Unprocessable Entity`. Sökning på `url` returnerar alla versioner; sökparametrarna `version` och `date` (med `_sort=-date`) används för att välja version. Hur API-instanser och ändpunkter refererar specifikationen anges i REQ-MDL-9."
 * statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-specification-capability"
 * statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/CapabilityStatement/tk-search-api"
+
+* statement[+].key = "REQ-MDL-9"
+* statement[=].label = "Referenser till API-specifikation anger version"
+* statement[=].conformance[0] = #SHALL
+* statement[=].requirement = "API-instanser (`TKAPIInstance.instantiates`) och ändpunkter (extensionen tk-endpoint-payload-profile på `Endpoint.payload`) SKA referera en API-specifikation som `url|version`, där version är en registrerad version av specifikationen. En referens utan version betyder inte att alla versioner stöds; den löses till den senaste versionen och skulle därför ändra innebörd när en ny version registreras. En instans eller ändpunkt som stödjer flera versioner anger en referens per version. Admin-API:t avvisar en referens utan version med `422 Unprocessable Entity` (`invariant`). Sökning på en url utan version matchar fortfarande alla versioner (REQ-SRCH-6)."
+* statement[=].satisfiedBy[0] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-api-instance"
+* statement[=].satisfiedBy[+] = "https://fhir.inera.se/ig/tjanstekatalog/StructureDefinition/tk-endpoint-payload-profile"
 
 // --- REQ-TRC: spårbarhet och transaktionell registrering ---
 //
