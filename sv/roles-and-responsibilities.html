@@ -49,7 +49,7 @@
 	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"6"}
+    <style type="text/css">h2{--heading-prefix:"[&quot;6&quot;]"}
     h3,h4,h5,h6{--heading-prefix:"6"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
@@ -183,13 +183,38 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div>
 <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
 </div>
-<p>| Roll | Ansvar |
-|——|——–|
-| <strong>Tjänstekatalogen (server)</strong> | Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive <code class="language-plaintext highlighter-rouge">listed-by</code>). |
-| <strong>Synkroniseringstjänst</strong> (utkast) | System som läser organisationer och tekniska ändpunkter från tjänstekatalogens administrativa API, och håller E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat genom att i <strong>EHM:s</strong> system anta rollen <strong>Organization Endpoint Writer</strong>. Se <a href="ActorDefinition-tk-synkroniseringstjanst.html">ActorDefinition: Synkroniseringstjänst</a> och <a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a> för hur data mappas mellan de två gränssnitten. |
-| <strong>Sökande konsument</strong> | System som söker fram en organisations tekniska ändpunkter, t.ex. inför en integration, via sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code>. Använder det externt exponerade <a href="CapabilityStatement-tk-search-api.html">sök-API:et</a> (via gateway) — se säkerhet och behörighet i security.html. |
-| <strong>Administratör</strong> | Användare som registrerar och ändrar poster i tjänstekatalogen för den organisation användaren företräder. Loggar in via Inera IdP; behörigheten avgörs från IdP:ns claims (användarens och organisationens HSA-id) och registreras inte i katalogen. Se REQ-ADM-5 och <a href="security.html">Säkerhet och behörighet</a>. |
-| <strong>Lokal katalog</strong> (utkast) | System som håller en lokal kopia av (delar av) tjänstekatalogens innehåll aktuell, antingen genom att prenumerera på <a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic: tk-organization-endpoint-changes</a> eller genom periodisk grundladdning/återsynk via <code class="language-plaintext highlighter-rouge">_lastUpdated</code>. Se "Distribution och synkronisering" i rest-interactions.html och REQ-DIST-*. |</p>
+<p>Tabellen beskriver rollerna kring tjänstekatalogen och vad var och en ansvarar för.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Roll</th>
+      <th>Ansvar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Tjänstekatalogen (server)</strong></td>
+      <td>Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive <code class="language-plaintext highlighter-rouge">listed-by</code>).</td>
+    </tr>
+    <tr>
+      <td><strong>Synkroniseringstjänst</strong> (utkast)</td>
+      <td>System som läser organisationer och tekniska ändpunkter från tjänstekatalogens administrativa API, och håller E-hälsomyndighetens (EHM) nationella register — Swedish Medical Record Index And Endpoint Registry — synkroniserat genom att i <strong>EHM:s</strong> system anta rollen <strong>Organization Endpoint Writer</strong>. Se <a href="ActorDefinition-tk-synkroniseringstjanst.html">ActorDefinition: Synkroniseringstjänst</a> och <a href="mappings.html">Mappning mot EHM:s Organization Endpoint Writer</a> för hur data mappas mellan de två gränssnitten.</td>
+    </tr>
+    <tr>
+      <td><strong>Sökande konsument</strong></td>
+      <td>System som söker fram en organisations tekniska ändpunkter, t.ex. inför en integration, via sökparametern <code class="language-plaintext highlighter-rouge">listed-by</code> på <code class="language-plaintext highlighter-rouge">Endpoint</code>. Använder det externt exponerade <a href="CapabilityStatement-tk-search-api.html">sök-API:et</a> (via gateway) — se säkerhet och behörighet i security.html.</td>
+    </tr>
+    <tr>
+      <td><strong>Administratör</strong></td>
+      <td>Användare som registrerar och ändrar poster i tjänstekatalogen för den organisation användaren företräder. Loggar in via Inera IdP; behörigheten avgörs från IdP:ns claims (användarens och organisationens HSA-id) och registreras inte i katalogen. Se REQ-ADM-5 och <a href="security.html">Säkerhet och behörighet</a>.</td>
+    </tr>
+    <tr>
+      <td><strong>Lokal katalog</strong> (utkast)</td>
+      <td>System som håller en lokal kopia av (delar av) tjänstekatalogens innehåll aktuell, antingen genom att prenumerera på <a href="SubscriptionTopic-tk-organization-endpoint-changes.html">SubscriptionTopic: tk-organization-endpoint-changes</a> eller genom periodisk grundladdning/återsynk via <code class="language-plaintext highlighter-rouge">_lastUpdated</code>. Se "Distribution och synkronisering" i rest-interactions.html och REQ-DIST-*.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Organization Endpoint Writer är alltså inte en roll denna IG:s administrativa
 API själv tar emot anrop i — det är <strong>EHM:s</strong> aktörsroll, definierad i deras
@@ -283,8 +308,8 @@ föreskrifter eller RIVTA-tjänstekontrakt där det är tillämpligt.</p>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 13:36:00 +0000">
-    2026-11-17
+  <span title="2026-11-20 14:04:00 +0000">
+    2026-11-20
   </span>
 
           <br/>

@@ -49,7 +49,7 @@
 	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"8"}
+    <style type="text/css">h2{--heading-prefix:"[&quot;8&quot;]"}
     h3,h4,h5,h6{--heading-prefix:"8"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
@@ -191,12 +191,44 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 </ul>
 
 </div>
-<p>| Resurs/Profil | Interaktion | Sökparametrar | Exponering |
-|—————-|————-|—————-|————|
-| <a href="StructureDefinition-tk-organization.html">TKOrganization</a> | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">identifier</code> ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>, <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">partof</code>; <code class="language-plaintext highlighter-rouge">_include=Organization:endpoint</code>; <code class="language-plaintext highlighter-rouge">_history</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
-| <a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a> | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation), <code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>; <code class="language-plaintext highlighter-rouge">_history</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
-| <code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a> / <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>) | read, search-type (externt); create, update (endast internt) | <code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">date</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code> | <a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt |
-| <a href="StructureDefinition-tk-provenance.html">TKProvenance</a> | read, search-type | <code class="language-plaintext highlighter-rouge">target</code> | Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt) |</p>
+<p>Tabellen sammanfattar vilka interaktioner och sökparametrar varje resurs stödjer, och var de exponeras.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Resurs/Profil</th>
+      <th>Interaktion</th>
+      <th>Sökparametrar</th>
+      <th>Exponering</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a href="StructureDefinition-tk-organization.html">TKOrganization</a></td>
+      <td>read, search-type (externt); create, update (endast internt)</td>
+      <td><code class="language-plaintext highlighter-rouge">identifier</code> ("logisk adress": HSA-id eller organisationsnummer, se REQ-ORG-5/6, REQ-SRCH-5), <code class="language-plaintext highlighter-rouge">name</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>, <code class="language-plaintext highlighter-rouge">active</code>, <code class="language-plaintext highlighter-rouge">partof</code>; <code class="language-plaintext highlighter-rouge">_include=Organization:endpoint</code>; <code class="language-plaintext highlighter-rouge">_history</code></td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-endpoint.html">TKEndpoint</a></td>
+      <td>read, search-type (externt); create, update (endast internt)</td>
+      <td><code class="language-plaintext highlighter-rouge">organization</code> (standard, "förvaltar"), <a href="SearchParameter-tk-endpoint-listed-by.html"><code class="language-plaintext highlighter-rouge">listed-by</code></a> (egen, "har"), <code class="language-plaintext highlighter-rouge">status</code>, <a href="SearchParameter-tk-endpoint-implements.html"><code class="language-plaintext highlighter-rouge">implements</code></a> (stödd interoperabilitetsspecifikation), <code class="language-plaintext highlighter-rouge">identifier</code>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code>; <code class="language-plaintext highlighter-rouge">_history</code></td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">CapabilityStatement</code> (<a href="StructureDefinition-tk-api-specification-capability.html">TKAPISpecificationCapability</a> / <a href="StructureDefinition-tk-api-instance.html">TKAPIInstance</a>)</td>
+      <td>read, search-type (externt); create, update (endast internt)</td>
+      <td><code class="language-plaintext highlighter-rouge">url</code>, <code class="language-plaintext highlighter-rouge">version</code>, <code class="language-plaintext highlighter-rouge">date</code>, <a href="SearchParameter-tk-capabilitystatement-kind.html"><code class="language-plaintext highlighter-rouge">kind</code></a>, <a href="SearchParameter-tk-capabilitystatement-instantiates.html"><code class="language-plaintext highlighter-rouge">instantiates</code></a>, <code class="language-plaintext highlighter-rouge">_id</code>, <code class="language-plaintext highlighter-rouge">_lastUpdated</code></td>
+      <td><a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a> externt, <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> internt</td>
+    </tr>
+    <tr>
+      <td><a href="StructureDefinition-tk-provenance.html">TKProvenance</a></td>
+      <td>read, search-type</td>
+      <td><code class="language-plaintext highlighter-rouge">target</code></td>
+      <td>Endast <a href="CapabilityStatement-tk-admin-api.html">TKAdminAPI</a> (internt)</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Exponeringsgräns (REQ-EXP-1/2, stakeholder-beslut): läsande sökning
 exponeras externt via gateway (<a href="CapabilityStatement-tk-search-api.html">TKSearchAPI</a>);
@@ -575,8 +607,8 @@ beskrivs under <a href="roles-and-responsibilities.html">Roller och ansvar</a>
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 13:36:00 +0000">
-    2026-11-17
+  <span title="2026-11-20 14:04:00 +0000">
+    2026-11-20
   </span>
 
           <br/>

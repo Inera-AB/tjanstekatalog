@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Bundle xmlns="http://hl7.org/fhir">
-  <id value="e694d8c9-2f12-4177-8275-a4616fe6c3e5"/>
+  <id value="45eff5ea-31d3-4df1-a305-85bf749fd832"/>
   <meta>
-    <lastUpdated value="2026-11-17T13:36:46.275+00:00"/>
+    <lastUpdated value="2026-11-20T14:04:39.078+00:00"/>
   </meta>
   <type value="collection"/>
   <entry>
@@ -114,7 +114,7 @@
         <title value="Kategorier för API-specifikationer"/>
         <status value="draft"/>
         <experimental value="true"/>
-        <date value="2026-11-17T13:36:46+00:00"/>
+        <date value="2026-11-20T14:04:39+00:00"/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -123,8 +123,8 @@
           </coding>
         </jurisdiction>
         <expansion>
-          <identifier value="urn:uuid:51d0f239-5929-4725-9aa5-0537f9e7d7e8"/>
-          <timestamp value="2026-11-17T13:37:32+00:00"/>
+          <identifier value="urn:uuid:7d821e6e-6cfc-43e6-a10a-66b73655fac4"/>
+          <timestamp value="2026-11-20T14:05:27+00:00"/>
           <total value="3"/>
           <offset value="0"/>
           <parameter>
@@ -271,7 +271,7 @@
         <title value="Kategorier för API-specifikationer"/>
         <status value="draft"/>
         <experimental value="true"/>
-        <date value="2026-11-17T13:36:46+00:00"/>
+        <date value="2026-11-20T14:04:39+00:00"/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -280,8 +280,8 @@
           </coding>
         </jurisdiction>
         <expansion>
-          <identifier value="urn:uuid:51d0f239-5929-4725-9aa5-0537f9e7d7e8"/>
-          <timestamp value="2026-11-17T13:37:32+00:00"/>
+          <identifier value="urn:uuid:7d821e6e-6cfc-43e6-a10a-66b73655fac4"/>
+          <timestamp value="2026-11-20T14:05:27+00:00"/>
           <total value="3"/>
           <offset value="0"/>
           <parameter>
@@ -470,7 +470,7 @@
         <title value="Säkerhetsmetoder för tekniska ändpunkter"/>
         <status value="draft"/>
         <experimental value="true"/>
-        <date value="2026-11-17T13:36:46+00:00"/>
+        <date value="2026-11-20T14:04:39+00:00"/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -479,8 +479,8 @@
           </coding>
         </jurisdiction>
         <expansion>
-          <identifier value="urn:uuid:89350f77-4db1-43dc-9280-3c51aebd34a7"/>
-          <timestamp value="2026-11-17T13:37:32+00:00"/>
+          <identifier value="urn:uuid:e55d5bd4-4bb3-4c8b-b4a3-dc8a9651876e"/>
+          <timestamp value="2026-11-20T14:05:27+00:00"/>
           <total value="5"/>
           <offset value="0"/>
           <parameter>
@@ -677,7 +677,7 @@
         <title value="Säkerhetsmetoder för tekniska ändpunkter"/>
         <status value="draft"/>
         <experimental value="true"/>
-        <date value="2026-11-17T13:36:46+00:00"/>
+        <date value="2026-11-20T14:04:39+00:00"/>
         <jurisdiction>
           <coding>
             <system value="urn:iso:std:iso:3166"/>
@@ -686,8 +686,8 @@
           </coding>
         </jurisdiction>
         <expansion>
-          <identifier value="urn:uuid:89350f77-4db1-43dc-9280-3c51aebd34a7"/>
-          <timestamp value="2026-11-17T13:37:32+00:00"/>
+          <identifier value="urn:uuid:e55d5bd4-4bb3-4c8b-b4a3-dc8a9651876e"/>
+          <timestamp value="2026-11-20T14:05:27+00:00"/>
           <total value="5"/>
           <offset value="0"/>
           <parameter>

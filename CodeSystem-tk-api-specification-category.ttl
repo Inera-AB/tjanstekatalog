@@ -19,7 +19,7 @@
   fhir:title [ fhir:v "Kategorier för API-specifikationer (kodsystem)"] ; # 
   fhir:status [ fhir:v "draft"] ; # 
   fhir:experimental [ fhir:v true] ; # 
-  fhir:date [ fhir:v "2026-11-17T13:36:46+00:00"^^xsd:dateTime] ; # 
+  fhir:date [ fhir:v "2026-11-20T14:04:39+00:00"^^xsd:dateTime] ; # 
   fhir:publisher [ fhir:v "Inera AB"] ; # 
   fhir:contact ( [
      fhir:name [ fhir:v "Inera AB" ] ;

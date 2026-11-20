@@ -49,7 +49,7 @@
 	  <script type="text/javascript" src="assets/js/prism-fhirpath.js"></script>
 	  <script type="text/javascript" src="assets/js/prism-cql.js"></script>
     <script type="text/javascript" src="assets/js/mermaid-init.js"></script>
-    <style type="text/css">h2{--heading-prefix:"9"}
+    <style type="text/css">h2{--heading-prefix:"[&quot;9&quot;]"}
     h3,h4,h5,h6{--heading-prefix:"9"}</style>
     <div id="segment-header" class="segment">  <!-- segment-header -->
       <div class="container">  <!-- container -->
@@ -183,13 +183,44 @@ h6:before{color:silver;counter-increment:more-detail;content:var(--heading-prefi
 <div>
 <!-- do not remove - needed to prevent Jekyll from adding a p tag to any non block level element in the markdown.-->
 </div>
-<p>| Interaktion | Statuskod vid lyckat anrop | Svarskropp |
-|—|—|—|
-| <code class="language-plaintext highlighter-rouge">read</code> (Organization, Endpoint) | <code class="language-plaintext highlighter-rouge">200 OK</code> | Resursen. |
-| <code class="language-plaintext highlighter-rouge">search-type</code> (Organization, Endpoint, inkl. <code class="language-plaintext highlighter-rouge">listed-by</code>) | <code class="language-plaintext highlighter-rouge">200 OK</code> | <code class="language-plaintext highlighter-rouge">Bundle</code> av typen <code class="language-plaintext highlighter-rouge">searchset</code>, sidbrutet med <code class="language-plaintext highlighter-rouge">link.relation</code> <code class="language-plaintext highlighter-rouge">self</code>/<code class="language-plaintext highlighter-rouge">next</code>/<code class="language-plaintext highlighter-rouge">previous</code> enligt FHIR:s standardpaginering. Tom träfflista ger en <code class="language-plaintext highlighter-rouge">Bundle</code> med <code class="language-plaintext highlighter-rouge">total = 0</code>, inte ett fel. |
-| <code class="language-plaintext highlighter-rouge">history-type</code> (Organization, Endpoint, med <code class="language-plaintext highlighter-rouge">_since</code>) | <code class="language-plaintext highlighter-rouge">200 OK</code> | <code class="language-plaintext highlighter-rouge">Bundle</code> av typen <code class="language-plaintext highlighter-rouge">history</code>, med en post per version sedan angiven tidpunkt, inklusive borttagningar (<code class="language-plaintext highlighter-rouge">request.method = DELETE</code>). Se REQ-DIST-4. |
-| <code class="language-plaintext highlighter-rouge">create</code> | <code class="language-plaintext highlighter-rouge">201 Created</code> med <code class="language-plaintext highlighter-rouge">Location</code>-header till den nya resursen. | Resursen (eller inget, enligt serverns policy för <code class="language-plaintext highlighter-rouge">Prefer: return=</code>). |
-| <code class="language-plaintext highlighter-rouge">update</code> | <code class="language-plaintext highlighter-rouge">200 OK</code> (eller <code class="language-plaintext highlighter-rouge">201 Created</code> vid "upsert" av ny resurs med klientangivet id). | Resursen. |</p>
+<p>Tabellen visar vilken statuskod och svarskropp varje lyckad interaktion ger.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Interaktion</th>
+      <th>Statuskod vid lyckat anrop</th>
+      <th>Svarskropp</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">read</code> (Organization, Endpoint)</td>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td>Resursen.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">search-type</code> (Organization, Endpoint, inkl. <code class="language-plaintext highlighter-rouge">listed-by</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle</code> av typen <code class="language-plaintext highlighter-rouge">searchset</code>, sidbrutet med <code class="language-plaintext highlighter-rouge">link.relation</code> <code class="language-plaintext highlighter-rouge">self</code>/<code class="language-plaintext highlighter-rouge">next</code>/<code class="language-plaintext highlighter-rouge">previous</code> enligt FHIR:s standardpaginering. Tom träfflista ger en <code class="language-plaintext highlighter-rouge">Bundle</code> med <code class="language-plaintext highlighter-rouge">total = 0</code>, inte ett fel.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">history-type</code> (Organization, Endpoint, med <code class="language-plaintext highlighter-rouge">_since</code>)</td>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code></td>
+      <td><code class="language-plaintext highlighter-rouge">Bundle</code> av typen <code class="language-plaintext highlighter-rouge">history</code>, med en post per version sedan angiven tidpunkt, inklusive borttagningar (<code class="language-plaintext highlighter-rouge">request.method = DELETE</code>). Se REQ-DIST-4.</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">create</code></td>
+      <td><code class="language-plaintext highlighter-rouge">201 Created</code> med <code class="language-plaintext highlighter-rouge">Location</code>-header till den nya resursen.</td>
+      <td>Resursen (eller inget, enligt serverns policy för <code class="language-plaintext highlighter-rouge">Prefer: return=</code>).</td>
+    </tr>
+    <tr>
+      <td><code class="language-plaintext highlighter-rouge">update</code></td>
+      <td><code class="language-plaintext highlighter-rouge">200 OK</code> (eller <code class="language-plaintext highlighter-rouge">201 Created</code> vid "upsert" av ny resurs med klientangivet id).</td>
+      <td>Resursen.</td>
+    </tr>
+  </tbody>
+</table>
 
 <p>Klienter ska inte anta att sökresultat returneras i någon viss ordning om
 inte <code class="language-plaintext highlighter-rouge">_sort</code> anges.</p>
@@ -244,8 +275,8 @@ returnerar en <code class="language-plaintext highlighter-rouge">OperationOutcom
           IG © 2026+ <a style="color:var(--footer-hyperlink-text-color)" href="https://www.inera.se">Inera AB</a>.  
           Paket inera.infra.tjanstekatalog#0.2.0 baserat på <a style="color: var(--footer-hyperlink-text-color)" href="http://hl7.org/fhir/R5/">FHIR 5.0.0</a>.
           Genererad 
-  <span title="2026-11-17 13:36:00 +0000">
-    2026-11-17
+  <span title="2026-11-20 14:04:00 +0000">
+    2026-11-20
   </span>
 
           <br/>

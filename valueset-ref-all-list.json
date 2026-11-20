@@ -26,12 +26,12 @@
     "sources" : ["2.16.840.1.113883.4.642.3.21"],
     "uses" : {
     },
-    "StructureDefinition-tk-operation-outcome.html" : "Tjänstekatalogen OperationOutcome",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
     "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance",
     "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+    "StructureDefinition-tk-operation-outcome.html" : "Tjänstekatalogen OperationOutcome",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/capability-format-type",
@@ -213,8 +213,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.45"],
     "uses" : {
     },
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/identifier-use",
@@ -228,8 +228,8 @@
     "sources" : ["2.16.840.1.113883.4.642.3.57"],
     "uses" : {
     },
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
-    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint"
+    "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/issue-severity",
@@ -298,12 +298,12 @@
     "2.16.840.1.113883.4.642.3.20"],
     "uses" : {
     },
-    "StructureDefinition-tk-operation-outcome.html" : "Tjänstekatalogen OperationOutcome",
-    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization",
     "StructureDefinition-tk-provenance.html" : "Tjänstekatalogen Provenance",
     "StructureDefinition-tk-api-instance.html" : "Tjänstekatalogen API-instans",
     "StructureDefinition-tk-endpoint.html" : "Tjänstekatalogen Endpoint",
-    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation"
+    "StructureDefinition-tk-operation-outcome.html" : "Tjänstekatalogen OperationOutcome",
+    "StructureDefinition-tk-api-specification-capability.html" : "Tjänstekatalogen API-specifikation",
+    "StructureDefinition-tk-organization.html" : "Tjänstekatalogen Organization"
   },
   {
     "url" : "http://hl7.org/fhir/ValueSet/message-transport",
