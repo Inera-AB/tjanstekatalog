@@ -1,3 +1,5 @@
+Tabellen visar vilken statuskod och svarskropp varje lyckad interaktion ger.
+
 | Interaktion | Statuskod vid lyckat anrop | Svarskropp |
 |---|---|---|
 | `read` (Organization, Endpoint) | `200 OK` | Resursen. |
