@@ -1,3 +1,5 @@
+Tabellen beskriver rollerna kring tjänstekatalogen och vad var och en ansvarar för.
+
 | Roll | Ansvar |
 |------|--------|
 | **Tjänstekatalogen (server)** | Tillhandahåller det administrativa API:et: tar emot och lagrar organisationer och ändpunkter, exponerar sökning (inklusive `listed-by`). |
