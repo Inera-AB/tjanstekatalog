@@ -14,3 +14,8 @@ jobs:
     # An R5 IG validates against the R5 terminology server.
     with:
       tx-server: https://tx.fhir.org/r5
+      # IG Publisher 3.0.5 writes each page's section label to the template
+      # as a JSON list, so every <h2> is numbered ["9"] instead of 9 (seen in
+      # the 0.2.0 publication). 3.0.4 is the last version known to render it
+      # right. Go back to latest once a fixed release is out.
+      publisher-version: 3.0.4
